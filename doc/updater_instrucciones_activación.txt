@@ -1,0 +1,58 @@
+﻿-- PASO 0: Instalar UPDATER
+--------------------------------------------------------------------------------------------------------------------------------
+http://www.microsoft.com/downloads/es-es/details.aspx?familyid=0a391abd-25c1-4fc0-919f-b21f31ab88b7&displaylang=es
+--------------------------------------------------------------------------------------------------------------------------------
+
+-- PASO 1: Abrir una ventana de ISQL desde MSDOS(CTRL+R, cmd) 
+--  ** ¡¡Reemplazar ANTES el nombre del servidor (¿servidor, base_de_datos?)!! **
+--------------------------------------------------------------------------------------------------------------------------------
+isql -Usa -P -Sservidor -Dbase_de_datos
+--------------------------------------------------------------------------------------------------------------------------------
+
+-- PASO 2: Desde ISQL, ejecutamos las siguientes sentencias para activar el uso de opciones avanzadas
+-- ** ¡¡Reemplazar ANTES el nombre de la base de datos a actualizar (¿base_de_datos?)!! **
+--------------------------------------------------------------------------------------------------------------------------------
+master..sp_dboption base_de_datos, "ddl in tran", true 
+go 
+CHECKPOINT 
+go
+--------------------------------------------------------------------------------------------------------------------------------
+
+-- PASO 3: Activar tabla control versiones
+--------------------------------------------------------------------------------------------------------------------------------
+CREATE TABLE csd_conf_parametro ( id_parametro varchar(45) NOT NULL, codigo varchar(45) NULL, id_empresa varchar(45) NULL,cod_tipo_producto varchar(45) NULL, id_tipo_modulo varchar(45) NULL,cod_tipo_configuracion varchar(45) NULL, id_aplicacion varchar(45) NULL,descripcion varchar(45) NULL, valor_texto varchar(45) NULL,valor_numerico varchar(45) NULL,valor_fecha datetime NULL); 
+ALTER TABLE csd_conf_parametro add constraint pk_id_parametro primary key nonclustered (id_parametro);
+--------------------------------------------------------------------------------------------------------------------------------
+
+-- PASO 4: Inicializar la versión al valor que corresponda según la versión de base de datos en que se encuentre:
+-- ** ¡¡Reemplazar ANTES valor_texto por el valor que corresponda(¿'5.3.2.3'?)!! **
+-- Ej. valor por defecto si está en v.5.3.02c
+--------------------------------------------------------------------------------------------------------------------------------
+INSERT INTO csd_conf_parametro (id_parametro, codigo, valor_texto, descripcion) VALUES ('g_from_version', 'g_from_version','5.3.2.3','Versión en que se encuentra la base de datos para el control de actualizaciones');
+--------------------------------------------------------------------------------------------------------------------------------
+-- p.ej., SICAP 5.03.02c  => 5.3.2.3 (la c se convierte a número: 3)
+-- p.ej., SICAP 5.03.04a7  => 5.3.4.1070
+-- siendo 5.03.04 => 5.3.4,
+--	a => se convierte a número: 1
+--	7 => se formatea a 2 posiciones con cero por la izquierda: 07
+
+-- PASO 5: Ejecutar updater: descomprimir SICAP 6.00.00.rar. Acceder a subcarpeta updater y descomprimir updater_1.0.1a2.rar rn la ruta desde la que se vaya a ejecutar
+--------------------------------------------------------------------------------------------------------------------------------
+-- Abrimos MSDOS y ejecutamos la siguiente sentencia desde la carpeta en que está descomprimido el paquete del Updater
+-- ** ¡¡Reemplazar ANTES scripts_path, server_name, y database por los valores que corresponda(¿ruta_sqls_updater,servidor,base_de_datos?)!! **
+-- Se adjunta ejemplo de uso con Sybase: CSD.ConsoleUpdater.exe c:\testupdater 1 192.168.0.58 5000 sa '' frontend2
+------------------------------------------------------------------------------------------------
+CSD.ConsoleUpdater.exe ruta_sqls_updater 1 servidor 5000 sa '' base_de_datos
+------------------------------------------------------------------------------------------------
+
+-- PASO 6: Verificar el resultado de la ejecución (por consola no muestra ningún mensaje del resultado)
+Hacer al menos una de las dos verificaciones siguientes para saber que la actualización se ha realizado ok:
+6.1.	Verificar en el fichero de log (c:\temp\log.txt) que no ha habido errores.
+Así, entre las instrucciones 
+	Se inicia el proceso del actualizador.
+	Finalizaron las actualizaciones
+No se ha introducido ningún mensaje de error
+
+6.2.	Verificar en base de datos que el valor de la última versión de script procesado se ha actualizado ok.
+	En base de datos, el valor de última versión se ha incrementado hasta coincidir con el valor del script con el número de versión más alto en la carpeta de ficheros .sql:
+		SELECT valor_texto FROM csd_conf_parametro WHERE codigo = 'g_from_version';
