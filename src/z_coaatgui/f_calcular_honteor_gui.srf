@@ -1,0 +1,201 @@
+HA$PBExportHeader$f_calcular_honteor_gui.srf
+$PBExportComments$Calcula el total de honorarios te$$HEX1$$f300$$ENDHEX$$ricos para Gipuzkoa
+global type f_calcular_honteor_gui from function_object
+end type
+
+forward prototypes
+global function integer f_calcular_honteor_gui (ref st_cip_datos st_cip_datos)
+end prototypes
+
+global function integer f_calcular_honteor_gui (ref st_cip_datos st_cip_datos);String TipoAct, TipoObra, tarifa, AplicadoMinimo = "N", administracion, colindantes
+double Coef, Sup, Pres, BaseCuadro, minimo, coef_aux, Honorarios = 0, Volumen, Ca, altura, long_per
+double vol_tierras
+
+TipoAct = st_cip_datos.tipo_act
+TipoObra = st_cip_datos.tipo_obra
+administracion = st_cip_datos.admon
+Volumen = st_cip_datos.volumen
+sup = st_cip_datos.superficie
+Pres = st_cip_datos.pem
+colindantes = st_cip_datos.colindantes
+altura = st_cip_datos.altura
+//long_per = st_cip_datos.long_per
+//vol_tierras = st_cip_datos.vol_tierras
+
+// Coeficiente Ca
+SELECT desc_gui_coefs.coef_a 
+INTO :Ca 
+FROM desc_gui_coefs  
+WHERE ( desc_gui_coefs.desde_fecha <= :st_cip_datos.fecha ) AND  
+		( desc_gui_coefs.hasta_fecha > :st_cip_datos.fecha )   ;
+
+if sqlca.sqlcode <> 0 then
+	st_cip_datos.mensaje = 'DIC : No se encuentra esta combinaci$$HEX1$$f300$$ENDHEX$$n en la tabla para el coeficiente Ca'
+	return -1
+end if
+	
+if not f_es_vacio(st_cip_datos.id_fase) then
+	TipoAct = f_dame_fase(st_cip_datos.id_fase)
+	TipoObra = f_dame_tipo_obra(st_cip_datos.id_fase)
+	administracion = f_expedientes_administracion(st_cip_datos.id_fase)
+	Volumen = f_fases_usos_volumen(st_cip_datos.id_fase)
+	sup = f_fases_usos_suma_superficies(st_cip_datos.id_fase)
+	Pres = f_fases_usos_pem(st_cip_datos.id_fase) 
+	colindantes = f_fases_usos_colindantes(st_cip_datos.id_fase)
+	altura =  f_fases_usos_altura(st_cip_datos.id_fase)
+//	long_per =  f_dame_long_per_fases_usos(st_cip_datos.id_fase)
+//	vol_tierras =  f_dame_vol_tierras_fases_usos(st_cip_datos.id_fase)
+end if
+
+BaseCuadro = (Pres / Ca)
+if (BaseCuadro = 0) or (Isnull(BaseCuadro) )  then BaseCuadro = 1
+
+SELECT coef_aux, tarifa, minimo INTO :coef_aux, :tarifa, :minimo FROM honos_tarifa_gui WHERE ( tipo_actuacion = :TipoAct ) AND ( ( tipo_obra = :TipoObra ) or ( tipo_obra = '*' )  );
+If SQLCA.SQLCode <> 0 Then
+	MessageBox(g_titulo,'Esta Tarifa no Tiene Honorarios Te$$HEX1$$f300$$ENDHEX$$ricos. Entrada tabla.',StopSign!,OK!,1)
+	return -1
+End if
+
+minimo = minimo * Ca	// Honorarios M$$HEX1$$ed00$$ENDHEX$$nimos
+
+Choose Case Tarifa
+	CASE '31'
+		SELECT coef INTO :Coef  FROM honos_tablas_gui WHERE desde < :Sup AND hasta >= :Sup AND tarifa = :Tarifa;		
+		Honorarios = (Pres * Coef * coef_aux) / 100
+		If Honorarios < Minimo Then 
+			Honorarios = Minimo
+			AplicadoMinimo = "S"
+		End if
+	CASE '32'
+		SELECT coef INTO :Coef FROM honos_tablas_gui WHERE desde < :BaseCuadro AND hasta >= :BaseCuadro AND tarifa = :Tarifa;
+		Honorarios = (Pres * Coef * coef_aux) / 100
+		If Honorarios < Minimo Then 
+			Honorarios = Minimo
+			AplicadoMinimo = "S"
+		End if		
+	CASE '33'
+		Honorarios = 0
+		SELECT coef INTO :Coef FROM honos_tablas_gui WHERE desde < :BaseCuadro AND hasta >= :BaseCuadro AND tarifa = :Tarifa;
+		Honorarios = (Pres * Coef * coef_aux) / 100
+		If Honorarios < Minimo Then 
+			Honorarios = Minimo
+			AplicadoMinimo = "S"
+		End if		
+	CASE '34'
+		DOUBLE a	
+		if altura <= 12 then
+			a=0.75
+		else
+			a=1.10
+		end if
+		if  colindantes='02' OR colindantes='03' then
+			coef = 1
+		elseif colindantes='01' and  ( TipoObra='91' or TipoObra='93') then
+			coef = 0.8
+		else
+			SELECT coef INTO :Coef FROM honos_tablas_gui WHERE desde < :Volumen AND hasta >= :Volumen AND tarifa = :Tarifa;
+		end if
+		Honorarios = Volumen * a * Coef * coef_aux * Ca 
+		If Honorarios < Minimo Then 
+			Honorarios = Minimo
+			AplicadoMinimo = "S"
+		End if		
+		
+	CASE '35'
+		SELECT coef INTO :Coef FROM honos_tablas_gui WHERE desde < :sup AND hasta >= :sup and desde_altura < :altura and hasta_altura >= :altura AND tarifa = :Tarifa;
+		Honorarios = (Coef * coef_aux * Ca)
+		If Honorarios < Minimo Then 
+			Honorarios = Minimo
+			AplicadoMinimo = "S"
+		End if		
+	CASE '36'
+		double desde_sup, hasta_sup, coef_aux36
+		SELECT coef, desde, hasta, coef_aux INTO :Coef, :desde_sup, :hasta_sup, :coef_aux36 FROM honos_tablas_gui WHERE desde < :sup AND hasta >= :sup and desde_altura < :altura and hasta_altura >= :altura AND tarifa = :Tarifa;
+		Honorarios = (Coef + ((sup - hasta_sup) * coef_aux36) ) * Ca
+		If Honorarios < Minimo Then 
+			Honorarios = Minimo
+			AplicadoMinimo = "S"
+		End if		
+	CASE '37'
+		SELECT coef INTO :Coef  FROM honos_tablas_gui WHERE desde < :Sup AND hasta >= :Sup AND tarifa = :Tarifa;		
+		Honorarios = (Sup * Coef * coef_aux * Ca)
+		If Honorarios < Minimo Then 
+			Honorarios = Minimo
+			AplicadoMinimo = "S"
+		End if 
+	CASE '38'
+		SELECT coef INTO :Coef  FROM honos_tablas_gui WHERE desde < :Sup AND hasta >= :Sup AND tarifa = :Tarifa;		
+		Honorarios = (Sup * Coef * coef_aux * Ca)
+		If Honorarios < Minimo Then 
+			Honorarios = Minimo
+			AplicadoMinimo = "S"
+		End if 
+	CASE '39'
+		Honorarios = Minimo * Ca
+	CASE '310'
+		Honorarios = Minimo * Ca
+	CASE '41'	
+		SELECT coef INTO :Coef FROM honos_tablas_gui WHERE desde < :BaseCuadro AND hasta >= :BaseCuadro AND tarifa = :Tarifa;
+		Honorarios = (Pres * Coef * coef_aux) / 100
+		If Honorarios < Minimo Then 
+			Honorarios = Minimo
+			AplicadoMinimo = "S"
+		End if		
+	CASE '42'	
+		if altura <= 12 then
+			a=0.12
+		else
+			a=0.18
+		end if
+		if  colindantes='02' OR colindantes='03' then
+			coef = 1
+		elseif colindantes='01' and  ( TipoObra='91' or TipoObra='93') then
+			coef = 0.8
+		else
+			SELECT coef INTO :Coef FROM honos_tablas_gui WHERE desde < :Volumen AND hasta >= :Volumen AND tarifa = :Tarifa;
+		end if
+		Honorarios = Volumen * a * Coef * coef_aux * Ca * 1.7
+		If Honorarios < Minimo Then 
+			Honorarios = Minimo
+			AplicadoMinimo = "S"
+		End if		
+	CASE '51'		
+		SELECT coef INTO :Coef FROM honos_tablas_gui WHERE desde < :BaseCuadro AND hasta >= :BaseCuadro AND tarifa = :Tarifa;
+		Honorarios = (Pres * Coef * coef_aux) / 100
+		If Honorarios < Minimo Then 
+			Honorarios = Minimo
+			AplicadoMinimo = "S"
+		End if		
+	CASE '61'
+		Honorarios = Minimo * Ca
+	CASE '62'
+		Honorarios = Minimo * Ca
+	CASE '63'
+		Honorarios = Minimo * Ca
+	CASE '64'
+		Honorarios = Minimo * Ca
+	CASE '65'
+		Honorarios = Minimo * Ca		
+	CASE '81'
+		Honorarios = Minimo * Ca
+	CASE '82'		
+		Honorarios = Minimo * Ca
+	CASE '83'
+		Honorarios = Minimo * Ca
+
+END CHOOSE
+	
+If Honorarios = 0 Then
+	MessageBox(g_titulo,'Esta Tarifa no Tiene Honorarios Te$$HEX1$$f300$$ENDHEX$$ricos',StopSign!,OK!,1)
+	return -1
+End if
+
+st_cip_datos.hon_teor =  f_redondea(honorarios)
+st_cip_datos.aplicar_fijo = aplicadominimo
+st_cip_datos.importe_minimo = minimo
+st_cip_datos.tarifa = tarifa
+
+return 1
+
+end function
+

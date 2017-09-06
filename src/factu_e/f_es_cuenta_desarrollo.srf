@@ -1,0 +1,22 @@
+HA$PBExportHeader$f_es_cuenta_desarrollo.srf
+global type f_es_cuenta_desarrollo from function_object
+end type
+
+forward prototypes
+global function integer f_es_cuenta_desarrollo (string cuenta)
+end prototypes
+
+global function integer f_es_cuenta_desarrollo (string cuenta);//Funci$$HEX1$$f300$$ENDHEX$$n que devuelve 0 si la cuenta es de desarrollo y -1 en caso de que no lo sea
+
+int num
+
+select count(*) into :num from cuentas where cuenta=:cuenta and final='D' using bd_ejercicio;
+
+if num = 0 then //si no se encuentra ninguna referencia de dicha cuenta, devolver -1
+	return -1
+else
+	return 0
+end if
+
+end function
+

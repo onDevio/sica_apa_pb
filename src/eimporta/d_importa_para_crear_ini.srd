@@ -1,0 +1,61 @@
+HA$PBExportHeader$d_importa_para_crear_ini.srd
+release 10.5;
+datawindow(units=0 timer_interval=0 color=1073741824 processing=0 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes print.preview.outline=yes hidegrayline=no )
+header(height=60 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=60 color="536870912" )
+table(column=(type=char(255) updatewhereclause=yes name=seleccion dbname="seleccion" values="	S/	N" )
+ column=(type=long updatewhereclause=yes key=yes name=id dbname="00visados.id" )
+ column=(type=long updatewhereclause=yes name=nvisadoanexo dbname="00visados.nvisadoanexo" )
+ column=(type=long updatewhereclause=yes name=n_colegiado dbname="00visados.n$$HEX1$$ba00$$ENDHEX$$colegiado" )
+ column=(type=datetime updatewhereclause=yes name=fechallegada dbname="00visados.fechallegada" )
+ column=(type=char(50) updatewhereclause=yes name=coddocumentos dbname="00visados.coddocumentos" )
+ column=(type=char(255) updatewhereclause=yes name=nombrenotaencargo dbname="00visados.nombrenotaencargo" )
+ column=(type=number update=yes updatewhereclause=yes name=copisteria dbname="00visados.copisteria" )
+ column=(type=char(50) updatewhereclause=yes name=formaenvio dbname="00visados.formaenvio" )
+ column=(type=char(255) updatewhereclause=yes name=correoelectronico dbname="00visados.correoelectronico" )
+ column=(type=char(255) updatewhereclause=yes name=descripcion dbname="00visados.descripcion" )
+ retrieve=" SELECT    'N' as seleccion , 
+		 	  ~"00visados.id~",   
+         	  ~"00visados.nvisadoanexo~",   
+      		  ~"00visados.n$$HEX1$$ba00$$ENDHEX$$colegiado~",   
+			  ~"00visados.fechallegada~",   
+         	  ~"00visados.coddocumentos~",
+		  	  ~"00visados.nombrenotaencargo~",
+			  ~"00visados.copisteria~",
+			  ~"00visados.FormaEnvio~",
+			  ~"00visados.correoelectronico~",
+			  ~"00visados.Descripcion~"
+FROM ~"00visados~"   
+WHERE (~"00visados.nuevovisado~" = -1 and ~"00visados.codsituacion~" = 32 and ~"00visados.copisteria~" =0) or (~"00visados.nuevovisado~" = 0  and ~"00visados.copisteria~" =0)
+  
+" update="00visados" updatewhere=1 updatekeyinplace=no  sort="fechallegada D " )
+text(band=header alignment="2" text="Seleccion" border="0" color="33554432" x="14" y="4" height="64" width="247" html.valueishtml="0"  name=seleccion_t visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="67108864" )
+text(band=header alignment="2" text="N$$HEX2$$ba002000$$ENDHEX$$Colegiado" border="0" color="33554432" x="270" y="4" height="64" width="306" html.valueishtml="0"  name=n_colegiado_t visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="67108864" )
+text(band=header alignment="2" text="Tipo Env$$HEX1$$ed00$$ENDHEX$$o" border="0" color="33554432" x="585" y="4" height="52" width="261" html.valueishtml="0"  name=formaenvio_t visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="67108864" )
+text(band=header alignment="2" text="Fecha llegada" border="0" color="33554432" x="855" y="4" height="64" width="398" html.valueishtml="0"  name=fechallegada_t visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="67108864" )
+text(band=header alignment="2" text="Codigo Documentos" border="0" color="33554432" x="1618" y="4" height="64" width="571" html.valueishtml="0"  name=coddocumentos_t visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="67108864" )
+text(band=header alignment="2" text="Descripci$$HEX1$$f300$$ENDHEX$$n" border="0" color="33554432" x="2199" y="4" height="64" width="1294" html.valueishtml="0"  name=t_3 visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="67108864" )
+text(band=header alignment="2" text="N$$HEX2$$ba002000$$ENDHEX$$Visado Anexo" border="0" color="33554432" x="3502" y="4" height="64" width="393" html.valueishtml="0"  name=nvisadoanexo_t visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="67108864" )
+column(band=detail id=1 alignment="2" tabsequence=10 border="0" color="33554432" x="14" y="4" height="56" width="247" format="[general]" html.valueishtml="0"  name=seleccion visible="1" checkbox.text="" checkbox.on="S" checkbox.off="N" checkbox.scale=no checkbox.threed=no  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="67108864" )
+column(band=detail id=4 alignment="2" tabsequence=40 border="0" color="33554432" x="270" y="4" height="56" width="306" format="[general]" html.valueishtml="0"  name=n_colegiado visible="1" edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="67108864" )
+column(band=detail id=9 alignment="0" tabsequence=90 border="0" color="33554432" x="585" y="4" height="56" width="261" format="[general]" html.valueishtml="0"  name=formaenvio visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="67108864" )
+column(band=detail id=5 alignment="2" tabsequence=50 border="0" color="33554432" x="855" y="4" height="56" width="398" format="dd/mm/yyyy" html.valueishtml="0"  name=fechallegada visible="1" edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="67108864" )
+column(band=detail id=7 alignment="2" tabsequence=70 border="0" color="33554432" x="1262" y="4" height="56" width="347" format="[general]" html.valueishtml="0"  name=nombrenotaencargo visible="0" edit.limit=255 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="67108864" )
+column(band=detail id=6 alignment="2" tabsequence=60 border="0" color="33554432" x="1618" y="4" height="56" width="571" format="[general]" html.valueishtml="0"  name=coddocumentos visible="1" edit.limit=50 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="67108864" )
+column(band=detail id=11 alignment="0" tabsequence=110 border="0" color="33554432" x="2199" y="4" height="56" width="1294" format="[general]" html.valueishtml="0"  name=descripcion visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="67108864" )
+column(band=detail id=3 alignment="2" tabsequence=30 border="0" color="33554432" x="3502" y="4" height="56" width="393" format="[general]" html.valueishtml="0"  name=nvisadoanexo visible="1" edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="67108864" )
+text(band=header alignment="2" text="Nota Encargo" border="0" color="33554432" x="1262" y="4" height="52" width="347" html.valueishtml="0"  name=nombrenotaencargo_t visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="67108864" )
+text(band=detail alignment="2" text="~t id + '_nota.pdf'" border="0" color="33554432" x="1262" y="4" height="52" width="347" html.valueishtml="0"  name=t_1 visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="67108864" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" pagingmethod=0 generatedddwframes="1" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()
+ 

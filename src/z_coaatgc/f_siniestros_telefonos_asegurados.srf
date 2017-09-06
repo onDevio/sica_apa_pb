@@ -1,0 +1,36 @@
+HA$PBExportHeader$f_siniestros_telefonos_asegurados.srf
+global type f_siniestros_telefonos_asegurados from function_object
+end type
+
+forward prototypes
+global function string f_siniestros_telefonos_asegurados (string id_siniestro)
+end prototypes
+
+global function string f_siniestros_telefonos_asegurados (string id_siniestro);//Dado un id_siniestro obtiene una lista con el los tel$$HEX1$$e900$$ENDHEX$$fonos profesional y m$$HEX1$$f300$$ENDHEX$$vil de los colegiados asegurados
+
+string telef, tel2, tel3, ls_id_col
+int i
+
+datastore ds_cols
+ds_cols = create datastore
+ds_cols.dataobject = 'd_siniestros_detalle_colegiados'
+ds_cols.settransobject(sqlca)
+ds_cols.retrieve(id_siniestro)
+
+for i = 1 to ds_cols.rowcount()
+	ls_id_col=ds_cols.GetItemString(i,'id_colegiado')
+
+	select telefono_2, telefono_3 into :tel2, :tel3 from colegiados where id_colegiado = :ls_id_col ;
+
+	if isnull(tel2) then tel2 = ''
+	if isnull(tel3) then tel3 = ''
+	
+	telef += tel2 + '      ' + tel3 + cr
+next 	
+
+destroy ds_cols
+
+return telef
+
+end function
+

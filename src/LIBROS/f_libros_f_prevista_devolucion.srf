@@ -1,0 +1,26 @@
+HA$PBExportHeader$f_libros_f_prevista_devolucion.srf
+global type f_libros_f_prevista_devolucion from function_object
+end type
+
+forward prototypes
+global function datetime f_libros_f_prevista_devolucion (string id_libro)
+end prototypes
+
+global function datetime f_libros_f_prevista_devolucion (string id_libro);// Obtiene la fecha prevista de devolucion
+
+datetime fecha
+ SELECT prestamos.f_devolucion_prevista
+ into :fecha
+    FROM libros,   
+         prestamos  
+   WHERE ( libros.id_libro = prestamos.id_libro ) and  
+			( libros.id_libro = :id_libro ) and  	
+         ( prestamos.f_devolucion_real is null)   
+          ;
+			
+			
+			
+		
+return fecha
+end function
+

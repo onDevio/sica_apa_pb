@@ -1,0 +1,5 @@
+HA$PBExportHeader$st_premaat_consulta.srs
+global type st_premaat_consulta from structure
+	string		id_premaat
+end type
+

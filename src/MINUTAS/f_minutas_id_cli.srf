@@ -1,0 +1,22 @@
+HA$PBExportHeader$f_minutas_id_cli.srf
+global type f_minutas_id_cli from function_object
+end type
+
+forward prototypes
+global function string f_minutas_id_cli (string id_minuta)
+end prototypes
+
+global function string f_minutas_id_cli (string id_minuta);string id_cli
+
+  SELECT fases_minutas.id_cliente  
+    INTO :id_cli  
+    FROM fases_minutas  
+   WHERE fases_minutas.id_minuta = :id_minuta   ;
+	
+if f_es_vacio(id_cli) then id_cli = ''
+
+return id_cli
+	
+
+end function
+

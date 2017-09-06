@@ -1,0 +1,16 @@
+HA$PBExportHeader$f_inicializar_contador.srf
+global type f_inicializar_contador from function_object
+end type
+
+forward prototypes
+global function integer f_inicializar_contador (string contador)
+end prototypes
+
+global function integer f_inicializar_contador (string contador);
+UPDATE contadores 
+	SET valor=0
+	WHERE contador = :contador;  
+	
+	return 1
+end function
+

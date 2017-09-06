@@ -1,0 +1,20 @@
+HA$PBExportHeader$f_etiqueta_cartas_reclamacion.srf
+global type f_etiqueta_cartas_reclamacion from function_object
+end type
+
+forward prototypes
+global function string f_etiqueta_cartas_reclamacion (string as_empresa, string as_campo)
+end prototypes
+
+global function string f_etiqueta_cartas_reclamacion (string as_empresa, string as_campo);
+string campo
+
+select texto
+into :campo
+from csi_param_facturas
+where serie='carta' and campo=:as_campo and :as_empresa like empresa;
+
+return campo
+
+end function
+

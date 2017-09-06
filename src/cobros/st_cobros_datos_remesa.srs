@@ -1,0 +1,15 @@
+HA$PBExportHeader$st_cobros_datos_remesa.srs
+global type st_cobros_datos_remesa from structure
+	string		banco
+	string		codigo
+	datetime		fecha
+	string		cuenta_banco
+	string		concepto
+	string		desglosar
+	string		ordenar
+	string		n_remesa
+	string		descripcion
+	string		orden_listado
+	string		formato
+end type
+

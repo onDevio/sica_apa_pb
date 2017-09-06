@@ -1,0 +1,51 @@
+HA$PBExportHeader$d_infocol_gastos_resumen.srd
+$PBExportComments$INFORMACION ECONOMICA COLEGIADO
+release 10.5;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes print.preview.outline=yes hidegrayline=no )
+header(height=144 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=68 color="536870912" )
+table(column=(type=char(10) updatewhereclause=yes name=csi_lineas_fact_emitidas_articulo dbname="csi_lineas_fact_emitidas.articulo" )
+ column=(type=char(10) updatewhereclause=yes name=csi_lineas_fact_emitidas_articulo dbname="csi_lineas_fact_emitidas.articulo" )
+ column=(type=number updatewhereclause=yes name=compute_0003 dbname="compute_0003" )
+ column=(type=number updatewhereclause=yes name=compute_0004 dbname="compute_0004" )
+ column=(type=number updatewhereclause=yes name=compute_0005 dbname="compute_0005" )
+ retrieve="  SELECT csi_lineas_fact_emitidas.articulo,   
+         csi_lineas_fact_emitidas.articulo,   
+         sum(csi_lineas_fact_emitidas.subtotal - importe_dto),   
+         sum(csi_lineas_fact_emitidas.subtotal_iva),   
+         sum(csi_lineas_fact_emitidas.total)  
+    FROM csi_facturas_emitidas,   
+         csi_lineas_fact_emitidas  
+   WHERE ( csi_facturas_emitidas.id_factura = csi_lineas_fact_emitidas.id_factura ) and  
+         ( ( csi_facturas_emitidas.id_persona = :id_col ) AND  
+         ( csi_facturas_emitidas.fecha >= :df ) AND  
+         ( csi_facturas_emitidas.fecha < :hf ) AND  
+         ( csi_facturas_emitidas.tipo_persona = 'C' ) AND  
+         ( csi_facturas_emitidas.solo_pagos = 'N' ) AND  
+         ( csi_facturas_emitidas.n_fact not like 'FIS%' ) AND  
+         ( csi_facturas_emitidas.empresa = :empresa ) )  AND
+		 ( csi_facturas_emitidas.proforma = 'N')
+GROUP BY csi_lineas_fact_emitidas.articulo   
+" arguments=(("id_col", string),("df", datetime),("hf", datetime),("empresa", string)) )
+text(band=header alignment="2" text="Total" border="0" color="16777215" x="1358" y="84" height="56" width="329" html.valueishtml="0"  name=t_3 visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="8421504" )
+text(band=header alignment="2" text="RESUMEN DE GASTOS DEL PER$$HEX1$$cd00$$ENDHEX$$ODO" border="0" color="16777215" x="9" y="16" height="56" width="1673" html.valueishtml="0"  name=t_4  tag="texto=general.gastos_periodo" visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="0" )
+text(band=header alignment="2" text="IVA/IGIC" border="0" color="16777215" x="1074" y="84" height="56" width="270" html.valueishtml="0"  name=t_2 visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="8421504" )
+text(band=header alignment="2" text="Importe" border="0" color="16777215" x="745" y="84" height="56" width="315" html.valueishtml="0"  name=t_1  tag="texto=general.importe" visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="8421504" )
+text(band=header alignment="2" text="Concepto" border="0" color="16777215" x="9" y="84" height="56" width="722" html.valueishtml="0"  name=csi_articulos_servicios_descripcion_t  tag="texto=general.concepto" visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="8421504" )
+column(band=detail id=5 alignment="1" tabsequence=32766 border="0" color="0" x="1358" y="0" height="60" width="329" format="#,##0.00" html.valueishtml="0"  name=compute_0005 visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="1" tabsequence=32766 border="0" color="0" x="1074" y="0" height="60" width="270" format="#,##0.00" html.valueishtml="0"  name=compute_0004 visible="1" edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="1" tabsequence=32766 border="0" color="0" x="745" y="0" height="60" width="315" format="#,##0.00" html.valueishtml="0"  name=compute_0003 visible="1" edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="9" y="0" height="60" width="722" format="[general]" html.valueishtml="0"  name=csi_lineas_fact_emitidas_articulo_1 visible="1" dddw.name=d_dddw_articulos dddw.displaycolumn=descripcion dddw.datacolumn=codigo dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-7" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" pagingmethod=0 generatedddwframes="1" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()
+ 

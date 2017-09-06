@@ -1,0 +1,126 @@
+HA$PBExportHeader$f_formatea_nombre_campo.srf
+global type f_formatea_nombre_campo from function_object
+end type
+
+forward prototypes
+global function string f_formatea_nombre_campo (string nombre)
+end prototypes
+
+global function string f_formatea_nombre_campo (string nombre);//Funcion que formatea el string 'nombre' para quitarle espacios en blanco, acentos y e$$HEX1$$f100$$ENDHEX$$es
+    
+long posicion
+string retorno
+
+retorno = lower(nombre)
+
+retorno = LeftA(retorno,30)
+
+//Quitar espacios
+posicion = PosA(retorno,'.')
+do while posicion > 0
+	retorno = ReplaceA(retorno,posicion,1,'')
+	posicion = PosA(retorno,'.',posicion)
+loop
+
+//Quitar puntos y comas
+posicion = PosA(retorno,'_')
+do while posicion > 0
+	retorno = ReplaceA(retorno,posicion,1,'')
+	posicion = PosA(retorno,'_',posicion)
+loop
+//Quitar puntos y comas
+posicion = PosA(retorno,'-')
+do while posicion > 0
+	retorno = ReplaceA(retorno,posicion,1,'')
+	posicion = PosA(retorno,'-',posicion)
+loop
+posicion = PosA(retorno,';')
+do while posicion > 0
+	retorno = ReplaceA(retorno,posicion,1,'')
+	posicion = PosA(retorno,';',posicion)
+loop
+posicion = PosA(retorno,':')
+do while posicion > 0
+	retorno = ReplaceA(retorno,posicion,1,'')
+	posicion = PosA(retorno,':',posicion)
+loop
+
+//Quitar caracteres no v$$HEX1$$e100$$ENDHEX$$lidos
+posicion = PosA(retorno,' ')
+do while posicion > 0
+	retorno = ReplaceA(retorno,posicion,1,'')
+	posicion = PosA(retorno,' ',posicion)
+loop
+posicion = PosA(retorno,'/')
+do while posicion > 0
+	retorno = ReplaceA(retorno,posicion,1,'')
+	posicion = PosA(retorno,'/',posicion)
+loop
+posicion = PosA(retorno,'*')
+do while posicion > 0
+	retorno = ReplaceA(retorno,posicion,1,'')
+	posicion = PosA(retorno,'*',posicion)
+loop
+posicion = PosA(retorno,'(')
+do while posicion > 0
+	retorno = ReplaceA(retorno,posicion,1,'')
+	posicion = PosA(retorno,'(',posicion)
+loop
+posicion = PosA(retorno,')')
+do while posicion > 0
+	retorno = ReplaceA(retorno,posicion,1,'')
+	posicion = PosA(retorno,')',posicion)
+loop
+posicion = PosA(retorno,'$$HEX1$$ba00$$ENDHEX$$')
+do while posicion > 0
+	retorno = ReplaceA(retorno,posicion,1,'')
+	posicion = PosA(retorno,'$$HEX1$$ba00$$ENDHEX$$',posicion)
+loop
+posicion = PosA(retorno,'$$HEX1$$aa00$$ENDHEX$$')
+do while posicion > 0
+	retorno = ReplaceA(retorno,posicion,1,'')
+	posicion = PosA(retorno,'$$HEX1$$aa00$$ENDHEX$$',posicion)
+loop
+posicion = PosA(retorno,'%')
+do while posicion > 0
+	retorno = ReplaceA(retorno,posicion,1,'')
+	posicion = PosA(retorno,'%',posicion)
+loop
+
+//posicion = Pos(retorno,'$$HEX1$$ac20$$ENDHEX$$')
+//do while posicion > 0
+//	retorno = Replace(retorno,posicion,1,'e')
+//	posicion = Pos(retorno,'$$HEX1$$ac20$$ENDHEX$$',posicion)
+//loop
+
+//Quitar acentos
+//posicion = Pos(retorno,'$$HEX1$$e100$$ENDHEX$$')
+//do while posicion > 0
+//	retorno = Replace(retorno,posicion,1,'a')
+//	posicion = Pos(retorno,'$$HEX1$$e100$$ENDHEX$$',posicion)
+//loop
+//posicion = Pos(retorno,'$$HEX1$$e900$$ENDHEX$$')
+//do while posicion > 0
+//	retorno = Replace(retorno,posicion,1,'e')
+//	posicion = Pos(retorno,'$$HEX1$$e900$$ENDHEX$$',posicion)
+//loop
+//posicion = Pos(retorno,'$$HEX1$$ed00$$ENDHEX$$')
+//do while posicion > 0
+//	retorno = Replace(retorno,posicion,1,'i')
+//	posicion = Pos(retorno,'$$HEX1$$ed00$$ENDHEX$$',posicion)
+//loop
+//posicion = Pos(retorno,'$$HEX1$$f300$$ENDHEX$$')
+//do while posicion > 0
+//	retorno = Replace(retorno,posicion,1,'o')
+//	posicion = Pos(retorno,'$$HEX1$$f300$$ENDHEX$$',posicion)
+//loop
+//posicion = Pos(retorno,'$$HEX1$$fa00$$ENDHEX$$')
+//do while posicion > 0
+//	retorno = Replace(retorno,posicion,1,'u')
+//	posicion = Pos(retorno,'$$HEX1$$fa00$$ENDHEX$$',posicion)
+//loop
+retorno = upper(retorno)
+return retorno
+
+end function
+

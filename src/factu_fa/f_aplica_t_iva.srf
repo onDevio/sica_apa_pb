@@ -1,0 +1,20 @@
+HA$PBExportHeader$f_aplica_t_iva.srf
+global type f_aplica_t_iva from function_object
+end type
+
+forward prototypes
+global function double f_aplica_t_iva (double cantidad, string t_iva)
+end prototypes
+
+global function double f_aplica_t_iva (double cantidad, string t_iva); double por,retorno
+  
+  SELECT csi_t_iva.porcent  
+    INTO :por  
+    FROM csi_t_iva  
+   WHERE csi_t_iva.t_iva = :t_iva   ;
+
+retorno = f_redondea(cantidad * por / 100);
+
+return retorno
+end function
+

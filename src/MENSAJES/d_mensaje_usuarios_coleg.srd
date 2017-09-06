@@ -1,0 +1,12 @@
+HA$PBExportHeader$d_mensaje_usuarios_coleg.srd
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=68 color="553648127" )
+table(column=(type=char(10) update=yes updatewhereclause=yes key=yes name=cod_usuario dbname="t_usuario.cod_usuario" )
+ column=(type=char(92) update=yes updatewhereclause=yes name=nombre_usuario dbname="t_usuario.nombre_usuario" )
+ retrieve="PBSELECT( VERSION(400) TABLE(NAME=~"t_usuario~" ) COLUMN(NAME=~"t_usuario.cod_usuario~") COLUMN(NAME=~"t_usuario.nombre_usuario~")WHERE(    EXP1 =~"t_usuario.id_col~"   OP =~"<>~"    EXP2 =~"null~" ) ) " update="t_usuario" updatewhere=1 updatekeyinplace=no  sort="nombre_usuario A " )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="23" y="4" height="56" width="2830" format="[general]"  name=nombre_usuario  tag=" " edit.limit=50 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

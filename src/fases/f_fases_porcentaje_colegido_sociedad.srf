@@ -1,0 +1,31 @@
+HA$PBExportHeader$f_fases_porcentaje_colegido_sociedad.srf
+global type f_fases_porcentaje_colegido_sociedad from function_object
+end type
+
+forward prototypes
+global function double f_fases_porcentaje_colegido_sociedad (string id_fase, string id_sociedad, string id_colegiado)
+end prototypes
+
+global function double f_fases_porcentaje_colegido_sociedad (string id_fase, string id_sociedad, string id_colegiado);double porcentaje
+
+//SELECT fases_colegiados_asociados.porcent
+//into :porcentaje
+//from fases_colegiados_asociados, fases_colegiados
+//where fases_colegiados_asociados.id_fases_colegiados = fases_colegiados.id_fases_colegiados and
+//		fases_colegiados.id_fase = :id_fase and
+//		fases_colegiados_asociados.id_col_aso = :id_sociedad and
+//		fases_colegiados_asociados.id_col_per = :id_colegiado;
+
+SELECT fases_colegiados_asociados.porcent
+into :porcentaje
+from fases_colegiados_asociados
+where fases_colegiados_asociados.id_fase = :id_fase and
+		fases_colegiados_asociados.id_col_aso = :id_sociedad and
+		fases_colegiados_asociados.id_col_per = :id_colegiado;
+		
+if isnull(porcentaje) then porcentaje = 0
+
+
+return porcentaje
+end function
+

@@ -1,0 +1,36 @@
+HA$PBExportHeader$f_idiomas_cambia_texto.srf
+global type f_idiomas_cambia_texto from function_object
+end type
+
+forward prototypes
+global function string f_idiomas_cambia_texto (string texto, string predeterminado)
+end prototypes
+
+global function string f_idiomas_cambia_texto (string texto, string predeterminado);/*****************
+Autor: Juli$$HEX1$$e100$$ENDHEX$$n Melero
+Con esta funci$$HEX1$$f300$$ENDHEX$$n podemos ver la traduccion de un texto segun idioma,
+y si no tiene traduccion devolvemos un texto predeterminado.
+
+*****************/
+
+string idioma, traduccion, tabla
+
+if g_usar_idioma='S' then
+
+
+idioma = g_idioma.of_getidioma()
+
+CHOOSE CASE idioma
+	CASE 'ca'
+      select traduccion into :traduccion from messages_ca where tag = :texto; 
+
+end choose
+
+else
+	traduccion=''
+end if
+
+if Isnull(traduccion) or traduccion='' then traduccion = predeterminado
+return traduccion
+end function
+

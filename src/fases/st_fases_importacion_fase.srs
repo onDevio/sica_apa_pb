@@ -1,0 +1,12 @@
+HA$PBExportHeader$st_fases_importacion_fase.srs
+global type st_fases_importacion_fase from structure
+	string		id_fase
+	string		tipo_importacion
+	string		num_fase
+	double		pto_contrato
+	boolean		importar_trabajos
+	boolean		importar_conceptos
+	double		honorarios
+	string		descripcion
+end type
+

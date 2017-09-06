@@ -1,0 +1,38 @@
+HA$PBExportHeader$f_ejercicio_sincronizar.srf
+$PBExportComments$Funci$$HEX1$$f300$$ENDHEX$$n que indicar$$HEX2$$e1002000$$ENDHEX$$si se debe continuar con el proceso de sincronizaci$$HEX1$$f300$$ENDHEX$$n de cuentas contables para un ejercicio dado y tipo de operaci$$HEX1$$f300$$ENDHEX$$n indicada
+global type f_ejercicio_sincronizar from function_object
+end type
+
+forward prototypes
+global function integer f_ejercicio_sincronizar (string ejercicio, string tipo_operacion)
+end prototypes
+
+global function integer f_ejercicio_sincronizar (string ejercicio, string tipo_operacion);// Funci$$HEX1$$f300$$ENDHEX$$n que indicar$$HEX2$$e1002000$$ENDHEX$$si se debe continuar con el proceso de sincronizaci$$HEX1$$f300$$ENDHEX$$n de cuentas contables 
+// para un ejercicio dado y tipo de operaci$$HEX1$$f300$$ENDHEX$$n indicada
+
+string ejer_ant, ejer_post
+
+// Comprobamos primero si el ejercicio en cuesti$$HEX1$$f300$$ENDHEX$$n existe
+if f_ejercicio_ya_abierto (ejercicio) = -1 then return -1
+
+// Comprobamos si el ejercicio tiene activada dicha operaci$$HEX1$$f300$$ENDHEX$$n
+select sincronizacion_pgc_ant, sincronizacion_pgc_post 
+	INTO :ejer_ant, :ejer_post 
+	FROM csi_ejercicios_abiertos WHERE ejercicio = :ejercicio AND empresa = :g_empresa USING SQLCA;
+
+// Comprobamos si la tabla de ejercicios tiene asociada la empresa, en caso contrario hacemos la comprobaci$$HEX1$$f300$$ENDHEX$$n quitando la empresa 
+ if SQLCA.SQLCODE = -1 then 
+	select sincronizacion_pgc_ant, sincronizacion_pgc_post 
+		INTO :ejer_ant, :ejer_post 
+		FROM csi_ejercicios_abiertos WHERE ejercicio = :ejercicio USING SQLCA;
+end if	
+
+	if tipo_operacion = 'P' then
+		if ejer_post = 'S' then return 1
+	elseif tipo_operacion = 'A' then
+		if ejer_ant = 'S' then return 1
+	end if
+		
+return -1
+end function
+

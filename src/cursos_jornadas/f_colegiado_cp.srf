@@ -1,0 +1,30 @@
+HA$PBExportHeader$f_colegiado_cp.srf
+global type f_colegiado_cp from function_object
+end type
+
+forward prototypes
+global function string f_colegiado_cp (string id_col)
+end prototypes
+
+global function string f_colegiado_cp (string id_col);//Esta funcion devuelve el CP de un colegiado
+
+string datos_colegiado = ''
+string cp
+
+  SELECT domicilios.cp  
+    INTO :cp  
+    FROM domicilios  
+   WHERE ( domicilios.id_colegiado = :id_col ) AND  
+         ( domicilios.comercial = 'S' )   
+           ;
+
+if isnull(cp) or cp= '' then 
+	cp=''
+end if
+
+datos_colegiado = cp
+
+return datos_colegiado
+
+end function
+

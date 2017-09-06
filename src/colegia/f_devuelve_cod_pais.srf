@@ -1,0 +1,38 @@
+HA$PBExportHeader$f_devuelve_cod_pais.srf
+global type f_devuelve_cod_pais from function_object
+end type
+
+forward prototypes
+global function string f_devuelve_pais (string cod_prob)
+global function string f_devuelve_cod_pais (string cod_pob)
+end prototypes
+
+global function string f_devuelve_pais (string cod_prob);  string pais
+  
+  SELECT paises.nombre  
+    INTO :pais  
+    FROM poblaciones,   
+         provincias,   
+         paises  
+   WHERE ( poblaciones.provincia = provincias.cod_provincia ) and  
+         ( provincias.cod_pais = paises.cod_pais ) and  
+         ( ( poblaciones.cod_pob like :cod_prob ) )   ;
+			
+	
+	return pais
+
+end function
+
+global function string f_devuelve_cod_pais (string cod_pob);  string cod_pais
+  
+    SELECT provincias.cod_pais  
+    INTO :cod_pais 
+    FROM poblaciones,   
+         provincias  
+   WHERE ( poblaciones.provincia = provincias.cod_provincia ) and  
+         ( poblaciones.cod_pob = :cod_pob )    ;
+
+	return cod_pais
+
+end function
+

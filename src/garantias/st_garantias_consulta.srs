@@ -1,0 +1,8 @@
+HA$PBExportHeader$st_garantias_consulta.srs
+global type st_garantias_consulta from structure
+	string		id_fase
+	string		id_colegiado
+	string		id_cliente
+	double		importe
+end type
+

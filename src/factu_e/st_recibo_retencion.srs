@@ -1,0 +1,18 @@
+HA$PBExportHeader$st_recibo_retencion.srs
+global type st_recibo_retencion from structure
+	string		nombre_entidad
+	string		domicilio_entidad
+	string		poblacion_entidad
+	string		cif_entidad
+	string		nombre_profesional
+	string		domicilio_profesional
+	string		poblacion_profesional
+	string		cif_profesional
+	string		objeto_trabajo
+	string		emplazamiento_trabajo
+	double		importe_honorarios
+	double		importe_retencion
+	double		porcentaje_retencion
+	string		actividad_profesional
+end type
+

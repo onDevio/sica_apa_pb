@@ -1,0 +1,66 @@
+HA$PBExportHeader$f_visared_ruta_documentos.srf
+global type f_visared_ruta_documentos from function_object
+end type
+
+forward prototypes
+global function string f_visared_ruta_documentos (string id_fase, string nombre_fichero, integer path)
+end prototypes
+
+global function string f_visared_ruta_documentos (string id_fase, string nombre_fichero, integer path);//Obtenemos la ruta para los documentos que se han de insertar en una fase:
+//	id_fase 			: id de la fase donde queremos insertar documentos
+// nombre_fichero : nombre que queremos darle al fichero
+// path				: tipo de retorno,seg$$HEX1$$fa00$$ENDHEX$$n los siguientes valores, devuelve:
+//		0  : devuelve la ruta completa del fichero
+//		1  : devuelve la ruta del directorio, sin el nombre del fichero
+//		2  : devuelve la ruta relativa a partir del directorio de los documentos
+
+string retorno,n_registro,id_expedi,n_expedi
+datetime f_entrada
+date fecha
+string anyo
+//Colocamos la '\' a la ruta de directorios si no la lleva previamente
+if RightA(g_directorio_documentos_visared,1) <>'\' then g_directorio_documentos_visared = g_directorio_documentos_visared + '\'
+
+select n_registro,id_expedi,f_entrada into :n_registro,:id_expedi,:f_entrada from fases where id_fase = :id_fase;
+select n_expedi into :n_expedi from expedientes where id_expedi = :id_expedi;
+
+if f_es_vacio(n_registro) then n_registro = ''
+if f_es_vacio(id_expedi) then id_expedi = ''
+if f_es_vacio(n_expedi) then n_expedi = ''
+
+
+if f_es_vacio(string(f_entrada)) then 
+	anyo = g_anyo_numeracion
+else
+	anyo = string(year(date(f_entrada)))
+end if
+
+//Comprobamos si existe la carpeta del a$$HEX1$$f100$$ENDHEX$$o. Si no hay que crearla...
+if not DirectoryExists(g_directorio_documentos_visared + anyo ) then
+	CreateDirectory(g_directorio_documentos_visared + anyo )
+end if
+
+
+if g_colegio <> 'COACTFE' then
+	retorno = anyo+'\' + n_registro+ '\' 
+else
+	retorno = anyo+'\' + n_expedi+'@'+id_fase+'@'+n_registro+'\' 
+end if
+
+//La variable path indica 
+//		1 : Solo devuelve la ruta del directorio (sin el fichero inclu$$HEX1$$ed00$$ENDHEX$$do)
+//		0 : Devuelve la ruta completa del fichero
+
+choose case path
+	case 1
+		retorno = g_directorio_documentos_visared + retorno 
+	case 2
+		retorno = retorno
+	case else
+		retorno = g_directorio_documentos_visared + retorno + nombre_fichero
+end choose
+
+return retorno
+
+end function
+

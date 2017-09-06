@@ -1,0 +1,24 @@
+HA$PBExportHeader$f_comprobar_nif.srf
+global type f_comprobar_nif from function_object
+end type
+
+forward prototypes
+global function boolean f_comprobar_nif (string dni)
+end prototypes
+
+global function boolean f_comprobar_nif (string dni);
+string nif_devuelto
+
+nif_devuelto = f_calculo_nif(dni)
+
+if nif_devuelto = dni then
+  
+    return(true) 
+
+else
+
+    return(false)
+
+end if
+end function
+

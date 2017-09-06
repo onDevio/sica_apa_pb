@@ -1,0 +1,20 @@
+HA$PBExportHeader$f_encuesta_pregunta_test.srf
+global type f_encuesta_pregunta_test from function_object
+end type
+
+forward prototypes
+global function integer f_encuesta_pregunta_test (string tipo, integer numero)
+end prototypes
+
+global function integer f_encuesta_pregunta_test (string tipo, integer numero);if tipo='T' then
+	
+	if g_n_res>=numero then
+		return 1
+	else
+		return 0
+	end if
+else
+	return 0
+end if
+end function
+

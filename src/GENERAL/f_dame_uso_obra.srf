@@ -1,0 +1,19 @@
+HA$PBExportHeader$f_dame_uso_obra.srf
+global type f_dame_uso_obra from function_object
+end type
+
+forward prototypes
+global function string f_dame_uso_obra (string id_fase)
+end prototypes
+
+global function string f_dame_uso_obra (string id_fase);string trabajo
+
+  SELECT fases.trabajo  
+    INTO :trabajo  
+    FROM fases  
+   WHERE fases.id_fase = :id_fase   ;
+	
+
+return trabajo
+end function
+

@@ -1,0 +1,8 @@
+// COAAT ALICANTE
+update listados set dw = 'd_fases_listado_general_al' where dw = 'd_fases_listado_general';
+
+// COAAT GRAN CANARIA
+update listados set dw='d_fases_listado_general_gc' where dw='d_fases_listado_general' 
+
+// AVILA
+insert into listados values ('Listado externo liquidaciones','d_fases_listado_obras_liq_ext','w_fases_listados','00','S') ;

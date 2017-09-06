@@ -1,0 +1,12 @@
+HA$PBExportHeader$st_datos_logos_empresa.srs
+global type st_datos_logos_empresa from structure
+	string		codigo_empresa
+	string		cod_logo
+	string		nombre_logo
+	integer		pos_x
+	integer		pos_y
+	integer		altura
+	integer		anchura
+	string		visible
+end type
+

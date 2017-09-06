@@ -1,0 +1,11 @@
+HA$PBExportHeader$st_datos_empresa_emisora.srs
+global type st_datos_empresa_emisora from structure
+	string		nombre_empresa
+	string		nif_empresa
+	string		direccion_empresa
+	string		poblacion_empresa
+	string		email_empresa
+	string		web_empresa
+	string		logo_empresa
+end type
+

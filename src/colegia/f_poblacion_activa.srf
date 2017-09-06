@@ -1,0 +1,18 @@
+HA$PBExportHeader$f_poblacion_activa.srf
+global type f_poblacion_activa from function_object
+end type
+
+forward prototypes
+global function string f_poblacion_activa (string id_col)
+end prototypes
+
+global function string f_poblacion_activa (string id_col);string df,pf,resultado
+
+select poblacion_activa into :pf from colegiados where id_colegiado = :id_col;
+resultado = ''
+if not isnull(pf)  then resultado = pf
+
+return resultado
+	
+end function
+

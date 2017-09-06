@@ -1,0 +1,26 @@
+HA$PBExportHeader$f_obtener_trabajo.srf
+global type f_obtener_trabajo from function_object
+end type
+
+forward prototypes
+global function string f_obtener_trabajo (string codigo)
+end prototypes
+
+global function string f_obtener_trabajo (string codigo);//Devuelve la descripci$$HEX1$$f300$$ENDHEX$$n del tipo de trabajo de un expediente//
+
+string descripcion
+
+  SELECT trabajos.d_trabajo  
+    INTO :descripcion  
+    FROM trabajos  
+  WHERE trabajos.c_trabajo = :codigo   ;
+
+  	
+if f_es_vacio(descripcion) then descripcion=''
+
+return descripcion 
+
+
+
+end function
+

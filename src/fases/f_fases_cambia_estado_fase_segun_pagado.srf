@@ -1,0 +1,232 @@
+HA$PBExportHeader$f_fases_cambia_estado_fase_segun_pagado.srf
+$PBExportComments$Funci$$HEX1$$f300$$ENDHEX$$n que controla el cambio de estado de la fase desde cualquier sitio donde se pueda cobrar
+global type f_fases_cambia_estado_fase_segun_pagado from function_object
+end type
+
+forward prototypes
+global function string f_fases_cambia_estado_fase_segun_pagado (string id_fase, string modulo)
+end prototypes
+
+global function string f_fases_cambia_estado_fase_segun_pagado (string id_fase, string modulo);double cip_a_abonar = 0, cip_abonada = 0
+datetime fecha_hoy
+string retorno = ''
+string archivo_exp, archivo_fase, n_salida, id_expedi,t_tramite
+st_control_eventos c_evento
+
+select fases.id_tramite into :t_tramite from fases where id_fase = :id_fase;
+
+fecha_hoy = datetime(today(), now())
+// Ponemos el puntero a reloj
+setpointer(hourglass!)
+
+// modificado Ricardo 2005-03-11
+CHOOSE CASE upper(modulo)
+	CASE 'SOLO_N_SALIDA'
+		// Solo damos el numero de salida y salimos
+		select fases.archivo into :archivo_fase from fases where id_fase = :id_fase;
+	//SCP-606 se mantiene est$$HEX2$$e1002000$$ENDHEX$$numeraci$$HEX1$$f300$$ENDHEX$$n para los cambios manuales 
+		if f_es_vacio(archivo_fase) then
+			c_evento.evento = 'NUMERO_SAL'
+			f_control_eventos(c_evento)
+			n_salida = f_numera_salida(c_evento.param1)	 // Modificado Ricardo 2005-05-11 -> SE le pasa el formato directamente
+			update fases set archivo = :n_salida where id_fase = :id_fase;
+			archivo_fase = n_salida
+		end if
+		// Si est$$HEX2$$e1002000$$ENDHEX$$la ventana de fases abierta, hacemos el refrescado
+		g_fases_consulta.id_fase = id_fase
+		if isvalid(g_dw1) then g_dw1.dynamic Trigger Event csd_retrieve()
+		// Provisional (para que muestre el n$$HEX2$$ba002000$$ENDHEX$$salida)
+		if isvalid(g_dw1) then g_dw1.dynamic Trigger Event csd_retrieve_exp()
+		return archivo_fase
+END CHOOSE
+// modificado Ricardo 2005-03-11
+
+// Obtenemos la cip del contrato
+SELECT sum(fases_informes.cuantia_colegiado) INTO :cip_a_abonar FROM fases_informes 
+WHERE fases_informes.id_fase = :id_fase and tipo_informe = :g_codigos_conceptos.cip  ;
+if isnull(cip_a_abonar) then cip_a_abonar = 0
+// Otenemos la cip abonada
+cip_abonada = f_total_cobrado_cip_contrato(id_fase)
+
+// Cambiamos la condici$$HEX1$$f300$$ENDHEX$$n a cumplir:
+//if (abs( cip_abonada - cip_a_abonar) < g_desvio_moneda) and cip_a_abonar > 0 then
+
+// Siempre que se haya cobrado igual o m$$HEX1$$e100$$ENDHEX$$s de lo que indica el contrato se considera abonado completamente
+if (cip_abonada >= cip_a_abonar) or (abs( cip_abonada - cip_a_abonar) < g_desvio_moneda) then
+	// Hacemos el cambio de estado en el contrato
+	UPDATE fases set estado = :g_fases_estados.retirado where id_fase = :id_fase;
+	UPDATE fases set f_abono = :fecha_hoy where id_fase = :id_fase and f_abono is null;
+	// Verificamos que se haya realizado correctamente
+	IF SQLCA.sqlcode<>0 then
+//		Messagebox(g_titulo, "Ha ocurrido un error al intentar actualizar el contrato de la minuta "+dw_minutas_detalle.getitemstring(dw_minutas_detalle.RowCount(), 'n_aviso'))
+		retorno = '-1'
+	ELSE
+		retorno = g_fases_estados.retirado
+	END IF
+	// Intentamos colocar en el historico de estados (no hago control de errores porque no vale la pena pa eso)
+	INSERT INTO fases_estados (id_fase,cod_estado,fecha,usuario) VALUES (:id_fase,:g_fases_estados.retirado,:fecha_hoy,:g_usuario)  ;
+	// Confirmamos el grabado
+	commit;
+	
+	// Cuando se abona la dip en un visado provisional pasa a ser contrato normal 
+	if g_colegio = 'COAATNA'  then
+		if f_fases_visado_provisional (id_fase) then
+			UPDATE fases SET tipo_registro = 'IP' where id_fase = :id_fase ;
+		end if
+	end if
+	
+	// A$$HEX1$$d100$$ENDHEX$$ADIDO PACO 8/6/2004
+	// Dar n$$HEX1$$fa00$$ENDHEX$$mero de salida para COAATTFE y COAATGC
+	CHOOSE CASE upper(modulo)
+		CASE 'MINUTAS'
+			CHOOSE CASE g_colegio
+				CASE 'COAATGC'
+					select expedientes.archivo, expedientes.id_expedi into :archivo_exp, :id_expedi from expedientes, fases
+					where expedientes.id_expedi = fases.id_expedi
+					and fases.id_fase = :id_fase;
+				
+					if f_es_vacio(archivo_exp) then//SCP-606 ley omnibus se elimina este automatismo para generar numero de salida
+						c_evento.evento = 'NUMERO_SAL'
+						f_control_eventos(c_evento)
+						if t_tramite="VV" or  t_tramite="IP" or  t_tramite=""  then
+							n_salida = f_numera_salida(c_evento.param1)// Modificado Ricardo 2005-05-11 -> SE le pasa el formato directamente
+							update expedientes set archivo = :n_salida where id_expedi = :id_expedi;	
+						end if
+					end if	
+				CASE 'COAATTFE', 'COAATZ', 'COAATGU', 'COAATLE', 'COAATVI', 'COAATA', 'COAATNA', 'COAATTGN', 'COAATCC', 'COAATTEB', 'COAATTER', 'COAATMCA', 'COAATLL'
+					select fases.archivo into :archivo_fase from fases where id_fase = :id_fase;
+				
+					if f_es_vacio(archivo_fase) then//SCP-606 ley omnibus se elimina este automatismo para generar numero de salida
+						c_evento.evento = 'NUMERO_SAL'
+						f_control_eventos(c_evento)
+								//	SCP-893 se automatiza el numerar por variable global
+							if g_visar_al_facturar<>"0" then
+								if t_tramite="VV" or  t_tramite="IP" or  t_tramite=""  or g_visar_al_facturar="1" then
+									n_salida = f_numera_salida(c_evento.param1)	// Modificado Ricardo 2005-05-11 -> SE le pasa el formato directamente
+									update fases set archivo = :n_salida where id_fase = :id_fase;
+							end if
+						end if
+					end if
+			END CHOOSE
+			// FIN A$$HEX1$$d100$$ENDHEX$$ADIDO PACO 6/6/2004
+	END CHOOSE
+
+	// INC. 8569 - Poner la FCFO y el cerrado en determinados tipos de actuaci$$HEX1$$f300$$ENDHEX$$n al abonarse completamente
+	// Hay que comprobar que no es una actuaci$$HEX1$$f300$$ENDHEX$$n de las de la lista (que no se cierran autom$$HEX1$$e100$$ENDHEX$$ticamente) y que ese expediente no tiene otras actuaciones
+	datetime f_tmp
+	string tipo_act, otra_fase, tipo_gest
+	long num
+	c_evento.evento = 'FINALIZAR_OBRA'
+	f_control_eventos(c_evento)
+	if not f_es_vacio(c_evento.param1) then
+		SELECT id_expedi, fase, tipo_gestion INTO :id_expedi, :tipo_act,:tipo_gest FROM fases WHERE id_fase = :id_fase ;
+		
+		// Para Navarra, si es SIN gesti$$HEX1$$f300$$ENDHEX$$n de cobro, si todas las actuaciones del expediente est$$HEX1$$e100$$ENDHEX$$n cobradas
+		// Se establece la fecha de cierre (solo si no estaba ya establecida  Eloy 28/08/2008
+		choose case g_colegio
+			case 'COAATNA' 
+				if tipo_gest<>'C' then
+					SELECT count(*) into :num FROM fases f WHERE   f.id_expedi=:id_expedi and 
+					(f.estado<>:g_fases_estados.retirado and f.estado<>:g_fases_estados.anulado);
+					if num=0 then
+						select f_cierre into :f_tmp from expedientes where id_expedi=:id_expedi;
+						if IsNull(f_tmp) then
+							UPDATE expedientes  
+							SET cerrado = 'S',  f_cierre = :fecha_hoy  
+							FROM expedientes 
+							WHERE expedientes.id_expedi = :id_expedi ;
+						end if
+						
+					end if
+				end if
+		
+			case else
+			
+				SELECT id_fase INTO :otra_fase FROM fases
+				WHERE ( fases.id_expedi = :id_expedi ) AND ( fases.id_fase <> :id_fase ) ;
+				
+				if PosA(c_evento.param1, tipo_act) = 0 and f_es_vacio(otra_fase) then
+					select f_cierre into :f_tmp from expedientes where id_expedi=:id_expedi;
+					if IsNull(f_tmp) then
+						UPDATE expedientes  
+						SET cerrado = 'S',  f_cierre = :fecha_hoy  
+						FROM expedientes 
+						WHERE expedientes.id_expedi = :id_expedi ;
+					end if
+				end if
+		
+			end choose
+	end if
+	// FIN INC. 8569 
+else
+	// NUMERO DE SALIDA
+	
+	/*CHOOSE CASE g_colegio
+		CASE 'COAATTFE', 'COAATZ', 'COAATGU', 'COAATLE', 'COAATAVI', 'COAATA', 'COAATNA', 'COAATTGN', 'COAATCC', 'COAATTEB', 'COAATTER', 'COAATMCA',  'COAATLL'
+				// Hacemos el cambio de estado en el contrato
+				UPDATE fases set estado = :g_fases_estados.parcial where id_fase = :id_fase;
+				UPDATE fases set f_abono = :fecha_hoy where id_fase = :id_fase and f_abono is null;
+			
+				select fases.archivo into :archivo_fase from fases where id_fase = :id_fase;//SCP-606 ley omnibus se elimina este automatismo para generar numero de salida
+				if f_es_vacio(archivo_fase) then
+					c_evento.evento = 'NUMERO_SAL'
+					f_control_eventos(c_evento)
+					//n_salida = f_numera_salida(c_evento.param1)	// Modificado Ricardo 2005-05-11 -> SE le pasa el formato directamente
+					//update fases set archivo = :n_salida where id_fase = :id_fase;
+				end if
+		CASE ELSE*/
+			// Hacemos el cambio de estado en el contrato
+			UPDATE fases set estado = :g_fases_estados.parcial where id_fase = :id_fase;
+			UPDATE fases set f_abono = :fecha_hoy where id_fase = :id_fase and f_abono is null;
+	//END CHOOSE
+	// Verificamos que se haya realizado correctamente
+	IF SQLCA.sqlcode<>0 then
+//		Messagebox(g_titulo, "Ha ocurrido un error al intentar actualizar el contrato de la minuta "+dw_minutas_detalle.getitemstring(dw_minutas_detalle.RowCount(), 'n_aviso'))
+		retorno = '-1'
+	ELSE
+		retorno = g_fases_estados.parcial
+	END IF
+	// Intentamos colocar en el historico de estados (no hago control de errores porque no vale la pena pa eso)
+	INSERT INTO fases_estados (id_fase,cod_estado,fecha,usuario) VALUES (:id_fase,:g_fases_estados.parcial,:fecha_hoy,:g_usuario)  ;
+	// Confirmamos el grabado
+	commit;
+end if
+
+CHOOSE CASE g_colegio
+	CASE 'COAATZ', 'COAATGU', 'COAATLE', 'COAATAVI', 'COAATTER', 'COAATMCA'
+		// ponemos la fecha de visado si no esta nulo es el primer pago
+		update fases set f_visado = :fecha_hoy where f_visado is null and id_fase =:id_fase;
+END CHOOSE
+
+//Cambio Luis CGC-107
+if(g_colegio = 'COAATGC')then
+	select expedientes.archivo, expedientes.id_expedi into :archivo_exp, :id_expedi from expedientes, fases
+	where expedientes.id_expedi = fases.id_expedi
+	and fases.id_fase = :id_fase;
+
+	if f_es_vacio(archivo_exp) then//SCP-606 ley omnibus se elimina este automatismo para generar numero de salida
+		c_evento.evento = 'NUMERO_SAL'
+		f_control_eventos(c_evento)
+		//	SCP-893 se automatiza el numerar por variable global
+		if g_visar_al_facturar<>"0" then
+			if t_tramite="VV" or  t_tramite="IP" or  t_tramite=""  or g_visar_al_facturar="1" then
+				n_salida = f_numera_salida(c_evento.param1)
+				update expedientes set archivo = :n_salida where id_expedi = :id_expedi;	
+			end if
+		end if
+	end if	
+end if		
+//fin cambio
+
+if modulo <> 'CAJA' then // INC.6479
+	// Si est$$HEX2$$e1002000$$ENDHEX$$la ventana de fases abierta, hacemos el refrescado
+	g_fases_consulta.id_fase = id_fase
+	if isvalid(g_dw1) then g_dw1.dynamic Trigger Event csd_retrieve()
+	// Provisional (para que muestre el n$$HEX2$$ba002000$$ENDHEX$$salida)
+	if isvalid(g_dw1) then g_dw1.dynamic Trigger Event csd_retrieve_exp()
+end if
+
+return retorno
+
+end function
+

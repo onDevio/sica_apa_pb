@@ -1,0 +1,20 @@
+HA$PBExportHeader$f_fases_tipo_tramite.srf
+global type f_fases_tipo_tramite from function_object
+end type
+
+forward prototypes
+global function string f_fases_tipo_tramite (string id_fase)
+end prototypes
+
+global function string f_fases_tipo_tramite (string id_fase);// Devuelve el tipo de tramite de un contrato
+string tramite
+
+  SELECT fases.id_tramite  
+    INTO :tramite  
+    FROM fases  
+   WHERE fases.id_fase = :id_fase   ;
+
+
+return tramite
+end function
+

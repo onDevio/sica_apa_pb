@@ -1,0 +1,21 @@
+HA$PBExportHeader$f_sellador_generar_backup.srf
+global type f_sellador_generar_backup from function_object
+end type
+
+forward prototypes
+global function boolean f_sellador_generar_backup ()
+end prototypes
+
+global function boolean f_sellador_generar_backup ();string is_copia
+
+setnull(is_copia)
+
+SELECT sn into :is_copia FROM var_globales WHERE nombre = 'g_sellador_backup_externo';
+
+if NOT isnull(is_copia) AND is_copia = 'S' then
+return true
+end if
+
+return false
+end function
+

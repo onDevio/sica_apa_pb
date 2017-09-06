@@ -1,0 +1,39 @@
+HA$PBExportHeader$f_opciones_impresion.srf
+global type f_opciones_impresion from function_object
+end type
+
+forward prototypes
+global subroutine f_opciones_impresion (datawindow dw)
+end prototypes
+
+global subroutine f_opciones_impresion (datawindow dw);// c$$HEX1$$f300$$ENDHEX$$digo para imprimir mostrando una ventana que nos permitir$$HEX2$$e1002000$$ENDHEX$$elegir opciones de impresi$$HEX1$$f300$$ENDHEX$$n:
+// Rango, n$$HEX1$$fa00$$ENDHEX$$mero de copias,...
+s_printdlgattrib opciones
+
+opciones.b_allpages = true
+opciones.b_pagenums = false
+opciones.b_selection = false
+opciones.b_disableselection = true
+opciones.b_collate = false
+opciones.l_copies = 1
+opciones.l_frompage = 1
+opciones.l_topage = long(dw.Describe ("evaluate ('PageCount()', 1)"))
+opciones.l_minpage = 1
+opciones.l_maxpage = long(dw.Describe ("evaluate ('PageCount()', 1)"))
+opciones.b_hideprinttofile = true
+
+openwithparm(w_csd_print,opciones)
+
+opciones = message.powerobjectParm
+
+if not(opciones.b_disablepagenums) then return
+
+dw.object.datawindow.print.collate = opciones.b_collate
+dw.object.datawindow.print.copies = opciones.l_copies
+if opciones.b_pagenums then
+	dw.object.datawindow.print.page.range = string(opciones.l_frompage) + "-" + string(opciones.l_topage)
+end if
+
+dw.Print(TRUE)
+end subroutine
+

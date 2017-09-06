@@ -1,0 +1,185 @@
+HA$PBExportHeader$f_visared_importacion_coactfe.srf
+global type f_visared_importacion_coactfe from function_object
+end type
+
+forward prototypes
+global function any f_visared_importacion_coactfe (ref st_visared_importacion retorno, string fichero)
+end prototypes
+
+global function any f_visared_importacion_coactfe (ref st_visared_importacion retorno, string fichero);int fila,cuantos,i
+boolean gastos = false
+
+retorno.ds_coactfe_usos = create datastore
+retorno.ds_coactfe_usos.dataobject = 'd_fases_tasas_tfe'
+
+retorno.ds_datos_urbanisticos = create datastore
+retorno.ds_datos_urbanisticos.dataobject = 'd_fases_datos_urbanisticos_muestra'
+
+retorno.ds_coeficientes= create datastore
+retorno.ds_coeficientes.dataobject = 'd_fases_coeficientes'
+
+cuantos = integer(ProfileString(fichero, "GASTOS_EDIF", "total" ,''))
+for i = 1 to cuantos
+	gastos = true
+	fila = retorno.ds_coactfe_usos.InsertRow(0)	
+	retorno.ds_coactfe_usos.SetItem(fila,'id_fase_nivel','001')
+	retorno.ds_coactfe_usos.SetItem(fila,'id_uso',f_siguiente_numero('FASES_USOS', 10))
+	retorno.ds_coactfe_usos.SetItem(fila,'trabajo',profilestring(fichero, "GASTOS_EDIF", 'trabajo'+string(i) , ''))
+	retorno.ds_coactfe_usos.SetItem(fila,'descripcion',profilestring(fichero, "GASTOS_EDIF", 'descripcion'+string(i) ,''))
+	retorno.ds_coactfe_usos.SetItem(fila,'observaciones',profilestring(fichero, "GASTOS_EDIF", 'observaciones'+string(i) , ''))
+	retorno.ds_coactfe_usos.SetItem(fila,'superficie',double(profilestring(fichero, "GASTOS_EDIF", 'superficie'+string(i) , '')))
+	retorno.ds_coactfe_usos.SetItem(fila,'base_aplicacion',double(profilestring(fichero, "GASTOS_EDIF", 'base_aplicacion'+string(i) ,'')))
+	retorno.ds_coactfe_usos.SetItem(fila,'ct',double(profilestring(fichero, "GASTOS_EDIF", 'ct'+string(i) , '')))
+	retorno.ds_coactfe_usos.SetItem(fila,'cc',double(profilestring(fichero, "GASTOS_EDIF", 'cc'+string(i) , '')))
+	retorno.ds_coactfe_usos.SetItem(fila,'precio_m2',double(profilestring(fichero, "GASTOS_EDIF", 'precio_m2'+string(i) ,'')))
+	retorno.ds_coactfe_usos.SetItem(fila,'t_fase',profilestring(fichero, "GASTOS_EDIF", 't_fase'+string(i) , ''))
+	retorno.ds_coactfe_usos.SetItem(fila,'tasa_m2',double(profilestring(fichero, "GASTOS_EDIF", 'tasa_m2'+string(i) , '')))
+	retorno.ds_coactfe_usos.SetItem(fila,'aportacion',double(profilestring(fichero, "GASTOS_EDIF", 'aportacion'+string(i) ,'')))
+	retorno.ds_coactfe_usos.SetItem(fila,'uc',double(profilestring(fichero, "GASTOS_EDIF", 'uc'+string(i) , '')))
+	retorno.ds_coactfe_usos.SetItem(fila,'superficie_no_computable',double(profilestring(fichero, "GASTOS_EDIF", 'superficie_no_computable','')))
+next
+
+cuantos = integer(ProfileString(fichero, "GASTOS_URB", "total" ,''))
+for i = 1 to cuantos
+	gastos = true
+	fila = retorno.ds_coactfe_usos.InsertRow(0)	
+	retorno.ds_coactfe_usos.SetItem(fila,'id_fase_nivel','002')
+	retorno.ds_coactfe_usos.SetItem(fila,'id_uso',f_siguiente_numero('FASES_USOS', 10))
+	retorno.ds_coactfe_usos.SetItem(fila,'trabajo',profilestring(fichero, "GASTOS_EDIF", 'trabajo'+string(i) , ''))
+	retorno.ds_coactfe_usos.SetItem(fila,'descripcion',profilestring(fichero, "GASTOS_EDIF", 'descripcion'+string(i) ,''))
+	retorno.ds_coactfe_usos.SetItem(fila,'observaciones',profilestring(fichero, "GASTOS_EDIF", 'observaciones'+string(i) , ''))
+next
+
+cuantos = integer(ProfileString(fichero, "GASTOS_OTROS", "total" ,''))
+for i = 1 to cuantos
+	gastos = true
+	fila = retorno.ds_coactfe_usos.InsertRow(0)	
+	retorno.ds_coactfe_usos.SetItem(fila,'id_fase_nivel','003')
+	retorno.ds_coactfe_usos.SetItem(fila,'id_uso',f_siguiente_numero('FASES_USOS', 10))
+	retorno.ds_coactfe_usos.SetItem(fila,'trabajo',profilestring(fichero, "GASTOS_EDIF", 'trabajo'+string(i) , ''))
+	retorno.ds_coactfe_usos.SetItem(fila,'descripcion',profilestring(fichero, "GASTOS_EDIF", 'descripcion'+string(i) ,''))
+	retorno.ds_coactfe_usos.SetItem(fila,'observaciones',profilestring(fichero, "GASTOS_EDIF", 'observaciones'+string(i) , ''))
+next
+
+//Introducimos los datos de coeficientes. En caso de que existan.
+if gastos then
+	retorno.ds_coeficientes.InsertRow(0)
+	retorno.ds_coeficientes.SetItem(1,'cf',double(profilestring(fichero, "GASTOS_COEFICIENTES", 'cf', '')))
+	retorno.ds_coeficientes.SetItem(1,'cm',double(profilestring(fichero, "GASTOS_COEFICIENTES", 'cm', '')))
+	retorno.ds_coeficientes.SetItem(1,'cs',double(profilestring(fichero, "GASTOS_COEFICIENTES", 'cs', '')))
+	retorno.ds_coeficientes.SetItem(1,'modulo_base',double(profilestring(fichero, "GASTOS_COEFICIENTES", 'modulo_base', '')))
+	retorno.ds_coeficientes.SetItem(1,'ccv_edificacion',double(profilestring(fichero, "GASTOS_COEFICIENTES", 'ccv_edificacion', '')))
+	retorno.ds_coeficientes.SetItem(1,'ccv_anterior',double(profilestring(fichero, "GASTOS_COEFICIENTES", 'ccv_anterior', '')))
+	retorno.ds_coeficientes.SetItem(1,'ccv_aplicable',double(profilestring(fichero, "GASTOS_COEFICIENTES", 'ccv_aplicable', '')))
+END IF
+
+	
+//Introducimos los datos urban$$HEX1$$ed00$$ENDHEX$$sticos
+retorno.ds_datos_urbanisticos.InsertRow(0)
+
+retorno.ds_datos_urbanisticos.setitem(1,'usuario',g_usuario)
+retorno.ds_datos_urbanisticos.setitem(1,'id',f_siguiente_numero('DATOS_URBANISTICOS', 10))
+retorno.ds_datos_urbanisticos.setitem(1,'zonapcumple','N')
+retorno.ds_datos_urbanisticos.setitem(1,'usocumple','N')
+retorno.ds_datos_urbanisticos.setitem(1,'supparcelacumple','N')
+retorno.ds_datos_urbanisticos.setitem(1,'ocupaplantacumple','N')
+retorno.ds_datos_urbanisticos.setitem(1,'suptotalconscumple','N')
+retorno.ds_datos_urbanisticos.setitem(1,'numplantascumple','N')
+retorno.ds_datos_urbanisticos.setitem(1,'alturamaxcumple','N')
+retorno.ds_datos_urbanisticos.setitem(1,'edificabicumple','N')
+retorno.ds_datos_urbanisticos.setitem(1,'aviacumple','N')
+retorno.ds_datos_urbanisticos.setitem(1,'alinderocumple','N')
+retorno.ds_datos_urbanisticos.setitem(1,'entreedifcumple','N')
+retorno.ds_datos_urbanisticos.setitem(1,'aticocumple','N')
+retorno.ds_datos_urbanisticos.setitem(1,'fondocumple','N')
+retorno.ds_datos_urbanisticos.setitem(1,'ensayo_materiales','X')
+retorno.ds_datos_urbanisticos.setitem(1,'nivel_control_estructura','X')
+retorno.ds_datos_urbanisticos.setitem(1,'tipo_edificacion','TE0')
+retorno.ds_datos_urbanisticos.setitem(1,'uso_predominante_proy','UP0')
+retorno.ds_datos_urbanisticos.setitem(1,'regimen_uso','RU0')
+retorno.ds_datos_urbanisticos.setitem(1,'acero','X')
+retorno.ds_datos_urbanisticos.setitem(1,'hormigon','X')
+retorno.ds_datos_urbanisticos.setitem(1,'ejecucion','X')
+retorno.ds_datos_urbanisticos.setitem(1,'nivel_control_estructura','X')
+retorno.ds_datos_urbanisticos.setitem(1,'ucestudiosegysaludprocede','X')
+retorno.ds_datos_urbanisticos.setitem(1,'clasificacion_suelo_proy','C0')
+retorno.ds_datos_urbanisticos.setitem(1,'planeamiento_codigo1','PL0')
+retorno.ds_datos_urbanisticos.setitem(1,'planeamiento_codigo2','PL0')
+retorno.ds_datos_urbanisticos.setitem(1,'planeamiento_codigo3','PL0')
+retorno.ds_datos_urbanisticos.setitem(1,'planeamiento_codigo4','PL0')
+retorno.ds_datos_urbanisticos.setitem(1,'normativa_codigo1','NO0')
+retorno.ds_datos_urbanisticos.setitem(1,'normativa_codigo2','NO0')
+retorno.ds_datos_urbanisticos.setitem(1,'normativa_codigo3','NO0')
+retorno.ds_datos_urbanisticos.setitem(1,'normativa_codigo4','NO0')
+
+retorno.ds_datos_urbanisticos.SetItem(1,'unidadesvivienda',double(profilestring(fichero, "COACTFE_URBANISTICOS", 'unidadesvivienda', '')))	
+retorno.ds_datos_urbanisticos.SetItem(1,'unidadesoficinas',double(profilestring(fichero, "COACTFE_URBANISTICOS", 'unidadesoficinas', '')))	
+retorno.ds_datos_urbanisticos.SetItem(1,'unidadescomercial',double(profilestring(fichero, "COACTFE_URBANISTICOS", 'unidadescomercial', '')))	
+retorno.ds_datos_urbanisticos.SetItem(1,'unidadesgaraje',double(profilestring(fichero, "COACTFE_URBANISTICOS", 'unidadesgaraje', '')))	
+retorno.ds_datos_urbanisticos.SetItem(1,'unidadesotros',double(profilestring(fichero, "COACTFE_URBANISTICOS", 'unidadesotros','')))	
+retorno.ds_datos_urbanisticos.SetItem(1,'m2utilesvivienda',double(profilestring(fichero, "COACTFE_URBANISTICOS", 'm2utilesvivienda', '')))	
+retorno.ds_datos_urbanisticos.SetItem(1,'m2utilesoficinas',double(	profilestring(fichero, "COACTFE_URBANISTICOS", 'm2utilesoficinas', '')))	
+retorno.ds_datos_urbanisticos.SetItem(1,'m2utilescomercial',double(profilestring(fichero, "COACTFE_URBANISTICOS", 'm2utilescomercial', '')))	
+retorno.ds_datos_urbanisticos.SetItem(1,'m2utilesgaraje',double(	profilestring(fichero, "COACTFE_URBANISTICOS", 'm2utilesgaraje', '')))	
+retorno.ds_datos_urbanisticos.SetItem(1,'m2utilesotros',double(profilestring(fichero, "COACTFE_URBANISTICOS", 'm2utilesotros', '')))	
+retorno.ds_datos_urbanisticos.SetItem(1,'m2constvivienda',double(profilestring(fichero, "COACTFE_URBANISTICOS", 'm2constvivienda', '')))	
+retorno.ds_datos_urbanisticos.SetItem(1,'m2constoficinas',double(profilestring(fichero, "COACTFE_URBANISTICOS", 'm2constsoficinas', '')))	
+retorno.ds_datos_urbanisticos.SetItem(1,'m2constcomercial',double(profilestring(fichero, "COACTFE_URBANISTICOS", 'm2constcomercial', '')))	
+retorno.ds_datos_urbanisticos.SetItem(1,'m2constgaraje',double(profilestring(fichero, "COACTFE_URBANISTICOS", 'm2constgaraje', '')))	
+retorno.ds_datos_urbanisticos.SetItem(1,'m2constotros',double(profilestring(fichero, "COACTFE_URBANISTICOS", 'm2constotros', '')))	
+retorno.ds_datos_urbanisticos.SetItem(1,'suptotalutil',double(profilestring(fichero, "COACTFE_URBANISTICOS", 'suptotalutil','')))	
+retorno.ds_datos_urbanisticos.SetItem(1,'suptotalconst',double(profilestring(fichero, "COACTFE_URBANISTICOS", 'suptotalconst','')))	
+retorno.ds_datos_urbanisticos.SetItem(1,'presupuestoem',double(profilestring(fichero, "COACTFE_URBANISTICOS", 'presupuestoem', '')))	
+	
+//Recogemos los datos de las pesta$$HEX1$$f100$$ENDHEX$$as "Datos Urban$$HEX1$$ed00$$ENDHEX$$sticos"
+retorno.ds_datos_urbanisticos.SetItem(1,'uso_predominante_norm',profilestring(fichero, "COACTFE_URBANISTICOS", 'uso_predominante_norm',''))
+retorno.ds_datos_urbanisticos.SetItem(1,'uso_predominante_proy',profilestring(fichero, "COACTFE_URBANISTICOS", 'uso_predominante_proy', ''))	
+retorno.ds_datos_urbanisticos.SetItem(1,'clasificacion_suelo_norm',profilestring(fichero, "COACTFE_URBANISTICOS", 'clasificacion_suelo_norm', ''))	
+retorno.ds_datos_urbanisticos.SetItem(1,'clasificacion_suelo_proy',profilestring(fichero, "COACTFE_URBANISTICOS", 'clasificacion_suelo_proy', ''))	
+retorno.ds_datos_urbanisticos.SetItem(1,'supparcelanm2',double(profilestring(fichero, "COACTFE_URBANISTICOS", 'supparcelanm2', '')))	
+retorno.ds_datos_urbanisticos.SetItem(1,'supparcelapm2',double(profilestring(fichero, "COACTFE_URBANISTICOS", 'supparcelapm2', '')))	
+retorno.ds_datos_urbanisticos.SetItem(1,'ocupaplantanporcen',double(profilestring(fichero, "COACTFE_URBANISTICOS", 'ocupaplantanporcen','')))
+retorno.ds_datos_urbanisticos.SetItem(1,'ocupaplantanm2',double(profilestring(fichero, "COACTFE_URBANISTICOS", 'ocupaplantanm2', '')))	
+retorno.ds_datos_urbanisticos.SetItem(1,'ocupaplantapporcen',double(profilestring(fichero, "COACTFE_URBANISTICOS", 'ocupaplantapporcen','')))	
+retorno.ds_datos_urbanisticos.SetItem(1,'ocupaplantapm2',double(profilestring(fichero, "COACTFE_URBANISTICOS", 'ocupaplantapm2','')))	
+retorno.ds_datos_urbanisticos.SetItem(1,'suptotalconsn',double(profilestring(fichero, "COACTFE_URBANISTICOS", 'suptotalconsn','')))	
+retorno.ds_datos_urbanisticos.SetItem(1,'nplantassr',double(profilestring(fichero, "COACTFE_URBANISTICOS", 'nplantassr','')))	
+retorno.ds_datos_urbanisticos.SetItem(1,'nplantasbr',double(profilestring(fichero, "COACTFE_URBANISTICOS", 'nplantasbr','')))	
+retorno.ds_datos_urbanisticos.SetItem(1,'nplantassr_proyecto',double(profilestring(fichero, "COACTFE_URBANISTICOS", 'nplantassr_proyecto','')))	
+retorno.ds_datos_urbanisticos.SetItem(1,'nplantasbr_proyecto',double(profilestring(fichero, "COACTFE_URBANISTICOS", 'nplantasbr_proyecto','')))	
+retorno.ds_datos_urbanisticos.SetItem(1,'alturamaxnm',double(profilestring(fichero, "COACTFE_URBANISTICOS", 'alturamaxnm','')))	
+retorno.ds_datos_urbanisticos.SetItem(1,'edificabinm3',double(profilestring(fichero, "COACTFE_URBANISTICOS", 'edificabinm3','')))	
+retorno.ds_datos_urbanisticos.SetItem(1,'edificabinm2',double(profilestring(fichero, "COACTFE_URBANISTICOS", 'edificabinm2','')))	
+retorno.ds_datos_urbanisticos.SetItem(1,'avianm',double(profilestring(fichero, "COACTFE_URBANISTICOS", 'avianm','')))	
+retorno.ds_datos_urbanisticos.SetItem(1,'alinderonm',double(profilestring(fichero, "COACTFE_URBANISTICOS", 'alinderonm','')))	
+retorno.ds_datos_urbanisticos.SetItem(1,'entreedifnm',double(profilestring(fichero, "COACTFE_URBANISTICOS", 'entreedifnm','')))	
+retorno.ds_datos_urbanisticos.SetItem(1,'aticonm',double(profilestring(fichero, "COACTFE_URBANISTICOS", 'aticonm','')))	
+retorno.ds_datos_urbanisticos.SetItem(1,'fondonm',double(profilestring(fichero, "COACTFE_URBANISTICOS", 'fondonm','')))	
+retorno.ds_datos_urbanisticos.SetItem(1,'suptotalconsp',double(profilestring(fichero, "COACTFE_URBANISTICOS", 'suptotalconsp','')))	
+retorno.ds_datos_urbanisticos.SetItem(1,'alturamaxpm',double(profilestring(fichero, "COACTFE_URBANISTICOS", 'alturamaxpm','')))	
+retorno.ds_datos_urbanisticos.SetItem(1,'edificabipm3',double(profilestring(fichero, "COACTFE_URBANISTICOS", 'edificabipm3','')))	
+retorno.ds_datos_urbanisticos.SetItem(1,'edificabipm2',double(profilestring(fichero, "COACTFE_URBANISTICOS", 'edificabipm2','')))	
+retorno.ds_datos_urbanisticos.SetItem(1,'aviapm',double(profilestring(fichero, "COACTFE_URBANISTICOS", 'aviapm','')))	
+retorno.ds_datos_urbanisticos.SetItem(1,'alinderopm',double(profilestring(fichero, "COACTFE_URBANISTICOS", 'alinderopm','')))	
+retorno.ds_datos_urbanisticos.SetItem(1,'entreedifpm',double(profilestring(fichero, "COACTFE_URBANISTICOS", 'entreedifpm','')))	
+retorno.ds_datos_urbanisticos.SetItem(1,'aticopm',double(profilestring(fichero, "COACTFE_URBANISTICOS", 'aticopm','')))	
+retorno.ds_datos_urbanisticos.SetItem(1,'fondopm',double(profilestring(fichero, "COACTFE_URBANISTICOS", 'fondopm','')))	
+
+//Recogemos los datos de las pesta$$HEX1$$f100$$ENDHEX$$as "Datos Estad$$HEX1$$ed00$$ENDHEX$$sticos"
+retorno.ds_datos_urbanisticos.SetItem(1,'tipo_edificacion',profilestring(fichero, "COACTFE_URBANISTICOS", 'tipo_edificacion',''))	
+retorno.ds_datos_urbanisticos.SetItem(1,'regimen_uso',profilestring(fichero, "COACTFE_URBANISTICOS", 'regimen_uso', ''))	
+retorno.ds_datos_urbanisticos.SetItem(1,'nivel_control_estructura',profilestring(fichero, "COACTFE_URBANISTICOS", 'nivel_control_estructura',''))	
+retorno.ds_datos_urbanisticos.SetItem(1,'hormigon',profilestring(fichero, "COACTFE_URBANISTICOS", 'hormigon',''))	
+retorno.ds_datos_urbanisticos.SetItem(1,'acero',profilestring(fichero, "COACTFE_URBANISTICOS", 'acero',''))
+retorno.ds_datos_urbanisticos.SetItem(1,'ejecucion',profilestring(fichero, "COACTFE_URBANISTICOS", 'ejecucion', ''))	
+retorno.ds_datos_urbanisticos.SetItem(1,'ensayo_materiales',profilestring(fichero, "COACTFE_URBANISTICOS", 'ensayo_materiales', ''))	
+retorno.ds_datos_urbanisticos.SetItem(1,'ensayo',double(profilestring(fichero, "COACTFE_URBANISTICOS", 'ensayo',''))	)
+retorno.ds_datos_urbanisticos.SetItem(1,'ucestudiosegysaludprocede',profilestring(fichero, "COACTFE_URBANISTICOS", 'ucestudiosegysaludprocede', ''))
+	
+return 1
+
+
+
+
+end function
+

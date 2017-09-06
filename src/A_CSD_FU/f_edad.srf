@@ -1,0 +1,33 @@
+HA$PBExportHeader$f_edad.srf
+global type f_edad from function_object
+end type
+
+forward prototypes
+global function integer f_edad (datetime adt_fecha_nacimiento, datetime adt_fecha_referencia)
+end prototypes
+
+global function integer f_edad (datetime adt_fecha_nacimiento, datetime adt_fecha_referencia);integer dia,mes,anyo,retorno
+date dl_fecha_hoy
+
+dl_fecha_hoy = Date(adt_fecha_referencia)
+if isnull(dl_fecha_hoy) then
+	dl_fecha_hoy = Date(today())
+end if
+
+if Month(dl_fecha_hoy) > Month(Date(adt_fecha_nacimiento))Then
+	retorno = Year(dl_fecha_hoy) - Year(Date(adt_fecha_nacimiento))
+Else
+	If Month (dl_fecha_hoy) = Month(Date(adt_fecha_nacimiento)) Then
+		if Day (dl_fecha_hoy) >= Day(Date(adt_fecha_nacimiento)) Then
+			retorno = Year(dl_fecha_hoy) - Year(Date(adt_fecha_nacimiento))
+		Else
+			retorno = Year(dl_fecha_hoy) - Year (Date(adt_fecha_nacimiento)) - 1 
+		End If
+	Else
+		retorno = Year(dl_fecha_hoy) - Year(Date(adt_fecha_nacimiento)) - 1 
+	End If
+End If
+
+return retorno
+end function
+

@@ -1,0 +1,528 @@
+HA$PBExportHeader$f_calcular_honteor_avi.srf
+$PBExportComments$Calcula el total de honorarios te$$HEX1$$f300$$ENDHEX$$ricos para $$HEX1$$c100$$ENDHEX$$vila
+global type f_calcular_honteor_avi from function_object
+end type
+
+forward prototypes
+global function integer f_calcular_honteor_avi (ref st_honteor_datos st_hon)
+end prototypes
+
+global function integer f_calcular_honteor_avi (ref st_honteor_datos st_hon);Double Ca, Coef, Sup, Pres, BaseCuadro, Minimo, Coef_Aux, Honorarios	= 0, Volumen, Altura, Parcelas, Num_Plantas, Tipologia, Plantas_Dif, Plantas_Ide
+Double Alz_Sec_Det, Tipo_Edif, Edad, Perim, Perim_Sup, Tipo_terr, Num_Viviendas, Cantidad, Valor_Tas, Num_Ofertas, Num_Partidas, Horas, Horas_Extra
+Double Distancia, Jornadas, Noches, Radio, Estructura, Tipo_Inst, Minimo_Aux, Coef2, Coef3, Coef4
+String AplicadoMinimo = "N", Nueva_planta, Formula, Desc_Prec, Tarifa, Contenido, Desarrollo, Ayto
+
+Ca = g_ca
+
+Tarifa 			= st_hon.tarifa
+Contenido 		= st_hon.contenido
+Pres 				= st_hon.presupuesto
+Nueva_planta 	= st_hon.nueva_planta
+Sup 				= st_hon.superficie
+Volumen 			= st_hon.volumen
+Altura 			= st_hon.altura
+Tipologia 		= st_hon.tipologia
+Edad 				= st_hon.edad
+Tipo_Edif 		= st_hon.tipo_edificio
+Perim 			= st_hon.perimetro
+Perim_Sup 		= st_hon.perim_sup
+Tipo_Terr 		= st_hon.tipo_terreno
+Plantas_Dif 	= st_hon.plantas_dif
+Plantas_Ide 	= st_hon.plantas_ide
+Alz_Sec_Det 	= st_hon.alz_sec_det
+Parcelas 		= st_hon.parcelas
+Cantidad 		= st_hon.cantidad
+Valor_Tas 		= st_hon.valor_tasacion
+Desc_Prec 		= st_hon.desc_prec
+Num_Ofertas 	= st_hon.num_ofertas
+Num_Partidas 	= st_hon.num_partidas
+Horas 			= st_hon.horas
+Horas_Extra 	= st_hon.horas_extra
+Distancia 		= st_hon.distancia
+Jornadas 		= st_hon.jornadas
+Noches 			= st_hon.noches
+Radio				= st_hon.radio
+Estructura		= st_hon.estructura
+Tipo_Inst		= round(st_hon.tipo_inst, 2) // Para diferenciar en el listbox los coefs iguales hemos metido m$$HEX1$$e100$$ENDHEX$$s decimales
+Num_Plantas		= st_hon.num_plantas	
+Num_Viviendas	= st_hon.num_viviendas
+Ayto				= st_hon.ayuntamiento
+
+if isnull(Contenido) or Contenido='' then Contenido = '@'
+if isnull(Tipologia) then Tipologia = 0
+if isnull(Tipo_Edif) then Tipo_Edif = 0
+if isnull(Estructura) then Estructura= 0
+if isnull(Tipo_Inst) then Tipo_Inst = 0
+
+
+BaseCuadro = (Pres / Ca)
+if (BaseCuadro = 0) or (Isnull(BaseCuadro) )  then BaseCuadro = 1
+IF Pres = 0 then Pres = 1
+
+
+SELECT minimo, coef  
+INTO :Minimo_Aux, :Coef_Aux
+FROM ho_tarifas_contenidos  
+WHERE ( ho_tarifas_contenidos.cod_tarifa = :Tarifa ) AND  
+      ( ho_tarifas_contenidos.cod_contenido = :Contenido )   ;
+
+
+Minimo = Minimo_Aux * Ca
+
+
+CHOOSE CASE Tarifa
+		
+	CASE '1.1', '3'
+		SELECT coef INTO :Coef  FROM hon_tablas WHERE desde < :Sup AND hasta >= :Sup AND tarifa = :Tarifa ;		
+		Honorarios = Pres * Coef / 100 * Coef_Aux
+		if Nueva_planta = 'N' then 
+			Honorarios = Honorarios * 1.2
+			Minimo = Minimo * 1.2
+		end if		
+		if Honorarios < Minimo Then
+			Honorarios = Minimo
+			AplicadoMinimo = "S"
+			Desarrollo = string(Minimo_Aux) + ' x ' + string(Ca)
+			if Nueva_planta = 'N' then Desarrollo += ' x 1,20'			
+			Desarrollo +=  ' (m$$HEX1$$ed00$$ENDHEX$$nimo)'			
+		else
+			Desarrollo = string(Pres) + ' x ' + string(Coef) + ' / 100'
+			if Nueva_planta = 'N' then Desarrollo += ' x 1,20'			
+			if Coef_Aux <> 1 then Desarrollo += ' x ' + string(Coef_Aux)		
+		end if
+		
+	CASE '1.2', '2.1', '2.2', '2.3', '5'
+		SELECT coef INTO :Coef FROM hon_tablas WHERE desde < :BaseCuadro AND hasta >= :BaseCuadro AND tarifa = :Tarifa;
+		Honorarios = Pres * Coef / 100 * Coef_Aux
+		if Nueva_planta = 'N' then 
+			Honorarios = Honorarios * 1.2
+			Minimo = Minimo * 1.2
+		end if
+		if Honorarios < Minimo Then
+			Honorarios = Minimo
+			AplicadoMinimo = "S"
+			Desarrollo = string(Minimo_Aux) + ' x ' + string(Ca)
+			if Nueva_planta = 'N' then Desarrollo += ' x 1,20'
+			Desarrollo +=  ' (m$$HEX1$$ed00$$ENDHEX$$nimo)'			
+		else
+			Desarrollo = string(Pres) + ' x ' + string(Coef) + ' / 100'
+			if Nueva_planta = 'N' then Desarrollo += ' x 1,20'
+			if Coef_Aux <> 1 then Desarrollo += ' x ' + string(Coef_Aux)									
+		end if
+
+	CASE '4'
+		double a
+		if Altura <= 12 then
+			a=0.81
+		else
+			a=1.22
+		end if
+		Honorarios = Volumen * a * Tipologia * Ca * Coef_Aux
+		if Honorarios < Minimo Then
+			Honorarios = Minimo
+			AplicadoMinimo = "S"
+			Desarrollo = string(Minimo_Aux) + ' x ' + string(Ca) + ' (m$$HEX1$$ed00$$ENDHEX$$nimo)'
+		else
+			Desarrollo = string(Volumen) + ' x ' + string(a) + ' x ' + string(Tipologia) + ' x ' + string(Ca)
+			if Coef_Aux <> 1 then Desarrollo += ' x ' + string(Coef_Aux)									
+		end if
+
+	CASE '6a'
+		SELECT coef INTO :Coef FROM hon_tablas WHERE desde < :BaseCuadro AND hasta >= :BaseCuadro AND tarifa = :Tarifa;		
+		Honorarios = Pres * Coef / 100 * Coef_Aux /// Ca
+//		if Contenido = 'EG' and Pres <= 3000 * Ca then 
+//			Minimo_Aux = 180
+//			Minimo = Minimo_Aux * Ca
+//		end if
+		if Honorarios < Minimo Then
+			Honorarios = Minimo
+			AplicadoMinimo = "S"
+			Desarrollo = string(Minimo_Aux) + ' x ' + string(Ca) + ' (m$$HEX1$$ed00$$ENDHEX$$nimo)'
+		else
+			Desarrollo = string(Pres) + ' x ' + string(Coef) + ' / 100' //+ ' x ' + string(Ca)
+			if Coef_Aux <> 1 then Desarrollo += ' x ' + string(Coef_Aux)
+		end if
+
+	CASE '6b'
+		if Altura <= 12 then
+			a=0.12
+		else
+			a=0.18
+		end if
+		Honorarios = 1.9 * Volumen * a * Tipologia * Ca * Coef_Aux
+		if Honorarios < Minimo Then
+			Honorarios = Minimo
+			AplicadoMinimo = "S"
+			Desarrollo = string(Minimo_Aux) + ' x ' + string(Ca) + ' (m$$HEX1$$ed00$$ENDHEX$$nimo)'
+		else
+			Desarrollo = '1,9 x ' + string(Volumen) + ' x ' + string(a) + ' x ' + string(Tipologia) + ' x ' + string(Ca)
+			if Coef_Aux <> 1 then Desarrollo += ' x ' + string(Coef_Aux)									
+		end if
+
+	CASE '7', '18', '23'
+		SELECT coef INTO :Coef  FROM hon_tablas WHERE desde < :Sup AND hasta >= :Sup AND tarifa = :Tarifa and contenido = :Contenido ;
+		Honorarios = Pres * Coef / 100
+		if Honorarios < Minimo Then
+			Honorarios = Minimo
+			AplicadoMinimo = "S"
+			Desarrollo = string(Minimo_Aux) + ' x ' + string(Ca) + ' (m$$HEX1$$ed00$$ENDHEX$$nimo)'			
+		else
+			Desarrollo = string(Pres) + ' x ' + string(Coef) + ' / 100'
+		end if
+
+	CASE '8a'
+		double P
+		if Sup < 500 then
+			P = 1
+		else
+			if Sup < 2000 then 
+				P = 0.6
+			else
+				P = 0.4
+			end if
+		end if
+		Honorarios = Sup * P * Tipo_Edif * 2.44 * Ca
+		if Honorarios < Minimo Then
+			Honorarios = Minimo
+			AplicadoMinimo = "S"
+			Desarrollo = string(Minimo_Aux) + ' x ' + string(Ca) + ' (m$$HEX1$$ed00$$ENDHEX$$nimo)'
+		else
+			Desarrollo = string(Sup) + ' x ' + string(P) + ' x ' + string(Tipo_Edif) + ' x 2,44 x ' + string(Ca)
+		end if
+
+	CASE '8b'
+		if Sup < 500 then
+			P = 1
+		else
+			if Sup < 2000 then 
+				P = 0.6
+			else
+				P = 0.4
+			end if
+		end if
+		double E
+		choose case Edad
+			case is > 50
+				E = 2	
+			case 25 to 50
+				E = 1.5
+			case 5 to 25
+				E = 1
+			case 0 to 5
+				E = 0.5
+		end choose
+		Honorarios = Sup * P * Tipo_Edif * 4.88 * E * Ca
+		if Honorarios < Minimo Then
+			Honorarios = Minimo
+			AplicadoMinimo = "S"
+			Desarrollo = string(Minimo_Aux) + ' x ' + string(Ca) + ' (m$$HEX1$$ed00$$ENDHEX$$nimo)'
+		else
+			Desarrollo = string(Sup) + ' x ' + string(p) + ' x ' + string(Tipo_Edif) + ' x 4,88 x ' + string(E) + ' x ' + string(Ca)
+		end if
+
+	CASE '9'
+		Formula = string(Coef_Aux) + ' x L x C x CA'
+		Honorarios = Coef_Aux * Perim * Tipo_Terr * Ca
+		if RightA(Contenido,1) = 'E' then
+			Formula = '5,87 x L x C x CA + 2,61 x L~' x CA'
+			Honorarios += 2.61 * Perim_Sup * Ca
+		end if
+		if LeftA(Contenido,2) = 'DA' then 
+			Formula += ' x 1,5'
+			Honorarios = Honorarios * 1.5
+			Minimo = Minimo * 1.5
+		end if
+		if LeftA(Contenido,1) = 'R' then 
+			Formula += ' x 0,66'
+			Honorarios = Honorarios * 0.66
+			Minimo = Minimo * 0.66			
+		end if		
+		if Honorarios < Minimo Then
+			Honorarios = Minimo
+			AplicadoMinimo = "S"
+			Desarrollo = string(Minimo_Aux) + ' x ' + string(Ca)
+			if LeftA(Contenido,2) = 'DA' then Desarrollo += ' x 1.5'
+			if LeftA(Contenido,1) = 'R' then Desarrollo += ' x 0.66'
+			Desarrollo +=  ' (m$$HEX1$$ed00$$ENDHEX$$nimo)'			
+		else
+			Desarrollo = string(Coef_Aux) + ' x ' + string(Perim) + ' x ' + string(Tipo_Terr) + ' x ' + string(Ca)
+			if RightA(Contenido,1) = 'E' then Desarrollo += ' + 2,61 x ' + string(Perim_Sup) + ' x ' + string(Ca)
+			if LeftA(Contenido,2) = 'DA' then Desarrollo += ' x 1.5'
+			if LeftA(Contenido,1) = 'R' then Desarrollo += ' x 0.66'			
+		end if
+
+	CASE '10'
+		SELECT coef INTO :Coef  FROM hon_tablas WHERE desde < :Sup AND hasta >= :Sup AND tarifa = :Tarifa and contenido = :Contenido ;				
+		Formula = 'S x K x C x CA'
+		Honorarios = Sup * Coef * Tipo_Terr * Ca
+		if Contenido = 'MEE' then
+			Formula = 'S x K x CA'
+			Honorarios = (Sup * Coef * Ca) + (Sup * Coef * Ca * Plantas_Dif * 0.5) + (Sup * Coef * Ca * Plantas_Ide * 0.1)
+			if Alz_Sec_Det = 2 then Honorarios = Honorarios * 2
+		end if
+		if Honorarios < Minimo Then
+			Honorarios = Minimo
+			AplicadoMinimo = "S"
+			Desarrollo = string(Minimo_Aux) + ' x ' + string(Ca) + ' (m$$HEX1$$ed00$$ENDHEX$$nimo)'
+		else
+			Desarrollo = string(Sup) + ' x ' + string(Coef) + ' x ' + string(Tipo_Terr) + ' x ' + string(Ca)
+			if Contenido = 'MEE' then
+				Desarrollo = string(Sup) + ' x ' + string(Coef) + ' x ' + string(Ca)
+				Desarrollo += ' + ' + string(Sup) + ' x ' + string(Coef) + ' x ' + string(Ca) + ' x ' + string(Plantas_Dif) + ' x 0,5'
+				Desarrollo += ' + ' + string(Sup) + ' x ' + string(Coef) + ' x ' + string(Ca) + ' x ' + string(Plantas_Ide) + ' x 0,1'
+				if Alz_Sec_Det = 2 then Desarrollo += ' x 2'
+			end if
+		end if
+
+	CASE '11'
+		double Cp, Np
+		SELECT coef INTO :Np  FROM hon_tablas WHERE desde < :Parcelas AND hasta >= :Parcelas AND tarifa = :Tarifa and contenido = 'NP' ;
+		Cp = round(0.035 * (Sup / 10000) * Np,2)
+		SELECT coef INTO :Coef  FROM hon_tablas WHERE desde < :Sup AND hasta >= :Sup AND tarifa = :Tarifa and contenido = 'CS' ;
+		Honorarios = 285 * Coef * Cp * Ca * Coef_Aux
+		if Honorarios < Minimo Then
+			Honorarios = Minimo
+			AplicadoMinimo = "S"
+			Desarrollo = string(Minimo_Aux) + ' x ' + string(Ca) + ' (m$$HEX1$$ed00$$ENDHEX$$nimo)'
+		else
+			Desarrollo = '285 x ' + string(Coef) + ' x ' + string(Cp) + ' x ' + string(Ca)
+			if Coef_Aux <> 1 then Desarrollo += ' x ' + string(Coef_Aux)
+		end if
+
+	CASE '12'
+		Honorarios = 200 * Ca
+		Formula = '200 x CA'
+		AplicadoMinimo = "S"
+		Desarrollo = '200 x ' + string(Ca) + ' (m$$HEX1$$ed00$$ENDHEX$$nimo)'
+
+	CASE '13'
+		Honorarios = Minimo
+		Formula = string(Minimo_aux) + ' x CA'
+		AplicadoMinimo = "S"
+		Desarrollo = string(Minimo_aux) + ' x ' + string(Ca) + ' (m$$HEX1$$ed00$$ENDHEX$$nimo)'
+		
+	CASE '14'
+		choose case Contenido
+			case 'PER'
+				Honorarios = Minimo
+				Formula = string(Minimo_aux) + ' x CA'
+				AplicadoMinimo = "S"
+				Desarrollo = string(Minimo_aux) + ' x ' + string(Ca) + ' (m$$HEX1$$ed00$$ENDHEX$$nimo)'			
+			case 'ARB'
+				BaseCuadro = (Cantidad / Ca)
+				if (BaseCuadro = 0) or (Isnull(BaseCuadro) )  then BaseCuadro = 1
+				SELECT coef INTO :Coef FROM hon_tablas WHERE desde < :BaseCuadro AND hasta >= :BaseCuadro AND tarifa = :Tarifa;
+				
+				Honorarios = 510 * Ca + Coef * Cantidad
+				Formula = '510 x CA + C x V'
+				if Honorarios < Minimo Then
+					Honorarios = Minimo
+					AplicadoMinimo = "S"
+					Desarrollo = string(Minimo_Aux) + ' x ' + string(Ca) + ' (m$$HEX1$$ed00$$ENDHEX$$nimo)'
+				else
+					Desarrollo = '510 x ' + string(Ca) + ' + ' + string(Coef) + ' x ' + string(Cantidad)
+				end if		
+		end choose
+
+	CASE '15'
+		Honorarios = Coef_aux * Cantidad
+		Formula = string(Coef_aux) + ' x C'
+		if Honorarios < Minimo Then
+			Honorarios = Minimo
+			AplicadoMinimo = "S"
+			Desarrollo = string(Minimo_Aux) + ' x ' + string(Ca) + ' (m$$HEX1$$ed00$$ENDHEX$$nimo)'
+		else
+			Desarrollo = string(Coef_aux) + ' x ' + string(Cantidad)
+		end if
+
+	CASE '16'
+		SELECT coef INTO :Coef FROM hon_tablas WHERE desde < :BaseCuadro AND hasta >= :BaseCuadro AND tarifa = :Tarifa;
+		Honorarios = Pres * Coef / 100 * Coef_Aux
+		if Honorarios < Minimo Then
+			Honorarios = Minimo
+			AplicadoMinimo = "S"
+			Desarrollo = string(Minimo_Aux) + ' x ' + string(Ca) + ' (m$$HEX1$$ed00$$ENDHEX$$nimo)'			
+		else
+			Desarrollo = string(Pres) + ' x ' + string(Coef) + ' / 100'
+			if Coef_Aux <> 1 then Desarrollo += ' x ' + string(Coef_Aux)									
+		end if
+		
+	CASE '17'
+		BaseCuadro = (Valor_Tas / Ca)
+		if (BaseCuadro = 0) or (Isnull(BaseCuadro) )  then BaseCuadro = 1
+		SELECT coef INTO :Coef FROM hon_tablas WHERE desde < :BaseCuadro AND hasta >= :BaseCuadro AND tarifa = :Tarifa and contenido = :Contenido ;
+		Honorarios = Valor_Tas * Coef / 100
+		if Honorarios < Minimo Then
+			Honorarios = Minimo
+			AplicadoMinimo = "S"
+			Desarrollo = string(Minimo_Aux) + ' x ' + string(Ca) + ' (m$$HEX1$$ed00$$ENDHEX$$nimo)'
+		else
+			Desarrollo = string(Valor_Tas) + ' x ' + string(Coef) + ' / 100'
+		end if
+
+	CASE '19'
+		SELECT coef INTO :Coef  FROM hon_tablas WHERE desde < :Sup AND hasta >= :Sup AND tarifa = :Tarifa ;
+		Honorarios = Sup * Coef * Ca
+		if Honorarios < Minimo Then
+			Honorarios = Minimo
+			AplicadoMinimo = "S"
+			Desarrollo = string(Minimo_Aux) + ' x ' + string(Ca) + ' (m$$HEX1$$ed00$$ENDHEX$$nimo)'
+		else
+			Desarrollo = string(Sup) + ' x ' + string(Coef) + ' x ' + string(Ca)
+		end if
+
+	CASE '20'
+		double dp=1
+		if Desc_Prec = 'N' then dp = 0.4
+		choose case Contenido
+			case 'EDF'
+				SELECT coef INTO :Coef  FROM hon_tablas WHERE desde < :Sup AND hasta >= :Sup AND tarifa = :Tarifa and contenido = :Contenido ;
+				Formula = 'H = f(S)'				
+				Honorarios = Sup * Coef * Ca * dp
+			case 'URB'
+				SELECT coef INTO :Coef FROM hon_tablas WHERE desde < :BaseCuadro AND hasta >= :BaseCuadro AND tarifa = :Tarifa and contenido = :Contenido ;
+				Formula = 'H = P x Cu / 100'				
+				Honorarios = Pres * Coef / 100 * dp
+		end choose
+		if Honorarios < Minimo Then
+			Honorarios = Minimo
+			AplicadoMinimo = "S"
+			Desarrollo = string(Minimo_Aux) + ' x ' + string(Ca) + ' (m$$HEX1$$ed00$$ENDHEX$$nimo)'
+		else
+			if Contenido  = 'EDF' then
+				Desarrollo = string(Sup) + ' x ' + string(Coef) + ' x ' + string(Ca)
+			else
+				Desarrollo = string(Pres) + ' x ' + string(Coef) + ' / 100'
+			end if
+			if dp <> 1 then Desarrollo += ' x 0.4'
+		end if		
+
+	CASE '21'
+		Honorarios = 4 * Num_Ofertas * Num_Partidas * Ca
+		if Honorarios < Minimo Then
+			Honorarios = Minimo
+			AplicadoMinimo = "S"
+			Desarrollo = string(Minimo_Aux) + ' x ' + string(Ca) + ' (m$$HEX1$$ed00$$ENDHEX$$nimo)'
+		else
+			Desarrollo = '4 x ' + string(Num_Ofertas) + ' x ' + string(Num_Partidas) + ' x ' + string(Ca)
+		end if
+
+	CASE '22'
+		Honorarios = 5 * Num_Partidas * Ca
+		if Desc_Prec = 'N' then Honorarios = Honorarios * 0.4				
+		if Honorarios < Minimo Then
+			Honorarios = Minimo
+			AplicadoMinimo = "S"
+			Desarrollo = string(Minimo_Aux) + ' x ' + string(Ca) + ' (m$$HEX1$$ed00$$ENDHEX$$nimo)'
+		else
+			Desarrollo = '5 x ' + string(Num_Partidas) + ' x ' + string(Ca)
+			if Desc_Prec = 'N' then Desarrollo += ' x 0.4'			
+		end if
+
+	CASE '25'
+		Honorarios = (Horas * 33 + Horas_Extra * 49) * Ca
+		if Honorarios < Minimo Then
+			Honorarios = Minimo
+			AplicadoMinimo = "S"
+			Desarrollo = string(Minimo_Aux) + ' x ' + string(Ca) + ' (m$$HEX1$$ed00$$ENDHEX$$nimo)'
+		else
+			Desarrollo = '(' + string(Horas) + ' x 33 + ' + string(Horas_Extra) + ' x 49) x ' + string(Ca)
+		end if			
+
+	CASE '26'
+		Honorarios = (0.41 * Distancia + 94 * (Jornadas + Noches)) * Ca
+		Desarrollo = '(0,41 x ' + string(Distancia) + ' + 94 (' + string(Jornadas) + ' + ' + string(Noches) + ')) x ' + string(Ca)
+
+	CASE '27'
+		SELECT coef INTO :Coef  FROM hon_tablas WHERE desde < :Radio AND hasta >= :Radio AND tarifa = :Tarifa and contenido = 'R' ;
+		SELECT coef INTO :Coef2  FROM hon_tablas WHERE desde < :Altura AND hasta >= :Altura AND tarifa = :Tarifa and contenido = 'H' ;
+		Honorarios = 800 * Coef * Coef2 * Ca * Coef_aux
+		if Honorarios < Minimo Then
+			Honorarios = Minimo
+			AplicadoMinimo = "S"
+			Desarrollo = string(Minimo_Aux) + ' x ' + string(Ca) + ' (m$$HEX1$$ed00$$ENDHEX$$nimo)'
+		else
+			Desarrollo = '800 x ' + string(Coef) + ' x ' + string(Coef2) + ' x ' + string(Ca)
+			if Coef_Aux <> 1 then Desarrollo += ' x ' + string(Coef_Aux)			
+		end if			
+
+	CASE '28'
+		SELECT coef INTO :Coef  FROM hon_tablas WHERE desde < :Sup AND hasta >= :Sup AND tarifa = :Tarifa ;
+		Honorarios = Coef * Ca
+		if Honorarios < Minimo Then
+			Honorarios = Minimo
+			AplicadoMinimo = "S"
+			Desarrollo = string(Minimo_Aux) + ' x ' + string(Ca) + ' (m$$HEX1$$ed00$$ENDHEX$$nimo)'
+		else
+			Desarrollo = string(Coef) + ' x ' + string(Ca)
+		end if			
+		
+	CASE '29', '30'
+		SELECT coef INTO :Coef  FROM hon_tablas WHERE desde < :Sup AND hasta >= :Sup AND tarifa = :Tarifa ;
+		Honorarios = Sup * Coef * Ca
+		if Honorarios < Minimo Then
+			Honorarios = Minimo
+			AplicadoMinimo = "S"
+			Desarrollo = string(Minimo_Aux) + ' x ' + string(Ca) + ' (m$$HEX1$$ed00$$ENDHEX$$nimo)'			
+		else
+			Desarrollo = string(Sup) + ' x ' + string(Coef) + ' x ' + string(Ca)
+		end if
+
+	CASE '31'
+		SELECT coef INTO :Coef FROM hon_tablas WHERE desde < :BaseCuadro AND hasta >= :BaseCuadro AND tarifa = :Tarifa and contenido = :Contenido ;
+		Honorarios = Coef * Pres / 100
+		if Honorarios < Minimo Then
+			Honorarios = Minimo
+			AplicadoMinimo = "S"
+			Desarrollo = string(Minimo_Aux) + ' x ' + string(Ca) + ' (m$$HEX1$$ed00$$ENDHEX$$nimo)'
+		else
+			Desarrollo = string(Coef) + ' x ' + string(Pres) + ' / 100'
+		end if		
+
+	CASE '32'
+		SELECT coef INTO :Coef FROM hon_tablas WHERE desde < :Horas AND hasta >= :Horas AND tarifa = :Tarifa ;
+		Honorarios = Horas * Coef * Ca
+		Desarrollo = string(Horas) + ' x ' + string(Coef) + ' x ' + string(Ca)
+
+	CASE '33'
+		SELECT coef INTO :Coef  FROM hon_tablas WHERE desde < :Edad AND hasta >= :Edad AND tarifa = :Tarifa and contenido = 'A' ;
+		SELECT coef INTO :Coef2  FROM hon_tablas WHERE desde < :Volumen AND hasta >= :Volumen AND tarifa = :Tarifa and contenido = 'V' ;
+		SELECT coef INTO :Coef3  FROM hon_tablas WHERE desde < :Altura AND hasta >= :Altura AND tarifa = :Tarifa and contenido = 'H' ;		
+		Honorarios = 240 * Coef * Coef3 * Coef2 * Estructura * Ca
+		if Honorarios < Minimo Then
+			Honorarios = Minimo
+			AplicadoMinimo = "S"
+			Desarrollo = string(Minimo_Aux) + ' x ' + string(Ca) + ' (m$$HEX1$$ed00$$ENDHEX$$nimo)'
+		else
+			Desarrollo = '240 x ' + string(Coef) + ' x ' + string(Coef3) + ' x ' + string(Coef2) + ' x ' + string(Estructura) + ' x ' + string(Ca)
+		end if
+
+	CASE '34'
+		Honorarios = 245 * Tipo_Inst * Ca
+		Desarrollo = '245 x ' + string(Tipo_Inst) + ' x ' + string(Ca)
+
+	CASE '35'
+		SELECT coef INTO :Coef  FROM hon_tablas WHERE desde < :Sup AND hasta >= :Sup AND tarifa = :Tarifa ;
+		Honorarios = Coef * Ca * Coef_Aux
+		if Honorarios < Minimo Then
+			Honorarios = Minimo
+			AplicadoMinimo = "S"
+			Desarrollo = string(Minimo_Aux) + ' x ' + string(Ca) + ' (m$$HEX1$$ed00$$ENDHEX$$nimo)'
+		else
+			Desarrollo = string(Coef) + ' x ' + string(Ca)
+			if Coef_Aux <> 1 then Desarrollo += ' x ' + string(Coef_Aux)			
+		end if			
+
+END CHOOSE
+
+// Si es un Ayuntamiento se minoran los honorarios en un 20% 
+if ayto = 'S' then Honorarios = Honorarios * 0.8
+
+st_hon.formula = Formula
+st_hon.importe = f_redondea(Honorarios)
+st_hon.desarrollo = Desarrollo
+
+return 1
+
+end function
+

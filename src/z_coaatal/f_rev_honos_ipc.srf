@@ -1,0 +1,22 @@
+HA$PBExportHeader$f_rev_honos_ipc.srf
+global type f_rev_honos_ipc from function_object
+end type
+
+forward prototypes
+global function double f_rev_honos_ipc (string ejer)
+end prototypes
+
+global function double f_rev_honos_ipc (string ejer);//Devuelve el IPC para el ejercicio que se le pasa por parametro.
+double ipc
+
+
+SELECT ipc
+INTO :ipc
+FROM coef_ipc
+WHERE ejercicio = :ejer;
+
+if isNull(ipc) then ipc = 0
+
+return ipc
+end function
+

@@ -1,0 +1,32 @@
+HA$PBExportHeader$f_obtener_datos_premaat_fact_emi.srf
+global type f_obtener_datos_premaat_fact_emi from function_object
+end type
+
+forward prototypes
+global subroutine f_obtener_datos_premaat_fact_emi (ref double adb_ips, ref double adb_ccs, string as_cod_articulo, string as_empresa, string as_id_colegiado)
+end prototypes
+
+global subroutine f_obtener_datos_premaat_fact_emi (ref double adb_ips, ref double adb_ccs, string as_cod_articulo, string as_empresa, string as_id_colegiado);
+adb_ips = 0
+adb_ccs = 0
+
+if f_familia_articulo(as_cod_articulo, as_empresa) = '02' then
+
+	select ips, ccs into :adb_ips, :adb_ccs
+	from conceptos_domiciliables 
+	where concepto =:as_cod_articulo
+	and empresa =:as_empresa
+	and id_colegiado = :as_id_colegiado;
+	
+end if
+
+if f_es_vacio(string(adb_ips)) then
+	adb_ips = 0
+end if
+
+if f_es_vacio(string(adb_ccs)) then
+	adb_ccs = 0
+end if
+
+end subroutine
+

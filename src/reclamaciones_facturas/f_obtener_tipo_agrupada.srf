@@ -1,0 +1,15 @@
+HA$PBExportHeader$f_obtener_tipo_agrupada.srf
+global type f_obtener_tipo_agrupada from function_object
+end type
+
+forward prototypes
+global function string f_obtener_tipo_agrupada (string tipo_persona,string remesada,string aplica)
+end prototypes
+
+global function string f_obtener_tipo_agrupada (string tipo_persona,string remesada,string aplica);string tipo_reclamacion
+
+select tipo_reclamacion into :tipo_reclamacion from csi_fact_reclamaciones_tipos where tipo_persona = :tipo_persona and remesada = :remesada and (aplica = :aplica or aplica = 'A') and agrupar='S';
+
+return tipo_reclamacion
+end function
+

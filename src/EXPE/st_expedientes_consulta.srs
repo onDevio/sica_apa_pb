@@ -1,0 +1,6 @@
+HA$PBExportHeader$st_expedientes_consulta.srs
+global type st_expedientes_consulta from structure
+	string		id_expediente
+	string		n_expediente
+end type
+

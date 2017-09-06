@@ -1,0 +1,34 @@
+HA$PBExportHeader$f_caja_tipo_carta_imprimir.srf
+global type f_caja_tipo_carta_imprimir from function_object
+end type
+
+forward prototypes
+global function string f_caja_tipo_carta_imprimir (string tipo_registro, string fase, string tipo_carta_imprimir, boolean b_priorizar)
+end prototypes
+
+global function string f_caja_tipo_carta_imprimir (string tipo_registro, string fase, string tipo_carta_imprimir, boolean b_priorizar);// FUNCION QUE SE UTILIZAR$$HEX2$$c1002000$$ENDHEX$$PARA SABER EL TIPO DE CARTA QUE SE DEBE IMPRIMIR EN TENERIFE
+string tipo_carta_imprimir_fase
+
+// Solo tenemos en cuenta estas cosas con tipos de registro de intervencion profesional
+if tipo_registro = g_fases_inicio.tipo_registro or tipo_registro = 'MO' then
+	SELECT explicacion into :tipo_carta_imprimir_fase from t_fases where c_t_fase = :fase;
+end if
+
+if not f_es_vacio(tipo_carta_imprimir_fase) then
+	if b_priorizar then
+		if long(MidA(tipo_carta_imprimir, 1, PosA(tipo_carta_imprimir,"#") - 1 ))<long(MidA(tipo_carta_imprimir_fase, 1, PosA(tipo_carta_imprimir_fase,"#") - 1)) then
+			// Si la prioridad de la que llegaba es menor que la actual, ponemos la actual
+			tipo_carta_imprimir = tipo_carta_imprimir_fase
+		end if
+	else
+		// Devolvemos directamente sin priorizar
+		tipo_carta_imprimir = tipo_carta_imprimir_fase
+	end if
+else
+	if not b_priorizar then tipo_carta_imprimir = "-1#NOIMPRIMIR"
+end if
+
+
+return tipo_carta_imprimir
+end function
+

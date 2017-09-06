@@ -1,0 +1,35 @@
+HA$PBExportHeader$f_email_importar_direcciones.srf
+global type f_email_importar_direcciones from function_object
+end type
+
+forward prototypes
+global subroutine f_email_importar_direcciones (ref u_dw dw_direcciones)
+end prototypes
+
+global subroutine f_email_importar_direcciones (ref u_dw dw_direcciones);string linea,linea_anterior,resta_linea,nombre,direccion
+long fichero,posic_pyc,fila
+
+// Abrimos el fichero
+fichero=FileOpen(g_dir_aplicacion+'\libreta_direcciones.txt',linemode!,Read!)
+
+// Ignoramos la linea de cabecera
+FileRead(fichero,linea)
+linea_anterior=linea
+
+// Por cada linea leemos los dos primeros campos Nombre y Direccion
+FileRead(fichero,linea)
+do while linea_anterior<>linea
+	resta_linea=linea
+	fila=dw_direcciones.insertrow(0)
+	posic_pyc=PosA(resta_linea,';')
+	dw_direcciones.SetItem(fila,'nombre',MidA(linea,1,posic_pyc - 1))
+	resta_linea=MidA(resta_linea,posic_pyc + 1)
+	posic_pyc=PosA(resta_linea,';')
+	dw_direcciones.SetItem(fila,'direccion',MidA(resta_linea,1,posic_pyc - 1))
+	linea_anterior=linea
+	FileRead(fichero,linea)
+loop
+
+FileClose(fichero)
+end subroutine
+

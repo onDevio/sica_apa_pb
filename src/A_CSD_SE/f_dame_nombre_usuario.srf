@@ -1,0 +1,19 @@
+HA$PBExportHeader$f_dame_nombre_usuario.srf
+global type f_dame_nombre_usuario from function_object
+end type
+
+forward prototypes
+global function string f_dame_nombre_usuario (string id_usuario)
+end prototypes
+
+global function string f_dame_nombre_usuario (string id_usuario);string nombre
+  
+  SELECT t_usuario.nombre_usuario  
+    INTO :nombre
+    FROM t_usuario  
+   WHERE t_usuario.cod_usuario = :id_usuario   ;
+
+
+return nombre
+end function
+

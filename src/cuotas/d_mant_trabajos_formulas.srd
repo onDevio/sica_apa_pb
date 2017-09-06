@@ -1,0 +1,23 @@
+HA$PBExportHeader$d_mant_trabajos_formulas.srd
+$PBExportComments$objetos b$$HEX1$$e100$$ENDHEX$$sicos
+release 7;
+datawindow(units=0 timer_interval=0 color=80269524 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=72 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=4 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=char(10) update=yes updatewhereclause=yes key=yes name=id_trabajos_formulas dbname="trabajos_formulas.id_trabajos_formulas" )
+ column=(type=char(3) update=yes updatewhereclause=yes name=tipo_trabajo dbname="trabajos_formulas.tipo_trabajo" )
+ column=(type=char(3) update=yes updatewhereclause=yes name=trabajo dbname="trabajos_formulas.trabajo" )
+ column=(type=char(3) update=yes updatewhereclause=yes name=fase dbname="trabajos_formulas.fase" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=formula dbname="trabajos_formulas.formula" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=colegio dbname="trabajos_formulas.colegio" )
+ retrieve="PBSELECT( VERSION(400) TABLE(NAME=~"trabajos_formulas~" ) COLUMN(NAME=~"trabajos_formulas.id_trabajos_formulas~") COLUMN(NAME=~"trabajos_formulas.tipo_trabajo~") COLUMN(NAME=~"trabajos_formulas.trabajo~") COLUMN(NAME=~"trabajos_formulas.fase~") COLUMN(NAME=~"trabajos_formulas.formula~") COLUMN(NAME=~"trabajos_formulas.colegio~")) " update="trabajos_formulas" updatewhere=0 updatekeyinplace=no filter="colegio = f_colegio() or colegio = '' or isNull(colegio)" )
+text(band=header alignment="2" text="Tipo Trabajo" border="4" color="0" x="18" y="4" height="52" width="887"  name=tipo_trabajo_t  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Trabajo" border="4" color="0" x="928" y="4" height="52" width="887"  name=trabajo_t  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="F$$HEX1$$f300$$ENDHEX$$rmula" border="4" color="0" x="1838" y="4" height="52" width="1637"  name=formula_t  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=20 border="0" color="0" x="18" y="8" height="56" width="887" format="[general]"  name=tipo_trabajo  tag=" " dddw.name=d_dddw_tipos_trabajos dddw.displaycolumn=descripcion dddw.datacolumn=codigo dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+column(band=detail id=3 alignment="0" tabsequence=30 border="0" color="0" x="928" y="8" height="56" width="887" format="[general]"  name=trabajo  tag=" " dddw.name=d_dddw_trabajos dddw.displaycolumn=descripcion dddw.datacolumn=codigo dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+column(band=detail id=5 alignment="0" tabsequence=50 border="0" color="0" x="1838" y="8" height="60" width="1637" format="[general]"  name=formula  tag=" " dddw.name=d_dddw_formulas dddw.displaycolumn=descripcion dddw.datacolumn=id_formula dddw.percentwidth=150 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any dddw.vscrollbar=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

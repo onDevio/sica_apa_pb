@@ -1,0 +1,8 @@
+
+// Para todos. Se updatean campos que debieron haberse actualizado antes
+update csi_facturas_emitidas set imprime_cta_banco_col = 'N' where imprime_cta_banco_col = '' or imprime_cta_banco_col = null;
+update csi_facturas_emitidas set paga_empresa='N' where paga_empresa = '' or paga_empresa = null;
+update csi_facturas_emitidas set paga_externo='N' where paga_externo = '' or paga_externo = null;
+
+//Se actualiza la fecha de versión
+update var_globales set texto='20110518', descripcion = 'versión v5.3.02a' where nombre='g_version_minima';

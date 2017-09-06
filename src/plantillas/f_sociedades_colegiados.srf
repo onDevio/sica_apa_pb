@@ -1,0 +1,40 @@
+HA$PBExportHeader$f_sociedades_colegiados.srf
+$PBExportComments$Devuelve en una cadena separada por comas los colegiados que pertenecen a una sociedad dada
+global type f_sociedades_colegiados from function_object
+end type
+
+forward prototypes
+global function string f_sociedades_colegiados (string id_soc)
+end prototypes
+
+global function string f_sociedades_colegiados (string id_soc);//Devuelve en una cadena separada por comas los colegiados que pertenecen a la sociedad 
+int i
+string retorno='',id_col,porcent
+
+
+datastore ds_sociedades
+
+ds_sociedades = create datastore
+// Modificado David 28/02/2006 - Obtenemos el porcentaje real, quitando los posibles asociados no colegiados
+ds_sociedades.dataobject ='ds_colegiados_personas' //'d_colegiados_personas'
+ds_sociedades.SetTransObject(SQLCA)
+
+ds_sociedades.Retrieve(id_soc)
+
+for i = 1 to ds_sociedades.rowcount()
+	id_col = ds_sociedades.GetItemString(i,'id_col_per')
+	porcent = string(ds_sociedades.GetItemNumber(i,'porc_col_real')) //'porcent'))
+	select n_colegiado into :id_col from colegiados where id_colegiado = :id_col;
+	if f_es_vacio(id_soc) then continue
+	if f_es_vacio(retorno) then
+		retorno = id_col+' ('+porcent+')'
+	else
+		retorno = retorno+','+id_col+' ('+porcent+')'
+	end if
+next
+
+destroy ds_sociedades
+
+return retorno
+end function
+

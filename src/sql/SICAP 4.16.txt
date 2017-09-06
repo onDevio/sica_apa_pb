@@ -1,0 +1,71 @@
+// V. 4.1.6
+
+// COAATTGN
+INSERT INTO t_control_eventos  ( control,   evento,   activo,   param1,   param2,   id_control,   param3   )  
+VALUES ( 'VISIBLE_OBJETO',   'ABRIR_FASE',   'S',   'celda',   '1',   'TGNENCARG1',   null )  ;
+INSERT INTO t_control_eventos  ( control,   evento,   activo,   param1,   param2,   id_control,   param3   )  
+VALUES ( 'VISIBLE_OBJETO',   'ABRIR_FASE',   'S',   'celda_t',   '1',   'TGNENCARG2',   null )  ;
+INSERT INTO t_control_eventos  ( control,   evento,   activo,   param1,   param2,   id_control,   param3   )  
+VALUES ( 'POSICION',   'ABRIR_FASE',   'S',   'celda_t',   '1211',   'TGNENCARG3',   '472' )  ;
+INSERT INTO t_control_eventos  ( control,   evento,   activo,   param1,   param2,   id_control,   param3   )  
+VALUES ( 'POSICION',   'ABRIR_FASE',   'S',   'celda',   '1518',   'TGNENCARG4',   '472' )  ;
+INSERT INTO messages_ca (tag,traduccion,modulo,nombre) VALUES ('fases.celda','Nº Full Enc.','fases','celda');
+
+INSERT INTO messages_ca (tag,traduccion,modulo,nombre) VALUES ('general.mes_abril','ABRIL','general','abril');
+INSERT INTO messages_ca (tag,traduccion,modulo,nombre) VALUES ('general.mes_agosto','AGOST','general',	'agosto');
+INSERT INTO messages_ca (tag,traduccion,modulo,nombre) VALUES ('general.mes_diciembre','DECEMBRE','general','diciembre');
+INSERT INTO messages_ca (tag,traduccion,modulo,nombre) VALUES ('general.mes_enero','GENER','general','enero');
+INSERT INTO messages_ca (tag,traduccion,modulo,nombre) VALUES ('general.mes_febrero','FEBRER','general','febrero');
+INSERT INTO messages_ca (tag,traduccion,modulo,nombre) VALUES ('general.mes_julio','JULIOL','general','julio');
+INSERT INTO messages_ca (tag,traduccion,modulo,nombre) VALUES ('general.mes_junio','JUNY','general','junio');
+INSERT INTO messages_ca (tag,traduccion,modulo,nombre) VALUES ('general.mes_marzo','MARÇ','general','marzo');
+INSERT INTO messages_ca (tag,traduccion,modulo,nombre) VALUES ('general.mes_mayo','MAIG','general','mayo');
+INSERT INTO messages_ca (tag,traduccion,modulo,nombre) VALUES ('general.mes_noviembre','NOVEMBRE','general','noviembre');
+INSERT INTO messages_ca (tag,traduccion,modulo,nombre) VALUES ('general.mes_octubre','OCTUBRE','general','octUbre');
+INSERT INTO messages_ca (tag,traduccion,modulo,nombre) VALUES ('general.mes_septiembre','SETEMBRE','general','septiembre');
+insert into messages_ca (tag,traduccion,modulo,nombre) values ('reg_es.f_salida','Data Sortida','reg_es','f_salida');
+insert into messages_ca (tag,traduccion,modulo,nombre) values ('reg_es.salida','Sortida','reg_es','salida');
+
+create table dbo.etiquetas_visado (id_etiqueta char(10) not null, id_expedi char(10) not null, hoja_encargo char(2) null, id_fase char(10) null, tipo_etiqueta char(10) null, num_etiquetas int null);
+alter table dbo.etiquetas_visado add constraint pk_et primary key nonclustered (id_etiqueta) ;
+
+INSERT INTO t_control_eventos  ( control,   evento,   activo,   param1,   param2,   id_control  )  
+VALUES ( 'VISIBLE_OBJETO',   'ABRIR_FASE',   'S',   'r_catastral',   '1',   'TGNCATAS1')  ;
+INSERT INTO t_control_eventos  ( control,   evento,   activo,   param1,   param2,   id_control  )  
+VALUES ( 'VISIBLE_OBJETO',   'ABRIR_FASE',   'S',   'r_catastral_t',   '1',   'TGNCATAS2')  ;
+INSERT INTO messages_ca (tag,traduccion,modulo,nombre) VALUES ('fases.f_cfo','D. C.F.O.','fases','f_cfo');
+INSERT INTO messages_ca (tag,traduccion,modulo,nombre) VALUES ('fases.r_catastral','Catastre','fases','r_catastral');
+INSERT INTO t_control_eventos  ( control,   evento,   activo,   param1,   param2,   id_control,   param3   )  
+VALUES ( 'VISIBLE_OBJETO',   'ABRIR_FASE',   'S',   'celda_exp',   '1',   'TGNENCARG5',   null )  ;
+INSERT INTO t_control_eventos  ( control,   evento,   activo,   param1,   param2,   id_control,   param3   )  
+VALUES ( 'VISIBLE_OBJETO',   'ABRIR_FASE',   'S',   'celda_exp_t',   '1',   'TGNENCARG6',   null )  ;
+
+INSERT INTO expedientes_estado  ( cod_estado,   descripcion,   p_importar,   p_visar,   p_desvisar,   p_facturar,   permitir_cambios )  
+VALUES ( '61',   'Baixa Administrativa',   'N',   'N',   'N',   'N',   'N' )  ;
+INSERT INTO expedientes_estado  ( cod_estado,   descripcion,   p_importar,   p_visar,   p_desvisar,   p_facturar,   permitir_cambios )  
+VALUES ( '62',   'Baixa CFO',   'N',   'N',   'N',   'N',   'N' )  ;
+INSERT INTO expedientes_estado  ( cod_estado,   descripcion,   p_importar,   p_visar,   p_desvisar,   p_facturar,   permitir_cambios )  
+VALUES ( '63',   'Baixa Ofici',   'N',   'N',   'N',   'N',   'N' )  ;
+INSERT INTO expedientes_estado  ( cod_estado,   descripcion,   p_importar,   p_visar,   p_desvisar,   p_facturar,   permitir_cambios )  
+VALUES ( '64',   'Baixa Renúncia',   'N',   'N',   'N',   'N',   'N' )  ;
+INSERT INTO expedientes_estado  ( cod_estado,   descripcion,   p_importar,   p_visar,   p_desvisar,   p_facturar,   permitir_cambios )  
+VALUES ( '65',   'Baixa Altres',   'N',   'N',   'N',   'N',   'N' )  ;
+
+INSERT INTO listados  ( descripcion,   dw,   ventana,   orden,   activo )  
+VALUES ( 'Etiquetas',   'd_colegiados_listado_etiquetas_tg',   'w_colegiados_listados',   '00',   'S' )  ;
+INSERT INTO listados  ( descripcion,   dw,   ventana,   orden,   activo )  
+VALUES ( 'Etiquetas',   'd_clientes_listado_etiquetas_tg',   'w_clientes_listados',   '00',   'S' )  ;
+// FIN COAATTGN
+
+// TODOS
+alter table libros add isbn_13 char (30) null, sig char(50) null, num_paginas int null, encuadernacion char (50) null ; 
+
+alter table bt_demandas add curriculum char(255) null ;
+
+alter table registro add salida char(1) null;
+alter table registro add f_salida datetime null;
+update registro set salida='N';
+
+// Variable que indica si el apunte de cobros multiples es uno
+INSERT INTO var_globales (nombre, texto, descripcion, modificable )  
+VALUES ('g_asiento_cobro_multiple','N', 'Indica si se usa un solo apunte para cobros multiples como navarra', 'N' ) ;

@@ -1,0 +1,18 @@
+HA$PBExportHeader$f_visared_tipo_via.srf
+global type f_visared_tipo_via from function_object
+end type
+
+forward prototypes
+global function string f_visared_tipo_via (string codigo)
+end prototypes
+
+global function string f_visared_tipo_via (string codigo);string retorno
+
+select descripcion into :retorno from tipos_via where cod_tipo_via = :codigo;
+
+if f_es_vacio(retorno) then retorno = ''
+
+return retorno
+
+end function
+

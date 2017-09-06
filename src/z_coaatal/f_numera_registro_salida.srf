@@ -1,0 +1,22 @@
+HA$PBExportHeader$f_numera_registro_salida.srf
+global type f_numera_registro_salida from function_object
+end type
+
+forward prototypes
+global function string f_numera_registro_salida ()
+end prototypes
+
+global function string f_numera_registro_salida ();// Funci$$HEX1$$d300$$ENDHEX$$n que devuelve el n$$HEX1$$fa00$$ENDHEX$$mero de registro de salida para los certificados
+//		b_persistente -> Indica si el cambio se tiene que hacer en base de datos o no, vamos en definitiva, 
+// 						si el numero corre o solo se informa
+
+string reg_sal
+
+reg_sal = f_siguiente_numero('CERTIF_REG_SAL', 10)
+
+reg_sal = string(year(today()))+'/'+RightA(reg_sal, 5)
+
+return reg_sal
+
+end function
+

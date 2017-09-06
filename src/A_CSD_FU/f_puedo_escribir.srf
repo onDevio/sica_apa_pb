@@ -1,0 +1,36 @@
+HA$PBExportHeader$f_puedo_escribir.srf
+global type f_puedo_escribir from function_object
+end type
+
+forward prototypes
+global function integer f_puedo_escribir (string usuario, string aplicacion)
+end prototypes
+
+global function integer f_puedo_escribir (string usuario, string aplicacion);char permiso=''
+long cuantos=0
+string mensaje
+
+//select count(*) into :cuantos from t_permisos where cod_usuario = :usuario and cod_aplicacion = 'E';
+if f_es_superusuario()='E' then 	return 1
+
+select permiso into :permiso from t_permisos where 
+	cod_usuario=:usuario and cod_aplicacion=:aplicacion and permiso='E';
+
+if f_es_vacio(permiso) then 
+		select count(*) into :cuantos from t_usuario_grupos,t_grupo_permisos where  t_usuario_grupos.cod_usuario=:usuario and 
+	 t_usuario_grupos.cod_grupo=t_grupo_permisos.cod_grupo and t_grupo_permisos.cod_aplicacion=:aplicacion and t_grupo_permisos.permiso='E';
+	if cuantos>0 then
+		return 1
+	else
+		mensaje = 'No tiene permiso de Escritura'
+		if g_usar_idioma = "S" then
+			mensaje = g_idioma.of_getmsg( "seguridad.fallo_escritura",mensaje)
+		end if
+		Messagebox(g_titulo,mensaje)
+		return -1
+	end if
+else 
+	return 1
+end if
+end function
+

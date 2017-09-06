@@ -1,0 +1,1033 @@
+HA$PBExportHeader$f_generar_ini_desde_fdf_1607.srf
+global type f_generar_ini_desde_fdf_1607 from function_object
+end type
+
+forward prototypes
+global function integer f_generar_ini_desde_fdf (string archivo_fdf)
+global function string f_generar_ini_desde_fdf_1607 (string archivo_fdf, integer contrato, string documento, ref string ruta_archivo_zip, string email)
+end prototypes
+
+global function integer f_generar_ini_desde_fdf (string archivo_fdf);//Esta funcion crea un archivo ini  a partir de un fdf que se le pasa como string resultado de haber aplicado la funcion
+//f_obtener_linea_fdf sobre el archivo fdf en s$$HEX1$$ed00$$ENDHEX$$
+string cadena_fdf
+
+cadena_fdf = f_obtener_linea_fdf(archivo_fdf)
+
+
+return 1
+end function
+
+global function string f_generar_ini_desde_fdf_1607 (string archivo_fdf, integer contrato, string documento, ref string ruta_archivo_zip, string email);//Esta funcion crea un archivo ini  a partir de un fdf que se le pasa como string resultado de haber aplicado la funcion
+//f_obtener_linea_fdf sobre el archivo fdf en s$$HEX1$$ed00$$ENDHEX$$
+
+string cadena_fdt , cadena_trabajo, ls_aux, cadena_romano, num_arquitecto,  patron_cliente
+integer file, num_colegiados, i,num_cliente, num_representantes,j
+string result
+string ruta_resultado_ini
+string numero_colegiado
+string colegiados [1 to 10, 1 to 5]
+string observaciones
+string Direccion, Direccion_Rep
+string s_autores
+string s_nombre_completo_autor, s_titulacion_autor
+string s_apellidos_v, s_apellidos_autor_fdf, s_nombre_v, s_nombre_autor_fdf
+integer posicion
+boolean existe 
+integer n_c, n_a
+st_poblacion_datos st
+	integer num_col_aux
+	string nombre_completo_v, nombre_completo_fdf
+integer numero_colegiados, numero_arquitectos
+
+
+cadena_fdt = f_obtener_linea_fdf(archivo_fdf)
+choose case contrato
+	case 1 
+		cadena_trabajo = 'Trab1_'
+		cadena_romano = ""
+	case 2
+		cadena_trabajo = 'Trab2_'
+		cadena_romano = "I"
+	case 3
+		cadena_trabajo = 'Trab3_'
+		cadena_romano= "II"
+end choose
+//a partir de aqui iremos contruyendo el archivo.ini
+//creamos el fichero
+documento = replace(documento,pos(documento,"."),1,"")
+ruta_resultado_ini = Profilestring(g_dir_aplicacion + "SICA.INI","Aplicacion","path","") + "\"
+result = ruta_resultado_ini+documento+"_"+string(contrato)+".ini"
+ruta_archivo_zip =  ruta_resultado_ini+documento+"_"+string(contrato)
+file = FileOpen(result, LineMode!, Write!,LockReadWrite!, Replace!, EncodingUTF8!)
+fileclose(file)	
+
+integer prueba
+
+ setprofilestring(result,"VERSION","version","V Nafarroa")
+ setprofilestring(result,"DESCRIPTORES","email",email)
+ setprofilestring(result,"DESCRIPTORES","id_referencia","")
+ setprofilestring(result,"COLEGIO","colegio","31")
+ setprofilestring(result,"COLEGIO","delegacion","T")
+ setprofilestring(result,"CONTRATO","n_registro","")
+ setprofilestring(result,"CONTRATO","n_expedi","")
+ 
+ //													DESCRIPTORES 
+ /*********************************************************************************************/
+ //numplantas
+ls_aux = f_buscar_patron_en_fdf(cadena_fdt ,'BajoR_NumPlantas')
+ setprofilestring(result,"DESCRIPTORES","plantas_baj",ls_aux)
+ls_aux=''
+ //superficie
+ls_aux = f_buscar_patron_en_fdf(cadena_fdt ,'BajoR_Superficie')
+ setprofilestring(result,"DESCRIPTORES","sup_baj",ls_aux)
+ls_aux=''
+
+//													CONTRATO 
+ /*********************************************************************************************/
+ ls_aux = f_buscar_patron_en_fdf(cadena_fdt ,'Arq1_NumColI')
+ numero_colegiado = ls_aux
+	if len(numero_colegiado) < 5 then
+		choose case len(numero_colegiado)
+			case 1
+				numero_colegiado = "0000"+ numero_colegiado
+			case 2
+				numero_colegiado = "000"+ numero_colegiado
+			case 3
+				numero_colegiado = "00"+ numero_colegiado
+			case 4
+				numero_colegiado = "0"+ numero_colegiado
+		end choose
+	end if
+
+ setprofilestring(result,"CONTRATO","colegiado",numero_colegiado)
+ ruta_archivo_zip = ruta_archivo_zip +"_"+ numero_colegiado
+ ls_aux=''
+ setprofilestring(result,"CONTRATO","f_entrada",f_buscar_patron_en_fdf(cadena_fdt ,'DiaI')+"-"+f_buscar_patron_en_fdf(cadena_fdt ,'MesI')+"-"+f_buscar_patron_en_fdf(cadena_fdt ,'AnioI'))
+ ruta_archivo_zip = ruta_archivo_zip +"_"+ f_buscar_patron_en_fdf(cadena_fdt ,'DiaI')+"_"+f_buscar_patron_en_fdf(cadena_fdt ,'MesI')+"_"+f_buscar_patron_en_fdf(cadena_fdt ,'AnioI')+".zip"
+ setprofilestring(result,"CONTRATO","f_visado","")
+ setprofilestring(result,"CONTRATO","f_abono","")
+ setprofilestring(result,"CONTRATO","f_final_obra","")
+ setprofilestring(result,"CONTRATO","f_cerrado","")
+//tomamos el titulo
+ls_aux = f_buscar_patron_en_fdf(cadena_fdt ,cadena_trabajo+'DesObra')
+ setprofilestring(result,"CONTRATO","titulo",ls_aux)
+ls_aux=''
+//tipo actuacion
+ls_aux = f_buscar_patron_en_fdf(cadena_fdt,cadena_trabajo+'TIntervencion')
+ setprofilestring(result,"CONTRATO","tipo_actuacion",ls_aux)
+ls_aux=''
+//tipo_obra
+ls_aux = f_buscar_patron_en_fdf(cadena_fdt,cadena_trabajo+'TObra')
+setprofilestring(result,"CONTRATO","tipo_obra",ls_aux)
+ls_aux=''
+//destino
+ls_aux = f_buscar_patron_en_fdf(cadena_fdt,cadena_trabajo+'Destino')
+setprofilestring(result,"CONTRATO","destino",ls_aux)
+ls_aux=''
+//tipo_via_emplazamiento
+ls_aux="CL"
+setprofilestring(result,"CONTRATO","tipo_via_emplazamiento",ls_aux)
+//emplazamiento
+ls_aux = f_buscar_patron_en_fdf(cadena_fdt,'Emp_CalleI')
+setprofilestring(result,"CONTRATO","emplazamiento",ls_aux)
+ls_aux=''
+//n_calle
+setprofilestring(result,"CONTRATO","n_calle",ls_aux)
+//hacemos una llamada a la funcion f_poblacion datos para rellenar st
+st = f_poblacion_datos(f_buscar_patron_en_fdf(cadena_fdt,'Emp_CodPostal'), f_buscar_patron_en_fdf(cadena_fdt,'Emp_Municipio'))	
+//cod_pos, poblacion, provincia, id_pob
+setprofilestring(result,"CONTRATO","cod_pos",st.cod_pos)	
+
+setprofilestring(result,"CONTRATO","desc_poblacion",st.desc_poblacion)
+
+setprofilestring(result,"CONTRATO","provincia",st.desc_provincia)
+
+setprofilestring(result,"CONTRATO","poblacion",st.cod_pob)	
+//administracion
+ls_aux = f_buscar_patron_en_fdf(cadena_fdt,'POficial')
+setprofilestring(result,"CONTRATO","administracion",ls_aux)
+//gestion_de_cobro
+ls_aux = f_buscar_patron_en_fdf(cadena_fdt,'Cobro')
+if mid(ls_aux,1,1) = 'S' then
+	ls_aux='C'
+else
+	ls_aux='P'
+end if
+setprofilestring(result,"CONTRATO","gestion_de_cobro",ls_aux)
+//pem
+ls_aux = f_buscar_patron_en_fdf(cadena_fdt,cadena_trabajo+'PEM')
+setprofilestring(result,"CONTRATO","pem",ls_aux)
+ls_aux=''
+//sup_viv
+ls_aux = f_buscar_patron_en_fdf(cadena_fdt,'Superficie_Viviendas')
+setprofilestring(result,"CONTRATO","sup_viv",ls_aux)
+ls_aux=''
+//sup_garaje
+ls_aux = f_buscar_patron_en_fdf(cadena_fdt,'Superficie_Garajes')
+setprofilestring(result,"CONTRATO","sup_garaje",ls_aux)
+ls_aux=''
+//sup_otros
+ls_aux = f_buscar_patron_en_fdf(cadena_fdt,'Superficie_Otros')
+setprofilestring(result,"CONTRATO","sup_otros",ls_aux)
+ls_aux=''
+//volumen
+ls_aux = f_buscar_patron_en_fdf(cadena_fdt,cadena_trabajo+'Volumen')
+setprofilestring(result,"CONTRATO","volumen",ls_aux)
+ls_aux=''
+//altura
+ls_aux = f_buscar_patron_en_fdf(cadena_fdt,'SobreR_Altura')
+setprofilestring(result,"CONTRATO","altura",ls_aux)
+ls_aux=''
+//num_viv
+ls_aux = f_buscar_patron_en_fdf(cadena_fdt,'NumViviendas')
+setprofilestring(result,"CONTRATO","num_viv",ls_aux)
+ls_aux=''
+//num_edif
+ls_aux = f_buscar_patron_en_fdf(cadena_fdt,'NumEdificios')
+setprofilestring(result,"CONTRATO","num_edif",ls_aux)
+ls_aux=''
+//nivel control calidad
+ls_aux = f_buscar_patron_en_fdf(cadena_fdt,'Nivel')
+setprofilestring(result,"CONTRATO","nivel control calidad",mid(ls_aux,1,1))
+ls_aux=''
+//estudio geotecnico
+ls_aux = f_buscar_patron_en_fdf(cadena_fdt,'Estudio')
+setprofilestring(result,"CONTRATO","estudio geotecnico",mid(ls_aux,1,1))
+ls_aux=''
+//control calidad externo
+setprofilestring(result,"CONTRATO","control calidad externo",ls_aux)
+//control calidad interno
+setprofilestring(result,"CONTRATO","control calidad interno",ls_aux)
+//plantas_baj
+setprofilestring(result,"CONTRATO","plantas_baj",ls_aux)
+//plantas_sob
+ls_aux = f_buscar_patron_en_fdf(cadena_fdt,'SobreR_NumPlantas')
+setprofilestring(result,"CONTRATO","plantas_sob",ls_aux)
+ls_aux=''
+//sup_sob
+ls_aux = f_buscar_patron_en_fdf(cadena_fdt,'SobreR_Superficie')
+setprofilestring(result,"CONTRATO","sup_sob",ls_aux)
+ls_aux = ""
+//sup_sob
+ls_aux = f_buscar_patron_en_fdf(cadena_fdt,'Superficie_Total')
+setprofilestring(result,"CONTRATO","total_sup",ls_aux)
+ls_aux = ""
+//sup_sob
+ls_aux = f_buscar_patron_en_fdf(cadena_fdt,'Trab'+string(contrato)+'_ClasePromotor')
+setprofilestring(result,"CONTRATO","clase_promotor",ls_aux)
+ls_aux = ""
+//uso
+ls_aux = f_buscar_patron_en_fdf(cadena_fdt,'Uso')
+choose case ls_aux
+	case 'VENTA'
+		ls_aux= 'V'
+	case 'ALQUILER'
+		ls_aux= 'A'
+	case 'AUTOUSO'
+		ls_aux= 'U'
+end choose
+setprofilestring(result,"CONTRATO","uso",ls_aux)
+ls_aux = ""
+//sup_sob
+ls_aux = f_buscar_patron_en_fdf(cadena_fdt,'Trab'+string(contrato)+'_Honorarios')
+setprofilestring(result,"CONTRATO","honorarios",ls_aux)
+ls_aux = ""
+//coeficiente
+ls_aux = f_buscar_patron_en_fdf(cadena_fdt,'Trab'+string(contrato)+'_Coeficiente')
+observaciones = observaciones + " coefic. : " + ls_aux +", "
+ls_aux = ""
+//GDesplazamiento
+ls_aux = f_buscar_patron_en_fdf(cadena_fdt,'Trab'+string(contrato)+'_GDesplazamiento')
+observaciones = observaciones + " gast. desplaz. : " + ls_aux+", "
+ls_aux = ""
+//GTramitacion
+ls_aux = f_buscar_patron_en_fdf(cadena_fdt,'Trab'+string(contrato)+'_GTramitacionI')
+observaciones = observaciones + " gast. tramit. : " + ls_aux+", "
+ls_aux = ""
+//ProvFondos
+ls_aux = f_buscar_patron_en_fdf(cadena_fdt,'Trab'+string(contrato)+'_ProvFondos')
+observaciones = observaciones + " prov. fondos. : " + ls_aux+", "
+ls_aux = ""
+//ProvFondos
+ls_aux = f_buscar_patron_en_fdf(cadena_fdt,'Trab'+string(contrato)+'_Superficie')
+observaciones = observaciones + " superficie en trabajo : " + ls_aux+", "
+ls_aux = ""
+//total
+ls_aux = f_buscar_patron_en_fdf(cadena_fdt,'Trab'+string(contrato)+'_TOTALI')
+observaciones = observaciones + " total sin iva : " + ls_aux+", "
+ls_aux = ""
+
+//													COLEGIADOS O ARQUITECTOS
+/*************************************************************************************************/
+boolean todoOk
+string num_soc3,num_soc2,num_soc1
+string num_sociedad
+integer n_s
+n_s = 1
+//Vamos a diferenciar entre casos con sociedades y sin sociedades
+
+//num_sociedad = f_buscar_patron_en_fdf(cadena_fdt,'Soc_Numero')
+// ESTUIDAR SI HAY SOCIEDAD Y CUANTAS
+//------------------------------------------------------
+num_soc3=f_buscar_patron_en_fdf(cadena_fdt,'Arq3_NumSoc')
+num_soc2=f_buscar_patron_en_fdf(cadena_fdt,'Arq2_NumSoc')
+num_soc1=f_buscar_patron_en_fdf(cadena_fdt,'Arq1_NumSoc')
+//
+if not f_es_vacio(num_soc3) then
+	num_sociedad='3'
+	if  (num_soc3 = num_soc2) and  (num_soc3 = num_soc1) and (num_soc1= num_soc2) then
+		 todoOk=true
+	else 
+		todoOk=false
+	end if
+elseif not f_es_vacio(num_soc2) then
+		num_sociedad='2'
+		if  num_soc2 = num_soc1 then
+		 todoOk=true
+	else 
+		todoOk=false
+	end if
+elseif not f_es_vacio(num_soc1) then
+		num_sociedad='1'	
+		 todoOk=true
+	else
+		num_sociedad=""	
+end if
+//
+if num_sociedad <> "" then
+	if not todoOk then
+		observaciones = observaciones +"ATENCI$$HEX1$$d300$$ENDHEX$$N: Distintas sociedades"
+	end if
+end if 
+//Si este numero es distinto de "" eso quiere decir que habra instaurada una sociedad
+//por lo que el modelo cambia, en Colegiados tendremos los parametros del asociedad
+//mientras que en asociados tendremos los arquitectos y demas
+if num_sociedad <> "" then
+	//CASO SOCIEDADES
+	//Como hemos dicho en colegiado meteremos los parametros de la sociedad
+		setprofilestring(result,"COLEGIADOS","numero_"+string(n_s),"S"+num_soc1)
+		//porcentaje
+		setprofilestring(result,"COLEGIADOS","porcentaje_"+string(n_s),"100")
+		//autor
+		setprofilestring(result,"COLEGIADOS","autor_"+string(n_s),"N")
+		//director
+		setprofilestring(result,"COLEGIADOS","director_"+string(n_s),"N")
+		ls_aux=''
+		//nombre
+		string ls_aux_1
+		ls_aux = f_buscar_patron_en_fdf(cadena_fdt,'Arq1_SocProfesional')
+		setprofilestring(result,"COLEGIADOS","nombre_"+string(n_s),ls_aux +" "+ls_aux_1)
+		ls_aux=''
+		//nif
+		ls_aux = f_buscar_patron_en_fdf(cadena_fdt,'Arq1_Nif')
+		setprofilestring(result,"COLEGIADOS","nif_"+string(n_s),ls_aux)
+		ls_aux=''
+		//miembro_sociedad
+		setprofilestring(result,"COLEGIADOS","miembro_sociedad"+string(n_s),"N")
+		//csfp
+		setprofilestring(result,"COLEGIADOS","csfp_"+string(n_s),"N")
+		//director_em
+		setprofilestring(result,"COLEGIADOS","director_em_"+string(n_s),'N')
+		//autor_ess
+		setprofilestring(result,"COLEGIADOS","autor_ess_"+string(n_s),'N')
+		//autor_eb
+		setprofilestring(result,"COLEGIADOS","autor_eb_"+string(n_s),'N')
+		//atcssdo
+		setprofilestring(result,"COLEGIADOS","atcssdo_"+string(n_s),'N')
+		//domicilio
+		setprofilestring(result,"COLEGIADOS","domicilio_"+string(n_s),"Por determinar")
+		//localidad
+		setprofilestring(result,"COLEGIADOS","localidad_"+string(n_s),"Iru$$HEX1$$f100$$ENDHEX$$a")
+		//provincia
+		setprofilestring(result,"COLEGIADOS","provincia_"+string(n_s),"00031")
+		//colegio_oficial
+		setprofilestring(result,"COLEGIADOS","colegio_oficial_"+string(n_s),"31")
+		//bonus_malus
+		setprofilestring(result,"COLEGIADOS","bonus_malus_"+string(n_s),"1")
+		//cp
+		setprofilestring(result,"COLEGIADOS","cp_"+string(n_s),"31669")
+		ls_aux=''
+		//total
+		setprofilestring(result,"COLEGIADOS","total","1")
+	//Acto seguido crearemos una nueva seccion donde meteremos todos los colegiados la llamaremos ASOCIADOS
+		ls_aux = f_buscar_patron_en_fdf(cadena_fdt,'NumArquitectos')
+		num_colegiados = integer(ls_aux)
+		if num_colegiados > 3 then 
+			num_colegiados=Truncate(num_colegiados, 0)
+			messagebox(g_titulo,'Vigile en el ini, antes de importar, el n$$HEX1$$fa00$$ENDHEX$$mero de colegiados', exclamation!)
+		end if
+		n_c = 1
+		for i = 1 to num_colegiados
+			num_arquitecto = "Arq"+string(i)
+			//Hay que comprobar si el arquitecto pertenece a la sociedad
+			//if trim(num_sociedad) = trim(f_buscar_patron_en_fdf(cadena_fdt,num_arquitecto+'_NumColI')) then
+				//numero
+				ls_aux = f_buscar_patron_en_fdf(cadena_fdt,num_arquitecto+'_NumColI')
+				numero_colegiado = ls_aux
+				if len(numero_colegiado) < 5 then
+					choose case len(numero_colegiado)
+						case 1
+							numero_colegiado = "0000"+ numero_colegiado
+						case 2
+							numero_colegiado = "000"+ numero_colegiado
+						case 3
+							numero_colegiado = "00"+ numero_colegiado
+						case 4
+							numero_colegiado = "0"+ numero_colegiado
+					end choose
+				end if
+				setprofilestring(result,"ASOCIADOS","numero_"+string(n_c),numero_colegiado)
+				ls_aux=''
+				//porcentaje
+				ls_aux=f_buscar_patron_en_fdf(cadena_fdt,'Trab'+string(contrato)+'_ParCol'+string(i))
+				setprofilestring(result,"ASOCIADOS","porcentaje_"+string(n_c),ls_aux)
+				ls_aux=''
+				//autor
+				setprofilestring(result,"ASOCIADOS","autor_"+string(n_c),"N")
+				//director
+				setprofilestring(result,"ASOCIADOS","director_"+string(n_c),"N")
+				//nombre
+				ls_aux = f_buscar_patron_en_fdf(cadena_fdt,num_arquitecto+'_Nombre')
+				ls_aux_1 = f_buscar_patron_en_fdf(cadena_fdt,num_arquitecto+'_Apellidos')
+				setprofilestring(result,"ASOCIADOS","nombre_"+string(n_c),ls_aux +" "+ls_aux_1)
+				ls_aux=''
+				//nif
+				ls_aux = f_buscar_patron_en_fdf(cadena_fdt,num_arquitecto+'_DNI')
+				setprofilestring(result,"ASOCIADOS","nif_"+string(n_c),ls_aux)
+				ls_aux=''
+				//sociedad
+				ls_aux = f_buscar_patron_en_fdf(cadena_fdt,num_arquitecto+'_Sociedad')
+				setprofilestring(result,"ASOCIADOS","nif_"+string(n_c),"s"+ls_aux)
+				ls_aux=''
+				//sociendad
+				setprofilestring(result,"ASOCIADOS","sociedad_"+string(n_c),"S"+num_soc1)
+				//csfp
+				setprofilestring(result,"ASOCIADOS","csfp_"+string(n_c),"N")
+				//director_em
+				setprofilestring(result,"ASOCIADOS","director_em_"+string(n_c),"N")
+				//autor_ess
+				setprofilestring(result,"ASOCIADOS","autor_ess_"+string(n_c),"N")
+				//autor_eb
+				setprofilestring(result,"ASOCIADOS","autor_eb_"+string(n_c),"N")
+				//atcssdo
+				setprofilestring(result,"ASOCIADOS","atcssdo_"+string(n_c),"N")
+				string domicilio, localidad 
+				select domicilio_activo, poblacion_activa into :domicilio,:localidad  from colegiados where n_colegiado = :numero_colegiado using sqlca;
+				//domicilio
+				ls_aux = domicilio//f_buscar_patron_en_fdf(cadena_fdt,numarquitecto+'_NumCol'+string(i))
+				setprofilestring(result,"ASOCIADOS","domicilio_"+string(n_c),ls_aux)
+				ls_aux=''
+				//localidad
+				ls_aux = localidad//f_buscar_patron_en_fdf(cadena_fdt,numarquitecto+'_NumCol'+string(i))
+				setprofilestring(result,"ASOCIADOS","localidad_"+string(n_c),ls_aux)
+				ls_aux=''
+				//provincia
+				setprofilestring(result,"ASOCIADOS","provincia_"+string(n_c),"")
+				//colegio_oficial
+				setprofilestring(result,"ASOCIADOS","colegio_oficial_"+string(n_c),"31")
+				//alta_mussaat
+				ls_aux = f_buscar_patron_en_fdf(cadena_fdt,"CProfesion_Col"+string(i))
+				if ls_aux = "MUSAAT" then
+					ls_aux = "S"
+				else
+					observaciones = observaciones + "  " +"Seguro_Col"+string(n_c) +" : " +ls_aux+", "
+					ls_aux = "N"
+				end if
+				setprofilestring(result,"ASOCIADOS","alta_musaat_"+string(n_c),ls_aux)
+				ls_aux=''
+				//cobertura
+				setprofilestring(result,"ASOCIADOS","cobertura_"+string(n_c),"")
+				//bonus_malus
+				setprofilestring(result,"ASOCIADOS","bonus_malus_"+string(n_c),"1")
+				//cp
+				setprofilestring(result,"ASOCIADOS","cp_"+string(n_c),"")
+				n_c = n_c + 1
+				
+			//end if
+			
+		next
+		//total asociados
+		setprofilestring(result,"ASOCIADOS","total",string(num_colegiados))
+		// TRATAR LOS ARQUITECTOS
+		//----------------------------------
+		ls_aux = f_buscar_patron_en_fdf(cadena_fdt,'NumArquitectos')
+		num_colegiados = integer(ls_aux)
+		if num_colegiados > 3 then 
+				num_colegiados=Truncate(num_colegiados, 0)
+		end if
+		//metemos los datos de los colegiados en el vector que hemos definido
+		for i = 1 to num_colegiados  step 1
+			num_arquitecto = "Arq"+string(i)
+			//apellidos
+				ls_aux = f_buscar_patron_en_fdf(cadena_fdt,num_arquitecto+'_Apellidos')
+				colegiados[i,1]= ls_aux
+				ls_aux=''
+			//dni
+				ls_aux = f_buscar_patron_en_fdf(cadena_fdt,num_arquitecto+'_DNI')
+				colegiados[i,2]= ls_aux
+				ls_aux=''
+			//nombre
+				ls_aux = f_buscar_patron_en_fdf(cadena_fdt,num_arquitecto+'_Nombre')
+				colegiados[i,3]= ls_aux
+				ls_aux=''
+			//num colegiado  
+				ls_aux = f_buscar_patron_en_fdf(cadena_fdt,num_arquitecto+'_NumColI')
+				numero_colegiado = ls_aux
+				if len(numero_colegiado) < 5 then
+					choose case len(numero_colegiado)
+						case 1
+							numero_colegiado = "0000"+ numero_colegiado
+						case 2
+							numero_colegiado = "000"+ numero_colegiado
+						case 3
+							numero_colegiado = "00"+ numero_colegiado
+						case 4
+							numero_colegiado = "0"+ numero_colegiado
+					end choose
+				end if
+				colegiados[i,4]= numero_colegiado
+		next	
+		//por ultimo rellenamos la ultima columna de la matriz
+		//Esta nos indicara si el registro va a [ARQUITECTOS] O A [COLEGIADOS]
+		// A -> ARQUITECTOS
+		// C -> COLEGIADOS
+
+		num_col_aux = num_colegiados
+		for i = 1 to 3 step 1
+			existe = false
+			s_autores = "Autor"+string(i)
+			s_nombre_completo_autor = f_buscar_patron_en_fdf(cadena_fdt,s_autores)
+
+			for j = 1 to num_colegiados step 1
+				s_nombre_v = trim(colegiados[j,3])
+				s_apellidos_v = trim(colegiados[j,1])
+				if f_es_vacio(trim(colegiados[j,5])) then
+					nombre_completo_v = s_apellidos_v+s_nombre_v
+					nombre_completo_v = f_sustituir_cadena(nombre_completo_v,",","","TODAS")
+					nombre_completo_v = f_sustituir_cadena(nombre_completo_v," ","","TODAS")
+					s_nombre_completo_autor = f_sustituir_cadena(s_nombre_completo_autor,",","","TODAS")
+					s_nombre_completo_autor = f_sustituir_cadena(s_nombre_completo_autor," ","","TODAS")
+					
+					if s_nombre_completo_autor = nombre_completo_v then
+						existe = true
+						
+					else
+						existe = false
+					end if
+					if existe then
+						//si se ha encontrado el autor 
+						colegiados[j,5]= "C"
+						numero_colegiados = numero_colegiados + 1
+						j = num_colegiados + 1
+					else
+						colegiados[num_col_aux + 1,1]=s_nombre_completo_autor 
+						//nombre
+						colegiados[num_col_aux + 1,1]=s_nombre_completo_autor
+						colegiados[num_col_aux + 1,5]= "A"
+						num_col_aux ++
+						j = num_colegiados + 1
+					end if
+				end if
+			next	
+		next
+		num_colegiados = num_col_aux
+		for i = 1 to num_colegiados
+			if f_es_vacio(colegiados[i,5]) then
+				colegiados[i,5]= "C"
+			end if
+	next
+	numero_arquitectos = num_colegiados - numero_colegiados	
+	//Ahora ya tenemos todos los datos referentes a los colegiados metidos en el vector
+	//Por lo que ahora procesaremos los autores 
+	//COLEGIADOS SERAN AQUELLOS QUE 
+	n_c=1
+	n_a=1
+	for i = 1 to num_colegiados step 1
+		num_arquitecto = "Arq"+string(i)
+		//numero
+		ls_aux = f_buscar_patron_en_fdf(cadena_fdt,num_arquitecto+'_NumColI')
+		numero_colegiado = ls_aux
+		if len(numero_colegiado) < 5 then
+			choose case len(numero_colegiado)
+				case 1
+					numero_colegiado = "0000"+ numero_colegiado
+				case 2
+					numero_colegiado = "000"+ numero_colegiado
+				case 3
+					numero_colegiado = "00"+ numero_colegiado
+				case 4
+					numero_colegiado = "0"+ numero_colegiado
+			end choose
+		end if
+		s_titulacion_autor = trim(colegiados[i,5])
+		if s_titulacion_autor = "C" then
+			n_c = n_c + 1
+		else
+			//ARQUITECTOS
+			setprofilestring(result,"ARQUITECTOS","numero_"+string(n_a),numero_colegiado)
+			ls_aux=''
+			//porcentaje
+			ls_aux=f_buscar_patron_en_fdf(cadena_fdt,'ParCol'+string(i))
+			setprofilestring(result,"ARQUITECTOS","porcentaje_"+string(n_a),ls_aux)
+			ls_aux=''
+			//autor
+			setprofilestring(result,"ARQUITECTOS","autor_"+string(n_a),"S")
+			//director
+			setprofilestring(result,"ARQUITECTOS","director_"+string(n_a),"N")
+			//nombre
+			setprofilestring(result,"ARQUITECTOS","nombre_"+string(n_a),colegiados[n_a,1])
+			//nif
+			ls_aux = f_buscar_patron_en_fdf(cadena_fdt,num_arquitecto+'_DNII')
+			setprofilestring(result,"ARQUITECTOS","nif_"+string(n_a),ls_aux)
+			ls_aux=''
+			//titulacion
+			s_autores = "Autor"+string(i)
+			ls_aux = f_buscar_patron_en_fdf(cadena_fdt,s_autores+"_Titulacion")
+			setprofilestring(result,"ARQUITECTOS","dni_"+string(n_a),ls_aux)
+			ls_aux=''
+			//csfp
+			setprofilestring(result,"ARQUITECTOS","csfp_"+string(n_a),"")
+			//director_em
+			setprofilestring(result,"ARQUITECTOS","director_em_"+string(n_a),"N")
+			//autor_ess
+			setprofilestring(result,"ARQUITECTOS","autor_ess_"+string(n_a),"N")
+			//autor_eb
+			setprofilestring(result,"ARQUITECTOS","autor_eb_"+string(n_a),"N")
+			//atcssdo
+			setprofilestring(result,"ARQUITECTOS","atcssdo_"+string(n_a),"N")
+			n_a = n_a +1
+		end if
+next 
+	n_c = 0
+	n_a = 0
+	for i = 1 to num_colegiados  step 1
+		if colegiados[i,5] = "C" then
+			n_c= n_c + 1
+		end if
+		if colegiados[i,5] = "A" then
+			n_a= n_a + 1
+		end if
+	next
+	//[ARQUITECTOS]
+	setprofilestring(result,"ARQUITECTOS","total",string(n_a ))
+
+		//----------------------------------
+		//----------------------------------
+// NO ES SOCIEDAD	
+//----------------------------------------------------------------------------------------------------------------------------------------------------------------
+//----------------------------------------------------------------------------------------------------------------------------------------------------------------
+else
+	ls_aux = f_buscar_patron_en_fdf(cadena_fdt,'NumArquitectos')
+	num_colegiados = integer(ls_aux)
+	if num_colegiados > 3 then 
+			num_colegiados=Truncate(num_colegiados, 0)
+			messagebox(g_titulo,'Vigile en el ini, antes de importar, el n$$HEX1$$fa00$$ENDHEX$$mero de autores', exclamation!)
+	end if
+	//ponemos el total de colegiados
+	setprofilestring(result,"COLEGIADOS","total",string(num_colegiados))
+	//metemos los datos de los colegiados en el vector que hemos definido
+	for i = 1 to num_colegiados  step 1
+		num_arquitecto = "Arq"+string(i)
+		//apellidos
+			ls_aux = f_buscar_patron_en_fdf(cadena_fdt,num_arquitecto+'_Apellidos')
+			colegiados[i,1]= ls_aux
+			ls_aux=''
+		//dni
+			ls_aux = f_buscar_patron_en_fdf(cadena_fdt,num_arquitecto+'_DNI')
+			colegiados[i,2]= ls_aux
+			ls_aux=''
+		//nombre
+			ls_aux = f_buscar_patron_en_fdf(cadena_fdt,num_arquitecto+'_Nombre')
+			colegiados[i,3]= ls_aux
+			ls_aux=''
+		//num colegiado  
+			ls_aux = f_buscar_patron_en_fdf(cadena_fdt,num_arquitecto+'_NumColI')
+			numero_colegiado = ls_aux
+			if len(numero_colegiado) < 5 then
+				choose case len(numero_colegiado)
+					case 1
+						numero_colegiado = "0000"+ numero_colegiado
+					case 2
+						numero_colegiado = "000"+ numero_colegiado
+					case 3
+						numero_colegiado = "00"+ numero_colegiado
+					case 4
+						numero_colegiado = "0"+ numero_colegiado
+				end choose
+			end if
+			colegiados[i,4]= numero_colegiado
+	next	
+	//por ultimo rellenamos la ultima columna de la matriz
+	//Esta nos indicara si el registro va a [ARQUITECTOS] O A [COLEGIADOS]
+	// A -> ARQUITECTOS
+	// C -> COLEGIADOS
+
+	num_col_aux = num_colegiados
+	for i = 1 to 3 step 1
+		existe = false
+		s_autores = "Autor"+string(i)
+		s_nombre_completo_autor = f_buscar_patron_en_fdf(cadena_fdt,s_autores)
+
+		for j = 1 to num_colegiados step 1
+			s_nombre_v = trim(colegiados[j,3])
+			s_apellidos_v = trim(colegiados[j,1])
+			if f_es_vacio(trim(colegiados[j,5])) then
+				nombre_completo_v = s_apellidos_v+s_nombre_v
+				nombre_completo_v = f_sustituir_cadena(nombre_completo_v,",","","TODAS")
+				nombre_completo_v = f_sustituir_cadena(nombre_completo_v," ","","TODAS")
+				//posicion = pos(s_nombre_completo_autor,",")
+				//if pos > 0 then
+					//s_apellidos_autor_fdf = trim(mid(s_nombre_completo_autor,1,posicion - 1))
+					//s_nombre_autor_fdf = trim(mid (s_nombre_completo_autor,posicion + 1))
+					//s_nombre_completo_autor = s_apellidos_autor +s_nombre_autor 
+				//end if
+				s_nombre_completo_autor = f_sustituir_cadena(s_nombre_completo_autor,",","","TODAS")
+				s_nombre_completo_autor = f_sustituir_cadena(s_nombre_completo_autor," ","","TODAS")
+				
+				if s_nombre_completo_autor = nombre_completo_v then
+					existe = true
+					
+				else
+					existe = false
+				end if
+				if existe then
+					//si se ha encontrado el autor 
+					colegiados[j,5]= "C"
+					numero_colegiados = numero_colegiados + 1
+					j = num_colegiados + 1
+				else
+					//colegiados[j,5]= "A"
+					//apellidos
+					//	ls_aux = f_buscar_patron_en_fdf(cadena_fdt,num_arquitecto+'_Apellidos')
+					//colegiados[num_col_aux,1]= ls_aux
+					colegiados[num_col_aux + 1,1]=s_nombre_completo_autor 
+					//nombre
+					//ls_aux = f_buscar_patron_en_fdf(cadena_fdt,num_arquitecto+'_Nombre')
+					//colegiados[num_col_aux + 1,3]= ls_aux
+					colegiados[num_col_aux + 1,1]=s_nombre_completo_autor
+					//colegiados[num_col_aux + 1,5]= "A"
+					colegiados[num_col_aux + 1,5]= "A"
+					num_col_aux ++
+					j = num_colegiados + 1
+				end if
+			end if
+		next	
+	next
+	num_colegiados = num_col_aux
+	for i = 1 to num_colegiados
+		if f_es_vacio(colegiados[i,5]) then
+			colegiados[i,5]= "C"
+		end if
+	next
+	numero_arquitectos = num_colegiados - numero_colegiados	
+	//Ahora ya tenemos todos los datos referentes a los colegiados metidos en el vector
+	//Por lo que ahora procesaremos los autores 
+	//COLEGIADOS SERAN AQUELLOS QUE 
+	n_c=1
+	n_a=1
+	for i = 1 to num_colegiados step 1
+		num_arquitecto = "Arq"+string(i)
+		//numero
+		ls_aux = f_buscar_patron_en_fdf(cadena_fdt,num_arquitecto+'_NumColI')
+		numero_colegiado = ls_aux
+		if len(numero_colegiado) < 5 then
+			choose case len(numero_colegiado)
+				case 1
+					numero_colegiado = "0000"+ numero_colegiado
+				case 2
+					numero_colegiado = "000"+ numero_colegiado
+				case 3
+					numero_colegiado = "00"+ numero_colegiado
+				case 4
+					numero_colegiado = "0"+ numero_colegiado
+			end choose
+		end if
+		s_titulacion_autor = trim(colegiados[i,5])
+		if s_titulacion_autor = "C" then
+			
+			setprofilestring(result,"COLEGIADOS","numero_"+string(n_c),numero_colegiado)
+			ls_aux=''
+			//porcentaje
+			ls_aux=f_buscar_patron_en_fdf(cadena_fdt,'Trab'+string(contrato)+'_ParCol'+string(i))
+			setprofilestring(result,"COLEGIADOS","porcentaje_"+string(n_c),ls_aux)
+			ls_aux=''
+			//autor
+			setprofilestring(result,"COLEGIADOS","autor_"+string(n_c),"S")
+			//director
+			setprofilestring(result,"COLEGIADOS","director_"+string(n_c),ls_aux)
+			//nombre
+			setprofilestring(result,"COLEGIADOS","nombre_"+string(n_c),colegiados[n_c,1])
+			//nif
+			ls_aux = f_buscar_patron_en_fdf(cadena_fdt,num_arquitecto+'_DNI')
+			setprofilestring(result,"COLEGIADOS","nif_"+string(n_c),ls_aux)
+			ls_aux=''
+			//miembro_sociedad
+			setprofilestring(result,"COLEGIADOS","miembro_sociedad_"+string(n_c),"")
+			//csfp
+			setprofilestring(result,"COLEGIADOS","csfp_"+string(n_c),"")
+			//director_em
+			setprofilestring(result,"COLEGIADOS","director_em_"+string(n_c),"S")
+			//autor_ess
+			setprofilestring(result,"COLEGIADOS","autor_ess_"+string(n_c),"N")
+			//autor_eb
+			setprofilestring(result,"COLEGIADOS","autor_eb_"+string(n_c),"N")
+			//atcssdo
+			setprofilestring(result,"COLEGIADOS","atcssdo_"+string(n_c),"N")
+			select domicilio_activo, poblacion_activa into :domicilio,:localidad  from colegiados where n_colegiado = :numero_colegiado using sqlca;
+			//domicilio
+			setprofilestring(result,"COLEGIADOS","domicilio_"+string(n_c),domicilio)
+			//localidad
+			setprofilestring(result,"COLEGIADOS","localidad_"+string(n_c),localidad)
+			//provincia
+			setprofilestring(result,"COLEGIADOS","provincia_"+string(n_c),"")
+			//colegio_oficial
+			setprofilestring(result,"COLEGIADOS","colegio_oficial_"+string(n_c),"31")
+			//alta_mussaat
+			ls_aux = f_buscar_patron_en_fdf(cadena_fdt,"CProfesion_Col"+string(i))
+			if ls_aux = "MUSAAT" then
+				ls_aux = "S"
+			else
+				observaciones = observaciones + "  " +"Seguro_Col"+string(n_c) +" : " +ls_aux+", "
+				ls_aux = "N"
+			end if
+			setprofilestring(result,"COLEGIADOS","alta_musaat_"+string(n_c),ls_aux)
+			ls_aux=''
+			//cobertura
+			setprofilestring(result,"COLEGIADOS","cobertura_"+string(n_c),"")
+			//bonus_malus
+			setprofilestring(result,"COLEGIADOS","bonus_malus_"+string(n_c),"1")
+			//cp
+			setprofilestring(result,"COLEGIADOS","cp_"+string(n_c),"")
+			n_c = n_c + 1
+		else
+			//ARQUITECTOS
+			setprofilestring(result,"ARQUITECTOS","numero_"+string(n_a),numero_colegiado)
+			ls_aux=''
+			//porcentaje
+			ls_aux=f_buscar_patron_en_fdf(cadena_fdt,'ParCol'+string(i))
+			setprofilestring(result,"ARQUITECTOS","porcentaje_"+string(n_a),ls_aux)
+			ls_aux=''
+			//autor
+			setprofilestring(result,"ARQUITECTOS","autor_"+string(n_a),"S")
+			//director
+			setprofilestring(result,"ARQUITECTOS","director_"+string(n_a),"N")
+			//nombre
+			setprofilestring(result,"ARQUITECTOS","nombre_"+string(n_a),colegiados[n_a,1])
+			//nif
+			ls_aux = f_buscar_patron_en_fdf(cadena_fdt,num_arquitecto+'_DNII')
+			setprofilestring(result,"ARQUITECTOS","nif_"+string(n_a),ls_aux)
+			ls_aux=''
+			//titulacion
+			s_autores = "Autor"+string(i)
+			ls_aux = f_buscar_patron_en_fdf(cadena_fdt,s_autores+"_Titulacion")
+			setprofilestring(result,"ARQUITECTOS","dni_"+string(n_a),ls_aux)
+			ls_aux=''
+			//csfp
+			setprofilestring(result,"ARQUITECTOS","csfp_"+string(n_a),"")
+			//director_em
+			setprofilestring(result,"ARQUITECTOS","director_em_"+string(n_a),"N")
+			//autor_ess
+			setprofilestring(result,"ARQUITECTOS","autor_ess_"+string(n_a),"N")
+			//autor_eb
+			setprofilestring(result,"ARQUITECTOS","autor_eb_"+string(n_a),"N")
+			//atcssdo
+			setprofilestring(result,"ARQUITECTOS","atcssdo_"+string(n_a),"N")
+			n_a = n_a +1
+		end if
+next 
+	n_c = 0
+	n_a = 0
+	for i = 1 to num_colegiados  step 1
+		if colegiados[i,5] = "C" then
+			n_c= n_c + 1
+		end if
+		if colegiados[i,5] = "A" then
+			n_a= n_a + 1
+		end if
+	next
+	//[COLEGIADOS]
+		setprofilestring(result,"COLEGIADOS","total",string(n_c  ))
+		//[ARQUITECTOS]
+		setprofilestring(result,"ARQUITECTOS","total",string(n_a ))
+
+end if
+
+//														CLIENTES O PROMOTOR
+/*********************************************************************************************/
+//debemos de obtener el numero de clientes
+ls_aux = f_buscar_patron_en_fdf(cadena_fdt,'NumClientes')
+num_cliente = integer(ls_aux)
+if not isnumber(string(num_cliente)) then num_cliente = 4
+if num_cliente > 3 then 
+//	num_cliente=
+	//messagebox(g_titulo,'Vigile en el ini, antes de importar, el n$$HEX1$$fa00$$ENDHEX$$mero de clientes', exclamation!)
+	for i = 1 to 3 step 1
+		ls_aux = f_buscar_patron_en_fdf(cadena_fdt,'Cli'+string(i)+'_CDNI')
+		if not f_es_vacio(ls_aux) then	num_cliente= i
+	next
+end if
+setprofilestring(result,"CLIENTES","total",string(num_cliente))
+
+//comprobaremos tambien si hay promotor
+string ls_promotor
+string es_promotor
+string s_apellidos_promotor 
+string s_nombre_promotor
+
+es_promotor = "S"
+ls_promotor =  f_buscar_patron_en_fdf(cadena_fdt,'Promotor')
+if  not f_es_vacio(ls_promotor) then
+	es_promotor = "N"
+	posicion = pos(ls_promotor,",")
+	s_apellidos_promotor = trim(mid(ls_promotor,1,posicion - 1))
+	s_nombre_promotor = trim(mid (ls_promotor,posicion + 1))
+	//nif
+	setprofilestring(result,"PROMOTOR","nif","")
+	//participacion
+	setprofilestring(result,"PROMOTOR","participacion","")
+	//promotor
+	setprofilestring(result,"PROMOTOR","promotor","S")
+	//pagador 
+	setprofilestring(result,"PROMOTOR","pagador","")
+	//autor_encargo
+	setprofilestring(result,"PROMOTOR","autor_encargo","")
+	//apellidos
+	setprofilestring(result,"PROMOTOR","apellidos",s_apellidos_promotor)
+	//nombre
+	setprofilestring(result,"PROMOTOR","nombre",s_nombre_promotor)
+	//observaciones
+	setprofilestring(result,"PROMOTOR","observaciones","")
+	//tipo_via
+	setprofilestring(result,"PROMOTOR","tipo_via","")
+	//nombre_via
+	setprofilestring(result,"PROMOTOR","nombre_via","")
+	//id_pob
+	setprofilestring(result,"PROMOTOR","id_pob","")
+	//cod_pos
+	setprofilestring(result,"PROMOTOR","cod_pos","")
+	//poblacion
+	setprofilestring(result,"PROMOTOR","poblacion","")
+	//provincia
+	setprofilestring(result,"PROMOTOR","provincia","")
+	//cuenta_bancaria
+	setprofilestring(result,"PROMOTOR","cuenta_bancaria","")
+	//representante
+	setprofilestring(result,"PROMOTOR","rep_nombre","")
+	//rep_apellidos
+	setprofilestring(result,"PROMOTOR","rep_apellidos","")
+	//rep_direccion
+	setprofilestring(result,"PROMOTOR","rep_direccion_","")
+	//rep_tipo_via
+	setprofilestring(result,"PROMOTOR","rep_tipo_via","")
+	//rep_poblacion
+	setprofilestring(result,"PROMOTOR","rep_poblacion","")
+	//rep_provincia
+	setprofilestring(result,"PROMOTOR","rep_provincia","")
+	//rep_nif
+	setprofilestring(result,"PROMOTOR","rep_nif","")
+	//rep_cp
+	setprofilestring(result,"PROMOTOR","rep_cp","")
+end if
+for i = 1 to num_cliente step 1
+	choose case i
+		case 1
+			patron_cliente = "Cli1"
+		case 2
+			patron_cliente = "Cli2"
+		case 3
+			patron_cliente = "Cli3"
+	end choose
+	//nif
+	ls_aux = f_buscar_patron_en_fdf(cadena_fdt,patron_cliente+'_CDNI')
+	setprofilestring(result,"CLIENTES","nif_"+string(i),ls_aux)
+	ls_aux=''
+	//participacion
+	ls_aux = f_buscar_patron_en_fdf(cadena_fdt,patron_cliente+'_CParticipacion')
+	setprofilestring(result,"CLIENTES","participacion_"+string(i),ls_aux)
+	ls_aux=''
+	//promotor
+	setprofilestring(result,"CLIENTES","promotor_"+string(i),es_promotor)
+	//pagador 
+	setprofilestring(result,"CLIENTES","pagador_"+string(i),"S")
+	//autor_encargo
+	setprofilestring(result,"CLIENTES","autor_encargo_"+string(i),"N")
+	//apellidos
+	ls_aux = f_buscar_patron_en_fdf(cadena_fdt,patron_cliente+'_CApellidos')
+	setprofilestring(result,"CLIENTES","apellidos_"+string(i),ls_aux)
+	ls_aux=''
+	//nombre
+	ls_aux = f_buscar_patron_en_fdf(cadena_fdt,'Cli' + string(i)+"_CNombre")
+	setprofilestring(result,"CLIENTES","nombre_"+string(i),ls_aux)
+	ls_aux=''
+	//observaciones
+	setprofilestring(result,"CLIENTES","observaciones_"+string(i),"")
+	//tipo_via
+	setprofilestring(result,"CLIENTES","tipo_via_"+string(i),"CL")
+	//nombre_via
+	direccion = direccion + " " + f_buscar_patron_en_fdf(cadena_fdt,patron_cliente+'_CCalle')
+	direccion = direccion + " " + f_buscar_patron_en_fdf(cadena_fdt,patron_cliente+'_CNumero')
+	direccion = direccion + " " + f_buscar_patron_en_fdf(cadena_fdt,patron_cliente+'_CPiso')
+	direccion = direccion + " " + f_buscar_patron_en_fdf(cadena_fdt,patron_cliente+'_CMano')
+	setprofilestring(result,"CLIENTES","nombre_via_"+string(i),direccion)
+	direccion = ""
+	//hacemos una llamada a la funcion f_poblacion datos para rellenar st
+	st = f_poblacion_datos(f_buscar_patron_en_fdf(cadena_fdt,patron_cliente+'_CCodPostal'), f_buscar_patron_en_fdf(cadena_fdt,patron_cliente+'_CMunicipio'))	
+	//cod_pos, poblacion, provincia, id_pob
+	setprofilestring(result,"CLIENTES","cod_pos_"+string(i),st.cod_pos)	
+	
+	setprofilestring(result,"CLIENTES","poblacion_"+string(i),st.desc_poblacion)
+	
+	setprofilestring(result,"CLIENTES","provincia_"+string(i),st.desc_provincia)
+
+	setprofilestring(result,"CLIENTES","id_pob_"+string(i),st.cod_pob)
+	
+	//cuenta_bancaria
+	setprofilestring(result,"CLIENTES","cuenta_bancaria_"+string(i),"")
+	//representante
+	ls_aux = f_buscar_patron_en_fdf(cadena_fdt,'representante1')
+	setprofilestring(result,"CLIENTES","rep_nombre_"+string(i),ls_aux)
+	ls_aux=''
+	//rep_apellidos
+	ls_aux = f_buscar_patron_en_fdf(cadena_fdt,'Cli'+string(i)+'_RApellidos')
+	setprofilestring(result,"CLIENTES","rep_apellidos_"+string(i),ls_aux)
+	ls_aux=''
+	//nombre_via
+	Direccion_Rep = Direccion_Rep + " " + f_buscar_patron_en_fdf(cadena_fdt,patron_cliente+'_RCalle')
+	Direccion_Rep = Direccion_Rep + " " + f_buscar_patron_en_fdf(cadena_fdt,patron_cliente+'_RNumero')
+	Direccion_Rep = Direccion_Rep + " " + f_buscar_patron_en_fdf(cadena_fdt,patron_cliente+'_RPiso')
+	Direccion_Rep = Direccion_Rep + " " + f_buscar_patron_en_fdf(cadena_fdt,patron_cliente+'_RMano')
+	setprofilestring(result,"CLIENTES","rep_direccion_"+string(i),ls_aux)
+	Direccion_Rep = ""
+	//rep_tipo_via
+	setprofilestring(result,"CLIENTES","rep_tipo_via_"+string(i),"CL")
+	//rep_nif
+	ls_aux = f_buscar_patron_en_fdf(cadena_fdt,'Cli'+string(i)+'_RDNI')
+	setprofilestring(result,"CLIENTES","rep_nif_"+string(i),ls_aux)
+	ls_aux=''
+	//rep_cp
+	ls_aux = f_buscar_patron_en_fdf(cadena_fdt,'Cli'+string(i)+'_RCodPostal')
+	setprofilestring(result,"CLIENTES","rep_cp_"+string(i),ls_aux)
+	ls_aux=''
+	//hacemos una llamada a la funcion f_poblacion datos para rellenar st
+	st = f_poblacion_datos(f_buscar_patron_en_fdf(cadena_fdt,patron_cliente+'_RCodPostall'), f_buscar_patron_en_fdf(cadena_fdt,patron_cliente+'_RMunicipio'))	
+	//cod_pos, poblacion, provincia, id_pob
+	setprofilestring(result,"CLIENTES","rep_cp_"+string(i),st.cod_pos)	
+	
+	setprofilestring(result,"CLIENTES","rep_poblacion_"+string(i),st.desc_poblacion)
+	
+	setprofilestring(result,"CLIENTES","rep_provincia_"+string(i),st.desc_provincia)
+
+	next
+	
+	//[CONSTRUCTORES]
+	setprofilestring(result,"CONSTRUCTORES","total","")
+	
+	//Finalmente a$$HEX1$$f100$$ENDHEX$$adimos las observaciones del trabajo
+	
+	//OBSERVACIONES
+	setprofilestring(result,"CONTRATO","observaciones",observaciones)
+	
+	
+return result
+end function
+

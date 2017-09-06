@@ -1,0 +1,18 @@
+HA$PBExportHeader$f_obtener_codigo_tipo_factura.srf
+global type f_obtener_codigo_tipo_factura from function_object
+end type
+
+forward prototypes
+global function string f_obtener_codigo_tipo_factura (string as_id_factura)
+end prototypes
+
+global function string f_obtener_codigo_tipo_factura (string as_id_factura);string retorno
+
+  SELECT csi_facturas_emitidas.tipo_factura  
+    INTO :retorno  
+    FROM csi_facturas_emitidas  
+   WHERE csi_facturas_emitidas.id_factura = :as_id_factura;
+
+return retorno
+end function
+

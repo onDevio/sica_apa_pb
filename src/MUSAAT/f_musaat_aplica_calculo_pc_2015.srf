@@ -1,0 +1,16 @@
+HA$PBExportHeader$f_musaat_aplica_calculo_pc_2015.srf
+global type f_musaat_aplica_calculo_pc_2015 from function_object
+end type
+
+forward prototypes
+global function boolean f_musaat_aplica_calculo_pc_2015 (string as_id_fase, string as_id_colegiado)
+end prototypes
+
+global function boolean f_musaat_aplica_calculo_pc_2015 (string as_id_fase, string as_id_colegiado);IF g_musaat_aplica_calculo_pc_2015 = 'S' AND &
+ 	NOT(f_musaat_tiene_certificaciones (as_id_fase, as_id_colegiado)) AND &
+	NOT(f_musaat_cumple_tarifa_d(as_id_fase)) THEN RETURN TRUE
+
+ RETURN FALSE
+
+end function
+

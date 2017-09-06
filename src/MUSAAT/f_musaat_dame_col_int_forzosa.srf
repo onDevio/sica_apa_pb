@@ -1,0 +1,22 @@
+HA$PBExportHeader$f_musaat_dame_col_int_forzosa.srf
+global type f_musaat_dame_col_int_forzosa from function_object
+end type
+
+forward prototypes
+global function string f_musaat_dame_col_int_forzosa (string id_col)
+end prototypes
+
+global function string f_musaat_dame_col_int_forzosa (string id_col);
+string int_forzosa
+
+
+select int_forzosa
+into :int_forzosa
+from fases_colegiados
+where fases_colegiados.id_col = :id_col;
+
+if isnull(int_forzosa) then int_forzosa = 'N'
+
+return int_forzosa
+end function
+

@@ -1,0 +1,47 @@
+HA$PBExportHeader$funcion_obtener_minimo_tarifa.srf
+global type funcion_obtener_minimo_tarifa from function_object
+end type
+
+forward prototypes
+global function integer funcion_obtener_minimo_tarifa (string id_fase, string id_articulo)
+end prototypes
+
+global function integer funcion_obtener_minimo_tarifa (string id_fase, string id_articulo);string tipo_actuacion, tipo_obra
+int res, superficie_vivienda, superficie_otros, superficie_garaje, numero_viviendas
+double pem, volumen
+
+//SELECT num_viv, sup_viv, sup_garage, sup_otros, volumen, pem into :numero_viviendas, :superficie_vivienda, :superficie_garaje, :superficie_otros, :volumen, :pem   
+//FROM fases_usos WHERE id_fase = :id_fase using sqlca;
+SELECT num_viv, sup_viv, sup_garage, sup_otros, volumen, pem into :numero_viviendas, :superficie_vivienda, :superficie_garaje, :superficie_otros, :volumen, :pem   
+FROM fases_usos WHERE id_fase = :id_fase using sqlca;
+SELECT fase, tipo_trabajo into :tipo_actuacion, :tipo_obra from fases where id_fase = :id_fase using sqlca;
+
+n_csd_calculo_gastos uo_calculo_gastos
+uo_calculo_gastos=create n_csd_calculo_gastos
+res=uo_calculo_gastos.of_conectar_transaccion(sqlca.DBMS,sqlca.database,sqlca.LogID,sqlca.LogPass,sqlca.servername,sqlca.userid,sqlca.dbpass,sqlca.lock,sqlca.dbparm,'TRUE')
+
+if res<0 then
+	MessageBox("Atenci$$HEX1$$f300$$ENDHEX$$n!","Ocurri$$HEX2$$f3002000$$ENDHEX$$un error al conectar a la base de datos")
+	return -1
+end if
+
+uo_calculo_gastos.of_set_double('superficie',superficie_vivienda + superficie_otros + superficie_garaje)				
+uo_calculo_gastos.of_set_double('pem',pem)
+
+uo_calculo_gastos.of_set_string('colegio',g_colegio)		
+uo_calculo_gastos.of_set_string('tipo_act',tipo_actuacion)		
+uo_calculo_gastos.of_set_string('tipo_obra', tipo_obra)
+uo_calculo_gastos.of_set_string('informe', id_articulo)
+
+choose case g_colegio
+	case 'COAATLL'
+		uo_calculo_gastos.of_set_double('otro_rango',volumen)
+	case else
+		uo_calculo_gastos.of_set_double('otro_rango',numero_viviendas)
+end choose			
+
+uo_calculo_gastos.f_obtener_tarifa()
+
+return uo_calculo_gastos.f_calcular_importe_base()
+end function
+

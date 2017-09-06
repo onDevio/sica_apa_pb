@@ -1,0 +1,17 @@
+HA$PBExportHeader$f_numeracion_unica_asientos.srf
+global type f_numeracion_unica_asientos from function_object
+end type
+
+forward prototypes
+global function string f_numeracion_unica_asientos ()
+end prototypes
+
+global function string f_numeracion_unica_asientos ();// 27/01/06	
+String valor_devuelto
+
+valor_devuelto = g_numeracion_unica_asientos
+if f_es_vacio(valor_devuelto) then valor_devuelto = 'N'
+
+return valor_devuelto
+end function
+

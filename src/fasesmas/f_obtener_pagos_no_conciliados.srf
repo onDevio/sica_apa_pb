@@ -1,0 +1,41 @@
+HA$PBExportHeader$f_obtener_pagos_no_conciliados.srf
+global type f_obtener_pagos_no_conciliados from function_object
+end type
+
+forward prototypes
+global function datastore f_obtener_pagos_no_conciliados (string as_id_fase, string as_id_colegiado)
+end prototypes
+
+global function datastore f_obtener_pagos_no_conciliados (string as_id_fase, string as_id_colegiado);///*********************************************************************************************************************************
+///***                       Funci$$HEX1$$f300$$ENDHEX$$n para obtener los datos correspondientes a los pagos pendiente de conciliar realizados desde la plataforma de visados.                     *************
+///*** Par$$HEX1$$e100$$ENDHEX$$metros:                                                                                                                                                                                                                 ************
+///*** as_id_fase - Identificador de la fase es cuesti$$HEX1$$f300$$ENDHEX$$n                                                                                                                                                               ************  
+///*** as_id_colegiado - Identificador del colegiado que ha realizado el pago.                                                                                                                              ************
+///*********************************************************************************************************************************
+///*** Retorno datastore con el valor de los datos de los pagos pendientes de conciliar.                                                                                                              *************
+///*********************************************************************************************************************************
+
+double ldb_total_sin_conciliar   
+string ls_n_colegiado 
+//st_fases_pagos lst_fases_pagos
+
+datastore ds_datos_pagos
+
+if f_es_vacio(as_id_colegiado) or as_id_colegiado = '%' then return ds_datos_pagos
+
+ls_n_colegiado = f_colegiado_n_col(as_id_colegiado)		
+
+if f_es_vacio(ls_n_colegiado) then return ds_datos_pagos
+
+ds_datos_pagos = create datastore
+ds_datos_pagos.dataobject = 'd_fases_pagos_plataforma'
+ds_datos_pagos.settransobject(sqlca)
+
+ds_datos_pagos.retrieve(as_id_fase)
+
+ds_datos_pagos.setfilter("n_colegiado = '" + ls_n_colegiado + "' and conciliado = 'N'")		
+ds_datos_pagos.filter()
+
+return ds_datos_pagos
+end function
+

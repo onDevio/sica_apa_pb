@@ -1,0 +1,66 @@
+HA$PBExportHeader$f_dato_colegiado.srf
+global type f_dato_colegiado from function_object
+end type
+
+forward prototypes
+global function string f_dato_colegiado (string id_colegiado, string campo)
+end prototypes
+
+global function string f_dato_colegiado (string id_colegiado, string campo);//devuelve dato del colegiado
+
+string devolver,cod_postal
+choose case campo
+		
+	case 'nombre'
+		select nombre into :devolver from colegiados where id_colegiado=:id_colegiado;
+		return devolver
+		
+	case 'apellidos'
+		select apellidos into :devolver from colegiados where id_colegiado=:id_colegiado;
+		return devolver
+		
+	case 'n_colegiado'			
+	select n_colegiado into :devolver from colegiados where id_colegiado=:id_colegiado;
+	return devolver
+	
+	case 'poblacion_activa_fiscal'			
+	select poblacion_activa_fiscal into :devolver from colegiados where id_colegiado=:id_colegiado;
+	// sacamos el codigo postal que son los 5 primeros digitos
+	cod_postal=left(devolver,5)
+	select descripcion into :devolver from poblaciones where poblaciones.cod_pos=:cod_postal;
+	return devolver
+	
+	case 'domicilio_activo_fiscal'			
+	select domicilio_activo_fiscal into :devolver from colegiados where id_colegiado=:id_colegiado;
+	return devolver
+	
+	case 'provincia'	
+   // lo sacamos de la poblacion_activa_fiscal
+	select poblacion_activa_fiscal into :devolver from colegiados where id_colegiado=:id_colegiado;
+	// sacamos el codigo postal que son los 5 primeros digitos
+	cod_postal=left(devolver,5)
+	select nombre into :devolver from provincias,poblaciones where poblaciones.cod_pos=:cod_postal and poblaciones.provincia=provincias.cod_provincia;
+	return devolver
+	
+	case 'nif'			
+	select nif into :devolver from colegiados where id_colegiado=:id_colegiado;
+	return devolver
+	
+	case 'cod_postal'			
+	select poblacion_activa_fiscal into :devolver from colegiados where id_colegiado=:id_colegiado;
+	// sacamos el codigo postal que son los 5 primeros digitos
+	cod_postal=left(devolver,5)
+	return cod_postal
+	
+	case 'telefono_activo'			
+	select telefono_2 into :devolver from colegiados where id_colegiado=:id_colegiado;
+	return devolver
+	
+	case 'fax'			
+	select telefono_5 into :devolver from colegiados where id_colegiado=:id_colegiado;
+	return devolver
+end choose
+
+return ''
+end function
+

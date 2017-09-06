@@ -1,0 +1,31 @@
+HA$PBExportHeader$f_colegiado_provincia.srf
+global type f_colegiado_provincia from function_object
+end type
+
+forward prototypes
+global function string f_colegiado_provincia (string id_col)
+end prototypes
+
+global function string f_colegiado_provincia (string id_col);//Esta funcion devuelve la provincia de un colegiado
+//
+string datos_colegiado = ''
+string prov
+
+select domicilios.cod_prov
+into :prov 
+from colegiados ,domicilios
+where ((domicilios.id_colegiado=colegiados.id_colegiado) AND
+		(domicilios.comercial='S') and
+		(colegiados.id_colegiado=:id_col));
+
+if isnull(prov) or prov= '' then 
+	prov=''
+end if
+
+datos_colegiado = prov
+
+
+return datos_colegiado
+
+end function
+

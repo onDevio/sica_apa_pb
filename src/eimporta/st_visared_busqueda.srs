@@ -1,0 +1,12 @@
+HA$PBExportHeader$st_visared_busqueda.srs
+global type st_visared_busqueda from structure
+	string		n_expediente
+	string		fase
+	string		n_registro
+	string		nif_cliente
+	string		n_colegiado
+	string		nombre_promotor
+	string		nombre_colegiado
+	string		t_tercero
+end type
+

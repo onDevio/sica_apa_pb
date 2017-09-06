@@ -1,0 +1,5 @@
+HA$PBExportHeader$st_jgreuniones_consulta.srs
+global type st_jgreuniones_consulta from structure
+	string		id_reunion
+end type
+

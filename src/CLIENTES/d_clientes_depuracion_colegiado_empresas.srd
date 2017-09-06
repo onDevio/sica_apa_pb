@@ -1,0 +1,54 @@
+HA$PBExportHeader$d_clientes_depuracion_colegiado_empresas.srd
+release 10.5;
+datawindow(units=0 timer_interval=0 color=79416533 processing=0 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes print.preview.outline=yes hidegrayline=no )
+header(height=0 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=188 color="536870912" )
+table(column=(type=char(10) updatewhereclause=yes name=id_cliente dbname="clientes.id_cliente" )
+ column=(type=char(80) updatewhereclause=yes name=apellidos dbname="clientes.apellidos" )
+ column=(type=char(50) updatewhereclause=yes name=nombre dbname="clientes.nombre" )
+ column=(type=char(15) updatewhereclause=yes name=nif dbname="clientes.nif" )
+ column=(type=char(100) updatewhereclause=yes name=nombre_via dbname="clientes.nombre_via" )
+ column=(type=char(6) updatewhereclause=yes name=cod_pob dbname="clientes.cod_pob" )
+ column=(type=char(20) updatewhereclause=yes name=cuenta_bancaria dbname="clientes.cuenta_bancaria" )
+ column=(type=char(80) updatewhereclause=yes name=colegiados_apellidos dbname="colegiados.apellidos" )
+ column=(type=char(50) updatewhereclause=yes name=colegiados_nombre dbname="colegiados.nombre" )
+ column=(type=char(15) updatewhereclause=yes name=colegiados_n_colegiado dbname="colegiados.n_colegiado" )
+ column=(type=char(10) updatewhereclause=yes name=id_colegiado dbname="colegiados.id_colegiado" )
+ retrieve="  SELECT clientes.id_cliente,   
+         clientes.apellidos,   
+         clientes.nombre,   
+         clientes.nif,   
+         clientes.nombre_via,   
+         clientes.cod_pob,   
+         clientes.cuenta_bancaria,   
+         colegiados.apellidos,   
+         colegiados.nombre,   
+         colegiados.n_colegiado,
+			colegiados.id_colegiado  
+    FROM clientes,   
+         colegiados  
+   WHERE ( clientes.id_cliente = colegiados.id_empresa ) and  
+         ( ( colegiados.id_empresa = :id_cliente ) )    
+" arguments=(("id_cliente", string)) )
+line(band=detail x1="9" y1="172" x2="3077" y2="172"  name=l_1 visible="1" pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="1090519039" )
+button(band=detail text="..." filename="" enabled=yes action="0" border="0" color="0" x="14" y="48" height="60" width="69" vtextalign="2" htextalign="0"  name=b_ver_colegiado visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="67108864" )
+column(band=detail id=10 alignment="0" tabsequence=10 border="5" color="0" x="517" y="16" height="52" width="480" format="[general]" html.valueishtml="0"  name=colegiados_n_colegiado visible="1" edit.limit=0 edit.case=any edit.autoselect=yes edit.displayonly=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+column(band=detail id=8 alignment="0" tabsequence=20 border="5" color="0" x="1019" y="16" height="52" width="1280" format="[general]" html.valueishtml="0"  name=colegiados_apellidos visible="1" edit.limit=0 edit.case=any edit.autoselect=yes edit.displayonly=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+column(band=detail id=4 alignment="0" tabsequence=30 border="5" color="0" x="517" y="88" height="56" width="480" format="[general]" html.valueishtml="0"  name=nif visible="1" edit.limit=0 edit.case=any edit.autoselect=yes edit.displayonly=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+text(band=detail alignment="1" text="Colegiado:" border="0" color="0" x="105" y="16" height="52" width="389" html.valueishtml="0"  name=t_1  tag="texto=clientes.colegiado:" visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Nombre Empresa:" border="0" color="0" x="105" y="88" height="52" width="389" html.valueishtml="0"  name=ultima_factura_t  tag="texto=clientes.nombre_empresa:" visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=9 alignment="0" tabsequence=32766 border="5" color="0" x="2322" y="16" height="52" width="704" format="[general]" html.valueishtml="0"  name=colegiados_nombre visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+compute(band=detail alignment="0" expression="f_dame_cliente (  id_cliente  )"border="5" color="0" x="1019" y="88" height="56" width="2007" format="[GENERAL]" html.valueishtml="0"  name=compute_1 visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" pagingmethod=0 generatedddwframes="1" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()
+ 

@@ -1,0 +1,21 @@
+HA$PBExportHeader$f_ejercicio_abierto.srf
+global type f_ejercicio_abierto from function_object
+end type
+
+forward prototypes
+global function boolean f_ejercicio_abierto (string ejercicio)
+end prototypes
+
+global function boolean f_ejercicio_abierto (string ejercicio);
+long ejercicio_abierto
+
+SELECT COUNT(*) INTO :ejercicio_abierto FROM csi_ejercicios_abiertos WHERE empresa =:g_empresa AND ejercicio = :ejercicio ;
+
+IF ejercicio_abierto > 0 THEN 
+	RETURN TRUE
+ELSE
+	RETURN FALSE
+END IF
+
+end function
+

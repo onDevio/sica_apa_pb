@@ -1,0 +1,55 @@
+HA$PBExportHeader$st_musaat_datos.srs
+global type st_musaat_datos from structure
+	string		n_visado
+	string		id_col
+	string		tipo_act
+	string		tipo_obra
+	double		pem
+	double		pto_contrato
+	string		administracion
+	double		superficie
+	double		volumen
+	double		porcentaje
+	string		tabla
+	double		cobertura
+	double		coef_k
+	double		coef_c
+	double		coef_g
+	double		prima_comp
+	double		coef_cm
+	double		coef_colegio
+	string		formula
+	double		minimo
+	string		mensaje
+	boolean		recuperar
+	boolean		genera_movi
+	string		id_minuta
+	boolean		anticipo_10
+	boolean		aplicado_10
+	double		importe_sobre_honos
+	string		tipo_csd
+	double		porc_sobre_honos
+	string		id_sociedad
+	double		porcentaje_devolucion
+	string		n_contrato_ant
+	string		funcionario
+	boolean		regulariza
+	datetime		f_pago
+	datetime		f_calculo
+	string		desarrollo
+	double		pem_certificacion
+	double		importe_cobrado
+	boolean		no_aplicar_tabla_desc
+	boolean		no_aplicar_tarifa_coef_g
+	string		colindantes2m
+	string		doble_condicion
+	string		int_forzosa
+	double		coef_recargo
+	string		cod_colegio
+	string		id_factura
+	double		prima_total
+	string		obra_iniciada
+	datetime		f_renuncia
+	string		poliza_plus
+end type
+

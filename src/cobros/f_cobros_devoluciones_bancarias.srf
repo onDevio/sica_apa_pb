@@ -1,0 +1,69 @@
+HA$PBExportHeader$f_cobros_devoluciones_bancarias.srf
+global type f_cobros_devoluciones_bancarias from function_object
+end type
+
+forward prototypes
+global subroutine f_cobros_devoluciones_bancarias (string fichero, datastore ds_devol)
+end prototypes
+
+global subroutine f_cobros_devoluciones_bancarias (string fichero, datastore ds_devol);// Modificado David 08/04/04
+// La anterior funci$$HEX1$$f300$$ENDHEX$$n daba errores con el formato del fichero del COAATLR
+
+// Funci$$HEX1$$f300$$ENDHEX$$n que lee las facturas del fichero de devoluci$$HEX1$$f300$$ENDHEX$$n enviado por el banco
+
+long longitud,total, num
+int ident, fila
+string cab_pres, cab_ord, linea, total_ord, total_gen, id_factura, fecha,n_coleg
+datetime fecha_devol
+
+longitud = FileLength(fichero)
+
+ident = FileOpen(fichero, LineMode!, Read!, LockReadWrite!)
+
+FileRead(ident, cab_pres) // Cabecera de Presentador
+FileRead(ident, cab_ord)  // Cabecera de Ordenante
+
+//FileRead(ident, linea)
+
+
+if (LeftA(cab_pres,4)='5190') then 
+	
+	DO WHILE FileRead(ident, linea) <> -100 // 20/11/07 Inc. 8495 left(linea,4)<>'5990'
+	
+		if LeftA(linea,4)='5690' then
+			// 20/11/07	Inc. 8495 tratar el fichero con varios bloques y tratar los apuntes
+			if MidA(linea,105,1) = 'C' then
+				//Falta implementar el tratamiento para los apuntes.
+				//ds_devol.setitem(fila,'id_cobro', f_apunte_id_interno('0'+mid(linea,106,10)))
+			else
+				fila = ds_devol.insertrow(0)
+				ds_devol.setitem(fila,'n_coleg_fich', trim(MidA(linea,16,6)))
+				ds_devol.setitem(fila,'id_cobro', MidA(linea,105,10))
+			end if
+			// Fin Modif. inc.8495
+			
+			ds_devol.setitem(fila,'motivo', MidA(linea,155,1))
+		end if
+	
+		// Modif 22/11/07 FileRead(ident, linea)
+	LOOP
+
+else
+	
+	if (LeftA(cab_pres,7)='1119143' or LeftA(cab_pres,7)='1119154' or LeftA(cab_pres,7)='2119143' or LeftA(cab_pres,7)='2119154')  then 
+		DO WHILE FileRead(ident, linea) <> -100 
+			if (LeftA(linea,7)='1319143' or LeftA(linea,7)='1319154' or LeftA(linea,7)='2319143' or LeftA(linea,7)='2319154') then 
+				fila = ds_devol.insertrow(0)
+				ds_devol.setitem(fila,'n_coleg_fich', trim(MidA(linea,46,35)))
+				ds_devol.setitem(fila, 'id_cobro', trim(MidA(linea,11,35))) 
+				ds_devol.setitem(fila,'motivo', f_cobros_devoluciones_codigo_motivo(trim(MidA(linea,582,4))))
+			end if
+		loop		
+	end if	
+	
+end if	
+
+FileClose(ident)
+
+end subroutine
+

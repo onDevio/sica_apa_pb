@@ -1,0 +1,40 @@
+HA$PBExportHeader$f_calcular_hon_teor.srf
+$PBExportComments$Calcula el total de honorarios
+global type f_calcular_hon_teor from function_object
+end type
+
+forward prototypes
+global function integer f_calcular_hon_teor (ref st_cip_datos st_cip_datos)
+end prototypes
+
+global function integer f_calcular_hon_teor (ref st_cip_datos st_cip_datos);double retorno = 0
+double hon_teor = 0, cip = 0
+string id_fase
+id_fase = st_cip_datos.id_fase
+choose case upper(g_colegio)
+	case 'COAATB'
+		retorno = f_calcular_cip_murcia(st_cip_datos)
+	case 'COAATMU'
+		retorno = f_calcular_cip_murcia(st_cip_datos)	
+	case 'COAATBU'
+		retorno = f_calcular_cip_burgos(st_cip_datos)
+	case 'COAATGUI'
+		retorno = f_calcular_honteor_gui(st_cip_datos)
+	case 'COAATGC'
+		retorno = f_calcular_honteor_gc(st_cip_datos)
+	case 'COAATLR'
+		retorno = f_calcular_honteor_lr(st_cip_datos)
+	case else
+		retorno = f_calcular_cip_murcia(st_cip_datos)	
+	
+end choose
+hon_teor = st_cip_datos.hon_teor
+	
+if not f_es_vacio (st_cip_datos.mensaje) then
+	messagebox(g_titulo, st_cip_datos.mensaje)
+	return -1
+end if
+
+return hon_teor
+end function
+

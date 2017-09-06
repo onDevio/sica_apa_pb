@@ -1,0 +1,32 @@
+HA$PBExportHeader$f_variable_entorno.srf
+global type f_variable_entorno from function_object
+end type
+
+forward prototypes
+global function string f_variable_entorno (string variable, string valor_predeterminado)
+end prototypes
+
+global function string f_variable_entorno (string variable, string valor_predeterminado);/* Devuelve el valor de una variable de entorno.
+
+Parametros:
+
+variable = nombre de la variable de entorno.
+valor_predeterminado = si la variable no se encuentra se devolvera este valor.
+
+Ejemplo:
+
+f_variable_entorno("TEMP", "C:\WINDOWS\TEMP\")
+
+*/
+
+long tam_buf
+string buf
+
+tam_buf = GetEnvironmentVariable(variable, buf, 0)
+if tam_buf = 0 then return valor_predeterminado
+buf = FillA(" ", tam_buf)
+GetEnvironmentVariable(variable, buf, tam_buf)
+return buf
+
+end function
+

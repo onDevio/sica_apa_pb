@@ -1,0 +1,2 @@
+HA$PBExportHeader$d_regsoc_listados_socios.srq
+PBSELECT( VERSION(400) TABLE(NAME="regsoc_socio" )  TABLE(NAME="regsoc" ) COLUMN(NAME="regsoc.num_reg_colegio") COLUMN(NAME="regsoc.num_reg_mercantil") COLUMN(NAME="regsoc.razon_social") COLUMN(NAME="regsoc_socio.nombre") COLUMN(NAME="regsoc_socio.apellidos")    JOIN (LEFT="regsoc.id_regsoc"    OP ="="RIGHT="regsoc_socio.id_regsoc" ))

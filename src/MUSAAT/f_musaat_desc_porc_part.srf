@@ -1,0 +1,23 @@
+HA$PBExportHeader$f_musaat_desc_porc_part.srf
+global type f_musaat_desc_porc_part from function_object
+end type
+
+forward prototypes
+global function double f_musaat_desc_porc_part (double porcen_part)
+end prototypes
+
+global function double f_musaat_desc_porc_part (double porcen_part);// Funci$$HEX1$$f300$$ENDHEX$$n que devuelve el descuento a aplicar en funci$$HEX1$$f300$$ENDHEX$$n del porcentaje de participaci$$HEX1$$f300$$ENDHEX$$n (a partir del 1 enero de 2009)
+double descuento
+datetime hoy
+
+hoy = datetime(today(), now())
+
+SELECT descuento  
+INTO :descuento  
+FROM musaat_desc_porc_part  
+WHERE ( desde < :porcen_part ) AND  ( hasta >= :porcen_part )  AND (f_desde < :hoy ) AND (f_hasta > :hoy ) ;
+
+return descuento
+
+end function
+

@@ -1,0 +1,26 @@
+HA$PBExportHeader$f_colegiado_tipopersona.srf
+$PBExportComments$Funcion que regresa los datos del colegiado
+global type f_colegiado_tipopersona from function_object
+end type
+
+forward prototypes
+global function string f_colegiado_tipopersona (string id_col)
+end prototypes
+
+global function string f_colegiado_tipopersona (string id_col);//f_colegiado (id_col : string)
+//Esta funcion devuelve el n_colegiado, apellido y nombre de un colegiado
+//
+string datos_colegiado = ''
+string tipo
+
+select tipo_persona into :tipo from colegiados where id_colegiado=:id_col;
+
+
+datos_colegiado = tipo
+
+//messagebox ('',datos_colegiado)
+
+return datos_colegiado
+
+end function
+

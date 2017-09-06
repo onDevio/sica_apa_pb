@@ -1,0 +1,21 @@
+HA$PBExportHeader$f_dame_tipo_bolsa.srf
+global type f_dame_tipo_bolsa from function_object
+end type
+
+forward prototypes
+global function string f_dame_tipo_bolsa (string codigo)
+end prototypes
+
+global function string f_dame_tipo_bolsa (string codigo);string tipo_bolsa
+
+SELECT bt_tipo_bolsa.descripcion
+    INTO :tipo_bolsa
+    FROM bt_tipo_bolsa  
+   WHERE bt_tipo_bolsa.bt_tipo_bolsa = :codigo; 
+         
+IF f_es_vacio (tipo_bolsa) then tipo_bolsa = ''
+			
+				
+return tipo_bolsa
+end function
+

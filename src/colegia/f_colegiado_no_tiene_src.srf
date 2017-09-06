@@ -1,0 +1,15 @@
+HA$PBExportHeader$f_colegiado_no_tiene_src.srf
+global type f_colegiado_no_tiene_src from function_object
+end type
+
+forward prototypes
+global function boolean f_colegiado_no_tiene_src (string id_col)
+end prototypes
+
+global function boolean f_colegiado_no_tiene_src (string id_col);IF f_tipo_alta_src(id_col) ='N' then RETURN TRUE
+
+// Otro caso...
+RETURN FALSE
+
+end function
+

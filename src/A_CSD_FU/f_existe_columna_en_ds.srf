@@ -1,0 +1,17 @@
+HA$PBExportHeader$f_existe_columna_en_ds.srf
+global type f_existe_columna_en_ds from function_object
+end type
+
+forward prototypes
+global function integer f_existe_columna_en_ds (datastore ds, string nombre_columna)
+end prototypes
+
+global function integer f_existe_columna_en_ds (datastore ds, string nombre_columna);// Comprueba si existe la columna en el objeto indicado
+
+if lower(ds.describe(nombre_columna + ".name")) = lower(nombre_columna) then
+	return 1
+else
+	return -1
+end if
+end function
+

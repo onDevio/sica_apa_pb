@@ -1,0 +1,67 @@
+HA$PBExportHeader$f_dw_resaltado_multiple.srf
+global type f_dw_resaltado_multiple from function_object
+end type
+
+forward prototypes
+global function integer f_dw_resaltado_multiple (datawindow adw, string campo_primario, string valor_campo, long color_resaltado)
+end prototypes
+
+global function integer f_dw_resaltado_multiple (datawindow adw, string campo_primario, string valor_campo, long color_resaltado);// Para ir resaltando l$$HEX1$$ed00$$ENDHEX$$neas 
+// Si se especifica row = 0 se quitan los resaltes
+
+string color
+string condicion
+long	 pos_tab
+string color_original
+long pos_color, pos_else
+string ret
+string pre_then, post_then, pre_else, post_else
+
+color = adw.Object.DataWindow.Detail.Color
+
+pos_tab = PosA(color, '~t')
+// Cogemos el color original dependiendo de si ya hay algo en la condici$$HEX1$$f300$$ENDHEX$$n o no (o sea, si hay "tab" o no)
+if pos_tab <= 0 then
+	color_original = color
+else
+	// Cuando tienen tab ya llevan comillas, as$$HEX2$$ed002000$$ENDHEX$$que es a partir de la pos 2 y el "pos_tab - 2" es porque da la pos de la "t", pero hay que quitar tambi$$HEX1$$e900$$ENDHEX$$n el " ~ "
+	color_original = MidA(color, 2, pos_tab - 2)
+end if
+
+if valor_campo = '0' then
+	// quitamos los "resaltes", dejando el color original
+	color = color_original
+else
+	if PosA(color, 'case') <= 0 then
+		color = color_original + '~t case(' + campo_primario + ' when ' + valor_campo + ' then ' + string(color_resaltado) + ' else ' + color_original + ')'
+	else
+		// Ya existen condiciones anteriores
+		//Comprobamos si el color ya se habia introducido
+		pos_color = PosA(color, string(color_resaltado))
+		if pos_color > 0 then
+			//El color ya estaba, solo tenemos que introducir la fila en el when
+			pre_then = MidA(color, 1, pos_color - 7)
+			post_then = MidA(color, pos_color - 6)
+			color = pre_then + ', ' + valor_campo + post_then
+		else
+			//El color no esta, a$$HEX1$$f100$$ENDHEX$$adimos al final la condicion, antes del else
+			pos_else = PosA(color, 'else')
+			pre_else = MidA(color, 1, pos_else - 1)
+			post_else = MidA(color, pos_else - 1)
+			//color = pre_else + 'when ' + valor_campo + ' then ' + string(color_resaltado) + post_else
+			color = pre_else + 'case(' + campo_primario + ' when ' + valor_campo + ' then ' + string(color_resaltado) + ' '+post_else+ ')'
+		end if
+	end if	
+end if
+
+ret = adw.Modify( 'DataWindow.Detail.Color="'+color+'"')
+//DEBUG: messagebox("ret, color final", ret + cr + color)
+
+// Si todo ha ido bien devolveremos 1
+if ret <> '' then 
+	return -1
+else
+	return 1
+end if
+end function
+

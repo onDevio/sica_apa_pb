@@ -1,0 +1,209 @@
+HA$PBExportHeader$f_calcular_cip_gu.srf
+$PBExportComments$Calcula el total de cip para Guadalajara
+global type f_calcular_cip_gu from function_object
+end type
+
+forward prototypes
+global function integer f_calcular_cip_gu (ref st_honteor_datos st_hon)
+end prototypes
+
+global function integer f_calcular_cip_gu (ref st_honteor_datos st_hon);Double Fa, Ca, Coef, Sup, Pres, BaseCuadro, Minimo, Coef_Aux, Cip	= 0, Volumen, Altura, Parcelas, Tipologia, Minimo_cc, Minimo_Aux, Coef_Ant, IPC
+String AplicadoMinimo = "N", Nueva_planta, Formula, Tarifa, Contenido, Desarrollo
+
+Fa = g_fa
+Ca = g_ca
+
+Tarifa 			= st_hon.tarifa
+Contenido 		= st_hon.contenido
+Pres 				= st_hon.presupuesto
+Nueva_planta 	= st_hon.nueva_planta
+Sup 				= st_hon.superficie
+Volumen 			= st_hon.volumen
+Altura 			= st_hon.altura
+Tipologia 		= st_hon.tipologia
+Parcelas 		= st_hon.parcelas
+
+if isnull(Contenido) or Contenido='' then Contenido = '@'
+if isnull(Tipologia) then Tipologia = 0
+
+BaseCuadro = (Pres / Fa)
+if (BaseCuadro = 0) or (Isnull(BaseCuadro) )  then BaseCuadro = 1
+IF Pres = 0 then Pres = 1
+
+SELECT minimo_cip, coef  
+INTO :Minimo_Aux, :Coef_Aux
+FROM ho_tarifas_contenidos  
+WHERE ( ho_tarifas_contenidos.cod_tarifa = :Tarifa ) AND  
+      ( ho_tarifas_contenidos.cod_contenido = :Contenido )   ;
+
+// Coeficiente Ca, tomamos Cp como el IPC
+SELECT desc_gui_coefs.coef_a , desc_gui_coefs.coef_p
+INTO :Ca, :IPC
+FROM desc_gui_coefs  
+WHERE ( desc_gui_coefs.desde_fecha <= :st_hon.fecha ) AND  
+		( desc_gui_coefs.hasta_fecha > :st_hon.fecha )   ;
+
+
+Minimo = Minimo_Aux
+Minimo_cc = Minimo_Aux * g_cc * IPC
+
+if sqlca.sqlcode <> 0 then
+	messagebox(g_titulo, 'No se encuentra el coeficiente Ca en la tabla')
+	return -1
+end if
+
+
+CHOOSE CASE Tarifa
+		
+	CASE '1.6.1', '1.6.3'
+		SELECT coef INTO :Coef  FROM ho_tablas WHERE desde < :Sup AND hasta >= :Sup AND tarifa = :Tarifa and contenido = 'C' ;		
+		Cip = Pres * Coef * g_cc / 10000
+		if Cip < Minimo_cc Then
+			Cip = Minimo_cc
+			AplicadoMinimo = "S"
+			Desarrollo = string(Minimo_Aux) + ' x ' + string(g_cc) + ' x ' + string(IPC) + ' (m$$HEX1$$ed00$$ENDHEX$$nimo)'
+		else
+			Desarrollo = string(Pres) + ' x ' + string(Coef) + ' x ' + string(g_cc) + ' / 10000'
+		end if
+
+	CASE '1.6.2', '1.6.4'
+		SELECT coef INTO :Coef  FROM ho_tablas WHERE desde < :Sup AND hasta >= :Sup AND tarifa = :Tarifa and contenido = 'C' ;		
+		Cip = Pres * Coef * g_cc / 10000 * 1.20
+		if Cip < Minimo_cc Then
+			Cip = Minimo_cc
+			AplicadoMinimo = "S"
+			Desarrollo = string(Minimo_Aux) + ' x ' + string(g_cc) + ' x ' + string(IPC) + ' (m$$HEX1$$ed00$$ENDHEX$$nimo)'
+		else
+			Desarrollo = string(Pres) + ' x ' + string(Coef) + ' x ' + string(g_cc) + ' / 10000 x 1,20'
+		end if
+
+	CASE '2.4.1', '2.4.3'
+		SELECT coef INTO :Coef  FROM ho_tablas WHERE desde < :Pres AND hasta >= :Pres AND tarifa = :Tarifa and contenido = 'C' ;
+		Cip = Pres * Coef * g_cc / 10000
+		if Cip < Minimo_cc Then
+			Cip = Minimo_cc
+			AplicadoMinimo = "S"
+			Desarrollo = string(Minimo_Aux) + ' x ' + string(g_cc) + ' x ' + string(IPC) + ' (m$$HEX1$$ed00$$ENDHEX$$nimo)'
+		else
+			Desarrollo = string(Pres) + ' x ' + string(Coef) + ' x ' + string(g_cc) + ' / 10000'
+		end if		
+
+	CASE '2.4.2', '2.4.4'
+		SELECT coef INTO :Coef  FROM ho_tablas WHERE desde < :Pres AND hasta >= :Pres AND tarifa = :Tarifa and contenido = 'C' ;
+		Cip = Pres * Coef * g_cc / 10000 * 1.20
+		if Cip < Minimo_cc Then
+			Cip = Minimo_cc
+			AplicadoMinimo = "S"
+			Desarrollo = string(Minimo_Aux) + ' x ' + string(g_cc) + ' x ' + string(IPC) + ' (m$$HEX1$$ed00$$ENDHEX$$nimo)'
+		else
+			Desarrollo = string(Pres) + ' x ' + string(Coef) + ' x ' + string(g_cc) + ' / 10000 x 1,20'
+		end if		
+		
+	CASE '3.1', '3.2', '3.3', '3.4', '4.1.1', '4.1.2', '4.1.4'
+		Cip = Minimo_cc
+		Desarrollo = string(Minimo_Aux) + ' x ' + string(g_cc) + ' x ' + string(IPC)
+
+	CASE '5.15'
+		SELECT coef INTO :Coef  FROM ho_tablas WHERE desde < :Pres AND hasta >= :Pres AND tarifa = :Tarifa and contenido = 'C' ;
+		Cip = Pres * Coef/100 * Coef_Aux * g_cc * Ca
+		if Cip < Minimo_cc Then
+			Cip = Minimo_cc
+			AplicadoMinimo = "S"
+			Desarrollo = string(Minimo_Aux) + ' x ' + string(g_cc) + ' x ' + string(IPC) + ' (m$$HEX1$$ed00$$ENDHEX$$nimo)'
+		else
+			Desarrollo = string(Pres) + ' x (' + string(Coef) + '/ 100) x ' + string(Coef_Aux) + ' x ' + string(g_cc) + ' x ' + string(Ca)
+		end if
+
+	CASE 'A.1.1'
+		double a
+		if Altura <= 12 then
+			a=0.60
+		else
+			a=0.90
+		end if
+		Cip = Volumen * a * Tipologia * g_cc * Coef_Aux / 100
+		if Cip < Minimo_cc Then
+			Cip = Minimo_cc
+			AplicadoMinimo = "S"
+			Desarrollo = string(Minimo_Aux) + ' x ' + string(g_cc) + ' x ' + string(IPC) + ' (m$$HEX1$$ed00$$ENDHEX$$nimo)'
+		else
+			Desarrollo = string(Volumen) + ' x ' + string(a) + ' x ' + string(Tipologia) + ' x ' + string(g_cc) + ' / 100'
+			if Coef_Aux <> 1 then Desarrollo += ' x ' + string(Coef_Aux)
+		end if
+
+	CASE 'A.1.2'
+		SELECT coef INTO :Coef  FROM ho_tablas WHERE desde < :Pres AND hasta >= :Pres AND tarifa = :Tarifa and contenido = 'C' ;
+		Coef_Ant = Coef
+		if Nueva_planta = 'N' then
+			Coef = Coef * 1.2
+//			Minimo = Minimo * 1.2
+		end if
+		Cip = Pres * Coef * g_cc * Coef_Aux / 10000
+		if Cip < Minimo_cc Then
+			Cip = Minimo_cc
+			AplicadoMinimo = "S"
+			Desarrollo = string(Minimo_Aux) + ' x ' + string(g_cc) + ' x ' + string(IPC) 
+//			if Nueva_planta = 'N' then Desarrollo += ' x 1,20'
+			Desarrollo +=  ' (m$$HEX1$$ed00$$ENDHEX$$nimo)'
+		else
+			Desarrollo = string(Pres) + ' x ' + string(Coef_Ant) + ' x ' + string(g_cc) + ' / 10000'
+			if Nueva_planta = 'N' then Desarrollo += ' x 1,20'
+			if Coef_Aux <> 1 then Desarrollo += ' x ' + string(Coef_Aux)
+		end if
+
+	CASE 'A.1.3', 'A.1.4', 'A.1.6.4'
+		SELECT coef INTO :Coef  FROM ho_tablas WHERE desde < :Pres AND hasta >= :Pres AND tarifa = :Tarifa and contenido = 'C' ;				
+		Cip = Pres * Coef * g_cc * Coef_Aux / 10000
+		if Cip < Minimo_cc Then
+			Cip = Minimo_cc
+			AplicadoMinimo = "S"
+			Desarrollo = string(Minimo_Aux) + ' x ' + string(g_cc) + ' x ' + string(IPC) + ' (m$$HEX1$$ed00$$ENDHEX$$nimo)'
+		else
+			Desarrollo = string(Pres) + ' x ' + string(Coef) + ' x ' + string(g_cc) + ' / 10000'
+			if Coef_Aux <> 1 then Desarrollo += ' x ' + string(Coef_Aux)
+		end if
+
+	CASE 'A.1.6.3'
+		SELECT coef INTO :Coef  FROM ho_tablas WHERE desde < :Sup AND hasta >= :Sup AND tarifa = :Tarifa and contenido = 'C' ;
+		Cip = Pres * Coef * g_cc * Coef_Aux / 10000
+		if Cip < Minimo_cc Then
+			Cip = Minimo_cc
+			AplicadoMinimo = "S"
+			Desarrollo = string(Minimo_Aux) + ' x ' + string(g_cc) + ' x ' + string(IPC) + ' (m$$HEX1$$ed00$$ENDHEX$$nimo)'
+		else
+			Desarrollo = string(Pres) + ' x ' + string(Coef) + ' x ' + string(g_cc) + ' / 10000'
+			if Coef_Aux <> 1 then Desarrollo += ' x ' + string(Coef_Aux)
+		end if
+
+	CASE 'A.2.5.1'
+		Cip = Minimo
+		Desarrollo = string(Minimo) + ' x ' + string(IPC) 
+		Cip = Cip * IPC
+		Formula = 'C = ' + string(Minimo) + ' x IPC'
+		
+	CASE 'OT'
+		if Pres < 601.01 * Fa then 
+			Cip = 9.62
+		else
+			Cip = 12.98
+		end if
+		Desarrollo = string(Cip) + ' x ' + string(IPC) 
+		Formula = 'C = ' + string(Cip)+ ' x IPC'
+		Cip = Cip * IPC
+		
+END CHOOSE
+
+st_hon.formula = Formula
+//Luis CGU-399
+//No quieren que se cobre la mitad por obra oficial, pongo la condicion por si utiliza esta funci$$HEX1$$f300$$ENDHEX$$n algun otro colegio
+if(g_colegio <> 'COAATGU')then
+	if st_hon.admon = 'S' then Cip = Cip / 2 // En obras oficiales se cobra la mitad
+end if	
+//fin cambio
+st_hon.importe = f_redondea(Cip)
+st_hon.desarrollo = Desarrollo
+
+return 1
+
+end function
+

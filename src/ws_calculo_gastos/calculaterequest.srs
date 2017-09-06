@@ -1,0 +1,19 @@
+HA$PBExportHeader$calculaterequest.srs
+$PBExportComments$Proxy imported from Web service using Web Service Proxy Generator.
+global type calculateRequest from structure
+    string colegio
+    string articulo
+    double porcentaje
+    string tramite
+    string tipo_solicitud
+    string tipo_intervencion
+    string tipo_obra
+    double pem
+    double superficie
+    double volumen
+    long num_viv
+    boolean visared
+    boolean obra_oficial
+    long num_participantes
+end type
+

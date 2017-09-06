@@ -1,0 +1,27 @@
+HA$PBExportHeader$f_musaat_siniestros_tipo_estado_obra.srf
+global type f_musaat_siniestros_tipo_estado_obra from function_object
+end type
+
+forward prototypes
+global function double f_musaat_siniestros_tipo_estado_obra (string tipo_estado_obra, datetime f_ini, datetime f_fin)
+end prototypes
+
+global function double f_musaat_siniestros_tipo_estado_obra (string tipo_estado_obra, datetime f_ini, datetime f_fin);double retorno
+
+SELECT count (id_siniestro)  
+INTO :retorno  
+FROM fases_siniestros  
+WHERE ( fases_siniestros.tipo_estado_obra = :tipo_estado_obra ) AND  
+		( fases_siniestros.fecha >= :f_ini ) AND  
+		( fases_siniestros.fecha < :f_fin ) AND
+		(    NOT exists (SELECT COUNT(*) FROM fases_siniestros, fases_siniestros_coles WHERE fases_siniestros_coles.id_siniestro = fases_siniestros.id_siniestro ) 
+			OR
+			exists (SELECT COUNT(*) FROM fases_siniestros, fases_siniestros_coles WHERE fases_siniestros_coles.id_siniestro = fases_siniestros.id_siniestro AND fases_siniestros_coles.src_cia = 'MU') 
+		 )	  ;
+
+if isnull (retorno) then retorno = 0
+
+return retorno
+
+end function
+

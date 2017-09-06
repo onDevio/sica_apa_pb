@@ -1,0 +1,51 @@
+HA$PBExportHeader$f_musaat_peritos.srf
+$PBExportComments$Dado un id_musaat obtiene sus datos del seguro de peritos
+global type f_musaat_peritos from function_object
+end type
+
+forward prototypes
+global subroutine f_musaat_peritos (string id_musaat, ref string peritos_n_poliza, ref string peritos_importe, ref string peritos_alta, ref string peritos_f_alta, ref string peritos_f_baja, ref string peritos_cober, ref string peritos_cober_f_alta, ref string peritos_cober_f_baja, ref string peritos_cia)
+end prototypes
+
+global subroutine f_musaat_peritos (string id_musaat, ref string peritos_n_poliza, ref string peritos_importe, ref string peritos_alta, ref string peritos_f_alta, ref string peritos_f_baja, ref string peritos_cober, ref string peritos_cober_f_alta, ref string peritos_cober_f_baja, ref string peritos_cia);//Esta funci$$HEX1$$f300$$ENDHEX$$n establece los par$$HEX1$$e100$$ENDHEX$$metros que se le pasan por referencia con el valor
+//correspondiente al colegiado indicado por ID_MUSAAT
+
+string peritos_cober_cod, peritos_cia_cod
+double peritos_cober_aux
+
+datastore ds_peritos
+
+ds_peritos = create datastore
+ds_peritos.dataobject ='d_musaat_peritos'
+ds_peritos.SetTransObject(SQLCA)
+
+ds_peritos.Retrieve(id_musaat)
+
+if ds_peritos.rowcount() > 0 then
+	peritos_cia_cod = ds_peritos.getitemstring(1, 'peritos_cia')
+	select nom_s into :peritos_cia from musaat_cias_aseguradoras where cod_s = :peritos_cia_cod;
+	peritos_n_poliza = ds_peritos.getitemstring(1, 'peritos_n_poliza')
+	peritos_importe = string(ds_peritos.getitemnumber(1, 'peritos_importe'))
+	peritos_alta = ds_peritos.getitemstring(1, 'peritos_alta')
+	peritos_f_alta = string(ds_peritos.getitemdatetime(1, 'peritos_f_alta'),"dd/mm/yyyy")
+	peritos_f_baja = string(ds_peritos.getitemdatetime(1, 'peritos_f_baja'),"dd/mm/yyyy")
+	peritos_cober_cod = ds_peritos.getitemstring(1, 'peritos_cober')
+	select prima into :peritos_cober_aux from musaat_cober_peritos where codigo = :peritos_cober_cod;
+	peritos_cober = string(peritos_cober_aux)
+	peritos_cober_f_alta = string(ds_peritos.getitemdatetime(1, 'peritos_cober_f_alta'),"dd/mm/yyyy")
+	peritos_cober_f_baja = string(ds_peritos.getitemdatetime(1, 'peritos_cober_f_baja'),"dd/mm/yyyy")
+end if
+
+if f_es_vacio(peritos_cia) then peritos_cia = ''
+if f_es_vacio(peritos_n_poliza) then peritos_n_poliza = ''
+if f_es_vacio(peritos_importe) then peritos_importe = ''
+if f_es_vacio(peritos_alta) then peritos_alta = ''
+if f_es_vacio(peritos_f_alta) then peritos_f_alta = ''
+if f_es_vacio(peritos_f_baja) then peritos_f_baja = ''
+if f_es_vacio(peritos_cober) then peritos_cober = ''
+if f_es_vacio(peritos_cober_f_alta) then peritos_cober_f_alta = ''
+if f_es_vacio(peritos_cober_f_baja) then peritos_cober_f_baja = ''
+
+destroy ds_peritos
+end subroutine
+

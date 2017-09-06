@@ -1,0 +1,9 @@
+HA$PBExportHeader$st_minutas_consulta.srs
+global type st_minutas_consulta from structure
+	string		accion
+	string		id_minuta
+	string		id_fase
+	string		actualizado
+	string		modulo
+end type
+

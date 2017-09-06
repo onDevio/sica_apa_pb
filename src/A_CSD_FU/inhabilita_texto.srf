@@ -1,0 +1,17 @@
+HA$PBExportHeader$inhabilita_texto.srf
+global type inhabilita_texto from function_object
+end type
+
+forward prototypes
+global subroutine inhabilita_texto (datawindow ps_dw, string ps_column)
+end prototypes
+
+global subroutine inhabilita_texto (datawindow ps_dw, string ps_column);ps_dw.SetTabOrder(ps_column,0)
+
+//Texto Gris oscuro
+ps_dw.Modify(ps_column + ".color = "+string(RGB(128,128,128)))
+
+//Fondo Gris claro
+ps_dw.Modify(ps_column + ".background.color = "+string(RGB(192,192,192)))
+end subroutine
+

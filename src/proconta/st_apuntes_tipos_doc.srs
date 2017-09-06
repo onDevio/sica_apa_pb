@@ -1,0 +1,14 @@
+HA$PBExportHeader$st_apuntes_tipos_doc.srs
+$PBExportComments$Permite tener la clasificaci$$HEX1$$f300$$ENDHEX$$n de tipos de documentos para los distintos tipos de apuntes
+global type st_apuntes_tipos_doc from structure
+	string		facts_emitidas_exp
+	string		facts_emitidas_ot
+	string		facts_emitidas_general
+	string		cobros_multiples
+	string		remesas
+	string		domic_saldo
+	string		talon
+	string		transferencia
+	string		generico
+end type
+

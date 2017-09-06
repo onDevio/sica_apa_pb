@@ -1,0 +1,28 @@
+HA$PBExportHeader$f_garantias_expediente.srf
+global type f_garantias_expediente from function_object
+end type
+
+forward prototypes
+global function string f_garantias_expediente (string id_liquidacion)
+end prototypes
+
+global function string f_garantias_expediente (string id_liquidacion);string n_expedi = '', n_registro, n_salida_contrato
+
+SELECT fases.n_expedi, fases.n_registro, fases.archivo
+INTO :n_expedi, :n_registro, :n_salida_contrato
+FROM fases, fases_minutas, premaat_liquidaciones  
+WHERE ( premaat_liquidaciones.id_fase = fases_minutas.id_minuta ) and  
+		( fases_minutas.id_fase = fases.id_fase ) and  
+		( ( premaat_liquidaciones.id_liquidacion = :id_liquidacion ) )   ;
+
+CHOOSE CASE g_colegio
+	CASE 'COAATTFE'
+		return n_registro
+	CASE 'COAATZ', 'COAATGU', 'COAATLE', 'COAATAVI'
+		return n_salida_contrato
+	CASE ELSE
+		return n_expedi
+END CHOOSE
+
+end function
+

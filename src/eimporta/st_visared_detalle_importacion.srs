@@ -1,0 +1,6 @@
+HA$PBExportHeader$st_visared_detalle_importacion.srs
+global type st_visared_detalle_importacion from structure
+	string		tipo_importacion
+	string		id_fase
+end type
+

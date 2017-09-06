@@ -1,0 +1,32 @@
+HA$PBExportHeader$f_comprueba_repetidos.srf
+global type f_comprueba_repetidos from function_object
+end type
+
+forward prototypes
+global function boolean f_comprueba_repetidos (string id_fase, string id_col, string t_reparo, string id_reparo)
+end prototypes
+
+global function boolean f_comprueba_repetidos (string id_fase, string id_col, string t_reparo, string id_reparo);//Comprueba si hay alg$$HEX1$$fa00$$ENDHEX$$n reparo identico (con <> id) en la BDA
+// f_comprueba_repetidos(id_fase,id_col,t_reparo,id_reparo) return boolean
+
+boolean repetido=false
+int encontrado=0
+
+if not(f_es_vacio(id_fase)) and not(f_es_vacio(id_col)) and not(f_es_vacio(t_reparo)) then
+  SELECT count(*)  
+    INTO :encontrado  
+    FROM fases_reparos  
+    WHERE ( fases_reparos.id_fase = :id_fase ) AND  
+         ( fases_reparos.tipo_reparo = :t_reparo ) AND  
+         ( fases_reparos.id_col = :id_col ) AND
+			( fases_reparos.id_reparo <> :id_reparo ) ;
+end if
+		
+		if encontrado>0 then
+			repetido=true
+		end if
+		
+	return repetido
+	
+end function
+

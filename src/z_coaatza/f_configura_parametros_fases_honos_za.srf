@@ -1,0 +1,96 @@
+HA$PBExportHeader$f_configura_parametros_fases_honos_za.srf
+global type f_configura_parametros_fases_honos_za from function_object
+end type
+
+forward prototypes
+global subroutine f_configura_parametros_fases_honos_za (string tarifa, datawindow dw, datastore ds, string modulo)
+end prototypes
+
+global subroutine f_configura_parametros_fases_honos_za (string tarifa, datawindow dw, datastore ds, string modulo);string param[5], campo_dw, etiq, id_fase
+int i, j, p
+
+// Si no estamos en contratos no hay que grabar nada
+if modulo = 'F' then
+	if f_es_vacio(tarifa) then
+		// No podemos perder el id_fase al hacer el reset al vaciar el dw
+		id_fase = dw.getitemstring(1, 'id_fase')
+		dw.deleterow(0)
+		dw.insertrow(0)
+		dw.setitem(1, 'id_fase', id_fase)
+		dw.update()	
+		return
+	end if
+end if
+
+if f_es_vacio(tarifa) then return
+
+dw.setitem(1, 'tarifa', ds.getitemstring(1,'tarifa'))
+dw.setitem(1, 'epigrafe', ds.getitemstring(1,'contenido'))
+dw.setitem(1, 'formula_ho', ds.getitemstring(1,'formula'))
+dw.setitem(1, 'desarrollo_ho', ds.getitemstring(1,'desarrollo'))
+dw.setitem(1, 'importe_ho', ds.getitemnumber(1,'importe'))
+dw.setitem(1, 'pem_min', ds.getitemnumber(1,'pem_min'))
+
+// Obtenemos los par$$HEX1$$e100$$ENDHEX$$metros utilizados para el c$$HEX1$$e100$$ENDHEX$$lculo de esa tarifa
+SELECT ho_tarifas.param1, ho_tarifas.param2, ho_tarifas.param3, ho_tarifas.param4, ho_tarifas.param5  
+INTO :param[1], :param[2], :param[3], :param[4], :param[5]  
+FROM ho_tarifas  
+WHERE ho_tarifas.cod_tarifa = :tarifa   ;
+
+// Rellenamos los campos paramX
+for i=1 to 5
+	campo_dw = 'p' + string(i)
+//	dw.Modify(campo_dw+"_t.Visible = 1")
+//	dw.Modify(campo_dw+".Visible = 1")
+	
+	// Obtenemos el tipo del campo, porque hay un par de strings que hay que convertir a doubles (S=1; N=0)
+	if LeftA(ds.Describe(param[i]+".ColType"),4) = 'char' then
+		if ds.getitemstring(1, param[i]) = 'S' then
+			dw.setitem(1, campo_dw, 1)
+		else
+			dw.setitem(1, campo_dw, 0)
+		end if
+	else
+		dw.setitem(1, campo_dw, ds.getitemnumber(1, param[i]))
+	end if
+
+//	// Ponemos nombre a las etiquetas de los parametros	
+//	DO WHILE pos(param[i], '_')>0
+//		param[i] = replace(param[i], pos(param[i], '_'), 1, ' ')
+//	LOOP
+//	
+//	etiq = upper(left(param[i],1)) + right(param[i], len(param[i])-1)
+//	dw.Modify(campo_dw+"_t.Text='"+etiq+"'")
+//	if isnull(param[i]) then
+//		dw.Modify(campo_dw+"_t.Visible = 0 ")
+//		dw.Modify(campo_dw+".Visible = 0 ")
+//	end if
+next
+
+
+// Obtenemos los par$$HEX1$$e100$$ENDHEX$$metros utilizados para el c$$HEX1$$e100$$ENDHEX$$lculo del pem m$$HEX1$$ed00$$ENDHEX$$nimo
+// Lo hago as$$HEX2$$ed002000$$ENDHEX$$para evitar a$$HEX1$$f100$$ENDHEX$$adir m$$HEX1$$e100$$ENDHEX$$s campos en la tabla
+double param1, param2, param3
+
+CHOOSE CASE tarifa
+	CASE '1.1'
+		param1 = ds.getitemnumber(1, 'num_resp')
+		param2 = ds.getitemnumber(1, 'superficie')
+	CASE '2.1'
+		param1 = ds.getitemnumber(1, 'uso')
+		param2 = ds.getitemnumber(1, 'dificil_acc')
+		param3 = ds.getitemnumber(1, 'sup_acond')
+	CASE '4', '17'
+		param1 = ds.getitemnumber(1, 'sup_urb')
+		param2 = ds.getitemnumber(1, 'tipo_terr')		
+	CASE '16'
+		param1 = ds.getitemnumber(1, 'nave')
+		param2 = ds.getitemnumber(1, 'superficie')		
+END CHOOSE
+
+dw.setitem(1, 'coef_a', param1)
+dw.setitem(1, 'coef_b', param2)
+dw.setitem(1, 'coef_c', param3)
+
+end subroutine
+

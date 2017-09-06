@@ -1,0 +1,11 @@
+HA$PBExportHeader$f_devuelve_moneda_ejercicio.srf
+global type f_devuelve_moneda_ejercicio from function_object
+end type
+
+forward prototypes
+global function string f_devuelve_moneda_ejercicio ()
+end prototypes
+
+global function string f_devuelve_moneda_ejercicio ();return moneda_ejercicio
+end function
+

@@ -1,0 +1,25 @@
+HA$PBExportHeader$f_musaat_domicilio_cliente_por_nif.srf
+global type f_musaat_domicilio_cliente_por_nif from function_object
+end type
+
+forward prototypes
+global function string f_musaat_domicilio_cliente_por_nif (string nif)
+end prototypes
+
+global function string f_musaat_domicilio_cliente_por_nif (string nif);string tipo_via= '', nombre_via = ''
+ string domic_total = ''
+ 
+  SELECT clientes.tipo_via,   
+         clientes.nombre_via  
+    INTO :tipo_via,   
+         :nombre_via  
+    FROM clientes  
+   WHERE clientes.nif = :nif   
+           ;
+
+if not(f_es_vacio(tipo_via)) then domic_total += tipo_via
+if not(f_es_vacio(nombre_via)) then domic_total += ' ' + nombre_via
+
+return domic_total
+end function
+

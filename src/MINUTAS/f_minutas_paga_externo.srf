@@ -1,0 +1,18 @@
+HA$PBExportHeader$f_minutas_paga_externo.srf
+global type f_minutas_paga_externo from function_object
+end type
+
+forward prototypes
+global function string f_minutas_paga_externo (string id_minuta)
+end prototypes
+
+global function string f_minutas_paga_externo (string id_minuta);string retorno = ''
+
+SELECT fases_minutas.paga_externo
+INTO :retorno  
+FROM fases_minutas  
+WHERE fases_minutas.id_minuta = :id_minuta   ;
+
+return retorno
+end function
+

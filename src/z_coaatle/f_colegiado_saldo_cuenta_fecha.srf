@@ -1,0 +1,25 @@
+HA$PBExportHeader$f_colegiado_saldo_cuenta_fecha.srf
+global type f_colegiado_saldo_cuenta_fecha from function_object
+end type
+
+forward prototypes
+global function double f_colegiado_saldo_cuenta_fecha (string id_col, string cuenta, datetime fecha)
+end prototypes
+
+global function double f_colegiado_saldo_cuenta_fecha (string id_col, string cuenta, datetime fecha);double saldo
+
+select sum(apuntes.debe -  apuntes.haber) 
+into :saldo 
+from apuntes, cuentas 
+where cuentas.cuenta = apuntes.cuenta and 
+		cuentas.id_col = :id_col and 
+		cuentas.cuenta like :cuenta and
+		apuntes.fecha <= :fecha
+using bd_ejercicio;
+	
+if isnull(saldo) then saldo = 0
+
+return saldo
+
+end function
+

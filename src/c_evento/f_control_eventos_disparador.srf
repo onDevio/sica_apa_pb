@@ -1,0 +1,19 @@
+HA$PBExportHeader$f_control_eventos_disparador.srf
+global type f_control_eventos_disparador from function_object
+end type
+
+forward prototypes
+global function st_control_eventos f_control_eventos_disparador (string control, string evento)
+end prototypes
+
+global function st_control_eventos f_control_eventos_disparador (string control, string evento);st_control_eventos retorno
+
+select param1,param2 into :retorno.param1,:retorno.param2 from 
+	t_control_eventos where control=:control and evento=:evento and activo='S';
+	
+if f_es_vacio(retorno.param1) then retorno.param1=''
+if f_es_vacio(retorno.param2) then retorno.param2=''
+
+return retorno
+end function
+

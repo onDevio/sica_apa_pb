@@ -1,0 +1,29 @@
+HA$PBExportHeader$f_musaat_otros.srf
+$PBExportComments$Dado un id_musaat obtiene el valor de su campo otros
+global type f_musaat_otros from function_object
+end type
+
+forward prototypes
+global subroutine f_musaat_otros (string id_musaat, ref string musaat_otros)
+end prototypes
+
+global subroutine f_musaat_otros (string id_musaat, ref string musaat_otros);//Esta funci$$HEX1$$f300$$ENDHEX$$n establece los par$$HEX1$$e100$$ENDHEX$$metros que se le pasan por referencia con el valor
+//correspondiente al colegiado indicado por ID_MUSAAT
+
+datastore ds_otros
+
+ds_otros = create datastore
+ds_otros.dataobject ='d_musaat_otros'
+ds_otros.SetTransObject(SQLCA)
+
+ds_otros.Retrieve(id_musaat)
+
+if ds_otros.rowcount() > 0 then
+	musaat_otros = ds_otros.getitemstring(1, 'otros')
+end if
+
+if f_es_vacio(musaat_otros) then musaat_otros = ''
+
+destroy ds_otros
+end subroutine
+

@@ -1,0 +1,31 @@
+HA$PBExportHeader$f_colegiado_movil.srf
+global type f_colegiado_movil from function_object
+end type
+
+forward prototypes
+global function string f_colegiado_movil (string id_col)
+end prototypes
+
+global function string f_colegiado_movil (string id_col);//Esta funcion devuelve el movil de un colegiado
+
+string datos_colegiado = ''
+string movil
+
+  SELECT domicilios.movil  
+    INTO :movil  
+    FROM domicilios  
+   WHERE ( domicilios.id_colegiado = :id_col ) AND  
+         ( domicilios.comercial = 'S' )   
+           ;
+
+
+if isnull(movil) or movil= '' then 
+	movil=''
+end if
+
+datos_colegiado = movil
+
+return datos_colegiado
+
+end function
+

@@ -1,0 +1,13 @@
+HA$PBExportHeader$st_aparatos_tecnicos_consulta.srs
+global type st_aparatos_tecnicos_consulta from structure
+	string		id_aparato
+	string		descripcion
+	datetime		f_prestamo_desde
+	datetime		f_devolucion_real_desde
+	radiobutton		prestado
+	datetime		f_prestamo_hasta
+	datetime		f_devolucion_real_hasta
+	string		prestable
+	string		n_equipo
+end type
+

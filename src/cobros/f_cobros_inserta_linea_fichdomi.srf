@@ -1,0 +1,13 @@
+HA$PBExportHeader$f_cobros_inserta_linea_fichdomi.srf
+global type f_cobros_inserta_linea_fichdomi from function_object
+end type
+
+forward prototypes
+global function integer f_cobros_inserta_linea_fichdomi (datastore ds_dom, string linea)
+end prototypes
+
+global function integer f_cobros_inserta_linea_fichdomi (datastore ds_dom, string linea);ds_dom.insertrow(0)
+ds_dom.setitem(ds_dom.rowcount(),1,linea)
+return 1
+end function
+

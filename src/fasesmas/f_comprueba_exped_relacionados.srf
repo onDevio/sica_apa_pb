@@ -1,0 +1,25 @@
+HA$PBExportHeader$f_comprueba_exped_relacionados.srf
+global type f_comprueba_exped_relacionados from function_object
+end type
+
+forward prototypes
+global function boolean f_comprueba_exped_relacionados (string id_exp)
+end prototypes
+
+global function boolean f_comprueba_exped_relacionados (string id_exp);boolean op
+string id, col
+
+op=false
+setnull(id)
+
+SELECT expedientes_relacionados.id_expedi_relac  INTO :id  
+FROM expedientes_relacionados  
+WHERE ( expedientes_relacionados.id_expedi_relac = :id_exp OR  
+        expedientes_relacionados.id_expedi = :id_exp )   ;
+
+if not f_es_vacio(id) then op=true
+
+return op
+
+end function
+

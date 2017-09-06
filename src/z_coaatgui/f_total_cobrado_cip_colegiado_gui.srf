@@ -1,0 +1,37 @@
+HA$PBExportHeader$f_total_cobrado_cip_colegiado_gui.srf
+global type f_total_cobrado_cip_colegiado_gui from function_object
+end type
+
+forward prototypes
+global function double f_total_cobrado_cip_colegiado_gui (string id_fase, string id_col)
+end prototypes
+
+global function double f_total_cobrado_cip_colegiado_gui (string id_fase, string id_col);double cip_cobrado = 0
+
+//  SELECT sum(base_cip)  
+//    INTO :cip_cobrado  
+//    FROM fases_minutas  
+//   WHERE fases_minutas.id_fase = :id_fase   and
+//			fases_minutas.id_colegiado = :id_col and
+//         fases_minutas.anulada <> 'S' and 
+//			fases_minutas.fecha_pago <> null 
+////			and 
+////			fases_minutas.pagador = '1' 
+//			;
+
+SELECT sum ( csi_lineas_fact_emitidas.subtotal )  
+INTO :cip_cobrado  
+FROM csi_facturas_emitidas, csi_lineas_fact_emitidas, fases_minutas
+WHERE ( csi_lineas_fact_emitidas.id_factura = csi_facturas_emitidas.id_factura ) and  
+		( csi_facturas_emitidas.id_fase = fases_minutas.id_minuta ) and  
+		( ( csi_lineas_fact_emitidas.articulo in ('13', '07', '05') ) and  // conceptos DIC y DTO DIC
+		( csi_facturas_emitidas.id_persona = :id_col ) AND  
+		( fases_minutas.id_fase = :id_fase ) )   ;
+
+
+
+if isnull(cip_cobrado) then cip_cobrado = 0
+
+return cip_cobrado
+end function
+

@@ -1,0 +1,11 @@
+HA$PBExportHeader$f_g_codigo_libro_incidencias.srf
+global type f_g_codigo_libro_incidencias from function_object
+end type
+
+forward prototypes
+global function string f_g_codigo_libro_incidencias ()
+end prototypes
+
+global function string f_g_codigo_libro_incidencias ();return g_codigo_libro_incidencias
+end function
+

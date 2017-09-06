@@ -1,0 +1,30 @@
+HA$PBExportHeader$fr_wsintegracionsicasoap.srx
+$PBExportComments$Proxy imported from Web service using Web Service Proxy Generator.
+global type fr_WSIntegracionSICASoap from NonVisualObject
+end type
+
+type variables
+Protected:
+   string xmlns = ""
+   string tm = "http://microsoft.com/wsdl/mime/textMatching/"
+   string soapenc = "http://schemas.xmlsoap.org/soap/encoding/"
+   string wsdl = "http://schemas.xmlsoap.org/wsdl/"
+   string http = "http://schemas.xmlsoap.org/wsdl/http/"
+   string mime = "http://schemas.xmlsoap.org/wsdl/mime/"
+   string soap = "http://schemas.xmlsoap.org/wsdl/soap/"
+   string soap12 = "http://schemas.xmlsoap.org/wsdl/soap12/"
+   string tns = "http://tempuri.org/"
+   string s = "http://www.w3.org/2001/XMLSchema"
+   string pb__TargetNamespace = "http://tempuri.org/"
+   string BindingStyle = ""
+
+   string endpoint = "http://as-tst-03.csd.com.es/few/src/main/webapp/ws/WSIntegracionSica.asmx"
+   string __tns__integracionSicaFew = "integracionSicaFew(s:string usuario,s:string password,s:string colegio,s:string referencia,s:string n_reg_entrada,s:string n_expediente,s:string n_visado,s:string f_entrada,s:string f_visado_tecnico,s:string f_visado_entrada)@tns#YES_QUALIFIED"
+   tns__integracionSicaFew i__tns__integracionSicaFew
+end variables
+
+forward prototypes
+public:
+function long integracionSicaFew (string usuario, string password, string colegio, string referencia, string n_reg_entrada, string n_expediente, string n_visado, string f_entrada, string f_visado_tecnico, string f_visado_entrada) alias for "integracionSicaFew([in] s:string usuario, [in] s:string password, [in] s:string colegio, [in] s:string referencia, [in] s:string n_reg_entrada, [in] s:string n_expediente, [in] s:string n_visado, [in] s:string f_entrada, [in] s:string f_visado_tecnico, [in] s:string f_visado_entrada) return s:int integracionSicaFewResult@http://tempuri.org/@http://tempuri.org/integracionSicaFew*integracionSicaFew*http://tempuri.org/"
+end prototypes
+

@@ -1,0 +1,7 @@
+HA$PBExportHeader$st_registros_expedientes.srs
+global type st_registros_expedientes from structure
+	string		id_registro
+	string		id_fase_a
+	string		id_fase_n
+end type
+

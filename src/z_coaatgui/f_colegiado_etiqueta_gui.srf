@@ -1,0 +1,61 @@
+HA$PBExportHeader$f_colegiado_etiqueta_gui.srf
+global type f_colegiado_etiqueta_gui from function_object
+end type
+
+forward prototypes
+global function string f_colegiado_etiqueta_gui (string id_col)
+end prototypes
+
+global function string f_colegiado_etiqueta_gui (string id_col);
+string datos_colegiado = ''
+string apell, nomb,daf,paf, n_col, daf_aux, paf_aux
+
+select n_colegiado, apellidos, nombre,domicilio_activo,poblacion_activa
+	into :n_col, :apell, :nomb, :daf_aux, :paf_aux
+	from colegiados 
+	where id_colegiado=:id_col;
+
+select domicilios.nom_via, poblaciones.cod_pos + ' ' + ltrim(rtrim(poblaciones.descripcion)) + ' ' + ltrim(provincias.nombre)
+	into :daf, :paf
+	from domicilios, poblaciones, provincias 
+	where domicilios.id_colegiado=:id_col
+	and poblaciones.cod_pob = domicilios.cod_pob
+	and provincias.cod_provincia = poblaciones.provincia
+	and domicilios.comercial = 'S';	
+
+if f_es_vacio(nomb) then 
+	nomb=''
+else
+	nomb = nomb + '' + cr
+end if
+
+if f_es_vacio(daf) then 
+	if f_es_vacio(daf_aux) then
+		daf=''
+	else 
+		daf = daf_aux
+	end if
+else
+	daf = daf + '' + cr
+end if
+
+if f_es_vacio(paf) then 
+	if f_es_vacio(paf_aux) then
+		paf=''
+	else 
+		paf = paf_aux
+	end if
+else
+	paf = paf + '' + cr
+end if
+
+if f_es_vacio(apell) then 
+	apell=''
+else
+	apell = apell + ' (' + n_col + ')' + cr
+end if
+datos_colegiado = nomb + apell +  daf + paf
+return datos_colegiado
+
+end function
+

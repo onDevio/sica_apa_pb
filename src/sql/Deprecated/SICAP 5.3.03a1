@@ -1,0 +1,8 @@
+// SOLO SE DEBE REALIZAR ESTE CAMBIO PARA LOS COLEGIOS QUE SOLICITEN
+// FORMATO GENERICO DE MUSAAT Y PREMAAT
+//Sustituir <EMPRESA ASEGURADORA> por el codigo de la empresa
+update csi_serie set dataobject = 'd_recibo_musaat_generico' where serie in ('PC', 'PF') and anyo='2011' and empresa = '<EMPRESA ASEGURADORA>';
+update csi_serie set dataobject = 'd_recibo_premaat_cuota_generico' where serie = 'MU' and anyo='2011' empresa = '<EMPRESA ASEGURADORA>';
+
+//Se actualiza la fecha de versión
+update var_globales set texto='20110630', descripcion = 'versión v5.3.03a1' where nombre='g_version_minima';

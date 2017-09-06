@@ -1,0 +1,41 @@
+HA$PBExportHeader$f_consulta.srf
+global type f_consulta from function_object
+end type
+
+forward prototypes
+global function any f_consulta (ref u_dw dw, string campo)
+end prototypes
+
+global function any f_consulta (ref u_dw dw, string campo);// Esta funci$$HEX1$$f300$$ENDHEX$$n captura el valor del campo dentro del dw y lo formatea adecuadamente para realizar la consulta
+// ENTRADA: 
+//	dw : datawindow que contiene  el campo
+//	campo : valor a capturar y formatear del dw
+//
+// DEVUELVE : el valor del campo dentro del dw formateado
+
+string tipo, dato
+
+//Lo primero, averiguamos el tipo del campo:
+tipo=dw.Describe(campo+".ColType")
+
+CHOOSE CASE upper(LeftA(tipo ,2))
+	CASE 'CH' 
+		// Primero obetenemos el valor del dw
+		dato = dw.GetItemString(dw.GetRow(), campo)
+		// Comprovamos valor no nulo
+		IF isnull(dato) THEN  dato = ''
+		// Concatenamos el '%' al final para el operador like de la consulta
+		dato = dato + '%'
+		// Devolvemos el dato formateado
+		Return dato
+	CASE 'DA' 
+		// Si el campo es de tipo datetime devolvemos el valor que leemos del dw
+		Return  dw.GetItemDateTime(dw.GetRow(), campo)
+	CASE ELSE
+		// Si el campo es de tipo num$$HEX1$$e900$$ENDHEX$$rico devolvemos el valor que leemos del dw
+		Return dw.GetItemNumber(dw.GetRow(), campo)
+END CHOOSE
+
+
+end function
+

@@ -1,0 +1,67 @@
+HA$PBExportHeader$f_colegiados_situaciones_incomp.srf
+$PBExportComments$Dado un colegiado devuelve su informacion de incompatibilidades
+global type f_colegiados_situaciones_incomp from function_object
+end type
+
+forward prototypes
+global function string f_colegiados_situaciones_incomp (string id_col)
+end prototypes
+
+global function string f_colegiados_situaciones_incomp (string id_col);//Devuelve en una cadena los campos de incompatibilidades correspondientes al colegiado
+//indicado por id_col
+long i
+string retorno, descrip, tipo_sit, fecha_inicio, fecha_fin, incomp
+string cod_tipo_incomp, tipo_incomp, organismo, cod_pob, poblacion, observaciones
+
+retorno = ''
+tipo_sit = ''
+
+datastore ds_incomp
+
+ds_incomp = create datastore
+ds_incomp.dataobject ='d_colegiados_situacion_incompabilidad'
+ds_incomp.SetTransObject(SQLCA)
+
+ds_incomp.Retrieve(id_col)
+
+for i = 1 to ds_incomp.rowcount()
+	descrip = ''
+	tipo_sit = ds_incomp.getitemstring(i, 'tipo_situacion')	
+	select descripcion into :descrip from t_situaciones_profesionales where cod_situacion_profesional = :tipo_sit;
+	fecha_inicio = string(date(ds_incomp.getitemdatetime(i,'fecha_inicio')))
+	fecha_fin = string(date(ds_incomp.getitemdatetime(i, 'fecha_fin')))
+	incomp = ds_incomp.getitemstring(i,'incompatibilidad')
+	
+	if f_es_vacio(descrip) then descrip = ''
+	if f_es_vacio(fecha_inicio) then fecha_inicio = ''
+	if f_es_vacio(fecha_fin) then fecha_fin = ''
+	if f_es_vacio(incomp) then incomp = ''
+	
+	retorno += descrip + ' de ' + fecha_inicio + ' a ' + fecha_fin + '~t' + 'Incompatible: ' + incomp
+	
+	if incomp = 'S' then
+		cod_tipo_incomp = ds_incomp.getitemstring(i, 'tipo_incompatibilidad')
+		select descripcion into :tipo_incomp from t_incompatibilidad where cod_incompatibilidad = :cod_tipo_incomp; 
+		organismo = ds_incomp.getitemstring(i, 'organismo')
+		cod_pob = ds_incomp.getitemstring(i, 'cod_pob')
+		poblacion = f_poblacion_descripcion(cod_pob)
+		observaciones = ds_incomp.getitemstring(i, 'observaciones')
+		
+		if f_es_vacio(tipo_incomp) then tipo_incomp = ''
+		if f_es_vacio(organismo) then organismo = ''
+		if f_es_vacio(poblacion) then poblacion = ''
+		if f_es_vacio(observaciones) then observaciones = ''
+		
+		retorno = retorno + '~t' + 'Tipo Incompatibilidad: ' + tipo_incomp + '~t' + 'Organismo: ' + organismo + '~t' + 'Poblacion: ' + poblacion + '~t' + 'Observaciones: ' + observaciones
+		
+	end if
+
+	retorno = retorno + cr
+	
+next
+
+destroy ds_incomp
+
+return retorno
+end function
+

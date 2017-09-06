@@ -1,0 +1,36 @@
+HA$PBExportHeader$f_comprobar_escaner.srf
+global type f_comprobar_escaner from function_object
+end type
+
+forward prototypes
+global function integer f_comprobar_escaner (ref oleobject otwain)
+end prototypes
+
+global function integer f_comprobar_escaner (ref oleobject otwain);string ruta_aplic
+integer retorno
+n_runandwait runandwait
+
+if RightA(g_dir_aplicacion,1)<>'\' then
+	ruta_aplic=g_dir_aplicacion+'\'
+else
+	ruta_aplic=g_dir_aplicacion
+end if
+
+if oTWAIN.ClassShortName = 'Unknown' then
+	if MessageBox("OCX No registrado","El objeto de escaneo no est$$HEX2$$e1002000$$ENDHEX$$correctamente instalado. $$HEX1$$bf00$$ENDHEX$$Desea intentar instalarlo automaticamente?",Question!,YesNo!)=1 then
+		
+		runandwait = create n_runandwait
+		runandwait.of_SetPriority(runandwait.HIGH_PRIORITY_CLASS)
+		runandwait.of_SetCurrentDirectory(g_dir_aplicacion)
+		runandwait.of_SetWindow("hide")
+		retorno=runandwait.of_runandwait("C:\windows\system32\regsvr32.exe "+ruta_aplic+"scanner.ocx")
+		return retorno
+	else	
+		return 0
+	end if
+else
+	return 1
+end if
+
+end function
+

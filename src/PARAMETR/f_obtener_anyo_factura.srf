@@ -1,0 +1,15 @@
+HA$PBExportHeader$f_obtener_anyo_factura.srf
+global type f_obtener_anyo_factura from function_object
+end type
+
+forward prototypes
+global function string f_obtener_anyo_factura (string id_factura)
+end prototypes
+
+global function string f_obtener_anyo_factura (string id_factura);datetime fecha
+
+select fecha into :fecha from csi_facturas_emitidas where id_factura=:id_factura;
+
+return string(year(date(fecha)))
+end function
+

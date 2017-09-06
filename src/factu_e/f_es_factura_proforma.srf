@@ -1,0 +1,21 @@
+HA$PBExportHeader$f_es_factura_proforma.srf
+global type f_es_factura_proforma from function_object
+end type
+
+forward prototypes
+global function string f_es_factura_proforma (string id_factura)
+end prototypes
+
+global function string f_es_factura_proforma (string id_factura);string ls_proforma
+
+select proforma into :ls_proforma from csi_facturas_emitidas where id_factura = :id_factura;
+
+
+if  f_es_vacio(ls_proforma) then
+	ls_proforma = 'N'
+end if 
+
+
+return ls_proforma
+end function
+

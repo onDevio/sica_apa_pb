@@ -1,0 +1,20 @@
+HA$PBExportHeader$f_musaat_id_linea_factura.srf
+global type f_musaat_id_linea_factura from function_object
+end type
+
+forward prototypes
+global function string f_musaat_id_linea_factura (string id_factura)
+end prototypes
+
+global function string f_musaat_id_linea_factura (string id_factura);// Para la factura solicitada, devuelve:
+//		Si s$$HEX2$$ed002000$$ENDHEX$$encuentra l$$HEX1$$ed00$$ENDHEX$$nea del concepto MUSAAT Prima Variable => id_linea 
+// 		Si no encuentra => vac$$HEX1$$ed00$$ENDHEX$$o
+string id_linea
+
+SELECT id_linea INTO :id_linea FROM csi_lineas_fact_emitidas WHERE id_factura = :id_factura AND articulo =:g_codigos_conceptos.musaat_variable ;
+
+IF f_es_vacio(id_linea) THEN id_linea = ''
+
+RETURN id_linea
+end function
+

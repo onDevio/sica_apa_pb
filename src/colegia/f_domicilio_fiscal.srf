@@ -1,0 +1,22 @@
+HA$PBExportHeader$f_domicilio_fiscal.srf
+global type f_domicilio_fiscal from function_object
+end type
+
+forward prototypes
+global function string f_domicilio_fiscal (string id_col)
+end prototypes
+
+global function string f_domicilio_fiscal (string id_col);string df,pf,resultado
+/*
+select domicilio_activo_fiscal,poblacion_activa_fiscal into :df,:pf from colegiados where id_colegiado = :id_col;
+resultado = ''
+if not isnull(df)  then resultado = df + ' ' + pf*/
+
+select domicilio_activo_fiscal into :df from colegiados where id_colegiado = :id_col;
+resultado = ''
+if not isnull(df)  then resultado = df 
+
+return resultado
+	
+end function
+

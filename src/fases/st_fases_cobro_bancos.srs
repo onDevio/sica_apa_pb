@@ -1,0 +1,7 @@
+HA$PBExportHeader$st_fases_cobro_bancos.srs
+global type st_fases_cobro_bancos from structure
+	string		tipo
+	string		id
+	decimal { 2 }		cantidad
+end type
+

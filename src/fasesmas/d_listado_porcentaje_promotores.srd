@@ -1,0 +1,59 @@
+HA$PBExportHeader$d_listado_porcentaje_promotores.srd
+release 10.5;
+datawindow(units=0 timer_interval=0 color=1073741824 processing=0 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes print.preview.outline=yes hidegrayline=no )
+header(height=44 color="536870912" )
+summary(height=516 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=0 color="536870912" )
+table(column=(type=datetime updatewhereclause=yes name=fases_f_abono dbname="fases.f_abono" dbalias=".f_abono" )
+ column=(type=char(2) updatewhereclause=yes name=fases_usos_t_promotor dbname="fases_usos.t_promotor" dbalias=".t_promotor" )
+ column=(type=char(10) updatewhereclause=yes name=fases_usos_id_fase dbname="fases_usos.id_fase" dbalias=".id_fase" )
+ column=(type=char(10) updatewhereclause=yes name=fases_id_fase dbname="fases.id_fase" dbalias=".id_fase" )
+ column=(type=long updatewhereclause=yes name=total_fases dbname="total_fases" )
+ retrieve="  SELECT fases.f_abono,   
+         fases_usos.t_promotor,   
+         fases_usos.id_fase,   
+         fases.id_fase,
+		(select count(*) from fases where  (fases.f_abono >= '20070101' AND    fases.f_abono < ='20101231' )) as total_fases
+    FROM fases,   
+         fases_usos  
+   WHERE (( fases.id_fase = fases_usos.id_fase ) and  
+         (fases_usos.t_promotor in ('E','H','X')) AND  
+         (fases.f_abono >= '20070101' AND  
+         fases.f_abono < ='20101231' ))    
+"  sort="fases_usos_t_promotor A " )
+group(level=1 header.height=96 trailer.height=0 by=("fases_usos_t_promotor" ) header.color="536870912" trailer.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="33554432" x="5" y="4" height="68" width="251" format="[general]" html.valueishtml="0"  name=fases_id_fase visible="1" edit.limit=10 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Tahoma" font.height="-9" font.weight="400"  font.family="2" font.pitch="1" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="33554432" x="261" y="4" height="68" width="251" format="[general]" html.valueishtml="0"  name=fases_usos_id_fase visible="1" edit.limit=10 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Tahoma" font.height="-9" font.weight="400"  font.family="2" font.pitch="1" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="33554432" x="530" y="4" height="68" width="69" format="[general]" html.valueishtml="0"  name=fases_usos_t_promotor visible="1" edit.limit=2 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Tahoma" font.height="-9" font.weight="400"  font.family="2" font.pitch="1" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="33554432" x="823" y="4" height="68" width="503" format="[shortdate] [time]" html.valueishtml="0"  name=fases_f_abono visible="1" edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Tahoma" font.height="-9" font.weight="400"  font.family="2" font.pitch="1" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=0 border="0" color="33554432" x="1344" y="20" height="56" width="1819" html.valueishtml="0"  name=total_fases visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Tahoma" font.height="-9" font.weight="400"  font.family="2" font.pitch="1" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header.1 alignment="0" text="es:" border="0" color="33554432" x="878" y="24" height="56" width="69" html.valueishtml="0"  name=t_2 visible="1"  font.face="Tahoma" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=header.1 id=2 alignment="0" tabsequence=0 border="0" color="33554432" x="823" y="24" height="56" width="101" html.valueishtml="0"  name=fases_usos_t_promotor_1 visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Tahoma" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header.1 alignment="0" text="El porcentaje de promotores " border="0" color="33554432" x="91" y="24" height="56" width="736" html.valueishtml="0"  name=t_1 visible="1"  font.face="Tahoma" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header.1 alignment="0" text="corresponde a " border="0" color="33554432" x="1289" y="24" height="56" width="375" html.valueishtml="0"  name=t_7 visible="1"  font.face="Tahoma" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=summary x1="1655" y1="0" x2="2112" y2="0"  name=l_2 visible="1" pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="1090519039" )
+line(band=summary x1="791" y1="0" x2="1239" y2="0"  name=l_1 visible="1" pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="1090519039" )
+text(band=summary alignment="0" text="Total:" border="0" color="33554432" x="814" y="56" height="56" width="146" html.valueishtml="0"  name=t_4 visible="1"  font.face="Tahoma" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="0" expression="count(  fases_id_fase  for all )"border="0" color="33554432" x="1669" y="56" height="56" width="183" format="[GENERAL]" html.valueishtml="0"  name=compute_5 visible="1"  font.face="Tahoma" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="0" expression="(count( fases_id_fase  for all )/ total_fases )*100"border="0" color="33554432" x="992" y="56" height="56" width="183" format="#,##0.00" html.valueishtml="0"  name=compute_3 visible="1"  font.face="Tahoma" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=header.1 alignment="0" expression="(count(    fases_id_fase for group 1 )/total_fases)*100"border="0" color="33554432" x="992" y="24" height="56" width="174" format="#,##0.00" html.valueishtml="0"  name=compute_1 visible="1"  font.face="Tahoma" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=header.1 alignment="0" expression="count(    fases_id_fase for group 1 )"border="0" color="33554432" x="1669" y="24" height="56" width="183" format="[GENERAL]" html.valueishtml="0"  name=compute_4 visible="1"  font.face="Tahoma" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=summary alignment="0" text="Contratos." border="0" color="33554432" x="1870" y="56" height="56" width="261" html.valueishtml="0"  name=t_9 visible="1"  font.face="Tahoma" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header.1 alignment="0" text="Contratos." border="0" color="33554432" x="1870" y="24" height="56" width="261" html.valueishtml="0"  name=t_8 visible="1"  font.face="Tahoma" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header.1 alignment="0" text="%" border="0" color="33554432" x="1170" y="24" height="56" width="105" html.valueishtml="0"  name=t_5 visible="1"  font.face="Tahoma" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=summary alignment="0" text="%" border="0" color="33554432" x="1170" y="56" height="56" width="105" html.valueishtml="0"  name=t_6 visible="1"  font.face="Tahoma" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="0" expression=" total_fases"border="0" color="33554432" x="1934" y="236" height="56" width="411" format="[GENERAL]" html.valueishtml="0"  name=compute_2 visible="1"  font.face="Tahoma" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=summary alignment="0" text="El n$$HEX1$$fa00$$ENDHEX$$mero total de contratos: " border="0" color="33554432" x="1166" y="236" height="56" width="759" html.valueishtml="0"  name=t_3 visible="1"  font.face="Tahoma" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=summary x1="1161" y1="300" x2="2135" y2="300"  name=l_3 visible="1" pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="1090519039" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" pagingmethod=0 generatedddwframes="1" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()
+ 

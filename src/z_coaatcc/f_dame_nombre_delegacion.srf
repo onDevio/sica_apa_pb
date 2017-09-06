@@ -1,0 +1,23 @@
+HA$PBExportHeader$f_dame_nombre_delegacion.srf
+global type f_dame_nombre_delegacion from function_object
+end type
+
+forward prototypes
+global function string f_dame_nombre_delegacion (string delegacion)
+end prototypes
+
+global function string f_dame_nombre_delegacion (string delegacion);string nombre
+
+
+  SELECT descripcion
+  INTO :nombre 
+    FROM delegaciones
+	 WHERE cod_delegacion = :delegacion;
+	 
+if sqlca.sqlcode = -1 	 then
+	messagebox('','Error')
+end if 
+	 
+	 return nombre   
+end function
+

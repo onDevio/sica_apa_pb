@@ -1,0 +1,19 @@
+HA$PBExportHeader$f_csi_articulo_descripcion.srf
+global type f_csi_articulo_descripcion from function_object
+end type
+
+forward prototypes
+global function string f_csi_articulo_descripcion (string as_cod_articulo, string as_cod_empresa)
+end prototypes
+
+global function string f_csi_articulo_descripcion (string as_cod_articulo, string as_cod_empresa);
+string ls_descripcion
+
+select descripcion into :ls_descripcion 
+from csi_articulos_servicios 
+where empresa = :as_cod_empresa
+and codigo = :as_cod_articulo;
+
+return ls_descripcion
+end function
+

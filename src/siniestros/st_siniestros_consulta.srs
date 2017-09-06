@@ -1,0 +1,6 @@
+HA$PBExportHeader$st_siniestros_consulta.srs
+global type st_siniestros_consulta from structure
+	string		id_siniestro
+	string		id_fase
+end type
+

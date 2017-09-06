@@ -1,0 +1,21 @@
+HA$PBExportHeader$f_dip_desglosado.srf
+global type f_dip_desglosado from function_object
+end type
+
+forward prototypes
+global function integer f_dip_desglosado (string id_fase, string id_col)
+end prototypes
+
+global function integer f_dip_desglosado (string id_fase, string id_col);//
+integer num
+
+select count(*) into :num from fases_minutas where id_fase=:id_fase and id_colegiado=:id_col and forma_pago='FR' and aplica_cip='S';
+
+if num>0 then	
+	return 0
+else 
+	return 1
+end if
+
+end function
+

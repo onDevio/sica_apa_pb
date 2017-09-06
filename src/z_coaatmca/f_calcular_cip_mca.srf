@@ -1,0 +1,128 @@
+HA$PBExportHeader$f_calcular_cip_mca.srf
+global type f_calcular_cip_mca from function_object
+end type
+
+forward prototypes
+global function integer f_calcular_cip_na (ref st_dv_datos st_dv_datos)
+global function integer f_calcular_cip_mca (ref st_cip_datos st_cip_datos)
+end prototypes
+
+global function integer f_calcular_cip_na (ref st_dv_datos st_dv_datos);// Entrada
+string tipo_act, tipo_obra, anyo, mes, bonif
+double pem
+// Salida
+double dv, coef_k
+// F$$HEX1$$f300$$ENDHEX$$rmulas
+// 	Visados tradicionales:													DV = 16 + sqrt ( 0.0275 x PEM )
+// 	Visados tradicionales, interv. seguridad y control calidad: 	DV = 16 + sqrt ( 0.0275 x PEM x 0.02 )
+// 	Visados digitales:														DV = 11 + sqrt ( 0.0275 x PEM )
+// 	Visados digitales, interv. seguridad y control calidad:			DV = 11 + sqrt ( 0.0275 x PEM x 0.02)
+// Retorno
+// 0 : $$HEX1$$e900$$ENDHEX$$xito
+// -1 :error 
+
+tipo_act = st_dv_datos.tipoact
+tipo_obra = st_dv_datos.tipoobra
+pem = st_dv_datos.pem
+
+if f_es_vacio(tipo_act) or f_es_vacio(tipo_obra) or isnull(st_dv_datos.pem) then
+	return -1
+end if
+
+// Coeficiente K
+SELECT desc_gui_tipo_act.coef_k  
+INTO :coef_k  
+FROM desc_gui_tipo_act  
+WHERE ( :tipo_act like desc_gui_tipo_act.tipo_actuacion OR 	desc_gui_tipo_act.tipo_actuacion = '%'  ) AND  
+		( :tipo_obra like desc_gui_tipo_act.tipo_obra OR desc_gui_tipo_act.tipo_obra = '%' ) AND  
+		( desc_gui_tipo_act.anyo = :anyo )   ;
+
+if sqlca.sqlcode <> 0 then
+	SELECT desc_gui_tipo_act.coef_k  
+	INTO :coef_k  
+	FROM desc_gui_tipo_act  
+	WHERE ( :tipo_act like desc_gui_tipo_act.tipo_actuacion OR 	desc_gui_tipo_act.tipo_actuacion = '%'  ) AND  
+		( :tipo_obra like desc_gui_tipo_act.tipo_obra OR desc_gui_tipo_act.tipo_obra = '%' ) AND  
+		( desc_gui_tipo_act.anyo like '*' )   ;
+	
+	if sqlca.sqlcode <> 0 then
+		st_dv_datos.dv = 0
+		return -1
+	end if
+end if
+
+// Bonificaci$$HEX1$$f300$$ENDHEX$$n
+choose case tipo_act
+	case '01','02','04','05','11','12','15','41'
+		bonif = 'S'
+	case else
+		bonif = 'N'
+end choose
+
+// C$$HEX1$$e100$$ENDHEX$$lculo
+choose case st_dv_datos.visared
+	case 'V'
+		dv = 11 + sqrt ( 0.0275 * pem * coef_k)
+		if bonif = 'S' then dv = max( dv * 0.75, 11) // Bonificaci$$HEX1$$f300$$ENDHEX$$n 25%, M$$HEX1$$ed00$$ENDHEX$$nimo 11$$HEX1$$ac20$$ENDHEX$$
+	case else
+		dv = 11 + sqrt ( 0.0275 * pem * coef_k)
+end choose
+
+st_dv_datos.dv = f_redondea(dv)
+
+return 0
+
+end function
+
+global function integer f_calcular_cip_mca (ref st_cip_datos st_cip_datos);n_calculo_gastos_gen uo_calculo_gastos
+long res
+
+uo_calculo_gastos=create n_calculo_gastos_gen
+res=uo_calculo_gastos.of_conectar_transaccion(sqlca.DBMS,sqlca.database,sqlca.LogID,sqlca.LogPass,sqlca.servername,sqlca.userid,sqlca.dbpass,sqlca.lock,sqlca.dbparm,'TRUE')
+
+if res<0 then
+	MessageBox("Atenci$$HEX1$$f300$$ENDHEX$$n!","Ocurri$$HEX2$$f3002000$$ENDHEX$$un error al conectar a la base de datos")
+	return -1
+end if
+
+
+uo_calculo_gastos.of_set_string('colegio',g_colegio)		
+uo_calculo_gastos.of_set_string('tipo_gestion',st_cip_datos.tipo_gestion)
+uo_calculo_gastos.of_set_fecha('f_entrada',st_cip_datos.fecha)
+uo_calculo_gastos.of_set_string('admon',st_cip_datos.admon)	
+uo_calculo_gastos.of_set_string('tipo_act', st_cip_datos.tipo_act)		
+uo_calculo_gastos.of_set_string('tipo_obra', st_cip_datos.tipo_obra)	
+uo_calculo_gastos.of_set_string('destino', st_cip_datos.destino)
+uo_calculo_gastos.of_set_double('volumen', st_cip_datos.volumen)
+uo_calculo_gastos.of_set_double('vol_edif', st_cip_datos.vol_edif)		
+uo_calculo_gastos.of_set_double('altura',st_cip_datos.altura)						
+uo_calculo_gastos.of_set_double('superficie',st_cip_datos.superficie)						
+uo_calculo_gastos.of_set_double('pem',st_cip_datos.pem)
+uo_calculo_gastos.of_set_double('num_viv',st_cip_datos.num_viv)	
+uo_calculo_gastos.of_set_string('colindantes',st_cip_datos.colindantes)
+uo_calculo_gastos.of_set_string('t_terreno',st_cip_datos.t_terreno)
+uo_calculo_gastos.of_set_double('vol_tierras',st_cip_datos.vol_tierras)		
+uo_calculo_gastos.of_set_double('long_per',st_cip_datos.long_per)
+uo_calculo_gastos.of_set_double('valor_terreno',st_cip_datos.valor_terreno)
+uo_calculo_gastos.of_set_double('valor_tasacion',st_cip_datos.valor_tasacion)
+uo_calculo_gastos.of_set_double('valor_estim',st_cip_datos.valoracion_estim)
+uo_calculo_gastos.of_set_string('estructura',st_cip_datos.estructura)
+uo_calculo_gastos.of_set_string('t_medicion',st_cip_datos.t_medicion)
+uo_calculo_gastos.of_set_string('replanteo',st_cip_datos.replan_deslin)		
+uo_calculo_gastos.of_set_string('visared',st_cip_datos.visared)
+uo_calculo_gastos.of_set_double('porcentaje',st_cip_datos.porcentaje)
+uo_calculo_gastos.of_set_string('funcionario',st_cip_datos.funcionario)
+uo_calculo_gastos.of_set_double('pem_seg',st_cip_datos.pem_seg)
+
+uo_calculo_gastos.of_calcular_dip()
+
+st_cip_datos.cip=uo_calculo_gastos.of_get_double('dip')
+st_cip_datos.formula=uo_calculo_gastos.of_get_string('dip_formula')
+st_cip_datos.desarrollo=uo_calculo_gastos.of_get_string('dip_formula_desarrollo')
+
+
+return 0
+
+
+end function
+

@@ -1,0 +1,6 @@
+HA$PBExportHeader$st_busqueda_poblaciones.srs
+global type st_busqueda_poblaciones from structure
+	string		cod_postal
+	string		cod_provincia
+end type
+

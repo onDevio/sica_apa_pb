@@ -1,0 +1,25 @@
+HA$PBExportHeader$f_colegiado_nota_carrera.srf
+global type f_colegiado_nota_carrera from function_object
+end type
+
+forward prototypes
+global function double f_colegiado_nota_carrera (string id_col)
+end prototypes
+
+global function double f_colegiado_nota_carrera (string id_col);//Esta funcion devuelve la nota de carrera de un colegiado
+
+double  nota=0
+
+  SELECT colegiados.nota_carrera  
+    INTO :nota  
+    FROM colegiados  
+   WHERE colegiados.id_colegiado = :id_col   
+           ;
+
+if isnull(string(nota)) or string(nota)= '' then 
+	nota=0
+end if
+
+return nota
+end function
+

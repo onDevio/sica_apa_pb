@@ -1,0 +1,21 @@
+HA$PBExportHeader$f_colegiado_id_colegiado.srf
+global type f_colegiado_id_colegiado from function_object
+end type
+
+forward prototypes
+global function string f_colegiado_id_colegiado (string nif)
+end prototypes
+
+global function string f_colegiado_id_colegiado (string nif);string id_colegiado
+
+  
+SELECT colegiados.id_colegiado  
+INTO :id_colegiado  
+FROM colegiados  
+WHERE colegiados.nif = :nif   ;
+
+
+return id_colegiado
+
+end function
+

@@ -1,0 +1,21 @@
+HA$PBExportHeader$f_total_cobrado_cip_contrato.srf
+global type f_total_cobrado_cip_contrato from function_object
+end type
+
+forward prototypes
+global function double f_total_cobrado_cip_contrato (string id_fase)
+end prototypes
+
+global function double f_total_cobrado_cip_contrato (string id_fase);double cip_cobrado = 0
+
+  SELECT sum(base_cip)  
+    INTO :cip_cobrado  
+    FROM fases_minutas  
+   WHERE fases_minutas.id_fase = :id_fase   and
+           fases_minutas.anulada <> 'S' and fases_minutas.fecha_pago <> null;
+
+if isnull(cip_cobrado) then cip_cobrado = 0
+
+return cip_cobrado
+end function
+

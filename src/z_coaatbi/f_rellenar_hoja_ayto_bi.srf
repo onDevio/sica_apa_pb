@@ -1,0 +1,184 @@
+HA$PBExportHeader$f_rellenar_hoja_ayto_bi.srf
+global type f_rellenar_hoja_ayto_bi from function_object
+end type
+
+forward prototypes
+global subroutine f_rellenar_hoja_ayto_bi (string id_fase, string tipo_carta, integer copias)
+end prototypes
+
+global subroutine f_rellenar_hoja_ayto_bi (string id_fase, string tipo_carta, integer copias);// FUNCION QUE SE UTILIZARA PARA RELLENAR TODOS LOS DATOS NECESARIOS PARA OBTENER LAS CARTAS DEL AYUNTAMIENTO
+datetime ldtt_hoy, fec, f_visado
+date ldt_hoy
+long i, cuantos, viviendas, cols
+decimal dl_sup_otros, dl_sup_garaje, dl_sup_viviendas
+string nucol, ls_nombre, colegiado, nif, representante, sl_total_colegiados, cliente, id_cliente, sl_total_clientes
+string tip_obra, des_obra, empl, t_via, nomvia, numero, sl_tipo_obra, sl_des_tipo_obra, sl_uso_obra, sl_des_uso_obra
+string sl_tipo_act, nom_aut, sl_des_tipo_act, sl_num_contrato, sl_f_visado, cp, pobla, des_via, obser, ls_fecha, n_c
+string sl_colegio, id_col, autor, sl_total_autores, id_fases_col, ls_col_soc, n_registro, n_expedi, descripcion
+string tipo_trabajo, trabajo, observaciones, fase, tipo_via_emplazamiento, emplazamiento, n_calle, poblacion
+
+// Recuperamos los datos del contrato
+SELECT n_registro, n_expedi, descripcion, f_visado, tipo_trabajo, trabajo, observaciones, fase, tipo_via_emplazamiento,   
+       emplazamiento, n_calle, poblacion 
+INTO :n_registro, :n_expedi, :descripcion, :f_visado, :tipo_trabajo, :trabajo, :observaciones, :fase, 
+	  :tipo_via_emplazamiento, :emplazamiento, :n_calle, :poblacion 
+FROM fases  
+WHERE fases.id_fase = :id_fase   ;
+
+
+datastore ds_imprime_hoja
+ds_imprime_hoja = create datastore
+ds_imprime_hoja.dataobject = 'dw_alcalde'		
+ds_imprime_hoja.settransobject(sqlca)
+ds_imprime_hoja.insertrow(0)
+
+sl_colegio= g_nombre_colegio_carta
+
+// Creamos un datastore para recuperar los colegiados del contrato
+datastore ds_fases_colegiados
+ds_fases_colegiados = create datastore
+ds_fases_colegiados.dataobject = 'd_fases_colegiados'
+ds_fases_colegiados.setFilter("renunciado<>'S'")
+ds_fases_colegiados.Settransobject(SQLCA)
+ds_fases_colegiados.retrieve(id_fase)
+
+cuantos = ds_fases_colegiados.rowcount()
+for i = 1 to cuantos
+	id_col = ds_fases_colegiados.getitemstring(i,"id_col")
+	nucol = f_colegiado_n_col(id_col)
+	ls_nombre = f_colegiado_apellido(id_col)
+
+	n_c = nucol + ' ' + ls_nombre
+	if not isNull(n_c) then
+		n_c = n_c + space(50 - LenA(n_c))
+		if LenA(n_c) > 50 then n_c = MidA(n_c,1,50)
+	else
+		n_c = space(50)
+	end if
+	colegiado = n_c
+	if i = 1 then  // Mejorar
+		sl_total_colegiados = colegiado
+		sl_total_autores = nom_aut
+	else
+		sl_total_colegiados = sl_total_colegiados + "~n~r" + colegiado
+		sl_total_autores = sl_total_autores + nom_aut
+	end if
+next
+
+
+// Creamos un datastore para recuperar los clientes del contrato
+datastore ds_fases_promotores
+ds_fases_promotores = create datastore
+ds_fases_promotores.dataobject = 'd_fases_promotores'
+ds_fases_promotores.SetTransObject(SQLCA)
+ds_fases_promotores.retrieve(id_fase)
+
+cuantos = ds_fases_promotores.rowcount()
+for i = 1 to cuantos
+	id_cliente = ds_fases_promotores.getitemstring(i,"id_cliente")
+	nucol = f_dame_nif(id_cliente)
+	ls_nombre = f_dame_cliente(id_cliente)
+	n_c = nucol + ' ' + ls_nombre
+	if not isNull(n_c) then
+		n_c = n_c + space(70 - LenA(n_c))
+		if LenA(n_c) > 35 then n_c = MidA(n_c,1,70)
+	else
+		n_c = space(50)
+	end if	   
+	cliente = n_c
+	if i = 1 then
+		sl_total_clientes = cliente
+	else
+		sl_total_clientes = sl_total_clientes + "~n~r" + cliente
+	end if
+next
+
+
+sl_tipo_obra = tipo_trabajo
+obser = observaciones
+if isnull(obser) then obser=''
+sl_des_tipo_obra = f_dame_desc_tipo_obra(sl_tipo_obra)
+if isnull(sl_des_tipo_obra) then sl_des_tipo_obra=''
+sl_uso_obra = trabajo
+sl_des_uso_obra = f_dame_desc_destino_obra(sl_uso_obra)
+if isnull(sl_des_uso_obra) then sl_des_uso_obra=''
+sl_tipo_act = fase
+sl_des_tipo_act = f_dame_desc_tipo_actuacion(sl_tipo_act)
+if isnull(sl_des_tipo_act) then sl_des_tipo_act=''
+
+// Creamos un datastore para recuperar los datos estad$$HEX1$$ed00$$ENDHEX$$sticos del contrato
+datastore ds_fases_estadistica
+ds_fases_estadistica = create datastore
+ds_fases_estadistica.dataobject = 'd_fases_expedientes_estadistica'
+ds_fases_estadistica.SetTransObject(SQLCA)
+ds_fases_estadistica.retrieve(id_fase)
+
+viviendas = ds_fases_estadistica.getitemnumber(1,"num_viv")
+if isnull(viviendas) then viviendas=0
+dl_sup_viviendas = ds_fases_estadistica.getitemnumber(1,"sup_viv")
+if isnull(dl_sup_viviendas) then dl_sup_viviendas=0
+dl_sup_otros = ds_fases_estadistica.getitemnumber(1,"sup_otros")
+if isnull(dl_sup_otros) then dl_sup_otros=0
+dl_sup_garaje = ds_fases_estadistica.getitemnumber(1,"sup_garage")
+if isnull(dl_sup_garaje) then dl_sup_garaje=0
+
+// N$$HEX2$$ba002000$$ENDHEX$$contrato
+sl_num_contrato = fase + ' - ' +  f_quita_ceros(n_expedi)
+if isnull(sl_num_contrato) then sl_num_contrato=''
+
+sl_f_visado=string( f_visado,"dd/mm/yyyy")
+if isnull(sl_f_visado) then sl_f_visado=''
+
+t_via = tipo_via_emplazamiento
+nomvia = emplazamiento
+numero = n_calle
+cp = poblacion
+pobla = f_poblacion_descripcion(cp)
+des_via = f_dame_desc_tipo_via(t_via)
+
+if isnull(des_via) then des_via = " "
+if isnull(nomvia) then nomvia = " "
+if isnull(numero) then numero = " "
+if isnull(cp) then cp = " "
+if isnull(pobla) then pobla = " "
+
+empl = trim(des_via) + " " + trim(nomvia) + " " + trim(numero) + " " + " " + trim(pobla)
+
+ldtt_hoy =datetime(today(),now())
+ldt_hoy  = today()
+ls_fecha = Upper( g_col_ciudad + ', ' + string(day(ldt_hoy)) + ' de ' + lower(f_obtener_mes (ldtt_hoy)) + ' de ' + string(year(ldt_hoy)))
+
+obser = descripcion
+
+ds_imprime_hoja.setitem(1,"colegiado",sl_total_colegiados)
+ds_imprime_hoja.setitem(1,"cliente",sl_total_clientes)  
+ds_imprime_hoja.setitem(1,"tipo_obra",sl_des_tipo_obra)
+ds_imprime_hoja.setitem(1,"uso_obra",sl_des_uso_obra)
+ds_imprime_hoja.setitem(1,"tipo_actuacion",sl_des_tipo_act)
+ds_imprime_hoja.setitem(1,"num_viviendas",string(viviendas,'#,##0'))
+ds_imprime_hoja.setitem(1,"sup_vivienda",string(dl_sup_viviendas,'#,##0.00'))
+ds_imprime_hoja.setitem(1,"otros_usos", string(dl_sup_otros,'#,##0.00'))
+ds_imprime_hoja.setitem(1,"sub_garajes",string(dl_sup_garaje,'#,##0.00'))
+ds_imprime_hoja.setitem(1,"n_contrato",sl_num_contrato)
+ds_imprime_hoja.setitem(1,"fecha_visado",sl_f_visado)
+ds_imprime_hoja.setitem(1,"emplazamiento",empl)  
+ds_imprime_hoja.setitem(1,"descripcion",obser)
+ds_imprime_hoja.setitem(1,"alcalde",pobla)
+ds_imprime_hoja.setitem(1,"fecha",ls_fecha)
+
+// Cambian de bandeja
+// Imprimir desde distintas bandejas desde lenguaje PCL5e
+// En este caso de la bandeja 2 
+long Job
+Job = PrintOpen()
+PrintSend(Job,CharA(27) + "&l4H")
+PrintDataWindow(Job, ds_imprime_hoja)
+PrintClose(Job)
+		
+destroy ds_fases_colegiados
+destroy ds_fases_promotores
+destroy ds_fases_estadistica
+destroy ds_imprime_hoja
+
+end subroutine
+

@@ -1,0 +1,6 @@
+HA$PBExportHeader$st_ventana_mensaje.srs
+global type st_ventana_mensaje from structure
+	string		mensaje
+	string		titulo_ventana
+end type
+

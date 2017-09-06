@@ -1,0 +1,23 @@
+HA$PBExportHeader$f_obtener_tipo_reclamacion.srf
+global type f_obtener_tipo_reclamacion from function_object
+end type
+
+forward prototypes
+global function string f_obtener_tipo_reclamacion (string id_factura)
+end prototypes
+
+global function string f_obtener_tipo_reclamacion (string id_factura);
+string tipo_reclamacion
+//Buscamos si existe reclamaciones para la factura
+//select tipo_reclamacion into :tipo_reclamacion from csi_fact_reclamaciones where id_factura= :id_factura and f_reclamacion=(select max(f_reclamacion) from csi_fact_reclamaciones where id_factura= :id_factura);
+select tipo_reclamacion into :tipo_reclamacion from csi_fact_reclamaciones where id_factura= :id_factura and id_reclamacion_factura=(select max(id_reclamacion_factura) from csi_fact_reclamaciones where id_factura= :id_factura);
+//Si existe reclamacion obtenemos la reclamacion siguiente sino le asignamos la reclamacion pertinente
+if f_es_vacio(tipo_reclamacion) then tipo_reclamacion=''
+	
+
+
+
+
+return tipo_reclamacion
+end function
+

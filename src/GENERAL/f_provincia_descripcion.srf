@@ -1,0 +1,21 @@
+HA$PBExportHeader$f_provincia_descripcion.srf
+global type f_provincia_descripcion from function_object
+end type
+
+forward prototypes
+global function string f_provincia_descripcion (string cod_prov)
+end prototypes
+
+global function string f_provincia_descripcion (string cod_prov);string desc_provincia = ''
+
+  SELECT provincias.nombre  
+    INTO :desc_provincia  
+    FROM provincias  
+  HAVING ( provincias.cod_provincia = :cod_prov )   
+           ;
+
+if f_es_vacio(desc_provincia) then desc_provincia = ''
+
+return desc_provincia
+end function
+

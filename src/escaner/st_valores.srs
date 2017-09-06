@@ -1,0 +1,7 @@
+HA$PBExportHeader$st_valores.srs
+global type st_valores from structure
+	double		brillo
+	double		contraste
+	w_escaner_principal		ventana_escaneado
+end type
+

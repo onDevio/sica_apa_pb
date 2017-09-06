@@ -1,0 +1,35 @@
+HA$PBExportHeader$f_tipo_alta_src.srf
+global type f_tipo_alta_src from function_object
+end type
+
+forward prototypes
+global function string f_tipo_alta_src (string id_col)
+end prototypes
+
+global function string f_tipo_alta_src (string id_col);// Indica que tipo de SRC tiene
+//  S: Alta en MUSAAT
+// O: Alta en otra compa$$HEX1$$f100$$ENDHEX$$ia
+// N: No tiene SRC
+
+string tiene_src_musaat, tiene_src_otros
+  
+  SELECT src_alta
+    INTO :tiene_src_musaat  
+    FROM musaat  
+   WHERE ( id_col = :id_col )  ;
+	
+  if tiene_src_musaat ='S' THEN RETURN 'S'
+
+	SELECT alta
+    INTO :tiene_src_otros 
+	FROM src_colegiado
+	WHERE ( id_colegiado = :id_col ) AND  ( alta = 'S' ) ;
+
+  if tiene_src_otros ='S' THEN RETURN 'O'
+
+// Otro caso....
+RETURN 'N'
+
+
+end function
+

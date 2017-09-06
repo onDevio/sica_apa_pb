@@ -1,0 +1,6 @@
+HA$PBExportHeader$st_buscar_duplicados_pk_2.srs
+global type st_buscar_duplicados_pk_2 from structure
+	string		col1
+	string		col2
+end type
+

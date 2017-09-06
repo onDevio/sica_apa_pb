@@ -1,0 +1,15 @@
+HA$PBExportHeader$d_dddw_respuestas_test.srd
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=80 color="536870912" )
+table(column=(type=char(10) update=yes updatewhereclause=yes key=yes name=id_respuesta_test dbname="formacion_mant_test.id_respuesta_test" )
+ column=(type=char(60) update=yes updatewhereclause=yes name=respuesta_test dbname="formacion_mant_test.respuesta_test" )
+ column=(type=long update=yes updatewhereclause=yes name=valor_respuesta dbname="formacion_mant_test.valor_respuesta" )
+ retrieve="PBSELECT( VERSION(400) TABLE(NAME=~"formacion_mant_test~" ) COLUMN(NAME=~"formacion_mant_test.id_respuesta_test~") COLUMN(NAME=~"formacion_mant_test.respuesta_test~") COLUMN(NAME=~"formacion_mant_test.valor_respuesta~")) " update="formacion_mant_test" updatewhere=1 updatekeyinplace=no )
+column(band=detail id=1 alignment="0" tabsequence=10 border="0" color="0" x="5" y="128" height="64" width="238" format="[general]"  name=id_respuesta_test  tag=" " edit.limit=10 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=20 border="0" color="0" x="14" y="4" height="64" width="1339" format="[general]"  name=respuesta_test  tag=" " edit.limit=60 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="1" tabsequence=30 border="0" color="0" x="334" y="144" height="64" width="165" format="[General]"  name=valor_respuesta  tag=" " edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

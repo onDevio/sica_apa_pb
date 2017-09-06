@@ -1,0 +1,47 @@
+declare @colegio varchar(10)
+select @colegio = texto from var_globales where nombre = 'COLEGIO'
+
+// ICC-355 - Nuevo listado
+if @colegio = 'COAATCC'
+begin
+INSERT INTO listados (descripcion, dw, ventana, orden, activo) VALUES ('Listado CIP por Tipo de Obra','d_fases_listado_cip_cc','w_fases_listados','00','S')
+end
+
+//CRI-164
+if @colegio='COAATLR'
+begin
+INSERT into t_control_eventos(control,evento,activo,param1,id_control) VALUES('AVISO_NO_MUSAAT_COL','VISAR','S','csd_aviso_no_musaat_colectivo','1000')
+end
+
+//ICN-427 este cambio se realiza de momento solo en navarra pero tendra que hacerse en todos los demas colegios
+if @colegio='COAATNA'
+begin
+insert into listados (descripcion, dw, ventana, orden, activo) values('Listado estadistico porcentuado de fases cerradas para el consejo', 'd_fases_listado_estadistico_consejo_porcent', 'w_fases_estadisticas', '17', 'S')
+end
+
+//CGN-544 inseción de traducciones de años y edad
+if @colegio='COAATGN'
+begin
+Insert into messages_ca(tag,traduccion,modulo,nombre) values("colegiados.edad","Edad","colegiados","edad")
+Insert into messages_ca(tag,traduccion,modulo,nombre) values("colegiados.anyos","Anys","colegiados","anyos")
+end
+go
+
+// Referencia WEB para frontend
+alter table fases_otros_datos add id_referencia_web char(20) null;
+
+// COAM-419 Serie de abono para los recibos
+alter table csi_series add serie_abono char(10) null;
+
+
+--SCP-353
+INSERT INTO csd_seg_tipo_idioma (cod_tipo_idioma, descripcion) VALUES ('ES','ESPAÑOL');
+INSERT INTO csd_seg_tipo_idioma (cod_tipo_idioma, descripcion) VALUES ('IN','INGLÉS');
+INSERT INTO csd_seg_tipo_idioma (cod_tipo_idioma, descripcion) VALUES ('CA','CATALÁN');
+INSERT INTO csd_seg_tipo_idioma (cod_tipo_idioma, descripcion) VALUES ('EU','EUSKERA');
+INSERT INTO csd_seg_tipo_idioma (cod_tipo_idioma, descripcion) VALUES ('GA','GALLEGO');
+
+
+
+
+go

@@ -1,0 +1,37 @@
+HA$PBExportHeader$st_codigos_conceptos.srs
+global type st_codigos_conceptos from structure
+	string		musaat_variable
+	string		cip
+	string		dv
+	string		retvol
+	string		irpf
+	string		honorarios
+	string		desplazamientos
+	string		ret_iva
+	string		reg_mus
+	string		dev_garantia
+	string		musaat_fija
+	string		premaat
+	string		musaat_accidentes
+	string		musaat_tasadores
+	string		pronto_pago
+	string		cip_sgc
+	string		musaat_fija_plazo1
+	string		musaat_fija_plazo2
+	string		impresos
+	string		dto_visared
+	string		cobro_a_cuenta
+	string		libro_ordenes
+	string		libro_incidencias
+	string		otros_gastos
+	string		comision_tarjeta
+	string		bonif_musaat
+	string		bonif_premaat
+	string		cuota_colegial
+	string		premaat_cod_basico
+	string		premaat_cod_2000
+	string		premaat_cod_comple1
+	string		otros_conceptos
+	string		REDAP
+end type
+

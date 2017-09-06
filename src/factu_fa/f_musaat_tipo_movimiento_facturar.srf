@@ -1,0 +1,94 @@
+HA$PBExportHeader$f_musaat_tipo_movimiento_facturar.srf
+global type f_musaat_tipo_movimiento_facturar from function_object
+end type
+
+forward prototypes
+global function st_musaat_datos f_musaat_tipo_movimiento_facturar (string id_fase, string id_col, double importe_facturado)
+end prototypes
+
+global function st_musaat_datos f_musaat_tipo_movimiento_facturar (string id_fase, string id_col, double importe_facturado);// DATOS DE ENTRADA:
+//		datos de la fase/expedi (Administraci$$HEX1$$f300$$ENDHEX$$n, por certificaciones, funcionario)
+//		si se ha hecho ya alguna facturaci$$HEX1$$f300$$ENDHEX$$n para dicho colegiado
+
+// DEVUELVE:
+// en la estructura st_datos_musaat
+//		el tipo movimiento (uno de los valores de la tabla musaat_tipologia) para los datos a facturar
+//		el % a aplicar
+
+string tipo_movimiento= '10', administracion, certificaciones, funcionario,tipo_actuacion, t_mov , tipo_csd, obra_oficial, t_visado
+double porcentaje, porcen_col, pem
+st_musaat_datos st_musaat_datos
+
+SELECT expedientes.administracion INTO :administracion FROM expedientes, fases WHERE expedientes.id_expedi = fases.id_expedi and fases.id_fase = :id_fase ;
+	IF f_es_vacio(administracion) THEN administracion = 'N'
+
+SELECT aplicado_10, fase INTO :certificaciones,:tipo_actuacion FROM fases WHERE id_fase = :id_fase;
+	IF f_es_vacio(certificaciones) THEN certificaciones = 'N'
+	IF f_es_vacio(tipo_actuacion) THEN tipo_actuacion = 'N'
+
+SELECT facturado, porcen_a INTO :funcionario , :porcen_col FROM fases_colegiados WHERE id_fase = :id_fase AND id_col = :id_col;
+	IF f_es_vacio(funcionario) THEN funcionario = 'N'
+
+SELECT  t_visado, obra_oficial, presupuesto into :t_visado, :obra_oficial, :pem from musaat_movimientos where id_fase = :id_fase and id_col=:id_col and t_visado = '1';
+
+if f_es_vacio(t_visado) then 	t_mov = 'I'
+
+// => Tipo Movimiento
+// =============================================================================	
+	if administracion = 'S' then
+		if certificaciones = 'S' then
+			// Modificado Ricardo 2005-06-13
+			if  t_mov = 'I' then 
+				tipo_movimiento= '11'
+			else 
+				tipo_movimiento= '23'
+			end if	
+			  // FIN Modificado Ricardo 2005-06-13
+		else
+			tipo_movimiento= '12' // 100% seguridad 
+		end if
+		if funcionario = 'S' THEN tipo_movimiento = '14'
+	else
+			tipo_movimiento = '10' // 100% NO SEGURIDAD
+	end if
+	
+	
+
+
+
+// => Porcentaje
+// =============================================================================
+//IF tipo_movimiento = '11' THEN 
+//	porcentaje = 10
+//ELSEIF tipo_movimiento = '25' THEN 
+//	porcentaje = 90
+//ELSE
+//	porcentaje = 100					
+//END IF
+
+if tipo_movimiento = '23' or tipo_movimiento= '25' then 
+	st_musaat_datos.pem = f_redondea(pem * 0.9)
+else
+	st_musaat_datos.pem =pem
+end if
+
+st_musaat_datos.tipo_csd = tipo_movimiento
+st_musaat_datos.porcentaje = porcen_col
+
+/* Queremos controlar si el importe de la prima de MUSAAT no rebasa 300 eur.para impedir fraccionar (si se hubiera deducido 11 $$HEX2$$f3002000$$ENDHEX$$25, se forzar$$HEX1$$ed00$$ENDHEX$$a que devuelva 12)
+// => C$$HEX1$$e100$$ENDHEX$$lculo de importe. Si genera_movi = TRUE, se da de alta movimiento en musaat_movimientos (C.AJ. musaat_movimientos.id_factura a l$$HEX1$$ed00$$ENDHEX$$nea de factura)
+// =============================================================================
+st_musaat_datos.n_visado = id_fase
+st_musaat_datos.id_col = id_col
+st_musaat_datos.id_minuta = ''
+//st_musaat_datos.tipo_csd = '10'
+st_musaat_datos.recuperar = TRUE
+//st_musaat_datos.genera_movi = TRUE
+st_musaat_datos.genera_movi = FALSE
+f_musaat_calcula_prima (st_musaat_datos)*/
+
+
+
+RETURN st_musaat_datos
+end function
+

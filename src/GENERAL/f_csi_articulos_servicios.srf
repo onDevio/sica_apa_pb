@@ -1,0 +1,72 @@
+HA$PBExportHeader$f_csi_articulos_servicios.srf
+$PBExportComments$Obtiene todos los datos de un concepto
+global type f_csi_articulos_servicios from function_object
+end type
+
+forward prototypes
+global function integer f_csi_articulos_servicios (ref st_csi_articulos_servicios st_articulos_servicios)
+end prototypes
+
+global function integer f_csi_articulos_servicios (ref st_csi_articulos_servicios st_articulos_servicios);if f_es_vacio(st_articulos_servicios.codigo) then return -1
+  
+if f_es_vacio(st_articulos_servicios.empresa) then st_articulos_servicios.empresa = g_empresa
+  
+  SELECT csi_articulos_servicios.codigo,   
+         csi_articulos_servicios.descripcion,   
+         csi_articulos_servicios.familia,   
+         csi_articulos_servicios.cuenta,   
+         csi_articulos_servicios.cta_presupuestaria,   
+         csi_articulos_servicios.exp,   
+         csi_articulos_servicios.general,   
+         csi_articulos_servicios.importe,   
+         csi_articulos_servicios.activo,   
+         csi_articulos_servicios.es_informe,   
+         csi_articulos_servicios.impuesto,   
+         csi_articulos_servicios.orden,   
+         csi_articulos_servicios.colegio,   
+         csi_articulos_servicios.t_iva,   
+         csi_articulos_servicios.honorario,   
+         csi_articulos_servicios.impreso,   
+         csi_articulos_servicios.en_ficha_colegiado  
+    INTO :st_articulos_servicios.codigo,   
+         :st_articulos_servicios.descripcion,   
+         :st_articulos_servicios.familia,   
+         :st_articulos_servicios.cuenta,   
+         :st_articulos_servicios.cta_presupuestaria,   
+         :st_articulos_servicios.exp,   
+         :st_articulos_servicios.general,   
+         :st_articulos_servicios.importe,   
+         :st_articulos_servicios.activo,   
+         :st_articulos_servicios.es_informe,   
+         :st_articulos_servicios.impuesto,   
+         :st_articulos_servicios.orden,   
+         :st_articulos_servicios.colegio,   
+         :st_articulos_servicios.t_iva,   
+         :st_articulos_servicios.honorario,   
+         :st_articulos_servicios.impreso,   
+         :st_articulos_servicios.en_ficha_colegiado  
+    FROM csi_articulos_servicios  where csi_articulos_servicios.colegio = :g_colegio and csi_articulos_servicios.codigo = :st_articulos_servicios.codigo and csi_articulos_servicios.empresa = :st_articulos_servicios.empresa;
+
+if sqlca.sqlcode <> 0 then return -1
+
+if f_es_vacio(st_articulos_servicios.codigo) then st_articulos_servicios.codigo =''
+if f_es_vacio(st_articulos_servicios.descripcion) then st_articulos_servicios.descripcion = ''
+if f_es_vacio(st_articulos_servicios.familia) then st_articulos_servicios.familia = ''
+if f_es_vacio(st_articulos_servicios.cuenta) then st_articulos_servicios.cuenta = ''
+if f_es_vacio(st_articulos_servicios.cta_presupuestaria) then st_articulos_servicios.cta_presupuestaria = ''
+if f_es_vacio(st_articulos_servicios.exp) then st_articulos_servicios.exp = 'N'
+if f_es_vacio(st_articulos_servicios.general) then  st_articulos_servicios.general = 'N'
+if isnull(st_articulos_servicios.importe) then st_articulos_servicios.importe = 0
+if f_es_vacio(st_articulos_servicios.activo) then st_articulos_servicios.activo = 'N'
+if f_es_vacio(st_articulos_servicios.es_informe) then st_articulos_servicios.es_informe = 'N'
+if isnull(st_articulos_servicios.impuesto) then st_articulos_servicios.impuesto = 0
+if isnull(st_articulos_servicios.orden) then st_articulos_servicios.orden = 0
+if f_es_vacio(st_articulos_servicios.colegio) then st_articulos_servicios.colegio = g_colegio
+if f_es_vacio(st_articulos_servicios.t_iva) then st_articulos_servicios.t_iva = g_t_iva_defecto
+if f_es_vacio(st_articulos_servicios.honorario) then  st_articulos_servicios.honorario = 'N'
+if f_es_vacio(st_articulos_servicios.impreso) then st_articulos_servicios.impreso = ''
+if f_es_vacio(st_articulos_servicios.en_ficha_colegiado) then st_articulos_servicios.en_ficha_colegiado = 'N'
+
+return 0
+end function
+

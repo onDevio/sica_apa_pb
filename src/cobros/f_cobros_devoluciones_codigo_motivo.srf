@@ -1,0 +1,18 @@
+HA$PBExportHeader$f_cobros_devoluciones_codigo_motivo.srf
+$PBExportComments$indica el motivo de la devolucion del adeudo domiciliario
+global type f_cobros_devoluciones_codigo_motivo from function_object
+end type
+
+forward prototypes
+global function string f_cobros_devoluciones_codigo_motivo (string as_codigo_sepa)
+end prototypes
+
+global function string f_cobros_devoluciones_codigo_motivo (string as_codigo_sepa);string retorno
+
+//C$$HEX1$$f300$$ENDHEX$$digos de Devoluciones de Ordenes de Adeudo
+select codigo into :retorno from devoluciones_motivos where codigo_sepa = :as_codigo_sepa;
+if f_es_vacio(retorno) then retorno = 'F1'
+
+return retorno
+end function
+

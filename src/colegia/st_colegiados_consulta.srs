@@ -1,0 +1,8 @@
+HA$PBExportHeader$st_colegiados_consulta.srs
+global type st_colegiados_consulta from structure
+	string		id_colegiado
+	string		n_colegiado
+	datetime		fecha
+	string		tipo
+end type
+

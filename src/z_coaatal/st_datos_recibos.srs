@@ -1,0 +1,10 @@
+HA$PBExportHeader$st_datos_recibos.srs
+global type st_datos_recibos from structure
+	datastore		ds_recibos
+	datastore		ds_lineas
+	datastore		ds_cobros
+	datastore		ds_errores
+	string		serie
+	datetime		fecha
+end type
+

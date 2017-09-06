@@ -1,0 +1,38 @@
+HA$PBExportHeader$f_buscar_patron_en_fdf.srf
+global type f_buscar_patron_en_fdf from function_object
+end type
+
+forward prototypes
+global function string f_buscar_patron_en_fdf (string cadena_fdf, string patron)
+end prototypes
+
+global function string f_buscar_patron_en_fdf (string cadena_fdf, string patron);//A esta funcion le pasamos la cadena donde se encuentran todos los datos del fdf que deben de ser portados al ini
+//tb le pasamos el patron del parametro que estamos buscando
+//a partir de estos dos parametros devolver$$HEX2$$e1002000$$ENDHEX$$el valor de este parametro
+
+
+integer posicion_inicio,posicion_final
+string aux, result
+integer longitud
+
+posicion_inicio = pos(cadena_fdf,patron,1)
+if posicion_inicio > 0 then
+	aux = mid(cadena_fdf,posicion_inicio)
+	posicion_inicio = pos(aux,"V(",1)
+	posicion_final = pos(aux,")>>")
+	longitud = (posicion_final - 1) - (posicion_inicio +1 )
+	if longitud <= 0 then
+		result = ''
+	else
+		result = mid(aux,posicion_inicio +2 ,longitud)
+	end if
+else
+	result = ''
+end if
+
+
+return result
+
+
+end function
+

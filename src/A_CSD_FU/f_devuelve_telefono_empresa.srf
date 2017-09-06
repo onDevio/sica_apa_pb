@@ -1,0 +1,11 @@
+HA$PBExportHeader$f_devuelve_telefono_empresa.srf
+global type f_devuelve_telefono_empresa from function_object
+end type
+
+forward prototypes
+global function string f_devuelve_telefono_empresa ()
+end prototypes
+
+global function string f_devuelve_telefono_empresa ();return g_telefono_empresa
+end function
+

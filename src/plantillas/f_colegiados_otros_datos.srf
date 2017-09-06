@@ -1,0 +1,84 @@
+HA$PBExportHeader$f_colegiados_otros_datos.srf
+$PBExportComments$Dado un colegiado devuelve una lista con sus datos de "otros datos"
+global type f_colegiados_otros_datos from function_object
+end type
+
+forward prototypes
+global function string f_colegiados_otros_datos (string id_col)
+end prototypes
+
+global function string f_colegiados_otros_datos (string id_col);//Par$$HEX1$$e100$$ENDHEX$$metro: el identificador del colegiado.
+//Devuelve: un string con la descripci$$HEX1$$f300$$ENDHEX$$n y el valor de las caracter$$HEX1$$ed00$$ENDHEX$$sticas corespondientes
+//al colegiado indicado por id_col
+
+long i
+string retorno, cod_caract, desc_caract, numero, texto, s_n, fecha
+retorno = ''
+
+
+datastore ds_otros
+
+ds_otros = create datastore
+ds_otros.dataobject ='d_colegiados_otros_datos'
+ds_otros.SetTransObject(SQLCA)
+
+ds_otros.Retrieve(id_col)
+
+for i = 1 to ds_otros.rowcount()
+	cod_caract = ds_otros.getitemstring(i, 'cod_caracteristica')	
+	select descripcion into :desc_caract from otros_conceptos where codigo = :cod_caract;
+	numero = string(ds_otros.getitemnumber(i, 'numero'))
+	texto = ds_otros.getitemstring(i, 'texto')
+	fecha = string(ds_otros.getitemdatetime(i, 'fecha'))
+	s_n = ds_otros.getitemstring(i, 's_n')
+	
+	if f_es_vacio(desc_caract) then desc_caract = ''
+	
+	if not f_es_vacio(numero) then
+		retorno = retorno + desc_caract + '~t' + numero + cr
+	else
+		if not f_es_vacio(texto) then
+			retorno = retorno + desc_caract + '~t' + texto + cr
+		else
+			if not f_es_vacio(fecha) then
+				retorno = retorno + desc_caract + '~t' + fecha + cr
+			else
+				if not f_es_vacio(s_n) then
+					retorno = retorno + desc_caract + '~t' + s_n + cr
+				else
+					retorno = retorno + desc_caract + cr
+				end if
+			end if
+		end if
+	end if
+	
+next
+
+destroy ds_otros
+
+return retorno
+
+
+
+
+//string retorno = '', cod_ori = '', desc_ori = ''
+//int i
+//
+//declare c_orient cursor for
+//select t_orientaciones_profesionales.cod_orientacion_profesional, t_orientaciones_profesionales.descripcion
+//from t_orientaciones_profesionales, orientaciones_profesionales
+//where orientaciones_profesionales.id_colegiado = :id_col and
+//		orientaciones_profesionales.orientacion_profesional = t_orientaciones_profesionales.cod_orientacion_profesional;
+//
+//open c_orient;
+//
+//FOR i=1 TO sqlca.SQLNRows
+//	fetch c_orient into :cod_ori, :desc_ori;
+//	retorno = retorno + cod_ori + '	' + desc_ori + cr
+//NEXT
+//
+//close c_orient;
+//
+//return retorno
+end function
+

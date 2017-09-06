@@ -1,0 +1,21 @@
+HA$PBExportHeader$f_clientes_n_cliente.srf
+global type f_clientes_n_cliente from function_object
+end type
+
+forward prototypes
+global function string f_clientes_n_cliente (string id_cliente)
+end prototypes
+
+global function string f_clientes_n_cliente (string id_cliente);string n_cliente = ''
+long num_clientes
+
+select count(*) into :num_clientes from clientes where id_cliente=:id_cliente;
+
+if num_clientes > 0 then 
+	select n_cliente into :n_cliente from clientes where id_cliente=:id_cliente;
+end if
+
+return n_cliente
+
+end function
+

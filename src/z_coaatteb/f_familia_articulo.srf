@@ -1,0 +1,23 @@
+HA$PBExportHeader$f_familia_articulo.srf
+global type f_familia_articulo from function_object
+end type
+
+forward prototypes
+global function string f_familia_articulo (string articulo, string id_empresa)
+end prototypes
+
+global function string f_familia_articulo (string articulo, string id_empresa);/***************************************/
+// FUNCION QUE DEVUELVE LA FAMILIA DE UN ARTICULO
+/***************************************/
+
+string familia
+
+select familia 
+  into :familia 
+from csi_articulos_servicios 
+where codigo = :articulo
+and empresa =:id_empresa;
+
+return familia
+end function
+

@@ -1,0 +1,21 @@
+HA$PBExportHeader$f_arquitectos_nombre.srf
+global type f_arquitectos_nombre from function_object
+end type
+
+forward prototypes
+global function string f_arquitectos_nombre (string id_arqui)
+end prototypes
+
+global function string f_arquitectos_nombre (string id_arqui);string nombre
+
+SELECT arquitectos.nombre  
+INTO :nombre  
+FROM arquitectos  
+WHERE arquitectos.id_arquitecto = :id_arqui   ;
+	
+if f_es_vacio(nombre) then nombre = ''
+
+return nombre
+
+end function
+

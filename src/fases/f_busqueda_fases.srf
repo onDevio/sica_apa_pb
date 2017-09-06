@@ -1,0 +1,13 @@
+HA$PBExportHeader$f_busqueda_fases.srf
+global type f_busqueda_fases from function_object
+end type
+
+forward prototypes
+global function string f_busqueda_fases ()
+end prototypes
+
+global function string f_busqueda_fases ();open(w_busqueda_fases)
+return Message.StringParm
+
+end function
+

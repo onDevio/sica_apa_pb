@@ -1,0 +1,23 @@
+HA$PBExportHeader$f_visared_incidencias.srf
+global type f_visared_incidencias from function_object
+end type
+
+forward prototypes
+global subroutine f_visared_incidencias (datastore ds, st_visared_incidencias incidencias)
+end prototypes
+
+global subroutine f_visared_incidencias (datastore ds, st_visared_incidencias incidencias);int fila
+
+fila = ds.InsertRow(0)
+
+ds.SetItem(fila,'incidencia',incidencias.incidencia)
+ds.SetItem(fila,'solucion',incidencias.solucion)
+ds.SetItem(fila,'nivel_incidencia',incidencias.nivel_incidencia)
+ds.SetItem(fila,'evento_asociado',incidencias.evento_asociado)
+ds.SetItem(fila,'campo_anomalo',incidencias.campo_anomalo)
+ds.SetItem(fila,'valor_codigo',incidencias.valor_codigo)
+ds.SetItem(fila,'valor_descripcion',incidencias.valor_descripcion)
+
+
+end subroutine
+

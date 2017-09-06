@@ -1,0 +1,13 @@
+HA$PBExportHeader$f_color_windows_text.srf
+global type f_color_windows_text from function_object
+end type
+
+forward prototypes
+global function long f_color_windows_text ()
+end prototypes
+
+global function long f_color_windows_text ();
+return 33554592
+
+end function
+

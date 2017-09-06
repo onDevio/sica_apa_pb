@@ -1,0 +1,28 @@
+HA$PBExportHeader$f_nif_empresa_col.srf
+global type f_nif_empresa_col from function_object
+end type
+
+forward prototypes
+global function string f_nif_empresa_col (string id_col)
+end prototypes
+
+global function string f_nif_empresa_col (string id_col);string nif_emp
+
+//  SELECT colegiados.nif_empresa  
+//    INTO :nif_emp  
+//    FROM colegiados  
+//   WHERE colegiados.id_colegiado = :id_col   ;
+
+SELECT clientes.nif  
+INTO :nif_emp  
+FROM colegiados, clientes  
+WHERE ( colegiados.id_empresa = clientes.id_cliente ) and  
+		( ( colegiados.id_colegiado = :id_col ) )   ;
+
+	
+if f_es_vacio(nif_emp) then nif_emp = ''
+
+return nif_emp
+
+end function
+

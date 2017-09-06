@@ -1,0 +1,23 @@
+HA$PBExportHeader$st_cobrar_gastos_contrato.srs
+global type st_cobrar_gastos_contrato from structure
+	statictext		st_proceso
+	datawindow		dw_pago
+	string		i_id_col
+	double		cip
+	double		musaat
+	double		dv
+	datawindow		dw_3
+	integer		impr_copias
+	integer		impr_orig
+	boolean		facturar
+	string		id_cliente
+	double		honorarios
+	datawindow		clientes
+	double		porc_col
+	string		paga_gastos
+	string		tipo_minuta
+	string		n_contrato_ant
+	double		libros
+	double		porc_cip
+end type
+

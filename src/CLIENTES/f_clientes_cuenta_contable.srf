@@ -1,0 +1,65 @@
+HA$PBExportHeader$f_clientes_cuenta_contable.srf
+global type f_clientes_cuenta_contable from function_object
+end type
+
+forward prototypes
+global function string f_clientes_cuenta_contable (string id_cliente)
+end prototypes
+
+global function string f_clientes_cuenta_contable (string id_cliente);string cc='', titulo, nif
+long cuantos
+
+select cuenta_contable into :cc from clientes where id_cliente = :id_cliente;
+
+//Si el cliente NO tiene Cta. Contable el sistema le puede asignar una autom$$HEX1$$e100$$ENDHEX$$ticamente
+if f_es_vacio(cc) and g_conta.crear_cuentas_clientes_terceros = 'S' then 
+//	if MessageBox(g_titulo,'El Cliente no tiene asignada Cuenta Contable.'+cr+'$$HEX1$$bf00$$ENDHEX$$Desea crear cuenta Contable?',Question!,YesNo!)=1 then
+		cc = f_cuenta_contable_defecto_cli_provs('C',id_cliente)
+//		Messagebox(g_titulo,'La cuenta creada es '+cc,Information!)
+//	end if
+elseif f_es_vacio(cc) then
+	cc = g_conta.cuenta_clientes_general
+else
+	// Modificado Ricardo 2005-11-10
+	// si la cuenta contable est$$HEX2$$e1002000$$ENDHEX$$puesta... miramos si est$$HEX2$$e1002000$$ENDHEX$$creada en el plan de cuentas
+	select count(*) into :cuantos from cuentas where cuenta = cc using bd_ejercicio;
+	
+	if cuantos = 0 then
+		titulo = f_dame_cliente(id_cliente)
+		nif = f_dame_nif (id_cliente)
+		// Creo la nueva cuenta contable para el cliente en el Plan de cuentas, 
+		// 	y actualizo en el cliente la cuenta contable
+		
+		// Modificado Ricardo 2005-05-23
+		//insert into cuentas values (:cuenta_contable,:titulo,:nif,'D','S',0,0,0,0,'',0,0,0,0,0) USING bd_ejercicio;
+		st_cuenta cuenta_struct
+		
+		cuenta_struct.cuenta 		= cc
+		cuenta_struct.titulo 		= titulo
+		cuenta_struct.resumen 		= nif
+		cuenta_struct.final 			= 'D'
+		cuenta_struct.empresa		= 'S'
+		cuenta_struct.debe			= 0
+		cuenta_struct.haber			= 0
+		cuenta_struct.saldo			= 0
+		cuenta_struct.presupuesto	= 0
+		cuenta_struct.id_col			= ''
+		cuenta_struct.s1				= 0
+		cuenta_struct.s2				= 0
+		cuenta_struct.s3				= 0
+		cuenta_struct.ica				= 0
+		cuenta_struct.otros			= 0
+		if not f_es_vacio(f_cuenta_pgc_sincronizada(cuenta_struct, 'N')) then 
+			rollback using bd_ejercicio;
+		else
+			commit using bd_ejercicio;
+		end if
+	end if
+	// fin Modificado Ricardo 2005-11-10
+end if
+
+return cc
+
+
+end function
+

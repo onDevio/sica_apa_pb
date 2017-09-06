@@ -1,0 +1,91 @@
+HA$PBExportHeader$f_reset_dws.srf
+global type f_resetupdate_dws from function_object
+end type
+
+forward prototypes
+global subroutine f_reset_dws (window w)
+end prototypes
+
+global subroutine f_reset_dws (window w);datawindow dw,dw1
+long objetos, i, j, z
+long objetos_de_tab, objetos_tab_page
+string nombres
+tab tabi
+userobject tabpage_generic
+
+objetos = upperbound(w.control)
+for i=1 to objetos
+	If w.control[i].typeof() = datawindow! then 
+		dw1=w.control[i]
+		dw1.reset()
+		dw1.insertrow(0)
+	end if
+	
+	// tabs
+	If w.control[i].typeof() = tab! then 
+		tabi = w.control[i]
+		objetos_de_tab = upperbound(tabi.control)
+		
+		// tab_pages
+		for j =1 to objetos_de_tab
+				tabpage_generic = tabi.control[j]
+				objetos_tab_page = upperbound(tabpage_generic.control)
+				// Objetos dentro tab_page
+				for z = 1 to objetos_tab_page
+					if tabpage_generic.control[z].typeof() = datawindow! then
+						dw1=tabpage_generic.control[z]
+						dw1.reset()
+						dw1.insertrow(0)
+					end if
+				next
+		next
+	end if	
+next
+
+
+end subroutine
+
+global type f_reset_dws from function_object
+end type
+
+forward prototypes
+global subroutine f_reset_dws (window w)
+end prototypes
+
+global subroutine f_reset_dws (window w);datawindow dw,dw1
+long objetos, i, j, z
+long objetos_de_tab, objetos_tab_page
+string nombres
+tab tabi
+userobject tabpage_generic
+
+objetos = upperbound(w.control)
+for i=1 to objetos
+	If w.control[i].typeof() = datawindow! then 
+		dw1=w.control[i]
+		dw1.reset()
+	end if
+	
+	// tabs
+	If w.control[i].typeof() = tab! then 
+		tabi = w.control[i]
+		objetos_de_tab = upperbound(tabi.control)
+		
+		// tab_pages
+		for j =1 to objetos_de_tab
+				tabpage_generic = tabi.control[j]
+				objetos_tab_page = upperbound(tabpage_generic.control)
+				// Objetos dentro tab_page
+				for z = 1 to objetos_tab_page
+					if tabpage_generic.control[z].typeof() = datawindow! then
+						dw1=tabpage_generic.control[z]
+						dw1.reset()
+					end if
+				next
+		next
+	end if	
+next
+
+
+end subroutine
+

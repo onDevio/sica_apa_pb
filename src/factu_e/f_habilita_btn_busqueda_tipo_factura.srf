@@ -1,0 +1,42 @@
+HA$PBExportHeader$f_habilita_btn_busqueda_tipo_factura.srf
+global type f_habilita_btn_busqueda_tipo_factura from function_object
+end type
+
+forward prototypes
+global subroutine f_habilita_btn_busqueda_tipo_factura (datawindow dw)
+end prototypes
+
+global subroutine f_habilita_btn_busqueda_tipo_factura (datawindow dw);// Este c$$HEX1$$f300$$ENDHEX$$digo se ejecuta despu$$HEX1$$e900$$ENDHEX$$s de cambiar el tipo factura, o al abrir una fact. ya
+//		existente
+// Nos sirve para mostrar los campos referentes al tipo de persona, ocultando los dem$$HEX1$$e100$$ENDHEX$$s
+
+string tipo_factura
+boolean colegiados, clientes_exp, clientes_csi
+
+tipo_factura = dw.GetItemString(dw.RowCount(),'tipo_factura')
+
+colegiados= False
+clientes_exp= False
+clientes_csi= False
+
+CHOOSE CASE tipo_factura
+
+	CASE g_colegio_colegiado 
+//		dw.Object.n_col.Visible=1
+//		dw.Object.n_cliente_exp.Visible=0
+//		dw.Object.n_cliente_csi.Visible=0
+		colegiados = True
+		
+	CASE g_colegio_cliente, g_colegiado_cliente
+		clientes_exp= True
+
+	CASE g_colegio_general
+		clientes_csi=True
+end choose
+
+dw.Object.b_busqueda_colegiados.Visible=colegiados	
+dw.Object.b_busqueda_clientes_exp.Visible=clientes_exp
+dw.Object.b_busqueda_clientes_csi.Visible=clientes_csi
+
+end subroutine
+

@@ -1,0 +1,26 @@
+HA$PBExportHeader$f_obtener_tipo_gestion.srf
+global type f_obtener_tipo_gestion from function_object
+end type
+
+forward prototypes
+global function string f_obtener_tipo_gestion (string cod)
+end prototypes
+
+global function string f_obtener_tipo_gestion (string cod);string descripcion
+
+  SELECT t_gestion.descripcion  
+    INTO :descripcion  
+    FROM t_gestion  
+   WHERE t_gestion.cod_gestion = :cod;
+	
+	
+if f_es_vacio(descripcion) then 
+	return 'Sin Descripcion'
+else
+	return descripcion
+end if
+
+
+
+end function
+

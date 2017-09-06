@@ -1,0 +1,67 @@
+HA$PBExportHeader$f_musaat_calcula_prima_devoluciones.srf
+global type f_musaat_calcula_prima_devoluciones from function_object
+end type
+
+forward prototypes
+global function double f_musaat_calcula_prima_devoluciones (string id_fase, string id_col)
+end prototypes
+
+global function double f_musaat_calcula_prima_devoluciones (string id_fase, string id_col);st_musaat_datos st_musaat_datos
+double total_musaat 
+int retorno
+long sup_viv, sup_garage, sup_otros
+
+//******C$$HEX1$$e100$$ENDHEX$$culo Musaat********
+SELECT fases.fase, fases.tipo_trabajo, expedientes.administracion, fases_usos.pem, fases_usos.volumen, fases_usos.sup_viv, fases_usos.sup_garage, fases_usos.sup_otros
+into :st_musaat_datos.tipo_act, :st_musaat_datos.tipo_obra, :st_musaat_datos.administracion, :st_musaat_datos.pem, :st_musaat_datos.volumen, :sup_viv, :sup_garage, :sup_otros
+FROM fases, expedientes, fases_usos
+WHERE fases.id_expedi=expedientes.id_expedi AND
+fases.id_fase = fases_usos.id_fase AND
+fases.id_fase = :id_fase;
+
+if isnull ( sup_viv ) then
+	sup_viv = 0 
+end if
+if isnull ( sup_garage ) then
+	sup_garage = 0 
+end if
+if isnull ( sup_otros ) then
+	sup_otros = 0
+end if
+
+st_musaat_datos.n_visado = id_fase
+st_musaat_datos.id_col = id_col
+st_musaat_datos.porcentaje = (f_fases_colegiados_porcen( id_fase , id_col ) / f_fases_colegiados_porcen_total( id_fase )) * 100
+st_musaat_datos.superficie = sup_viv + sup_garage + sup_otros
+
+/*st_musaat_datos.tipo_act = '11'
+st_musaat_datos.tipo_obra = '71'*/
+//st_musaat_datos.pem = 100.000
+//st_musaat_datos.administracion = 'N'
+//st_musaat_datos.superficie = 150
+//st_musaat_datos.volumen = 0
+
+
+//SCP-193 Para devoluciones anteriores al 4/08/09 con prima negativa debe realizarse con recargo inicial 0.3%
+date f_aux1
+f_aux1 = date(f_musaat_fecha_visado_movimiento(id_fase))
+if f_aux1< date('4/8/2009')  then
+	st_musaat_datos.no_aplicar_tarifa_coef_g =true
+else
+	st_musaat_datos.no_aplicar_tarifa_coef_g =false
+end if
+// fin scp-193
+
+if f_colegiado_tipopersona(id_col) = 'S' then
+	retorno = f_musaat_calcula_prima_sociedad(st_musaat_datos)			
+else
+	retorno = f_musaat_calcula_prima(st_musaat_datos)
+end if			
+total_musaat = st_musaat_datos.prima_comp
+total_musaat = f_redondea(total_musaat)
+	
+//******Fin C$$HEX1$$e100$$ENDHEX$$culo Musaat*******
+
+return total_musaat
+end function
+

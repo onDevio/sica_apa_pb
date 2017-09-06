@@ -1,0 +1,22 @@
+HA$PBExportHeader$f_numero_expediente_basura.srf
+global type f_numero_expediente_basura from function_object
+end type
+
+forward prototypes
+global function string f_numero_expediente_basura ()
+end prototypes
+
+global function string f_numero_expediente_basura ();// Funci$$HEX1$$f300$$ENDHEX$$n que devuelve el n$$HEX1$$fa00$$ENDHEX$$mero del expediente basura
+// que se encuentra en la tabla del control de eventos
+
+string num
+  
+SELECT t_control_eventos.param1  
+INTO :num  
+FROM t_control_eventos  
+WHERE t_control_eventos.control = 'BORRAR_FASE'   ;
+
+return num
+
+end function
+

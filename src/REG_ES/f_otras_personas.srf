@@ -1,0 +1,19 @@
+HA$PBExportHeader$f_otras_personas.srf
+global type f_otras_personas from function_object
+end type
+
+forward prototypes
+global function string f_otras_personas (string cod_otra_persona)
+end prototypes
+
+global function string f_otras_personas (string cod_otra_persona);  string otra_persona
+  
+  SELECT otras_personas.nombre  
+  INTO :otra_persona  
+  FROM otras_personas  
+  WHERE otras_personas.codigo like :cod_otra_persona   ;
+  
+  return otra_persona
+
+end function
+

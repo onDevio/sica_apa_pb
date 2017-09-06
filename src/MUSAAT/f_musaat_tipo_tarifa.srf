@@ -1,0 +1,23 @@
+HA$PBExportHeader$f_musaat_tipo_tarifa.srf
+global type f_musaat_tipo_tarifa from function_object
+end type
+
+forward prototypes
+global function string f_musaat_tipo_tarifa (string tipo_act, double superficie, string tipo_obra)
+end prototypes
+
+global function string f_musaat_tipo_tarifa (string tipo_act, double superficie, string tipo_obra);string tabla
+
+
+// Entramos en la tabla C
+SELECT tabla
+INTO  :tabla
+FROM musaat_coef_c
+WHERE (tipoact = :tipo_act OR tipoact = '*' ) AND (tipoobra = :tipo_obra OR tipoobra = '*') AND (desde_sup < :superficie) AND (hasta_sup >=:superficie) ;
+
+if tipo_obra = '83' then tabla = 'D'
+if LeftA(tipo_obra,1) = '9' and LeftA(tipo_act,1) <> '0' then tabla = 'E'
+
+return tabla
+end function
+

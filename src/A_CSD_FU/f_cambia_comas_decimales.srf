@@ -1,0 +1,25 @@
+HA$PBExportHeader$f_cambia_comas_decimales.srf
+global type f_cambia_comas_decimales from function_object
+end type
+
+forward prototypes
+global function string f_cambia_comas_decimales (double datonum)
+end prototypes
+
+global function string f_cambia_comas_decimales (double datonum);// Reemplazamos las comas por puntos	
+string dato
+
+dato = string(datonum)
+long posicion
+posicion = 0
+DO
+	posicion = PosA(dato,',',posicion+1)
+	if isnull(posicion) then posicion = 0
+	if posicion > 0 then
+		dato=ReplaceA(dato,posicion, 1,".")
+	end if	
+LOOP UNTIL posicion = 0
+				
+return dato
+end function
+

@@ -1,0 +1,32 @@
+HA$PBExportHeader$f_dame_campos_integer_formadepago.srf
+global type f_dame_campos_integer_formadepago from function_object
+end type
+
+forward prototypes
+global function integer f_dame_campos_integer_formadepago (string campo, string tipo_pago)
+end prototypes
+
+global function integer f_dame_campos_integer_formadepago (string campo, string tipo_pago);int num_venc, num_dias
+
+// Funci$$HEX1$$f300$$ENDHEX$$n para obtener datos num$$HEX1$$e900$$ENDHEX$$ricos de la tabla de Formas de Pago
+
+SELECT n_vencimientos, dias_primer_vencimiento
+INTO :num_venc, :num_dias
+FROM csi_formas_de_pago
+WHERE tipo_pago = :tipo_pago;
+
+
+CHOOSE CASE campo
+		
+	CASE 'num_venc'
+		If IsNull(num_venc) then num_venc = 0
+		return num_venc		
+	CASE 'num_dias'
+		If IsNull(num_dias) then num_dias = 0
+		return num_dias
+	CASE ELSE
+		return 0
+		
+END CHOOSE
+end function
+

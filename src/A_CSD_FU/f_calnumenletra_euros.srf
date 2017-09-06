@@ -1,0 +1,776 @@
+HA$PBExportHeader$f_calnumenletra_euros.srf
+global type f_calnumenletra_euros from function_object
+end type
+
+forward prototypes
+global function string f_calnumenletra_euros (string mnumero, ref string finalf, integer fecha)
+end prototypes
+
+global function string f_calnumenletra_euros (string mnumero, ref string finalf, integer fecha);int mdigitos,unidad, decena, centena, unidadm, decenam
+int centenam, munidad, mdecena, mcentena, munidadm, mdecenam
+int mcentenam
+string co1, co2, co3, co4, co5, co6, co7, co8, co9
+string co10, co11, co12
+string final,final1,final2,final3
+
+mdigitos=LenA(mnumero)
+unidad=MDIGITOS
+decena=MDIGITOS - 1
+centena=MDIGITOS - 2
+unidadm=MDIGITOS - 3
+decenam=MDIGITOS - 4
+centenam=MDIGITOS - 5
+munidad=MDIGITOS - 6
+mdecena=MDIGITOS - 7
+mcentena=MDIGITOS - 8
+munidadm=MDIGITOS - 9
+mdecenam=MDIGITOS - 10
+mcentenam=MDIGITOS - 11
+CO1=''
+CO2=''
+co3=''
+co4=''
+co5=''
+co6=''
+co7=''
+co8=''
+co9=''
+co10=''
+co11=''
+co12=''
+
+//******rutina de calculo de unidades*****
+
+choose case MidA (mnumero,UNIDAD,1)
+	case '0'
+	co1=''
+	case '1'
+	co1='UNA'
+	case '2'
+	co1='DOS'
+	case '3'
+	co1='TRES'
+	case '4'
+	co1='CUATRO'
+	case '5'
+	co1='CINCO'
+	case '6'
+	co1='SEIS'
+	case '7'
+	co1='SIETE'
+	case '8'
+	co1='OCHO'
+	case '9'
+	co1='NUEVE'
+end choose
+//*******rutina de calculo de decenas***********
+IF LenA(MNUMERO)>1 THEN
+choose CASE MidA (mnumero,decena,1)
+	case '0'
+	co2=''
+	case '1'
+		choose CASE MidA (mnumero,unidad,1)
+			case '0'
+			co1='DIEZ'
+			case '1'
+			co1='ONCE'
+			case '2'
+			co1='DOCE'
+			case '3'
+			co1='TRECE'
+			case '4'
+			co1='CATORCE'
+			case '5'
+			co1='QUINCE'
+			case '6'
+			co1='DIECISEIS'
+			case '7'
+			co1='DIECISIETE'
+			case '8'
+			co1='DIECIOCHO'
+			case '9'
+			co1='DIECINUEVE'
+		END CHOOSE	
+	case '2'
+		choose CASE MidA(mnumero,unidad,1)
+			case '0'
+			co1='VEINTE'
+			case '1'
+			co1='VENTIUN'
+			case '2'
+			co1='VEINTIDOS'
+			case '3'
+			co1='VEINTITRES'
+			case '4'
+			co1='VEINTICUATRO'
+			case '5'
+			co1='VEINTICINCO'
+			case '6'
+			co1='VEINTISEIS'
+			case '7'
+			co1='VEINTISIETE'
+			case '8'
+			co1='VENTIOCHO'
+			case '9'
+			co1='VENTINUEVE'
+		END CHOOSE	
+	
+	case '3'
+	co2='TREINTA'
+	case '4'
+	co2='CUARENTA'
+	case '5'
+	co2='CINCUENTA'
+	case '6'
+	co2='SESENTA'
+	case '7'
+	co2='SETENTA'
+	case '8'
+	co2='OCHENTA'
+	case '9'
+	co2='NOVENTA'
+
+END CHOOSE
+END IF
+//******rutina de calculo de centenas********
+IF LenA(MNUMERO)>2 THEN
+choose case MidA (mnumero,centena,1)
+	case '0'
+	co3=''
+	case '1'
+	IF ((MidA(MNUMERO,DECENA,1)='0') AND (MidA(MNUMERO,UNIDAD,1)='0')) THEN
+	co3='CIEN'
+	ELSE
+	CO3='CIENTO'
+	END IF
+	case '2'
+   IF fecha= 0 THEN
+	co3='DOSCIENTAS'
+   ELSE
+   co3 = 'DOSCIENTOS'
+   END IF
+	case '3'
+   IF fecha=0 THEN
+	co3='TRESCIENTAS'
+   ELSE
+   co3='TRESCIENTOS'
+   END IF
+	case '4'
+   IF fecha= 0 THEN
+	co3='CUATROCIENTAS'
+   ELSE
+   co3='CUATROCIENTOS'
+   END IF
+	case '5'
+   IF fecha=0 THEN
+	co3='QUINIENTAS'
+   ELSE
+    co3='QUINIENTOS'
+   END IF
+	case '6'
+   IF fecha=0 THEN
+	co3='SEISCIENTAS'
+   ELSE
+    co3='SEISCIENTOS'
+   END IF
+	case '7'
+   IF fecha=0 THEN
+	co3='SETECIENTAS'
+   ELSE 
+   co3= 'SETECIENTOS'
+   END IF
+	case '8'
+   IF fecha= 0 THEN
+	co3='OCHOCIENTAS'
+   ELSE
+    co3= 'OCHOCIENTOS'
+   END IF
+   case '9'
+   IF fecha= 0 THEN
+	co3='NOVECIENTAS'
+   ELSE
+   co3='NOVECIENTOS'
+   END IF
+end choose
+
+
+end if
+
+
+
+
+//**********MILES*******************
+//******rutina de calculo de unidades*****
+IF LenA(MNUMERO)>3 THEN
+choose case MidA (mnumero,unidadm,1)
+	case '0'
+	co4=''
+	case '1'
+	co4='UN'
+	case '2'
+	co4='DOS'
+	case '3'
+	co4='TRES'
+	case '4'
+	co4='CUATRO'
+	case '5'
+	co4='CINCO'
+	case '6'
+	co4='SEIS'
+	case '7'
+	co4='SIETE'
+	case '8'
+	co4='OCHO'
+	case '9'
+	co4='NUEVE'
+end choose
+end if
+//*******rutina de calculo de decenas***********
+IF LenA(MNUMERO)>4 THEN
+CHOOSE CASE MidA(mnumero,decenam,1)
+	case '0'
+	co5=''
+	case '1'
+		CHOOSE CASE MidA(mnumero,unidadm,1)
+			case '0'
+			co4='DIEZ'
+			case '1'
+			co4='ONCE'
+			case '2'
+			co4='DOCE'
+			case '3'
+			co4='TRECE'
+			case '4'
+			co4='CATORCE'
+			case '5'
+			co4='QUINCE'
+			case '6'
+			co4='DIECISEIS'
+			case '7'
+			co4='DIECISIETE'
+			case '8'
+			co4='DIECIOCHO'
+			case '9'
+			co4='DIECINUEVE'
+		END choose	
+	case '2'
+		choose CASE MidA (mnumero,unidadm,1)
+			case '0'
+			co4='VEINTE'
+			case '1'
+			co4='VENTIUN'
+			case '2'
+			co4='VEINTIDOS'
+			case '3'
+			co4='VEINTITRES'
+			case '4'
+			co4='VEINTICUATRO'
+			case '5'
+			co4='VEINTICINCO'
+			case '6'
+			co4='VEINTISEIS'
+			case '7'
+			co4='VEINTISIETE'
+			case '8'
+			co4='VENTIOCHO'
+			case '9'
+			co4='VENTINUEVE'
+		END CHOOSE	
+	
+	case '3'
+	co5='TREINTA'
+	case '4'
+	co5='CUARENTA'
+	case '5'
+	co5='CINCUENTA'
+	case '6'
+	co5='SESENTA'
+	case '7'
+	co5='SETENTA'
+	case '8'
+	co5='OCHENTA'
+	case '9'
+	co5='NOVENTA'
+
+END CHOOSE
+END IF
+//******rutina de calculo de centenas********
+IF LenA(MNUMERO)>5 THEN
+choose case MidA (mnumero,centenam,1)
+	case '0'
+	co6=''
+	case '1'
+	IF ((MidA(MNUMERO,DECENAM,1)='0') AND MidA(MNUMERO,UNIDADM,1)='0') THEN
+	co6='CIEN'
+	ELSE
+	CO6='CIENTO'
+	END IF
+	case '2'
+   IF fecha= 0 THEN
+	co6='DOSCIENTAS'
+   ELSE
+   co6='DOSCIENTOS'
+   END IF
+	case '3'
+   IF fecha= 0 THEN
+	co6='TRESCIENTAS'
+   ELSE
+   co6='TRESCIENTOS'
+   END IF
+	case '4'
+   IF fecha = 0 THEN
+	co6='CUATROCIENTAS'
+   ELSE
+   co6='CUATROCIENTOS'
+   END IF
+	case '5'
+   IF fecha = 0 THEN
+	co6='QUINIENTAS'
+   ELSE
+   co6='QUINIENTOS'
+   END IF
+	case '6'
+   IF fecha = 0 THEN
+	co6='SEISCIENTAS'
+   ELSE
+   co6='SEISCIENTOS'
+   END IF
+	case '7'
+   IF fecha= 0 THEN
+	co6='SETECIENTAS'
+   ELSE
+   co6='SETECIENTOS'
+   END IF
+	case '8'
+   IF fecha = 0 THEN
+	co6='OCHOCIENTAS'
+   ELSE
+   co6='OCHOCIENTOS'
+   END IF
+	case '9'
+   IF fecha = 0 THEN
+	co6='NOVECIENTAS'
+   ELSE
+   co6='NOVECIENTOS'
+   END IF
+end choose
+
+
+end if
+
+
+
+
+//**************millones****************
+//******rutina de calculo de unidades*****
+IF LenA(MNUMERO)>6 THEN
+choose case MidA (mnumero,munidad,1)
+	case '0'
+	co7=''
+	case '1'
+	co7='UN'
+	case '2'
+	co7='DOS'
+	case '3'
+	co7='TRES'
+	case '4'
+	co7='CUATRO'
+	case '5'
+	co7='CINCO'
+	case '6'
+	co7='SEIS'
+	case '7'
+	co7='SIETE'
+	case '8'
+	co7='OCHO'
+	case '9'
+	co7='NUEVE'
+end choose
+END IF
+//******rutina de calculo de decenas***********
+IF LenA(MNUMERO)>7 THEN
+CHOOSE CASE MidA (mnumero,mdecena,1)
+	case '0'
+	co8=''
+	case '1'
+		choose CASE MidA (mnumero,munidad,1)
+			case '0'
+			co7='DIEZ'
+			case '1'
+			co7='ONCE'
+			case '2'
+			co7='DOCE'
+			case '3'
+			co7='TRECE'
+			case '4'
+			co7='CATORCE'
+			case '5'
+			co7='QUINCE'
+			case '6'
+			co7='DIECISEIS'
+			case '7'
+			co7='DIECISIETE'
+			case '8'
+			co7='DIECIOCHO'
+			case '9'
+			co7='DIECINUEVE'
+		END CHOOSE	
+	case '2'
+		CHOOSE CASE MidA (mnumero,munidad,1)
+			case '0'
+			co7='VEINTE'
+			case '1'
+			co7='VENTIUN'
+			case '2'
+			co7='VEINTIDOS'
+			case '3'
+			co7='VEINTITRES'
+			case '4'
+			co7='VEINTICUATRO'
+			case '5'
+			co7='VEINTICINCO'
+			case '6'
+			co7='VEINTISEIS'
+			case '7'
+			co7='VEINTISIETE'
+			case '8'
+			co7='VENTIOCHO'
+			case '9'
+			co7='VENTINUEVE'
+		END CHOOSE	
+	
+	case '3'
+	co8='TREINTA'
+	case '4'
+	co8='CUARENTA'
+	case '5'
+	co8='CINCUENTA'
+	case '6'
+	co8='SESENTA'
+	case '7'
+	co8='SETENTA'
+	case '8'
+	co8='OCHENTA'
+	case '9'
+	co8='NOVENTA'
+
+END CHOOSE
+END IF
+//******rutina de calculo de centenas********
+IF LenA(MNUMERO)>8 THEN
+choose case MidA (mnumero,mcentena,1)
+	case '0'
+	co9=''
+	case '1'
+	IF MidA(MNUMERO,MDECENA,1)='0' AND MidA(MNUMERO,MUNIDAD,1)='0' THEN
+	co9='CIEN'
+	ELSE
+	CO9='CIENTO'
+	END IF
+	case '2'
+   Co9='DOSCIENTOS'
+   Case '3'
+	co9='TRESCIENTOS'
+	case '4'
+	co9='CUATROCIENTOS'
+	case '5'
+	co9='QUINIENTOS'
+	case '6'
+	co9='SEISCIENTOS'
+	case '7'
+	co9='SETECIENTOS'
+	case '8'
+	co9='OCHOCIENTOS'
+	case '9'
+	co9='NOVECIENTOS'
+end choose
+
+
+end if
+
+
+
+
+//**********MILES de millones *******************
+//******rutina de calculo de unidades*****
+IF LenA(MNUMERO)>9 THEN
+choose case MidA (mnumero,unidadm,1)
+	case '0'
+	co10=''
+	case '1'
+	co10='UN'
+	case '2'
+	co10='DOS'
+	case '3'
+	co10='TRES'
+	case '4'
+	co10='CUATRO'
+	case '5'
+	co10='CINCO'
+	case '6'
+	co10='SEIS'
+	case '7'
+	co10='SIETE'
+	case '8'
+	co10='OCHO'
+	case '9'
+	co10='NUEVE'
+end choose
+end if
+//*******rutina de calculo de decenas***********
+IF LenA(MNUMERO)>10 THEN
+CHOOSE CASE MidA (mnumero,mdecenam,1)
+	case '0'
+	co11=''
+	case '1'
+		choose CASE MidA (mnumero,munidadm,1)
+			case '0'
+			co10='DIEZ'
+			case '1'
+			co10='ONCE'
+			case '2'
+			co10='DOCE'
+			case '3'
+			co10='TRECE'
+			case '4'
+			co10='CATORCE'
+			case '5'
+			co10='QUINCE'
+			case '6'
+			co10='DIECISEIS'
+			case '7'
+			co10='DIECISIETE'
+			case '8'
+			co10='DIECIOCHO'
+			case '9'
+			co10='DIECINUEVE'
+		END CHOOSE	
+	case '2'
+		choose CASE MidA (mnumero,munidadm,1)
+			case '0'
+			co10='VEINTE'
+			case '1'
+			co10='VENTIUN'
+			case '2'
+			co10='VEINTIDOS'
+			case '3'
+			co10='VEINTITRES'
+			case '4'
+			co10='VEINTICUATRO'
+			case '5'
+			co10='VEINTICINCO'
+			case '6'
+			co10='VEINTISEIS'
+			case '7'
+			co10='VEINTISIETE'
+			case '8'
+			co10='VENTIOCHO'
+			case '9'
+			co10='VENTINUEVE'
+		END CHOOSE	
+	
+	case '3'
+	co11='TREINTA'
+	case '4'
+	co11='CUARENTA'
+	case '5'
+	co11='CINCUENTA'
+	case '6'
+	co11='SESENTA'
+	case '7'
+	co11='SETENTA'
+	case '8'
+	co11='OCHENTA'
+	case '9'
+	co11='NOVENTA'
+
+END CHOOSE
+END IF
+//******rutina de calculo de centenas********
+IF LenA(MNUMERO)>11 THEN
+choose case MidA (mnumero,mcentenam,1)
+	case '0'
+	co12=''
+	case '1'
+	IF MidA(MNUMERO,MDECENAM,1)='0' AND MidA(MNUMERO,MUNIDADM,1)='0' THEN
+	co12='CIEN'
+	ELSE
+	CO12='CIENTO'
+	END IF
+	case '2'
+	co12='DOSCIENTOS'
+	case '3'
+	co12='TRESCIENTOS'
+	case '4'
+	co12='CUATROCIENTOS'
+	case '5'
+	co12='QUINIENTOS'
+	case '6'
+	co12='SEISCIENTOS'
+	case '7'
+	co12='SETECIENTOS'
+	case '8'
+	co12='OCHOCIENTOS'
+	case '9'
+	co12='NOVECIENTOS'
+end choose
+
+
+end if
+
+
+
+//**** rutina de escritura de resultado*********
+final=''
+if LenA(co12)<>0 THEN
+final=co12
+end if
+if LenA(co11)<>0 and LenA(co12)<>0 THEN
+final=final+' '+co11
+end if
+if LenA(co11)<>0 and LenA(co12)=0 THEN
+final=co11
+end if
+if LenA(co10)<>0 and LenA(co11)<>0 THEN
+final=final+' Y '+co10
+end if
+if LenA(co10)<>0 and LenA(co11)=0 and LenA(co12)<>0 THEN
+final=final+' '+co10
+end if
+if LenA(co10)<>0 and LenA(co11)=0 and LenA(co12)=0 THEN
+final=co10
+end if
+if LenA(final)<>0 and LenA(final)<>2 then
+final=final+' MIL'
+end if
+if LenA(final)=2 then
+final='MIL'
+end if
+
+
+final1=''
+if LenA(co9)<>0 then
+final1=co9
+end if
+if LenA(co8)<>0 and LenA(co9)<>0 then
+final1=final1+' '+co8
+end if
+if LenA(co8)<>0 and LenA(co9)=0 then
+final1=co8
+end if
+if LenA(co7)<>0 and LenA(co8)<>0 then
+final1=final1+' Y '+co7
+end if
+if LenA(co7)<>0 and LenA(co8)=0 and LenA(co9)<>0 then
+final1=final1+' '+co7
+end if
+if LenA(co7)<>0 and LenA(co8)=0 and LenA(co9)=0 then
+final1=co7
+end if
+if LenA(final1)<>0 and LenA(final1)<>2 then
+final1=final1+' MILLONES'
+end if
+if LenA(final1)=2 AND LenA(FINAL)<>0 then
+final1=FINAL1+' MILLONES'
+end if
+if LenA(final1)=2 AND LenA(FINAL)=0 then
+final1=FINAL1+' MILLON'
+end if
+if LenA(final)<>0 AND LenA(FINAL1)=0 then
+final1='MILLONES'
+end if
+
+
+
+
+
+
+
+final2=''
+if LenA(co6)<>0 then
+final2=co6
+end if
+if LenA(co5)<>0 and LenA(co6)<>0 then
+final2=final2+' '+co5
+end if
+if LenA(co5)<>0 and LenA(co6)=0 then
+final2=co5
+end if
+if LenA(co4)<>0 and LenA(co5)<>0 then
+final2=final2+' Y '+co4
+end if
+if LenA(co4)<>0 and LenA(co5)=0 and LenA(co6)<>0 then
+final2=final2+' '+co4
+end if
+if LenA(co4)<>0 and LenA(co5)=0 and LenA(co6)=0 then
+final2=co4
+end if
+if LenA(final2)<>0 and LenA(final2)<>2 then
+final2=final2+' MIL'
+end if
+if LenA(final2)=2 and LenA(final)=0 and LenA(final1)=0 then
+final2='MIL'
+end if
+if LenA(final2)=2 and LenA(final)<>0 then
+final2='MIL'
+end if
+if LenA(final2)=2 and LenA(final1)<>0 then
+final2='MIL'
+end if
+
+
+final3=''
+if LenA(co3)<>0 then
+final3=co3
+end if
+if LenA(co2)<>0 and LenA(co3)<>0 then
+final3=final3+' '+co2
+end if
+if LenA(co2)<>0 and LenA(co3)=0 then
+final3=co2
+end if
+if LenA(co1)<>0 and LenA(co2)<>0 then
+final3=final3+' Y '+co1
+end if
+if LenA(co1)<>0 and LenA(co2)=0 and LenA(co3)<>0 then
+final3=final3+' '+co1
+end if
+if LenA(co1)<>0 and LenA(co2)=0 and LenA(co3)=0 then
+final3=co1
+end if
+
+
+finalf=''
+IF LenA(FINAL)<>0 then
+FINALF=FINAL
+END IF
+IF LenA(FINAL1)<>0 AND LenA(FINAL)<>0 then
+FINALF=FINALF+' '+FINAL1
+END IF
+IF LenA(FINAL1)<>0 AND LenA(FINAL)=0 then
+FINALF=FINAL1
+END IF
+IF LenA(FINAL2)<>0 AND LenA(FINALF)<>0 then
+FINALF=FINALF+' '+FINAL2
+END IF
+IF LenA(FINAL2)<>0 AND LenA(FINALF)=0 then
+FINALF=FINAL2
+END IF
+IF LenA(FINAL3)<>0 AND LenA(FINALF)<>0 then
+FINALF=FINALF+' '+FINAL3
+END IF
+IF LenA(FINAL3)<>0 AND LenA(FINALF)=0 then
+FINALF=FINAL3
+END IF
+
+IF FECHA = 0 THEN
+IF LenA(MNUMERO)>6 AND LenA(FINAL3)=0 AND LenA(FINAL2)=0 THEN
+FINALF=FINALF+' DE PESETAS'
+ELSE
+FINALF=FINALF+' PESETAS'
+END IF
+END IF
+return(finalf)
+
+end function
+

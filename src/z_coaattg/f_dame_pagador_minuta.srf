@@ -1,0 +1,26 @@
+HA$PBExportHeader$f_dame_pagador_minuta.srf
+global type f_dame_pagador_minuta from function_object
+end type
+
+forward prototypes
+global function string f_dame_pagador_minuta (string id_fase)
+end prototypes
+
+global function string f_dame_pagador_minuta (string id_fase);//Devuelve el tipo pagador de una minuta
+// Valores a devolver : 1 (Colegiado)
+//							  2 (Empresa)
+//							  3 (Cliente)
+
+string pagador
+
+  SELECT fases_minutas.pagador  
+    INTO :pagador  
+    FROM fases_minutas  
+   WHERE fases_minutas.id_minuta = :id_fase   ;
+
+
+if isnull(pagador) then pagador = ''
+
+return pagador
+end function
+

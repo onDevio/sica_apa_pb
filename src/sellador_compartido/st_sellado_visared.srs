@@ -1,0 +1,11 @@
+HA$PBExportHeader$st_sellado_visared.srs
+global type st_sellado_visared from structure
+	string		id_sellado_visared
+	string		ruta
+	string		fichero
+	string		id_fase
+	string		n_documento
+	string		estado_sellado
+	string		sobreescrito
+end type
+

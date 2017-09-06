@@ -1,0 +1,463 @@
+HA$PBExportHeader$m_sellador_docs_sinlineas.srm
+$PBExportComments$TRADUCIDO. Jul/98
+forward
+global type m_sellador_docs_sinlineas from menu
+end type
+type m_seleccionartodos from menu within m_sellador_docs_sinlineas
+end type
+type m_invertirselecci$$HEX1$$f300$$ENDHEX$$n from menu within m_sellador_docs_sinlineas
+end type
+type m_- from menu within m_sellador_docs_sinlineas
+end type
+type m_firmardigitalmente from menu within m_sellador_docs_sinlineas
+end type
+type m_enviar from menu within m_sellador_docs_sinlineas
+end type
+type m_destinatariodecorreo from menu within m_enviar
+end type
+type m_mipc from menu within m_enviar
+end type
+type m_otrafase from menu within m_enviar
+end type
+type m_enviar from menu within m_sellador_docs_sinlineas
+m_destinatariodecorreo m_destinatariodecorreo
+m_mipc m_mipc
+m_otrafase m_otrafase
+end type
+type m_-0 from menu within m_sellador_docs_sinlineas
+end type
+type m_abrir from menu within m_sellador_docs_sinlineas
+end type
+type m_vistaprevia from menu within m_sellador_docs_sinlineas
+end type
+type m_-1 from menu within m_sellador_docs_sinlineas
+end type
+type m_anyadir from menu within m_sellador_docs_sinlineas
+end type
+type m_borrar from menu within m_sellador_docs_sinlineas
+end type
+type m_-2 from menu within m_sellador_docs_sinlineas
+end type
+type m_verwebtodos from menu within m_sellador_docs_sinlineas
+end type
+type m_verwebninguno from menu within m_sellador_docs_sinlineas
+end type
+type m_-3 from menu within m_sellador_docs_sinlineas
+end type
+type m_revisarfirmas from menu within m_sellador_docs_sinlineas
+end type
+global type m_sellador_docs_sinlineas from menu
+m_seleccionartodos m_seleccionartodos
+m_invertirselecci$$HEX1$$f300$$ENDHEX$$n m_invertirselecci$$HEX1$$f300$$ENDHEX$$n
+m_- m_-
+m_firmardigitalmente m_firmardigitalmente
+m_enviar m_enviar
+m_-0 m_-0
+m_abrir m_abrir
+m_vistaprevia m_vistaprevia
+m_-1 m_-1
+m_anyadir m_anyadir
+m_borrar m_borrar
+m_-2 m_-2
+m_verwebtodos m_verwebtodos
+m_verwebninguno m_verwebninguno
+m_-3 m_-3
+m_revisarfirmas m_revisarfirmas
+end type
+end forward
+
+global type m_sellador_docs_sinlineas from menu
+m_seleccionartodos m_seleccionartodos
+m_invertirselecci$$HEX1$$f300$$ENDHEX$$n m_invertirselecci$$HEX1$$f300$$ENDHEX$$n
+m_- m_-
+m_firmardigitalmente m_firmardigitalmente
+m_enviar m_enviar
+m_-0 m_-0
+m_abrir m_abrir
+m_vistaprevia m_vistaprevia
+m_-1 m_-1
+m_anyadir m_anyadir
+m_borrar m_borrar
+m_-2 m_-2
+m_verwebtodos m_verwebtodos
+m_verwebninguno m_verwebninguno
+m_-3 m_-3
+m_revisarfirmas m_revisarfirmas
+end type
+global m_sellador_docs_sinlineas m_sellador_docs_sinlineas
+
+type variables
+u_dw idw_padre
+end variables
+
+on m_sellador_docs_sinlineas.create
+m_sellador_docs_sinlineas=this
+call super::create
+this.text = "m_sellador_docs_sinlineas"
+this.m_seleccionartodos=create m_seleccionartodos
+this.m_invertirselecci$$HEX1$$f300$$ENDHEX$$n=create m_invertirselecci$$HEX1$$f300$$ENDHEX$$n
+this.m_-=create m_-
+this.m_firmardigitalmente=create m_firmardigitalmente
+this.m_enviar=create m_enviar
+this.m_-0=create m_-0
+this.m_abrir=create m_abrir
+this.m_vistaprevia=create m_vistaprevia
+this.m_-1=create m_-1
+this.m_anyadir=create m_anyadir
+this.m_borrar=create m_borrar
+this.m_-2=create m_-2
+this.m_verwebtodos=create m_verwebtodos
+this.m_verwebninguno=create m_verwebninguno
+this.m_-3=create m_-3
+this.m_revisarfirmas=create m_revisarfirmas
+this.Item[UpperBound(this.Item)+1]=this.m_seleccionartodos
+this.Item[UpperBound(this.Item)+1]=this.m_invertirselecci$$HEX1$$f300$$ENDHEX$$n
+this.Item[UpperBound(this.Item)+1]=this.m_-
+this.Item[UpperBound(this.Item)+1]=this.m_firmardigitalmente
+this.Item[UpperBound(this.Item)+1]=this.m_enviar
+this.Item[UpperBound(this.Item)+1]=this.m_-0
+this.Item[UpperBound(this.Item)+1]=this.m_abrir
+this.Item[UpperBound(this.Item)+1]=this.m_vistaprevia
+this.Item[UpperBound(this.Item)+1]=this.m_-1
+this.Item[UpperBound(this.Item)+1]=this.m_anyadir
+this.Item[UpperBound(this.Item)+1]=this.m_borrar
+this.Item[UpperBound(this.Item)+1]=this.m_-2
+this.Item[UpperBound(this.Item)+1]=this.m_verwebtodos
+this.Item[UpperBound(this.Item)+1]=this.m_verwebninguno
+this.Item[UpperBound(this.Item)+1]=this.m_-3
+this.Item[UpperBound(this.Item)+1]=this.m_revisarfirmas
+end on
+
+on m_sellador_docs_sinlineas.destroy
+call super::destroy
+destroy(this.m_seleccionartodos)
+destroy(this.m_invertirselecci$$HEX1$$f300$$ENDHEX$$n)
+destroy(this.m_-)
+destroy(this.m_firmardigitalmente)
+destroy(this.m_enviar)
+destroy(this.m_-0)
+destroy(this.m_abrir)
+destroy(this.m_vistaprevia)
+destroy(this.m_-1)
+destroy(this.m_anyadir)
+destroy(this.m_borrar)
+destroy(this.m_-2)
+destroy(this.m_verwebtodos)
+destroy(this.m_verwebninguno)
+destroy(this.m_-3)
+destroy(this.m_revisarfirmas)
+end on
+
+type m_seleccionartodos from menu within m_sellador_docs_sinlineas
+end type
+
+on m_seleccionartodos.create
+call super::create
+this.text = "Seleccionar todos"
+this.enabled = false
+this.microhelp = "Selecciona todos los ficheros del directorio actual"
+this.toolbaritemname = "Comment!"
+end on
+
+on m_seleccionartodos.destroy
+call super::destroy
+end on
+
+event clicked;idw_padre.dynamic event csd_selectall()
+end event
+
+type m_invertirselecci$$HEX1$$f300$$ENDHEX$$n from menu within m_sellador_docs_sinlineas
+end type
+
+on m_invertirselecci$$HEX1$$f300$$ENDHEX$$n.create
+call super::create
+this.text = "Invertir selecci$$HEX1$$f300$$ENDHEX$$n"
+this.enabled = false
+this.microhelp = "Inverte la selecci$$HEX1$$f300$$ENDHEX$$n de los ficheros"
+this.toolbaritemname = "Uncomment!"
+end on
+
+on m_invertirselecci$$HEX1$$f300$$ENDHEX$$n.destroy
+call super::destroy
+end on
+
+event clicked;idw_padre.dynamic event csd_invertselection()
+end event
+
+type m_- from menu within m_sellador_docs_sinlineas
+end type
+
+on m_-.create
+call super::create
+this.text = "-"
+end on
+
+on m_-.destroy
+call super::destroy
+end on
+
+type m_firmardigitalmente from menu within m_sellador_docs_sinlineas
+end type
+
+on m_firmardigitalmente.create
+call super::create
+this.text = "Firmar digitalmente"
+this.enabled = false
+this.microhelp = "Firmar digitalmente"
+this.toolbaritemname = "CreateIndex!"
+end on
+
+on m_firmardigitalmente.destroy
+call super::destroy
+end on
+
+event clicked;n_cst_menu		lnv_menu
+
+lnv_menu.of_sendMessage (this, 'csd_boton_firmar')
+
+end event
+
+type m_enviar from menu within m_sellador_docs_sinlineas
+m_destinatariodecorreo m_destinatariodecorreo
+m_mipc m_mipc
+m_otrafase m_otrafase
+end type
+
+on m_enviar.create
+call super::create
+this.text = "Enviar"
+this.enabled = false
+this.microhelp = "Enviar en un paquete encriptado los ficheros seleccionados"
+this.toolbaritemname = "Custom035!"
+this.m_destinatariodecorreo=create m_destinatariodecorreo
+this.m_mipc=create m_mipc
+this.m_otrafase=create m_otrafase
+this.Item[UpperBound(this.Item)+1]=this.m_destinatariodecorreo
+this.Item[UpperBound(this.Item)+1]=this.m_mipc
+this.Item[UpperBound(this.Item)+1]=this.m_otrafase
+end on
+
+on m_enviar.destroy
+call super::destroy
+destroy(this.m_destinatariodecorreo)
+destroy(this.m_mipc)
+destroy(this.m_otrafase)
+end on
+
+type m_destinatariodecorreo from menu within m_enviar
+end type
+
+on m_destinatariodecorreo.create
+call super::create
+this.text = "Destinatario de correo"
+this.microhelp = "Enviar los ficheros seleccionados al servidor central v$$HEX1$$ed00$$ENDHEX$$a correo electr$$HEX1$$f300$$ENDHEX$$nico"
+end on
+
+on m_destinatariodecorreo.destroy
+call super::destroy
+end on
+
+event clicked;idw_padre.dynamic event csd_enviar('email')
+end event
+
+type m_mipc from menu within m_enviar
+end type
+
+on m_mipc.create
+call super::create
+this.text = "Mi PC"
+this.microhelp = "Guardar el paquete de env$$HEX1$$ed00$$ENDHEX$$o a mi PC"
+end on
+
+on m_mipc.destroy
+call super::destroy
+end on
+
+event clicked;idw_padre.dynamic event csd_enviar('mipc')
+end event
+
+type m_otrafase from menu within m_enviar
+end type
+
+event clicked;idw_padre.dynamic event csd_enviar('otrafase')
+end event
+
+on m_otrafase.create
+call super::create
+this.text = "Otra fase"
+end on
+
+on m_otrafase.destroy
+call super::destroy
+end on
+
+type m_-0 from menu within m_sellador_docs_sinlineas
+end type
+
+on m_-0.create
+call super::create
+this.text = "-"
+end on
+
+on m_-0.destroy
+call super::destroy
+end on
+
+type m_abrir from menu within m_sellador_docs_sinlineas
+end type
+
+on m_abrir.create
+call super::create
+this.text = "Abrir"
+this.enabled = false
+this.microhelp = "Abrir el fichero"
+this.toolbaritemname = "Open!"
+end on
+
+on m_abrir.destroy
+call super::destroy
+end on
+
+event clicked;idw_padre.dynamic event csd_abrir()
+end event
+
+type m_vistaprevia from menu within m_sellador_docs_sinlineas
+end type
+
+on m_vistaprevia.create
+call super::create
+this.text = "Vista Previa"
+this.enabled = false
+this.microhelp = "Vista previa miniaturas"
+this.toolbaritemname = "ListView!"
+end on
+
+on m_vistaprevia.destroy
+call super::destroy
+end on
+
+event clicked;n_cst_menu		lnv_menu
+
+lnv_menu.of_sendMessage (this, 'csd_boton_vista_previa')
+
+end event
+
+type m_-1 from menu within m_sellador_docs_sinlineas
+end type
+
+on m_-1.create
+call super::create
+this.text = "-"
+end on
+
+on m_-1.destroy
+call super::destroy
+end on
+
+type m_anyadir from menu within m_sellador_docs_sinlineas
+end type
+
+on m_anyadir.create
+call super::create
+this.text = "A$$HEX1$$f100$$ENDHEX$$adir"
+this.toolbaritemname = "Custom050!"
+end on
+
+on m_anyadir.destroy
+call super::destroy
+end on
+
+event clicked;idw_padre.dynamic event csd_anyadir()
+
+end event
+
+type m_borrar from menu within m_sellador_docs_sinlineas
+end type
+
+on m_borrar.create
+call super::create
+this.text = "Borrar"
+this.enabled = false
+this.toolbaritemname = "Custom009!"
+end on
+
+on m_borrar.destroy
+call super::destroy
+end on
+
+event clicked;idw_padre.dynamic event csd_borrar()
+
+end event
+
+type m_-2 from menu within m_sellador_docs_sinlineas
+end type
+
+on m_-2.create
+call super::create
+this.text = "-"
+end on
+
+on m_-2.destroy
+call super::destroy
+end on
+
+type m_verwebtodos from menu within m_sellador_docs_sinlineas
+end type
+
+on m_verwebtodos.create
+call super::create
+this.text = "Ver Web Todos"
+this.enabled = false
+end on
+
+on m_verwebtodos.destroy
+call super::destroy
+end on
+
+event clicked;idw_padre.dynamic event csd_seleccionar_web_todos()
+end event
+
+type m_verwebninguno from menu within m_sellador_docs_sinlineas
+end type
+
+on m_verwebninguno.create
+call super::create
+this.text = "Ver Web Ninguno"
+this.enabled = false
+end on
+
+on m_verwebninguno.destroy
+call super::destroy
+end on
+
+event clicked;idw_padre.dynamic event csd_seleccionar_web_ninguno()
+end event
+
+type m_-3 from menu within m_sellador_docs_sinlineas
+end type
+
+on m_-3.create
+call super::create
+this.text = "-"
+end on
+
+on m_-3.destroy
+call super::destroy
+end on
+
+type m_revisarfirmas from menu within m_sellador_docs_sinlineas
+end type
+
+on m_revisarfirmas.create
+call super::create
+this.text = "Revisar Firmas"
+this.enabled = false
+end on
+
+on m_revisarfirmas.destroy
+call super::destroy
+end on
+
+event clicked;idw_padre.dynamic event csd_revisar_firmas()
+end event
+

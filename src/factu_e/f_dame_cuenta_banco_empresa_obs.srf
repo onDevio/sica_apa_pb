@@ -1,0 +1,20 @@
+HA$PBExportHeader$f_dame_cuenta_banco_empresa_obs.srf
+global type f_dame_cuenta_banco_empresa_obs from function_object
+end type
+
+forward prototypes
+global function string f_dame_cuenta_banco_empresa_obs (string cod_banco_defecto, string empresa)
+end prototypes
+
+global function string f_dame_cuenta_banco_empresa_obs (string cod_banco_defecto, string empresa);string observaciones
+
+SELECT csi_bancos.observaciones
+INTO :observaciones
+FROM csi_bancos
+WHERE csi_bancos.codigo = :cod_banco_defecto and csi_bancos.empresa=:empresa;
+
+if f_es_vacio(observaciones) then observaciones= ''
+
+return observaciones 
+end function
+

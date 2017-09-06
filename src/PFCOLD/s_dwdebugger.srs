@@ -1,0 +1,6 @@
+HA$PBExportHeader$s_dwdebugger.srs
+global type s_dwdebugger from structure
+	datawindow		dw_obj
+	transaction		tr_obj
+end type
+

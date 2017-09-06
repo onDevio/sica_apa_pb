@@ -1,0 +1,20 @@
+HA$PBExportHeader$f_musaat_tiene_poliza_plus.srf
+global type f_musaat_tiene_poliza_plus from function_object
+end type
+
+forward prototypes
+global function string f_musaat_tiene_poliza_plus (string as_id_colegiado)
+end prototypes
+
+global function string f_musaat_tiene_poliza_plus (string as_id_colegiado);string ls_result
+
+select src_poliza_plus into :ls_result
+from musaat where src_alta = 'S'  and id_col = :as_id_colegiado;
+
+if f_es_vacio(ls_result) then
+	ls_result = 'N'
+end if
+
+return ls_result
+end function
+

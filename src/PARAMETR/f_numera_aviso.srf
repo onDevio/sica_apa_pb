@@ -1,0 +1,40 @@
+HA$PBExportHeader$f_numera_aviso.srf
+global type f_numera_aviso from function_object
+end type
+
+forward prototypes
+global function string f_numera_aviso (boolean b_persistente)
+end prototypes
+
+global function string f_numera_aviso (boolean b_persistente);// Creada por Ricardo 2005-05-12
+// Funcion que se encarga de devolver el numero de aviso...
+// PARAMETROS
+//		
+//		b_persistente -> Indica si el cambio se tiene que hacer en base de datos o no, vamos en definitiva, 
+// 						si el numero corre o solo se informa
+
+string n_aviso
+
+
+if b_persistente then
+	n_aviso = f_siguiente_numero('N_AVISO', 10)
+else
+	n_aviso = f_siguiente_numero_informativo('N_AVISO', 10)
+end if
+
+
+CHOOSE CASE g_colegio
+	CASE 'COAATGU', 'COAATLE', 'COAATTER'
+		// Quieren una A delante y el a$$HEX1$$f100$$ENDHEX$$o y no quitamos los ceros
+		n_aviso = 'A'+RightA(string(year(today())),2)+'-'+RightA(n_aviso, 4)
+	CASE 'COAATAVI'
+		// Quieren una M delante y el a$$HEX1$$f100$$ENDHEX$$o y no quitamos los ceros
+		n_aviso = 'M'+RightA(string(year(today())),2)+'-'+RightA(n_aviso, 4)
+	CASE ELSE
+		n_aviso = f_quita_ceros(n_aviso) // quitemos los ceritos
+END CHOOSE
+
+return n_aviso
+
+end function
+

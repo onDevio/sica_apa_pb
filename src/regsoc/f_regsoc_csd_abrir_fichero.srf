@@ -1,0 +1,26 @@
+HA$PBExportHeader$f_regsoc_csd_abrir_fichero.srf
+global type f_regsoc_csd_abrir_fichero from function_object
+end type
+
+forward prototypes
+global function integer f_regsoc_csd_abrir_fichero (window ventana, string fichero, string ruta)
+end prototypes
+
+global function integer f_regsoc_csd_abrir_fichero (window ventana, string fichero, string ruta);uint ll_retorno
+string res
+
+//ll_retorno = ShellExecute( handle ( this ) , "open" , fichero , parametros , ruta , 5 )
+ll_retorno = ShellExecute( handle ( ventana ) , "open" , fichero , '' , ruta , 5 )
+ 
+
+//Fichero sin programa asociado
+
+if ll_retorno = 31 then
+
+ ll_retorno = OpenAs_RunDLL(handle ( this ) , 0 , ruta + fichero, 0 )
+
+end if
+
+return ll_retorno
+end function
+

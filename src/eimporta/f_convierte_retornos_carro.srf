@@ -1,0 +1,31 @@
+HA$PBExportHeader$f_convierte_retornos_carro.srf
+global type f_convierte_retornos_carro from function_object
+end type
+
+forward prototypes
+global function string f_convierte_retornos_carro (string cadena)
+end prototypes
+
+global function string f_convierte_retornos_carro (string cadena);long i
+string devuelve,caracter
+
+devuelve = ''
+
+for i = 1 to LenA(cadena)
+	if MidA(cadena,i,5) ='#r#n#' then
+		devuelve = devuelve + '~r~n'
+		i = i+4
+		continue
+	end if		
+	caracter = MidA(cadena,i,1)
+	if caracter = '~r' then 
+		devuelve = devuelve + '#r#n#'
+		i++
+		continue
+	end if
+		devuelve = devuelve + caracter
+next
+
+return devuelve
+end function
+

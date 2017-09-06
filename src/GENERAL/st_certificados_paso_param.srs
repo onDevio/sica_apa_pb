@@ -1,0 +1,16 @@
+HA$PBExportHeader$st_certificados_paso_param.srs
+global type st_certificados_paso_param from structure
+	string		campo1
+	string		campo2
+	string		campo3
+	string		campo4
+	string		campo5
+	string		campo6
+	string		campo7
+	double		xx
+	double		yy
+	string		etiqueta
+	string		id_lista_colegiados
+	string		n_registro_es
+end type
+

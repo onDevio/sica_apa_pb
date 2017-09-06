@@ -1,0 +1,26 @@
+HA$PBExportHeader$f_parsea_fichero.srf
+global type f_parsea_fichero from function_object
+end type
+
+forward prototypes
+global function boolean f_parsea_fichero (string fichero)
+end prototypes
+
+global function boolean f_parsea_fichero (string fichero);// Funcion que comprueba si los nombres de ficheros tienen comas simples u otros simbolos reservados de PB
+// Entrada:	Nombre del fichero
+// Salida:	True - Nombre de fichero valido
+//				False - Nombre de fichero invalido
+
+long i,posicion
+string caracteres_invalidos[2]={"'","+"}
+
+for i=1 to upperbound(caracteres_invalidos)
+	posicion=PosA(fichero,caracteres_invalidos[i])	
+	if posicion>0 then return false
+next
+
+return true
+
+
+end function
+

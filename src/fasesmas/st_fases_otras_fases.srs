@@ -1,0 +1,6 @@
+HA$PBExportHeader$st_fases_otras_fases.srs
+global type st_fases_otras_fases from structure
+	string		id_expedi
+	string		id_fase
+end type
+

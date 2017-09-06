@@ -1,0 +1,13 @@
+HA$PBExportHeader$f_regsoc_busqueda_clientes.srf
+global type f_regsoc_busqueda_clientes from function_object
+end type
+
+forward prototypes
+global function string f_regsoc_busqueda_clientes ()
+end prototypes
+
+global function string f_regsoc_busqueda_clientes ();open(w_regsoc_busqueda_clientes)
+return Message.StringParm
+
+end function
+

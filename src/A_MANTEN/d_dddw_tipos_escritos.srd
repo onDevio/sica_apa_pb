@@ -1,0 +1,13 @@
+HA$PBExportHeader$d_dddw_tipos_escritos.srd
+$PBExportComments$w_tipos_escritos
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=64 color="536870912" )
+table(column=(type=char(2) update=yes updatewhereclause=yes key=yes name=cod_t_escrito dbname="t_escritos.cod_t_escrito" )
+ column=(type=char(60) update=yes updatewhereclause=yes name=descripcion dbname="t_escritos.descripcion" )
+ retrieve="PBSELECT( VERSION(400) TABLE(NAME=~"t_escritos~" ) COLUMN(NAME=~"t_escritos.cod_t_escrito~") COLUMN(NAME=~"t_escritos.descripcion~")) " update="t_escritos" updatewhere=1 updatekeyinplace=no )
+compute(band=detail alignment="0" expression=" cod_t_escrito +' - '+ descripcion "border="0" color="0" x="14" y="4" height="52" width="1134" format="[GENERAL]"  name=compute_1  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="0" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

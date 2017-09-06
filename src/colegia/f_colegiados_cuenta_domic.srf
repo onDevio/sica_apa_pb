@@ -1,0 +1,19 @@
+HA$PBExportHeader$f_colegiados_cuenta_domic.srf
+global type f_colegiados_cuenta_domic from function_object
+end type
+
+forward prototypes
+global function string f_colegiados_cuenta_domic (string id_col)
+end prototypes
+
+global function string f_colegiados_cuenta_domic (string id_col);string cuenta
+
+select datos_bancarios_iban
+into :cuenta
+from colegiados 
+where id_colegiado = :id_col ;
+
+return cuenta
+
+end function
+

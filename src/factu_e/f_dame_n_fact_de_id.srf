@@ -1,0 +1,18 @@
+HA$PBExportHeader$f_dame_n_fact_de_id.srf
+global type f_dame_n_fact_de_id from function_object
+end type
+
+forward prototypes
+global function string f_dame_n_fact_de_id (string id_factura)
+end prototypes
+
+global function string f_dame_n_fact_de_id (string id_factura); string n_fact
+ 
+ SELECT csi_facturas_emitidas.n_fact  
+    INTO :n_fact  
+    FROM csi_facturas_emitidas  
+   WHERE csi_facturas_emitidas.id_factura = :id_factura   ;
+
+return n_fact
+end function
+

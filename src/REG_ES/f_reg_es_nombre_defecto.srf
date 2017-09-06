@@ -1,0 +1,26 @@
+HA$PBExportHeader$f_reg_es_nombre_defecto.srf
+global type f_reg_es_nombre_defecto from function_object
+end type
+
+forward prototypes
+global function string f_reg_es_nombre_defecto (string param1)
+end prototypes
+
+global function string f_reg_es_nombre_defecto (string param1);string reg_es_nombre_defecto, cadena_salida
+
+reg_es_nombre_defecto = f_var_global ('g_reg_es_nombre_defecto')
+
+IF f_es_vacio (reg_es_nombre_defecto) then reg_es_nombre_defecto = '12'
+
+IF g_empresa = '01' THEN 	
+	reg_es_nombre_defecto = Left(reg_es_nombre_defecto,1)
+ELSE
+	reg_es_nombre_defecto = Right(reg_es_nombre_defecto,1)
+END IF
+
+IF reg_es_nombre_defecto = '2' then cadena_salida = TRIM(LEFT(g_nombre_empresa,100))
+IF f_es_vacio(cadena_salida) THEN cadena_salida = param1
+
+RETURN cadena_salida
+end function
+

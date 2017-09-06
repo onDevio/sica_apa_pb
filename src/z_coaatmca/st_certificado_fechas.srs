@@ -1,0 +1,13 @@
+HA$PBExportHeader$st_certificado_fechas.srs
+global type st_certificado_fechas from structure
+	string		colegiado_nombre
+	string		f_reg_entrada
+	string		f_reg_salida
+	string		n_reg_entrada
+	string		fecha_letras_n
+	string		f_desde
+	string		f_hasta
+	string		n_col
+	string		n_reg_salida
+end type
+

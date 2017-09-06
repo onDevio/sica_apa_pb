@@ -1,0 +1,8 @@
+HA$PBExportHeader$st_plantillas_seleccion.srs
+global type st_plantillas_seleccion from structure
+	string		modulo
+	boolean		mostrar_cbx_editar_plantilla
+	string		n_col1
+	string		cif_prom1
+end type
+

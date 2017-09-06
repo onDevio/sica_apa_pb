@@ -1,0 +1,30 @@
+HA$PBExportHeader$d_caja_cobro_multiple_cobros.srd
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=136 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=84 color="536870912" )
+table(column=(type=char(10) update=yes updatewhereclause=yes key=yes name=id_pago dbname="csi_cobros.id_pago" )
+ column=(type=char(10) updatewhereclause=yes name=id_factura dbname="csi_cobros.id_factura" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=id_cobro_multiple dbname="csi_cobros.id_cobro_multiple" )
+ column=(type=char(10) updatewhereclause=yes name=id_fase dbname="csi_facturas_emitidas.id_fase" )
+ column=(type=char(2) update=yes updatewhereclause=yes name=forma_pago dbname="csi_cobros.forma_pago" )
+ column=(type=char(2) updatewhereclause=yes name=tipo_factura dbname="csi_facturas_emitidas.tipo_factura" )
+ column=(type=char(1) updatewhereclause=yes name=tipo_gestion dbname="fases_minutas.tipo_gestion" )
+ retrieve="PBSELECT( VERSION(400) TABLE(NAME=~"csi_cobros~" )  TABLE(NAME=~"csi_facturas_emitidas~" )  TABLE(NAME=~"fases_minutas~" ) COLUMN(NAME=~"csi_cobros.id_pago~") COLUMN(NAME=~"csi_cobros.id_factura~") COLUMN(NAME=~"csi_cobros.id_cobro_multiple~") COLUMN(NAME=~"csi_facturas_emitidas.id_fase~") COLUMN(NAME=~"csi_cobros.forma_pago~") COLUMN(NAME=~"csi_facturas_emitidas.tipo_factura~") COLUMN(NAME=~"fases_minutas.tipo_gestion~")    JOIN (LEFT=~"csi_cobros.id_factura~"    OP =~"=~"RIGHT=~"csi_facturas_emitidas.id_factura~" )    JOIN (LEFT=~"csi_facturas_emitidas.id_fase~"    OP =~"=~"RIGHT=~"fases_minutas.id_minuta~" )) " update="csi_cobros" updatewhere=0 updatekeyinplace=no )
+text(band=header alignment="2" text="Csi Cobros
+Id Pago" border="0" color="0" x="5" y="4" height="128" width="302"  name=csi_cobros_id_pago_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Csi Cobros
+Id Factura" border="0" color="0" x="311" y="4" height="128" width="302"  name=csi_cobros_id_factura_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Csi Cobros
+Id Cobro Multiple" border="0" color="0" x="617" y="4" height="128" width="443"  name=csi_cobros_id_cobro_multiple_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="5" y="4" height="76" width="302" format="[general]"  name=id_pago edit.limit=10 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="311" y="4" height="76" width="302" format="[general]"  name=id_factura edit.limit=10 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="617" y="4" height="64" width="238" format="[general]"  name=id_cobro_multiple  tag=" " edit.limit=10 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="1061" y="0" height="64" width="270" format="[general]"  name=id_fase edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="1330" y="0" height="64" width="55" format="[general]"  name=forma_pago edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="0" tabsequence=0 border="0" color="0" x="1385" y="0" height="64" width="55"  name=tipo_factura  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="0" tabsequence=0 border="0" color="0" x="1440" y="0" height="64" width="27"  name=tipo_gestion  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

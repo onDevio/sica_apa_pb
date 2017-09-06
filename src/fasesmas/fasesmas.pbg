@@ -1,0 +1,12 @@
+Save Format v3.0(19990112)
+@begin Libraries
+ "fasesmas\\fasesmas.pbl" "";
+@end;
+@begin Objects
+ "fasesmas\\f_obtener_importe_pagos_no_conciliados.srf" "fasesmas\\fasesmas.pbl";
+ "fasesmas\\d_fases_pagos_tpv.srd" "fasesmas\\fasesmas.pbl";
+ "fasesmas\\w_fases_pagos_tpv.srw" "fasesmas\\fasesmas.pbl";
+ "fasesmas\\d_query_fases_otros_destinos.srd" "fasesmas\\fasesmas.pbl";
+ "fasesmas\\w_lista_fases_otros_destinos.srw" "fasesmas\\fasesmas.pbl";
+ "fasesmas\\w_query_fases_otros_destinos.srw" "fasesmas\\fasesmas.pbl";
+@end;

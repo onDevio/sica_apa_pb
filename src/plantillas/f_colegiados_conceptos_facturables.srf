@@ -1,0 +1,43 @@
+HA$PBExportHeader$f_colegiados_conceptos_facturables.srf
+$PBExportComments$Dado un colegiado obtiene sus datos de conceptos domiciliables
+global type f_colegiados_conceptos_facturables from function_object
+end type
+
+forward prototypes
+global function string f_colegiados_conceptos_facturables (string id_col)
+end prototypes
+
+global function string f_colegiados_conceptos_facturables (string id_col);//Esta funci$$HEX1$$f300$$ENDHEX$$n devuelve los datos de los conceptos facturables
+//que le corresponden al colegiado indicado por ID_COL
+
+string concepto, importe, forma_pago_aux, forma_de_pago, retorno, cod_concepto
+long i
+datastore ds_conc_facturables
+
+retorno = ''
+ds_conc_facturables = create datastore
+ds_conc_facturables.dataobject ='d_colegiados_conceptos_domiciliables'
+ds_conc_facturables.SetTransObject(SQLCA)
+
+ds_conc_facturables.Retrieve(id_col)
+
+FOR i=1 TO ds_conc_facturables.rowcount()
+	cod_concepto = ds_conc_facturables.getitemstring(i, 'concepto')
+	select descripcion into :concepto from csi_articulos_servicios where codigo = :cod_concepto;
+	importe = string(ds_conc_facturables.getitemnumber(i, 'importe'))
+	forma_pago_aux = ds_conc_facturables.getitemstring(i, 'forma_de_pago')
+	select descripcion into :forma_de_pago from csi_formas_de_pago where tipo_pago = :forma_pago_aux;
+	
+	if f_es_vacio(concepto) then concepto = ''
+	if f_es_vacio(importe) then importe = ''
+	if f_es_vacio(forma_de_pago) then forma_de_pago = ''
+	
+	retorno = retorno + concepto + '~t' + 'Importe: ' + importe + '~t' + 'Forma Pago: ' + forma_de_pago +cr
+NEXT
+
+
+destroy ds_conc_facturables
+
+return retorno
+end function
+

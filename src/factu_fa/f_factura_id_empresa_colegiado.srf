@@ -1,0 +1,21 @@
+HA$PBExportHeader$f_factura_id_empresa_colegiado.srf
+global type f_factura_id_empresa_colegiado from function_object
+end type
+
+forward prototypes
+global function string f_factura_id_empresa_colegiado (string as_id_colegiado, string as_id_fase)
+end prototypes
+
+global function string f_factura_id_empresa_colegiado (string as_id_colegiado, string as_id_fase);string ls_id_cli
+
+SELECT fases_colegiados.id_empresa  
+INTO :ls_id_cli  
+FROM fases_colegiados
+WHERE fases_colegiados.id_col = :as_id_colegiado and 	
+		fases_colegiados.id_fase = :as_id_fase;
+	
+if f_es_vacio(ls_id_cli) then ls_id_cli = ''
+
+return ls_id_cli
+end function
+

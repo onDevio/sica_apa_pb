@@ -1,0 +1,13 @@
+HA$PBExportHeader$f_devuelve_g_hoja_liq_referencia.srf
+$PBExportComments$devuelve g_hoja_liq_referencia
+global type f_devuelve_g_hoja_liq_referencia from function_object
+end type
+
+forward prototypes
+global function string f_devuelve_g_hoja_liq_referencia ()
+end prototypes
+
+global function string f_devuelve_g_hoja_liq_referencia ();
+return g_hoja_liq_referencia
+end function
+

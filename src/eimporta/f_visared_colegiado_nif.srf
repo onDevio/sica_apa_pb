@@ -1,0 +1,17 @@
+HA$PBExportHeader$f_visared_colegiado_nif.srf
+global type f_visared_colegiado_nif from function_object
+end type
+
+forward prototypes
+global function string f_visared_colegiado_nif (string n_colegiado)
+end prototypes
+
+global function string f_visared_colegiado_nif (string n_colegiado);string retorno
+
+select nif into :retorno from colegiados where n_colegiado=:n_colegiado;
+
+if f_es_vacio(retorno) then retorno=''
+
+return retorno
+end function
+

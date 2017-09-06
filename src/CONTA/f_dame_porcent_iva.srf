@@ -1,0 +1,18 @@
+HA$PBExportHeader$f_dame_porcent_iva.srf
+global type f_dame_porcent_iva from function_object
+end type
+
+forward prototypes
+global function double f_dame_porcent_iva (string t_iva)
+end prototypes
+
+global function double f_dame_porcent_iva (string t_iva);double porcent
+
+SELECT porcent
+INTO :porcent
+FROM csi_t_iva 
+WHERE t_iva = :t_iva;
+
+return porcent
+end function
+

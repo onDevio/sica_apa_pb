@@ -1,0 +1,105 @@
+HA$PBExportHeader$f_email_aplicar_plantilla.srf
+global type f_email_aplicar_plantilla from function_object
+end type
+
+forward prototypes
+global subroutine f_email_aplicar_plantilla (ref string mensaje, ref string asunto, string id_fase, string plantilla)
+end prototypes
+
+global subroutine f_email_aplicar_plantilla (ref string mensaje, ref string asunto, string id_fase, string plantilla);// Entrada:  mensaje -> Mensaje a escribir
+//				 asunto -> Asunto del mensaje
+//				 id_fase -> Identificador de la fase con la que se realizara la sustitucion de campos como n$$HEX1$$ba00$$ENDHEX$$Exp,fase,etc...
+//				 plantilla -> Nombre de la plantilla que se aplicara para enviar el mensaje
+// Salida:  Texto resultante
+   
+boolean lb_fase
+long i, j, fila
+string id_colegiado, mail, nombre_fichero
+string texto,documentos,asunto_
+string msj,mensaje0
+string array_vacio[]
+string fase, n_exp
+string listadoc, texto_aviso
+n_cst_string lnv_string
+
+if plantilla="" or IsNull(plantilla) then return
+
+// ls_fase-> Indica si se ha introducido la fase
+lb_fase=true
+if id_fase="" or IsNull(id_fase) then lb_fase=false
+
+mensaje0 = 'A los siguientes colegiados no se les han notificado que los documentos han sido firmados por la falta de su Email:' + cr + cr	
+msj = ''
+
+// OBTENEMOS EL "ASUNTO" DE LA PLANTILLA Y LE QUITAMOS LOS SALTOS DE LINEA
+asunto_ = f_email_obtener_contenido_ini(plantilla, "ASUNTO")
+asunto_ = lnv_string.of_globalreplace(asunto_, "~r", "") 
+asunto_ = lnv_string.of_globalreplace(asunto_, "~n", "") 
+// SUSTITUIMOS EL TEXTO QUE HEMOS ESCRITO EN EL EMAIL EN LA PLANTILLA
+asunto = lnv_string.of_globalreplace(asunto_, "{ASUNTO}", asunto)
+// Rellenamos los campos si viene de una fase
+if lb_fase then f_email_sustituir_palabras_reservadas(asunto,id_fase)
+
+
+// OBTENEMOS LA SECCION DE "CABECERA"
+texto = f_email_obtener_contenido_ini(plantilla, "CABECERA")
+if f_es_vacio(texto) then texto = "{MENSAJE}" // Con esto guardamos la compatibilidad con antiguas plantillas que no tengan la secci$$HEX1$$f300$$ENDHEX$$n de cabecera
+
+/*
+// OBTENEMOS LA SECCION DE "LISTA DE DOCUMENTOS"
+listadoc = f_email_obtener_contenido_ini(plantilla, "LISTA_DOCUMENTOS")
+
+for i = 1 to upperbound(i_ficheros_firmados)
+	fila = idw_docs.find("id_fichero='" + i_ficheros_firmados[i] + "'", 1, idw_docs.RowCount())
+	if fila>0 then
+		texto += listadoc
+		nombre_fichero = idw_docs.getitemstring(fila, 'nombre_fichero')
+		texto = lnv_string.of_globalreplace(texto, "{NOMBRE_DOCUMENTO}", nombre_fichero)
+	end if
+next
+*/
+
+// OBTENEMOS LA SECCION DE "PIE"
+texto += f_email_obtener_contenido_ini(plantilla, "PIE")
+if lb_fase then f_email_sustituir_palabras_reservadas(texto,id_fase)
+
+texto_aviso = mensaje
+if isnull(texto_aviso) then texto_aviso = ''
+// En el dw de opciones se guarda un mensaje que depende de la delegaci$$HEX1$$f300$$ENDHEX$$n y que puede ser modificado por el usuario
+texto = lnv_string.of_globalreplace(texto, "{MENSAJE}", texto_aviso)
+
+mensaje=texto
+
+/*
+/* Fin Modificaci$$HEX1$$f300$$ENDHEX$$n Roberto Marco */
+
+n_ds ds_fases_colegiados
+ds_fases_colegiados = create n_ds
+ds_fases_colegiados.dataobject = 'd_fases_colegiados'
+ds_fases_colegiados.of_settransobject(SQLCA)
+ds_fases_colegiados.retrieve(i_id_fase)
+
+for j = 1 to ds_fases_colegiados.rowcount()
+	
+	id_colegiado = ds_fases_colegiados.getitemstring(j, 'id_col')
+	mail = f_devuelve_mail(id_colegiado)
+	
+	if f_es_vacio(mail) then
+		mensaje += f_colegiado(id_colegiado) + cr
+	else
+		f_enviar_email(asunto,texto,mail,'csd','','')
+	end if
+
+next
+
+i_ficheros_firmados = array_vacio
+
+if not(f_es_vacio(mensaje)) then
+	messagebox(g_titulo,mensaje0+mensaje)
+end if
+*/
+
+
+
+end subroutine
+

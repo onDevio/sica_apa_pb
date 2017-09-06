@@ -1,0 +1,17 @@
+HA$PBExportHeader$f_copia_filas.srf
+$PBExportComments$f_copia_filas(dw,i,j): Copia la fila i a la j en la u_dw dw.
+global type f_copia_filas from function_object
+end type
+
+forward prototypes
+global function integer f_copia_filas (ref u_dw dw, integer original, integer destino)
+end prototypes
+
+global function integer f_copia_filas (ref u_dw dw, integer original, integer destino);//COPIA LA FILA ORIGINAL A DESTINO
+
+int numcolumnas
+numcolumnas = integer(dw.Object.DataWindow.Column.Count)
+dw.Object.data[destino,1,destino,numcolumnas]=dw.Object.data[original,1,original,numcolumnas]
+return 1
+end function
+

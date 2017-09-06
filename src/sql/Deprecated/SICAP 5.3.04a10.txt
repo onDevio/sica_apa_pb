@@ -1,0 +1,47 @@
+// SCP-1660. Alexis. 19/09/2011
+	// Sólo para León
+	insert into var_globales (nombre, sn, descripcion) values ('g_imprimir_registro_docs_fase', 'N', 'Variable para controlar la impresión del documento que se imprime con la asignación de num. de registro en los documentos de una fase'); 
+	// Para el resto de colegios
+	insert into var_globales (nombre, sn, descripcion) values ('g_imprimir_registro_docs_fase', 'S', 'Variable para controlar la impresión del documento que se imprime con la asignación de num. de registro en los documentos de una fase'); 
+
+// SCP-1822. Cambios Cuadre de caja e ingresa-retira
+create table dbo.caja_salidas_temp (id_caja_salida char(10) not null, fecha datetime null, centro char(10) null, concepto char(100) null, importe double precision null, banco char(10) null, tipo char(1) null, id_usuario char(10) null, id_colegiado char(10) null, remesa char(2) null, empresa char(5) null) ;
+alter table dbo.caja_salidas_temp add constraint caja_salida primary key nonclustered (id_caja_salida) ;
+insert into caja_salidas_temp select caja_salidas.*, '01' from caja_salidas;
+drop table caja_salidas;
+create table dbo.caja_salidas (id_caja_salida char(10) not null, fecha datetime null, centro char(10) null, concepto char(100) null, importe double precision null, banco char(10) null, tipo char(1) null, id_usuario char(10) null, id_colegiado char(10) null, remesa char(2) null, empresa char(5) null) ;
+alter table dbo.caja_salidas add constraint caja_salida primary key nonclustered (id_caja_salida) ;
+insert into caja_salidas select * from caja_salidas_temp;
+drop table caja_salidas_temp;
+create table dbo.csi_traspasos_basicos_temp (id_traspaso char(10) not null, tipo char(2) null, fecha datetime null, numero char(10) null, id_colegiado char(10) null, forma_pago char(2) null, banco char(10) null, importe double precision null, n_talon char(10) null, descripcion char(255) null, centro char(3) null, usuario char(10) null, eliminar char(1) null, empresa char(5) null) ;
+alter table dbo.csi_traspasos_basicos_temp add constraint csi_traspasos_basicos_x primary key nonclustered (id_traspaso) ;
+insert into csi_traspasos_basicos_temp select *, '01' from csi_traspasos_basicos;
+drop table csi_traspasos_basicos;
+create table dbo.csi_traspasos_basicos (id_traspaso char(10) not null, tipo char(2) null, fecha datetime null, numero char(10) null, id_colegiado char(10) null, forma_pago char(2) null, banco char(10) null, importe double precision null, n_talon char(10) null, descripcion char(255) null, centro char(3) null, usuario char(10) null, eliminar char(1) null, empresa char(5) null) ;
+alter table dbo.csi_traspasos_basicos add constraint csi_traspasos_basicos_x primary key nonclustered (id_traspaso) ;
+insert into csi_traspasos_basicos select * from csi_traspasos_basicos_temp;
+drop table csi_traspasos_basicos_temp; 
+
+//SCP-1834 
+ALTER TABLE musaat_movimientos ADD n_contrato_ant2 CHAR(12) NULL;
+UPDATE musaat_movimientos SET n_contrato_ant2 = n_contrato_ant;
+UPDATE musaat_movimientos SET n_contrato_ant = null;
+ALTER TABLE musaat_movimientos DROP n_contrato_ant ;
+ALTER TABLE musaat_movimientos ADD n_contrato_ant CHAR(12) NULL ;
+UPDATE musaat_movimientos SET n_contrato_ant = n_contrato_ant2;
+ALTER TABLE musaat_movimientos DROP n_contrato_ant2;
+
+// SCP-728. Alexis. 20-09-2011
+        // SÓLO PARA Terres:
+		insert into var_globales (nombre, sn, descripcion) values ('permitir_generar_apuntes_garantias', 'N', 'Variable para controlar la generación de los apuntes relacionados con la garantia. En principio unicamente para Terres'); 
+	// PARA EL RESTO
+		insert into var_globales (nombre, sn, descripcion) values ('permitir_generar_apuntes_garantias', 'S', 'Variable para controlar la generación de los apuntes relacionados con la garantia. En principio unicamente para Terres'); 
+
+// SCP-1837. Alexis. 08/11/2011	
+update colegios set cod_sica = cod_colegio where cod_sica = '' or cod_sica = null; 
+
+//SCP-1832. Sólo Guipuzkoa
+update fases_finales_acciones_realiza set descripcion = 'Se deben regularizar los gastos ya que el presupuesto final supera en más de un 20% el inicial.' WHERE id_accion = '0000000002';
+
+// SCP-1851 Se actualiza la fecha de versión
+update var_globales set texto='20111108', descripcion = 'versión v5.03.04a10' where nombre='g_version_minima';

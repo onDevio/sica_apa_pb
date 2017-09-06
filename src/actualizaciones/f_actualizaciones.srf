@@ -1,0 +1,33 @@
+HA$PBExportHeader$f_actualizaciones.srf
+global type f_actualizaciones from function_object
+end type
+
+forward prototypes
+global function integer f_actualizaciones ()
+end prototypes
+
+global function integer f_actualizaciones ();datetime f_ultima_revision,f_modificado_fichero,f_modificado
+string fs_ultima_revision,hs_ultima_revision,nombre
+integer num_ficheros,modificados=0
+long indice
+date dia
+time hora
+n_cst_filesrvwin32 ficheros
+
+n_cst_dirattrib lista_ficheros[]
+ficheros = create n_cst_filesrvwin32
+
+num_ficheros = ficheros.of_dirlist(g_directorio_actualizaciones + "*.*",0,lista_ficheros[])
+
+if num_ficheros>0 then
+	messagebox(g_titulo,cr + 'Se va a proceder a la actualizaci$$HEX1$$f300$$ENDHEX$$n autom$$HEX1$$e100$$ENDHEX$$tica de Front-end de Visado.'+cr+cr+'Este proceso puede durar unos minutos. Espere por favor')
+   //LANZAR VENTANA ACTUALIZACIONES ('1' indica que es una actualizaci$$HEX1$$f300$$ENDHEX$$n autom$$HEX1$$e100$$ENDHEX$$tica)
+  openwithparm(w_actualizaciones,'1')
+  
+  messagebox(g_titulo,'Despu$$HEX1$$e900$$ENDHEX$$s de la actualizaci$$HEX1$$f300$$ENDHEX$$n, es recomendable volver a compactar la base de datos, para que mejore en la velocidad de acceso: Archivo -> Compactar y Reparar Base de Datos')
+end if
+
+destroy ficheros
+return 1
+end function
+

@@ -1,0 +1,24 @@
+HA$PBExportHeader$st_factufa_opciones.srs
+global type st_factufa_opciones from structure
+	boolean		gestion_igic
+	boolean		gestion_honorarios
+	boolean		imprimir_honorarios
+	boolean		gestion_recibos
+	boolean		gestion_facturas_pendientes
+	string		formapago_gastos
+	string		formapago_honorarios
+	boolean		impreso_autoliquidacion
+	boolean		liquidar_saldo_deudor
+	long		f_pendientes_originales
+	long		f_pendientes_copias
+	boolean		emitir_factura_asemas
+	string		serie_factura_asemas
+	boolean		gestion_pagos_postpuestos
+	string		estado_pagos_postpuestos
+	string		contabilizar_emision_honorarios
+	boolean		impreso_minutas
+	string		impresora_adicional
+	string		formapago_gastos_clientes
+	string		impreso_liquidacion_t_gestion
+end type
+

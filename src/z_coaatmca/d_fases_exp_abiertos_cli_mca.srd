@@ -1,0 +1,77 @@
+HA$PBExportHeader$d_fases_exp_abiertos_cli_mca.srd
+release 10.5;
+datawindow(units=0 timer_interval=0 color=1073741824 processing=0 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes print.preview.outline=yes hidegrayline=no )
+header(height=0 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=1368 color="536870912" )
+table(column=(type=char(10) update=yes updatewhereclause=yes name=id_fase dbname="fases.id_fase" dbalias=".id_fase" )
+ column=(type=char(32768) update=yes updatewhereclause=no name=descripcion dbname="fases.descripcion" dbalias=".descripcion" )
+ column=(type=datetime update=yes updatewhereclause=yes name=f_visado dbname="fases.f_visado" dbalias=".f_visado" )
+ column=(type=char(60) update=yes updatewhereclause=yes name=archivo dbname="fases.archivo" dbalias=".archivo" )
+ column=(type=char(2) update=yes updatewhereclause=yes name=tipo_via_emplazamiento dbname="fases.tipo_via_emplazamiento" dbalias=".tipo_via_emplazamiento" )
+ column=(type=char(255) update=yes updatewhereclause=yes name=emplazamiento dbname="fases.emplazamiento" dbalias=".emplazamiento" )
+ column=(type=char(30) update=yes updatewhereclause=yes name=n_calle dbname="fases.n_calle" dbalias=".n_calle" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=poblacion dbname="fases.poblacion" dbalias=".poblacion" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=piso dbname="fases.piso" dbalias=".piso" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=puerta dbname="fases.puerta" dbalias=".puerta" )
+ column=(type=char(11) updatewhereclause=yes name=n_registro dbname="fases.n_registro" dbalias=".n_registro" )
+ column=(type=char(3) updatewhereclause=yes name=fase dbname="fases.fase" dbalias=".fase" )
+ column=(type=char(10) updatewhereclause=yes name=id_cliente dbname="fases_clientes.id_cliente" dbalias=".id_cliente" )
+ retrieve="  SELECT fases.id_fase,   
+         fases.descripcion,   
+         fases.f_visado,   
+         fases.archivo,   
+         fases.tipo_via_emplazamiento,   
+         fases.emplazamiento,   
+         fases.n_calle,   
+         fases.poblacion,   
+         fases.piso,   
+         fases.puerta,   
+         fases.n_registro,
+		fases.fase,
+		fases_clientes.id_cliente
+    FROM fases,   
+         fases_colegiados,
+		fases_clientes
+   WHERE ( fases.id_fase = fases_colegiados.id_fase ) and 
+		( fases.id_fase = fases_clientes.id_fase ) and
+         ( ( fases_colegiados.id_col = :id_col ) AND  
+         ( fases.estado in ('04','05','03') ) ) AND  
+         (fases.fase like '0%' OR fases.fase like '1%')
+            
+" arguments=(("id_col", string))  sort="id_cliente A " )
+text(band=detail alignment="1" text="Id Fase:" border="0" color="33554432" x="37" y="4" height="64" width="663" html.valueishtml="0"  name=id_fase_t visible="1"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="0" color="33554432" x="718" y="4" height="76" width="302" format="[general]" html.valueishtml="0"  name=id_fase visible="1" edit.limit=10 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Descripcion:" border="0" color="33554432" x="37" y="140" height="64" width="663" html.valueishtml="0"  name=descripcion_t visible="1"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=20 border="0" color="33554432" x="718" y="140" height="76" width="3950" format="[general]" html.valueishtml="0"  name=descripcion visible="1" edit.limit=32000 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="F Visado:" border="0" color="33554432" x="37" y="276" height="64" width="663" html.valueishtml="0"  name=f_visado_t visible="1"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=30 border="0" color="33554432" x="718" y="276" height="76" width="603" format="[shortdate] [time]" html.valueishtml="0"  name=f_visado visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Archivo:" border="0" color="33554432" x="37" y="412" height="64" width="663" html.valueishtml="0"  name=archivo_t visible="1"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=40 border="0" color="33554432" x="718" y="412" height="76" width="1673" format="[general]" html.valueishtml="0"  name=archivo visible="1" edit.limit=60 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Tipo Via Emplazamiento:" border="0" color="33554432" x="37" y="548" height="64" width="663" html.valueishtml="0"  name=tipo_via_emplazamiento_t visible="1"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=50 border="0" color="33554432" x="718" y="548" height="76" width="82" format="[general]" html.valueishtml="0"  name=tipo_via_emplazamiento visible="1" edit.limit=2 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Emplazamiento:" border="0" color="33554432" x="37" y="684" height="64" width="663" html.valueishtml="0"  name=emplazamiento_t visible="1"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="0" tabsequence=60 border="0" color="33554432" x="718" y="684" height="76" width="3950" format="[general]" html.valueishtml="0"  name=emplazamiento visible="1" edit.limit=255 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="N Calle:" border="0" color="33554432" x="37" y="820" height="64" width="663" html.valueishtml="0"  name=n_calle_t visible="1"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="0" tabsequence=70 border="0" color="33554432" x="718" y="820" height="76" width="850" format="[general]" html.valueishtml="0"  name=n_calle visible="1" edit.limit=30 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Poblacion:" border="0" color="33554432" x="37" y="956" height="64" width="663" html.valueishtml="0"  name=poblacion_t visible="1"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="0" tabsequence=80 border="0" color="33554432" x="718" y="956" height="76" width="192" format="[general]" html.valueishtml="0"  name=poblacion visible="1" edit.limit=6 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Piso:" border="0" color="33554432" x="37" y="1092" height="64" width="663" html.valueishtml="0"  name=piso_t visible="1"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=9 alignment="0" tabsequence=90 border="0" color="33554432" x="718" y="1092" height="76" width="302" format="[general]" html.valueishtml="0"  name=piso visible="1" edit.limit=10 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Puerta:" border="0" color="33554432" x="37" y="1228" height="64" width="663" html.valueishtml="0"  name=puerta_t visible="1"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=10 alignment="0" tabsequence=100 border="0" color="33554432" x="718" y="1228" height="76" width="302" format="[general]" html.valueishtml="0"  name=puerta visible="1" edit.limit=10 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=11 alignment="0" tabsequence=110 border="0" color="33554432" x="4667" y="0" height="64" width="297" format="[general]" html.valueishtml="0"  name=n_registro visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=12 alignment="0" tabsequence=120 border="0" color="33554432" x="4965" y="0" height="64" width="82" format="[general]" html.valueishtml="0"  name=fase visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=13 alignment="0" tabsequence=130 border="0" color="33554432" x="5047" y="0" height="64" width="270" format="[general]" html.valueishtml="0"  name=id_cliente visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" pagingmethod=0 generatedddwframes="1" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()
+ 

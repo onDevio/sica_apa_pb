@@ -1,0 +1,45 @@
+HA$PBExportHeader$f_fases_cambio_registro.srf
+global type f_fases_cambio_registro from function_object
+end type
+
+forward prototypes
+global function string f_fases_cambio_registro (string id_fase)
+end prototypes
+
+global function string f_fases_cambio_registro (string id_fase);st_control_eventos c_evento
+string id_expediente,exp
+datetime fecha
+int valor1, valor2
+
+id_expediente 	= f_siguiente_numero('EXPEDIENTES',10)
+fecha			= datetime(Today())
+
+c_evento.evento = 'NUMERO_EXP'
+f_control_eventos(c_evento)		
+exp  			= f_numera_expediente(c_evento.param1) // Modificado Ricardo 2005-05-11 -> SE le pasa el formato directamente
+				
+
+INSERT INTO expedientes  
+         ( id_expedi,n_expedi,titulo,f_inicio,cerrado,f_cierre,ult_fase,tipo_trabajo,trabajo,   
+           tipo_via_emplazamiento,emplazamiento,poblacion,f_contrato,anulado,   
+           n_exp_blanco,r_catastral,archivo,celda,n_calle, sup_garage, sup_otros, 
+		pem, plantas_sob, sup_sob, plantas_baj , sup_baj, altura, estudio_geo,
+		cc_externo, niv_cont, volumen, sup_viv, administracion, longitud_per, volumen_tierras, 
+		estructura, replan_deslin, valor_terreno, valor_tasacion, valoracion_estim )  
+VALUES ( :id_expediente,:exp,null,:fecha,'N',null,null,null,null,null,null,null,null,   
+           null,'N',null,null,null,null,0,0,0,0,0,0,0,0,'N','N','N',0,0, 'N',
+			  0,0,'N','N',0,0,0) USING SQLCA ;
+ 
+COMMIT;
+	
+	 
+UPDATE fases  
+  SET id_expedi = :id_expediente ,n_expedi = :exp
+WHERE fases.id_fase = :id_fase ;
+COMMIT;
+	
+messagebox(g_titulo, "El Registro se ha cambiado al Expediente N$$HEX1$$ba00$$ENDHEX$$: " + exp)
+	
+return id_fase
+end function
+

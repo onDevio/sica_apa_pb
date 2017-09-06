@@ -1,0 +1,24 @@
+HA$PBExportHeader$f_pertenece_a_fase.srf
+global type f_pertenece_a_fase from function_object
+end type
+
+forward prototypes
+global function integer f_pertenece_a_fase (string id_col, string id_fase)
+end prototypes
+
+global function integer f_pertenece_a_fase (string id_col, string id_fase);int numero
+
+  SELECT count(*)  
+    INTO :numero  
+    FROM fases_colegiados  
+   WHERE ( id_fase = :id_fase ) AND  
+         ( id_col = :id_col )   
+           ;
+
+if numero>0 then
+	return 1
+else 
+	return 0
+end if
+end function
+

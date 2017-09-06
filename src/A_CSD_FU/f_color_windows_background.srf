@@ -1,0 +1,14 @@
+HA$PBExportHeader$f_color_windows_background.srf
+global type f_color_windows_background from function_object
+end type
+
+forward prototypes
+global function long f_color_windows_background ()
+end prototypes
+
+global function long f_color_windows_background ();
+return 1087434968
+
+
+end function
+

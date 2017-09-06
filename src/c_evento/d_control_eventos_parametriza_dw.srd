@@ -1,0 +1,63 @@
+HA$PBExportHeader$d_control_eventos_parametriza_dw.srd
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=72 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=84 color="536870912" )
+table(column=(type=char(10) update=yes updatewhereclause=yes key=yes name=id_regla dbname="parametrizo_dw.id_regla" )
+ column=(type=char(50) update=yes updatewhereclause=yes name=dw dbname="parametrizo_dw.dw" )
+ column=(type=char(50) update=yes updatewhereclause=yes name=campo1 dbname="parametrizo_dw.campo1" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=op1 dbname="parametrizo_dw.op1" )
+ column=(type=char(50) update=yes updatewhereclause=yes name=valor1 dbname="parametrizo_dw.valor1" )
+ column=(type=char(5) update=yes updatewhereclause=yes name=operador dbname="parametrizo_dw.operador" )
+ column=(type=char(50) update=yes updatewhereclause=yes name=campo2 dbname="parametrizo_dw.campo2" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=op2 dbname="parametrizo_dw.op2" )
+ column=(type=char(50) update=yes updatewhereclause=yes name=valor2 dbname="parametrizo_dw.valor2" )
+ column=(type=char(50) update=yes updatewhereclause=yes name=campo_dest dbname="parametrizo_dw.campo_dest" )
+ column=(type=char(50) update=yes updatewhereclause=yes name=propiedad dbname="parametrizo_dw.propiedad" )
+ column=(type=char(50) update=yes updatewhereclause=yes name=valor_dest dbname="parametrizo_dw.valor_dest" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=activo dbname="parametrizo_dw.activo" )
+ retrieve="  SELECT parametrizo_dw.id_regla,   
+         parametrizo_dw.dw,   
+         parametrizo_dw.campo1,   
+         parametrizo_dw.op1,   
+         parametrizo_dw.valor1,   
+         parametrizo_dw.operador,   
+         parametrizo_dw.campo2,   
+         parametrizo_dw.op2,   
+         parametrizo_dw.valor2,   
+         parametrizo_dw.campo_dest,   
+         parametrizo_dw.propiedad,   
+         parametrizo_dw.valor_dest,   
+         parametrizo_dw.activo  
+    FROM parametrizo_dw  
+   WHERE ( parametrizo_dw.dw = :dw ) AND  
+         ( parametrizo_dw.activo = 'S' ) AND  
+         ((parametrizo_dw.campo1 = :campo) OR  
+         (parametrizo_dw.campo2 = :campo))   
+            
+" update="parametrizo_dw" updatewhere=0 updatekeyinplace=no arguments=(("dw", string),("campo", string)) )
+text(band=header alignment="2" text="Campo1" border="0" color="0" x="5" y="4" height="64" width="1879"  name=campo1_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Valor1" border="0" color="0" x="1888" y="4" height="64" width="1879"  name=valor1_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Operador" border="0" color="0" x="3771" y="4" height="64" width="242"  name=operador_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Campo2" border="0" color="0" x="4018" y="4" height="64" width="1879"  name=campo2_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Valor2" border="0" color="0" x="5906" y="4" height="64" width="1879"  name=valor2_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Campo Dest" border="0" color="0" x="7790" y="4" height="64" width="1879"  name=campo_dest_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Activo" border="0" color="0" x="9673" y="4" height="64" width="160"  name=activo_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Valor Dest" border="0" color="0" x="9838" y="4" height="64" width="1879"  name=valor_dest_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="11717" y="0" height="76" width="320" format="[general]"  name=id_regla edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="12037" y="0" height="76" width="1600" format="[general]"  name=dw edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="13637" y="0" height="76" width="1600" format="[general]"  name=campo1 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="15237" y="0" height="76" width="320" format="[general]"  name=op1 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="15557" y="0" height="76" width="1600" format="[general]"  name=valor1 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="0" color="0" x="17157" y="0" height="76" width="160" format="[general]"  name=operador edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="0" x="17317" y="0" height="76" width="1600" format="[general]"  name=campo2 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+column(band=detail id=9 alignment="0" tabsequence=32766 border="0" color="0" x="18917" y="0" height="76" width="1600" format="[general]"  name=valor2 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="0" color="0" x="20517" y="0" height="76" width="320" format="[general]"  name=op2 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+column(band=detail id=10 alignment="0" tabsequence=32766 border="0" color="0" x="20837" y="0" height="76" width="1600" format="[general]"  name=campo_dest edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+column(band=detail id=11 alignment="0" tabsequence=32766 border="0" color="0" x="22437" y="0" height="76" width="1600" format="[general]"  name=propiedad edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+column(band=detail id=12 alignment="0" tabsequence=32766 border="0" color="0" x="24037" y="0" height="76" width="1600" format="[general]"  name=valor_dest edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+column(band=detail id=13 alignment="0" tabsequence=32766 border="0" color="0" x="25637" y="0" height="76" width="69" format="[general]"  name=activo edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

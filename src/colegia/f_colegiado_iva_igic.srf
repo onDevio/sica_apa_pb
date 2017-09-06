@@ -1,0 +1,21 @@
+HA$PBExportHeader$f_colegiado_iva_igic.srf
+global type f_colegiado_iva_igic from function_object
+end type
+
+forward prototypes
+global function double f_colegiado_iva_igic (string id_col)
+end prototypes
+
+global function double f_colegiado_iva_igic (string id_col);double iva_igic = 0
+ 
+SELECT colegiados.iva_igic  
+INTO :iva_igic  
+FROM colegiados  
+WHERE colegiados.id_colegiado = :id_col   ;
+
+if isnull(iva_igic) then iva_igic = 0
+
+return iva_igic
+
+end function
+

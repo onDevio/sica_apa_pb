@@ -1,0 +1,28 @@
+HA$PBExportHeader$f_colegiado_es_sociedad.srf
+global type f_colegiado_es_sociedad from function_object
+end type
+
+forward prototypes
+global function boolean f_colegiado_es_sociedad (string as_id_colegiado)
+end prototypes
+
+global function boolean f_colegiado_es_sociedad (string as_id_colegiado);
+
+///*Alexis. 01/02/2010. Funci$$HEX1$$f300$$ENDHEX$$n que se encarga de confirmar si un colegiado es realmente una sociedad. ****///
+boolean lb_es_sociedad
+int li_cantidad
+
+select count(*)  into :li_cantidad from colegiados 
+where id_colegiado = :as_id_colegiado
+and tipo_persona = 'S';
+
+if li_cantidad > 0 then
+	lb_es_sociedad = true
+else
+	lb_es_sociedad = false
+end if
+
+
+return lb_es_sociedad
+end function
+

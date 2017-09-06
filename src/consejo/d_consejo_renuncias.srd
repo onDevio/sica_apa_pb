@@ -1,0 +1,52 @@
+HA$PBExportHeader$d_consejo_renuncias.srd
+release 10.5;
+datawindow(units=0 timer_interval=0 color=82042848 processing=0 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes print.preview.outline=yes hidegrayline=no )
+header(height=0 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=56 color="536870912" )
+table(column=(type=char(14) updatewhereclause=yes name=fases_n_expedi dbname="fases.n_expedi" dbalias=".n_expedi" )
+ column=(type=datetime updatewhereclause=yes name=fases_renuncias_fecha dbname="fases_renuncias.fecha" dbalias=".fecha" )
+ column=(type=datetime updatewhereclause=yes name=fases_f_visado dbname="fases.f_visado" dbalias=".f_visado" )
+ column=(type=number updatewhereclause=yes name=fases_renuncias_porc_renuncia dbname="fases_renuncias.porc_renuncia" dbalias=".porc_renuncia" )
+ column=(type=long updatewhereclause=yes name=fases_finales_num_viv dbname="fases_finales.num_viv" dbalias=".num_viv" )
+ column=(type=number updatewhereclause=yes name=fases_colegiados_porcen_a dbname="fases_colegiados.porcen_a" dbalias=".porcen_a" )
+ column=(type=char(60) updatewhereclause=yes name=fases_archivo dbname="fases.archivo" dbalias=".archivo" )
+ column=(type=char(20) updatewhereclause=yes name=fases_n_contrato_ant dbname="fases.n_contrato_ant" dbalias=".n_contrato_ant" )
+ retrieve="    SELECT fases.n_expedi,   
+         fases_renuncias.fecha,   
+         fases.f_visado,   
+         fases_renuncias.porc_renuncia,   
+         fases_finales.num_viv,   
+         fases_colegiados.porcen_a,   
+         fases.archivo,   
+         fases.n_contrato_ant  
+    FROM fases_renuncias,   
+         fases,   
+         fases_finales,   
+         fases_colegiados  
+   WHERE ( fases_renuncias.id_fase *= fases.id_fase) and  
+         ( fases_renuncias.id_fase *= fases_finales.id_fase) and  
+         ( fases_renuncias.id_fase *= fases_colegiados.id_fase) and  
+         ( ( fases_renuncias.fecha >= :f_desde ) AND  
+         ( fases_renuncias.fecha <= :f_hasta ) )    
+" arguments=(("f_desde", datetime),("f_hasta", datetime)) )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="9" y="0" height="52" width="242" format="[general]" html.valueishtml="0"  name=fases_n_expedi visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="265" y="0" height="52" width="425" format="[shortdate] [time]" html.valueishtml="0"  name=fases_renuncias_fecha visible="1" edit.name="DD/MM/YY HH:MM:SS" editmask.mask="mm/dd/yy hh:mm:ss" editmask.focusrectangle=no  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="704" y="0" height="52" width="471" format="[shortdate] [time]" html.valueishtml="0"  name=fases_f_visado visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="1189" y="0" height="52" width="101" format="[General]" html.valueishtml="0"  name=fases_renuncias_porc_renuncia visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="1303" y="0" height="52" width="233" format="[general]" html.valueishtml="0"  name=fases_finales_num_viv visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="0" color="0" x="1536" y="0" height="56" width="1819" format="[general]" html.valueishtml="0"  name=fases_colegiados_porcen_a visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="0" x="3355" y="0" height="56" width="1381" format="[general]" html.valueishtml="0"  name=fases_archivo visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="0" color="0" x="4736" y="0" height="56" width="462" format="[general]" html.valueishtml="0"  name=fases_n_contrato_ant visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" pagingmethod=0 generatedddwframes="1" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()
+ 

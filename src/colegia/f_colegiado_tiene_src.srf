@@ -1,0 +1,19 @@
+HA$PBExportHeader$f_colegiado_tiene_src.srf
+global type f_colegiado_tiene_src from function_object
+end type
+
+forward prototypes
+global function string f_colegiado_tiene_src (string id_col)
+end prototypes
+
+global function string f_colegiado_tiene_src (string id_col);
+string tipo_alta
+
+tipo_alta = f_tipo_alta_src(id_col) 
+IF tipo_alta = 'S' OR  tipo_alta = 'O' then RETURN 'S'
+
+// Otro caso...
+RETURN 'N'
+
+end function
+

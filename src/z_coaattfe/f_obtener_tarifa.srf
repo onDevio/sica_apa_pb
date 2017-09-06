@@ -1,0 +1,18 @@
+HA$PBExportHeader$f_obtener_tarifa.srf
+global type f_obtener_tarifa from function_object
+end type
+
+forward prototypes
+global function string f_obtener_tarifa (string epigrafe, string tarifa)
+end prototypes
+
+global function string f_obtener_tarifa (string epigrafe, string tarifa);string descripcion
+
+select descripcion into :descripcion
+from ho_tarifas
+where cod_epigrafe = :epigrafe
+and cod_tarifa = :tarifa;
+
+return(descripcion)
+end function
+

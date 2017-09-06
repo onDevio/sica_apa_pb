@@ -1,0 +1,13 @@
+HA$PBExportHeader$f_busqueda_poblaciones.srf
+global type f_busqueda_poblaciones from function_object
+end type
+
+forward prototypes
+global function string f_busqueda_poblaciones ()
+end prototypes
+
+global function string f_busqueda_poblaciones ();open(w_busqueda_poblaciones)
+return Message.StringParm
+
+end function
+

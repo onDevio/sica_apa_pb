@@ -1,0 +1,23 @@
+HA$PBExportHeader$f_es_facturable_t_doc.srf
+global type f_es_facturable_t_doc from function_object
+end type
+
+forward prototypes
+global function boolean f_es_facturable_t_doc (string as_t_doc)
+end prototypes
+
+global function boolean f_es_facturable_t_doc (string as_t_doc);
+
+/// Funci$$HEX1$$f300$$ENDHEX$$n que indica si un tipo de documento concreto es facturable.
+
+	string ls_es_facturable
+	
+	select facturable into : ls_es_facturable from t_documentos where c_t_documentos = :as_t_doc;
+	
+	if ls_es_facturable = 'S' then
+		return true
+	else
+		return false
+	end if	
+end function
+

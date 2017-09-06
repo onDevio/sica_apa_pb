@@ -1,0 +1,31 @@
+HA$PBExportHeader$f_datos_segundo_colegiado.srf
+global type f_datos_segundo_colegiado from function_object
+end type
+
+forward prototypes
+global function string f_datos_segundo_colegiado (string id_fase, string id_colegiado)
+end prototypes
+
+global function string f_datos_segundo_colegiado (string id_fase, string id_colegiado);string nombre,apellidos,colegiado,nomape
+
+
+
+ DECLARE cur_col CURSOR FOR  
+  SELECT fases_colegiados.id_col  
+    FROM fases_colegiados
+	 WHERE id_fase = :id_fase
+	 and fases_colegiados.id_col <> :id_colegiado;
+OPEN cur_col;
+FETCH  cur_col into :colegiado;
+
+select nombre,apellidos into :nombre,:apellidos from colegiados where id_colegiado = :colegiado;
+
+if isnull(nombre) then nombre = ''
+if isnull(apellidos) then apellidos = ''
+
+
+nomape = nombre + ' ,' + apellidos
+
+return nomape
+end function
+

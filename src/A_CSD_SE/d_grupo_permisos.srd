@@ -1,0 +1,17 @@
+HA$PBExportHeader$d_grupo_permisos.srd
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=256 color="536870912" )
+table(column=(type=char(10) update=yes updatewhereclause=yes key=yes name=cod_grupo dbname="t_grupo_permisos.cod_grupo" )
+ column=(type=char(10) update=yes updatewhereclause=yes key=yes name=cod_aplicacion dbname="t_grupo_permisos.cod_aplicacion" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=permiso dbname="t_grupo_permisos.permiso" )
+ retrieve="PBSELECT( VERSION(400) TABLE(NAME=~"t_grupo_permisos~" ) COLUMN(NAME=~"t_grupo_permisos.cod_grupo~") COLUMN(NAME=~"t_grupo_permisos.cod_aplicacion~") COLUMN(NAME=~"t_grupo_permisos.permiso~")WHERE(    EXP1 =~"t_grupo_permisos.cod_grupo~"   OP =~"=~"    EXP2 =~":cod_grupo~" ) ) ARG(NAME = ~"cod_grupo~" TYPE = string) " update="t_grupo_permisos" updatewhere=0 updatekeyinplace=no arguments=(("cod_grupo", string)) )
+text(band=detail alignment="1" text="Cod Grupo:" border="0" color="0" x="37" y="4" height="64" width="416"  name=cod_grupo_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="471" y="4" height="64" width="238" format="[general]"  name=cod_grupo  tag=" " edit.limit=10 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Cod Aplicacion:" border="0" color="0" x="37" y="128" height="64" width="416"  name=cod_aplicacion_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="471" y="128" height="64" width="238" format="[general]"  name=cod_aplicacion  tag=" " edit.limit=10 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=0 border="0" color="0" x="709" y="0" height="64" width="69"  name=permiso  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

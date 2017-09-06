@@ -1,0 +1,29 @@
+HA$PBExportHeader$f_rellena_configuracion_sello.srf
+global type f_rellena_configuracion_sello from function_object
+end type
+
+forward prototypes
+global function st_sello f_rellena_configuracion_sello (ref u_dw dw, st_sello sello)
+end prototypes
+
+global function st_sello f_rellena_configuracion_sello (ref u_dw dw, st_sello sello);// Establecemos los parametros de configuracion avanzada del sello: 
+//  - posicion en el documento (pdf, doc, ...)
+//  - margen 
+//  - posicion libre, en el caso de no escoger entre SI, SD, ID, II 
+
+sello.posicion = dw.GetItemString(1, 'posicion')
+
+if sello.posicion = "L" then 
+ sello.x = dw.GetItemDecimal(1, 'x')
+ sello.y = dw.GetItemDecimal(1, 'y')
+else
+ dw.SetItem(1,'x',"")
+ dw.SetItem(1,'y',"")
+end if
+
+sello.margen_v = dw.GetItemDecimal(1, 'margen_vertical')
+sello.margen_h = dw.GetItemDecimal(1, 'margen_horizontal')
+
+return sello
+end function
+

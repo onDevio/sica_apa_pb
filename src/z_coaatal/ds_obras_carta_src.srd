@@ -1,0 +1,57 @@
+HA$PBExportHeader$ds_obras_carta_src.srd
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 1 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=72 color="536870912"  height.autosize=yes)
+table(column=(type=char(14) updatewhereclause=yes name=fases_n_expedi dbname="fases.n_expedi" )
+ column=(type=char(11) updatewhereclause=yes name=fases_n_registro dbname="fases.n_registro" )
+ column=(type=char(2) updatewhereclause=yes name=fases_tipo_via_emplazamiento dbname="fases.tipo_via_emplazamiento" )
+ column=(type=char(255) updatewhereclause=yes name=fases_emplazamiento dbname="fases.emplazamiento" )
+ column=(type=char(30) updatewhereclause=yes name=fases_n_calle dbname="fases.n_calle" )
+ column=(type=char(6) updatewhereclause=yes name=fases_poblacion dbname="fases.poblacion" )
+ column=(type=char(60) updatewhereclause=yes name=poblaciones_descripcion dbname="poblaciones.descripcion" )
+ column=(type=char(15) updatewhereclause=yes name=clientes_nif dbname="clientes.nif" )
+ column=(type=char(80) updatewhereclause=yes name=clientes_apellidos dbname="clientes.apellidos" )
+ column=(type=char(50) updatewhereclause=yes name=clientes_nombre dbname="clientes.nombre" )
+ column=(type=char(10) updatewhereclause=yes name=fases_id_fase dbname="fases.id_fase" )
+ column=(type=datetime updatewhereclause=yes name=fases_f_entrada dbname="fases.f_entrada" )
+ retrieve="  SELECT DISTINCT 
+			fases.n_expedi,
+			fases.n_registro,   
+         fases.tipo_via_emplazamiento,   
+         fases.emplazamiento,   
+         fases.n_calle,   
+         fases.poblacion,   
+         poblaciones.descripcion,   
+         clientes.nif,   
+         clientes.apellidos,   
+         clientes.nombre,
+			fases.id_fase ,
+			fases.f_entrada
+    FROM fases,   
+         poblaciones,   
+         fases_colegiados,   
+         fases_clientes,   
+         clientes  
+   WHERE NOT EXISTS (SELECT id_fase  FROM musaat_movimientos where musaat_movimientos.id_fase = fases.id_fase) and
+			( fases.poblacion = poblaciones.cod_pob ) and  
+         ( fases.id_fase = fases_colegiados.id_fase ) and  
+         ( fases.id_fase = fases_clientes.id_fase ) and  
+         ( fases_clientes.id_cliente = clientes.id_cliente ) and
+			( fases.estado not in ('00', '06')) and
+			( fases_colegiados.id_col = :id_colegiado ) and
+			( fases.f_entrada >= :f_desde ) and
+			( fases.f_entrada < :f_hasta )
+         
+" filter="  fases_n_expedi <> f_numero_expediente_basura ()" arguments=(("id_colegiado", string),("f_desde", datetime),("f_hasta", datetime))  sort="fases_id_fase A " )
+compute(band=detail alignment="0" expression="if (isnull( clientes_nombre ),'', clientes_nombre +' ' ) + if(isnull( clientes_apellidos) ,'',  clientes_apellidos  )"border="0" color="0" x="27" y="8" height="56" width="937" format="[GENERAL]"  name=cliente  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824"  height.autosize=yes)
+compute(band=detail alignment="0" expression="if ( isnull( fases_tipo_via_emplazamiento ) or fases_tipo_via_emplazamiento = '', '', fases_tipo_via_emplazamiento + '/ ' ) +   
+if ( isnull( fases_emplazamiento ) or fases_emplazamiento = '', '', fases_emplazamiento ) +   
+if ( isnull( fases_n_calle ) or fases_n_calle = '', '', ', ' + fases_n_calle  ) +   
+' Poblaci$$HEX1$$f300$$ENDHEX$$n de ' + poblaciones_descripcion  "border="0" color="0" x="987" y="8" height="56" width="1138" format="[GENERAL]"  name=emplazamiento  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824"  height.autosize=yes)
+compute(band=detail alignment="0" expression=" fases_n_registro + ~" Fecha: ~" +  string ( fases_f_entrada , ~"dd/mm/yyyy~" ) + ~" Prop: ~" +   cliente + ~" en ~" +   emplazamiento "border="0" color="0" x="2149" y="8" height="56" width="1591" format="[GENERAL]"  name=datos_obra  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="4763" y="0" height="56" width="325" format="[general]"  name=fases_n_expedi edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+line(band=footer x1="119" y1="220" x2="256" y2="220"  name=l_1 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="1073741824" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

@@ -1,0 +1,23 @@
+HA$PBExportHeader$f_dame_numero_expedi.srf
+global type f_dame_numero_expedi from function_object
+end type
+
+forward prototypes
+global function string f_dame_numero_expedi (string id_expedi)
+end prototypes
+
+global function string f_dame_numero_expedi (string id_expedi);// dado el id_expedi dev. el num. de expedi
+string n_expedi
+
+SELECT n_expedi INTO :n_expedi
+	FROM expedientes WHERE id_expedi = :id_expedi ;
+	
+if f_es_vacio(n_expedi) then n_expedi = ''
+
+return n_expedi
+
+
+
+
+end function
+

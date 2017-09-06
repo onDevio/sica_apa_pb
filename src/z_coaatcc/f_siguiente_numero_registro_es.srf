@@ -1,0 +1,88 @@
+HA$PBExportHeader$f_siguiente_numero_registro_es.srf
+global type f_siguiente_numero_registro_es from function_object
+end type
+
+forward prototypes
+global function string f_siguiente_numero_registro_es (string serie, integer longitud)
+end prototypes
+
+global function string f_siguiente_numero_registro_es (string serie, integer longitud);double i
+
+// Conectamos y desconectamos el objeto transaccion...
+
+SQLCA.AUTOCOMMIT = FALSE;
+execute immediate 'BEGIN transaction' USING SQLCA;
+
+//Cambio 31/12/2003
+//execute immediate 'lock table contadores in exclusive mode'; // No funciona
+
+// Hacemos primero el update porque bloquea la tabla y no permite acceder a ella desde otra transacci$$HEX1$$f300$$ENDHEX$$n
+//UPDATE registro_series SET contador=contador+1 WHERE codigo = :serie and (cod_delegacion=:g_cod_delegacion or cod_delegacion='%') USING SQLCA;
+
+IF SQLCA.sqlcode <> 0 then 
+	
+	string cadena[]
+	cadena[1]=serie
+	cadena[2]=SQLCA.sqlerrtext
+	//Messagebox(g_titulo,'Ha ocurrido un error con el contador: '+serie+ cr +SQLCA.sqlerrtext)
+	Messagebox(g_titulo,g_idioma.of_getmsg('msg_entsal.error_contador_serie',cadena[],'Ha ocurrido un error con el contador: ' + serie + SQLCA.sqlerrtext )+ cr)// +g_idioma.of_getmsg('msg_entsal.error_contador_sql',cadena[2]))
+		
+END IF
+
+SELECT contador INTO :i FROM registro_series WHERE codigo = :serie and (cod_delegacion=:g_cod_delegacion or cod_delegacion='%') USING SQLCA;
+
+i=i+1
+
+execute immediate 'COMMIT transaction' USING SQLCA;
+
+COMMIT using SQLCA;
+
+SQLCA.AUTOCOMMIT = TRUE;
+
+return RightA('0000000000000000000000'+string(i),longitud)
+
+
+/*
+// Comentado el 11/02/05
+double i
+// 12/5/03, Probamos a controlar Manualmente el AutoCommit para la Transacci$$HEX1$$f300$$ENDHEX$$n en esta funci$$HEX1$$f300$$ENDHEX$$n 
+//				para evitar duplicados en el uso de la tabla Contadores.
+SQLCA.AUTOCOMMIT = FALSE;
+
+execute immediate 'BEGIN transaction';
+
+// Cambio 19/06/03
+execute immediate 'lock table contadores in exclusive mode';
+
+  SELECT valor  INTO :i FROM contadores   WHERE contador = :contador   ;
+
+i++
+
+update contadores set valor=:i	WHERE contador=:contador;
+
+//19/06/03
+// si no ha podido obtener el valor del Contador, avisamos por pantalla 
+if SQLCA.sqlcode <> 0 then 	MessageBox(g_titulo,'Ha habido un problema al generar el siguiente contador('+contador+'):' +cr+SQLCA.sqlerrtext)
+
+execute immediate 'COMMIT transaction';
+COMMIT using sqlca;
+
+SQLCA.AUTOCOMMIT = TRUE;
+	
+return right('0000000000000000000000'+string(i),longitud)
+*/
+
+//Effects on Applications
+//If applications in previous versions rely on the acquisition of the table-level exclusive lock to avoid deadlocks, these applications may see increased deadlocks in 11.9.2. If increased deadlocking occurs, use the lock table command to acquire the exclusive table lock. In the following transaction, the lock table command acquires an exclusive table lock before the update command:
+//
+//begin transaction
+//lock table titles in exclusive mode
+//update titles 
+//set price = price * 1.05 
+//where type = "business"
+//See Chapter 7, "New Locking Commands" in New Functionality in Adaptive Server Enterprise 11.9.2.
+
+
+	
+end function
+

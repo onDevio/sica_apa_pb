@@ -1,0 +1,44 @@
+HA$PBExportHeader$f_colegiados_conceptos_remesables.srf
+$PBExportComments$Dado un colegiado obtiene sus datos de la tabla conceptos remesables
+global type f_colegiados_conceptos_remesables from function_object
+end type
+
+forward prototypes
+global subroutine f_colegiados_conceptos_remesables (string id_col, ref string forma_de_pago, ref string datos_bancarios, ref string nombre_banco)
+end prototypes
+
+global subroutine f_colegiados_conceptos_remesables (string id_col, ref string forma_de_pago, ref string datos_bancarios, ref string nombre_banco);//Esta funci$$HEX1$$f300$$ENDHEX$$n establece los par$$HEX1$$e100$$ENDHEX$$metros que se le pasan por referencia con el valor
+//que le corresponde al colegiado indicado por ID_COL
+
+string forma_pago_aux
+datastore ds_conc_remesables
+
+ds_conc_remesables = create datastore
+ds_conc_remesables.dataobject ='d_colegiados_conceptos_remesables'
+ds_conc_remesables.SetTransObject(SQLCA)
+
+ds_conc_remesables.Retrieve(id_col)
+
+if ds_conc_remesables.rowcount() > 0 then
+	forma_pago_aux = ds_conc_remesables.getitemstring(1, 'forma_de_pago')
+	
+	CHOOSE CASE forma_pago_aux
+		CASE 'TA'
+			forma_de_pago = 'Cheque, tal$$HEX1$$f300$$ENDHEX$$n'
+		CASE 'TR'
+			forma_de_pago = 'Transferencia'
+		CASE ELSE
+			forma_de_pago = ''
+	END CHOOSE
+	
+	datos_bancarios = ds_conc_remesables.getitemstring(1, 'datos_bancarios_iban')
+	nombre_banco = ds_conc_remesables.getitemstring(1, 'nombre_banco')
+end if
+
+if f_es_vacio(forma_de_pago) then forma_de_pago = ''
+if f_es_vacio(datos_bancarios) then datos_bancarios = ''
+if f_es_vacio(nombre_banco) then nombre_banco = ''
+
+destroy ds_conc_remesables
+end subroutine
+

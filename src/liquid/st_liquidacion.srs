@@ -1,0 +1,22 @@
+HA$PBExportHeader$st_liquidacion.srs
+global type st_liquidacion from structure
+	string		id_liquidacion
+	string		id_fase
+	string		id_minuta
+	datetime		f_liquidacion
+	string		estado
+	string		contabilizada
+	string		forma_pago
+	string		banco
+	double		importe_suma
+	double		importe_resta
+	double		importe
+	string		id_col
+	string		n_documento
+	string		concepto
+	string		tipo
+	datetime		f_entrada
+	string		tipo_factura
+	string		id_factura
+end type
+

@@ -1,0 +1,59 @@
+HA$PBExportHeader$d_reclamaciones_fact_prof_lista.srd
+release 10.5;
+datawindow(units=0 timer_interval=0 color=67108864 processing=1 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=no print.preview.outline=yes hidegrayline=no grid.lines=0 )
+header(height=68 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=72 color="536870912" )
+table(column=(type=char(10) update=yes updatewhereclause=yes key=yes name=id_reclamacion_factura dbname="csi_fact_reclamaciones.id_reclamacion_factura" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=id_factura dbname="csi_fact_reclamaciones.id_factura" )
+ column=(type=datetime update=yes updatewhereclause=yes name=f_reclamacion dbname="csi_fact_reclamaciones.f_reclamacion" )
+ column=(type=char(2) update=yes updatewhereclause=yes name=tipo_reclamacion dbname="csi_fact_reclamaciones.tipo_reclamacion" )
+ column=(type=char(15) updatewhereclause=yes name=n_fact dbname="csi_facturas_emitidas.n_fact" )
+ column=(type=datetime updatewhereclause=yes name=fecha dbname="csi_facturas_emitidas.fecha" )
+ column=(type=char(40) updatewhereclause=yes name=nombre dbname="csi_facturas_emitidas.nombre" )
+ column=(type=char(1) updatewhereclause=yes name=tipo_persona dbname="csi_facturas_emitidas.tipo_persona" values="Colegiado	C/Cliente	P/" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=id_grupo dbname="csi_fact_reclamaciones.id_grupo" )
+ retrieve="  SELECT csi_fact_reclamaciones.id_reclamacion_factura,   
+         csi_fact_reclamaciones.id_factura,
+		csi_fact_reclamaciones.f_reclamacion,   
+         csi_fact_reclamaciones.tipo_reclamacion,   
+         csi_facturas_emitidas.n_fact,   
+         csi_facturas_emitidas.fecha,   
+         csi_facturas_emitidas.nombre,   
+         csi_facturas_emitidas.tipo_persona,   
+         csi_fact_reclamaciones.id_grupo  
+    FROM csi_fact_reclamaciones,   
+         csi_facturas_emitidas  
+   WHERE ( csi_fact_reclamaciones.id_factura = csi_facturas_emitidas.id_factura )    
+" update="csi_fact_reclamaciones" updatewhere=1 updatekeyinplace=no  sort="nombre A tipo_reclamacion A " )
+group(level=1 header.height=0 trailer.height=0 by=("nombre" ) header.color="536870912" trailer.color="536870912"  sort="nombre A f_reclamacion A " )
+group(level=2 header.height=0 trailer.height=0 by=("id_grupo" , "compute_1" ) header.color="536870912" trailer.color="536870912"  sort="id_grupo A " )
+text(band=header alignment="2" text="F. Emisi$$HEX1$$f300$$ENDHEX$$n" border="6" color="0" x="1769" y="8" height="52" width="443" html.valueishtml="0"  name=fecha_t visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="80269524" )
+text(band=header alignment="2" text="Nombre" border="6" color="0" x="2222" y="8" height="52" width="1070" html.valueishtml="0"  name=nombre_t visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="80269524" )
+text(band=header alignment="2" text="Tipo Persona" border="6" color="0" x="3301" y="8" height="52" width="361" html.valueishtml="0"  name=tipo_persona_t visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="80269524" )
+text(band=header alignment="2" text="Tipo Reclamaci$$HEX1$$f300$$ENDHEX$$n" border="6" color="0" x="530" y="8" height="52" width="713" html.valueishtml="0"  name=tipo_reclamacion_t visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="80269524" )
+text(band=header alignment="2" text="N$$HEX2$$ba002000$$ENDHEX$$Factura" border="6" color="0" x="1253" y="8" height="52" width="507" html.valueishtml="0"  name=n_fact_t visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="80269524" )
+text(band=header alignment="2" text="F.Reclamacion" border="6" color="0" x="9" y="8" height="52" width="352" html.valueishtml="0"  name=f_reclamacion_t visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="67108864" )
+column(band=detail id=9 alignment="0" tabsequence=32766 border="0" color="0" x="384" y="80" height="52" width="9" format="[general]" html.valueishtml="0"  name=id_grupo visible="0" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+compute(band=detail alignment="0" expression="if(f_reclamacion_agrupada( tipo_reclamacion ),id_grupo,id_factura)"border="0" color="0" x="3671" y="128" height="52" width="5" format="[GENERAL]" html.valueishtml="0"  name=compute_1 visible="0"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+compute(band=detail alignment="0" expression="getrow()"border="0" color="0" x="370" y="128" height="52" width="5" format="[GENERAL]" html.valueishtml="0"  name=compute_2 visible="0"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+button(band=detail text="Pre-Visualizar" enabled=yes action="0" border="0" color="0" x="3694" y="4" height="68" width="338" vtextalign="0" htextalign="0"  name=b_visualizar visible="1"  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="67108864" )
+button(band=detail text="" filename="./imagenes/csd_imprimir.gif" enabled=yes action="0" border="0" color="0" x="4041" y="4" height="68" width="96" vtextalign="0" htextalign="0"  name=b_imprimir visible="1"  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="67108864" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="0" color="0" x="3301" y="4" height="72" width="361" format="[general]" html.valueishtml="0"  name=tipo_persona visible="1" ddlb.limit=0 ddlb.allowedit=no ddlb.case=any  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="9" y="4" height="72" width="352" format="[shortdate] [time]" html.valueishtml="0"  name=f_reclamacion visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="530" y="4" height="72" width="713" format="[general]" html.valueishtml="0"  name=tipo_reclamacion visible="1" dddw.name=d_dddw_reclamaciones_tipos dddw.displaycolumn=descripcion dddw.datacolumn=tipo_reclamacion dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="1253" y="4" height="72" width="507" format="[general]" html.valueishtml="0"  name=n_fact visible="1" edit.limit=15 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="0" color="0" x="1769" y="4" height="72" width="443" format="dd/mm/yyyy" html.valueishtml="0"  name=fecha visible="1" edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="0" x="2222" y="4" height="72" width="1070" format="[general]" html.valueishtml="0"  name=nombre visible="1" edit.limit=40 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" pagingmethod=0 generatedddwframes="1" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()
+ 

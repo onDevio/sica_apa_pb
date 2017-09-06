@@ -1,0 +1,20 @@
+HA$PBExportHeader$funcion_aplica_minimos_facturacion.srf
+global type funcion_aplica_minimos_facturacion from function_object
+end type
+
+forward prototypes
+global function string funcion_aplica_minimos_facturacion ()
+end prototypes
+
+global function string funcion_aplica_minimos_facturacion ();string resultado 
+
+select sn into :resultado from var_globales where nombre = 'calcular_minimo_en_participacion_individual' using sqlca;
+
+if f_es_vacio( resultado ) then
+	return 'N'
+else
+	return resultado
+end if	
+	
+end function
+

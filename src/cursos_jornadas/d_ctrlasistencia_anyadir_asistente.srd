@@ -1,0 +1,19 @@
+HA$PBExportHeader$d_ctrlasistencia_anyadir_asistente.srd
+release 7;
+datawindow(units=0 timer_interval=0 color=80269524 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=80 color="536870912" )
+table(column=(type=char(10) updatewhereclause=yes name=id_asistente dbname="formacion_asistentes.id_asistente" )
+ retrieve="  SELECT fas.id_asistente  
+    FROM formacion_asistentes fas,   
+         formacion_asist_fecha faf  
+   WHERE ( fas.id_curso = faf.id_curso ) and  
+         ( ( faf.id_asistencia_fecha = :id_asistencia_fecha ) AND  
+			fas.n_lista_espera=0 and
+         ( fas.id_asistente not in (select id_asistente from formacion_ctrl_asistencia where id_asistencia_fecha=faf.id_asistencia_fecha) ) )    
+" arguments=(("id_asistencia_fecha", string)) )
+column(band=detail id=1 alignment="0" tabsequence=10 border="5" color="0" x="2272" y="8" height="64" width="270" format="[general]"  name=id_asistente visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="0" expression="f_nombre_asistente( id_asistente ) "border="0" color="0" x="14" y="8" height="60" width="1330" format="[GENERAL]"  name=compute_1  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

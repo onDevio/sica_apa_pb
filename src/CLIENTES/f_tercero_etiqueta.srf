@@ -1,0 +1,66 @@
+HA$PBExportHeader$f_tercero_etiqueta.srf
+global type f_tercero_etiqueta from function_object
+end type
+
+forward prototypes
+global function string f_tercero_etiqueta (string id_cli)
+end prototypes
+
+global function string f_tercero_etiqueta (string id_cli);string datos_cliente = ''
+string apell, nomb,nif, tipo_via, nombre_via, cod_pob, cp = '', poblacion = '', provincia = '', cod_prov
+string datos_via = '', datos_pob = ''
+
+select apellidos, nombre,nif,tipo_via, nombre_via, cod_pob, cp, cod_prov
+into :apell, :nomb, :nif, :tipo_via, :nombre_via, :cod_pob, :cp, :cod_prov
+from clientes 
+where id_cliente=:id_cli;
+
+if f_es_vacio(nomb) then 
+	nomb=''
+else
+	nomb = nomb + '' + cr
+end if
+
+if f_es_vacio(apell) then 
+	apell=''
+else
+	apell = apell + cr
+end if
+
+if f_es_vacio(tipo_via) then 
+	tipo_via=''
+else
+	tipo_via = f_dame_desc_tipo_via(tipo_via) + ' '
+end if
+
+if f_es_vacio(nombre_via) then 
+	nombre_via=''
+end if
+
+if f_es_vacio(cod_pob) then
+	datos_pob = ''
+else
+//	cp = f_devuelve_cod_postal(cod_pob) + ' '
+	cp = cp  + ' '
+	poblacion = f_dame_poblacion(cod_pob) + ' '
+//	provincia = f_devuelve_cod_provincia(cod_pob)
+	provincia = f_nombre_provincia(cod_prov)
+end if
+
+datos_cliente = nomb + apell 
+datos_via = tipo_via + nombre_via + cr
+if trim(poblacion) = trim(provincia) then provincia = '' // No repetir cuando la poblacion y la provincia es la misma
+datos_pob = cp + poblacion + provincia 
+
+if(f_es_vacio(datos_pob))then
+	datos_pob = ''
+end if
+
+
+datos_cliente += datos_via
+datos_cliente += datos_pob
+
+return datos_cliente
+
+end function
+

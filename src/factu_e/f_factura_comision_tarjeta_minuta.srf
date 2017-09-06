@@ -1,0 +1,48 @@
+HA$PBExportHeader$f_factura_comision_tarjeta_minuta.srf
+global type f_factura_comision_tarjeta_minuta from function_object
+end type
+
+forward prototypes
+global subroutine f_factura_comision_tarjeta_minuta (datastore ds_lineas_factura, st_facturas datos_factura)
+end prototypes
+
+global subroutine f_factura_comision_tarjeta_minuta (datastore ds_lineas_factura, st_facturas datos_factura);// Funci$$HEX1$$f300$$ENDHEX$$n que a$$HEX1$$f100$$ENDHEX$$ade una l$$HEX1$$ed00$$ENDHEX$$nea a la factura con la comisi$$HEX1$$f300$$ENDHEX$$n de la tarjeta
+// Para facturas no creadas anteriormente
+string id_informe, id_fase, id_linea, tipo
+double imp_comision, iva, total
+datastore ds_lineas
+
+ds_lineas = datos_factura.ds_lineas
+
+ds_lineas_factura.insertrow(0)
+
+id_linea=f_siguiente_numero('LINEA_FEMI', 10)	
+
+ds_lineas_factura.SetItem(ds_lineas_factura.RowCount(),'id_factura',id_informe)
+ds_lineas_factura.SetItem(ds_lineas_factura.RowCount(),'id_linea',id_linea)
+ds_lineas_factura.SetItem(ds_lineas_factura.RowCount(),'id_fase',id_fase)
+ds_lineas_factura.SetItem(ds_lineas_factura.RowCount(),'articulo', g_codigos_conceptos.comision_tarjeta)	
+ds_lineas_factura.SetItem(ds_lineas_factura.RowCount(),'unidades', 1)
+ds_lineas_factura.SetItem(ds_lineas_factura.RowCount(),'porcent_dto',0)
+ds_lineas_factura.SetItem(ds_lineas_factura.RowCount(),'importe_dto',0)
+ds_lineas_factura.SetItem(ds_lineas_factura.RowCount(),'centro',f_devuelve_centro(g_cod_delegacion))
+ds_lineas_factura.SetItem(ds_lineas_factura.RowCount(),'proyecto',g_explotacion_por_defecto)
+ds_lineas_factura.SetItem(ds_lineas_factura.RowCount(),'id_persona',datos_factura.id_emisor)
+ds_lineas_factura.SetItem(ds_lineas_factura.RowCount(),'tipo_persona',tipo)
+ds_lineas_factura.SetItem(ds_lineas_factura.RowCount(),'fecha',datos_factura.fecha)
+ds_lineas_factura.SetItem(ds_lineas_factura.RowCount(),'descripcion', f_devuelve_desc_concepto(g_codigos_conceptos.comision_tarjeta))
+
+total = ds_lineas.getitemnumber(ds_lineas.rowcount(), 'total_fact')
+imp_comision = f_redondea(total * datos_factura.comision_tarjeta / 100)
+iva = f_aplica_t_iva(imp_comision, f_csi_articulos_servicios_t_iva(g_codigos_conceptos.comision_tarjeta,g_empresa))
+
+total = total + imp_comision + iva
+
+ds_lineas_factura.SetItem(ds_lineas_factura.RowCount(),'precio', imp_comision)
+ds_lineas_factura.SetItem(ds_lineas_factura.RowCount(),'subtotal', imp_comision)
+ds_lineas_factura.SetItem(ds_lineas_factura.RowCount(),'t_iva', f_csi_articulos_servicios_t_iva(g_codigos_conceptos.comision_tarjeta,g_empresa))
+ds_lineas_factura.SetItem(ds_lineas_factura.RowCount(),'subtotal_iva', iva)
+ds_lineas_factura.SetItem(ds_lineas_factura.RowCount(),'total', imp_comision + iva)
+
+end subroutine
+

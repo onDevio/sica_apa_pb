@@ -1,0 +1,28 @@
+HA$PBExportHeader$f_dame_cuenta_pago_colegiado.srf
+global type f_dame_cuenta_pago_colegiado from function_object
+end type
+
+forward prototypes
+global function string f_dame_cuenta_pago_colegiado (string id_col)
+end prototypes
+
+global function string f_dame_cuenta_pago_colegiado (string id_col);  //Devuelve la cuenta de pago del colegiado
+  string cuenta_bancaria 
+  
+  SELECT conceptos_remesables.datos_bancarios_iban  
+  INTO :cuenta_bancaria
+  FROM conceptos_remesables  
+  WHERE ( conceptos_remesables.forma_de_pago = 'TR' ) AND  
+              ( conceptos_remesables.id_colegiado = :id_col )   ;
+
+
+if isnull(cuenta_bancaria) then  
+	cuenta_bancaria = ''
+else
+	cuenta_bancaria = gnv_control_cuentas_bancarias.of_obtener_cuenta_sin_iban(cuenta_bancaria)
+end if
+
+return cuenta_bancaria
+
+end function
+

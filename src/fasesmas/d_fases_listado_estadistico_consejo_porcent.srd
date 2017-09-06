@@ -1,0 +1,39 @@
+HA$PBExportHeader$d_fases_listado_estadistico_consejo_porcent.srd
+release 10.5;
+datawindow(units=0 timer_interval=0 color=1073741824 processing=0 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes print.preview.outline=yes hidegrayline=no )
+header(height=92 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=0 color="536870912" )
+table(column=(type=char(10) updatewhereclause=yes name=fases_id_fase dbname="fases.id_fase" )
+ column=(type=char(3) updatewhereclause=yes name=t_fases_c_t_fase dbname="t_fases.c_t_fase" )
+ column=(type=char(60) updatewhereclause=yes name=t_fases_d_t_descripcion dbname="t_fases.d_t_descripcion" )
+ retrieve="  SELECT DISTINCT fases.id_fase,
+		t_fases.c_t_fase,   
+         t_fases.d_t_descripcion  
+    FROM fases,   
+         expedientes,   
+         t_fases  
+   WHERE ( fases.id_expedi = expedientes.id_expedi ) and  
+         ( t_fases.c_t_fase = fases.fase )  
+        
+" )
+group(level=1 header.height=160 trailer.height=0 by=("t_fases_c_t_fase" ) header.color="536870912" trailer.color="536870912" )
+text(band=header alignment="1" text="Tipo de actuaci$$HEX1$$f300$$ENDHEX$$n del expediente cerrado:" border="0" color="33554432" x="96" y="12" height="64" width="1102" html.valueishtml="0"  name=expedientes_tipo_trabajo_t visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="1" text="Porcentaje" border="0" color="33554432" x="2107" y="12" height="60" width="302" html.valueishtml="0"  name=t_1 visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=header.1 id=2 alignment="0" tabsequence=32766 border="0" color="0" x="123" y="16" height="76" width="96" format="[general]" html.valueishtml="0"  name=t_fases_c_t_fase visible="1"  resizeable=1 edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="1" background.mode="2" background.color="1090519039" )
+column(band=header.1 id=3 alignment="0" tabsequence=32766 border="0" color="0" x="270" y="16" height="76" width="1920" format="[general]" html.valueishtml="0"  name=t_fases_d_t_descripcion visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="1" background.mode="2" background.color="1090519039" )
+compute(band=header.1 alignment="0" expression="(count( fases_id_fase   for group 1 )) / count(  fases_id_fase  for all )"border="0" color="33554432" x="2208" y="20" height="64" width="215" format="0%" html.valueishtml="0"  name=compute_1 visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="1" background.mode="1" background.color="536870912" )
+text(band=header.1 alignment="1" text="De los expedientes cerrados en el a$$HEX1$$f100$$ENDHEX$$o" border="0" color="33554432" x="2441" y="20" height="60" width="992" html.valueishtml="0"  name=t_2 visible="0"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="133" y="32" height="60" width="270" format="[general]" html.valueishtml="0"  name=fases_id_fase visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="1" background.mode="2" background.color="1090519039" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" pagingmethod=0 generatedddwframes="1" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()
+ 

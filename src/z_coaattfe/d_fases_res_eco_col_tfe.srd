@@ -1,0 +1,60 @@
+HA$PBExportHeader$d_fases_res_eco_col_tfe.srd
+$PBExportComments$Datastore para sumar por colegiado. Se usa en los impresos desde fases... es necesario pasarle el id_fase y el id_colegiado
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=68 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=68 color="536870912" )
+table(column=(type=number updatewhereclause=yes name=total_honos dbname="total_honos" )
+ column=(type=number updatewhereclause=yes name=total_iva_honos dbname="total_iva_honos" )
+ column=(type=number updatewhereclause=yes name=total_desplaza dbname="total_desplaza" )
+ column=(type=number updatewhereclause=yes name=total_iva_desplaza dbname="total_iva_desplaza" )
+ column=(type=number updatewhereclause=yes name=total_irpf dbname="total_irpf" )
+ column=(type=number updatewhereclause=yes name=total_dv dbname="total_dv" )
+ column=(type=number updatewhereclause=yes name=total_iva_dv dbname="total_iva_dv" )
+ column=(type=number updatewhereclause=yes name=total_cip dbname="total_cip" )
+ column=(type=number updatewhereclause=yes name=total_iva_cip dbname="total_iva_cip" )
+ column=(type=number updatewhereclause=yes name=total_musaat dbname="total_musaat" )
+ column=(type=number updatewhereclause=yes name=total_cobro_a_cuenta dbname="total_cobro_a_cuenta" )
+ retrieve="select   sum(base_honos) as total_honos,
+		 sum(iva_honos) as total_iva_honos,
+         	 sum(base_desplaza) as total_desplaza,   
+         	 sum(iva_desplaza) as total_iva_desplaza,
+         	 sum(importe_irpf)  as total_irpf,
+    	        sum(fases_minutas.base_dv) as total_dv,   
+               sum(fases_minutas.iva_dv) as total_iva_dv,  
+    	        sum(fases_minutas.base_cip) as total_cip,   
+               sum(fases_minutas.iva_cip) as total_iva_cip,  
+    	        sum(fases_minutas.base_musaat) as total_musaat,
+    	        sum(fases_minutas.cobro_a_cuenta) as total_cobro_a_cuenta
+		from fases_minutas
+		where id_fase = :id_fase and 
+				fases_minutas.id_colegiado = :id_colegiado and 
+				anulada <> 'S'" arguments=(("id_fase", string),("id_colegiado", string)) )
+text(band=header alignment="2" text="Total" border="4" color="0" x="2633" y="4" height="56" width="306"  name=total_final_t  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Total Gastos" border="4" color="0" x="2345" y="4" height="56" width="274"  name=total_gastos_t  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Total Honor." border="4" color="0" x="2066" y="4" height="56" width="265"  name=total_honorarios_t  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="SRC" border="4" color="0" x="1865" y="4" height="56" width="187"  name=total_musaat_t  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="IGIC CIP" border="4" color="0" x="1673" y="4" height="56" width="178"  name=total_iva_cip_t  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="CIP" border="4" color="0" x="1472" y="4" height="56" width="187"  name=total_cip_t  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="IGIC Despl." border="4" color="0" x="745" y="4" height="56" width="251"  name=total_iva_desplaza_t  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Desplaz." border="4" color="0" x="517" y="4" height="56" width="215"  name=total_desplaza_t  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="IGIC Hon." border="4" color="0" x="288" y="4" height="56" width="215"  name=iva_honos_t  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Honorarios" border="4" color="0" x="18" y="4" height="56" width="256"  name=total_honos_t  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="1" expression=" total_honorarios + total_gastos "border="0" color="0" x="2633" y="4" height="56" width="306" format="#,##0.00"  name=total_final  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="1" expression="/* total_dv + total_iva_dv +*/ total_cip + total_iva_cip + total_musaat "border="0" color="0" x="2345" y="4" height="56" width="274" format="#,##0.00"  name=total_gastos  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="1" expression=" total_honos + total_iva_honos + total_desplaza + total_iva_desplaza - total_irpf  -  total_cobro_a_cuenta "border="0" color="0" x="2066" y="4" height="56" width="265" format="#,##0.00"  name=total_honorarios  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=10 alignment="1" tabsequence=32766 border="0" color="0" x="1865" y="4" height="56" width="187" format="#,##0.00"  name=total_musaat edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=9 alignment="1" tabsequence=32766 border="0" color="0" x="1673" y="4" height="56" width="178" format="#,##0.00"  name=total_iva_cip edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="1" tabsequence=32766 border="0" color="0" x="1472" y="4" height="56" width="187" format="#,##0.00"  name=total_cip edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="1" tabsequence=32766 border="0" color="0" x="745" y="4" height="56" width="251" format="#,##0.00"  name=total_iva_desplaza edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="1" tabsequence=32766 border="0" color="0" x="517" y="4" height="56" width="215" format="#,##0.00"  name=total_desplaza edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="1" tabsequence=32766 border="0" color="0" x="288" y="4" height="56" width="215" format="#,##0.00"  name=total_iva_honos edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="1" tabsequence=32766 border="0" color="0" x="18" y="4" height="56" width="256" format="#,##0.00"  name=total_honos edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="IRPF" border="4" color="0" x="1010" y="4" height="56" width="215"  name=total_irpf_negativo_t  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="1" expression="-  total_irpf "border="0" color="0" x="1010" y="4" height="56" width="215" format="#,##0.00"  name=total_irpf_negativo  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="P. Cuenta" border="4" color="0" x="1239" y="4" height="56" width="219"  name=t_2  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="1" expression="-   total_cobro_a_cuenta "border="0" color="0" x="1239" y="4" height="56" width="219" format="#,##0.00"  name=total_cobro_a_cuenta_neg  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

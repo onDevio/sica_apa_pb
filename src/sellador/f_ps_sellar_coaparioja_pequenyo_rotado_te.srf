@@ -1,0 +1,208 @@
+HA$PBExportHeader$f_ps_sellar_coaparioja_pequenyo_rotado_te.srf
+global type f_ps_sellar_coaparioja_pequenyo_rotado_te from function_object
+end type
+
+forward prototypes
+global subroutine f_ps_sellar_coaparioja_pequenyo_rotado_te (st_sello sello)
+end prototypes
+
+global subroutine f_ps_sellar_coaparioja_pequenyo_rotado_te (st_sello sello);//Esta funcion tiene como entradas el nombre del fichero pdf, la posicion (top y left) 
+//desde donde se referencian todas las demas 
+string fichero_pdf, posicion, rotado
+n_escritor_pdf sellador
+string imagen = g_dir_aplicacion + "sello_logo.jpg"
+double x_ini = 0.3, y_ini = 1.2
+double x, y
+integer r,g,b
+long alto_sello, ancho_sello
+double margen_v, margen_h
+
+string linea_f_visado, linea_f_entrada
+
+string texto_colegio, texto_colegio_2, linea_visado
+string linea_expediente, linea1, linea2, activo
+int cont_text
+
+sellador = create n_escritor_pdf
+
+// Color 
+r = 0
+g = 0
+b = 0
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////// CAMPOS EXTERNOS ///////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////
+
+string fase_corta, n_expediente, n_registro, sl_f_entrada, sl_f_visado
+string num_doc, id_fase, nombre, nombre1, nombre2, nombre3, nombre4, id_col
+datetime f_visado,f_entrada
+integer i
+id_fase=sello.id_fase
+
+select fases.n_expedi into :n_expediente from fases where fases.id_fase= :id_fase;
+select fases.fase into :fase_corta from fases where fases.id_fase= :id_fase;
+n_expediente=n_expediente+"-"+fase_corta
+select fases.n_registro into :n_registro from fases where fases.id_fase= :id_fase;
+select fases.f_entrada into :f_entrada from fases where fases.id_fase= :id_fase;
+//select fases.f_visado into :f_visado from fases where fases.id_fase= :id_fase;
+//Cdo f_visado tenga valor, la ponemos en el sello
+if not isnull(sello.f_visado) then
+	f_visado = sello.f_visado	
+else
+	select fases.f_visado into :f_visado from fases where fases.id_fase= :id_fase;
+end if
+
+num_doc=f_ps_generar_sig_num_doc_visared(id_fase,n_registro)
+g_st_sellado_visared_consulta.n_documento=num_doc
+
+if f_es_vacio(n_expediente) then n_expediente = ''
+if f_es_vacio(n_registro) then n_registro = ''
+
+sl_f_entrada = string(f_entrada,"dd/mm/yy") 
+sl_f_visado = string(f_visado,"dd/mm/yy") 
+if f_es_vacio(sl_f_entrada) then sl_f_entrada = '01/01/1990'
+if f_es_vacio(sl_f_visado) then sl_f_visado = '01/01/1990'
+if isnull(num_doc) then num_doc=''
+
+//para los nombres de los colegiados, recogemos el n_col
+datastore ds_nombre
+ds_nombre	= create datastore
+ds_nombre.dataObject = 'd_fases_colegiados'
+ds_nombre.SetTransObject(SQLCA)
+ds_nombre.retrieve(id_fase)
+for i=1 to ds_nombre.rowcount()
+	id_col=ds_nombre.getitemString(i,'id_col')
+	nombre=f_colegiado_ncol_nombre_apellido(id_col)
+	if isnull(nombre) then
+		nombre=""
+	else
+		if i=1 then
+			nombre1=nombre
+		elseif i=2 then
+			nombre2=nombre
+		elseif i=3 then
+			nombre3=nombre
+		elseif i=4 then
+			nombre4=nombre
+		end if
+	end if
+next 
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////// INICIALIZACI$$HEX1$$d300$$ENDHEX$$N ////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////
+
+fichero_pdf = sello.fichero
+posicion = sello.posicion
+rotado = "S"
+// Posicion libre
+x = sello.x
+y = sello.y
+// Margenes
+margen_v = sello.margen_v
+margen_h = sello.margen_h
+sellador.i_fichero_pdf_salida = sello.fichero_salida
+
+if sellador.f_abrir_fichero_sello(fichero_pdf) > 0 then
+  
+ sellador.f_margenes("2",0,0,0,0)
+ 
+ // Tama$$HEX1$$f100$$ENDHEX$$o del sello en cm
+ ancho_sello = 4
+ alto_sello = 9
+
+ sellador.f_calculo_coordenadas_iniciales(posicion,ancho_sello,alto_sello,margen_v,margen_h,x,y,rotado)
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////// TEXTOS ////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////
+
+x_ini = 0
+y_ini = 0
+
+////rect$$HEX1$$e100$$ENDHEX$$ngulo gris
+//if cont_text=0 then sellador.f_inserta_imagen(x_ini+0.1,y_ini +1.25,0,"rectangulo_ctav.jpg",3.35,"Left")//0.1 //3.2
+//
+
+//Texto colegio
+string texto_subrayado
+texto_colegio =   "COLEGIO OFICIAL DE APAREJADORES"
+texto_subrayado = "____________________________________________________________"
+texto_colegio_2 = "Y ARQUITECTOS T$$HEX1$$c900$$ENDHEX$$CNICOS DE LA RIOJA"
+sellador.f_inserta_texto(x_ini +2.8,y_ini +3.7,0,texto_colegio,8,0,0,255,"Arial","Left") //3.7
+//sellador.f_inserta_texto(x_ini +0.2,y_ini +3.7,0,texto_subrayado,7,0,0,170,"Arial","Left") //3.7
+sellador.f_inserta_texto(x_ini +2.5,y_ini +3.3,0,texto_colegio_2,8,0,0,255,"Arial","Left") //3.3
+
+//expediente
+linea_expediente = 'E: '+n_expediente+'  P:'+' %1g de %G '+'  R: '+num_doc
+sellador.f_inserta_texto(x_ini +3.5,y_ini + 2.9,0,linea_expediente,5,0,0,255,"Arial","Left")//0
+
+//VISADO
+linea_visado="VISADO"
+sellador.f_inserta_texto(x_ini +3.1,y_ini+2.1 ,0,linea_visado,18,0,0,255,"Arialbl","Left")//2.4
+
+//Fechas
+linea_f_entrada = "$$HEX2$$b7002000$$ENDHEX$$Fecha de entrada: "
+sellador.f_inserta_texto(x_ini+0.2,y_ini+2,0,linea_f_entrada,6,0,0,255,"Arial","Left")
+sellador.f_inserta_texto(x_ini+2.1,y_ini+2,0,sl_f_entrada,6,0,0,255,"Arial","Left")
+
+linea_f_visado = "$$HEX2$$b7002000$$ENDHEX$$Fecha de visado: "
+sellador.f_inserta_texto(x_ini+0.2,y_ini+1.8,0,linea_f_visado,6,0,0,255,"Arial","Left")
+sellador.f_inserta_texto(x_ini+2.1,y_ini+1.8,0,sl_f_visado,6,0,0,255,"Arial","Left")
+
+//Arquitectos
+if nombre2="" then
+	linea1=nombre1 
+else
+	linea1=nombre1 + ", " + nombre2 
+end if
+if nombre3="" then
+	linea2=nombre3 
+else
+	linea2=nombre3 + ", " + nombre4
+end if
+
+sellador.f_inserta_texto(x_ini +0.2,y_ini + 1.5,0,linea1,5,0,0,255,"Arial","Left")
+sellador.f_inserta_texto(x_ini +0.2,y_ini + 1.3,0,linea2,5,0,0,255,"Arial","Left")
+//
+//////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////// IM$$HEX1$$c100$$ENDHEX$$GENES ////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////
+
+//// ********QUITADO HASTA QUE NO SOLUCIONEN EL PROBLEMA LOS DE APPLIGENT
+//sellador.f_inserta_imagen(x_ini,y_ini+1.1,0,"linea_horizontal_ctav.jpg",0.8,"Left")//+0.3
+//sellador.f_inserta_imagen(x_ini,y_ini+4.075,0,"linea_horizontal_ctav.jpg",0.8,"Left")//4.08
+//
+//sellador.f_inserta_imagen(x_ini,y_ini+1.1,0,"linea_vertical_ctav.jpg",0.63,"Left")//+0.3 //0.80
+//sellador.f_inserta_imagen(x_ini + 8.4,y_ini + 1.1,0,"linea_vertical_ctav.jpg",0.63,"Left")//+0.3 //0.80
+//
+//
+//// imagen del logo
+//sellador.f_inserta_imagen(x_ini + 0.2,y_ini + 2.8,0,"logo_rioja.jpg",0.5,"Left") //0.3 //2.8
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////
+
+
+// Fin 
+sellador.f_estampa_sello_nt()
+
+end if
+//-----Fin sello
+
+
+end subroutine
+

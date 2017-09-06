@@ -1,0 +1,11 @@
+HA$PBExportHeader$f_musaat_obra_oficial_sgc.srf
+global type f_musaat_obra_oficial_sgc from function_object
+end type
+
+forward prototypes
+global function boolean f_musaat_obra_oficial_sgc ()
+end prototypes
+
+global function boolean f_musaat_obra_oficial_sgc ();return ( g_obra_admin_cgc = 'S')
+end function
+

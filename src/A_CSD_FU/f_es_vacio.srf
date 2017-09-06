@@ -1,0 +1,12 @@
+HA$PBExportHeader$f_es_vacio.srf
+global type f_es_vacio from function_object
+end type
+
+forward prototypes
+global function boolean f_es_vacio (string valor_campo)
+end prototypes
+
+global function boolean f_es_vacio (string valor_campo);return isNull(valor_campo) OR trim(valor_campo) = ""
+
+end function
+

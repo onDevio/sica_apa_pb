@@ -1,0 +1,5 @@
+HA$PBExportHeader$st_facturacion_emitida_consulta.srs
+global type st_facturacion_emitida_consulta from structure
+	string		id_factura
+end type
+

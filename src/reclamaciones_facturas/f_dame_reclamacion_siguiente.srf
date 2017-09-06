@@ -1,0 +1,33 @@
+HA$PBExportHeader$f_dame_reclamacion_siguiente.srf
+global type f_dame_reclamacion_siguiente from function_object
+end type
+
+forward prototypes
+global function string f_dame_reclamacion_siguiente (string id_factura, string tipo_persona, string remesada)
+end prototypes
+
+global function string f_dame_reclamacion_siguiente (string id_factura, string tipo_persona, string remesada);// Devolveremos la ultima reclamacion realizada por esa factura
+
+long n_reg
+string tipo_reclamacion
+
+// Contamos si hay facturas
+select count(*) into :n_reg from csi_fact_reclamaciones where id_factura = :id_factura;
+if n_reg = 0 then
+	// Ahora es cuando hay que buscar
+	select tipo_reclamacion into :tipo_reclamacion from csi_fact_reclamaciones_tipos where tipo_persona = :tipo_persona and remesada = :remesada and orden = '00';
+	if isnull(tipo_reclamacion) then tipo_reclamacion = 'NO'
+else
+	// Devolvemos la ultima
+	select csi_fact_reclamaciones_tipos.codigo_siguiente into :tipo_reclamacion from csi_fact_reclamaciones, csi_fact_reclamaciones_tipos 
+	where csi_fact_reclamaciones.tipo_reclamacion = csi_fact_reclamaciones_tipos.tipo_reclamacion and
+		id_factura = :id_factura and tipo_persona = :tipo_persona and remesada = :remesada and 
+		orden in (select max(orden) from csi_fact_reclamaciones, csi_fact_reclamaciones_tipos 
+					 where csi_fact_reclamaciones.tipo_reclamacion = csi_fact_reclamaciones_tipos.tipo_reclamacion);
+	if isnull(tipo_reclamacion) then tipo_reclamacion = 'NO'
+end if
+
+
+return tipo_reclamacion
+end function
+

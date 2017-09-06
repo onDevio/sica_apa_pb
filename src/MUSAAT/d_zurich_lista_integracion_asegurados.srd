@@ -1,0 +1,94 @@
+HA$PBExportHeader$d_zurich_lista_integracion_asegurados.srd
+release 10.5;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes print.preview.outline=yes hidegrayline=no )
+header(height=80 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=char(2) updatewhereclause=yes name=cole_col dbname="cole_col" )
+ column=(type=char(15) updatewhereclause=yes name=cole_nif dbname="colegiados.cole_nif" dbalias="COL.cole_nif" )
+ column=(type=char(15) updatewhereclause=yes name=cole_num dbname="colegiados.cole_num" dbalias="COL.cole_num" )
+ column=(type=char(131) updatewhereclause=yes name=cole_nom dbname="cole_nom" )
+ column=(type=char(160) updatewhereclause=yes name=cole_adr dbname="colegiados.cole_adr" dbalias="COL.cole_adr" )
+ column=(type=char(5) updatewhereclause=yes name=cole_cp dbname="cole_cp" )
+ column=(type=char(60) updatewhereclause=yes name=cole_pob dbname="cole_pob" )
+ column=(type=char(100) updatewhereclause=yes name=cole_email dbname="colegiados.cole_email" dbalias="COL.cole_email" )
+ column=(type=char(2) updatewhereclause=yes name=zur_tram dbname="src_colegiado.zur_tram" dbalias="SRC.zur_tram" )
+ column=(type=char(1) updatewhereclause=yes name=zur_alta dbname="src_colegiado.zur_alta" dbalias="SRC.zur_alta" values="	S/	N" )
+ column=(type=datetime updatewhereclause=yes name=zur_data_alta dbname="src_colegiado.zur_data_alta" dbalias="SRC.zur_data_alta" )
+ column=(type=datetime updatewhereclause=yes name=zur_data_baixa dbname="src_colegiado.zur_data_baixa" dbalias="SRC.zur_data_baixa" )
+ column=(type=char(255) updatewhereclause=yes name=zur_motiu_baixa dbname="src_colegiado.zur_motiu_baixa" dbalias="SRC.zur_motiu_baixa" )
+ column=(type=char(1) updatewhereclause=yes name=zur_moros dbname="src_colegiado.zur_moros" dbalias="SRC.zur_moros" values="	S/	N" )
+ column=(type=number updatewhereclause=yes name=zur_num_sin dbname="src_colegiado.zur_num_sin" dbalias="SRC.zur_num_sin" )
+ column=(type=char(15) updatewhereclause=yes name=zur_cer dbname="src_colegiado.zur_cer" dbalias="SRC.zur_cer" )
+ column=(type=char(15) updatewhereclause=yes name=zur_pol dbname="src_colegiado.zur_pol" dbalias="SRC.zur_pol" )
+ column=(type=char(9) updatewhereclause=yes name=zur_cob dbname="src_colegiado.zur_cob" dbalias="SRC.zur_cob" )
+ retrieve="SELECT (SELECT cod_zurich FROM colegios WHERE cod_colegio = (SELECT texto FROM var_globales WHERE nombre = 'g_cod_colegio')) as cole_col,
+	COL.nif as cole_nif,
+	COL.n_colegiado as cole_num, 
+	LTRIM(COL.apellidos) + ' ' + COL.nombre as cole_nom,
+	COL.domicilio_activo_fiscal as cole_adr,
+	substring(COL.poblacion_activa_fiscal,1,5) as cole_cp,
+	(SELECT P.descripcion FROM domicilios D, poblaciones P WHERE D.id_colegiado = COL.id_colegiado AND D.fiscal = 'S' AND D.cod_pob = P.cod_pob) as cole_pob,
+	COL.email_profesional as cole_email,
+	SRC.tramo as zur_tram,
+	SRC.alta as zur_alta,
+	SRC.f_alta as zur_data_alta,
+	SRC.f_baja as zur_data_baixa,
+	SRC.motivo_baja as zur_motiu_baixa,
+	SRC.moroso as zur_moros,
+	SRC.numero_siniestros as zur_num_sin,
+	SRC.numero_certificado as zur_cer,
+	SRC.numero_poliza as zur_pol,
+	SRC.src_cober as zur_cob
+FROM colegiados COL, src_colegiado SRC
+WHERE 	COL.id_colegiado = SRC.id_colegiado AND 
+	SRC.alta = 'S' 	AND 
+	SRC.src_cia = :src_cia_zurich" arguments=(("src_cia_zurich", string),("f_creacion", datetime))  sort="cole_num A " )
+text(band=header alignment="2" text="Cole Col." border="6" color="0" x="18" y="16" height="52" width="192" html.valueishtml="0"  name=t_2 visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="67108864" )
+text(band=header alignment="2" text="NIF" border="6" color="0" x="242" y="16" height="52" width="288" html.valueishtml="0"  name=t_5 visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="67108864" )
+text(band=header alignment="2" text="N$$HEX1$$ba00$$ENDHEX$$Col." border="6" color="0" x="544" y="16" height="52" width="183" html.valueishtml="0"  name=t_6 visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="67108864" )
+text(band=header alignment="2" text="Nombre" border="6" color="0" x="754" y="16" height="52" width="581" html.valueishtml="0"  name=t_7 visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="67108864" )
+text(band=header alignment="2" text="Direcci$$HEX1$$f300$$ENDHEX$$n" border="6" color="0" x="1353" y="16" height="52" width="782" html.valueishtml="0"  name=t_1 visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="67108864" )
+text(band=header alignment="2" text="CP" border="6" color="0" x="2162" y="16" height="52" width="192" html.valueishtml="0"  name=t_9 visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="67108864" )
+text(band=header alignment="2" text="Email" border="6" color="0" x="2871" y="16" height="52" width="498" html.valueishtml="0"  name=t_13 visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="67108864" )
+text(band=header alignment="2" text="Alta" border="6" color="0" x="3543" y="16" height="52" width="96" html.valueishtml="0"  name=t_14 visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="67108864" )
+text(band=header alignment="2" text="Tramo" border="6" color="0" x="3387" y="16" height="52" width="133" html.valueishtml="0"  name=t_8 visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="67108864" )
+text(band=header alignment="2" text="Poblaci$$HEX1$$f300$$ENDHEX$$n" border="6" color="0" x="2373" y="16" height="52" width="475" html.valueishtml="0"  name=t_10 visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="67108864" )
+text(band=header alignment="2" text="F.Alta" border="6" color="0" x="3666" y="16" height="52" width="311" html.valueishtml="0"  name=t_15 visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="67108864" )
+text(band=header alignment="2" text="F.Baja" border="6" color="0" x="4005" y="16" height="52" width="256" html.valueishtml="0"  name=t_16 visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="67108864" )
+text(band=header alignment="2" text="Moroso" border="6" color="0" x="4576" y="16" height="52" width="155" html.valueishtml="0"  name=t_12 visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="67108864" )
+text(band=header alignment="2" text="Motivo Baja" border="6" color="0" x="4279" y="16" height="52" width="274" html.valueishtml="0"  name=t_17 visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="67108864" )
+text(band=header alignment="2" text="Num.Sin." border="6" color="0" x="4750" y="16" height="52" width="233" html.valueishtml="0"  name=t_11 visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="67108864" )
+text(band=header alignment="2" text="Cer." border="6" color="0" x="5010" y="16" height="52" width="274" html.valueishtml="0"  name=t_19 visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="67108864" )
+text(band=header alignment="2" text="Cobertura" border="6" color="0" x="5586" y="16" height="52" width="274" html.valueishtml="0"  name=t_4 visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="67108864" )
+text(band=header alignment="2" text="Pol." border="6" color="0" x="5298" y="16" height="52" width="274" html.valueishtml="0"  name=t_18 visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="67108864" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="18" y="12" height="52" width="192" format="[general]" html.valueishtml="0"  name=cole_col visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="229" y="12" height="52" width="288" format="[general]" html.valueishtml="0"  name=cole_nif visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=3 alignment="1" tabsequence=32766 border="0" color="0" x="544" y="12" height="52" width="183" format="[general]" html.valueishtml="0"  name=cole_num visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="754" y="12" height="52" width="581" format="[general]" html.valueishtml="0"  name=cole_nom visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="1353" y="12" height="52" width="782" format="[general]" html.valueishtml="0"  name=cole_adr visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="0" color="0" x="2162" y="12" height="52" width="192" format="[general]" html.valueishtml="0"  name=cole_cp visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="0" color="0" x="2871" y="12" height="52" width="498" format="[general]" html.valueishtml="0"  name=cole_email visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=9 alignment="2" tabsequence=32766 border="0" color="0" x="3387" y="12" height="52" width="133" format="[general]" html.valueishtml="0"  name=zur_tram visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=10 alignment="2" tabsequence=32766 border="0" color="0" x="3534" y="12" height="52" width="110" format="[general]" html.valueishtml="0"  name=zur_alta visible="1" checkbox.text="" checkbox.on="S" checkbox.off="N" checkbox.scale=no checkbox.threed=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="0" x="2368" y="12" height="52" width="475" format="[general]" html.valueishtml="0"  name=cole_pob visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=11 alignment="0" tabsequence=32766 border="0" color="0" x="3666" y="12" height="52" width="311" format="dd/mm/yyyy" html.valueishtml="0"  name=zur_data_alta visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=12 alignment="0" tabsequence=32766 border="0" color="0" x="4005" y="12" height="52" width="256" format="dd/mm/yyyy" html.valueishtml="0"  name=zur_data_baixa visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=13 alignment="0" tabsequence=32766 border="0" color="0" x="4279" y="12" height="52" width="274" format="[general]" html.valueishtml="0"  name=zur_motiu_baixa visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=14 alignment="2" tabsequence=32766 border="0" color="0" x="4576" y="12" height="52" width="155" format="[general]" html.valueishtml="0"  name=zur_moros visible="1" checkbox.text="" checkbox.on="S" checkbox.off="N" checkbox.scale=no checkbox.threed=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=15 alignment="1" tabsequence=32766 border="0" color="0" x="4750" y="12" height="52" width="233" format="[general]" html.valueishtml="0"  name=zur_num_sin visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=16 alignment="1" tabsequence=32766 border="0" color="0" x="5010" y="12" height="52" width="274" format="[general]" html.valueishtml="0"  name=zur_cer visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Microsoft Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=18 alignment="0" tabsequence=32766 border="0" color="0" x="5586" y="12" height="52" width="274" format="[general]" html.valueishtml="0"  name=zur_cob visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=17 alignment="1" tabsequence=32766 border="0" color="0" x="5298" y="12" height="52" width="274" format="[general]" html.valueishtml="0"  name=zur_pol visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" pagingmethod=0 generatedddwframes="1" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()
+ 

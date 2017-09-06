@@ -1,0 +1,25 @@
+HA$PBExportHeader$f_siguiente_numero_informativo.srf
+$PBExportComments$A partir del contador nos devuelve el siguiente identificador, con longitud se le da el numero de caracteres que necesita el identificador
+global type f_siguiente_numero_informativo from function_object
+end type
+
+forward prototypes
+global function string f_siguiente_numero_informativo (string contador, integer longitud)
+end prototypes
+
+global function string f_siguiente_numero_informativo (string contador, integer longitud);double i
+
+// Conectamos y desconectamos el objeto transaccion...
+//DISCONNECT USING SQLCA;
+//CONNECT USING SQLCA;
+
+  SELECT contadores.valor  
+    INTO :i  
+    FROM contadores  
+   WHERE contadores.contador = :contador   ;
+
+i = i + 1
+
+return RightA('0000000000000000000000'+string(i),longitud)
+end function
+

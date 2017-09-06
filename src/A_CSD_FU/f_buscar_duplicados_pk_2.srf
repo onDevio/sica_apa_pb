@@ -1,0 +1,74 @@
+HA$PBExportHeader$f_buscar_duplicados_pk_2.srf
+global type f_buscar_duplicados_pk_2 from function_object
+end type
+
+forward prototypes
+global function st_array_bd_pk_2 f_buscar_duplicados_pk_2 (datawindow dw, string col1, string col2)
+end prototypes
+
+global function st_array_bd_pk_2 f_buscar_duplicados_pk_2 (datawindow dw, string col1, string col2);//////////////////////////////////////////////////////////////////////////////
+//	Funci$$HEX1$$f300$$ENDHEX$$n:  f_buscar_duplicados_pk_2
+// 
+// Descripci$$HEX1$$f300$$ENDHEX$$n: Busca parejas de valores duplicados en un dw. Est$$HEX2$$e1002000$$ENDHEX$$pensado para buscar duplicados en claves primarias
+//					 de dos columnas
+//
+//	Argumentos:
+//	dw								El datawindow sobre el que 
+//									aplicamos la funci$$HEX1$$f300$$ENDHEX$$n
+//
+// col1,col2		Las columnas que forman la clave primaria de la tabla sobre la que trabaja dw
+//
+//	Devuelve:	st_array_bd_pk2: Una estructura que contiene un array con los pares de valores que son duplicados
+//					Ver si hay duplicados comprobando el tama$$HEX1$$f100$$ENDHEX$$o del array devuelto
+//
+//					
+//////////////////////////////////////////////////////////////////////////////
+//
+//	Andr$$HEX1$$e900$$ENDHEX$$s: 15/2/2005
+//	//
+//////////////////////////////////////////////////////////////////////////////
+
+
+//Devuelve: 1 s$$HEX2$$ed002000$$ENDHEX$$hay valores duplicados, 0 si no
+
+string ls_cadenaOrdenacion,ls_valorcol1,ls_valorcol1_ant,ls_valorcol2,ls_valorcol2_ant,ls_ordenacionOriginal
+long ll_longdw,i,ll_duplicados=0
+integer li_retorno=0
+st_buscar_duplicados_pk_2 lst_retorno[]
+st_array_bd_pk_2 retorno
+
+ls_cadenaOrdenacion=col1+' A,'+col2+' A'
+
+ls_ordenacionOriginal=dw.Object.DataWindow.Table.Sort
+dw.setsort(ls_cadenaOrdenacion)
+dw.sort()
+
+ll_longdw=dw.rowcount()
+
+//El bucle s$$HEX1$$f300$$ENDHEX$$lo funcionar$$HEX1$$ed00$$ENDHEX$$a para columnas string, se podr$$HEX1$$ed00$$ENDHEX$$a generalizar
+for i=1 to ll_longdw
+	ls_valorcol2_ant=ls_valorcol2
+	ls_valorcol1=dw.getitemstring(i,col1)
+	ls_valorcol2=dw.getitemstring(i,col2)
+	if ls_valorcol1<>ls_valorcol1_ant then
+		ls_valorcol1_ant=ls_valorcol1
+	else
+		if ls_valorcol2_ant=ls_valorcol2 then
+			//duplicado, guardarlo
+			ll_duplicados++
+			lst_retorno[ll_duplicados].col1=ls_valorcol1
+			lst_retorno[ll_duplicados].col2=ls_valorcol2
+			//li_retorno=1
+		end if
+	end if
+next
+
+//restablecemos el orden original
+dw.setsort(ls_cadenaOrdenacion)
+dw.sort()
+
+retorno.vector=lst_retorno
+
+return retorno
+end function
+

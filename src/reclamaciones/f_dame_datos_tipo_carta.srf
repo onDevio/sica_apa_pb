@@ -1,0 +1,35 @@
+HA$PBExportHeader$f_dame_datos_tipo_carta.srf
+global type f_dame_datos_tipo_carta from function_object
+end type
+
+forward prototypes
+global function st_tipo_carta_datos f_dame_datos_tipo_carta (string codigo)
+end prototypes
+
+global function st_tipo_carta_datos f_dame_datos_tipo_carta (string codigo);st_tipo_carta_datos st_tipo_carta_datos
+  SELECT notificaciones.nombre,   
+         notificaciones.dataobject,   
+         notificaciones.tipo_destinatario,   
+         notificaciones.sig_carta,   
+         notificaciones.pagador,   
+         notificaciones.es_primera,   
+         notificaciones.ciclo,   
+         notificaciones.tipo_gestion,
+			notificaciones.tiene_detalle,
+			notificaciones.comunicado			
+    INTO :st_tipo_carta_datos.nombre,   
+			:st_tipo_carta_datos.dataobject,   
+			:st_tipo_carta_datos.tipo_destinatario,    
+			:st_tipo_carta_datos.sig_carta,   
+			:st_tipo_carta_datos.pagador,   
+			:st_tipo_carta_datos.es_primera,   
+			:st_tipo_carta_datos.ciclo,   
+			:st_tipo_carta_datos.tipo_gestion,  
+			:st_tipo_carta_datos.tiene_detalle,
+			:st_tipo_carta_datos.comunicado			
+    FROM notificaciones  where codigo = :codigo;
+	 
+return st_tipo_carta_datos
+
+end function
+

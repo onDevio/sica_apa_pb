@@ -1,0 +1,103 @@
+HA$PBExportHeader$f_calcular_cip_tg.srf
+global type f_calcular_cip_tg from function_object
+end type
+
+forward prototypes
+global function integer f_calcular_cip_na (ref st_dv_datos st_dv_datos)
+global function integer f_calcular_cip_tg (ref st_cip_datos st_cip_datos)
+end prototypes
+
+global function integer f_calcular_cip_na (ref st_dv_datos st_dv_datos);// Entrada
+string tipo_act, tipo_obra, anyo, mes, bonif
+double pem
+// Salida
+double dv, coef_k
+// F$$HEX1$$f300$$ENDHEX$$rmulas
+// 	Visados tradicionales:													DV = 16 + sqrt ( 0.0275 x PEM )
+// 	Visados tradicionales, interv. seguridad y control calidad: 	DV = 16 + sqrt ( 0.0275 x PEM x 0.02 )
+// 	Visados digitales:														DV = 11 + sqrt ( 0.0275 x PEM )
+// 	Visados digitales, interv. seguridad y control calidad:			DV = 11 + sqrt ( 0.0275 x PEM x 0.02)
+// Retorno
+// 0 : $$HEX1$$e900$$ENDHEX$$xito
+// -1 :error 
+
+tipo_act = st_dv_datos.tipoact
+tipo_obra = st_dv_datos.tipoobra
+pem = st_dv_datos.pem
+
+if f_es_vacio(tipo_act) or f_es_vacio(tipo_obra) or isnull(st_dv_datos.pem) then
+	return -1
+end if
+
+// Coeficiente K
+SELECT desc_gui_tipo_act.coef_k  
+INTO :coef_k  
+FROM desc_gui_tipo_act  
+WHERE ( :tipo_act like desc_gui_tipo_act.tipo_actuacion OR 	desc_gui_tipo_act.tipo_actuacion = '%'  ) AND  
+		( :tipo_obra like desc_gui_tipo_act.tipo_obra OR desc_gui_tipo_act.tipo_obra = '%' ) AND  
+		( desc_gui_tipo_act.anyo = :anyo )   ;
+
+if sqlca.sqlcode <> 0 then
+	SELECT desc_gui_tipo_act.coef_k  
+	INTO :coef_k  
+	FROM desc_gui_tipo_act  
+	WHERE ( :tipo_act like desc_gui_tipo_act.tipo_actuacion OR 	desc_gui_tipo_act.tipo_actuacion = '%'  ) AND  
+		( :tipo_obra like desc_gui_tipo_act.tipo_obra OR desc_gui_tipo_act.tipo_obra = '%' ) AND  
+		( desc_gui_tipo_act.anyo like '*' )   ;
+	
+	if sqlca.sqlcode <> 0 then
+		st_dv_datos.dv = 0
+		return -1
+	end if
+end if
+
+// Bonificaci$$HEX1$$f300$$ENDHEX$$n
+choose case tipo_act
+	case '01','02','04','05','11','12','15','41'
+		bonif = 'S'
+	case else
+		bonif = 'N'
+end choose
+
+// C$$HEX1$$e100$$ENDHEX$$lculo
+choose case st_dv_datos.visared
+	case 'V'
+		dv = 11 + sqrt ( 0.0275 * pem * coef_k)
+		if bonif = 'S' then dv = max( dv * 0.75, 11) // Bonificaci$$HEX1$$f300$$ENDHEX$$n 25%, M$$HEX1$$ed00$$ENDHEX$$nimo 11$$HEX1$$ac20$$ENDHEX$$
+	case else
+		dv = 11 + sqrt ( 0.0275 * pem * coef_k)
+end choose
+
+st_dv_datos.dv = f_redondea(dv)
+
+return 0
+
+end function
+
+global function integer f_calcular_cip_tg (ref st_cip_datos st_cip_datos);n_coaattg_calculo_dip uo_calculo
+
+uo_calculo=create n_coaattg_calculo_dip
+
+uo_calculo.i_tipo_intervencion=st_cip_datos.tipo_act
+uo_calculo.i_tipo_obra=st_cip_datos.tipo_obra
+uo_calculo.i_destino_i=st_cip_datos.destino_i
+uo_calculo.i_tipo_reforma=st_cip_datos.tipo_reforma
+uo_calculo.i_volumen=st_cip_datos.volumen
+uo_calculo.i_presupuesto=st_cip_datos.pem
+uo_calculo.i_sup_viviendas=st_cip_datos.sup_viviendas
+uo_calculo.i_sup_otros=st_cip_datos.sup_otros
+uo_calculo.i_num_viv=st_cip_datos.num_viv
+uo_calculo.i_porcentaje=st_cip_datos.porcentaje
+uo_calculo.i_funcionario = st_cip_datos.funcionario
+uo_calculo.i_admon = st_cip_datos.admon
+uo_calculo.of_calcular_dip()
+
+st_cip_datos.cip=uo_calculo.dip_total
+st_cip_datos.importe_minimo=uo_calculo.dip_min
+st_cip_datos.formula=uo_calculo.formula
+st_cip_datos.desarrollo=uo_calculo.formula_sustituida
+
+return 0
+
+end function
+

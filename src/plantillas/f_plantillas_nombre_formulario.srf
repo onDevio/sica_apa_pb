@@ -1,0 +1,16 @@
+HA$PBExportHeader$f_plantillas_nombre_formulario.srf
+$PBExportComments$Dado un nombre de campo interno de plantillas devuelve su "campo formulario" correspondiente
+global type f_plantillas_nombre_formulario from function_object
+end type
+
+forward prototypes
+global function string f_plantillas_nombre_formulario (string nombre_interno)
+end prototypes
+
+global function string f_plantillas_nombre_formulario (string nombre_interno);string retorno
+
+select campo_formulario into :retorno from plantillas_campos where campo_interno = :nombre_interno;
+
+return retorno;
+end function
+

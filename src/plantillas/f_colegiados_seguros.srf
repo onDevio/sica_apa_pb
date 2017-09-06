@@ -1,0 +1,57 @@
+HA$PBExportHeader$f_colegiados_seguros.srf
+$PBExportComments$Dado un colegiado obtiene sus datos de musaat
+global type f_colegiados_seguros from function_object
+end type
+
+forward prototypes
+global subroutine f_colegiados_seguros (string id_col, ref string src_alta, ref string src_f_alta, ref string n_mutualista, ref string src_cober, ref string src_n_poliza, ref string src_coef_cm, ref string src_bonimp, ref string accidentes_alta, ref string accidentes_n_poliza, ref string accidentes_cia)
+end prototypes
+
+global subroutine f_colegiados_seguros (string id_col, ref string src_alta, ref string src_f_alta, ref string n_mutualista, ref string src_cober, ref string src_n_poliza, ref string src_coef_cm, ref string src_bonimp, ref string accidentes_alta, ref string accidentes_n_poliza, ref string accidentes_cia);//Esta funci$$HEX1$$f300$$ENDHEX$$n establece los par$$HEX1$$e100$$ENDHEX$$metros que se le pasan por referencia con el valor
+//que le corresponde al colegiado indicado por ID_COL
+
+string src_cober_aux, accidentes_cia_aux
+double src_cober_prima
+datastore ds_seguros
+
+ds_seguros = create datastore
+ds_seguros.dataobject ='d_colegiados_seguros'
+ds_seguros.SetTransObject(SQLCA)
+
+ds_seguros.Retrieve(id_col)
+
+if ds_seguros.rowcount() > 0 then
+	src_alta = ds_seguros.getitemstring(1, 'src_alta')
+	src_f_alta = string(ds_seguros.getitemdatetime(1, 'src_f_alta'),"dd/mm/yyyy")
+	n_mutualista = ds_seguros.getitemstring(1, 'n_mutualista')
+	src_cober_aux = ds_seguros.getitemstring(1, 'src_cober')
+	select prima into :src_cober_prima from musaat_cober_src where codigo = :src_cober_aux;
+	src_cober = string(src_cober_prima)
+	src_n_poliza = ds_seguros.getitemstring(1, 'src_n_poliza')
+	src_coef_cm = string(ds_seguros.getitemnumber(1, 'src_coef_cm'))
+	src_bonimp = string(ds_seguros.getitemnumber(1, 'src_bonimp'))
+	accidentes_alta = ds_seguros.getitemstring(1, 'accidentes_alta')
+	accidentes_n_poliza = ds_seguros.getitemstring(1, 'accidentes_n_poliza')
+	accidentes_cia_aux = ds_seguros.getitemstring(1, 'accidentes_cia')
+	select nom_s into :accidentes_cia from musaat_cias_aseguradoras where cod_s = :accidentes_cia_aux;
+end if
+
+if f_es_vacio(src_alta) then 
+	src_alta = ''
+else
+	if src_alta = 'S' then src_alta = 'S$$HEX1$$ed00$$ENDHEX$$'
+	if src_alta = 'N' then src_alta = 'No'
+end if	
+if f_es_vacio(src_f_alta) then src_f_alta = ''
+if f_es_vacio(n_mutualista) then n_mutualista = ''
+if f_es_vacio(src_cober) then src_cober = ''
+if f_es_vacio(src_n_poliza) then src_n_poliza = ''
+if f_es_vacio(src_coef_cm) then src_coef_cm = ''
+if f_es_vacio(src_bonimp) then src_bonimp = ''
+if f_es_vacio(accidentes_alta) then accidentes_alta = ''
+if f_es_vacio(accidentes_n_poliza) then accidentes_n_poliza = ''
+if f_es_vacio(accidentes_cia) then accidentes_cia = ''
+
+destroy ds_seguros
+end subroutine
+

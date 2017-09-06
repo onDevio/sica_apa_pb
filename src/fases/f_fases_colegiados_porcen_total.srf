@@ -1,0 +1,24 @@
+HA$PBExportHeader$f_fases_colegiados_porcen_total.srf
+global type f_fases_colegiados_porcen_total from function_object
+end type
+
+forward prototypes
+global function double f_fases_colegiados_porcen_total (string id_fase)
+end prototypes
+
+global function double f_fases_colegiados_porcen_total (string id_fase);//Funcion que calcula el porcentaje total de participacion de colegiados en una obra
+
+double id_porc
+
+SELECT sum(porcen_a)  
+INTO :id_porc
+FROM fases_colegiados  
+WHERE fases_colegiados.id_fase = :id_fase;
+
+if isnull(id_porc) then id_porc = 0	
+
+return id_porc
+
+
+end function
+

@@ -1,0 +1,57 @@
+// V. 3.4.6
+
+// COAATLE (INC. 8701)
+INSERT INTO listados  
+( descripcion, dw, ventana, orden, activo )  
+VALUES ( "Carta Col. Arq.", "d_renuncias_carta_coal_le", "w_renuncias_impresos", "00", "S" )  ;
+
+INSERT INTO listados  
+( descripcion, dw, ventana, orden, activo )  
+VALUES ( "Carta Colegiado", "d_renuncias_carta_colegiado_le", "w_renuncias_impresos", "00", "S" )  ;
+
+INSERT INTO listados  
+( descripcion, dw, ventana, orden, activo )  
+VALUES ( "Carta Promotor", "d_renuncias_carta_promotor_le", "w_renuncias_impresos", "00", "S" )  ;
+
+// TODOS (INC. 8735)
+INSERT INTO menu  
+( codigo, descripcion, objeto, visible, enabled, ventana, activo )  
+VALUES ( '0000000188', 'Biblioteca', 'm_aplic_frame.m_file.m_open.m_libros0', '0', '0', '', 'N')  ;
+
+INSERT INTO menu  
+( codigo, descripcion, objeto, visible, enabled, ventana, activo )  
+VALUES ( '0000000189', 'Ubicaciones', 'm_aplic_frame.m_file.m_open.m_libros0.m_ubicaciones', '0', '0', '', 'N')  ;
+
+// COAATA (INC. 8664)
+alter table csi_traspasos_basicos add eliminar char(1) null ;
+update csi_traspasos_basicos set eliminar = 'N' ;
+
+// TODOS (INC. 8741)
+INSERT INTO listados  ( descripcion,   dw,   ventana , orden, activo)  
+VALUES ( "Listado Completo Exportable", "d_colegiados_listado_completo_exportable", "w_colegiados_listados", "00", "S" )  ;
+
+// COAATA (INC. 8770)
+update listados set dw = 'd_fases_listado_finales_obra_al' where dw = 'd_fases_listado_finales_obra' ;
+
+// COAATA (INC. 8769)
+INSERT INTO listados VALUES ('Listado de Nº Visados por contenedores','d_almacen_listado_visados', 'w_almacen_listados', '00','S');
+
+// TODOS (Visible sólo para COAATLE, INC.8766) 
+INSERT INTO menu  
+( codigo, descripcion, objeto, visible, enabled, ventana, activo )  
+VALUES ( '0000000190', 'Recálculo DIP', 'm_aplic_frame.m_file.m_new.m_avisosdefactura.m_recalculodip', '1', '1', '', 'N')  ;
+
+// TODOS (INC.8779)
+INSERT INTO t_aplicacion  
+( cod_aplicacion, nombre )  
+VALUES ( "PCOLBAJA00", "PERMISO VER COLEGIADOS BAJA" )  ;
+
+// COAATA (INC.8892)
+INSERT INTO listados  
+( descripcion,   dw,   ventana,   orden,   activo )  
+VALUES ( "Listado Facturas Detallado por Colegiado", "d_listado_facturas_general_det_colegiado", "w_facturacion_emitida_listados", "00", "S" )  ;
+
+// TODOS
+INSERT INTO menu  
+( codigo, descripcion, objeto, visible, enabled, ventana, activo )  
+VALUES ( '0000000191', 'Sábana', 'm_aplic_frame.m_file.m_new.m_premaat1.m_sábana', '1', '1', '', 'N')  ;

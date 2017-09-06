@@ -1,0 +1,12 @@
+HA$PBExportHeader$f_color_verde_gris.srf
+global type f_color_verde_gris from function_object
+end type
+
+forward prototypes
+global function long f_color_verde_gris ()
+end prototypes
+
+global function long f_color_verde_gris ();
+return RGB(205,216,205)
+end function
+

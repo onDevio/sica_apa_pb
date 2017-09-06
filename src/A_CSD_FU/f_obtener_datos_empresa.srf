@@ -1,0 +1,101 @@
+HA$PBExportHeader$f_obtener_datos_empresa.srf
+global type f_obtener_datos_empresa from function_object
+end type
+
+forward prototypes
+global subroutine f_obtener_datos_empresa ()
+end prototypes
+
+global subroutine f_obtener_datos_empresa ();
+///////////////////////////////////////////////////////////////////////////////////// Inicializaciones con datos de la empresa /////////////////////////////////////////////////////////////////////////////////////
+
+SELECT nombre INTO :g_nombre_empresa FROM csi_empresas WHERE codigo = :g_empresa;
+if IsNull(g_nombre_empresa) then g_nombre_empresa = ''
+
+SELECT nif INTO :g_cif_empresa FROM csi_empresas WHERE codigo = :g_empresa;
+if IsNull(g_cif_empresa) then g_cif_empresa = ''
+
+SELECT nombre_corto INTO :g_nombre_empresa_csb FROM csi_empresas WHERE codigo = :g_empresa;
+if IsNull(g_nombre_empresa_csb) then g_nombre_empresa_csb = ''
+
+//SELECT nif INTO :g_cif_empresa_activa FROM csi_empresas WHERE codigo = :g_empresa;
+//if IsNull(g_cif_empresa_activa) then g_cif_empresa_activa = ''
+//
+SELECT direccion INTO :g_direccion_empresa FROM csi_empresas WHERE codigo = :g_empresa;
+if IsNull(g_direccion_empresa) then g_direccion_empresa = ''
+
+SELECT direccion +' - '+ codigo_postal +' - '+ poblacion INTO :g_direccion_empresa_csb FROM csi_empresas WHERE codigo = :g_empresa;
+if IsNull(g_direccion_empresa_csb) then g_direccion_empresa_csb = ''
+
+SELECT poblacion INTO :g_localidad_empresa FROM csi_empresas WHERE codigo = :g_empresa;
+if IsNull(g_localidad_empresa) then g_localidad_empresa = ''
+//
+SELECT telefono INTO :g_telefono_empresa FROM csi_empresas WHERE codigo = :g_empresa;
+if IsNull(g_telefono_empresa) then g_telefono_empresa = ''
+//
+SELECT fax INTO :g_fax_empresa FROM csi_empresas WHERE codigo = :g_empresa;
+if IsNull(g_fax_empresa) then g_fax_empresa = ''
+//
+//SELECT inscripcion INTO :g_inscripcion_empresa FROM csi_empresas WHERE codigo = :g_empresa;
+//if IsNull(g_inscripcion_empresa) then g_inscripcion_empresa = ''
+//
+//SELECT codigo_postal INTO :g_cp_empresa FROM csi_empresas WHERE codigo = :g_empresa;
+//if IsNull(g_cp_empresa) then g_cp_empresa = ''
+//
+///***SCP-873. Alexis. Esta variables no se utilizaba en toda la aplicaci$$HEX1$$f300$$ENDHEX$$n. Se utilizara para ocultar ciertos campos en los formatos de factura ***///
+SELECT es_colegio INTO :g_es_colegio FROM csi_empresas WHERE codigo = :g_empresa;
+if f_es_vacio(g_es_colegio) then g_es_colegio = 'N'
+//
+//SELECT logo INTO :g_logo_empresa FROM csi_empresas WHERE codigo = :g_empresa;
+//if f_es_vacio(g_logo_empresa) then g_logo_empresa = ' '
+//
+// Vble. que se utiliza para mostrar el nombre de la empresa para la etiqueta superior de listados 
+SELECT etiqueta_superior_listados INTO :g_etiqueta_empresa FROM csi_empresas WHERE codigo = :g_empresa;
+if f_es_vacio(g_etiqueta_empresa) then g_etiqueta_empresa = 'EMPRESA'
+
+//Obtenemos el centro y el proyecto por defecto a partir de la tabla csi_empresas
+SELECT centro INTO :g_centro_por_defecto FROM csi_empresas WHERE codigo = :g_empresa;
+SELECT proyecto INTO :g_explotacion_por_defecto FROM csi_empresas WHERE codigo = :g_empresa;
+
+//Obtenemos banco por defecto por empresa
+SELECT banco_defecto INTO :g_banco_por_defecto FROM csi_empresas WHERE codigo = :g_empresa;
+
+SELECT logo INTO :g_logo_empresa FROM csi_empresas WHERE codigo = :g_empresa;
+if f_es_vacio(g_logo_empresa) then g_logo_empresa = ' '
+
+select web into :g_web_empresa from csi_empresas where codigo= :g_empresa;
+if f_es_vacio(g_web_empresa) then g_web_empresa=' '
+
+select email into :g_email_empresa from csi_empresas where codigo= :g_empresa;
+if f_es_vacio(g_email_empresa) then g_email_empresa=' '
+
+///*** SCP-929. Alexis. 21/02/2011. Se ha abierto la carga de datos a todos los colegios. ***///
+///*** SCP-837. Alexis. 26/1/2011. Se van a cargar las variables utilizadas para indicar en las facturas, los datos de la empresa con la cual se accede al entorno. ***///
+
+//choose case g_colegio
+	//case 'COAATGU', 'COAATTFE', 'COAATTGN'
+
+		if not f_es_vacio(trim(g_nombre_empresa)) then
+			g_nombre_colegio_carta = g_nombre_empresa
+		end if
+		
+		if not f_es_vacio(trim(g_direccion_empresa)) then
+			g_direc_colegio_carta = g_direccion_empresa
+		end if
+		
+		if not f_es_vacio(trim(g_localidad_empresa)) then
+			SELECT codigo_postal INTO :g_pobla_colegio_carta FROM csi_empresas WHERE codigo = :g_empresa;	
+			if IsNull(g_pobla_colegio_carta) then g_pobla_colegio_carta = ''
+				g_pobla_colegio_carta = g_pobla_colegio_carta +' '+ g_localidad_empresa
+		end if	
+			
+		SELECT email INTO :g_email_colegio_carta FROM csi_empresas WHERE codigo = :g_empresa;
+		if IsNull(g_email_colegio_carta) then g_email_colegio_carta = ''
+			
+		if not f_es_vacio(trim(g_cif_empresa)) then
+			g_col_nif = g_cif_empresa
+		end if
+//end choose
+///////////////////////////////////////////////////////////////////////////////////// 	FIN DATOS DE LA EMPRESA	 /////////////////////////////////////////////////////////////////////////////////////
+end subroutine
+

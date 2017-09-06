@@ -1,0 +1,31 @@
+HA$PBExportHeader$f_fecha_ultimo_dia.srf
+global type f_fecha_ultimo_dia from function_object
+end type
+
+forward prototypes
+global function integer f_fecha_ultimo_dia (integer dia_venci, long mes)
+end prototypes
+
+global function integer f_fecha_ultimo_dia (integer dia_venci, long mes);// Calcula seg$$HEX1$$fa00$$ENDHEX$$n el mes que se pasa cual es el ultimo d$$HEX1$$ed00$$ENDHEX$$a seg$$HEX1$$fa00$$ENDHEX$$n el mes
+int dia
+
+choose case mes
+	case 2
+			dia = 28
+	case 1,3,5,7,8,10,12
+		if dia_venci >= 30 then
+			dia = 31
+		else
+			dia = dia_venci
+		end if
+	case 4,6,9,11
+		if dia_venci >=30 then
+			dia = 30
+		else
+			dia = dia_venci
+		end if
+end choose
+
+return dia
+end function
+

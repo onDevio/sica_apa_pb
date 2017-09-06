@@ -1,0 +1,28 @@
+HA$PBExportHeader$f_cuenta_forma_de_pago.srf
+global type f_cuenta_forma_de_pago from function_object
+end type
+
+forward prototypes
+global function string f_cuenta_forma_de_pago (string tipo_pago, string banco, string cuenta, integer fila)
+end prototypes
+
+global function string f_cuenta_forma_de_pago (string tipo_pago, string banco, string cuenta, integer fila);string cuenta_banco, mensaje
+
+// Si ha introducido una forma de pago, no ha puesto una cuenta =>
+//			calculamos la cuenta para la l$$HEX1$$ed00$$ENDHEX$$nea de pago en func. de la forma de pago o del banco
+if NOT f_es_vacio(tipo_pago) AND f_es_vacio(cuenta) then 
+	cuenta = f_dame_campos_string_formadepago ( 'cuenta', tipo_pago )
+	mensaje = f_validar_cuenta_mensaje (cuenta, fila, ' de la forma de pago ')
+
+	if NOT f_es_vacio(mensaje) then 
+	// si la cta. contable para el banco es v$$HEX1$$e100$$ENDHEX$$lida, la ponemos
+		cuenta_banco = f_dame_cuenta_contable_banco ( banco )
+		mensaje = f_validar_cuenta_mensaje (cuenta_banco, fila, ' del banco ')
+		if f_es_vacio(mensaje) then cuenta = cuenta_banco//this.SetItem(fila, 'cuenta', cuenta_banco)
+	end if
+end if
+// devolvemos la cta. contable para la forma de pago v$$HEX1$$e100$$ENDHEX$$lida
+return cuenta
+
+end function
+

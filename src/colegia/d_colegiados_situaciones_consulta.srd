@@ -1,0 +1,15 @@
+HA$PBExportHeader$d_colegiados_situaciones_consulta.srd
+release 7;
+datawindow(units=0 timer_interval=0 color=79741120 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=72 color="536870912" )
+table(column=(type=char(2) update=yes updatewhereclause=yes name=codigo dbname="t_altas_bajas_situaciones.codigo" )
+ column=(type=char(60) update=yes updatewhereclause=yes name=descripcion dbname="t_altas_bajas_situaciones.descripcion" )
+ column=(type=char(1) updatewhereclause=yes name=activo dbname="compute_0003" initial="S" values="	S/	N" )
+ column=(type=char(1) updatewhereclause=yes name=situacion dbname="t_altas_bajas_situaciones.situacion" )
+ retrieve="PBSELECT( VERSION(400) TABLE(NAME=~"t_altas_bajas_situaciones~" ) COLUMN(NAME=~"t_altas_bajas_situaciones.codigo~") COLUMN(NAME=~"t_altas_bajas_situaciones.descripcion~") COMPUTE(NAME=~"convert(char(1),'')~") COLUMN(NAME=~"t_altas_bajas_situaciones.situacion~")) " filter="situacion='S'" )
+compute(band=detail alignment="0" expression="if(isnull( codigo),'',codigo) +'  '+ if(isnull( descripcion ),'',descripcion)"border="0" color="0" x="23" y="4" height="64" width="654" format="[GENERAL]"  name=compute_1  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=10 border="0" color="0" x="699" y="8" height="52" width="69" format="[general]"  name=activo checkbox.text="" checkbox.on="S" checkbox.off="N" checkbox.scale=no checkbox.threed=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

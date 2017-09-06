@@ -1,0 +1,17 @@
+HA$PBExportHeader$st_datos_csb34.srs
+global type st_datos_csb34 from structure
+	long		num_transf
+	string		estado
+	string		formapago
+	double		importe
+	datetime		f_liquidacion
+	string		ctapago
+	string		id_colegiado
+	string		id_cliente
+	string		descripcion
+	string		banco
+	string		nombre
+	string		banco_remesa
+	string		formato_fichero
+end type
+

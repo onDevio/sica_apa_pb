@@ -1,0 +1,41 @@
+HA$PBExportHeader$f_siguiente_n_fact_fe.srf
+$PBExportComments$Dada la serie dev. el siguiente y actualiza el contador
+global type f_siguiente_n_fact_fe from function_object
+end type
+
+forward prototypes
+global function string f_siguiente_n_fact_fe (string tipo_factura, string serie, integer longitud)
+end prototypes
+
+global function string f_siguiente_n_fact_fe (string tipo_factura, string serie, integer longitud);//	Devuelve el siguiente n$$HEX1$$fa00$$ENDHEX$$mero de factura para la serie
+// y actualiza el contador
+
+// El par$$HEX1$$e100$$ENDHEX$$metro tipo_factura de momento no se utiliza
+
+double i, ultima_factura
+string num_fact, serie_aux
+
+execute immediate 'BEGIN transaction';
+
+select contador
+into :i
+from csi_series 
+where serie = :serie and empresa = :g_empresa and anyo = :g_ejercicio ;
+
+i=i+1
+
+if g_n_fact_automatico='S' then
+	update csi_series
+	set contador=:i
+	where serie = :serie and empresa = :g_empresa and anyo = :g_ejercicio ;
+
+	execute immediate 'COMMIT transaction';
+	COMMIT;
+end if
+
+if IsNull(i) then i=0
+
+return RightA('0000000000000000000000'+string(i),longitud)
+
+end function
+

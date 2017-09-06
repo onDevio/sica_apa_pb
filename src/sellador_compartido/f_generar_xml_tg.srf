@@ -1,0 +1,775 @@
+HA$PBExportHeader$f_generar_xml_tg.srf
+global type f_generar_xml_tg from function_object
+end type
+
+forward prototypes
+global function integer f_generar_xml_tg ()
+global function integer f_generar_xml_tg (string id_fase, string id_fichero)
+end prototypes
+
+global function integer f_generar_xml_tg ();
+//datastore 	 ldst_colegiados
+datetime 		f_desde, f_hasta
+string 			ruta_colegiado
+long 			l
+
+//Objeto que comprueba el tipo de documento
+u_csd_nif uo_nif
+
+
+return 0
+/*
+//Trae los datos del colegiado
+idst_colegiados = create datastore
+idst_colegiados.dataobject ='d_colegiados_exportar_xml_n'
+idst_colegiados.settransobject(sqlca)
+idst_colegiados.retrieve()
+
+// Obtiene los datos de las sociedades
+idst_sociedades = create datastore
+idst_sociedades.dataobject ='d_dst_sociedades_coleg_exportar_xml'
+idst_sociedades.settransobject(sqlca)
+idst_sociedades.retrieve()
+
+//Trae los datos  MUSAAT
+idst_musaat = create datastore
+idst_musaat.dataobject ='d_dst_datos_musaat_exportar_xml'
+idst_musaat.settransobject(sqlca)
+idst_musaat.retrieve()
+
+//Trae la direcci$$HEX1$$f300$$ENDHEX$$n fiscal del colegiado y sociedades
+idst_dir_fiscal = create datastore
+idst_dir_fiscal.dataobject ='d_dst_dir_fiscal_exportar_xml'
+idst_dir_fiscal.settransobject(sqlca)
+idst_dir_fiscal.retrieve()
+
+//Trae la direcci$$HEX1$$f300$$ENDHEX$$n comercial del colegiado y sociedades
+idst_dir_comercial = create datastore
+idst_dir_comercial.dataobject ='d_dst_dir_exportar_xml'
+idst_dir_comercial.settransobject(sqlca)
+idst_dir_comercial.retrieve()
+
+//Completa los datos del colegiado
+idst_otros_datos = create datastore
+idst_otros_datos.dataobject ='d_dst_otros_datos_coleg_exportar_xml'
+idst_otros_datos.settransobject(sqlca)
+idst_otros_datos.retrieve()
+
+
+//Devuelve las titulaciones habilitantes de los colegiados
+idst_titulaciones_habilitante = create datastore
+idst_titulaciones_habilitante.dataobject ='d_colegiado_titulaciones_hab'
+idst_titulaciones_habilitante.settransobject(sqlca)
+idst_titulaciones_habilitante.retrieve()
+
+//Devuelve las inhabilitaciones de los colegiados
+idst_inhabilitaciones = create datastore
+idst_inhabilitaciones.dataobject ='d_dst_colegiados_inhabilitaciones'
+idst_inhabilitaciones.settransobject(sqlca)
+idst_inhabilitaciones.retrieve()
+
+//Devuelve las incompatibilidades de los colegiados
+idst_incompatibilidades = create datastore
+idst_incompatibilidades.dataobject ='d_colegiados_incompatibilidades'
+idst_incompatibilidades.settransobject(sqlca)
+idst_incompatibilidades.retrieve()
+
+//string sql_nuevo
+
+f_desde = dw_1.getitemdatetime(1, "f_desde")
+f_hasta =   dw_1.getitemdatetime(1, "f_hasta")
+
+if cbx_colegiados.checked = true then
+	
+
+	
+
+pbdom_bldr = Create PBDOM_Builder
+
+	try
+		
+		boolean lb_exist = false, bRetTemp = FALSE
+		string  ls_docname, strParseErrors[]
+	
+		ls_docname =  'C:\SICA\colegiados.xml'
+		lb_exist = FileExists(ls_docname)
+		if not lb_exist then 
+			messagebox(g_titulo, "No se encuentra el fichero en C:\SICA\colegiados.xml")
+			return
+		end if
+		i_pbdom_doc = pbdom_bldr.BuildFromFile (ls_docname)
+		
+		bRetTemp = pbdom_bldr.GetParseErrors(strParseErrors)
+		if bRetTemp = true then
+			for l = 1 to UpperBound(strParseErrors)
+				MessageBox ("Parse Error", strParseErrors[l])
+			next
+		end if
+		
+		  IF IsValid( i_pbdom_doc ) THEN
+		
+			// Se posiciona en la etiqueta fichero_intercambio
+			i_pbdom_doc.GetContent(l_raiz[])
+		
+			idst_colegiados.setfilter("colegiados.alta_baja = 'S'")
+			idst_colegiados.filter()
+			wf_pbdom_colegiado()
+			idst_colegiados.setfilter(" ")
+			idst_colegiados.filter()
+			
+			if cbx_bajas.checked then
+			// Se pasan los que esten de baja si se encuentra seleccionado
+				idst_colegiados.setfilter("colegiados.alta_baja = 'N' and colegiados.f_baja >=" + string(f_desde, 'yyyy-mm-dd')+ " and colegiados.f_baja <= " + string(f_hasta, 'yyyy-mm-dd'))
+				idst_colegiados.filter()
+				wf_pbdom_colegiado()
+				idst_colegiados.setfilter(" ")
+				idst_colegiados.filter()
+			end if
+				
+			if idst_colegiados.rowcount() > 0 then
+				string fichero
+			
+				n_cst_filesrvwin32 cambia_directorio
+				string directorio,ruta
+				cambia_directorio = create n_cst_filesrvwin32
+				directorio = cambia_directorio.of_getcurrentdirectory()
+				
+					if GetFileSaveName('Seleccione nombre de fichero de colegiados',ruta,fichero,'.xml','Ficheros de datos (*.xml),*.xml')<> 1 Then 
+						Messagebox(g_titulo, "No se ha logrado crear el fichero de colegiados!!!")
+					else
+						if i_pbdom_doc.SaveDocument (fichero )  then 
+							Messagebox(g_titulo, 'Fichero de colegiado ' +fichero +' generado con exito!!')
+						else
+							Messagebox(g_titulo, 'Error al momento de generar el fichero')
+						end if
+						destroy cambia_directorio
+					end if
+			
+			else
+				Messagebox(g_titulo, 'No se encuentran colegiados a procesar')
+			end if
+		end if
+	
+	catch (PBDOM_EXCEPTION pbdom_except)
+		Messagebox("Excepci$$HEX1$$f300$$ENDHEX$$n",pbdom_except.text )
+	CATCH ( PBXRuntimeError re )
+		MessageBox( "PBNI Exception", re.getMessage() )
+	END TRY
+end if
+
+destroy idst_colegiados
+
+//Se procesan las sociedades
+if cbx_sociedades.checked = true then
+	
+
+	pbdom_bldr = Create PBDOM_Builder
+
+	try
+		
+//		boolean lb_exist = false, bRetTemp = FALSE
+//		string  ls_docname, strParseErrors[]
+	
+		ls_docname =  'C:\SICA\sociedades.xml'
+		lb_exist = FileExists(ls_docname)
+		if not lb_exist then 
+			messagebox(g_titulo, "No se encuentra el fichero en C:\SICA\sociedades.xml")
+			return
+		end if
+	
+		////i_pbdom_doc = pbdom_bldr.BuildFromFile ("C:\SICA\sociedades.xml")
+		i_pbdom_doc = pbdom_bldr.BuildFromFile (ls_docname)
+		//i_pbdom_doc = pbdom_bldr.BuildFromString (strXML)
+		
+		
+		bRetTemp = pbdom_bldr.GetParseErrors(strParseErrors)
+		if bRetTemp = true then
+			for l = 1 to UpperBound(strParseErrors)
+				MessageBox ("Parse Error", strParseErrors[l])
+			next
+		end if
+		
+	//	  i_pbdom_doc.GetRootElement().GetChildElement("lista_sociedades")
+		  IF IsValid( i_pbdom_doc ) THEN
+		
+			// Se posiciona en la etiqueta fichero_intercambio
+			i_pbdom_doc.GetContent(l_raiz[])
+		
+			idst_sociedades.setfilter("colegiados.alta_baja = 'S'")
+			idst_sociedades.filter()
+			wf_xml_sociedades()
+			idst_sociedades.setfilter(" ")
+			idst_sociedades.filter()
+
+			if cbx_bajas.checked then
+			// Se pasan los que esten de baja si se encuentra seleccionado
+				idst_sociedades.setfilter("colegiados.alta_baja = 'N' and colegiados.f_baja >=" + string(f_desde, 'yyyy-mm-dd')+ " and colegiados.f_baja <= " + string(f_hasta, 'yyyy-mm-dd'))
+				idst_sociedades.filter()
+				wf_xml_sociedades()
+				idst_sociedades.setfilter(" ")
+				idst_sociedades.filter()
+			end if
+				
+				
+			if idst_sociedades.rowcount() > 0 then
+//				string fichero
+			
+				n_cst_filesrvwin32 cambia_directorio2
+//				string directorio,ruta
+				cambia_directorio2 = create n_cst_filesrvwin32
+				directorio = cambia_directorio2.of_getcurrentdirectory()
+				
+					if GetFileSaveName('Seleccione nombre de fichero de sociedades',ruta,fichero,'.xml','Ficheros de datos (*.xml),*.xml')<> 1 Then 
+						Messagebox(g_titulo, "No se ha logrado crear el fichero de sociedades!!!")
+					else
+						if i_pbdom_doc.SaveDocument (fichero )  then 
+							Messagebox(g_titulo, 'Fichero de sociedades ' +fichero +' generado con exito!!')
+						else
+							Messagebox(g_titulo, 'Error al momento de generar el fichero')
+						end if
+						destroy cambia_directorio2
+					end if
+			
+			else
+				Messagebox(g_titulo, 'No se encuentran sociedades a procesar')
+			end if
+		end if
+	
+	catch (PBDOM_EXCEPTION pbdom_except1)
+		Messagebox("Excepci$$HEX1$$f300$$ENDHEX$$n",pbdom_except1.text )
+	CATCH ( PBXRuntimeError re1 )
+		MessageBox( "PBNI Exception", re1.getMessage() )
+	END TRY
+end if
+
+
+destroy idst_sociedades
+destroy idst_musaat
+destroy idst_dir_fiscal
+destroy idst_dir_comercial
+destroy idst_otros_datos
+destroy idst_titulaciones_habilitante
+destroy idst_inhabilitaciones
+destroy idst_incompatibilidades
+
+*/
+end function
+
+global function integer f_generar_xml_tg (string id_fase, string id_fichero);PBDOM_Builder     	pbdom_bldr
+pbdom_document		pbdom_doc
+PBDOM_Object      		l_raiz[]
+PBDOM_Element     	pbdom_raiz[],pbdom_elemento
+PBDOM_Element pbdom_datos_tec,pbdom_tecnico,pbdom_plantas
+
+boolean bb_bool
+datetime 		f_desde, f_hasta
+string 			ruta_colegiado, strParseErrors[]
+long 			l
+string directorio
+integer li_file
+string fichero,fichero_origen
+boolean bRetTemp
+
+long i
+string id_col,nom,app,nif,nombre_fichero,tamanyo,tipo_doc,desc_tipo_doc,n_doc,ruta_fichero
+datetime fecha,fecha_sellado
+
+directorio = ProfileString(g_dir_aplicacion+gnv_app.of_GetAppInifile(),'directorios','alfresco_xml','c:\temp\')
+
+
+select nombre_fichero,fecha,fecha_sellado,tamano,tipo_documento,n_documento,ruta_fichero
+into :nombre_fichero,:fecha,:fecha_sellado,:tamanyo,:tipo_doc,:n_Doc,:ruta_fichero from fases_documentos_visared where id_fichero=:id_fichero;
+
+if len(tamanyo)>2 then tamanyo=mid(tamanyo,1,len(tamanyo) - 3)
+
+select  d_t_documentos into :desc_tipo_doc from t_documentos where c_t_documentos=:tipo_doc;
+
+
+//nombre_fichero=mid(ruta_completa_fichero,lastpos(ruta_completa_fichero,'\')+1,lastpos(ruta_completa_fichero.'.'))
+
+//fichero=directorio+left(nombre_fichero,len(nombre_fichero) - 4)+'.xml'
+fichero=directorio+n_Doc+'.xml'
+
+// CREAMOS LA ESTRUCTURA DEL XML
+li_file=FileOpen(fichero,LineMode!,Write!,LockWrite!,Replace!,EncodingUTF8!)
+FileWrite(li_file,'<?xml version="1.0" encoding="UTF-8"?>')
+FileWrite(li_file,'<Visat>')
+FileWrite(li_file,'')
+FileWrite(li_file,'</Visat>')
+FileClose(li_file)
+
+try
+	pbdom_bldr = Create PBDOM_Builder
+	pbdom_doc = pbdom_bldr.BuildFromFile (fichero)
+	
+	bRetTemp = pbdom_bldr.GetParseErrors(strParseErrors)
+	if bRetTemp = true then
+		for l = 1 to UpperBound(strParseErrors)
+			MessageBox ("Parse Error", strParseErrors[l])
+		next
+	end if
+	  IF IsValid( pbdom_doc ) THEN
+		string fase_desc,fase_fase,fase_tipo_trabajo,fase_trabajo,fase_destino_int,e_n_expedi,fase_obser,e_ref_catastral,usuario,e_numhoja,cod_pob,cp,s_fecha,nombre_usuario,visared,n_visado,poblacion
+		string emplazamiento,n_col,piso,puerta
+		datetime fase_f_entrada,fase_f_visado
+		string tipo_via,emplaz,n_calle
+		select f.descripcion,f.fase,f.tipo_trabajo,f.trabajo,f.destino_int,f.f_entrada,e.n_expedi,f.observaciones,e.r_catastral,f.celda,f_abono,f.poblacion,f.usuario,f.e_mail,f.archivo,f.tipo_via_emplazamiento,f.emplazamiento,f.n_calle,f.piso,f.puerta
+		into :fase_desc,:fase_fase,:fase_tipo_trabajo,:fase_trabajo,:fase_destino_int,:fase_f_entrada,:e_n_expedi,:fase_obser,:e_ref_catastral,:e_numhoja,:fase_f_visado,:cod_pob,:usuario,:visared,:n_visado,:tipo_via,:emplaz,:n_calle,:piso,:puerta
+		from fases f,expedientes e where e.id_expedi=f.id_expedi and f.id_fase=:id_fase;
+	
+		select cod_pos,descripcion into :cp,:poblacion from poblaciones where cod_pob=:cod_pob;
+		
+		select nombre_usuario into :nombre_usuario from t_usuario where cod_usuario=:usuario;
+		if IsNull(cp) then cp=''
+		datastore ds_colegiados		
+		ds_colegiados=create datastore
+		ds_colegiados.dataobject='d_fases_colegiados'
+		ds_colegiados.SetTransObject(SQLCA)
+		ds_colegiados.retrieve(id_fase)
+		id_col=ds_colegiados.GetITemString(1,'id_col')
+		select nombre,apellidos,nif,n_colegiado into :nom,:app,:nif,:n_col from colegiados where id_colegiado=:id_col;
+		If Isnull(nom) then 
+			nom=app
+		else 
+			nom=nom+' '+ app			
+		end if
+		If IsNull(n_visado) then n_visado=''
+		if IsNull(tipo_via) then tipo_via=''
+		if IsNull(n_calle) then n_calle=''
+		if f_es_vacio(piso) then
+			piso=''
+		else
+			piso=", pis "+piso
+		end if
+
+		if f_es_vacio(puerta) then
+			puerta=''
+		else
+			puerta=", porta "+puerta
+		end if
+			
+		emplazamiento=tipo_via+' '+emplaz+' '+n_calle+piso+puerta
+		
+		if visared='V' then 
+			visared="VISARED"
+		else
+			visared="PAPER"
+		end if
+	
+		// Comprobacion de nulos
+		If IsNull(fase_destino_int) then fase_destino_int=''
+		If IsNull(e_ref_catastral) then e_ref_catastral=''
+		// Se posiciona en la etiqueta Visat
+		//pbdom_doc.GetContent(l_raiz[])
+		bb_bool = pbdom_doc.getelementsbytagname('Visat', pbdom_raiz)
+		
+		pbdom_elemento = create pbdom_element
+		pbdom_elemento.SetName("Titol_Descripcio")		
+		pbdom_elemento.AddContent(fase_desc)
+		pbdom_raiz[1].Addcontent(pbdom_elemento)
+
+		pbdom_elemento = create pbdom_element
+		pbdom_elemento.SetName("Autor")		
+		pbdom_elemento.AddContent(nom)
+		pbdom_raiz[1].Addcontent(pbdom_elemento)
+
+		pbdom_elemento = create pbdom_element
+		pbdom_elemento.SetName("Num_Collegiat")		
+		pbdom_elemento.AddContent(n_col)
+		pbdom_raiz[1].Addcontent(pbdom_elemento)		
+		
+		pbdom_elemento = create pbdom_element
+		pbdom_elemento.SetName("Tipus_Intervencio")		
+		pbdom_elemento.AddContent(fase_fase)
+		pbdom_raiz[1].Addcontent(pbdom_elemento)	
+		
+		pbdom_elemento = create pbdom_element	
+		pbdom_elemento.SetName("Tipus_Obra")		
+		pbdom_elemento.AddContent(fase_tipo_trabajo)
+		pbdom_raiz[1].Addcontent(pbdom_elemento)	
+		
+		pbdom_elemento = create pbdom_element	
+		pbdom_elemento.SetName("Desti_Principal")		
+		pbdom_elemento.AddContent(fase_trabajo)
+		pbdom_raiz[1].Addcontent(pbdom_elemento)			
+		
+		pbdom_elemento = create pbdom_element	
+		pbdom_elemento.SetName("Desti_Intern")		
+		pbdom_elemento.AddContent(fase_destino_int)
+		pbdom_raiz[1].Addcontent(pbdom_elemento)		
+		
+		pbdom_elemento = create pbdom_element
+		pbdom_elemento.SetName("Categoria")		
+		pbdom_elemento.AddContent("Document Visats")
+		pbdom_raiz[1].Addcontent(pbdom_elemento)	
+		
+		pbdom_elemento = create pbdom_element
+		pbdom_elemento.SetName("Publicador")		
+		pbdom_elemento.AddContent("COAATT")
+		pbdom_raiz[1].Addcontent(pbdom_elemento)	
+			
+		// REVISAR
+		pbdom_elemento = create pbdom_element
+		pbdom_elemento.SetName("Usuari_Visador")		
+		pbdom_elemento.AddContent(nombre_usuario)
+		pbdom_raiz[1].Addcontent(pbdom_elemento)		
+
+		pbdom_elemento = create pbdom_element
+		pbdom_elemento.SetName("Data_Entrada")		
+		pbdom_elemento.AddContent(string(fase_f_entrada,'yyyymmdd'))
+		pbdom_raiz[1].Addcontent(pbdom_elemento)		
+		
+		pbdom_elemento = create pbdom_element
+		pbdom_elemento.SetName("Expedient_NumFull")		
+		pbdom_elemento.AddContent(e_n_expedi+"/"+e_numhoja)
+		pbdom_raiz[1].Addcontent(pbdom_elemento)		
+		
+		pbdom_elemento = create pbdom_element
+		pbdom_elemento.SetName("Expedient")		
+		pbdom_elemento.AddContent(e_n_expedi)
+		pbdom_raiz[1].Addcontent(pbdom_elemento)	
+		
+		pbdom_elemento = create pbdom_element
+		pbdom_elemento.SetName("Num_Visat")		
+		pbdom_elemento.AddContent(n_visado)
+		pbdom_raiz[1].Addcontent(pbdom_elemento)			
+		
+		pbdom_elemento = create pbdom_element
+		pbdom_elemento.SetName("Drets_Autor")		
+		pbdom_elemento.AddContent("Col$$HEX1$$2220$$ENDHEX$$legiat")
+		pbdom_raiz[1].Addcontent(pbdom_elemento)	
+		
+		pbdom_elemento = create pbdom_element
+		pbdom_elemento.SetName("Observacions")		
+		pbdom_elemento.AddContent(fase_obser)
+		pbdom_raiz[1].Addcontent(pbdom_elemento)	
+		
+		pbdom_elemento = create pbdom_element
+		pbdom_elemento.SetName("Tipus_Entrada")		
+		pbdom_elemento.AddContent(visared)
+		pbdom_raiz[1].Addcontent(pbdom_elemento)	
+		
+		pbdom_elemento = create pbdom_element
+		pbdom_elemento.SetName("Data_Publicacio")		
+		pbdom_elemento.AddContent(string(fecha_sellado,"yyyymmdd"))
+		pbdom_raiz[1].Addcontent(pbdom_elemento)			
+		
+	
+		if IsNull(fase_f_visado) then 
+			s_fecha=''
+		else
+			s_fecha=string(fase_f_visado,'yyyymmdd')
+		end if
+
+		pbdom_elemento = create pbdom_element
+		pbdom_elemento.SetName("Data_Visat")		
+		pbdom_elemento.AddContent(s_fecha)
+		pbdom_raiz[1].Addcontent(pbdom_elemento)	
+		
+		pbdom_elemento = create pbdom_element
+		pbdom_elemento.SetName("Data_Enviament_Visat")		
+		pbdom_elemento.AddContent(string(fecha,"yyyymmdd"))
+		pbdom_raiz[1].Addcontent(pbdom_elemento)	
+
+		
+		pbdom_elemento = create pbdom_element
+		pbdom_elemento.SetName("Format")		
+		pbdom_elemento.AddContent("application/pdf")
+		pbdom_raiz[1].Addcontent(pbdom_elemento)	
+
+		pbdom_elemento = create pbdom_element
+		pbdom_elemento.SetName("Extensio_Document")		
+		pbdom_elemento.AddContent("pdf")
+		pbdom_raiz[1].Addcontent(pbdom_elemento)			
+		
+		pbdom_elemento = create pbdom_element
+		pbdom_elemento.SetName("Referencia_Catastral")		
+		pbdom_elemento.AddContent(e_ref_catastral)
+		pbdom_raiz[1].Addcontent(pbdom_elemento)	
+
+		pbdom_elemento = create pbdom_element
+		pbdom_elemento.SetName("Coordenades_UTM")		
+		pbdom_elemento.AddContent("")
+		pbdom_raiz[1].Addcontent(pbdom_elemento)		
+		
+		pbdom_elemento = create pbdom_element
+		pbdom_elemento.SetName("Tamany_Document")		
+		pbdom_elemento.AddContent(tamanyo)
+		pbdom_raiz[1].Addcontent(pbdom_elemento)		
+
+		pbdom_elemento = create pbdom_element
+		pbdom_elemento.SetName("Tipus_Document")		
+		pbdom_elemento.AddContent(desc_tipo_doc)
+		pbdom_raiz[1].Addcontent(pbdom_elemento)		
+		
+		pbdom_elemento = create pbdom_element
+		pbdom_elemento.SetName("Num_Document")		
+		pbdom_elemento.AddContent(n_doc)
+		pbdom_raiz[1].Addcontent(pbdom_elemento)			
+		
+		datastore ds_clientes
+		ds_clientes=create datastore
+		ds_clientes.dataobject='d_fases_promotores'
+		ds_clientes.SetTransObject (SQLCA)
+		ds_clientes.retrieve(id_fase)
+		
+		string id_cliente,nif_cli,ape_cli,nom_cli
+		id_cliente=ds_clientes.GetItemString(1,'id_cliente')
+		select nif,nombre,apellidos into :nif_cli,:nom_cli,:ape_cli from clientes where id_cliente=:id_cliente;
+		if not(f_es_vacio(nom_cli)) then ape_cli=nom_cli+' '+ ape_cli
+		pbdom_elemento = create pbdom_element
+		pbdom_elemento.SetName("NIF_Promotor")		
+		pbdom_elemento.AddContent(nif_cli)
+		pbdom_raiz[1].Addcontent(pbdom_elemento)			
+		
+		pbdom_elemento = create pbdom_element
+		pbdom_elemento.SetName("Nom_Promotor")		
+		pbdom_elemento.AddContent(ape_cli)
+		pbdom_raiz[1].Addcontent(pbdom_elemento)								
+		
+		pbdom_elemento = create pbdom_element
+		pbdom_elemento.SetName("Empla$$HEX1$$e700$$ENDHEX$$ament")		
+		pbdom_elemento.AddContent(emplazamiento)
+		pbdom_raiz[1].Addcontent(pbdom_elemento)	
+
+		pbdom_elemento = create pbdom_element
+		pbdom_elemento.SetName("Codi_Postal")		
+		pbdom_elemento.AddContent(cp)
+		pbdom_raiz[1].Addcontent(pbdom_elemento)	
+		
+		pbdom_elemento = create pbdom_element
+		pbdom_elemento.SetName("Poblacio")		
+		pbdom_elemento.AddContent(poblacion)
+		pbdom_raiz[1].Addcontent(pbdom_elemento)			
+		
+		double sup_viv,sup_garaje,sup_otros,sup_sob,sup_baj,sup_total,num_viv,pem,plantas_sob,plantas_baj,altura,n_vpo
+		// DATOS TECNICOS
+		select sup_viv,sup_garage,sup_otros,sup_sob,sup_baj,num_viv,pem,plantas_sob,plantas_baj,altura,n_viv_vpo
+		into :sup_viv,:sup_garaje,:sup_otros,:sup_sob,:sup_baj,:num_viv,:pem,:plantas_sob,:plantas_baj,:altura,:n_vpo
+		from fases_usos where id_fase=:id_fase;
+		
+		if IsNull(sup_viv) then sup_viv=0
+		if IsNull(sup_garaje) then sup_garaje=0
+		if IsNull(sup_otros) then sup_otros=0
+		if IsNull(sup_sob) then sup_sob=0
+		if IsNull(sup_baj) then sup_baj=0
+		if IsNull(plantas_sob) then plantas_sob=0
+		if IsNull(plantas_baj) then plantas_baj=0	
+		If IsNull(num_viv) then num_viv=0
+		If IsNull(pem) then pem=0
+		If IsNull(altura) then altura=0
+		if IsNull(n_vpo) then n_vpo=0				
+		sup_total=sup_viv+sup_garaje+sup_otros
+		
+		pbdom_datos_tec = create pbdom_element
+		pbdom_datos_tec.SetName("dadesTecniques")		
+		
+		// COLEGIADOS
+		
+		for i=1 to 1 //ds_colegiados.rowcount()   //SOLO EL PRIMER COLEGIADO
+			id_col=ds_colegiados.GetITemString(i,'id_col')
+			select nombre,apellidos,nif into :nom,:app,:nif from colegiados where id_colegiado=:id_col;
+			pbdom_tecnico= create pbdom_element
+			pbdom_tecnico.SetName("tecnicRedactor")		
+			
+			pbdom_elemento = create pbdom_element
+			pbdom_elemento.SetName("nom")		
+			pbdom_elemento.AddContent(nom)		
+			pbdom_tecnico.AddContent(pbdom_elemento)
+			
+			pbdom_elemento = create pbdom_element
+			pbdom_elemento.SetName("cognom1")		
+			pbdom_elemento.AddContent(app)		
+			pbdom_tecnico.AddContent(pbdom_elemento)
+			
+			pbdom_elemento = create pbdom_element
+			pbdom_elemento.SetName("cognom2")		
+			pbdom_elemento.AddContent("")		
+			pbdom_tecnico.AddContent(pbdom_elemento)		
+			
+			pbdom_elemento = create pbdom_element
+			pbdom_elemento.SetName("tipusDocument")		
+			pbdom_elemento.AddContent("NIF")		
+			pbdom_tecnico.AddContent(pbdom_elemento)		
+			
+			pbdom_elemento = create pbdom_element
+			pbdom_elemento.SetName("Document")		
+			pbdom_elemento.AddContent(nif)		
+			pbdom_tecnico.AddContent(pbdom_elemento)					
+
+			pbdom_elemento = create pbdom_element
+			pbdom_elemento.SetName("tipusTecnic")		
+			pbdom_elemento.AddContent("Arquitecte T$$HEX1$$e800$$ENDHEX$$cnic")		
+			pbdom_tecnico.AddContent(pbdom_elemento)					
+		next
+		pbdom_datos_tec.AddContent(pbdom_tecnico)
+
+		int num_plantas
+		num_plantas=plantas_sob+plantas_baj
+		pbdom_tecnico= create pbdom_element
+		pbdom_tecnico.SetName("numPlantes")		
+		pbdom_tecnico.AddContent(string(num_plantas))	
+		pbdom_datos_tec.AddContent(pbdom_tecnico)		
+				
+		for i=1 to num_plantas 
+			pbdom_plantas= create pbdom_element
+			pbdom_plantas.SetName("planta")	
+		
+			pbdom_elemento = create pbdom_element
+			pbdom_elemento.SetName("ordre")		
+			pbdom_elemento.AddContent(string(i - 1))		
+			pbdom_plantas.AddContent(pbdom_elemento)		
+			
+			pbdom_elemento = create pbdom_element
+			pbdom_elemento.SetName("superficie")		
+			pbdom_elemento.AddContent("")		
+			pbdom_plantas.AddContent(pbdom_elemento)		
+
+			pbdom_elemento = create pbdom_element
+			pbdom_elemento.SetName("usPrincipal")		
+			pbdom_elemento.AddContent("")		
+			pbdom_plantas.AddContent(pbdom_elemento)		
+			
+			pbdom_datos_tec.AddContent(pbdom_plantas)		
+		next
+			
+		pbdom_tecnico= create pbdom_element
+		pbdom_tecnico.SetName("usActual")		
+		pbdom_tecnico.AddContent("")	
+		pbdom_datos_tec.AddContent(pbdom_tecnico)
+		
+		pbdom_tecnico= create pbdom_element
+		pbdom_tecnico.SetName("usProposat")	
+		pbdom_tecnico.AddContent("")	
+		pbdom_datos_tec.AddContent(pbdom_tecnico)
+							
+		pbdom_tecnico= create pbdom_element
+		pbdom_tecnico.SetName("superficieTotalEdifici")	
+		pbdom_tecnico.AddContent(string(sup_total))
+		pbdom_datos_tec.AddContent(pbdom_tecnico)
+
+		pbdom_tecnico= create pbdom_element
+		pbdom_tecnico.SetName("superficieSobreRasant")	
+		pbdom_tecnico.AddContent(string(sup_sob))
+		pbdom_datos_tec.AddContent(pbdom_tecnico)					
+
+		pbdom_tecnico= create pbdom_element
+		pbdom_tecnico.SetName("superficieSotaRasant")	
+		pbdom_tecnico.AddContent(string(sup_baj))
+		pbdom_datos_tec.AddContent(pbdom_tecnico)							
+					
+		pbdom_tecnico= create pbdom_element
+		pbdom_tecnico.SetName("alcadaSobreRasant")	
+		pbdom_tecnico.AddContent(string(altura))
+		pbdom_datos_tec.AddContent(pbdom_tecnico)	
+		
+		pbdom_tecnico= create pbdom_element
+		pbdom_tecnico.SetName("alcadaSotaRasant")	
+		pbdom_tecnico.AddContent("")
+		pbdom_datos_tec.AddContent(pbdom_tecnico)			
+
+		pbdom_tecnico= create pbdom_element
+		pbdom_tecnico.SetName("superficieNP")	
+		pbdom_tecnico.AddContent("")
+		pbdom_datos_tec.AddContent(pbdom_tecnico)	
+		
+		pbdom_tecnico= create pbdom_element
+		pbdom_tecnico.SetName("superficieAM")	
+		pbdom_tecnico.AddContent("")
+		pbdom_datos_tec.AddContent(pbdom_tecnico)	
+		
+		pbdom_tecnico= create pbdom_element
+		pbdom_tecnico.SetName("superficieRF")	
+		pbdom_tecnico.AddContent("")
+		pbdom_datos_tec.AddContent(pbdom_tecnico)			
+
+		pbdom_tecnico= create pbdom_element
+		pbdom_tecnico.SetName("numTotalHabitatges")	
+		pbdom_tecnico.AddContent(string(num_viv))
+		pbdom_datos_tec.AddContent(pbdom_tecnico)		
+
+		pbdom_tecnico= create pbdom_element
+		pbdom_tecnico.SetName("numHabitatgesNP")	
+		pbdom_tecnico.AddContent("")
+		pbdom_datos_tec.AddContent(pbdom_tecnico)		
+
+		pbdom_tecnico= create pbdom_element
+		pbdom_tecnico.SetName("numHabitatgesRF")	
+		pbdom_tecnico.AddContent("")
+		pbdom_datos_tec.AddContent(pbdom_tecnico)				
+		
+		pbdom_tecnico= create pbdom_element
+		pbdom_tecnico.SetName("numHabitatgesPO")	
+		pbdom_tecnico.AddContent(string(n_vpo))
+		pbdom_datos_tec.AddContent(pbdom_tecnico)				
+
+		pbdom_tecnico= create pbdom_element
+		pbdom_tecnico.SetName("numHabitatgesLloguer")	
+		pbdom_tecnico.AddContent("")
+		pbdom_datos_tec.AddContent(pbdom_tecnico)				
+
+		pbdom_tecnico= create pbdom_element
+		pbdom_tecnico.SetName("numLocalsComercials")	
+		pbdom_tecnico.AddContent("")
+		pbdom_datos_tec.AddContent(pbdom_tecnico)				
+
+		pbdom_tecnico= create pbdom_element
+		pbdom_tecnico.SetName("numPlacesAparCotxes")	
+		pbdom_tecnico.AddContent("")
+		pbdom_datos_tec.AddContent(pbdom_tecnico)				
+
+		pbdom_tecnico= create pbdom_element
+		pbdom_tecnico.SetName("numPlacesAparMotos")	
+		pbdom_tecnico.AddContent("")
+		pbdom_datos_tec.AddContent(pbdom_tecnico)				
+
+		pbdom_tecnico= create pbdom_element
+		pbdom_tecnico.SetName("numPlacesResidencia")	
+		pbdom_tecnico.AddContent("")
+		pbdom_datos_tec.AddContent(pbdom_tecnico)				
+
+
+		pbdom_tecnico= create pbdom_element
+		pbdom_tecnico.SetName("numAltresLocals")	
+		pbdom_tecnico.AddContent("")
+		pbdom_datos_tec.AddContent(pbdom_tecnico)				
+
+		pbdom_tecnico= create pbdom_element
+		pbdom_tecnico.SetName("placesHoteleres")	
+		pbdom_tecnico.AddContent("")
+		pbdom_datos_tec.AddContent(pbdom_tecnico)				
+
+
+		pbdom_tecnico= create pbdom_element
+		pbdom_tecnico.SetName("pressupost")	
+		pbdom_tecnico.AddContent(string(pem))
+		pbdom_datos_tec.AddContent(pbdom_tecnico)				
+
+		
+		pbdom_tecnico= create pbdom_element
+		pbdom_tecnico.SetName("importDipositResidus")	
+		pbdom_tecnico.AddContent("")
+		pbdom_datos_tec.AddContent(pbdom_tecnico)				
+		pbdom_raiz[1].Addcontent(pbdom_datos_tec)			
+
+
+		// GUARDAMOS EL FICHERO
+		if pbdom_doc.SaveDocument (fichero )  then 
+			fichero_origen=f_obtener_ruta_base(string(year(date(fase_f_entrada))))+ruta_fichero+nombre_fichero
+			//CopyFile(fichero_origen,directorio+nombre_fichero,0)
+			CopyFile(fichero_origen,directorio+n_Doc+'.pdf',0)
+			//Messagebox(g_titulo, 'Fichero de sociedades ' +fichero +' generado con exito!!')
+		else
+			Messagebox(g_titulo, 'Error al generar el fichero XML')
+		end if
+			
+	end if
+	catch (PBDOM_EXCEPTION pbdom_except1)
+		Messagebox("Excepci$$HEX1$$f300$$ENDHEX$$n",pbdom_except1.text )
+	CATCH ( PBXRuntimeError re1 )
+		MessageBox( "PBNI Exception", re1.getMessage() )
+	END TRY
+return 0
+
+end function
+

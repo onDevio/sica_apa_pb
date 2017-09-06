@@ -1,0 +1,21 @@
+HA$PBExportHeader$f_abrir_fichero.srf
+global type f_abrir_fichero from function_object
+end type
+
+forward prototypes
+global subroutine f_abrir_fichero (string ruta, string fichero, string parametros)
+end prototypes
+
+global subroutine f_abrir_fichero (string ruta, string fichero, string parametros);//Funcion que abre cualquier fichero que se le pase y este "reconocido" por windows
+// El codigo de retorno debe ser superior a 32 para que sea correcto
+
+uint ll_retorno
+
+ll_retorno = ShellExecute( handle ( this ) , "open" , fichero , parametros , ruta , 5 )
+
+//Fichero sin programa asociado
+if ll_retorno = 31 then
+	ll_retorno = OpenAs_RunDLL(handle ( this ) , 0 , ruta + fichero, 5 )
+end if
+end subroutine
+

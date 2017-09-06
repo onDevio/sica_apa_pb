@@ -1,0 +1,59 @@
+HA$PBExportHeader$f_obtener_fichero.srf
+global type f_obtener_fichero from function_object
+end type
+
+forward prototypes
+global function string f_obtener_fichero (string tipo, boolean ruta_relativa, string ruta_origen, string titulo, string fichero)
+end prototypes
+
+global function string f_obtener_fichero (string tipo, boolean ruta_relativa, string ruta_origen, string titulo, string fichero);// tipo : tipo de fichero buscado
+//ruta_relativa : devuelve la ruta del fichero relativa al directorio de la aplicacion
+//ruta_origen : donde buscamos por defecto
+// titulo : t$$HEX1$$ed00$$ENDHEX$$tulo ed la ventanita
+
+// Retorno -1 si no correcto
+//string fichero
+string origen, destino
+string ficheros_tipo
+long retorno_ventana
+
+if f_es_vacio(fichero) then
+	choose case LOWER(tipo)
+		case 'dibujo', 'imagen'
+			ficheros_tipo = "JPG Files (*.JPG),*.JPG," &
+			+ "BMP Files (*.BMP),*.BMP,"&
+			+ "GIF Files (*.GIF),*.GIF,"&
+			+ "WMF Files (*.WMF),*.WMF"
+		case 'ini','inifile','ini_file'
+			ficheros_tipo = "INI Files (*.INI),*.INI"
+		case 'texto'
+			ficheros_tipo = "TXT Files (*.TXT),*.TXT"
+		case 'exe'
+			ficheros_tipo = "EXE Files (*.EXE),*.EXE"
+		case 'doc'
+			ficheros_tipo = "DOC Files (*.DOC),*.DOC"			
+	end choose
+else
+	ficheros_tipo = fichero + ","+fichero
+end if
+
+retorno_ventana = getfileopenname(titulo, ruta_origen, fichero, "DOC", ficheros_tipo) 
+if retorno_ventana<> 0 Then
+	if ruta_relativa then
+		// validar que el directorio inicial es de la aplicaci$$HEX1$$f300$$ENDHEX$$n : obligar a coger algo dentro.
+		if LeftA(upper(ruta_origen), LenA(g_dir_aplicacion) ) = upper(g_dir_aplicacion)  then
+			ruta_origen = RightA(ruta_origen, LenA(ruta_origen) - (LenA(g_dir_aplicacion) ))
+			if LeftA(ruta_origen, 1) = '\' then ruta_origen = RightA(ruta_origen, LenA(ruta_origen) -1)
+		else
+			messagebox(g_titulo, 'Debe escoger un fichero dentro de : ' + g_dir_aplicacion + ', que es el directorio de la aplicaci$$HEX1$$f300$$ENDHEX$$n')
+			ruta_origen =  '-1'
+		end if
+	else
+//		ruta_origen = '-1'
+	end if
+else
+	ruta_origen = '-1'
+end if
+return ruta_origen 
+end function
+

@@ -1,0 +1,50 @@
+HA$PBExportHeader$f_cliente_etiqueta.srf
+global type f_cliente_etiqueta from function_object
+end type
+
+forward prototypes
+global function string f_cliente_etiqueta (string id_cli)
+end prototypes
+
+global function string f_cliente_etiqueta (string id_cli);string datos_cliente = ''
+string apell, nomb, nvia, pob, tv, prov, cp
+
+select apellidos, nombre,nombre_via,cod_pob,tipo_via,cod_prov, cp
+into :nomb, :apell, :nvia, :pob,:tv,:prov,:cp
+from clientes
+where id_cliente=:id_cli;
+
+if isnull(nomb) then 
+	nomb=''
+else
+	nomb = nomb + '' 
+end if
+
+if isnull(nvia) then 
+	nvia=''
+else
+	nvia = f_obtener_domicilio_activo(tv, nvia) + '' + cr
+end if
+
+if isnull(pob) then 
+	pob=''
+else
+	if isnull(prov) Then
+		prov = ''
+	else
+		pob = f_obtener_poblacion_activa(pob, prov, cp) + '' + cr
+	end if
+end if
+
+if isnull(apell) or apell='' then 
+	apell=''+cr
+else
+	//Andr$$HEX1$$e900$$ENDHEX$$s 7/09/2005: Si el nombre no es vac$$HEX1$$ed00$$ENDHEX$$o, ponemos una coma entre los apellidos y el nombre
+		apell =', '+ apell + '' + cr
+end if
+datos_cliente = nomb + apell + nvia + pob
+
+return datos_cliente
+
+end function
+

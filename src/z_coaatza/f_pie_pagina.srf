@@ -1,0 +1,21 @@
+HA$PBExportHeader$f_pie_pagina.srf
+global type f_pie_pagina from function_object
+end type
+
+forward prototypes
+global function string f_pie_pagina (string campo, string empresa, string anyo)
+end prototypes
+
+global function string f_pie_pagina (string campo, string empresa, string anyo);string pie_pagina
+
+
+select texto
+into :pie_pagina
+from csi_param_facturas
+where serie = '%' and campo = :campo and empresa= :empresa and anyo = :anyo ;
+
+return pie_pagina
+
+
+end function
+

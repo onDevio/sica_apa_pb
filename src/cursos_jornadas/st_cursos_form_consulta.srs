@@ -1,0 +1,12 @@
+HA$PBExportHeader$st_cursos_form_consulta.srs
+global type st_cursos_form_consulta from structure
+	string		id_curso
+	datetime		f_ini_inscripcion
+	datetime		f_fin_inscripcion
+	datetime		f_ini_curso
+	datetime		f_fin_curso
+	string		nombre
+	string		anyo
+	string		cod_tipo
+end type
+

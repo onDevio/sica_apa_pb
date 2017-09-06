@@ -1,0 +1,11 @@
+HA$PBExportHeader$f_parametros_listados.srf
+global type f_parametros_listados from function_object
+end type
+
+forward prototypes
+global function string f_parametros_listados ()
+end prototypes
+
+global function string f_parametros_listados ();return g_parametros_listados;
+end function
+

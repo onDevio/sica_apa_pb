@@ -1,0 +1,27 @@
+print 'cobertura 120000'
+ UPDATE musaat_coef_g   SET coef = 1.583   WHERE musaat_coef_g.cobertura = 120000
+
+print 'cobertura 150000'
+ UPDATE musaat_coef_g   SET coef = 1.747   WHERE musaat_coef_g.cobertura = 150000
+
+print 'cobertura 210000'
+ UPDATE musaat_coef_g   SET coef = 1.888   WHERE musaat_coef_g.cobertura = 210000
+
+print 'cobertura 270000'
+ UPDATE musaat_coef_g   SET coef = 1.943   WHERE musaat_coef_g.cobertura = 270000
+
+print 'cobertura 330000'
+ UPDATE musaat_coef_g   SET coef = 2.008   WHERE musaat_coef_g.cobertura = 330000
+
+print 'cobertura 480000'
+ UPDATE musaat_coef_g   SET coef = 2.171   WHERE musaat_coef_g.cobertura = 480000
+
+print 'cobertura 630000'
+ UPDATE musaat_coef_g   SET coef = 2.336   WHERE musaat_coef_g.cobertura = 630000
+
+print 'cobertura 930000'
+ UPDATE musaat_coef_g   SET coef = 2.662   WHERE musaat_coef_g.cobertura = 930000
+
+print 'cobertura 1230000'
+ UPDATE musaat_coef_g   SET coef = 2.946   WHERE musaat_coef_g.cobertura = 1230000
+go

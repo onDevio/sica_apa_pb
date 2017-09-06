@@ -1,0 +1,53 @@
+HA$PBExportHeader$st_facturas.srs
+global type st_facturas from structure
+	string		id_emisor
+	string		id_receptor
+	datetime		fecha
+	string		cod_articulo
+	double		base_imponible
+	double		importe_iva
+	string		t_impuesto
+	string		formapago
+	string		descripcion
+	double		num_originales
+	double		num_copias
+	boolean		es_colegiado
+	string		banco
+	string		asunto
+	string		serie
+	datastore		ds_lineas
+	string		id_minuta
+	string		pagada
+	double		tipo_irpf
+	double		importe_irpf
+	boolean		es_empresa
+	string		incluir_todos
+	string		contabilizar
+	string		descripcion_larga
+	double		unidades
+	double		precio
+	string		centro
+	string		proyecto
+	string		tipo_factura
+	string		anulada
+	datawindow		dw_desglose
+	double		irpf_colegio
+	double		abonada
+	string		id_fase
+	string		id_liquidacion
+	string		obs
+	string		id_cliente_pagador
+	boolean		recibo
+	string		paga_empresa
+	string		paga_externo
+	string		n_fact
+	double		comision_tarjeta
+	n_csd_impresion_formato		impresion_formato
+	datawindow		dw_cobros_multiples
+	datetime		fecha_factura
+	string		proforma
+	datetime		fecha_pago
+	string		imprime_cta_banco_col
+	string		cod_empresa
+end type
+

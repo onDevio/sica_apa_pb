@@ -1,0 +1,13 @@
+HA$PBExportHeader$f_busqueda_registros.srf
+global type f_busqueda_registros from function_object
+end type
+
+forward prototypes
+global function string f_busqueda_registros ()
+end prototypes
+
+global function string f_busqueda_registros ();open(w_busqueda_registros)
+return Message.StringParm
+
+end function
+

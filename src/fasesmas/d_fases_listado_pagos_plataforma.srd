@@ -1,0 +1,81 @@
+HA$PBExportHeader$d_fases_listado_pagos_plataforma.srd
+release 10.5;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.printername="" print.documentname="" print.orientation = 1 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes print.preview.outline=yes hidegrayline=no )
+header(height=432 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=136 color="536870912" )
+detail(height=96 color="536870912" height.autosize=yes )
+table(column=(type=char(15) updatewhereclause=yes name=colegiados_n_colegiado dbname="colegiados.n_colegiado" )
+ column=(type=char(80) updatewhereclause=yes name=colegiados_apellidos dbname="colegiados.apellidos" )
+ column=(type=char(50) updatewhereclause=yes name=colegiados_nombre dbname="colegiados.nombre" )
+ column=(type=char(11) updatewhereclause=yes name=fases_n_registro dbname="fases.n_registro" )
+ column=(type=char(15) updatewhereclause=yes name=csi_facturas_emitidas_n_fact dbname="csi_facturas_emitidas.n_fact" )
+ column=(type=char(1) updatewhereclause=yes name=csi_cobros_pagado dbname="csi_cobros.pagado" )
+ column=(type=datetime updatewhereclause=yes name=csi_cobros_f_pago dbname="csi_cobros.f_pago" )
+ column=(type=datetime updatewhereclause=yes name=csi_facturas_emitidas_fecha dbname="csi_facturas_emitidas.fecha" )
+ column=(type=number updatewhereclause=yes name=fases_pagos_plataforma_importe_pago dbname="fases_pagos_plataforma.importe_pago" )
+ column=(type=char(2) updatewhereclause=yes name=fases_pagos_plataforma_forma_pago_plataforma dbname="fases_pagos_plataforma.forma_pago_plataforma" )
+ column=(type=number updatewhereclause=yes name=csi_cobros_importe dbname="csi_cobros.importe" )
+ column=(type=char(6) updatewhereclause=yes name=fases_pagos_plataforma_codigo_autorizacion dbname="fases_pagos_plataforma.codigo_autorizacion" )
+ column=(type=datetime updatewhereclause=yes name=fases_pagos_plataforma_fecha dbname="fases_pagos_plataforma.fecha" )
+ retrieve="  SELECT colegiados.n_colegiado,   
+         colegiados.apellidos,   
+         colegiados.nombre,   
+         fases.n_registro,   
+         csi_facturas_emitidas.n_fact,   
+         csi_cobros.pagado,   
+         csi_cobros.f_pago,   
+         csi_facturas_emitidas.fecha,   
+         fases_pagos_plataforma.importe_pago,   
+         fases_pagos_plataforma.forma_pago_plataforma,   
+         csi_cobros.importe,
+		fases_pagos_plataforma.codigo_autorizacion,
+		fases_pagos_plataforma.fecha
+    FROM fases,   
+         colegiados,   
+         fases_pagos_plataforma,   
+         csi_cobros,   
+         csi_facturas_emitidas,   
+         fases_pagos_facturas  
+   WHERE ( csi_cobros.id_factura = csi_facturas_emitidas.id_factura ) and  
+         ( fases_pagos_facturas.id_fases_pagos_plataforma = fases_pagos_plataforma.id_fases_pagos_plataforma ) and  
+         ( fases_pagos_facturas.id_factura = csi_facturas_emitidas.id_factura ) and  
+         ( colegiados.n_colegiado = fases_pagos_plataforma.n_colegiado ) and  
+         ( fases.id_fase = fases_pagos_plataforma.id_fase )
+"  sort="colegiados_apellidos A " )
+group(level=1 header.height=180 trailer.height=104 by=("fases_n_registro" ) header.color="536870912" trailer.color="536870912" )
+compute(band=header alignment="2" expression="f_poner_logo_listados_superior (   )"border="0" color="16777215" x="23" y="8" height="72" width="443" format="[GENERAL]" html.valueishtml="0"  name=compute_4 visible="1"  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15780518" )
+compute(band=header alignment="2" expression="f_poner_logo_listados_inferior (   )"border="0" color="16777215" x="23" y="88" height="72" width="443" format="[GENERAL]" html.valueishtml="0"  name=compute_5 visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15780518" )
+text(band=header alignment="0" text="Listado de Pagos en plataforma" border="0" color="0" x="535" y="28" height="120" width="4174" html.valueishtml="0"  name=st_titulo_listado visible="1"  font.face="Arial" font.height="-18" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="" border="0" color="0" x="14" y="184" height="140" width="4704" html.valueishtml="0"  name=t_parametros visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+compute(band=header.1 alignment="0" expression="'Registro: ' +  fases_n_registro "border="0" color="0" x="23" y="16" height="64" width="891" format="[GENERAL]" html.valueishtml="0"  name=compute_1 visible="1"  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+text(band=header.1 alignment="2" text="Cod. Autorizaci$$HEX1$$f300$$ENDHEX$$n" border="4" color="0" x="3237" y="116" height="56" width="443" html.valueishtml="0"  name=t_6 visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header.1 alignment="2" text="F. Emisi$$HEX1$$f300$$ENDHEX$$n " border="4" color="0" x="2898" y="116" height="56" width="325" html.valueishtml="0"  name=t_5 visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header.1 alignment="2" text="Importe" border="4" color="0" x="1902" y="116" height="56" width="352" html.valueishtml="0"  name=t_2 visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header.1 alignment="2" text="N$$HEX2$$ba002000$$ENDHEX$$Factura" border="4" color="0" x="2267" y="116" height="56" width="617" html.valueishtml="0"  name=t_3 visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header.1 alignment="2" text="Forma Pago" border="4" color="0" x="1262" y="116" height="56" width="626" html.valueishtml="0"  name=clientes_apellidos_t visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header.1 alignment="2" text="Colegiado" border="4" color="0" x="142" y="116" height="56" width="1106" html.valueishtml="0"  name=t_4 visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+line(band=detail x1="110" y1="88" x2="4064" y2="88"  name=l_2 visible="1" pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="1073741824" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="0" color="0" x="2898" y="16" height="56" width="325" format="dd/mm/yyyy" html.valueishtml="0"  name=csi_facturas_emitidas_fecha visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+compute(band=detail alignment="0" expression="if( fases_pagos_plataforma_forma_pago_plataforma = 'DB',  if (isNull(csi_cobros_importe), 0, csi_cobros_importe),  fases_pagos_plataforma_importe_pago )  "border="0" color="0" x="1897" y="16" height="56" width="352" format="#,##0.00" html.valueishtml="0"  name=compute_2 visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="2267" y="16" height="56" width="617" format="[general]" html.valueishtml="0"  name=csi_facturas_emitidas_n_fact visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+column(band=detail id=10 alignment="0" tabsequence=32766 border="0" color="0" x="1262" y="16" height="56" width="626" format="[general]" html.valueishtml="0"  name=fases_pagos_plataforma_forma_pago_plataforma visible="1" dddw.name=d_dddw_formas_pago_no_compuesto dddw.displaycolumn=descripcion dddw.datacolumn=tipo_pago dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+compute(band=detail alignment="0" expression=" colegiados_n_colegiado + ' ' +  colegiados_apellidos + if (isnull ( colegiados_nombre ) , '',  ', ' + colegiados_nombre )"border="0" color="0" x="142" y="12" height="60" width="1106" format="[GENERAL]" html.valueishtml="0"  name=colegiado visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+line(band=footer x1="119" y1="220" x2="256" y2="220"  name=l_1 visible="1" pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="1073741824" )
+compute(band=footer alignment="0" expression="'P$$HEX1$$e100$$ENDHEX$$gina ' + page() + ' de ' + pageCount()"border="0" color="0" x="23" y="52" height="60" width="562" format="[general]" html.valueishtml="0"  name=page_1 visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+compute(band=footer alignment="1" expression="today()"border="0" color="0" x="4334" y="52" height="60" width="375" format="dd/mm/yyyy" html.valueishtml="0"  name=date_1 visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+compute(band=footer alignment="0" expression="/* 'Registros: ' + count( id_fase for all distinct id_fase ) */"border="0" color="0" x="690" y="52" height="60" width="375" format="" html.valueishtml="0"  name=compute_10 visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+text(band=header.1 alignment="2" text="F. Pago " border="4" color="0" x="3694" y="116" height="56" width="325" html.valueishtml="0"  name=t_7 visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=12 alignment="0" tabsequence=32766 border="0" color="0" x="3237" y="16" height="56" width="443" format="[general]" html.valueishtml="0"  name=fases_pagos_plataforma_codigo_autorizacion visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+compute(band=detail alignment="0" expression="if (f_es_vacio(string( fases_pagos_plataforma_fecha)),  csi_cobros_f_pago,  fases_pagos_plataforma_fecha)"border="0" color="0" x="3694" y="12" height="56" width="325" format="dd/mm/yyyy" html.valueishtml="0"  name=compute_3 visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" pagingmethod=0 generatedddwframes="1" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()
+ 

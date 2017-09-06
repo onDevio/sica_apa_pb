@@ -1,0 +1,229 @@
+HA$PBExportHeader$f_cobrar_gastos_contrato.srf
+global type f_cobrar_gastos_contrato from function_object
+end type
+
+forward prototypes
+global subroutine f_cobrar_gastos_contrato (st_cobrar_gastos_contrato st_datos)
+end prototypes
+
+global subroutine f_cobrar_gastos_contrato (st_cobrar_gastos_contrato st_datos);string forma_pago, banco, id_col, pendiente='N', asunto, id_minuta, id_fase, n_aviso, pagador, t_iva, cip_sn='N', dv_sn='N', musaat_sn='N', t_iva_honos
+string t_iva_desplaza, t_iva_dv, t_iva_cip, facturado='S', concepto_honos, t_iva_impresos, libro_sn, concepto_otros
+double porc_iva, base_musaat, total_cliente, iva_cip=0, total_colegiado, porc_iva_honos, porc_iva_desplaza, porc_iva_dv, porc_iva_cip, irpf, total_aviso
+double iva_dv=0, porc_iva_impresos, base_impresos, iva_impresos=0
+datetime fecha_pago, fecha
+boolean genera_movi=false, es_sociedad=false
+datawindow dw_vacio
+
+dw_vacio = create datawindow
+
+if st_datos.facturar then forma_pago 	= st_datos.dw_pago.getitemstring(1, 'forma_pago') 
+if st_datos.facturar then fecha_pago 	= st_datos.dw_pago.getitemdatetime(1, 'fecha_pago') else fecha_pago = datetime(today(), now())
+if st_datos.facturar then banco 			= st_datos.dw_pago.getitemstring(1, 'banco')
+asunto		= st_datos.dw_pago.getitemstring(1, 'asunto')
+id_col = st_datos.i_id_col
+
+if st_datos.musaat <> 0 then genera_movi = true else genera_movi = false
+if f_colegiado_tipopersona(id_col) = 'S' then
+	es_sociedad = true		
+end if		
+
+//if st_datos.musaat > 0 then 
+//	tipo_movimiento_csd = '10'
+//else
+//	tipo_movimiento_csd = '00'
+//end if
+
+//// Comprobamos que no hay una minuta ya creada de musaat para el colegiado y la fase
+//int existe_minuta
+//
+//SELECT count (*)  
+//INTO :existe_minuta  
+//FROM fases_minutas  
+//WHERE ( fases_minutas.id_fase = :g_id_fase ) AND  
+//      ( fases_minutas.id_colegiado = :id_col ) AND  
+//      ( fases_minutas.anulada = 'N' ) AND  
+//      ( fases_minutas.tipo_minuta = '10' )         ;
+//			
+//if existe_minuta > 0 then return
+
+st_datos.st_proceso.text = 'Generando Aviso de Gastos ...'
+id_fase =  g_id_fase
+id_minuta = f_siguiente_numero('FASES-MINUTAS',10)
+n_aviso = f_numera_aviso(true)
+fecha = fecha_pago
+pagador = '1'
+t_iva = g_t_iva_defecto
+porc_iva =  f_dame_porcent_iva(g_t_iva_defecto)
+base_musaat = st_datos.musaat
+total_cliente = 0
+
+SELECT colegiados.irpf INTO :irpf FROM colegiados WHERE colegiados.id_colegiado = :id_col   ;
+
+SELECT t_iva INTO :t_iva_honos FROM csi_articulos_servicios WHERE codigo = :g_codigos_conceptos.honorarios and colegio = :g_colegio;
+SELECT t_iva INTO :t_iva_desplaza FROM csi_articulos_servicios WHERE codigo = :g_codigos_conceptos.desplazamientos and colegio = :g_colegio;
+SELECT t_iva INTO :t_iva_cip FROM csi_articulos_servicios WHERE codigo = :g_codigos_conceptos.cip and colegio = :g_colegio;
+SELECT t_iva INTO :t_iva_dv FROM csi_articulos_servicios WHERE codigo = :g_codigos_conceptos.dv and colegio = :g_colegio;
+SELECT t_iva INTO :t_iva_impresos FROM csi_articulos_servicios WHERE codigo = :g_codigos_conceptos.impresos and colegio = :g_colegio;
+SELECT descripcion INTO :concepto_honos FROM csi_articulos_servicios WHERE codigo = :g_codigos_conceptos.honorarios and colegio = :g_colegio;
+
+porc_iva_honos = f_dame_porcent_iva(t_iva_honos)
+porc_iva_desplaza = f_dame_porcent_iva(t_iva_desplaza)
+porc_iva_dv = f_dame_porcent_iva(t_iva_dv)
+porc_iva_cip = f_dame_porcent_iva(t_iva_cip)
+porc_iva_impresos = f_dame_porcent_iva(t_iva_impresos)
+
+iva_cip = f_aplica_t_iva(st_datos.cip, t_iva_cip)
+iva_dv = f_aplica_t_iva(st_datos.dv, t_iva_dv)
+iva_impresos = f_aplica_t_iva(st_datos.libros, t_iva_impresos)
+
+total_colegiado = st_datos.musaat + st_datos.cip + iva_cip + st_datos.dv + iva_dv
+total_aviso = total_colegiado
+
+if st_datos.dv > 0 then dv_sn = 'S'
+if st_datos.musaat > 0 then musaat_sn = 'S'
+if st_datos.cip > 0 then cip_sn = 'S'
+if st_datos.libros > 0 then 
+	libro_sn = 'S'
+	total_colegiado += st_datos.libros
+	total_aviso += st_datos.libros
+end if
+
+if not st_datos.facturar then 
+	pendiente = 'S'
+	facturado = 'N'
+	setnull(fecha_pago)
+	setnull(forma_pago)
+	setnull(banco)
+end if
+
+// Para que salga el concepto y el importe de libros cuando corresponda
+if g_colegio = 'COAATTER' then
+	string tipo_act
+	select fase into :tipo_act from fases where id_fase = :id_fase ;
+	CHOOSE CASE tipo_act
+		CASE '03', '04', '05'
+			double importe, impuesto
+			SELECT importe, t_iva, impuesto INTO :base_impresos, :t_iva_impresos, :iva_impresos 
+			FROM csi_articulos_servicios WHERE csi_articulos_servicios.codigo = :g_codigos_conceptos.libro_incidencias;
+	
+			st_datos.libros = base_impresos
+			porc_iva_impresos = f_dame_porcent_iva(t_iva_impresos)
+			iva_impresos = iva_impresos
+			t_iva_impresos = t_iva_impresos
+			concepto_otros = 'LIBRO DE INCIDENCIAS'
+			libro_sn = 'S'
+			total_colegiado += st_datos.libros
+			total_aviso += st_datos.libros
+	END CHOOSE
+END if
+
+// Tenemos que hacer esto antes para que salga el n$$HEX2$$ba002000$$ENDHEX$$de salida en las facturas
+if st_datos.facturar then
+	if g_colegio = 'COAATA' or g_colegio =  'COAATTGN' or g_colegio= 'COAATCC' or g_colegio = 'COAATTEB' OR g_colegio='COAATLL' then
+		if f_fases_cambia_estado_fase_segun_pagado(id_fase, 'MINUTAS')='-1' then
+			Messagebox(g_titulo, "Error al actualizar el estado del contrato", stopsign!)
+			return
+		end if
+	end if
+end if
+
+// Comprobamos el saldo de la cuenta del colegiado, si es negativo mostramos la ventana y no se deja cobrar
+if forma_pago = g_formas_pago.cuenta_personal and not f_es_vacio(g_prefijo_cuenta_bancaria_col) /*and dw_caja_pago.getitemnumber(1, 'total_pagar')>0 */then
+	st_saldo_cuenta_bancaria_colegiado lst_entrada
+	lst_entrada.id_colegiado = id_col
+	lst_entrada.f_desde = datetime(date('01/01/'+g_ejercicio),time('00:00'))
+	lst_entrada.f_hasta = datetime(Today(), time('23:59:59'))
+
+	double  saldo
+	saldo = f_saldo_cuenta_bancaria_col(lst_entrada.id_colegiado, lst_entrada.f_desde, lst_entrada.f_hasta)
+//	messagebox('', string(saldo))	
+	if round(saldo,2) < total_aviso then
+		openwithparm(w_saldo_cuenta_bancaria_colegiado, lst_entrada)
+		messagebox(g_titulo, "No es posible el cobro por cuenta personal", exclamation!)	
+		return
+	end if
+end if
+
+
+INSERT INTO fases_minutas  
+	( id_minuta, id_fase, id_colegiado, id_cliente, cantidad, pendiente, facturado, id_honorario,   
+	  f_facturado, id_factura, tipo_minuta, irpf, importe_irpf, n_aviso, fecha, fecha_pago,   
+	  tipo_gestion, pagador, reclamar, t_iva, porc_iva, forma_pago, aplica_honos, porc_honos,   
+	  concepto_honos, base_honos, iva_honos, aplica_desplaza, base_desplaza, iva_desplaza,   
+	  concepto_desplaza, aplica_dv, base_dv, iva_dv, aplica_cip, base_cip, iva_cip, aplica_musaat,   
+	  base_musaat, iva_musaat, aplica_retvol, porc_retvol, base_retvol, iva_retvol, total_cliente,   
+	  total_colegiado, t_iva_honos, t_iva_desplaza, t_iva_dv, t_iva_cip, porc_iva_honos,   
+	  porc_iva_desplaza, porc_iva_dv, porc_iva_cip, anulada, banco, irpf_cliente, observaciones,
+	  base_garantia, total_aviso, aplica_impresos, t_iva_impresos, porc_iva_impresos, base_impresos, 
+	  iva_impresos, paga_asalariado, paga_externo, paga_dv, n_contrato_ant, t_minuta, urgente,
+	  base_cip_suplida, t_iva_cip_suplida, porc_iva_cip_suplida, iva_cip_suplida, musaat_suplida, concepto_otros)  
+VALUES 
+	( :id_minuta, :id_fase, :id_col, :st_datos.id_cliente, null, :pendiente, :facturado, null, 
+		null, null, :st_datos.tipo_minuta, :irpf, 0, :n_aviso, :fecha, :fecha_pago,   
+	  'S', :pagador, 'S', :t_iva, :porc_iva, :forma_pago, 'N', 0, 
+	  :concepto_honos, 0, 0, 'N',  0, 0,   
+	  null, :dv_sn, :st_datos.dv, :iva_dv, :cip_sn, :st_datos.cip, :iva_cip, :musaat_sn,   
+	  :base_musaat, 0, 'N', 0, 0, 0, :total_cliente,   
+	  :total_colegiado, :t_iva_honos, :t_iva_desplaza, :t_iva_dv, :t_iva_cip, :porc_iva_honos,   
+	  :porc_iva_desplaza, :porc_iva_dv, :porc_iva_cip, 'N', :banco, 'N', null,
+	  0, :total_aviso, :libro_sn, :t_iva_impresos, :porc_iva_impresos, :st_datos.libros,
+	  :iva_impresos, 'N', 'N', 'P', :st_datos.n_contrato_ant, 'I', 'N',
+	  0, '00', 0, 0, 0, :concepto_otros)  ;
+
+COMMIT;
+
+// Si no est$$HEX2$$e1002000$$ENDHEX$$marcado el check no se genera la factura
+if not st_datos.facturar then 
+	if isvalid(g_detalle_fases) then
+		g_detalle_fases.postevent('csd_refrescar_avisos')
+		g_detalle_fases.postevent('csd_refrescar_src')	
+	end if
+	st_datos.st_proceso.text = 'Proceso Finalizado ...'
+//	messagebox(g_titulo, 'Proceso Finalizado')
+	return
+end if
+
+// Generamos las facturas
+st_datos.st_proceso.text = 'Recuperando Datos ...'
+st_datos.dw_3.Retrieve(id_minuta)
+st_datos.st_proceso.text = 'Generando Facturas ...'
+// g_cobro_obligado : con esto no regulariza : puede dejar de usarse usando el tipo_movimiento_csd
+g_cobro_obligado = 'S'
+
+st_generar_facturas_minutas parametros_factura_minuta
+
+parametros_factura_minuta.dw_minuta 			= st_datos.dw_3
+parametros_factura_minuta.num_orig 				= st_datos.impr_copias
+parametros_factura_minuta.num_copias 			= st_datos.impr_orig
+parametros_factura_minuta.regulariza_musaat	= false
+parametros_factura_minuta.movimiento_musaat	= genera_movi
+parametros_factura_minuta.tipo_movimiento_csd= st_datos.tipo_minuta
+parametros_factura_minuta.tipo_prev				= ''
+parametros_factura_minuta.dw_factura			= dw_vacio
+
+// Por tratarse de una minuta SGC es sencillo determinar la serie. Basta mirar el total_colegiado
+if total_colegiado>0 then
+	parametros_factura_minuta.serie				= g_serie_fases
+else
+	parametros_factura_minuta.serie				= g_facturas_negativas_serie
+end if
+
+f_generar_facturas_minuta(parametros_factura_minuta)
+
+g_cobro_obligado = 'N'
+
+// Modificado David 22/02/2005
+// El contrato pasa a abonado y retirado cuando est$$HEX2$$e1002000$$ENDHEX$$toda la CIP pagada
+// LLamamos a la funcion que realiza el cambio de estado y dem$$HEX1$$e100$$ENDHEX$$s
+if f_fases_cambia_estado_fase_segun_pagado(id_fase, 'MINUTAS')='-1' then
+	Messagebox(g_titulo, "Error al actualizar el estado del contrato", stopsign!)
+end if
+
+if isvalid(g_detalle_fases) then
+	g_detalle_fases.postevent('csd_refrescar_avisos')
+	g_detalle_fases.postevent('csd_refrescar_src')	
+end if
+destroy (dw_vacio)
+
+end subroutine
+

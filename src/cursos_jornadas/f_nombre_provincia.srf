@@ -1,0 +1,19 @@
+HA$PBExportHeader$f_nombre_provincia.srf
+global type f_nombre_provincia from function_object
+end type
+
+forward prototypes
+global function string f_nombre_provincia (string cod_prov)
+end prototypes
+
+global function string f_nombre_provincia (string cod_prov);string nombre
+
+SELECT nombre
+INTO :nombre
+FROM provincias
+WHERE cod_provincia=:cod_prov;
+
+return nombre
+
+end function
+

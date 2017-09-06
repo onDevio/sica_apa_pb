@@ -1,0 +1,139 @@
+HA$PBExportHeader$f_calcular_dv_na.srf
+global type f_calcular_dv_na from function_object
+end type
+
+forward prototypes
+global function integer f_calcular_dv_na (ref st_dv_datos st_dv_datos)
+end prototypes
+
+global function integer f_calcular_dv_na (ref st_dv_datos st_dv_datos);// Entrada
+string tipo_act, tipo_obra, anyo, mes = '00', bonif, formula, desarrollo, id_fase, facturado
+boolean administracion
+double pem
+// Salida
+double dv, coef_k
+// F$$HEX1$$f300$$ENDHEX$$rmulas
+// 	Visados tradicionales:		DV = 16 + sqrt ( 0.0275 x PEM x Coef K)
+// 	Visados digitales:			DV = 11 + sqrt ( 0.0275 x PEM x Coef K)
+// Retorno
+// 0 : $$HEX1$$e900$$ENDHEX$$xito
+// -1 :error 
+
+tipo_act = st_dv_datos.tipoact
+tipo_obra = st_dv_datos.tipoobra
+pem = st_dv_datos.pem
+id_fase = st_dv_datos.id_fase
+administracion = st_dv_datos.administracion
+if isnull(st_dv_datos.fecha) then
+	anyo = g_ejercicio
+else
+	anyo = string(year(date(st_dv_datos.fecha)))
+	mes = string(month(date(st_dv_datos.fecha)))
+	mes = RightA('00' + mes, 2)
+end if
+
+if f_es_vacio(tipo_act) or f_es_vacio(tipo_obra) or isnull(pem) then
+	return -1
+end if
+
+// Si es funcionario y la obra es oficial no paga
+if administracion = true then
+	select facturado into :facturado from fases_colegiados where id_fase = :id_fase ;
+	if facturado = 'S' then
+		st_dv_datos.dv = 0
+		return 1
+	end if
+end if
+
+// Coeficiente K
+SELECT coef_k  
+INTO :coef_k  
+FROM dv_tipo_act  
+WHERE ( :tipo_act like dv_tipo_act.tipo_actuacion OR dv_tipo_act.tipo_actuacion = '%'  ) AND  
+		( :tipo_obra like dv_tipo_act.tipo_obra OR dv_tipo_act.tipo_obra = '%' ) AND  
+		( dv_tipo_act.anyo = :anyo )   ;
+
+if sqlca.sqlcode <> 0 then
+	SELECT coef_k  
+	INTO :coef_k  
+	FROM dv_tipo_act  
+	WHERE ( :tipo_act like dv_tipo_act.tipo_actuacion OR dv_tipo_act.tipo_actuacion = '%'  ) AND  
+		( :tipo_obra like dv_tipo_act.tipo_obra OR dv_tipo_act.tipo_obra = '%' ) AND  
+		( dv_tipo_act.anyo like '*' )   ;
+	
+	if sqlca.sqlcode <> 0 then
+		st_dv_datos.dv = 0
+		return -1
+	end if
+end if
+
+// Bonificaci$$HEX1$$f300$$ENDHEX$$n
+choose case tipo_act
+	case '01','02','04','05','11','12','15','41'
+		bonif = 'S'
+	case else
+		bonif = 'N'
+end choose
+
+// C$$HEX1$$e100$$ENDHEX$$lculo
+choose case anyo
+	case '1900' TO '2008'
+		choose case st_dv_datos.visared
+			case 'V'
+				dv = 11 + sqrt ( 0.0275 * pem * coef_k)
+				formula = "GT = 11 + RAIZ ( 0.0275 x PEM x Coef K )"
+				desarrollo = "GT = ( 11 + RAIZ ( 0.0275 x " + string(pem,  '###,###,##0.00') + " x " + string(coef_k) + " ))"
+				if bonif = 'S' then 
+					dv = max( dv * 0.75, 11) // Bonificaci$$HEX1$$f300$$ENDHEX$$n 25%, M$$HEX1$$ed00$$ENDHEX$$nimo 11$$HEX1$$ac20$$ENDHEX$$
+					formula += " (Bonificaci$$HEX1$$f300$$ENDHEX$$n 25%)"
+					desarrollo +=  " x 0.75"
+				end if
+			case else
+				dv = 16 + sqrt ( 0.0275 * pem * coef_k)
+				formula = "GT = 16 + RAIZ ( 0.0275 x PEM x Coef K )"
+				desarrollo = "GT = 16 + RAIZ ( 0.0275 x " + string(pem,  '###,###,##0.00') + " x " + string(coef_k) + " )"
+		end choose
+	case else // antes 2009
+		choose case st_dv_datos.visared
+			case 'V'
+				///* Cambio solicitado en la incidencia ICN-355. Alexis. 19/1/2010*****///
+				choose case tipo_act
+					case '61','62', '63', '64', '65', '66', '71', '72', '73', '74', '75', '81', '82', '83', '84', '91', '92', '93', '94', '95'
+						dv = 13
+						formula = "GT = 13 + RAIZ ( 0.0355 x PEM x Coef K )"
+						desarrollo = "GT = 13 (m$$HEX1$$ed00$$ENDHEX$$nimo)"
+					case else
+						dv = 13 + sqrt ( 0.0355 * pem * coef_k)
+						formula = "GT = 13 + RAIZ ( 0.0355 x PEM x Coef K )"
+						desarrollo = "GT = ( 13 + RAIZ ( 0.0355 x " + string(pem,  '###,###,##0.00') + " x " + string(coef_k) + " ))"
+						if bonif = 'S' then 
+							dv = max( dv * 0.75, 13) // Bonificaci$$HEX1$$f300$$ENDHEX$$n 25%, M$$HEX1$$ed00$$ENDHEX$$nimo 11$$HEX1$$ac20$$ENDHEX$$
+							formula += " (Bonificaci$$HEX1$$f300$$ENDHEX$$n 25%)"
+							desarrollo +=  " x 0.75"
+						end if	
+				end choose		
+								
+			case else
+				///* Cambio solicitado en la incidencia ICN-355. Alexis. 19/1/2010*****///
+				choose case tipo_act
+					case '61','62', '63', '64', '65', '66', '71', '72', '73', '74', '75', '81', '82', '83', '84', '91', '92', '93', '94', '95'
+						dv = 18
+						formula = "GT = 18 + RAIZ ( 0.0355 x PEM x Coef K )"
+						desarrollo = "GT = 18 (M$$HEX1$$ed00$$ENDHEX$$nimo)"
+					case else
+						dv = 18 + sqrt ( 0.0355 * pem * coef_k)
+						formula = "GT = 18 + RAIZ ( 0.0355 x PEM x Coef K )"
+						desarrollo = "GT = 18 + RAIZ ( 0.0355 x " + string(pem,  '###,###,##0.00') + " x " + string(coef_k) + " )"
+				end choose	
+						
+		end choose
+end choose
+
+st_dv_datos.formula = formula
+st_dv_datos.desarrollo = desarrollo
+st_dv_datos.dv = f_redondea(dv)
+
+return 0
+
+end function
+

@@ -1,0 +1,20 @@
+HA$PBExportHeader$st_eimporta_campos_subsanados.srs
+global type st_eimporta_campos_subsanados from structure
+	string		cod_pob_emplaz
+	string		cod_pos_emplaz
+	string		desc_poblacion_emplaz
+	string		cod_pob_clientes[]
+	string		cod_pos_clientes[]
+	string		desc_poblacion_clientes[]
+	string		cod_pob_rep[]
+	string		cod_pos_rep[]
+	string		desc_poblacion_rep[]
+	string		cod_prov_rep[]
+	string		cod_prov_clientes[]
+	string		cod_prov_emplaz
+	string		col_numero[]
+	string		colegiado
+	string		cli_nif[]
+	string		rep_nif[]
+end type
+

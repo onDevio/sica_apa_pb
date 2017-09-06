@@ -1,0 +1,130 @@
+HA$PBExportHeader$d_liquidacion_lista.srd
+release 10.5;
+datawindow(units=0 timer_interval=0 color=79741120 processing=0 HTMLDW=no print.printername="" print.documentname="" print.orientation = 1 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes print.preview.outline=yes hidegrayline=no )
+header(height=132 color="536870912" )
+summary(height=168 color="536870912" )
+footer(height=4 color="536870912" )
+detail(height=180 color="536870912" )
+table(column=(type=char(10) update=yes updatewhereclause=yes key=yes name=id_liquidacion dbname="fases_liquidaciones.id_liquidacion" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=id_fase dbname="fases_liquidaciones.id_fase" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=id_minuta dbname="fases_liquidaciones.id_minuta" )
+ column=(type=datetime update=yes updatewhereclause=yes name=f_liquidacion dbname="fases_liquidaciones.f_liquidacion" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=estado dbname="fases_liquidaciones.estado" initial="P" values="Pend.	P/Liq.	L/Anul.	A/Ret.	R/" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=contabilizada dbname="fases_liquidaciones.contabilizada" initial="N" values="	S/	N" )
+ column=(type=char(2) update=yes updatewhereclause=yes name=forma_pago dbname="fases_liquidaciones.forma_pago" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=banco dbname="fases_liquidaciones.banco" )
+ column=(type=number update=yes updatewhereclause=yes name=importe_suma dbname="fases_liquidaciones.importe_suma" )
+ column=(type=number update=yes updatewhereclause=yes name=importe_resta dbname="fases_liquidaciones.importe_resta" )
+ column=(type=number update=yes updatewhereclause=yes name=importe dbname="fases_liquidaciones.importe" )
+ column=(type=char(20) update=yes updatewhereclause=yes name=n_documento dbname="fases_liquidaciones.n_documento" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=id_colegiado dbname="fases_liquidaciones.id_colegiado" )
+ column=(type=char(15) updatewhereclause=yes name=colegiados_n_colegiado dbname="colegiados.n_colegiado" )
+ column=(type=char(80) updatewhereclause=yes name=colegiados_apellidos dbname="colegiados.apellidos" )
+ column=(type=char(50) updatewhereclause=yes name=nombre dbname="colegiados.nombre" )
+ column=(type=char(20) updatewhereclause=yes name=cuenta_bancaria dbname="conceptos_remesables.datos_bancarios" )
+ column=(type=char(15) updatewhereclause=yes name=colegiados_nif dbname="colegiados.nif" )
+ column=(type=number update=yes updatewhereclause=yes name=saldo_deudor dbname="fases_liquidaciones.saldo_deudor" )
+ column=(type=number update=yes updatewhereclause=yes name=deuda_facturas dbname="fases_liquidaciones.deuda_facturas" )
+ column=(type=char(2) update=yes updatewhereclause=yes name=cod_delegacion dbname="fases_liquidaciones.cod_delegacion" )
+ column=(type=datetime update=yes updatewhereclause=yes name=f_entrada dbname="fases_liquidaciones.f_entrada" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=tipo dbname="fases_liquidaciones.tipo" )
+ column=(type=char(60) update=yes updatewhereclause=yes name=concepto dbname="fases_liquidaciones.concepto" )
+ column=(type=real updatewhereclause=yes name=importe_facturas_incluidas dbname="importe_facturas_incluidas" )
+ column=(type=char(1) updatewhereclause=yes name=fac_pen_cobro dbname="fac_pen_cobro" )
+ column=(type=char(255) updatewhereclause=yes name=observaciones dbname="fases_liquidaciones.observaciones" )
+ column=(type=char(5) update=yes updatewhereclause=yes name=fases_liquidaciones_empresa dbname="fases_liquidaciones.empresa" )
+ column=(type=char(34) updatewhereclause=yes name=conceptos_remesables_datos_bancarios_iban dbname="conceptos_remesables.datos_bancarios_iban" )
+ column=(type=char(1) updatewhereclause=yes name=procesar_registro dbname="procesar_registro" )
+ column=(type=char(34) update=yes updatewhereclause=yes name=iban dbname="fases_liquidaciones.iban" )
+ column=(type=char(11) update=yes updatewhereclause=yes name=bic dbname="fases_liquidaciones.bic" )
+ retrieve="  SELECT fases_liquidaciones.id_liquidacion,   
+         fases_liquidaciones.id_fase,   
+         fases_liquidaciones.id_minuta,   
+         fases_liquidaciones.f_liquidacion,   
+         fases_liquidaciones.estado,   
+         fases_liquidaciones.contabilizada,   
+         fases_liquidaciones.forma_pago,   
+         fases_liquidaciones.banco,   
+         fases_liquidaciones.importe_suma,   
+         fases_liquidaciones.importe_resta,   
+         fases_liquidaciones.importe,   
+         fases_liquidaciones.n_documento,   
+         fases_liquidaciones.id_colegiado,   
+         colegiados.n_colegiado,   
+         colegiados.apellidos,   
+         colegiados.nombre,   
+         conceptos_remesables.datos_bancarios,   
+         colegiados.nif,   
+         fases_liquidaciones.saldo_deudor,   
+         fases_liquidaciones.deuda_facturas,   
+         fases_liquidaciones.cod_delegacion,   
+         fases_liquidaciones.f_entrada,   
+         fases_liquidaciones.tipo,   
+         fases_liquidaciones.concepto,   
+         convert(real, 0) as importe_facturas_incluidas,   
+         '' as fac_pen_cobro,   
+         fases_liquidaciones.observaciones,   
+         fases_liquidaciones.empresa,   
+         conceptos_remesables.datos_bancarios_iban,   
+         convert(char(1), 'N') as procesar_registro,   
+         fases_liquidaciones.iban,   
+         fases_liquidaciones.bic  
+    FROM fases_liquidaciones,   
+         colegiados,   
+         conceptos_remesables  
+   WHERE ( colegiados.id_colegiado *= conceptos_remesables.id_colegiado) and  
+         ( fases_liquidaciones.id_colegiado = colegiados.id_colegiado )    
+" update="fases_liquidaciones" updatewhere=0 updatekeyinplace=no  sort="compute_1 A importe D " )
+text(band=header alignment="2" text="N$$HEX2$$ba002000$$ENDHEX$$Col." border="6" color="0" x="23" y="4" height="52" width="233" html.valueishtml="0"  name=colegiados_n_colegiado_t visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="F. Liquid." border="6" color="0" x="1367" y="4" height="52" width="283" html.valueishtml="0"  name=f_liquidacion_t visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Colegiado" border="6" color="0" x="274" y="4" height="52" width="773" html.valueishtml="0"  name=compute_1_t visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="F. Entrada" border="6" color="0" x="1065" y="4" height="52" width="283" html.valueishtml="0"  name=f_entrada_t visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="N$$HEX2$$ba002000$$ENDHEX$$Liquidaci$$HEX1$$f300$$ENDHEX$$n" border="6" color="0~tif ( saldo_deudor < 0, f_color_rojo(), f_color_negro())" x="18" y="72" height="52" width="608" html.valueishtml="0"  name=id_liquidacion_t visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Cuenta Bancaria" border="6" color="0" x="1422" y="72" height="52" width="960" html.valueishtml="0"  name=banco_t visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Deudas" border="6" color="0~tif ( saldo_deudor < 0, f_color_rojo(), f_color_negro())" x="645" y="72" height="52" width="402" html.valueishtml="0"  name=saldo_deudor_t visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="N$$HEX2$$ba002000$$ENDHEX$$Documento" border="6" color="0" x="1065" y="72" height="52" width="352" html.valueishtml="0"  name=n_documento_t visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Imp. Fact. Incl." border="6" color="0" x="3493" y="72" height="52" width="361" html.valueishtml="0"  name=importe_facturas_incluidas_t visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Neto" border="6" color="0" x="3493" y="4" height="52" width="361" html.valueishtml="0"  name=importe_t visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Estado" border="6" color="0" x="1664" y="4" height="52" width="1184" html.valueishtml="0"  name=estado_t visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Contab." border="6" color="0" x="2866" y="4" height="52" width="169" html.valueishtml="0"  name=contabilizada_t visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Forma Pago" border="6" color="0" x="3054" y="4" height="52" width="421" html.valueishtml="0"  name=forma_pago_t visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Deleg." border="6" color="0" x="2405" y="72" height="52" width="146" html.valueishtml="0"  name=cod_delegacion_t visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Asunto" border="6" color="0" x="2569" y="72" height="52" width="905" html.valueishtml="0"  name=concepto_t visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=29 alignment="0" tabsequence=100 border="0" color="0" x="1431" y="88" height="56" width="960" format="[general]" html.valueishtml="0"  name=conceptos_remesables_datos_bancarios_iban visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+compute(band=detail alignment="0" expression="if(  estado ='P', importe, 0)"border="0" color="0" x="87" y="84" height="52" width="96" format="[GENERAL]" html.valueishtml="0"  name=importe_pendiente visible="1~t0"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=1 alignment="0" tabsequence=70 border="0" color="0" x="14" y="88" height="56" width="608" format="[general]" html.valueishtml="0"  name=id_liquidacion visible="1" edit.limit=0 edit.case=any edit.autoselect=yes edit.displayonly=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=19 alignment="1" tabsequence=32766 border="0" color="255~tif ( saldo_deudor < 0, f_color_rojo(), f_color_negro())" x="640" y="88" height="56" width="361" format="#,##0.00" html.valueishtml="0"  name=saldo_deudor visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+line(band=detail x1="32" y1="168" x2="3438" y2="168"  name=l_2 visible="1" pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="1090519039" )
+column(band=detail id=14 alignment="0" tabsequence=32766 border="0" color="0~tif( integer(fac_pen_cobro) >0,rgb( 255, 0, 0),rgb( 0, 0, 0))" x="14" y="4" height="56" width="247" format="[general]" html.valueishtml="0"  name=colegiados_n_colegiado visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=4 alignment="0" tabsequence=20 border="0" color="0" x="1367" y="4" height="56" width="283" format="dd/mm/yyyy" html.valueishtml="0"  name=f_liquidacion  tag=" " visible="1" edit.limit=0 edit.case=any edit.format="dd/mm/yyyy" edit.autoselect=yes edit.nilisnull=yes edit.autohscroll=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=22 alignment="0" tabsequence=10 border="0" color="0" x="1065" y="4" height="56" width="283" format="dd/mm/yyyy" html.valueishtml="0"  name=f_entrada visible="1" edit.limit=0 edit.case=any edit.format="dd/mm/yyyy" edit.autoselect=yes edit.nilisnull=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+compute(band=detail alignment="0" expression="colegiados_apellidos + if(isnull( nombre ),'', ', ' + nombre ) "border="0" color="0" x="274" y="4" height="56" width="777" format="[GENERAL]" html.valueishtml="0"  name=compute_1 visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=12 alignment="0" tabsequence=80 border="0" color="0" x="1065" y="88" height="56" width="352" format="[general]" html.valueishtml="0"  name=n_documento visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+button(band=detail text="Fact Pend." enabled=yes action="0" border="0" color="0" x="3858" y="12" height="88" width="279" vtextalign="0" htextalign="0"  name=b_fact_pend visible="0"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="67108864" )
+column(band=detail id=25 alignment="1" tabsequence=32766 border="0" color="0" x="3493" y="88" height="56" width="361" format="#,##0.00" html.valueishtml="0"  name=importe_facturas_incluidas visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=11 alignment="1" tabsequence=60 border="0" color="0" x="3493" y="4" height="56" width="361" format="#,##0.00" html.valueishtml="0"  name=importe  tag=" " visible="1" edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=21 alignment="0" tabsequence=90 border="0" color="0" x="2405" y="88" height="56" width="146" format="[general]" html.valueishtml="0"  name=cod_delegacion visible="1" dddw.name=d_dddw_delegaciones dddw.displaycolumn=compute_1 dddw.datacolumn=cod_delegacion dddw.percentwidth=250 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=24 alignment="0" tabsequence=32766 border="0" color="0" x="2569" y="88" height="56" width="905" format="[general]" html.valueishtml="0"  name=concepto visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=5 alignment="2" tabsequence=30 border="0" color="0" x="1673" y="4" height="56" width="1175" format="[general]" html.valueishtml="0"  name=estado  tag=" " visible="1" radiobuttons.columns=4 radiobuttons.scale=no radiobuttons.threed=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=6 alignment="2" tabsequence=40 border="0" color="0" x="2866" y="4" height="56" width="169" format="[general]" html.valueishtml="0"  name=contabilizada  tag=" " visible="1" checkbox.text="" checkbox.on="S" checkbox.off="N" checkbox.scale=no checkbox.threed=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=7 alignment="0" tabsequence=50 border="0" color="0" x="3054" y="4" height="56" width="421" format="[general]" html.valueishtml="0"  name=forma_pago  tag=" " visible="1" dddw.name=d_dddw_csi_formas_de_pago_pago dddw.displaycolumn=descripcion dddw.datacolumn=tipo_pago dddw.percentwidth=200 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any dddw.nilisnull=yes dddw.vscrollbar=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+compute(band=summary alignment="0" expression="sum(if( forma_pago = 'TA', 1, 0))"border="0" color="0" x="55" y="12" height="76" width="256" format="[GENERAL]" html.valueishtml="0"  name=n_talones visible="1~t0"  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+compute(band=summary alignment="0" expression="sum(if( forma_pago = 'TR', 1, 0))"border="0" color="0" x="343" y="12" height="76" width="256" format="[GENERAL]" html.valueishtml="0"  name=n_transferencias visible="1~t0"  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+text(band=summary alignment="1" text="Total Pendiente:" border="0" color="0" x="2537" y="32" height="52" width="357" html.valueishtml="0"  name=importe_pendiente_t visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="79741120" )
+text(band=summary alignment="0" text="Liquidaciones en lista:" border="0" color="0" x="1582" y="96" height="52" width="475" html.valueishtml="0"  name=t_1 visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="79741120" )
+compute(band=summary alignment="0" expression="rowcount()"border="0" color="0" x="2085" y="96" height="52" width="462" format="[GENERAL]" html.valueishtml="0"  name=compute_2 visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="79741120" )
+text(band=summary alignment="1" text="Total:" border="0" color="0" x="2693" y="96" height="52" width="201" html.valueishtml="0"  name=t_2 visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="79741120" )
+compute(band=summary alignment="1" expression="sum(importe_pendiente for all)"border="0" color="0" x="2917" y="32" height="52" width="517" format="#,##0.00" html.valueishtml="0"  name=suma_importe_pendiente visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+compute(band=summary alignment="1" expression="sum(importe for all)"border="0" color="0" x="2917" y="96" height="52" width="517" format="#,##0.00" html.valueishtml="0"  name=compute_3 visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+rectangle(band=summary x="1509" y="16" height="148" width="1938"  name=r_1 visible="1" brush.hatch="7" brush.color="553648127" pen.style="0" pen.width="5" pen.color="33554432"  background.mode="2" background.color="1090519039" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" pagingmethod=0 generatedddwframes="1" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()
+ 

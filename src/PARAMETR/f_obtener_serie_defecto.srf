@@ -1,0 +1,20 @@
+HA$PBExportHeader$f_obtener_serie_defecto.srf
+global type f_obtener_serie_defecto from function_object
+end type
+
+forward prototypes
+global function string f_obtener_serie_defecto (string as_empresa, string as_anyo)
+end prototypes
+
+global function string f_obtener_serie_defecto (string as_empresa, string as_anyo);string ls_serie
+
+select serie into :ls_serie
+from csi_series
+where empresa = :as_empresa and anyo = :as_anyo and serie_por_defecto = 'S';
+
+if f_es_vacio(ls_serie) then ls_serie = '-1'
+
+
+return ls_serie
+end function
+

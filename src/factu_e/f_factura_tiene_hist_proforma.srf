@@ -1,0 +1,24 @@
+HA$PBExportHeader$f_factura_tiene_hist_proforma.srf
+global type f_factura_tiene_hist_proforma from function_object
+end type
+
+forward prototypes
+global function boolean f_factura_tiene_hist_proforma (string as_id_factura)
+end prototypes
+
+global function boolean f_factura_tiene_hist_proforma (string as_id_factura);///**** SPC-907. Esta funci$$HEX1$$f300$$ENDHEX$$n sirve para indicar si una factura concreta tienen hist$$HEX1$$f300$$ENDHEX$$rico de proforma y por tanto proviene de una proforma . ****///
+///**** El problema sirve para averiguar la fecha de entrada del contrato que proviene en la funci$$HEX1$$f300$$ENDHEX$$n f_imprimir_factura_objeto_impr. Antes ****///
+///**** obten$$HEX1$$ed00$$ENDHEX$$a los datos directamente por minutas. **************************************************************************************************///     
+
+int li_count
+
+select count(*) into :li_count from csi_proforma_a_factura
+where id_factura = :as_id_factura;
+
+if li_count > 0 then
+	return true
+else
+	return false
+end if
+end function
+

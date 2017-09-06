@@ -1,0 +1,17 @@
+HA$PBExportHeader$f_csi_centros_descripcion.srf
+global type f_csi_centros_descripcion from function_object
+end type
+
+forward prototypes
+global function string f_csi_centros_descripcion (string centro)
+end prototypes
+
+global function string f_csi_centros_descripcion (string centro);string retorno
+
+SELECT csi_centros.descripcion  INTO :retorno  FROM csi_centros  WHERE csi_centros.centro = :centro   ;
+
+if isnull(retorno) then retorno = ''
+
+return retorno
+end function
+

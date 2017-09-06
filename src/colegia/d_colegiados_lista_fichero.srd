@@ -1,0 +1,99 @@
+HA$PBExportHeader$d_colegiados_lista_fichero.srd
+release 10.5;
+datawindow(units=0 timer_interval=0 color=16777215 processing=1 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes print.preview.outline=yes hidegrayline=no grid.lines=0 )
+header(height=72 color="16777215" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=64 color="536870912" )
+table(column=(type=char(10) updatewhereclause=yes name=id_colegiado dbname="colegiados.id_colegiado" dbalias=".id_colegiado" )
+ column=(type=char(15) updatewhereclause=yes name=n_colegiado dbname="colegiados.n_colegiado" dbalias=".n_colegiado" )
+ column=(type=char(80) updatewhereclause=yes name=apellidos dbname="colegiados.apellidos" dbalias=".apellidos" )
+ column=(type=char(50) updatewhereclause=yes name=nombre dbname="colegiados.nombre" dbalias=".nombre" )
+ column=(type=char(15) updatewhereclause=yes name=nif dbname="colegiados.nif" dbalias=".nif" )
+ column=(type=char(1) updatewhereclause=yes name=alta_baja dbname="colegiados.alta_baja" dbalias=".alta_baja" values="	S/	N" )
+ column=(type=char(2) updatewhereclause=yes name=situacion dbname="colegiados.situacion" dbalias=".situacion" )
+ column=(type=char(2) updatewhereclause=yes name=delegacion dbname="colegiados.delegacion" dbalias=".delegacion" )
+ column=(type=char(2) updatewhereclause=yes name=demarcacion dbname="colegiados.demarcacion" dbalias=".demarcacion" )
+ column=(type=char(5) updatewhereclause=yes name=colegiados_c_geografico dbname="colegiados.c_geografico" dbalias=".c_geografico" )
+ column=(type=datetime updatewhereclause=yes name=colegiados_f_colegiacion dbname="colegiados.f_colegiacion" dbalias=".f_colegiacion" )
+ column=(type=datetime updatewhereclause=yes name=colegiados_f_alta dbname="colegiados.f_alta" dbalias=".f_alta" )
+ column=(type=datetime updatewhereclause=yes name=colegiados_f_baja dbname="colegiados.f_baja" dbalias=".f_baja" )
+ column=(type=datetime updatewhereclause=yes name=colegiados_f_titulacion dbname="colegiados.f_titulacion" dbalias=".f_titulacion" )
+ column=(type=datetime updatewhereclause=yes name=colegiados_f_nacimiento dbname="colegiados.f_nacimiento" dbalias=".f_nacimiento" )
+ column=(type=char(2) updatewhereclause=yes name=colegiados_tipo_persona dbname="colegiados.tipo_persona" dbalias=".tipo_persona" )
+ column=(type=char(100) updatewhereclause=yes name=email dbname="colegiados.email" dbalias=".email" )
+ column=(type=char(160) updatewhereclause=yes name=domicilio_activo dbname="colegiados.domicilio_activo" dbalias=".domicilio_activo" )
+ column=(type=char(120) updatewhereclause=yes name=poblacion_activa dbname="colegiados.poblacion_activa" dbalias=".poblacion_activa" )
+ column=(type=char(3) updatewhereclause=yes name=musaat_src_cober dbname="musaat.src_cober" dbalias=".src_cober" )
+ column=(type=number updatewhereclause=yes name=musaat_src_coef_cm dbname="musaat.src_coef_cm" dbalias=".src_coef_cm" )
+ column=(type=char(30) updatewhereclause=yes name=telefono_1 dbname="colegiados.telefono_1" dbalias=".telefono_1" )
+ retrieve="  SELECT DISTINCT colegiados.id_colegiado,   
+         colegiados.n_colegiado,   
+         colegiados.apellidos,   
+         colegiados.nombre,   
+         colegiados.nif,   
+         colegiados.alta_baja,   
+         colegiados.situacion,   
+         colegiados.delegacion,   
+         colegiados.demarcacion,   
+         colegiados.c_geografico,   
+         colegiados.f_colegiacion,   
+         colegiados.f_alta,   
+         colegiados.f_baja,   
+         colegiados.f_titulacion,   
+         colegiados.f_nacimiento,   
+         colegiados.tipo_persona,   
+         colegiados.email,   
+         colegiados.domicilio_activo,   
+         colegiados.poblacion_activa,   
+         musaat.src_cober,   
+         musaat.src_coef_cm,   
+         //domicilios.cod_pob,   
+         //poblaciones.descripcion,   
+         colegiados.telefono_1  
+    FROM colegiados,   
+         musaat   
+         //domicilios,   
+         //poblaciones  
+   WHERE ( colegiados.id_colegiado *= musaat.id_col) and  
+        // ( poblaciones.cod_pob IN (SELECT domicilios.cod_pob FROM domicilios WHERE domicilios.id_colegiado=c.id_colegiado) ) and  
+       //  ( colegiados.id_colegiado = domicilios.id_colegiado ) and  
+         ( (colegiados.c_geografico = 'R' OR  
+         colegiados.c_geografico = 'RE') AND  
+         colegiados.alta_baja = 'S')    
+"  sort="n_colegiado A " )
+text(band=header alignment="2" text="Nombre" border="6" color="0" x="1298" y="8" height="56" width="869" html.valueishtml="0"  name=nombre_t  tag="texto=general.nombre" visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="79741120" )
+text(band=header alignment="2" text="Apellidos" border="6" color="0" x="233" y="8" height="56" width="1056" html.valueishtml="0"  name=apellidos_t  tag="texto=colegiados.apellidos" visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="79741120" )
+text(band=header alignment="2" text="C$$HEX1$$f300$$ENDHEX$$digo" border="6" color="0" x="9" y="8" height="56" width="215" html.valueishtml="0"  name=n_colegiado_t  tag="texto=general.codigo" visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="79741120" )
+text(band=header alignment="2" text="NIF" border="6" color="0" x="2176" y="8" height="56" width="338" html.valueishtml="0"  name=nif_t  tag="texto=general.nif" visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="79741120" )
+text(band=header alignment="2" text="Alta" border="6" color="0" x="2523" y="8" height="56" width="96" html.valueishtml="0"  name=alta_baja_t  tag="texto=general.alta" visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="79741120" )
+text(band=header alignment="2" text="Situaci$$HEX1$$f300$$ENDHEX$$n" border="6" color="0" x="2629" y="8" height="56" width="672" html.valueishtml="0"  name=situacion_t  tag="texto=general.situacion" visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="79741120" )
+text(band=header alignment="2" text="C" border="6" color="0" x="3310" y="8" height="56" width="96" html.valueishtml="0"  name=delegacion_t visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="79741120" )
+text(band=header alignment="0" text="Domicilio Activo" border="0" color="0" x="3415" y="4" height="76" width="3671" html.valueishtml="0"  name=domicilio_activo_t visible="1"  font.face="Tahoma" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+text(band=header alignment="0" text="Poblacion Activa" border="0" color="0" x="7095" y="4" height="76" width="1253" html.valueishtml="0"  name=poblacion_activa_t visible="1"  font.face="Tahoma" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+text(band=header alignment="0" text="Musaat Src Cober" border="0" color="0" x="8361" y="4" height="76" width="59" html.valueishtml="0"  name=musaat_src_cober_t visible="1"  font.face="Tahoma" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+text(band=header alignment="0" text="Musaat Src Coef Cm" border="0" color="0" x="8430" y="4" height="76" width="727" html.valueishtml="0"  name=musaat_src_coef_cm_t visible="1"  font.face="Tahoma" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+text(band=header alignment="0" text="Colegiados Telefono 1" border="0" color="0" x="9175" y="4" height="76" width="686" html.valueishtml="0"  name=colegiados_telefono_1_t visible="1"  font.face="Tahoma" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="9" y="4" height="56" width="215" format="[general]" html.valueishtml="0"  name=n_colegiado visible="1" edit.limit=15 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="1298" y="4" height="56" width="869" format="[general]" html.valueishtml="0"  name=nombre visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="233" y="4" height="56" width="1056" format="[general]" html.valueishtml="0"  name=apellidos visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=6 alignment="2" tabsequence=32766 border="0" color="0" x="2523" y="4" height="56" width="96" format="[general]" html.valueishtml="0"  name=alta_baja visible="1" checkbox.text="" checkbox.on="S" checkbox.off="N" checkbox.scale=no checkbox.threed=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="2176" y="4" height="56" width="338" format="[general]" html.valueishtml="0"  name=nif visible="1" edit.limit=15 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="0" x="2629" y="4" height="56" width="672" format="[general]" html.valueishtml="0"  name=situacion visible="1" dddw.name=d_dddw_situaciones dddw.displaycolumn=descripcion dddw.datacolumn=codigo dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=8 alignment="2" tabsequence=32766 border="0" color="0" x="3310" y="4" height="56" width="96" format="[general]" html.valueishtml="0"  name=delegacion visible="1" dddw.name=d_dddw_centros dddw.displaycolumn=centro dddw.datacolumn=centro dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+column(band=detail id=18 alignment="0" tabsequence=32766 border="0" color="0" x="3415" y="0" height="52" width="3671" format="[general]" html.valueishtml="0"  name=domicilio_activo visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=19 alignment="0" tabsequence=32766 border="0" color="0" x="7095" y="0" height="52" width="1253" format="[general]" html.valueishtml="0"  name=poblacion_activa visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=20 alignment="0" tabsequence=32766 border="0" color="0" x="8361" y="0" height="52" width="59" format="[general]" html.valueishtml="0"  name=musaat_src_cober visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=21 alignment="0" tabsequence=32766 border="0" color="0" x="8430" y="0" height="52" width="727" format="[general]" html.valueishtml="0"  name=musaat_src_coef_cm visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=22 alignment="0" tabsequence=32766 border="0" color="0" x="9179" y="0" height="52" width="681" format="[general]" html.valueishtml="0"  name=telefono_1 visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" pagingmethod=0 generatedddwframes="1" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()
+ 

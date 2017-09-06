@@ -1,0 +1,21 @@
+HA$PBExportHeader$f_euro_convierte.srf
+$PBExportComments$Llama a f_euro_cambio para aplicar el cambio a un campo importe redondeando.
+global type f_euro_convierte from function_object
+end type
+
+forward prototypes
+global function double f_euro_convierte (double importe, character mo, character md)
+end prototypes
+
+global function double f_euro_convierte (double importe, character mo, character md);// Funcion que multiplica a todos los campos de importe 
+
+// dr es d$$HEX1$$ed00$$ENDHEX$$gitos de redondeo
+// mo moneda original, y md, moneda destino
+int dr = 0
+
+if md = 'E' or md = 'e' then dr= 2
+
+return  round(importe / f_euro_cambio(mo,md) , dr)
+
+end function
+

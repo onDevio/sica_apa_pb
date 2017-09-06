@@ -1,0 +1,25 @@
+HA$PBExportHeader$st_caja_cobros.srs
+global type st_caja_cobros from structure
+	string		tipo
+	datawindow		dw
+	double		cantidad_pagar
+	datetime		fecha_pago
+	string		forma_pago
+	string		banco
+	string		concepto
+	string		n_originales
+	string		n_copias
+	boolean		realizado
+	string		unico_multiple
+	string		tipo_carta_imprimir
+	long		copias
+	double		comision_tarjeta
+	n_csd_impresion_formato		impresion_formato
+	string		pagador
+	string		id_pagador
+	string		tipo_pagador
+	string		formapago_cobro
+	st_liquidacion		st_liq
+	string		empresa
+end type
+

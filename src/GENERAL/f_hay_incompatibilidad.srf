@@ -1,0 +1,47 @@
+HA$PBExportHeader$f_hay_incompatibilidad.srf
+global type f_hay_incompatibilidad from function_object
+end type
+
+forward prototypes
+global function string f_hay_incompatibilidad (string t_actuacion, string tipo_obra, string uso, boolean avisar)
+end prototypes
+
+global function string f_hay_incompatibilidad (string t_actuacion, string tipo_obra, string uso, boolean avisar);string act1,act2,tip1,tip2,us1,us2
+integer cuantos
+
+
+act1=MidA(t_actuacion,1,1)+'*'
+act2='*'+MidA(t_actuacion,2,1)
+tip1=MidA(tipo_obra,1,1)+'*'
+tip2='*'+MidA(tipo_obra,2,1)
+us1=MidA(uso,1,1)+'*'
+us2='*'+MidA(uso,2,1)
+
+SELECT count(*)
+	INTO :cuantos
+	FROM fases_incompatibilidades
+	WHERE (t_actuacion = '*' OR t_actuacion = :act1  OR t_actuacion = :act2 or t_actuacion = :t_actuacion) and
+			(t_obra = '*' OR t_obra = :tip1  OR t_obra = :tip2 or t_obra = :tipo_obra) and
+			(uso = '*' OR uso = :us1 OR uso = :us2 or uso = :uso) and tipo_incomp = 'P' ;
+
+if cuantos = 0 then
+	SELECT count(*)
+		INTO :cuantos
+		FROM fases_incompatibilidades
+		WHERE (t_actuacion = '*' OR t_actuacion = :act1   OR t_actuacion = :act2 or  t_actuacion = :t_actuacion) and
+				(t_obra = '*' OR t_obra = :tip1  OR t_obra = :tip2 or t_obra = :tipo_obra) and
+				(uso = '*' OR uso = :us1 OR uso = :us2 or uso = :uso) and tipo_incomp = 'A' ;
+	if cuantos = 0 then
+		return ''
+	else
+		if avisar then messagebox(g_titulo,"De acuerdo con la legislaci$$HEX1$$f300$$ENDHEX$$n vigente esta combinaci$$HEX1$$f300$$ENDHEX$$n de tipo de actuaci$$HEX1$$f300$$ENDHEX$$n-tipo de obra-uso de obra podr$$HEX1$$ed00$$ENDHEX$$a no ser atribuci$$HEX1$$f300$$ENDHEX$$n de los aparejadores")		
+		return 'AVISO'
+	end if
+else
+	if avisar then messagebox(g_titulo,"Esta combinaci$$HEX1$$f300$$ENDHEX$$n de tipo de actuaci$$HEX1$$f300$$ENDHEX$$n-tipo de obra-uso de obra es incompatible")	
+	return 'PROHIBIDO'
+end if
+
+
+end function
+

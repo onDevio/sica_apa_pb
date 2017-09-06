@@ -1,0 +1,93 @@
+HA$PBExportHeader$f_cursos_extraer_informacion.srf
+global type f_cursos_extraer_informacion from function_object
+end type
+
+forward prototypes
+global subroutine f_cursos_extraer_informacion ()
+end prototypes
+
+global subroutine f_cursos_extraer_informacion ();// Esta funci$$HEX1$$f300$$ENDHEX$$n se encarga de hacer el mantenimiento de los datos del colegiado, solo si eres un usuario con ese permiso
+// hace uso de la transacci$$HEX1$$f300$$ENDHEX$$n g_bbdd_sms para apuntar a la base de datos de mensajeria
+long n_reg, fila, fila_insert
+string ls_inifile
+string titulo, tipo_movida,descurso, lugar
+datetime fechaini,fechafin,fechafininscripcion
+long n_plazas, minimo, id_curso
+double porc, coste
+datastore ds_origen
+n_tr bbdd_cursos
+
+// Miramos si tenemos permiso para esto
+SELECT count(*) into :n_reg from t_permisos where cod_usuario = :g_usuario and cod_aplicacion = '0000000042' and permiso = 'E';
+if n_reg < 1 then return
+
+// Comprobamos que no se hayan pasado ya
+//if	g_fecha_cursos = datetime(today(), time("00:00")) then return
+
+if n_reg>0 then
+	// Recupero el nombre del fichero .INI
+	ls_inifile = gnv_app.of_GetAppInifile()
+	
+	// Crearemos la transaccion
+	bbdd_cursos = create n_tr
+	
+	// llamamos a la funcion que permite hacer la conexion con la base de datos de listeria. Los par$$HEX1$$e100$$ENDHEX$$metros son
+	// Fichero_ini, seccion, nombre de la transaccion, informar de errores
+	if f_conexion(ls_inifile, 'cursos', bbdd_cursos, FALSE)<0 then
+		// Se ha producido alg$$HEX1$$fa00$$ENDHEX$$n error en la conexion con la base de datos por lo que tan solo le dejaremos cancelar
+		return
+	END IF
+	
+	// 2.Para cada uno de los cursos hacemos el traspaso
+	ds_origen = create datastore
+	ds_origen.dataobject = 'd_cursos_extraer_informacion'
+	ds_origen.settransobject(SQLCA)
+	ds_origen.retrieve()
+	
+	select count(*) into :id_curso from cursos using bbdd_cursos;
+	
+	for fila = 1 TO ds_origen.RowCount()
+		w_aplic_frame.setmicrohelp(string(fila))
+		titulo = ds_origen.GetItemString(fila, 'nombre')
+		
+		select count(*) into :fila_insert from cursos where nomcurso = :titulo  using bbdd_cursos;
+		
+		//miramos si este curso ya esta pasado
+		if fila_insert = 0 then
+			id_curso++
+			CHOOSE CASE ds_origen.GetItemString(fila, 'tipo_convocatoria')
+				CASE 'C'
+					tipo_movida = 'CURSO'
+				CASE 'J'
+					tipo_movida = 'JORNADA'
+				CASE ELSE
+					tipo_movida = 'OTROS'
+			END CHOOSE
+			n_plazas = ds_origen.GetItemNumber(fila, 'n_plazas')
+			porc = ds_origen.GetItemNumber(fila, 'porcentaje_minimo')
+			if porc = 0 then minimo = 0 else minimo = n_plazas/porc
+
+			descurso = ds_origen.GetItemString(fila, 'observaciones');if f_es_vacio(descurso) then descurso = titulo
+			fechaini = ds_origen.GetItemDatetime(fila, 'f_ini_curso')
+			fechafin = ds_origen.GetItemDatetime(fila, 'f_fin_curso')
+			fechafininscripcion = ds_origen.GetItemDatetime(fila, 'f_fin_inscripcion')
+			lugar = ds_origen.GetItemString(fila, 'domicilio')
+			coste = ds_origen.GetItemNumber(fila, 'importe_col')
+			
+			INSERT INTO cursos ( idcurso, nomcurso,tipomovida,descurso,asistenciaminima,fechaini, fechafin,fechafininscripci$$HEX1$$f300$$ENDHEX$$n,lugar,coste, tipoinscripci$$HEX1$$f300$$ENDHEX$$n)
+			VALUES				 ( :id_curso,:titulo,:tipo_movida,:descurso,:minimo,:fechaini,:fechafin,:fechafininscripcion,:lugar,:coste, 'PREINSCRITO')  using bbdd_cursos;
+
+
+			w_aplic_frame.setmicrohelp(bbdd_cursos.sqlerrtext)
+		end if
+	next
+	
+//	g_fecha_cursos = datetime(today(), time("00:00"))
+	
+	destroy ds_origen
+	disconnect using bbdd_cursos;
+	destroy bbdd_cursos
+end if 
+
+end subroutine
+

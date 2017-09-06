@@ -1,0 +1,92 @@
+HA$PBExportHeader$f_parametriza_ventana_calculo_honos_le.srf
+global type f_parametriza_ventana_calculo_honos_le from function_object
+end type
+
+forward prototypes
+global subroutine f_parametriza_ventana_calculo_honos_le (w_calculo_honorarios_le w)
+end prototypes
+
+global subroutine f_parametriza_ventana_calculo_honos_le (w_calculo_honorarios_le w);string tarifa, param1, param2, param3, param4, param5, campo
+int i
+
+// Ocultamos todos los parametros antes de mostrar los que corresponden
+// i=6 porque a partir del sexto campo empiezan los parametros
+for i=6 to integer(w.dw_1.Object.DataWindow.Column.Count)
+	campo = w.dw_1.Describe("#" + string(i) + ".Name")
+	w.dw_1.Modify("#" + string(i) + ".Visible = 0")
+	w.dw_1.Modify(campo + "_t" + ".Visible = 0")
+next
+
+// Mostramos este campo ya que se oculta en el for anterior que viene
+// de la funci$$HEX1$$f300$$ENDHEX$$n de cuenca
+w.dw_1.Modify("Pem_min.Visible = 1")
+w.dw_1.Modify("Pem_min_t.Visible = 1")
+
+// Recuperamos los parametros de la tarifa y los mostramos
+Datastore ds_params
+ds_params = create datastore
+ds_params.DataObject = 'ds_parametros_tarifa'
+ds_params.SetTransObject(SQLCA)
+
+tarifa = w.dw_1.getitemstring(1, 'tarifa')
+
+ds_params.retrieve(tarifa)
+
+param1 = ds_params.getitemstring(1, 'param1')
+param2 = ds_params.getitemstring(1, 'param2')
+param3 = ds_params.getitemstring(1, 'param3')
+param4 = ds_params.getitemstring(1, 'param4')
+param5 = ds_params.getitemstring(1, 'param5')
+
+if not f_es_vacio(param1) then 
+	w.dw_1.modify(param1 + ".visible=1")
+	w.dw_1.modify(param1 + "_t.visible=1")
+	w.dw_1.modify(param1 + "_t.X=9")	
+	w.dw_1.modify(param1 + "_t.Y=572")
+	w.dw_1.modify(param1 + ".X=457")
+	w.dw_1.modify(param1 + ".Y=572")
+	w.dw_1.modify(param1 + ".tabsequence=30")	
+end if	
+if not f_es_vacio(param2) then 
+	w.dw_1.modify(param2 + ".visible=1")
+	w.dw_1.modify(param2 + "_t.visible=1")
+	w.dw_1.modify(param2 + "_t.X=9")	
+	w.dw_1.modify(param2 + "_t.Y=680")
+	w.dw_1.modify(param2 + ".X=457")
+	w.dw_1.modify(param2 + ".Y=680")
+	w.dw_1.modify(param2 + ".tabsequence=40")	
+end if
+if not f_es_vacio(param3) then
+	w.dw_1.modify(param3 + ".visible=1")
+	w.dw_1.modify(param3 + "_t.visible=1")
+	w.dw_1.modify(param3 + "_t.X=9")	
+	w.dw_1.modify(param3 + "_t.Y=788")
+	w.dw_1.modify(param3 + ".X=457")
+	w.dw_1.modify(param3 + ".Y=788")
+	w.dw_1.modify(param3 + ".tabsequence=50")
+end if
+if not f_es_vacio(param4) then 
+	w.dw_1.modify(param4 + ".visible=1")
+	w.dw_1.modify(param4 + "_t.visible=1")
+	w.dw_1.modify(param4 + "_t.X=9")	
+	w.dw_1.modify(param4 + "_t.Y=896")
+	w.dw_1.modify(param4 + ".X=457")
+	w.dw_1.modify(param4 + ".Y=896")
+	w.dw_1.modify(param4 + ".tabsequence=60")
+end if	
+if not f_es_vacio(param5) then 
+	w.dw_1.modify(param5 + ".visible=1")
+	w.dw_1.modify(param5 + "_t.visible=1")
+	w.dw_1.modify(param5 + "_t.X=9")	
+	w.dw_1.modify(param5 + "_t.Y=1004")
+	w.dw_1.modify(param5 + ".X=457")
+	w.dw_1.modify(param5 + ".Y=1004")
+	w.dw_1.modify(param5 + ".tabsequence=70")	
+end if	
+
+w.dw_1.modify("importe.tabsequence=200")
+w.dw_1.modify("pem_min.tabsequence=210")	
+
+destroy ds_params
+end subroutine
+

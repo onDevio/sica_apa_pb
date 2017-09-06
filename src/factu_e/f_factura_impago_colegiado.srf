@@ -1,0 +1,20 @@
+HA$PBExportHeader$f_factura_impago_colegiado.srf
+$PBExportComments$Funcion que regresa los datos del colegiado
+global type f_factura_impago_colegiado from function_object
+end type
+
+forward prototypes
+global function boolean f_factura_impago_colegiado (string id_col)
+end prototypes
+
+global function boolean f_factura_impago_colegiado (string id_col);long pagado = 0
+string n_colegiado
+
+select n_colegiado into :n_colegiado from colegiados where id_colegiado = :id_col;
+
+select count(*) into :pagado from csi_facturas_emitidas where (n_col=:n_colegiado) and (pagado = 'N' or pagado is null);
+
+return (pagado > 0)
+
+end function
+

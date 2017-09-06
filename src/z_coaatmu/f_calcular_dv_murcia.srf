@@ -1,0 +1,28 @@
+HA$PBExportHeader$f_calcular_dv_murcia.srf
+$PBExportComments$Calcula el total de dv para murcia
+global type f_calcular_dv_murcia from function_object
+end type
+
+forward prototypes
+global function integer f_calcular_dv_murcia (ref st_dv_datos st_dv_datos)
+end prototypes
+
+global function integer f_calcular_dv_murcia (ref st_dv_datos st_dv_datos);double dv
+string tipoact, tipoobra
+
+tipoact = st_dv_datos.tipoact
+tipoobra = st_dv_datos.tipoobra
+  SELECT tasas_murcia.importe  
+    INTO :dv  
+    FROM tasas_murcia  
+   WHERE ( tasas_murcia.tipoact = :tipoact ) AND  
+         ( tasas_murcia.tipoobra = :tipoobra )   ;
+
+if sqlca.sqlcode <> 0 then dv = 0
+
+st_dv_datos.dv = dv
+
+
+return 0
+end function
+

@@ -1,0 +1,180 @@
+
+//Se inserta parámetro para indicar que la serie de Musaat para facturas es diferente. La serie está en g_fases_serie_musaat
+insert into var_globales (nombre,sn,descripcion,modificable) values ("g_facturar_musaat_pc_serie_aparte","N","Parametro que indica si gastan una serie distinta (g_fases_serie_musaat) para la facturación de conceptos de MUSAAT",'N');
+
+declare @colegio varchar(10)
+select @colegio = texto from var_globales where nombre = 'COLEGIO'
+
+// Para Mallorca. 
+if @colegio = 'COAATMCA' 
+begin
+   update var_globales set sn = "S" where nombre = "g_facturar_musaat_pc_serie_aparte"
+end 
+
+//SCP-492
+if @colegio= 'COAATMCA' 
+begin
+update csi_param_sigescon set valor_texto='4140000100' where nombre='g_conta_pago_prestaciones'
+end 
+
+if @colegio= 'COAATMCA' or @colegio= 'COAATCC' 
+begin
+insert into t_control_eventos(control,evento,activo,param1,id_control) values('CONTA_COLEGIADOS','CONTA_PRESTA','S','1','PRESTA1')
+end 
+
+//scp-652
+//Para Alicante,Avila,Caceres,Guadalajara,León,Lleida,Navarra,Tarragona,Terres y teruel 
+if @colegio= 'COAATA' or @colegio= 'COAATCC' or @colegio= 'COAATAVI' or @colegio= 'COAATGU' or @colegio= 'COAATLE' or @colegio= 'COAATLL' or @colegio= 'COAATNA' or @colegio= 'COAATTGN' or @colegio= 'COAATTEB' or @colegio= 'COAATTER' 
+begin
+insert into var_globales (nombre,texto,descripcion,modificable) values ("g_tipo_ident_fichero","2","Variable que marca el identificador que se envia a MUSAAT/fomento",'S')
+end 
+
+
+//para Mayorca
+if @colegio= 'COAATMCA' 
+begin
+insert into var_globales (nombre,texto,descripcion,modificable) values ("g_tipo_ident_fichero","4","Variable que marca el identificador que se envia a MUSAAT/fomento",'S')
+end 
+
+//para Bizkaia
+if @colegio= 'COAATB' 
+begin
+insert into var_globales (nombre,texto,descripcion,modificable) values ("g_tipo_ident_fichero","3","Variable que marca el identificador que se envia a MUSAAT/fomento",'S')
+end 
+
+// SCP-604 Para COAATZ,COAAGU,COAATCC,COAATMCA,COAATA,COAATNA,COAATEB,COAATTGN,COAATE,COAATFE,COAATGC,COAATAV,COAATL
+if @colegio='COAATA' or @colegio='COAATCC' or @colegio='COAATAVI' or @colegio='COAATGU' or @colegio='COAATLE' or @colegio='COAATZ' or @colegio='COAATNA' or @colegio='COAATTGN' or @colegio='COAATTEB' or @colegio='COAATTER' or @colegio='COAATMCA' or @colegio='COAATTFE' or @colegio='COAATGC' 
+begin
+delete from t_control_eventos where id_control="TFE1"
+insert into t_control_eventos (control, evento, activo, param1, param2, id_control , orden,param3,mensaje) values("VISIBLE_OBJETO","ABRIR_FASE", "S","b_salida_fase","1","TFE1","","","" )
+end 
+
+
+// Le faltaba el campo serie_abono en la tabla. 
+if @colegio='COAATTFE'
+begin
+alter table csi_series add serie_abono char(10) null
+end
+go
+;
+//limpieza del branch 
+drop table var_global_temporal;
+drop table t_control_eventos_temporal;
+drop table expedientes_estado_temporal;
+
+//SCP-662
+alter table csi_facturas_emitidas add proforma char(1) DEFAULT 'N' null;
+// inicialización del nuevo campo fraccionando el UPDATE en intervalos de 2 años, ampliando el rango del intervalo a partir del año 1995 hacia abajo
+// ha tardado 8 minutos en db-tst-04, teniendo un índice por el campo fecha
+update csi_facturas_emitidas SET proforma = 'N' WHERE datepart(Year, fecha) >= 2009;
+update csi_facturas_emitidas SET proforma = 'N' WHERE datepart(Year, fecha) >= 2007 AND datepart(Year, fecha) < 2009;
+update csi_facturas_emitidas SET proforma = 'N' WHERE datepart(Year, fecha) >= 2005 AND datepart(Year, fecha) < 2007;
+update csi_facturas_emitidas SET proforma = 'N' WHERE datepart(Year, fecha) >= 2003 AND datepart(Year, fecha) < 2005;
+update csi_facturas_emitidas SET proforma = 'N' WHERE datepart(Year, fecha) >= 2001 AND datepart(Year, fecha) < 2003;
+update csi_facturas_emitidas SET proforma = 'N' WHERE datepart(Year, fecha) >= 1999 AND datepart(Year, fecha) < 2001;
+update csi_facturas_emitidas SET proforma = 'N' WHERE datepart(Year, fecha) >= 1997 AND datepart(Year, fecha) < 1999;
+update csi_facturas_emitidas SET proforma = 'N' WHERE datepart(Year, fecha) >= 1995 AND datepart(Year, fecha) < 1997;
+update csi_facturas_emitidas SET proforma = 'N' WHERE datepart(Year, fecha) >= 1990 AND datepart(Year, fecha) < 1995;
+update csi_facturas_emitidas SET proforma = 'N' WHERE datepart(Year, fecha) >= 1980 AND datepart(Year, fecha) < 1990;
+update csi_facturas_emitidas SET proforma = 'N' WHERE datepart(Year, fecha) < 1980;
+
+//SCP-661. Alexis
+	// Añade campo proforma a la tabla csi_series
+alter table csi_series add proforma char(1) default 'N' NULL;
+	//Actualiza los registros existentes
+update csi_series set proforma = 'N';
+	//Introduce la variable global.
+insert into var_globales (nombre, texto, descripcion, modificable) values('g_serie_proforma','PROFOR','Indica la serie con la que se crearán las facturas proforma','S');
+	// Introduce la nueva serie de facturas proforma 
+insert into csi_series (serie, empresa, contador, descripcion, recib, anyo, proforma, serie_abono) values( 'PROFOR','01', 0, 'Facturas Proforma', 'N', '2010', 'S', 'PROFOR');
+
+//SCP-672. Alexis
+// Para crear el nuevo campo: 
+alter table csi_articulos_servicios add regularizar char(1) null;
+// Para actualizar los artículos existentes: 
+update csi_articulos_servicios set regularizar = 'N';
+// Para actualizar el artículo que se corresponde con la prima variable: 
+update csi_articulos_servicios set regularizar = 'S' from var_globales where var_globales. texto = csi_articulos_servicios.codigo and var_globales.nombre = 'g_codigo_musaat';
+// Para actualizar el artículo que se corresponde con la cuota de intervención profesional : 
+update csi_articulos_servicios set regularizar = 'S' from var_globales where var_globales. texto = csi_articulos_servicios.codigo and var_globales.nombre = 'g_codigo_cip';
+// Para actualizar el artículo correspondiente con el derecho de visado: 
+update csi_articulos_servicios set regularizar = 'S' from var_globales where var_globales. texto = csi_articulos_servicios.codigo and var_globales.nombre = 'g_codigo_dv';
+
+
+//SCP-605 para todos
+update expedientes_estado Set p_facturar='S' where cod_estado<>'06' and cod_estado<>'02';
+update var_globales set texto="N" where nombre="g_bloqueo_poblacion";
+
+//SCP-643
+create table t_tramite (id_tramite char(10),nombre_tramite char(100));
+
+
+//SCP-667 Tabla Auxiliar. Backup al convertir proforma a factura
+create table csi_proforma_a_factura (id_factura char(10) not null, n_fact_proforma char(15) null, n_fact char(15) null, fecha_proforma datetime null, fecha datetime null, pagado_proforma char(1) null, pagado char(1) null, f_pago_proforma datetime null, f_pago datetime null, forma_pago_proforma char(2) null, forma_pago char(2) null, banco_proforma char(10) null, banco char(10) null) ;
+alter table csi_proforma_a_factura add constraint csi_proforma_a_factura primary key nonclustered (id_factura) ;
+
+//SCP-650 Añadir la opción en CAJA. Se comenta debido a que se cambió de determinación.
+//UPDATE t_control_eventos SET mensaje = mensaje + 'Proformas pendientes (F9)	9/' WHERE control ='OPCIONES_CAJA';
+
+//SCP-667. Alexis
+alter table csi_proforma_a_factura add contabilizada_proforma char(1) default 'N' null;
+alter table csi_proforma_a_factura add f_conta_proforma datetime null;
+alter table csi_proforma_a_factura add anulada_proforma char(1) default 'N' null;
+
+alter table fases add id_tramite char(10)  NULL;
+
+ 
+//SCP-653. Alexis. Se añade tabla de tipos de envío ya que visared y front-end web no gasta la misma codificación. 
+CREATE TABLE dbo.tipos_envio_visared ( 
+	id_tipo_envio	varchar(5) NOT NULL,
+	codigo       	varchar(5) NULL,
+	comentario_visared   	varchar(100) NULL,
+	comentario_frontend   	varchar(100) NULL,
+	CONSTRAINT id_tipo_envio_x PRIMARY KEY(id_tipo_envio));
+
+Insert into tipos_envio_visared values('1','NUEVO','DOCUMENTACION COLEGIAL','Alta de trabajo profesional en un nuevo expediente');
+Insert into tipos_envio_visared values('2','NUEVA','DOCUMENTACION COLEGIAL','Alta de trabajo profesional en un expediente existente');
+Insert into tipos_envio_visared values('3','ANEXO','ANEXO DE DOCUMENTACION','Anexo de documentación adjunta a un trabajo profesional');
+Insert into tipos_envio_visared values('4','SUBSA','SUBSANACION DE ERRORES','Subsanación de reparo');
+Insert into tipos_envio_visared values('5','REGUL','Regularización','Regularización');
+
+//SCP-682 Existen colegios en los que estas tablas no existen. COAATTFE, COAATMU
+// MUY IMPORTANTE COMPROBAR SI NO EXSTEN YA LAS TABLAS csi_fact_reclamaciones Y csi_fact_reclamaciones_tipos PARA LANZAR LAS SENTENCIAS
+//create table csi_fact_reclamaciones (id_reclamacion_factura char(10) not null, id_factura char(10) null, id_grupo char(10) null, f_reclamacion datetime null, tipo_reclamacion char(2) null) ;
+//alter table csi_fact_reclamaciones add constraint csi_fact_reclamaciones_x primary key nonclustered (id_reclamacion_factura) ;
+//create table csi_fact_reclamaciones_tipos (tipo_reclamacion char(2) not null, descripcion char(60) null, tipo_persona char(1) null, remesada char(1) null, agrupar char(1) null, codigo_siguiente char(2) null, orden char(2) null, dw char(150) null) ;
+//alter table csi_fact_reclamaciones_tipos add constraint csi_fact_reclamaciones_tipos primary key nonclustered (tipo_reclamacion) ;
+
+//SCP-682 Iván
+alter table csi_fact_reclamaciones_tipos add aplica varchar(1) null;
+alter table csi_fact_reclamaciones_tipos add esPrimera varchar(1) null;
+alter table csi_fact_reclamaciones_tipos add ciclo Integer null;
+
+insert into csi_fact_reclamaciones_tipos(tipo_reclamacion,descripcion,tipo_persona,remesada,agrupar,codigo_siguiente,orden,dw,aplica,esPrimera,ciclo) values('02','COLEGIADOS: 1a Reclamación','C','N','N','03','00','d_reclamaciones_facturas_1a_recla','A','S',0);
+insert into csi_fact_reclamaciones_tipos(tipo_reclamacion,descripcion,tipo_persona,remesada,agrupar,codigo_siguiente,orden,dw,aplica,esPrimera,ciclo) values('03','COLEGIADOS: 2a Reclamación','C','N','N','04','01','d_reclamaciones_facturas_2a_recla','A','N',30);
+insert into csi_fact_reclamaciones_tipos(tipo_reclamacion,descripcion,tipo_persona,remesada,agrupar,codigo_siguiente,orden,dw,aplica,esPrimera,ciclo) values('04','COLEGIADOS: 3a Reclamación','C','N','N','05','02','d_reclamaciones_facturas_3a_recla','A','N',30);
+insert into csi_fact_reclamaciones_tipos(tipo_reclamacion,descripcion,tipo_persona,remesada,agrupar,codigo_siguiente,orden,dw,aplica,esPrimera,ciclo) values('05','COLEGIADOS: 4a Reclamación','C','N','N','NO','03','d_reclamaciones_facturas_4a_recla','A','N',30);
+insert into csi_fact_reclamaciones_tipos(tipo_reclamacion,descripcion,tipo_persona,remesada,agrupar,codigo_siguiente,orden,dw,aplica,esPrimera,ciclo) values('10','CLIENTES: 1a Reclamación','P','N','N','11','aa','d_reclamaciones_facturas_1a_recla','A','S',0);
+insert into csi_fact_reclamaciones_tipos(tipo_reclamacion,descripcion,tipo_persona,remesada,agrupar,codigo_siguiente,orden,dw,aplica,esPrimera,ciclo) values('11','CLIENTES: 2a Reclamación','P','N','N','12','01','d_reclamaciones_facturas_2a_recla','A','N',30);
+insert into csi_fact_reclamaciones_tipos(tipo_reclamacion,descripcion,tipo_persona,remesada,agrupar,codigo_siguiente,orden,dw,aplica,esPrimera,ciclo) values('12','CLIENTES: 3a Reclamación','P','N','N','13','02','d_reclamaciones_facturas_3a_recla','A','N',30);
+insert into csi_fact_reclamaciones_tipos(tipo_reclamacion,descripcion,tipo_persona,remesada,agrupar,codigo_siguiente,orden,dw,aplica,esPrimera,ciclo) values('13','CLIENTES: 4a Reclamación','P','N','N','NO','03','d_reclamaciones_facturas_4a_recla','A','N',30);
+insert into csi_fact_reclamaciones_tipos(tipo_reclamacion,descripcion,tipo_persona,remesada,agrupar,codigo_siguiente,orden,dw,aplica,esPrimera,ciclo) values('50','COLEGIADOS: AGRUPADAS','C','N','S','NO','00','d_reclamaciones_facturas_agrupada','A','N',0);
+insert into csi_fact_reclamaciones_tipos(tipo_reclamacion,descripcion,tipo_persona,remesada,agrupar,codigo_siguiente,orden,dw,aplica,esPrimera,ciclo) values('51','CLIENTES: AGRUPADAS','P','N','S','NO','00','d_reclamaciones_facturas_agrupada','A','N',0);
+
+insert into contadores(contador,valor,descripcion,orden,modificable) values('RECLAM_FACT',0,'Contador de cartas de raclamacion de facturas y proformas','00','N');
+insert into contadores(contador,valor,descripcion,orden,modificable) values('RECLAM_FACT_GRUPO',0,'Contador de cartas agrupadas de reclamacion de facturas y proformas','00','N');
+
+alter table csi_empresas add web varchar(100) null;
+alter table csi_empresas add email varchar(100) null;
+
+insert into var_globales(nombre,texto,descripcion,modificable) values ('g_tipo_notificacion','I','A:Las notificaciones se agruparán. I: Las notificaciones serán individuales','S');
+
+update t_control_eventos set activo='N' where id_control='CGAST1';
+
+alter table csi_facturas_emitidas add paga_empresa varchar(1) null;
+alter table csi_facturas_emitidas add paga_externo varchar(1) null;
+
+// SCP-647 jboluda Nueva tabla para Musaat: datos empleados para reparto gastos e importe a facturar
+create table musaat_params_linea_fe (id_musaat char(10) not null, id_linea char(10) null, pem_certificacion double precision null, tipo_csd char(2) null, n_contrato_ant char(10) null, porcentaje double precision null, base_musaat double precision null) ;
+alter table musaat_params_linea_fe add constraint musaat_params_linea_fe primary key nonclustered (id_musaat) ;
+INSERT INTO contadores (contador,valor,descripcion,orden,modificable,empresa) VALUES ('MUSAAT_PARAMS_FE',0,'PK parámetros empleados en cálculo anotado línea facturación de MUSAAT',null,'N','');

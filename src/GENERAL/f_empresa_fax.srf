@@ -1,0 +1,14 @@
+HA$PBExportHeader$f_empresa_fax.srf
+global type f_empresa_fax from function_object
+end type
+
+forward prototypes
+global function string f_empresa_fax (string a_empresa)
+end prototypes
+
+global function string f_empresa_fax (string a_empresa);string fax_empresa 
+select fax into :fax_empresa   from csi_empresas where codigo = :a_empresa;
+return fax_empresa 
+
+end function
+

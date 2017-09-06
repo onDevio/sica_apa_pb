@@ -1,0 +1,19 @@
+HA$PBExportHeader$f_debe_mostrar_campo.srf
+global type f_debe_mostrar_campo from function_object
+end type
+
+forward prototypes
+global function string f_debe_mostrar_campo (string codigo)
+end prototypes
+
+global function string f_debe_mostrar_campo (string codigo);//Devuelve el tipo asociado a un c$$HEX1$$f300$$ENDHEX$$digo de caracter$$HEX1$$ed00$$ENDHEX$$stica
+string tipo_concepto
+
+SELECT otros_conceptos.tipo  
+INTO :tipo_concepto
+FROM otros_conceptos  
+WHERE otros_conceptos.codigo like :codigo;
+
+return tipo_concepto
+end function
+

@@ -1,0 +1,48 @@
+HA$PBExportHeader$f_colegiados_situaciones_altas_bajas.srf
+$PBExportComments$Dado un colegiado devuelve sus datos de altas, bajas, situaciones
+global type f_colegiados_situaciones_altas_bajas from function_object
+end type
+
+forward prototypes
+global function string f_colegiados_situaciones_altas_bajas (string id_col)
+end prototypes
+
+global function string f_colegiados_situaciones_altas_bajas (string id_col);//Esta funci$$HEX1$$f300$$ENDHEX$$n devuelve los datos de las situaciones, altas y bajas
+//que le corresponden al colegiado indicado por ID_COL
+
+string situacion_desc_aux, situacion_desc, fecha, alta, baja, situacion, observaciones, retorno
+long i
+datastore ds_situaciones
+
+retorno = ''
+ds_situaciones = create datastore
+ds_situaciones.dataobject ='d_colegiados_altas_bajas_situaciones'
+ds_situaciones.SetTransObject(SQLCA)
+
+ds_situaciones.Retrieve(id_col)
+
+FOR i=1 TO ds_situaciones.rowcount()
+	situacion_desc_aux = ds_situaciones.getitemstring(i, 'codigo')
+	select descripcion into :situacion_desc from t_altas_bajas_situaciones where codigo = :situacion_desc_aux;
+	fecha = string(ds_situaciones.getitemdatetime(i, 'fecha'))
+	alta = ds_situaciones.getitemstring(i, 'alta')
+	baja = ds_situaciones.getitemstring(i, 'baja')
+	situacion = ds_situaciones.getitemstring(i, 'situacion')
+	observaciones = ds_situaciones.getitemstring(i, 'observaciones')
+	
+	if f_es_vacio(situacion_desc) then situacion_desc = ''
+	if f_es_vacio(fecha) then fecha = ''
+	if f_es_vacio(alta) then alta = ''
+	if f_es_vacio(baja) then baja = ''
+	if f_es_vacio(situacion) then situacion = ''
+	if f_es_vacio(observaciones) then observaciones = ''
+	
+	retorno = retorno + situacion_desc + '~t' + fecha + '~t' + 'Alta: ' + alta + '~t' + 'Baja: ' + baja + '~t' + 'Situacion: ' + situacion + '~t' + 'Observaciones: ' + observaciones + cr
+NEXT
+
+
+destroy ds_situaciones
+
+return retorno
+end function
+

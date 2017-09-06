@@ -1,0 +1,53 @@
+HA$PBExportHeader$f_musaat_accidentes.srf
+$PBExportComments$Dado un id_musaat obtiene sus datos del seguro de accidentes
+global type f_musaat_accidentes from function_object
+end type
+
+forward prototypes
+global subroutine f_musaat_accidentes (string id_musaat, ref string accidentes_cia, ref string accidentes_n_poliza, ref string accidentes_asistencia, ref string accidentes_importe, ref string accidentes_alta, ref string accidentes_f_alta, ref string accidentes_f_baja, ref string accidentes_cober_muerte, ref string accidentes_cober_invalidez, ref string accidentes_cober_f_alta, ref string accidentes_cober_f_baja)
+end prototypes
+
+global subroutine f_musaat_accidentes (string id_musaat, ref string accidentes_cia, ref string accidentes_n_poliza, ref string accidentes_asistencia, ref string accidentes_importe, ref string accidentes_alta, ref string accidentes_f_alta, ref string accidentes_f_baja, ref string accidentes_cober_muerte, ref string accidentes_cober_invalidez, ref string accidentes_cober_f_alta, ref string accidentes_cober_f_baja);//Esta funci$$HEX1$$f300$$ENDHEX$$n establece los par$$HEX1$$e100$$ENDHEX$$metros que se le pasan por referencia con el valor
+//correspondiente al colegiado indicado por ID_MUSAAT
+
+string accidentes_cia_cod, accidentes_asistencia_cod
+
+datastore ds_accidentes
+
+ds_accidentes = create datastore
+ds_accidentes.dataobject ='d_musaat_accidentes'
+ds_accidentes.SetTransObject(SQLCA)
+
+ds_accidentes.Retrieve(id_musaat)
+
+if ds_accidentes.rowcount() > 0 then
+	accidentes_cia_cod = ds_accidentes.getitemstring(1, 'accidentes_cia')
+	select nom_s into :accidentes_cia from musaat_cias_aseguradoras where cod_s = :accidentes_cia_cod;
+	accidentes_n_poliza = ds_accidentes.getitemstring(1, 'accidentes_n_poliza')
+	accidentes_asistencia_cod = ds_accidentes.getitemstring(1, 'accidentes_asistencia')
+	select descripcion into :accidentes_asistencia from musaat_asistencia where codigo = :accidentes_asistencia_cod;
+	accidentes_importe = string(ds_accidentes.getitemnumber(1, 'accidentes_importe'))
+	accidentes_alta = ds_accidentes.getitemstring(1, 'accidentes_alta')
+	accidentes_f_alta = string(ds_accidentes.getitemdatetime(1, 'accidentes_f_alta'),"dd/mm/yyyy")
+	accidentes_f_baja = string(ds_accidentes.getitemdatetime(1, 'accidentes_f_baja'),"dd/mm/yyyy")
+	accidentes_cober_muerte = string(ds_accidentes.getitemnumber(1, 'accidentes_cober_muerte'))
+	accidentes_cober_invalidez = string(ds_accidentes.getitemnumber(1, 'accidentes_cober_invalidez2'))
+	accidentes_cober_f_alta = string(ds_accidentes.getitemdatetime(1, 'accidentes_cober_f_alta'),"dd/mm/yyyy")
+	accidentes_cober_f_baja = string(ds_accidentes.getitemdatetime(1, 'accidentes_cober_f_baja'),"dd/mm/yyyy")
+end if
+
+if f_es_vacio(accidentes_cia) then accidentes_cia = ''
+if f_es_vacio(accidentes_n_poliza) then accidentes_n_poliza = ''
+if f_es_vacio(accidentes_asistencia) then accidentes_asistencia = ''
+if f_es_vacio(accidentes_importe) then accidentes_importe = ''
+if f_es_vacio(accidentes_alta) then accidentes_alta = ''
+if f_es_vacio(accidentes_f_alta) then accidentes_f_alta = ''
+if f_es_vacio(accidentes_f_baja) then accidentes_f_baja = ''
+if f_es_vacio(accidentes_cober_muerte) then accidentes_cober_muerte = ''
+if f_es_vacio(accidentes_cober_invalidez) then accidentes_cober_invalidez = ''
+if f_es_vacio(accidentes_cober_f_alta) then accidentes_cober_f_alta = ''
+if f_es_vacio(accidentes_cober_f_baja) then accidentes_cober_f_baja = ''
+
+destroy ds_accidentes
+end subroutine
+

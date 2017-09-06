@@ -1,0 +1,126 @@
+HA$PBExportHeader$d_caja_listado_diario_caja.srd
+release 10.5;
+datawindow(units=3 timer_interval=0 color=1073741824 processing=0 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 635 print.margin.right = 635 print.margin.top = 635 print.margin.bottom = 635 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes print.preview.outline=yes hidegrayline=no )
+header(height=2672 color="536870912" )
+summary(height=264 color="536870912" )
+footer(height=555 color="536870912" )
+detail(height=476 color="536870912" height.autosize=yes )
+table(column=(type=char(10) updatewhereclause=yes name=csi_cobros_multiples_banco dbname="csi_cobros_multiples.banco" )
+ column=(type=char(2) updatewhereclause=yes name=csi_cobros_multiples_forma_pago dbname="csi_cobros_multiples.forma_pago" )
+ column=(type=number updatewhereclause=yes name=csi_cobros_multiples_importe dbname="csi_cobros_multiples.importe" )
+ column=(type=datetime updatewhereclause=yes name=csi_cobros_multiples_fecha dbname="csi_cobros_multiples.fecha" )
+ column=(type=char(100) updatewhereclause=yes name=csi_cobros_multiples_expediente dbname="csi_cobros_multiples.expediente" )
+ column=(type=char(150) updatewhereclause=yes name=csi_cobros_multiples_lista_fact dbname="csi_cobros_multiples.lista_fact" )
+ column=(type=char(10) updatewhereclause=yes name=csi_cobros_multiples_id_cobro_multiple dbname="csi_cobros_multiples.id_cobro_multiple" )
+ column=(type=char(100) updatewhereclause=yes name=csi_cobros_multiples_pagador dbname="csi_cobros_multiples.pagador" )
+ column=(type=char(1) updatewhereclause=yes name=pagado dbname="pagado" values="	S/	N" )
+ column=(type=char(10) updatewhereclause=yes name=csi_cobros_multiples_cod_usuario dbname="csi_cobros_multiples.cod_usuario" )
+ column=(type=char(10) updatewhereclause=yes name=centro dbname="csi_cobros_multiples.centro" )
+ column=(type=char(15) updatewhereclause=yes name=csi_cobros_multiples_n_talon dbname="csi_cobros_multiples.n_talon" )
+ column=(type=char(10) updatewhereclause=yes name=id_factura dbname="id_factura" )
+ column=(type=char(15) updatewhereclause=yes name=n_fact dbname="n_fact" )
+ retrieve="  SELECT csi_cobros_multiples.banco,   
+         csi_cobros_multiples.forma_pago,   
+         csi_cobros_multiples.importe,   
+         csi_cobros_multiples.fecha,   
+         csi_cobros_multiples.expediente,  
+ 		csi_cobros_multiples.lista_fact,   
+         csi_cobros_multiples.id_cobro_multiple,   
+         csi_cobros_multiples.pagador,   
+		'S' as pagado,
+         csi_cobros_multiples.cod_usuario,   
+         csi_cobros_multiples.centro,   
+         csi_cobros_multiples.n_talon,   
+         '' as id_factura  , '' as n_fact
+    FROM csi_cobros_multiples,   
+         csi_formas_de_pago  
+   WHERE ( csi_cobros_multiples.forma_pago = csi_formas_de_pago.tipo_pago ) and  
+         ( ( csi_cobros_multiples.fecha >= :desde ) AND  
+         ( csi_cobros_multiples.fecha <= :hasta ) AND  
+         ( csi_formas_de_pago.hay_ingreso = 'S' ) ) AND  
+         csi_cobros_multiples.importe <> 0   and
+		csi_cobros_multiples.centro Like :centro and
+		 csi_cobros_multiples.cod_usuario Like :usuario
+   UNION   all
+  SELECT csi_cobros.banco,   
+         csi_cobros.forma_pago,   
+         csi_cobros.importe,   
+         csi_cobros.f_pago,   
+         '' as expediente,   
+		'' as lista_fact,
+         csi_cobros.id_pago,   
+         '' as pagador,   
+		csi_cobros.pagado,
+         csi_cobros.cod_usuario,   
+         csi_cobros.centro,   
+         csi_cobros.n_talon,   
+         csi_cobros.id_factura  ,
+( SELECT csi_facturas_emitidas.n_fact  
+    
+    FROM csi_facturas_emitidas  
+   WHERE csi_facturas_emitidas.id_factura =   csi_cobros.id_factura) as n_fact
+    FROM csi_cobros,   
+         csi_formas_de_pago  
+   WHERE ( csi_cobros.forma_pago = csi_formas_de_pago.tipo_pago ) and  
+  ( (( csi_cobros.f_pago >= :desde ) AND   ( csi_cobros.f_pago < = :hasta ) ) OR
+		(( csi_cobros.f_vencimiento >= :desde ) AND   ( csi_cobros.f_vencimiento < = :hasta )))AND  
+         ( csi_formas_de_pago.hay_ingreso = 'S' )     AND  
+         csi_cobros.importe <> 0   and
+		csi_cobros.centro Like :centro and
+		csi_cobros.cod_usuario Like :usuario and 
+		csi_cobros.forma_pago <> 'CM'
+" arguments=(("desde", datetime),("hasta", datetime),("centro", string),("usuario", string))  sort="csi_cobros_multiples_forma_pago A csi_cobros_multiples_id_cobro_multiple A " )
+group(level=1 header.height=555 trailer.height=1005 by=("csi_cobros_multiples_cod_usuario" ) newpage=yes resetpagecount=yes header.color="536870912" trailer.color="536870912"  sort="csi_cobros_multiples_cod_usuario A " )
+group(level=2 header.height=1375 trailer.height=1058 by=("csi_cobros_multiples_forma_pago" ) header.color="536870912" trailer.color="536870912"  sort="csi_cobros_multiples_forma_pago A compute_9 A " )
+text(band=header alignment="0" text="Diario de Caja" border="0" color="0" x="2910" y="185" height="661" width="9551" html.valueishtml="0"  name=t_1 visible="1"  font.face="Arial" font.height="-16" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="2" background.color="1090519039" )
+compute(band=header.1 alignment="0" expression="'OPERADOR ' + upper(f_devuelve_usuario( csi_cobros_multiples_cod_usuario ))"border="0" color="33554432" x="370" y="106" height="370" width="7223" format="[GENERAL]" html.valueishtml="0"  name=compute_7 visible="1"  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header.2 alignment="2" text="Data" border="4" color="0" x="52" y="926" height="370" width="1217" html.valueishtml="0"  name=t_9 visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header.2 alignment="2" text=" Ref. Cobro " border="4" color="0" x="1296" y="926" height="370" width="1746" html.valueishtml="0"  name=n_fact_t visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=header.2 id=2 alignment="0" tabsequence=32766 border="0" color="33554432" x="158" y="212" height="370" width="7223" format="[general]" html.valueishtml="0"  name=csi_cobros_multiples_forma_pago visible="1" dddw.name=d_dddw_formas_pago dddw.displaycolumn=descripcion dddw.datacolumn=tipo_pago dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="52" y="53" height="370" width="1217" format="[shortdate] [time]" html.valueishtml="0"  name=csi_cobros_multiples_fecha visible="1" editmask.mask="dd/mm/yy" editmask.focusrectangle=no  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="33554432" x="1296" y="53" height="370" width="1746" format="[general]" html.valueishtml="0"  name=csi_cobros_multiples_id_cobro_multiple visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=trailer.2 x1="26" y1="953" x2="19314" y2="953"  name=l_1 visible="1" pen.style="0" pen.width="26" pen.color="0"  background.mode="2" background.color="1073741824" )
+compute(band=trailer.2 alignment="0" expression="count( csi_cobros_multiples_forma_pago for group 2)"border="0" color="33554432" x="8175" y="476" height="370" width="423" format="[GENERAL]" html.valueishtml="0"  name=compute_10 visible="0"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=trailer.2 alignment="0" expression="'N$$HEX2$$ba002000$$ENDHEX$$de cobros por : ' +compute_10"border="0" color="33554432" x="79" y="476" height="370" width="7725" format="[GENERAL]" html.valueishtml="0"  name=compute_11 visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=trailer.2 id=2 alignment="0" tabsequence=32766 border="0" color="33554432" x="10689" y="476" height="370" width="4683" format="[general]" html.valueishtml="0"  name=csi_cobros_multiples_forma_pago_1 visible="1" dddw.name=d_dddw_formas_pago dddw.displaycolumn=descripcion dddw.datacolumn=tipo_pago dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=trailer.2 alignment="0" text="TOTAL" border="0" color="0" x="9657" y="476" height="370" width="978" html.valueishtml="0"  name=t_5 visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+compute(band=trailer.2 alignment="1" expression="sum(csi_cobros_multiples_importe for group 2)"border="0" color="33554432" x="15478" y="476" height="370" width="1719" format="#,##0.00" html.valueishtml="0"  name=compute_1 visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=trailer.2 alignment="1" expression="sum(compute_14 for group 2)"border="0" color="33554432" x="17250" y="476" height="370" width="1719" format="#,##0.00" html.valueishtml="0"  name=compute_15 visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=trailer.1 alignment="0" text="TOTAL INGRESADO" border="0" color="0" x="14366" y="503" height="370" width="2672" html.valueishtml="0"  name=t_8 visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+compute(band=trailer.1 alignment="0" expression="'N$$HEX2$$ba002000$$ENDHEX$$de cobros pagados : ' +compute_13"border="0" color="33554432" x="52" y="450" height="370" width="9181" format="[GENERAL]" html.valueishtml="0"  name=compute_12 visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=trailer.1 alignment="0" expression="count( csi_cobros_multiples_forma_pago for all)"border="0" color="33554432" x="9577" y="424" height="370" width="423" format="[GENERAL]" html.valueishtml="0"  name=compute_13 visible="0"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=trailer.1 alignment="1" expression="sum(compute_14 for group 1)"border="0" color="33554432" x="17250" y="476" height="370" width="1719" format="#,##0.00" html.valueishtml="0"  name=compute_8 visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=trailer.1 x1="79" y1="926" x2="19367" y2="926"  name=l_7 visible="1" pen.style="0" pen.width="26" pen.color="0"  background.mode="2" background.color="1073741824" )
+compute(band=footer alignment="0" expression="datetime(today(),now())"border="0" color="0" x="1666" y="106" height="370" width="4021" format="[General]" html.valueishtml="0"  name=compute_3 visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+text(band=footer alignment="1" text="Fecha:" border="0" color="0" x="211" y="106" height="370" width="1270" html.valueishtml="0"  name=t_7 visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+compute(band=footer alignment="1" expression="'P$$HEX1$$e100$$ENDHEX$$gina: ' + page() + ' de ' + pageCount()"border="0" color="0" x="15636" y="106" height="370" width="4021" format="[General]" html.valueishtml="0"  name=compute_4 visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+compute(band=header alignment="2" expression="f_poner_logo_listados_inferior (   )"border="0" color="16777215" x="264" y="529" height="343" width="2513" format="[general]" html.valueishtml="0"  name=compute_16 visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15780518" )
+compute(band=header alignment="2" expression="f_poner_logo_listados_superior (   )"border="0" color="16777215" x="264" y="158" height="343" width="2513" format="[general]" html.valueishtml="0"  name=compute_17 visible="1"  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15780518" )
+compute(band=header alignment="0" expression="'Centro: '+ f_csi_centros_descripcion ( centro )"border="0" color="33554432" x="11377" y="2090" height="476" width="7725" format="[GENERAL]" html.valueishtml="0"  name=compute_5 visible="1"  font.face="Arial" font.height="-11" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=header alignment="0" expression="'Fecha: '+string(desde,'dd/mm/yy')+' - '+string(hasta,'dd/mm/yy')"border="0" color="33554432" x="291" y="2090" height="476" width="7725" format="[GENERAL]" html.valueishtml="0"  name=compute_6 visible="1"  font.face="Arial" font.height="-11" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header.2 alignment="2" text="Pagador" border="4" color="0" x="3095" y="926" height="370" width="3704" html.valueishtml="0"  name=t_10 visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+compute(band=detail alignment="0" expression="if( csi_cobros_multiples_pagador  = '' , f_devuelve_pagador_fact( id_factura ),  csi_cobros_multiples_pagador )"border="0" color="33554432" x="3095" y="53" height="370" width="3704" format="[GENERAL]" html.valueishtml="0"  name=compute_9 visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912"  height.autosize=yes)
+text(band=header.2 alignment="2" text=" N$$HEX2$$ba002000$$ENDHEX$$Factura" border="4" color="0" x="6852" y="926" height="370" width="3307" html.valueishtml="0"  name=t_3 visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+compute(band=detail alignment="0" expression="if( n_fact =' ' ,   csi_cobros_multiples_lista_fact,  n_fact )"border="0" color="33554432" x="6852" y="53" height="370" width="3307" format="[GENERAL]" html.valueishtml="0"  name=compute_2 visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912"  height.autosize=yes)
+text(band=header.2 alignment="2" text="Banco" border="4" color="0" x="10212" y="926" height="370" width="3386" html.valueishtml="0"  name=t_2 visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header.2 alignment="2" text="Importe" border="4" color="0" x="15716" y="926" height="370" width="1719" html.valueishtml="0"  name=t_4 visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header.2 alignment="2" text="Ingresado" border="4" color="0" x="17488" y="926" height="370" width="1719" html.valueishtml="0"  name=t_12 visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=3 alignment="1" tabsequence=32766 border="0" color="33554432" x="15716" y="53" height="370" width="1719" format="#,##0.00" html.valueishtml="0"  name=csi_cobros_multiples_importe visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="1" expression="if ( pagado ='S', csi_cobros_multiples_importe,0 )"border="0" color="33554432" x="17488" y="53" height="370" width="1719" format="#,##0.00" html.valueishtml="0"  name=compute_14 visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header.2 alignment="2" text="P" border="4" color="0" x="19261" y="926" height="370" width="423" html.valueishtml="0"  name=t_11 visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=9 alignment="2" tabsequence=32766 border="0" color="33554432" x="19261" y="53" height="370" width="423" format="[general]" html.valueishtml="0"  name=pagado visible="1" checkbox.text="" checkbox.on="S" checkbox.off="N" checkbox.scale=no checkbox.threed=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="33554432" x="10212" y="53" height="370" width="3386" format="[general]" html.valueishtml="0"  name=csi_cobros_multiples_banco visible="1" height.autosize=yes dddw.name=d_dddw_csi_bancos dddw.displaycolumn=nombre dddw.datacolumn=codigo dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header.1 alignment="0" text="P :  Pagado" border="0" color="0" x="17515" y="158" height="370" width="1878" html.valueishtml="0"  name=t_6 visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+text(band=header.2 alignment="2" text="N$$HEX2$$ba002000$$ENDHEX$$Doc." border="4" color="0" x="13652" y="926" height="370" width="2010" html.valueishtml="0"  name=t_13 visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=12 alignment="0" tabsequence=0 border="0" color="33554432" x="13652" y="53" height="370" width="2010" html.valueishtml="0"  name=csi_cobros_multiples_n_talon visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" pagingmethod=0 generatedddwframes="1" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()
+ 

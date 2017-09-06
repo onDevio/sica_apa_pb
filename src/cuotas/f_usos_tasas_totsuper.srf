@@ -1,0 +1,17 @@
+HA$PBExportHeader$f_usos_tasas_totsuper.srf
+global type f_usos_tasas_totsuper from function_object
+end type
+
+forward prototypes
+global function string f_usos_tasas_totsuper (string trabajo)
+end prototypes
+
+global function string f_usos_tasas_totsuper (string trabajo);string totsuper
+
+totsuper = ""
+select totsuper into :totsuper from usos_tasas where c_trabajo = :trabajo ;
+if f_es_vacio(totsuper) then totsuper='S'
+
+return totsuper
+end function
+

@@ -1,0 +1,22 @@
+HA$PBExportHeader$f_musaat_descripcion_companyia.srf
+global type f_musaat_descripcion_companyia from function_object
+end type
+
+forward prototypes
+global function string f_musaat_descripcion_companyia (string as_codigo_companyia)
+end prototypes
+
+global function string f_musaat_descripcion_companyia (string as_codigo_companyia);string sl_descripcion_companyia 
+
+SELECT nom_s 
+INTO :sl_descripcion_companyia  
+FROM musaat_cias_aseguradoras 
+WHERE musaat_cias_aseguradoras.cod_s = :as_codigo_companyia  ;
+
+if f_es_vacio(sl_descripcion_companyia) then 
+	sl_descripcion_companyia = '' 
+end if
+
+return sl_descripcion_companyia
+end function
+

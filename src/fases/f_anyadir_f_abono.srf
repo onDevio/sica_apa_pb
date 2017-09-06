@@ -1,0 +1,20 @@
+HA$PBExportHeader$f_anyadir_f_abono.srf
+global type f_anyadir_f_abono from function_object
+end type
+
+forward prototypes
+global subroutine f_anyadir_f_abono (string ls_id_fase)
+end prototypes
+
+global subroutine f_anyadir_f_abono (string ls_id_fase);datetime ld_f_abono
+string f_hoy
+
+//Obtenemos el valor del campo f_abono para el contrato
+select f_abono into :ld_f_abono from fases where id_fase = :ls_id_fase using SQLCA;
+
+if f_es_vacio(string(ld_f_abono)) then
+	f_hoy=string(today(),'yyyymmdd')
+	update fases set f_abono = :f_hoy where id_fase = :ls_id_fase using SQLCA;	
+end if
+end subroutine
+

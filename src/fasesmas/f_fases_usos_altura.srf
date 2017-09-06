@@ -1,0 +1,21 @@
+HA$PBExportHeader$f_fases_usos_altura.srf
+global type f_fases_usos_altura from function_object
+end type
+
+forward prototypes
+global function double f_fases_usos_altura (string id_fase)
+end prototypes
+
+global function double f_fases_usos_altura (string id_fase);double altura
+
+SELECT fases_usos.altura 
+INTO :altura  
+FROM fases_usos  
+WHERE fases_usos.id_fase = :id_fase   ;
+
+if isnull(altura) then altura = 0
+
+return altura
+
+end function
+

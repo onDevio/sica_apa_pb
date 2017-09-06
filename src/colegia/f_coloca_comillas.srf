@@ -1,0 +1,29 @@
+HA$PBExportHeader$f_coloca_comillas.srf
+global type f_coloca_comillas from function_object
+end type
+
+forward prototypes
+global function string f_coloca_comillas (string cadena)
+end prototypes
+
+global function string f_coloca_comillas (string cadena);//Coloca comillas en una cadena donde los campos est$$HEX1$$e100$$ENDHEX$$n separados por comas, 
+// Ej. Transforma la cadena: 02541,02451 en '02541','02451'
+
+long ini,pos
+string retorno
+
+cadena = f_reemplaza_cadena (cadena, ' ', '')
+
+pos=1
+ini=1
+do while pos<>0
+	pos=PosA(cadena,',',ini)
+	if pos<>0 then cadena=ReplaceA(cadena,pos,1,"','")
+	ini=pos+3
+loop
+
+retorno="'"+cadena+"'"
+
+return retorno
+end function
+

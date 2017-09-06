@@ -1,0 +1,96 @@
+HA$PBExportHeader$d_final_obra_listado_lab_x_fecha_mca.srd
+release 10.5;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes print.preview.outline=yes hidegrayline=no )
+header(height=288 color="536870912" )
+summary(height=0 color="536870912" height.autosize=yes )
+footer(height=120 color="536870912" )
+detail(height=0 color="536870912" )
+table(column=(type=char(10) update=yes updatewhereclause=yes name=id_fases_final dbname="fases_finales.id_fases_final" dbalias=".id_fases_final" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=id_fase dbname="fases_finales.id_fase" dbalias=".id_fase" )
+ column=(type=datetime update=yes updatewhereclause=yes name=fecha dbname="fases_finales.fecha" dbalias=".fecha" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=total_parcial dbname="fases_finales.total_parcial" dbalias=".total_parcial" )
+ column=(type=long update=yes updatewhereclause=yes name=num_viv dbname="fases_finales.num_viv" dbalias=".num_viv" )
+ column=(type=number update=yes updatewhereclause=yes name=num_edif dbname="fases_finales.num_edif" dbalias=".num_edif" )
+ column=(type=number update=yes updatewhereclause=yes name=sup_viv dbname="fases_finales.sup_viv" dbalias=".sup_viv" )
+ column=(type=number update=yes updatewhereclause=yes name=sup_otros dbname="fases_finales.sup_otros" dbalias=".sup_otros" )
+ column=(type=number update=yes updatewhereclause=yes name=sup_garage dbname="fases_finales.sup_garage" dbalias=".sup_garage" )
+ column=(type=number update=yes updatewhereclause=yes name=presupuesto dbname="fases_finales.presupuesto" dbalias=".presupuesto" )
+ column=(type=char(255) update=yes updatewhereclause=yes name=descripcion dbname="fases_finales.descripcion" dbalias=".descripcion" )
+ column=(type=char(14) updatewhereclause=yes name=n_expedi dbname="fases.n_expedi" dbalias=".n_expedi" )
+ column=(type=char(11) updatewhereclause=yes name=n_registro dbname="fases.n_registro" dbalias=".n_registro" )
+ column=(type=datetime updatewhereclause=yes name=fases_finales_f_intro dbname="fases_finales.f_intro" dbalias=".f_intro" )
+ column=(type=char(10) updatewhereclause=yes name=fases_finales_num_final dbname="fases_finales.num_final" dbalias=".num_final" )
+ column=(type=datetime updatewhereclause=yes name=fases_f_visado dbname="fases.f_visado" dbalias=".f_visado" )
+ column=(type=char(60) updatewhereclause=yes name=fases_archivo dbname="fases.archivo" dbalias=".archivo" )
+ column=(type=datetime updatewhereclause=yes name=fases_finales_f_visado dbname="fases_finales.f_visado" dbalias=".f_visado" )
+ column=(type=char(6) updatewhereclause=yes name=fases_poblacion dbname="fases.poblacion" dbalias=".poblacion" )
+ column=(type=char(3) updatewhereclause=yes name=fases_tipo_trabajo dbname="fases.tipo_trabajo" dbalias=".tipo_trabajo" )
+ column=(type=char(50) updatewhereclause=yes name=t_laboratorio_descripcion dbname="t_laboratorio.descripcion" dbalias=".descripcion" )
+ column=(type=long updatewhereclause=yes name=anyo dbname="anyo" )
+ retrieve="  SELECT fases_finales.id_fases_final,   
+         fases_finales.id_fase,   
+         fases_finales.fecha,   
+         fases_finales.total_parcial,   
+         fases_finales.num_viv,   
+         fases_finales.num_edif,   
+         fases_finales.sup_viv,   
+         fases_finales.sup_otros,   
+         fases_finales.sup_garage,   
+         fases_finales.presupuesto,   
+         fases_finales.descripcion,   
+         fases.n_expedi,   
+         fases.n_registro,   
+         fases_finales.f_intro,   
+         fases_finales.num_final,   
+         fases.f_visado,   
+         fases.archivo,   
+         fases_finales.f_visado,   
+         fases.poblacion,   
+         fases.tipo_trabajo,   
+         t_laboratorio.descripcion,
+		datepart(year,fases.f_visado) as anyo
+    FROM fases_finales,   
+         fases,   
+         coaatmca_fases_estadisticas,   
+         t_laboratorio  
+   WHERE ( fases_finales.id_fase = fases.id_fase ) and  
+         ( fases_finales.id_fase = coaatmca_fases_estadisticas.id_fase ) and  
+         ( coaatmca_fases_estadisticas.cod_lab = t_laboratorio.codigo ) and
+		(t_laboratorio.descripcion<>'NINGUNO') and
+		( fases_finales.total_parcial<>'O')
+"  sort="t_laboratorio_descripcion A anyo A " )
+group(level=1 header.height=88 trailer.height=112 by=("t_laboratorio_descripcion" ) header.color="536870912" trailer.color="536870912"  sort="anyo A " )
+group(level=2 header.height=64 trailer.height=0 by=("anyo" ) header.color="536870912" trailer.color="536870912" )
+text(band=header alignment="0" text="Estadisticas Laboratorios por Fecha" border="0" color="0" x="507" y="24" height="120" width="2757" html.valueishtml="0"  name=st_titulo_listado  tag="texto=final_obra.listado_finales_obra" visible="1"  font.face="Arial" font.height="-18" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="2" background.color="16777215" )
+compute(band=header alignment="2" expression="f_poner_logo_listados_inferior (   )"border="0" color="16777215" x="23" y="88" height="72" width="443" format="[GENERAL]" html.valueishtml="0"  name=compute_5 visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15780518" )
+column(band=header.1 id=21 alignment="0" tabsequence=32766 border="0" color="33554432" x="27" y="12" height="56" width="869" format="[general]" html.valueishtml="0"  name=t_laboratorio_descripcion visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+text(band=header.1 alignment="0" text="A$$HEX1$$d100$$ENDHEX$$O" border="0" color="0" x="974" y="16" height="56" width="105" html.valueishtml="0"  name=t_2 visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header.1 alignment="0" text="VISADOS" border="0" color="0" x="1175" y="16" height="56" width="215" html.valueishtml="0"  name=t_3 visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=header.2 id=22 alignment="0" tabsequence=32766 border="0" color="33554432" x="955" y="4" height="56" width="133" format="[general]" html.valueishtml="0"  name=anyo visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+column(band=detail id=17 alignment="0" tabsequence=32766 border="0" color="0" x="672" y="4" height="60" width="366" format="[general]" html.valueishtml="0"  name=fases_archivo visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="1" tabsequence=32766 border="0" color="0" x="1079" y="4" height="60" width="187" format="#,##0.00" html.valueishtml="0"  name=num_viv visible="1" edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="1" tabsequence=32766 border="0" color="0" x="1847" y="4" height="60" width="274" format="#,##0.00" html.valueishtml="0"  name=sup_otros visible="1" edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=9 alignment="1" tabsequence=32766 border="0" color="0" x="2167" y="4" height="60" width="274" format="#,##0.00" html.valueishtml="0"  name=sup_garage visible="1" edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=10 alignment="1" tabsequence=32766 border="0" color="0" x="2478" y="4" height="60" width="361" format="#,##0.00" html.valueishtml="0"  name=presupuesto visible="1" edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=16 alignment="0" tabsequence=32766 border="0" color="0" x="389" y="4" height="60" width="242" format="dd/mm/yyyy" html.valueishtml="0"  name=fases_f_visado visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=18 alignment="0" tabsequence=32766 border="0" color="33554432" x="46" y="4" height="60" width="302" format="dd/mm/yyyy" html.valueishtml="0"  name=fases_finales_f_visado visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+column(band=detail id=7 alignment="1" tabsequence=32766 border="0" color="0" x="1559" y="8" height="60" width="274" format="#,##0.00" html.valueishtml="0"  name=sup_viv visible="1" edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="1" tabsequence=32766 border="0" color="0" x="1307" y="4" height="60" width="183" format="#,##0.00" html.valueishtml="0"  name=num_edif visible="1" edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="sum(sup_otros for all)"border="0" color="0" x="1390" y="884" height="60" width="274" format="#,##0.00" html.valueishtml="0"  name=compute_10 visible="0"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="sum(sup_garage for all)"border="0" color="0" x="1390" y="960" height="60" width="274" format="#,##0.00" html.valueishtml="0"  name=compute_11 visible="0"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="sum(sup_viv for all)"border="0" color="0" x="1390" y="808" height="60" width="274" format="#,##0.00" html.valueishtml="0"  name=compute_9 visible="0"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=footer alignment="0" expression="f_idiomas_cambia_texto('general.pagina','P$$HEX1$$e100$$ENDHEX$$gina ' )+ page() + ' de ' + pageCount()"border="0" color="0" x="23" y="28" height="56" width="823" format="[general]" html.valueishtml="0"  name=page_1 visible="0"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+line(band=trailer.1 x1="1152" y1="0" x2="1385" y2="0"  name=l_1 visible="1" pen.style="0" pen.width="5" pen.color="33554432"  background.mode="2" background.color="1073741824" )
+compute(band=header.2 alignment="0" expression="count(  fases_archivo  for group 2 )"border="0" color="33554432" x="1175" y="4" height="56" width="183" format="[GENERAL]" html.valueishtml="0"  name=compute_1 visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+compute(band=trailer.1 alignment="0" expression="count(  fases_archivo  for group 1 )"border="0" color="33554432" x="1175" y="16" height="56" width="183" format="[GENERAL]" html.valueishtml="0"  name=compute_2 visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" pagingmethod=0 generatedddwframes="1" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()
+ 

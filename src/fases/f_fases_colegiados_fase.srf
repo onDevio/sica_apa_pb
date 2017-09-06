@@ -1,0 +1,46 @@
+HA$PBExportHeader$f_fases_colegiados_fase.srf
+global type f_fases_colegiados_fase from function_object
+end type
+
+forward prototypes
+global function string f_colegiados_fase (string id_fase)
+global function string f_fases_colegiados_fase (string id_fase)
+end prototypes
+
+global function string f_colegiados_fase (string id_fase);string colegiados,id_col
+
+ DECLARE colegiados CURSOR FOR  
+  SELECT fases_colegiados.id_col  
+    FROM fases_colegiados  
+   WHERE fases_colegiados.id_fase = :id_fase ;
+	
+open colegiados;
+fetch colegiados into :id_col;
+do while SQLCA.sqlcode=0
+	colegiados= colegiados + f_colegiado_apellido(id_col) + cr
+	fetch colegiados into :id_col;	
+loop
+close colegiados;
+
+return colegiados
+end function
+
+global function string f_fases_colegiados_fase (string id_fase);string colegiados,id_col
+
+ DECLARE colegiados CURSOR FOR  
+  SELECT fases_colegiados.id_col  
+    FROM fases_colegiados  
+   WHERE fases_colegiados.id_fase = :id_fase ;
+	
+open colegiados;
+fetch colegiados into :id_col;
+do while SQLCA.sqlcode=0
+	colegiados= colegiados + f_colegiado_n_col(id_col) + '   ' + f_colegiado_apellido(id_col) + cr
+	fetch colegiados into :id_col;	
+loop
+colegiados=LeftA(colegiados,LenA(colegiados)-2)
+close colegiados;
+
+return colegiados
+end function
+

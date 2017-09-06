@@ -1,0 +1,94 @@
+HA$PBExportHeader$f_fases_rellena_estructura.srf
+global type f_fases_rellena_estructura from function_object
+end type
+
+forward prototypes
+global subroutine f_fases_rellena_estructura (string id_fase, datastore ds_fases, st_retorno_seleccion campos_extra)
+end prototypes
+
+global subroutine f_fases_rellena_estructura (string id_fase, datastore ds_fases, st_retorno_seleccion campos_extra);string n_registro, n_expedi, titulo, descripcion, tipo_via_emplazamiento, emplazamiento, poblacion, n_calle
+string lugar, fecha, lugar_fecha, sexo, articulo, sufijo
+string n_col,apellidos_nombre, id
+string nom_prom, cif_prom, dir_prom, cp_prom, cod_pob_prom, desc_pob_prom
+datetime hoy
+long i
+// Generamos datos desde Fases para rellenar Marcadores de Plantillas 
+select n_registro, n_expedi, titulo, descripcion, tipo_via_emplazamiento, emplazamiento, poblacion, n_calle
+	into :n_registro, :n_expedi, :titulo, :descripcion, :tipo_via_emplazamiento, :emplazamiento, :poblacion, :n_calle
+		from fases where id_fase=:id_fase;
+If Isnull(n_calle) then n_calle = ''
+
+ds_fases.InsertRow(0)
+ds_fases.SetItem(1,'id_fase', id_fase)
+ds_fases.SetItem(1,'n_expedi', n_expedi) //f_dame_exp(id_fase) 
+ds_fases.SetItem(1,'n_registro',n_registro)
+ds_fases.SetItem(1,'descripcion',descripcion) 
+ds_fases.SetItem(1,'emplazamiento',f_devuelve_tipo_emplazamiento (tipo_via_emplazamiento) + ' ' + emplazamiento + ' '+n_calle)
+//ds_fases.SetItem(1,'cp',poblacion)
+ds_fases.SetItem(1,'descripcion_poblacion',TRIM(f_poblacion_descripcion_contrato(poblacion)))
+
+i= 1
+// COLEGIADOS
+n_col = campos_extra.campo1
+IF NOT(f_es_vacio(n_col)) THEN
+	select id_colegiado into :id from colegiados where n_colegiado=:n_col;
+	apellidos_nombre = f_colegiado_apellido (id)
+END IF
+ds_fases.SetItem(1,'n_col'+string(i),TRIM(n_col))	
+ds_fases.SetItem(1,'nom_col'+string(i),TRIM(apellidos_nombre))
+
+// PROMOTORES
+cif_prom = campos_extra.campo2
+IF NOT(f_es_vacio(cif_prom)) THEN
+	select id_cliente,tipo_via,nombre_via,cod_pob,cp into :id,:tipo_via_emplazamiento,:emplazamiento,:cod_pob_prom,:cp_prom from clientes where nif = :cif_prom AND id_cliente IN 
+		( SELECT id_cliente FROM fases_clientes WHERE id_fase = :id_fase) ;
+		nom_prom = f_dame_cliente_nom_ape (id)
+		dir_prom= f_devuelve_tipo_emplazamiento (tipo_via_emplazamiento) + ' ' + emplazamiento
+		desc_pob_prom = f_poblacion_descripcion_contrato(cod_pob_prom)
+END IF
+ds_fases.SetItem(1,'nom_prom'+string(i), TRIM(nom_prom))
+ds_fases.SetItem(1,'cif_prom'+string(i), TRIM(cif_prom))
+ds_fases.SetItem(1,'dir_prom'+string(i), TRIM(dir_prom))
+ds_fases.SetItem(1,'cp_prom'+string(i), TRIM(cp_prom))
+ds_fases.SetItem(1,'desc_pob_prom'+string(i), TRIM(desc_pob_prom))
+ds_fases.SetItem(1,'cp_desc_pob_prom'+string(i), TRIM(cp_prom) + ' ' + TRIM(desc_pob_prom))
+
+// CAMPOS EXTRA
+ds_fases.SetItem(1,'campo_extra1', campos_extra.campo3)
+ds_fases.SetItem(1,'campo_extra2', campos_extra.campo4)
+ds_fases.SetItem(1,'campo_extra3', campos_extra.campo5)
+
+//CAMPOS AUXILIARES
+if not f_es_vacio(sexo) then
+	if sexo = 'F' then
+		articulo = 'La'
+		sufijo = 'a'
+	else
+		articulo = 'El'
+		sufijo = 'o'
+	end if
+else
+	articulo = ''
+	sufijo = ''
+end if
+
+hoy = datetime(today())
+lugar = f_dame_ciudad()
+fecha = string(day(today())) + ' de ' + lower(f_obtener_mes(hoy)) + ' de ' + string(year(today()))
+lugar_fecha = /*'En ' +*/ lugar + ' a ' + fecha
+
+ds_fases.SetItem(1,'articulo', articulo)
+ds_fases.SetItem(1,'sufijo', sufijo)
+ds_fases.SetItem(1,'lugar', lugar)
+ds_fases.SetItem(1,'fecha', fecha)
+ds_fases.SetItem(1,'lugar_fecha', lugar_fecha)
+ds_fases.SetItem(1,'fecha',fecha)
+// FIN CAMPOS AUXILIARES
+
+// Guardamos los datos del datastore en un fichero de texto
+ds_fases.SaveAs(g_directorio_rtf+'plantillas.txt', text!, true)
+
+
+
+end subroutine
+

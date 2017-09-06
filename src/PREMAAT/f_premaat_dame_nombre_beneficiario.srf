@@ -1,0 +1,52 @@
+HA$PBExportHeader$f_premaat_dame_nombre_beneficiario.srf
+global type f_premaat_dame_nombre_beneficiario from function_object
+end type
+
+forward prototypes
+global function string f_premaat_dame_nombre_beneficiario (string tipo_persona, string id_persona)
+end prototypes
+
+global function string f_premaat_dame_nombre_beneficiario (string tipo_persona, string id_persona);// Funci$$HEX1$$f300$$ENDHEX$$n que dado el tipo de persona (C:colegiado, B:beneficiario) 
+// Reorma el nombre y apellidos del beneficiario
+string nombre, apellidos, nombre_completo, n_colegiado
+
+choose case upper(tipo_persona)
+	case 'C'
+
+		SELECT colegiados.apellidos, 
+		colegiados.nombre,
+		colegiados.n_colegiado
+		INTO :apellidos,   
+		:nombre,
+		:n_colegiado
+		FROM colegiados  
+		WHERE colegiados.id_colegiado = :id_persona   ;
+	
+	case 'B'
+		
+		SELECT clientes.apellidos,   
+		clientes.nombre  
+		INTO :apellidos,   
+		:nombre  
+		FROM clientes  
+		WHERE clientes.id_cliente = :id_persona   ;
+
+end choose
+
+if f_es_vacio(apellidos) then apellidos = ''
+if f_es_vacio(nombre) then nombre = ''
+
+nombre_completo = apellidos + ', ' + nombre
+if tipo_persona = 'C' then 
+	if g_colegio = 'COAATB' then // INC. 8487 - Quitar el n$$HEX2$$ba002000$$ENDHEX$$colegiado
+		nombre_completo = nombre_completo
+	else
+		nombre_completo = nombre_completo + ' [' + n_colegiado + ']'
+	end if
+end if
+
+if nombre_completo = ', ' then nombre_completo = ''
+
+return trim(nombre_completo)
+end function
+

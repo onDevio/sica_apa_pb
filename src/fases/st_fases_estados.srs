@@ -1,0 +1,14 @@
+HA$PBExportHeader$st_fases_estados.srs
+global type st_fases_estados from structure
+	string		preasignado
+	string		registrado
+	string		retenido
+	string		src_visado
+	string		visado
+	string		verificado
+	string		parcial
+	string		moroso  
+	string		retirado
+	string		anulado
+end type
+

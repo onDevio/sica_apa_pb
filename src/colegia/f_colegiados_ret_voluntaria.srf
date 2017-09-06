@@ -1,0 +1,21 @@
+HA$PBExportHeader$f_colegiados_ret_voluntaria.srf
+global type f_colegiados_ret_voluntaria from function_object
+end type
+
+forward prototypes
+global function double f_colegiados_ret_voluntaria (string id_col)
+end prototypes
+
+global function double f_colegiados_ret_voluntaria (string id_col);double retvol
+  
+SELECT colegiados.ret_voluntaria  
+INTO :retvol  
+FROM colegiados  
+WHERE colegiados.id_colegiado = :id_col   ;
+
+if isnull(retvol) then retvol = 0
+
+return retvol
+
+end function
+

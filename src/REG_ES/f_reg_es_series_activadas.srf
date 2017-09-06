@@ -1,0 +1,15 @@
+HA$PBExportHeader$f_reg_es_series_activadas.srf
+global type f_reg_es_series_activadas from function_object
+end type
+
+forward prototypes
+global function boolean f_reg_es_series_activadas ()
+end prototypes
+
+global function boolean f_reg_es_series_activadas ();if g_reg_es_series='S' then
+	return true
+else
+	return false
+end if
+end function
+

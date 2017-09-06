@@ -1,0 +1,18 @@
+HA$PBExportHeader$f_visared_tipo_trabajo.srf
+global type f_visared_tipo_trabajo from function_object
+end type
+
+forward prototypes
+global function string f_visared_tipo_trabajo (string codigo)
+end prototypes
+
+global function string f_visared_tipo_trabajo (string codigo);string retorno
+
+select d_t_trabajo into :retorno from tipos_trabajos where c_t_trabajo = :codigo;
+
+if f_es_vacio(retorno) then retorno = 'DESCONOCIDO'
+
+return retorno
+
+end function
+

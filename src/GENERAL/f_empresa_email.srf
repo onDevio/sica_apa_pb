@@ -1,0 +1,14 @@
+HA$PBExportHeader$f_empresa_email.srf
+global type f_empresa_email from function_object
+end type
+
+forward prototypes
+global function string f_empresa_email (string a_empresa)
+end prototypes
+
+global function string f_empresa_email (string a_empresa);string email_empresa 
+select email into :email_empresa   from csi_empresas where codigo = :a_empresa;
+return email_empresa 
+
+end function
+

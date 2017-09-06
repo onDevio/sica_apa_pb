@@ -1,0 +1,18 @@
+HA$PBExportHeader$f_forma_pago_multiple.srf
+global type f_forma_pago_multiple from function_object
+end type
+
+forward prototypes
+global function string f_forma_pago_multiple (string id_cobro_multiple)
+end prototypes
+
+global function string f_forma_pago_multiple (string id_cobro_multiple);string forma_pago
+
+   SELECT csi_cobros_multiples.forma_pago
+    INTO :forma_pago
+    FROM csi_cobros_multiples
+   WHERE csi_cobros_multiples.id_cobro_multiple=:id_cobro_multiple;
+	
+return forma_pago
+end function
+

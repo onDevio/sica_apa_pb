@@ -1,0 +1,134 @@
+HA$PBExportHeader$f_etiqueta_cabecera.srf
+global type f_etiqueta_cabecera from function_object
+end type
+
+forward prototypes
+global function string f_etiqueta_cabecera (string n_fact, string id_fact)
+end prototypes
+
+global function string f_etiqueta_cabecera (string n_fact, string id_fact);string ls_proforma
+string etiqueta
+
+select proforma into :ls_proforma from csi_facturas_emitidas where id_factura= :id_fact;
+
+choose case g_colegio
+		
+	case 'COAATA','COAATAVI','COAATGU', 'COAATLE','COAATZ','COAATLR','COAATMCA', 'COAATNA','COAATTER'
+		if ls_proforma='S' then 
+			return ' PROFORMA DE GASTOS COLEGIALES '
+		else
+			///*** SCP-929. Alexis. 16/02/2011. Modificado para que las empresas que no son el colegio s$$HEX1$$f300$$ENDHEX$$lo muestren la leyenda factura ***///
+			if f_empresa_es_colegio2(  f_factura_dame_empresa(id_fact) ) = 'S' then
+				return ' FACTURA DE GASTOS COLEGIALES '
+			else
+				return ' FACTURA'
+			end if	
+		end if
+		
+	case 'COAATCC','COAATLL'
+		if ls_proforma='S' then 
+			return ' PROFORMA'
+		else
+			return ' FACTURA'
+		end if
+		
+	case 'COAATB'
+		if ls_proforma='S' then 
+			///*** SCP-929. Alexis. 16/02/2011. Modificado para que las empresas que no son el colegio s$$HEX1$$f300$$ENDHEX$$lo muestren la leyenda proforma ***///
+			if f_empresa_es_colegio2(  f_factura_dame_empresa(id_fact) ) = 'S' then
+				return ' PROFORMA DE GASTOS COLEGIALES Y SEGURO'
+			else
+				return ' PROFORMA'
+			end if
+		else
+			if (left(n_fact ,3)='PRE') or (left(n_fact ,3)='MUS') then
+			return 'RECIBO'
+			else
+				///*** SCP-929. Alexis. 16/02/2011. Modificado para que las empresas que no son el colegio s$$HEX1$$f300$$ENDHEX$$lo muestren la leyenda factura ***///
+				if f_empresa_es_colegio2(  f_factura_dame_empresa(id_fact) ) = 'S' then
+					return 'FACTURA DE GASTOS COLEGIALES Y SEGURO'
+				else
+					return ' FACTURA'
+				end if
+			end if
+		end if
+	case 'COAATBU','COAATCU','COAATMU','COAATGC'//,'COAATGUI'
+		if ls_proforma='S' then 
+			///*** SCP-929. Alexis. 16/02/2011. Modificado para que las empresas que no son el colegio s$$HEX1$$f300$$ENDHEX$$lo muestren la leyenda proforma ***///
+			if f_empresa_es_colegio2(  f_factura_dame_empresa(id_fact) ) = 'S' then
+				return ' PROFORMA DE GASTOS COLEGIALES Y SEGURO'
+			else
+				return ' PROFORMA'
+			end if
+			
+		else
+			///*** SCP-929. Alexis. 16/02/2011. Modificado para que las empresas que no son el colegio s$$HEX1$$f300$$ENDHEX$$lo muestren la leyenda factura ***///
+			if f_empresa_es_colegio2(  f_factura_dame_empresa(id_fact) ) = 'S' then
+				return 'FACTURA DE GASTOS COLEGIALES Y SEGURO'
+			else
+				return ' FACTURA'
+			end if
+		end if
+		
+	case 'COAATGUI'
+		if n_fact = '2' then
+			if ls_proforma='S' then 
+				///*** SCP-929. Alexis. 16/02/2011. Modificado para que las empresas que no son el colegio s$$HEX1$$f300$$ENDHEX$$lo muestren la leyenda proforma ***///
+				if f_empresa_es_colegio2(  f_factura_dame_empresa(id_fact) ) = 'S' then
+					return ' ELKARGO-GASTUEN ETA ASEGURUAREN PROFORMA'
+				else
+					return ' PROFORMA'
+				end if
+					
+			else
+				///*** SCP-929. Alexis. 16/02/2011. Modificado para que las empresas que no son el colegio s$$HEX1$$f300$$ENDHEX$$lo muestren la leyenda factura ***///
+				if f_empresa_es_colegio2(  f_factura_dame_empresa(id_fact) ) = 'S' then
+					return 'ELKARGO-GASTUEN ETA ASEGURUAREN FAKTURA'
+				else
+					return ' FAKTURA'
+				end if
+			end if
+				
+		else
+		
+			if ls_proforma='S' then 
+				///*** SCP-929. Alexis. 16/02/2011. Modificado para que las empresas que no son el colegio s$$HEX1$$f300$$ENDHEX$$lo muestren la leyenda proforma ***///
+				if f_empresa_es_colegio2(  f_factura_dame_empresa(id_fact) ) = 'S' then
+					return ' PROFORMA DE GASTOS COLEGIALES Y SEGURO'
+				else
+					return ' PROFORMA'
+				end if
+				
+			else
+				///*** SCP-929. Alexis. 16/02/2011. Modificado para que las empresas que no son el colegio s$$HEX1$$f300$$ENDHEX$$lo muestren la leyenda factura ***///
+				if f_empresa_es_colegio2(  f_factura_dame_empresa(id_fact) ) = 'S' then
+					return 'FACTURA DE GASTOS COLEGIALES Y SEGURO'
+				else
+					return ' FACTURA'
+				end if
+			end if
+		
+		end if
+	
+	case 'COAATTFE'
+		if ls_proforma='S' then 
+			return 'PROFORMA'
+		elseif (left(n_fact ,7)='PREMAAT') then
+			return 'RECIBO'
+		else
+			return  'FACTURA'
+		end if
+
+	case else
+		
+		if ls_proforma='S' then 
+			return 'PROFORMA'
+		else
+			return  'FACTURA'
+		end if
+end choose
+
+
+return etiqueta
+end function
+

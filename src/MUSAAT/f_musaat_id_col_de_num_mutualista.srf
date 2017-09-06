@@ -1,0 +1,20 @@
+HA$PBExportHeader$f_musaat_id_col_de_num_mutualista.srf
+global type f_musaat_id_col_de_num_mutualista from function_object
+end type
+
+forward prototypes
+global function string f_musaat_id_col_de_num_mutualista (string n_mut)
+end prototypes
+
+global function string f_musaat_id_col_de_num_mutualista (string n_mut);string id_colegiado
+
+SELECT musaat.id_col  
+INTO :id_colegiado  
+FROM musaat, colegiados
+WHERE colegiados.id_colegiado = musaat.id_col and
+musaat.n_mutualista = :n_mut  and c_geografico <> 'H' ;
+
+return id_colegiado
+
+end function
+

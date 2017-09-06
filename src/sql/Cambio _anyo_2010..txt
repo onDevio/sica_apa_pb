@@ -1,0 +1,256 @@
+declare @colegio varchar(10)
+select @colegio = texto from var_globales where nombre = 'COLEGIO'
+
+--TODOS
+-- Cambios MUSAAT 2010
+alter table fases_usos add colindantes2m char(1) null
+alter table musaat_movimientos add colindantes2m char(1) default 'N' null, doble_condicion char(1) default 'N' null, int_forzosa char(1) default 'N' null
+alter table fases_colegiados add  doble_condicion char(1) default 'N' null, int_forzosa char(1) default 'N' null, reposicion char(1) default 'N' null 
+
+-print 'Actualiza la tabla de coeficiente g de Musaat'
+UPDATE musaat_coef_g SET coef = 1.641 WHERE musaat_coef_g.cobertura = 120000 
+UPDATE musaat_coef_g SET coef = 1.810 WHERE musaat_coef_g.cobertura = 150000 
+UPDATE musaat_coef_g SET coef = 1.957 WHERE musaat_coef_g.cobertura = 210000 
+UPDATE musaat_coef_g SET coef = 2.014 WHERE musaat_coef_g.cobertura = 270000 
+UPDATE musaat_coef_g SET coef = 2.081 WHERE musaat_coef_g.cobertura = 330000 
+UPDATE musaat_coef_g SET coef = 2.250 WHERE musaat_coef_g.cobertura = 480000 
+UPDATE musaat_coef_g SET coef = 2.421 WHERE musaat_coef_g.cobertura = 630000 
+UPDATE musaat_coef_g SET coef = 2.760 WHERE musaat_coef_g.cobertura = 930000 
+UPDATE musaat_coef_g SET coef = 3.054 WHERE musaat_coef_g.cobertura = 1230000 
+
+-print 'Actualización en la tabla de coeficiente c de Musaat'
+update musaat_coef_c set coef = 0.17,tabla = 'C1' where tipoact = '01' and tabla like 'C';
+update musaat_coef_c set coef = 0.09,tabla = 'C2' where tipoact = '02' and tabla like 'C';
+update musaat_coef_c set coef = 0.69,tabla = 'C3' where tipoact = '03' and tabla like 'C';
+update musaat_coef_c set coef = 0.86,tabla = 'C4' where tipoact = '04' and tabla like 'C';
+update musaat_coef_c set coef = 0.78,tabla = 'C5' where tipoact = '05' and tabla like 'C';
+
+--print 'Se agrega variable global para el coeficiente de recargo por colindantes <2m'
+  INSERT INTO var_globales ( nombre,   numero,   descripcion,   modificable )  
+  VALUES ( 'g_musaat_coef_colindantes2m', 1.025,'Contiene el coficiente de recargo para los que tienen colindantes < 2m','S')  
+
+
+--Control Ejercicios
+--insert into csi_control_ejercicios
+--SELECT distinct '2010', empresa  from csi_control_ejercicios ;
+
+-- Números Facturas Colegiados
+Update colegiados set ultima_factura = 0 
+Update colegiados set ultima_factura_rectif = 0 
+
+--Series Facturas
+insert into csi_series ( serie, empresa, contador, descripcion, recib, anyo, dataobject, tipo)
+SELECT serie,   empresa,   0,   descripcion,   recib,   '2010'  , dataobject, tipo
+FROM csi_series  
+WHERE anyo = '2009'
+
+-- Contadores Contratos (NO HACER EN BIZKAIA)
+if @colegio =!'COAATBI'
+begin
+  Update contadores set valor = 0 where contador = 'NUM_EXP'
+  Update contadores set valor = 0 where contador = 'NUM_REG'
+  Update contadores set valor = 0 where contador like 'NUM_SAL%'
+end 
+
+-- Registro E/S 
+Update registro_series set contador=0
+
+-- Año Numeración
+  update var_globales set texto = '2010' where nombre = 'g_anyo_numeracion'
+  -- Se realiza por si no se actualiza
+  update csi_articulos_servicios set descripcion = 'MUSAAT C.I.F.- V28865855' where convert(char, descripcion) = 'MUSAAT C.I.F.- G28865855';
+
+
+-- Caceres
+if @colegio = 'COAATCC'
+begin
+--print 'Actualiza coeficiente de zona'
+Update var_globales set numero = 1.05 where nombre = 'g_col_coef_musaat' ;
+
+end 
+go
+
+-- Mallorca
+if @colegio = 'COAATMCA'
+begin
+--print 'Actualiza coeficiente de zona'
+Update var_globales set numero = 0.92 where nombre = 'g_col_coef_musaat' ;
+
+end 
+go
+
+-- Alicante
+if @colegio = 'COAATA'
+begin
+--print 'Actualiza coeficiente de zona en ALICANTE'
+Update var_globales set numero = 1.09 where nombre = 'g_col_coef_musaat'; 
+Update var_globales set numero = 1.060875  where nombre = 'g_dip_coef_g';
+Update contadores set valor = 0 where contador = 'N_AVISO';
+update cip_tarifa set minimo = 30.00 where minimo < 30.00;
+insert into var_globales (nombre, numero) values('g_cip_minimo', 25.86);
+end 
+go
+
+-- Guipuzcoa
+if @colegio = 'COAATGUI'
+begin
+--print 'Actualiza coeficiente de zona en GUIPUZCOA'
+Update var_globales set numero = 0.90 where nombre = 'g_col_coef_musaat'; 
+Update var_globales set texto = 'zz', descripcion = 'Se elimina en 2010 el enlace con el artículo 13, descuento por pronto pago del 5% (10 dias y en SGC)'  where nombre = 'g_codigo_pronto_pago';
+end 
+go
+
+
+-- Navarra
+if @colegio = 'COAATNA'
+begin
+--print 'Actualiza coeficiente de zona en NAVARRA'
+Update var_globales set numero = 0.93 where nombre = 'g_col_coef_musaat'; 
+end 
+go
+
+
+-- Bizcaia
+if @colegio = 'COAATB'
+begin
+--print 'Actualiza coeficiente de zona en Bizcaia'
+Update var_globales set numero = 1.05 where nombre = 'g_col_coef_musaat';
+UPDATE cip_sobre_pem  SET importe_minimo = 7.55 ;
+UPDATE cip_sobre_pem  SET importe_fijo = 7.55 WHERE tipo_actuacion in ('02', '73');
+UPDATE cip_sobre_pem  SET importe_fijo = 37.70 WHERE tipo_actuacion in ('41', '42', '43', '45', '51', '52', '53', '54', '61', '62', '63', '64', '65', '66') ;
+UPDATE cip_sobre_pem  SET importe_fijo = 9.35 WHERE tipo_actuacion in ('71', '72', '74', '75');
+UPDATE cip_sobre_pem  SET importe_fijo = 9.35 WHERE tipo_actuacion = '44';
+
+update dv_sobre_pem set importe = 24.15 where pem_hasta = 9000 ;
+update dv_sobre_pem set importe = 60.30 where pem_hasta = 30000 ;
+update dv_sobre_pem set importe = 80.40 where pem_hasta = 60000 ;
+update dv_sobre_pem set importe = 120.60 where pem_hasta = 150000 ;
+update dv_sobre_pem set importe = 178.90 where pem_hasta = 300000 ;
+update dv_sobre_pem set importe = 331.65 where pem_hasta = 600000 ;
+update dv_sobre_pem set importe = 466.35 where pem_hasta = 1200000 ;
+update dv_sobre_pem set importe = 641.20 where pem_hasta = 9999999999 ;
+
+end 
+go
+
+
+
+-- Gran Canaria
+if @colegio = 'COAATGC'
+begin
+
+Update var_globales set numero = 1.05 where nombre = 'g_col_coef_musaat';
+
+end 
+go
+
+-- Terres
+if @colegio = 'COAATTEB'
+begin
+
+Update var_globales set numero = 0.8 where nombre = 'g_col_coef_musaat';
+Update coaatteb_coef_tipo_act set dip_min = 30 where tipo_act = '01' or tipo_act = '02' or tipo_act = '03' or tipo_act = '04' or tipo_act = '05' or tipo_act = '11' or tipo_act = '12' or tipo_act = '13' or tipo_act = '14' or tipo_act = '15' or tipo_act = '16' or tipo_act = '17';
+Update coaatteb_coef_tipo_act set dip_min = 20,dip_max = 20 where tipo_act = '31' or tipo_act = '32' or tipo_act = '33';
+Update coaatteb_coef_tipo_act set dip_min = 24,dip_max = 24 where tipo_act = '41';
+Update coaatteb_coef_tipo_act set dip_min = 12,dip_max = 12 where tipo_act = '76';
+Update coaatteb_coef_tipo_act set dip_min = 20 where tipo_act = '42' or tipo_act = '43' or tipo_act = '44' or tipo_act = '45' or tipo_act = '46' or tipo_act = '51' or tipo_act = '52' or tipo_act = '53' or tipo_act = '54' or tipo_act = '61' or tipo_act = '62' or tipo_act = '63' or tipo_act = '64' or tipo_act = '65' or tipo_act = '66' or tipo_act = '71' or tipo_act = '72' or tipo_act = '73' or tipo_act = '74' or tipo_act = '75' or tipo_act = '81' or tipo_act = '82' or tipo_act = '83' or tipo_act = '91' or tipo_act = '92' or tipo_act = '93' or tipo_act = '94' or tipo_act = '95';
+Update coaatteb_coef_tipo_act set dip_max = 20 where tipo_act = '42' or tipo_act = '43' or tipo_act = '44' or tipo_act = '45' or tipo_act = '46' or tipo_act = '52' or tipo_act = '53' or tipo_act = '54' or tipo_act = '61' or tipo_act = '62' or tipo_act = '63' or tipo_act = '64' or tipo_act = '65' or tipo_act = '66' or tipo_act = '71' or tipo_act = '72' or tipo_act = '73' or tipo_act = '74' or tipo_act = '75' or tipo_act = '81' or tipo_act = '82' or tipo_act = '83' or tipo_act = '91' or tipo_act = '92' or tipo_act = '93' or tipo_act = '94' or tipo_act = '95';
+
+end 
+go
+
+-- Cuenca
+if @colegio = 'COAATCU'
+begin
+
+Update var_globales set numero = 0.88 where nombre = 'g_col_coef_musaat';
+
+end 
+go
+
+-- Zaragoza
+if @colegio = 'COAATZ'
+begin
+
+Update var_globales set numero = 1.03 where nombre = 'g_col_coef_musaat';
+
+end 
+go
+
+-- Tenerife
+if @colegio = 'COAATTFE'
+begin
+
+Update var_globales set numero = 0.85 where nombre = 'g_col_coef_musaat';
+Update contadores set valor = 0 where contador = 'LIBROS_INCIDENCIAS' or contador = 'LIBROS_ORDENES';
+
+end 
+go
+
+-- Teruel
+if @colegio = 'COAATTER'
+begin
+
+update ho_tarifas set param2 = 'nueva_planta' where cod_tarifa = '1.3';
+update ho_tarifas set param2 = 'nueva_planta' where cod_tarifa = '4';
+update ho_tarifas set param3 = 's_compartida' where cod_tarifa = '5a';
+update ho_tarifas set param5 = 's_compartida' where cod_tarifa = '5b';
+update ho_tarifas set param4 = 'agropec' where cod_tarifa = '21';
+update ho_tarifas set param5 = 'urbanizacion' where cod_tarifa = '21';
+Update var_globales set numero = 0.8 where nombre = 'g_col_coef_musaat';
+
+end 
+
+
+
+--Rioja
+if @colegio = 'COAATLR'
+begin
+
+update var_globales set numero = 0.87 where nombre = 'g_col_coef_musaat';
+Update contadores set valor = 0 where contador = 'N_AVISO'   ;
+
+end
+
+--León
+if @colegio = 'COAATLE'
+begin
+
+Update var_globales set numero = 0.91  where nombre = 'g_col_coef_musaat' ;
+Update var_globales set numero = 1.227  where nombre = 'CA' ;
+Update contadores set valor = 0 where contador = 'N_AVISO'   ;
+Update var_globales set numero = 0  where nombre = 'g_porc_bonif_musaat' ;
+Update var_globales set numero = 0  where nombre = 'g_porc_bonif_premaat' ;
+
+end
+
+--Ávila
+if @colegio = 'COAATAVI'
+begin
+
+Update var_globales set numero = 0.8  where nombre = 'g_col_coef_musaat' ;
+Update contadores set valor = 0 where contador = 'N_AVISO'   ;
+
+end
+
+--Burgos
+if @colegio = 'COAATBU'
+begin
+
+Update contadores set valor = 0 where contador = 'N_AVISO'   ;
+Update var_globales set numero = 1.228  where nombre = 'CA' ;
+
+end
+
+--Murcia
+if @colegio = 'COAATMU'
+begin
+
+//Los Derechos de Intervencion Profesional pasan a ser del 5 % sobre los honorarios orientativos
+update var_globales set numero = 5 where nombre = 'g_porc_cip_defecto';
+
+//A partir del 1 de enero de 2010 el Cc será del 1 en vez del 0,80 hasta ahora en vigor.
+Update var_globales set numero = 1  where nombre = 'g_col_coef_musaat' ;
+
+end
+go

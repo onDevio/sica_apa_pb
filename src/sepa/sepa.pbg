@@ -1,0 +1,13 @@
+Save Format v3.0(19990112)
+@begin Libraries
+ "sepa\\sepa.pbl" "";
+@end;
+@begin Objects
+ "sepa\\n_sepa_ws_consumption.sru" "sepa\\sepa.pbl";
+ "sepa\\sepaportservice.srx" "sepa\\sepa.pbl";
+ "sepa\\adeudosresponse.srs" "sepa\\sepa.pbl";
+ "sepa\\p_ws_sepa_proxy.srj" "sepa\\sepa.pbl";
+ "sepa\\adeudosrequest.srs" "sepa\\sepa.pbl";
+ "sepa\\transferenciasrequest.srs" "sepa\\sepa.pbl";
+ "sepa\\transferenciasresponse.srs" "sepa\\sepa.pbl";
+@end;

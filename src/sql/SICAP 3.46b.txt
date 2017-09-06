@@ -1,0 +1,142 @@
+// V. 3.4.6b
+
+// REGISTRO DE SOCIEDADES (INC. 8745)
+create table regsoc (id_regsoc char(20) not null, num_reg_colegio varchar(10) null, num_reg_mercantil varchar(10) null, id_colegiado_sociedad char(10) null, razon_social varchar(255) null, cod_forma_juridica char(3) null, cif varchar(15) null, direccion varchar(100) null, cod_pob char(6) null, cod_prov char(5) null, cp char(6) null, poblacion_descripcion varchar(100) null, telefono varchar(30) null, fax varchar(30) null, mail varchar(100) null, web varchar(100) null, const_notario varchar(200) null, const_lugar varchar(100) null, const_fecha datetime null, const_protocolo varchar(10) null, adap_notario varchar(200) null, adap_lugar varchar(100) null, adap_fecha datetime null, adap_protocolo varchar(10) null, multidisciplinar char(1) default 'N' null, cod_reg_mercantil char(3) null, fecha_salida_registro datetime null, fecha_llegada_colegio datetime null, fecha_junta datetime null, fecha_inscripcion datetime null, fecha_duracion datetime null, fecha_baja datetime null, tomo varchar(10) null, libro varchar(10) null, folio varchar(10) null, hoja_numero varchar(10) null, inscripcion varchar(10) null, observaciones varchar(255) null, acreditado char(1) default 'N' null) ;
+alter table regsoc add constraint pk_regsoc primary key clustered (id_regsoc) ;
+create table regsoc_actividades (id_regsoc_actividad char(10) not null, id_regsoc char(10) null, descripcion varchar(255) null) ;
+alter table regsoc_actividades add constraint regsoc_actividades_x primary key nonclustered (id_regsoc_actividad) ;
+create table regsoc_tipo_forma_juridica (cod_forma_juridica char(3) not null, descripcion varchar(100) null) ;
+alter table regsoc_tipo_forma_juridica add constraint regsoc_forma_juridica_x primary key nonclustered (cod_forma_juridica) ;
+create table regsoc_tipo_registro_mercantil (cod_reg_mercantil char(3) not null, descripcion varchar(100) null, direccion varchar(100) null, cod_pob char(6) null, cod_prov char(5) null, cp varchar(6) null, telefono varchar(30) null, fax varchar(30) null, mail varchar(100) null, web varchar(100) null) ;
+alter table regsoc_tipo_registro_mercantil add constraint resoc_registro_mercantil_x primary key nonclustered (cod_reg_mercantil) ;
+create table csd_doc_modulo (id_documento_modulo varchar(20) not null, cod_tipo_modulo varchar(2) null, id_modulo varchar(20) null, f_activacion datetime null, version varchar(20) null, nombre_fichero varchar(255) null, descripcion varchar(255) null, autor varchar(100) null, id_usuario varchar(20) null, visible_web varchar(1) null, cod_tipo_documento_archivo varchar(2) null, cod_tipo_documento_celda varchar(2) null, ubicacion varchar(100) null) ; 
+alter table csd_doc_modulo add constraint csd_doc_modulo_x primary key nonclustered (id_documento_modulo) ; 
+create table regsoc_tipo_sancion (cod_tipo_sancion char(3) not null, descripcion varchar(100) null) ;
+alter table regsoc_tipo_sancion add constraint cod_tipo_sancion primary key nonclustered (cod_tipo_sancion) ;
+create table regsoc_tipo_entrada_agenda (cod_tipo_entrada_agenda char(3) not null, descripcion varchar(100) null) ;
+alter table regsoc_tipo_entrada_agenda add constraint cod_tipo_entrada_agenda primary key nonclustered (cod_tipo_entrada_agenda) ;
+create table regsoc_sancion (id_reg_soc_sancion char(10) not null, id_regsoc char(10) null, fecha datetime null, cod_tipo_sancion char(3) null, descripcion varchar(255) null) ;
+alter table regsoc_sancion add constraint id_regsoc_sancion primary key nonclustered (id_reg_soc_sancion) ;
+create table regsoc_agenda (id_regsoc_agenda char(10) not null, id_regsoc char(10) null, fecha datetime null, cod_tipo_entrada_agenda char(5) null, descripcion varchar(255) null) ;
+alter table regsoc_agenda add constraint id_regsoc_agenda primary key nonclustered (id_regsoc_agenda) ;
+
+INSERT INTO contadores(contador,valor) values ('REGSOC',0);
+INSERT INTO contadores(contador,valor) values ('REGSOC_ACTIVIDAD',0);
+INSERT INTO contadores(contador,valor) values ('ID_REGSOC_SOCIO',0);
+INSERT INTO contadores(contador,valor) values ('ID_REGSOC_AGENDA',0);
+INSERT INTO contadores(contador,valor) values ('ID_SANCION',0);
+INSERT INTO contadores(contador,valor) values ('ID_REGSOC_ANEXO',0);
+
+INSERT INTO var_globales(nombre,texto,descripcion) values ('g_modo_funcionamiento','1','');
+INSERT INTO var_globales(nombre,texto,descripcion) values ('regsoc_syntax funcionamiento','','c:\regsoc\datawindow');
+INSERT INTO var_globales(nombre,texto,descripcion) values ('regsoc_colegiado_tabla','colegiados','');
+INSERT INTO var_globales(nombre,texto,descripcion) values ('regsoc_colegiado_campo1','id_colegiado','');
+INSERT INTO var_globales(nombre,texto,descripcion) values ('regsoc_colegiado_campo2','n_colegiado','');
+INSERT INTO var_globales(nombre,texto,descripcion) values ('regsoc_colegiado_campo3','apellidos','');
+INSERT INTO var_globales(nombre,texto,descripcion) values ('regsoc_colegiado_campo4','nombre','');
+INSERT INTO var_globales(nombre,texto,descripcion) values ('regsoc_colegiado_campo5','tipo_persona','');
+INSERT INTO var_globales(nombre,texto,descripcion) values ('regsoc_colegiado_campo6','nif','');
+INSERT INTO var_globales(nombre,texto,descripcion) values ('regsoc_colegiado_campo7','poblacion_activa_fiscal','');
+INSERT INTO var_globales(nombre,texto,descripcion) values ('regsoc_colegiado_campo8','domicilio_activo_fiscal','');
+INSERT INTO var_globales(nombre,texto,descripcion) values ('regsoc_cliente_tabla','clientes','');
+INSERT INTO var_globales(nombre,texto,descripcion) values ('regsoc_cliente_campo1','id_cliente','');
+INSERT INTO var_globales(nombre,texto,descripcion) values ('regsoc_cliente_campo2','n_cliente','');
+INSERT INTO var_globales(nombre,texto,descripcion) values ('regsoc_cliente_campo3','apellidos','');
+INSERT INTO var_globales(nombre,texto,descripcion) values ('regsoc_cliente_campo4','nombre','');
+INSERT INTO var_globales(nombre,texto,descripcion) values ('regsoc_cliente_campo5','tipo_persona','');
+
+// Pasar el contenido de la tabla sociedades a la siguiente estructura
+create table sociedades_copy (id_col_per char(10) not null, id_col_soc char(10) not null, porcent float(43) null, nombre char(255) null, nif char(20) null, f_inicio datetime null, f_final datetime null, administrador char(1) null) ;
+
+alter table dbo.sociedades_copy add constraint sociedades_x primary key nonclustered (id_col_per, id_col_soc) ;
+
+insert into sociedades_copy select id_col_per, id_col_soc, porcent, nombre,nif, f_inicio, f_final, administrador from sociedades ;
+drop table sociedades;
+
+create table sociedades (id_regsoc_socio char(10) not null, id_regsoc nvarchar(20) null, id_col_per char(10) null, 
+id_col_soc char(10) null, id_cli_per char(10) null, porcent double precision null, nombre char(255) null, nif char(20) null,
+f_inicio datetime null, f_final datetime null, administrador char(1) null, alta char(1) null, capital_social double precision null, 
+porc_capital_social double precision null, cod_colegio nvarchar(255) null, num_colegio_adscripcion nvarchar(15) null, 
+tipo char(1) null, apellidos nvarchar(255) null, poblacion_descripcion nvarchar(100) null, cod_pob nvarchar(6) null, 
+cod_prov nvarchar(5) null, cp nvarchar(6) null, telefono nvarchar(30) null, fax nvarchar(30) null, colegio_procedencia nvarchar(255) null, 
+id_actividad nvarchar(10) null, num_colegiado nvarchar(15) null, direccion nvarchar(255) null, representante char(1) null) ;
+alter table sociedades add constraint sociedades_x primary key nonclustered (id_regsoc_socio) ;
+
+DEALLOCATE CURSOR c_soc;
+declare c_soc cursor for
+select id_col_per,id_col_soc,porcent,nombre,nif,f_inicio,f_final,administrador
+from sociedades_copy;
+open c_soc
+declare @id_col_per varchar(10),@id_col_soc varchar(10),@porcent double precision,@nombre varchar(255),@nif varchar(20),@f_inicio datetime,@f_final datetime,@administrador varchar(1),@contador integer,@conta char(10)
+FETCH c_soc
+INTO @id_col_per, @id_col_soc, @porcent,@nombre, @nif, @f_inicio, @f_final,@administrador
+
+select @contador=1
+WHILE (@@sqlstatus  = 0)
+BEGIN
+select @conta='X'+right('000000000'+rtrim(convert(char(10),@contador)),9)
+
+	insert into sociedades (id_regsoc_socio, id_col_per, id_col_soc, porcent,nif, f_inicio, f_final,administrador)
+	values (@conta,@id_col_per,@id_col_soc,@porcent,@nif,@f_inicio,@f_final,@administrador)
+
+	FETCH c_soc
+	INTO @id_col_per, @id_col_soc, @porcent,@nombre, @nif, @f_inicio, @f_final,@administrador
+
+	select @contador=@contador + 1
+END;
+CLOSE c_soc;
+
+// update sociedades set tipo = '1' ??;
+
+//  Vista regsoc_socio
+CREATE VIEW regsoc_socio (id_regsoc_socio,id_colegiado_sociedad,id_colegiado,nombre,cif,fecha_alta,fecha_baja,
+administrador,id_cliente,alta_baja,capital_social,porc_capital_social,cod_colegio,num_col_colegio_adscripcion,
+tipo,apellidos,poblacion_descripcion,cod_pob,cod_prov,cp,telefono,fax,colegio_procedencia,id_actividad,
+num_colegiado,direccion,representante,id_regsoc,porcent) 
+AS SELECT id_regsoc_socio, id_col_soc, id_col_per, nombre, nif, f_inicio, f_final, administrador, id_cli_per, alta,
+capital_social, porc_capital_social, cod_colegio, num_colegio_adscripcion, tipo, apellidos, poblacion_descripcion, 
+cod_pob, cod_prov, cp, telefono, fax, colegio_procedencia, id_actividad, num_colegiado, direccion, representante,
+id_regsoc, porcent
+FROM sociedades ;
+
+// Vista regsoc_cias_aseguradoras
+CREATE VIEW regsoc_cias_aseguradoras (cod_s,nom_s) 
+AS SELECT musaat_cias_aseguradoras.cod_s, musaat_cias_aseguradoras.nom_s 
+FROM musaat_cias_aseguradoras ;
+
+
+// Tabla de mensajes 
+create table messages (msgid char(40) not null, msgtitle char(255) null, msgtext char(255) null, msgicon char(12) null, msgbutton char(17) null, msgdefaultbutton int null, msgseverity int null, msgprint char(1) null, msguserinput char(1) null) ;
+alter table messages add constraint messages_x primary key nonclustered (msgid) ;
+// Importar tabla messages.txt
+
+// Añadir en el INI
+[Regsoc]
+path_ficheros=***ruta***
+path_datawindow=***ruta***\datawindow
+
+INSERT INTO menu  ( codigo,   descripcion,   objeto,   visible,   enabled,   ventana,   activo )  
+VALUES ( '0000000193', 'Registro Sociedades', 'm_aplic_frame.m_file.m_new.m_registrosociedades', '1', '1', '', 'N')  ;
+
+INSERT INTO menu  ( codigo,   descripcion,   objeto,   visible,   enabled,   ventana,   activo )  
+VALUES ('0000000194','Registro Sociedades','m_aplic_frame.m_file.m_open.m_mantregistrosociedades','1','1','','N') ;
+
+// CTE (INC. 9054)
+alter table fases add n_consejo_fase char (20) null ;
+
+// COAATAVI (INC. 9023)
+update var_globales set texto = 'd_reparos_notificacion_avi' where nombre = 'g_carta_reparos' ;
+
+// COAATAVI (INC. 8814)
+INSERT INTO t_control_eventos  ( control,   evento,   activo,   param1,   param2,   id_control)  
+VALUES ( 'INSERTA_BOTON', 'ABRIR_FASE', 'S', 'Netfocus', 'csd_netfocus', 'NETFOCUS01')  ;
+
+// COAATTFE (INC. 9239)
+create table colegiados_firma_digital (id_colegiado char(10) not null, estado char(2) not null, f_estado datetime not null) ;
+alter table colegiados_firma_digital add constraint pk_coleg_firma_dig primary key nonclustered (id_colegiado, estado, f_estado) ;
+
+INSERT INTO t_aplicacion  ( cod_aplicacion,   nombre )  VALUES ( 'COLEGFIRMA',   'COLEGIADOS FIRMA DIGITAL' )  ;
+
+// TODOS
+INSERT INTO menu  ( codigo,   descripcion,   objeto,   visible,   enabled,   ventana,   activo )  
+VALUES ( '0000000192', 'Firmas Digitales', 'm_aplic_frame.m_file.m_open.m_colegiados.m_firmadigital', '1', '1', '', 'N') ;

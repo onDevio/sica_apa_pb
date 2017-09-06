@@ -1,0 +1,21 @@
+HA$PBExportHeader$f_total_dias_asistencia.srf
+global type f_total_dias_asistencia from function_object
+end type
+
+forward prototypes
+global function integer f_total_dias_asistencia (string id_curso, string id_asistente)
+end prototypes
+
+global function integer f_total_dias_asistencia (string id_curso, string id_asistente);integer total
+
+SELECT count(fecha)
+INTO :total
+FROM formacion_asist_fecha,formacion_ctrl_asistencia
+WHERE (formacion_asist_fecha.id_asistencia_fecha=formacion_ctrl_asistencia.id_asistencia_fecha) AND
+		(formacion_asist_fecha.id_curso=:id_curso) AND
+		(formacion_ctrl_asistencia.id_asistente=:id_asistente) AND
+		(formacion_ctrl_asistencia.asiste='S');
+
+return total
+end function
+

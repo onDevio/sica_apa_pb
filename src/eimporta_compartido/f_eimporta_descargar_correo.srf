@@ -1,0 +1,85 @@
+HA$PBExportHeader$f_eimporta_descargar_correo.srf
+global type f_eimporta_descargar_correo from function_object
+end type
+
+forward prototypes
+global function integer f_eimporta_descargar_correo (st_correos_recibidos recibidos)
+end prototypes
+
+global function integer f_eimporta_descargar_correo (st_correos_recibidos recibidos);int li_descargados
+
+mailSession				mSes
+mailReturnCode			mRet
+mailMessage			mMsg
+mailFileDescription		mAttach
+
+string ls_ret
+long n, i, j
+string ls_nombre_fichero
+n_cst_filesrvwin32 dire
+
+//Creamos la sesion
+mSes = create mailSession
+mRet = mSes.mailLogon ( mailNewSession! )
+
+ls_ret = f_mail_error_to_string ( mRet, 'Logon:', FALSE )
+
+If mRet <> mailReturnSuccess! Then
+	MessageBox ("Conexi$$HEX1$$f300$$ENDHEX$$n", 'Error en la conexion' )
+	return -1
+End If
+
+li_descargados = 0
+
+//Cogemos todos los mails nuevos que hayan
+mSes.mailGetMessages(TRUE)
+
+FOR n = 1 to UpperBound(mSes.MessageID[])
+		//Creamos el objeto de copia
+		dire = create n_cst_filesrvwin32
+
+		//Si hemos dicho que no los descargue salta
+		if recibidos.descargar[n] = 'N' then
+			continue
+		end if
+	
+		mRet = mSes.mailReadMessage(mSes.MessageID[n], mMsg, mailEntireMessage!, true)
+		If mRet <> mailReturnSuccess! Then
+			MessageBox ("Conexi$$HEX1$$f300$$ENDHEX$$n", 'Error descargando ficheros' )
+			return -1
+		End If
+		
+		//Recorremos el vector de Adjuntos
+		for i = 1 to UpperBound(mMsg.AttachmentFile[])
+			mAttach = mMsg.AttachmentFile[i]
+			//Obtenemos el nombre del fichero
+			for j = LenA(mAttach.Filename) to 1 step -1
+				if PosA(mAttach.Filename,"\",j) > 0 then
+					ls_nombre_fichero = RightA(mAttach.Filename,LenA(mAttach.Filename) - j)
+					//Copiamos el fichero al directorio destino (el de importacion)
+					if g_verificador_autonomo='N' then
+						dire.of_filecopy(mAttach.Filename, g_directorio_importacion + ls_nombre_fichero)
+					else
+						dire.of_filecopy(mAttach.Filename, g_directorio_verificacion + ls_nombre_fichero)
+					end if
+					exit
+				end if
+			next
+		next	
+		
+		//Si se ha copiado bien el adjunto
+		if fileexists(g_directorio_importacion + ls_nombre_fichero) then
+			li_descargados ++ 
+		end if
+		
+		destroy dire
+NEXT
+
+mSes.mailLogoff ( )
+
+destroy mSes
+
+return li_descargados
+
+end function
+

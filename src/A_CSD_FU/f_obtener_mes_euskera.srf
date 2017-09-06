@@ -1,0 +1,41 @@
+HA$PBExportHeader$f_obtener_mes_euskera.srf
+global type f_obtener_mes_euskera from function_object
+end type
+
+forward prototypes
+global function string f_obtener_mes_euskera (datetime mes)
+end prototypes
+
+global function string f_obtener_mes_euskera (datetime mes);// Obtiene a partir de una variable Datetime el mes en castellano
+// Devuelve un String
+CHOOSE CASE month(date(mes))
+	CASE 1
+		return "URTARRILLA"
+CASE 2
+		return "OTSAILA"
+CASE 3
+		return "MARTXOA"
+CASE 4
+		return "APIRILA"
+CASE 5
+		return "MAIATZA"
+CASE 6
+		return "EKAINA"
+CASE 7
+		return "UZTAILA"
+CASE 8
+		return "ABUZTUA"
+CASE 9
+		return "IRAILA"
+CASE 10
+		return "URRIA"
+CASE 11
+		return "AZAROA"
+CASE 12
+		return "ABENDUA"
+CASE ELSE 
+return "Error"
+END CHOOSE
+
+end function
+

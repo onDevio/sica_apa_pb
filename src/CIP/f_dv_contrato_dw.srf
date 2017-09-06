@@ -1,0 +1,23 @@
+HA$PBExportHeader$f_dv_contrato_dw.srf
+$PBExportComments$Calcula el total de dv para un contrato determinado
+global type f_dv_contrato_dw from function_object
+end type
+
+forward prototypes
+global function double f_dv_contrato_dw (datawindow idw_fases_informes)
+end prototypes
+
+global function double f_dv_contrato_dw (datawindow idw_fases_informes);int i
+double dv_contrato = 0, dv_linea = 0, dv_iva = 0
+string dv_t_iva
+dv_t_iva = g_t_iva_defecto
+for i = 1 to idw_fases_informes.rowcount()
+	if idw_fases_informes.getitemstring(i, 'tipo_informe') = g_codigos_conceptos.dv then
+		dv_linea = idw_fases_informes.getitemnumber(i, 'cuantia_colegiado')
+		dv_contrato += dv_linea
+	end if
+next
+if isnull(dv_contrato) then dv_contrato = 0
+return dv_contrato
+end function
+

@@ -1,0 +1,19 @@
+HA$PBExportHeader$f_calcula_computado_vm.srf
+global type f_calcula_computado_vm from function_object
+end type
+
+forward prototypes
+global function string f_calcula_computado_vm (double parcial_delegacion, double total_mes2)
+end prototypes
+
+global function string f_calcula_computado_vm (double parcial_delegacion, double total_mes2);double ld_aux
+string ls_resultado
+
+
+ld_aux = (parcial_delegacion  * 100) /  total_mes2
+ls_resultado = string(ld_aux)
+
+messagebox("ls_resultado",ls_resultado)
+return ls_resultado 
+end function
+

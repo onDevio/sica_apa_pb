@@ -1,0 +1,20 @@
+HA$PBExportHeader$f_musaat_dame_coef_cm.srf
+global type f_musaat_dame_coef_cm from function_object
+end type
+
+forward prototypes
+global function double f_musaat_dame_coef_cm (string id_col)
+end prototypes
+
+global function double f_musaat_dame_coef_cm (string id_col);double coef_cm = 1
+
+SELECT src_coef_cm
+INTO :coef_cm
+FROM musaat
+WHERE id_col = :id_col ;
+
+if isnull(coef_cm) then coef_cm = 1
+
+return coef_cm
+end function
+

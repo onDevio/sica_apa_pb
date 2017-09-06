@@ -1,0 +1,22 @@
+HA$PBExportHeader$f_dame_forma_pago_cc.srf
+global type f_dame_forma_pago_cc from function_object
+end type
+
+forward prototypes
+global function string f_dame_forma_pago_cc (string codigo)
+end prototypes
+
+global function string f_dame_forma_pago_cc (string codigo);//Luis 05/01/2009
+//Devuelve la forma de pago dependiendo del c$$HEX1$$f300$$ENDHEX$$digo
+string pago
+
+
+  SELECT descripcion
+  INTO   :pago
+  FROM csi_formas_de_pago
+  WHERE tipo_pago = :codigo;
+	
+
+return pago
+end function
+

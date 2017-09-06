@@ -1,0 +1,164 @@
+HA$PBExportHeader$f_cuota_variable_impresion_cabecera.srf
+global type f_cuota_variable_impresion_cabecera from function_object
+end type
+
+forward prototypes
+global subroutine f_cuota_variable_impresion_cabecera (string id_fase, ref datawindowchild ds_imp)
+end prototypes
+
+global subroutine f_cuota_variable_impresion_cabecera (string id_fase, ref datawindowchild ds_imp);long i,j
+string apell_coleg,nombre_coleg,coleg,n_col,n_col_coleg,nif,nif_coleg
+string id_col,titulo,emplaz,calle,tipo_via,poblacion
+string apell_cliente,nombre_cliente,cliente
+string tipo_obra,destino,tipo_act,encargo,fase,nombre_via,n_registro
+datetime f_entrada,f_visado
+string n_expedi, id_col_visador
+
+// PARA VISARED
+coleg = ""
+n_col = ""
+nif = ""
+DECLARE cursor_col_1 CURSOR FOR
+	select c.apellidos,c.nombre,c.n_col,c.nif  from fases_colegiados fc,colegiados c where fc.id_fase=:id_fase and c.n_col=fc.numero;
+OPEN cursor_col_1;
+FETCH cursor_col_1 INTO :apell_coleg,:nombre_coleg,:n_col_coleg,:nif_coleg;
+
+DO WHILE SQLCA.sqlcode = 0
+	
+   if not f_es_vacio(nombre_coleg) and not f_es_vacio(apell_coleg) then
+		nombre_coleg=apell_coleg+", "+nombre_coleg
+	else
+		if isnull(nombre_coleg) then nombre_coleg = ""
+		if isnull(apell_coleg) then apell_coleg = ""
+		nombre_coleg = apell_coleg + nombre_coleg
+	end if
+	coleg += nombre_coleg+cr
+	if not isnull(n_col_coleg) then n_col+=n_col_coleg
+	n_col += cr
+	if not isnull(nif_coleg) then nif+=nif_coleg
+	nif += cr
+
+FETCH cursor_col_1 INTO :apell_coleg,:nombre_coleg,:n_col_coleg,:nif_coleg;
+LOOP
+
+CLOSE cursor_col_1;
+
+// SI ESTAMOS EN SICA...
+if SQLCA.sqlcode <> 0 and SQLCA.sqlcode <> 100 then
+	coleg = ""
+	n_col = ""
+	nif = ""
+	DECLARE cursor_col_2 CURSOR FOR
+		select c.apellidos,c.nombre,c.n_colegiado,c.nif  from fases_colegiados fc,colegiados c where fc.id_fase=:id_fase and c.id_colegiado=fc.id_col;
+	OPEN cursor_col_2;
+	FETCH cursor_col_2 INTO :apell_coleg,:nombre_coleg,:n_col_coleg,:nif_coleg;
+	
+	DO WHILE SQLCA.sqlcode = 0
+		
+		if not f_es_vacio(nombre_coleg) and not f_es_vacio(apell_coleg) then
+			nombre_coleg=apell_coleg+", "+nombre_coleg
+		else
+			if isnull(nombre_coleg) then nombre_coleg = ""
+			if isnull(apell_coleg) then apell_coleg = ""
+			nombre_coleg = apell_coleg + nombre_coleg
+		end if
+		coleg += nombre_coleg+cr
+		if not isnull(n_col_coleg) then n_col+=n_col_coleg
+		n_col += cr
+		if not isnull(nif_coleg) then nif+=nif_coleg
+		nif += cr
+	
+	FETCH cursor_col_2 INTO :apell_coleg,:nombre_coleg,:n_col_coleg,:nif_coleg;
+	LOOP
+	
+	CLOSE cursor_col_2;
+
+end if
+
+ds_imp.SetItem(1,'colegiados_nombre',coleg)
+ds_imp.SetItem(1,'colegiados_n_col',n_col)
+ds_imp.SetItem(1,'colegiados_nif',nif)
+
+
+
+
+cliente= ""
+DECLARE cursor_cli CURSOR FOR
+	select c.apellidos,c.nombre from fases_clientes fc,clientes c
+	where fc.id_fase=:id_fase and fc.id_cliente=c.id_cliente;
+OPEN cursor_cli;
+FETCH cursor_cli INTO :apell_cliente,:nombre_cliente;
+
+DO WHILE SQLCA.sqlcode = 0
+
+   if not f_es_vacio(apell_cliente) and not f_es_vacio(nombre_cliente) then
+		nombre_cliente=apell_cliente+", "+nombre_cliente
+	else
+		if isnull(apell_cliente) then apell_cliente = ""
+		if isnull(nombre_cliente) then nombre_cliente = ""
+		nombre_cliente=apell_cliente + nombre_cliente
+	end if
+	cliente+=nombre_cliente+cr
+
+FETCH cursor_cli INTO :apell_cliente,:nombre_cliente;
+LOOP
+
+CLOSE cursor_cli;
+
+ds_imp.SetItem(1,'clientes_nombre',cliente)
+
+// PARA VISARED
+SELECT fases.titulo,fases.emplazamiento,fases.n_calle,tipos_via.descripcion,poblaciones.descripcion,fases.f_entrada,fases.f_visado,fases.n_registro
+	INTO :titulo,:emplaz,:calle,:tipo_via,:poblacion,:f_entrada,:f_visado,:n_registro
+	FROM (fases LEFT JOIN tipos_via ON fases.tipo_via_emplazamiento = tipos_via.cod_tipo_via)
+		LEFT JOIN poblaciones  ON fases.id_pob = poblaciones.id_pob
+	WHERE fases.id_fase=:id_fase ;
+
+// SI ESTAMOS EN SICA...
+if SQLCA.sqlcode <> 0 and SQLCA.sqlcode <> 100 then
+	select f.descripcion,f.emplazamiento,f.n_calle,t.descripcion,p.descripcion,f.f_entrada,f.f_visado,f.n_registro
+		into :titulo,:emplaz,:calle,:tipo_via,:poblacion,:f_entrada,:f_visado,:n_registro
+		from fases f,tipos_via t,poblaciones p
+		where f.id_fase=:id_fase and f.tipo_via_emplazamiento *= t.cod_tipo_via and p.cod_pob =* f.poblacion;
+end if
+
+if upper(LeftA(trim(nombre_via),LenA(tipo_via))) <> upper(tipo_via) then emplaz=tipo_via + " "+emplaz
+if not f_es_vacio(calle) then emplaz+=", " + calle
+
+ds_imp.SetItem(1,'f_entrada',f_entrada)
+ds_imp.SetItem(1,'f_visado',f_visado)
+ds_imp.SetItem(1,'fases_encargo',titulo)
+ds_imp.SetItem(1,'fases_emplaz',emplaz)
+ds_imp.SetItem(1,'fases_pob',poblacion)
+ds_imp.SetItem(1,'n_registro',n_registro)
+
+
+id_col_visador = ""
+
+// PARA VISARED
+SELECT tipos_destino.descripcion, tipos_actuacion.descripcion, tipos_obra.descripcion, fases.n_expedi
+	INTO :destino,:tipo_act,:tipo_obra,:n_expedi
+	FROM (((fases LEFT JOIN tipos_actuacion ON fases.tipo_actuacion = tipos_actuacion.codigo AND fases.colegio = tipos_actuacion.colegio)
+		LEFT JOIN tipos_obra ON fases.tipo_obra = tipos_obra.codigo AND fases.colegio = tipos_obra.colegio)
+		LEFT OUTER JOIN tipos_destino ON fases.destino = tipos_destino.codigo AND fases.colegio = tipos_destino.colegio)
+	WHERE fases.id_fase=:id_fase ;
+ 
+// SI ESTAMOS EN SICA...
+if SQLCA.sqlcode <> 0 and SQLCA.sqlcode <> 100 then
+	select tf.d_t_descripcion,tt.d_t_trabajo,t.d_trabajo,e.n_expedi,f.id_col_visador
+		into :tipo_act,:tipo_obra,:destino,:n_expedi,:id_col_visador
+		from fases f,t_fases tf,tipos_trabajos tt,trabajos t,expedientes e
+		where f.id_fase=:id_fase and f.fase *= tf.c_t_fase and f.tipo_trabajo *= tt.c_t_trabajo and f.trabajo *= t.c_trabajo 
+			and f.id_expedi=e.id_expedi;
+end if
+
+
+ds_imp.SetItem(1,'fases_tipo_obra',tipo_obra)
+ds_imp.SetItem(1,'fases_fase',tipo_act)
+ds_imp.SetItem(1,'trabajo',destino)
+ds_imp.SetItem(1,'expediente',n_expedi)
+ds_imp.SetItem(1,'arquitecto_visador',f_colegiado_apellido(id_col_visador))
+
+
+end subroutine
+

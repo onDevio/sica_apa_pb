@@ -1,0 +1,6 @@
+HA$PBExportHeader$st_ad_judicial_consulta.srs
+global type st_ad_judicial_consulta from structure
+	string		id_administracion
+	string		id_fase
+end type
+

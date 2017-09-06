@@ -1,0 +1,25 @@
+HA$PBExportHeader$st_colegiado_defuncion.srs
+global type st_colegiado_defuncion from structure
+	string		n_colegiado
+	datetime		f_defuncion
+	string		tipo_via
+	string		emplaz
+	string		n_calle
+	string		piso
+	string		puerta
+	string		id_fase
+	string		encargo
+	string		n_visado
+	datetime		f_visado
+	string		emplazamiento
+	string		nombre
+	string		municipio
+	string		clientes
+	string		arquitectos
+	string		destinatario_nombre
+	string		destinatario_emplaz
+	string		destinatario_poblacion
+	string		destinatario_nombre2
+	string		t_act
+end type
+

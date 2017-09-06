@@ -1,0 +1,577 @@
+HA$PBExportHeader$f_colegiados_rellena_estructura.srf
+$PBExportComments$Dado un colegiado inserta sus datos en una nueva fila del datastore que se le pasa
+global type f_colegiados_rellena_estructura from function_object
+end type
+
+forward prototypes
+global subroutine f_colegiados_rellena_estructura (string id_colegiado, ref datastore ds_colegiados, st_retorno_seleccion campos_extra)
+end prototypes
+
+global subroutine f_colegiados_rellena_estructura (string id_colegiado, ref datastore ds_colegiados, st_retorno_seleccion campos_extra);string apellidos, nombre, n_col, nif, delegacion, direccion_correo, direccion_fiscal, domicilio_activo, poblacion_activa, del, sociedades, tipo_persona
+string tel_1, tel_2, tel_3, tel_4, tel_5, cod_banco_domic, banco_domic, apellido1, apellido2, titul_tipo, titul_observaciones, titul_pais
+string titul_circunst_hab, titul_convalid_documento, titul_convalid_fecha, titul_convalid_denomin, titul_permiso_tipo, titul_permiso_ambito
+string titul_permiso_regimen, titul_permiso_caducidad, titul_tipo_desc, ultima_factura, ret_voluntaria, iva_igic, irpf,forma_de_pago
+string nombre_banco, conc_facturables, nom_empresa, nif_empresa, domicilio_empresa, poblacion_empresa, sit_altas_bajas, seg_src_alta
+string seg_src_f_alta, seg_n_mutualista, seg_src_cober, seg_src_n_poliza, seg_src_coef_cm, seg_src_bonimp, seg_accidentes_alta, seg_accidentes_n_poliza
+string seg_accidentes_cia, id_empresa, per_todos_datos, per_comer_notel, per_comer_sitel, email, url, recibir_c_postales, recibir_c_email, domic_activo
+string domic_fiscal, circulares, per_cesion_dat, otros_datos, listas_col, num_mutualista, alta,grupo, f_alta, importe_pagar, f_alta_comple1, f_nacim
+string importe_pagar_comple1, f_alta_comple2, importe_pagar_comple2, total_pagar, importe_cobrar, id_musaat, musaat_n_mutlist, src_n_poliza, src_t_poliza
+string src_estado, src_importe, src_coef_cm, src_forma_pago, src_boni, src_bonimp, src_franqui, src_alta, src_f_alta, src_f_baja, src_cober
+string src_cober_f_alta, src_cober_f_baja, tasad_n_poliza, tasad_importe, tasad_alta, tasad_f_alta, tasad_f_baja, tasad_cober, tasad_cober_f_alta
+string tasad_cober_f_baja, accid_cia, accid_n_poliza, accid_asistencia, accid_importe, accid_alta, accid_f_alta, accid_f_baja, accid_cober_muerte
+string accid_cober_invalid, accid_cober_f_alta, accid_cober_f_baja, peritos_n_poliza, peritos_importe, peritos_alta, peritos_f_alta, peritos_f_baja
+string peritos_cober, peritos_cober_f_alta, peritos_cober_f_baja, n_consejo, sexo, tratamiento, demarcacion_cod, demarcacion, c_geografico_cod
+string c_geografico, alta_baja, situacion, situacion_cod, t_alta, t_alta_cod, t_baja, t_baja_cod, cons_escuela_final, id_premaat, premaat_alta, id_heredero
+string premaat_n_mutlist, premaat_f_pasivo, premaat_tipo_prest, premaat_situacion, premaat_tipo_mutlist, premaat_n_conyuges, premaat_n_hijos
+string premaat_f_baja, premaat_forma_pago, premaat_forma_cobro, premaat_grupo, premaat_f_alta, premaat_imp_pagar, premaat_grupo_c1, premaat_f_alta_c1
+string premaat_imp_pag_c1, premaat_grupo_c2, premaat_f_alta_c2, premaat_imp_pag_c2, premaat_total_pagar, premaat_imp_cobrar, beneficiarios, provincia_domic
+string premaat_conc_domic, src_cia, tasad_cia, peritos_cia, musaat_otros, articulo, sufijo, lugar, fecha, lugar_fecha, n_acreditado, registro_salida,procedencia
+string datos_bancarios_cobro_iban, datos_bancarios_pago_iban, cuenta_empresa_iban, src_cia_desc_larga
+datetime f_nacimiento, f_titulacion, f_alta_cabecera, f_situacion, f_baja, f_colegiacion, hoy
+time hora_inicio,hora_fin,dif
+int fila, count
+st_colegiados_domicilios domicilio
+
+SetPointer(Hourglass!)
+
+//select apellidos,nombre,n_colegiado,f_titulacion,nif,f_nacimiento,delegacion,poblacion_activa,domicilio_activo,tipo_persona,
+//		 telefono_1, telefono_2, telefono_3, telefono_4, telefono_5, datos_bancarios_iban, banco_domic, id_empresa, per_todos_datos,
+//		 per_comer_notel, per_comer_sitel, email, url, recibir_c_postales, recibir_c_email, n_consejo, sexo, tratamiento,
+//		 demarcaciones.descripcion, c_geograficos.descripcion, alta_baja, t_altas_bajas_situaciones.descripcion, 
+//		 f_situacion, t_alta, f_alta,t_baja, f_baja, f_colegiacion, cons_escuela_final
+//into :apellidos,:nombre,:n_col,:f_titulacion,:nif,:f_nacimiento,:delegacion,:poblacion_activa,:domicilio_activo,:tipo_persona,
+//	  :tel_1, :tel_2, :tel_3, :tel_4, :tel_5, :datos_bancarios_iban, :cod_banco_domic, :id_empresa, :per_todos_datos, :per_comer_notel,
+//	  :per_comer_sitel, :email, :url, :recibir_c_postales, :recibir_c_email, :n_consejo, :sexo, :tratamiento, :demarcacion,
+//	  :c_geografico, :alta_baja, :situacion, :f_situacion, :t_alta_cod, :f_alta_cabecera, :t_baja_cod, :f_baja, :f_colegiacion,
+//	  :cons_escuela_final
+//from colegiados,demarcaciones,c_geograficos,t_altas_bajas_situaciones
+//
+//where id_colegiado = :id_colegiado and demarcaciones.cod_demarcacion=colegiados.demarcacion 
+//		and colegiados.c_geografico=c_geograficos.c_geografico and t_altas_bajas_situaciones.codigo=colegiados.situacion;
+
+select apellidos,nombre,n_colegiado,f_titulacion,nif,f_nacimiento,delegacion,poblacion_activa,domicilio_activo,tipo_persona,
+		 telefono_1, telefono_2, telefono_3, telefono_4, telefono_5, datos_bancarios_iban, banco_domic, per_todos_datos,
+		 per_comer_notel, per_comer_sitel, email, url, recibir_c_postales, recibir_c_email, n_consejo, sexo, tratamiento,
+		 alta_baja, f_situacion, t_alta, f_alta,t_baja, f_baja, f_colegiacion, cons_escuela_final,n_acreditado,cons_procedencia
+into :apellidos,:nombre,:n_col,:f_titulacion,:nif,:f_nacimiento,:delegacion,:poblacion_activa,:domicilio_activo,:tipo_persona,
+	  :tel_1, :tel_2, :tel_3, :tel_4, :tel_5, :datos_bancarios_cobro_iban, :cod_banco_domic, :per_todos_datos,
+	  :per_comer_notel,	:per_comer_sitel, :email, :url, :recibir_c_postales, :recibir_c_email, :n_consejo, :sexo, :tratamiento, 
+	  :alta_baja, :f_situacion, :t_alta_cod, :f_alta_cabecera, :t_baja_cod, :f_baja, :f_colegiacion,
+	  :cons_escuela_final,:n_acreditado,:procedencia
+from colegiados
+where id_colegiado = :id_colegiado ; 
+
+select c_geograficos.descripcion
+into :c_geografico
+from colegiados,c_geograficos
+where id_colegiado = :id_colegiado and colegiados.c_geografico=c_geograficos.c_geografico ;
+
+select t_altas_bajas_situaciones.descripcion
+into :situacion
+from colegiados,t_altas_bajas_situaciones
+where id_colegiado = :id_colegiado and t_altas_bajas_situaciones.codigo=colegiados.situacion;
+
+count = ds_colegiados.rowcount()
+fila  = ds_colegiados.InsertRow(0)
+
+//Obtenemos la descripci$$HEX1$$f300$$ENDHEX$$n de la t_alta
+select descripcion into :t_alta from t_altas_bajas_situaciones where codigo = :t_alta_cod;
+
+//Obtenemos la descripci$$HEX1$$f300$$ENDHEX$$n de la t_baja
+select descripcion into :t_baja from t_altas_bajas_situaciones where codigo = :t_baja_cod;
+
+//CABECERA
+if f_es_vacio(nombre) then nombre=''
+if f_es_vacio(apellidos) then apellidos = ''
+if f_es_vacio(tipo_persona) then tipo_persona = ''
+if f_es_vacio(n_consejo) then n_consejo = ''
+if f_es_vacio(sexo) then sexo = ''
+if f_es_vacio(tratamiento) then tratamiento = ''
+if f_es_vacio(demarcacion) then demarcacion = ''
+if f_es_vacio(c_geografico) then c_geografico = ''
+if f_es_vacio(alta_baja) then alta_baja = ''
+if f_es_vacio(situacion) then situacion = ''
+if f_es_vacio(t_alta) then t_alta = ''
+if f_es_vacio(t_baja) then t_baja = ''
+
+//Obtenenmos los apellidos separados
+f_separar_apellidos(apellidos, apellido1, apellido2)
+
+ds_colegiados.SetItem(fila,'apellido1',apellido1)
+ds_colegiados.SetItem(fila,'apellido2',apellido2)
+ds_colegiados.SetItem(fila,'apellidos',apellidos)
+ds_colegiados.SetItem(fila,'nombre',nombre)
+ds_colegiados.SetItem(fila,'nombre_completo',nombre+' '+apellidos)
+ds_colegiados.SetItem(fila,'domicilio',domicilio_activo)
+ds_colegiados.SetItem(fila,'poblacion',poblacion_activa)
+ds_colegiados.SetItem(fila,'n_colegiado',n_col)
+ds_colegiados.SetItem(fila,'anyo_titulacion',string(Year(date(f_titulacion))))
+ds_colegiados.SetItem(fila,'agrupaciones',f_colegiados_agrupaciones(id_colegiado))
+ds_colegiados.SetItem(fila,'nif',nif)
+
+f_nacim = string(f_nacimiento,"dd/mm/yyyy")
+if f_es_vacio(f_nacim) then f_nacim = ''
+ds_colegiados.SetItem(fila,'f_nacimiento', f_nacim)
+ds_colegiados.SetItem(fila,'colegio',f_colegiado_colegio(id_colegiado))
+if tipo_persona = 'S' then ds_colegiados.SetItem(fila,'tipo_persona','Sociedad')
+if tipo_persona = 'P' then ds_colegiados.SetItem(fila,'tipo_persona','Persona')
+ds_colegiados.SetItem(fila,'n_consejo',n_consejo)
+if sexo = 'M' then ds_colegiados.SetItem(fila,'sexo','Masculino')
+if sexo = 'F' then ds_colegiados.SetItem(fila,'sexo','Femenino')
+if sexo = 'S' then ds_colegiados.SetItem(fila,'sexo','Sociedad')
+ds_colegiados.SetItem(fila,'tratamiento',tratamiento)
+ds_colegiados.SetItem(fila,'demarcacion',demarcacion)
+ds_colegiados.SetItem(fila,'c_geografico',c_geografico)
+ds_colegiados.SetItem(fila,'alta_baja',alta_baja)
+ds_colegiados.SetItem(fila,'situacion',situacion)
+ds_colegiados.SetItem(fila,'f_situacion',string(f_situacion,"dd/mm/yyyy"))
+ds_colegiados.SetItem(fila,'t_alta',t_alta)
+ds_colegiados.SetItem(fila,'f_alta_cabecera',string(f_alta_cabecera,"dd/mm/yyyy"))
+ds_colegiados.SetItem(fila,'t_baja',t_baja)
+ds_colegiados.SetItem(fila,'f_baja',string(f_baja,"dd/mm/yyyy"))
+ds_colegiados.SetItem(fila,'f_colegiacion',string(f_colegiacion,"dd/mm/yyyy"))
+ds_colegiados.SetItem(fila,'f_titulacion',string(f_titulacion,"dd/mm/yyyy"))
+if f_es_vacio(cons_escuela_final) then cons_escuela_final = ''
+ds_colegiados.SetItem(fila,'escuela',cons_escuela_final)
+if f_es_vacio(procedencia) then procedencia = ''
+ds_colegiados.SetItem(fila,'procedencia',procedencia)
+
+
+//CAMPOS AUXILIARES
+if not f_es_vacio(sexo) then
+	if sexo = 'F' then
+		articulo = 'La'
+		sufijo = 'a'
+	else
+		articulo = 'El'
+		sufijo = 'o'
+	end if
+else
+	articulo = ''
+	sufijo = ''
+end if
+
+hoy = datetime(today())
+lugar = f_dame_ciudad()
+fecha = string(day(today())) + ' de ' + lower(f_obtener_mes(hoy)) + ' de ' + string(year(today()))
+lugar_fecha = /*'En ' +*/ lugar + ' a ' + fecha
+
+ds_colegiados.SetItem(fila,'articulo', articulo)
+ds_colegiados.SetItem(fila,'sufijo', sufijo)
+ds_colegiados.SetItem(fila,'lugar', lugar)
+ds_colegiados.SetItem(fila,'fecha', fecha)
+ds_colegiados.SetItem(fila,'lugar_fecha', lugar_fecha)
+
+
+
+//TEL$$HEX1$$c900$$ENDHEX$$FONOS
+if f_es_vacio(tel_1) then tel_1 = ''
+if f_es_vacio(tel_2) then tel_2 = ''
+if f_es_vacio(tel_3) then tel_3 = ''
+if f_es_vacio(tel_4) then tel_4 = ''
+if f_es_vacio(tel_5) then tel_5 = ''
+
+ds_colegiados.SetItem(fila,'tel_1', tel_1)
+ds_colegiados.SetItem(fila,'tel_2', tel_2)
+ds_colegiados.SetItem(fila,'tel_3', tel_3)
+ds_colegiados.SetItem(fila,'tel_4', tel_4)
+ds_colegiados.SetItem(fila,'tel_5', tel_5)
+
+//AGRUP_FECHAS contiene cada agrupaci$$HEX1$$f300$$ENDHEX$$n concatenada con su fecha inicial y su fecha final
+//ds_colegiados.SetItem(fila,'agrup_fechas', f_colegiados_agrupaciones_ampliado(id_colegiado))
+
+//ORIENTACIONES contiene el c$$HEX1$$f300$$ENDHEX$$digo y la descripci$$HEX1$$f300$$ENDHEX$$n de las orientaciones profesionales del colegiado
+//ds_colegiados.SetItem(fila,'orientaciones', f_colegiados_orientaciones(id_colegiado))
+
+//SITUACIONES_INCOMP contiene cada situacion concatenada con su fecha inicial, su fecha final y su incompatibilidad
+//ds_colegiados.SetItem(fila,'situaciones_incomp', f_colegiados_situaciones_incomp(id_colegiado))
+
+//TITULACION
+f_colegiados_titulacion(id_colegiado,titul_tipo,titul_observaciones,titul_pais,titul_circunst_hab,titul_convalid_documento,titul_convalid_fecha,titul_convalid_denomin,titul_permiso_tipo,titul_permiso_ambito,titul_permiso_regimen,titul_permiso_caducidad)
+
+CHOOSE CASE titul_tipo
+	CASE 'N'
+		titul_tipo_desc = 'Nacional'
+		//Ponemos a vac$$HEX1$$ed00$$ENDHEX$$o los siguientes campos porque no est$$HEX1$$e100$$ENDHEX$$n visibles con este tipo
+		titul_convalid_documento = ''
+		titul_convalid_fecha = ''
+		titul_convalid_denomin = ''
+		titul_permiso_tipo = ''
+		titul_permiso_ambito = ''
+		titul_permiso_regimen = ''
+		titul_permiso_caducidad = ''
+	CASE 'E'
+		titul_tipo_desc = 'Europeo'
+		//Ponemos a vac$$HEX1$$ed00$$ENDHEX$$o los siguientes campos porque no est$$HEX1$$e100$$ENDHEX$$n visibles con este tipo
+		titul_permiso_tipo = ''
+		titul_permiso_ambito = ''
+		titul_permiso_regimen = ''
+		titul_permiso_caducidad = ''
+	CASE 'O'
+		titul_tipo_desc = 'Otros Paises'
+		//Ponemos a vac$$HEX1$$ed00$$ENDHEX$$o los siguientes campos porque no est$$HEX1$$e100$$ENDHEX$$n visibles con este tipo
+		titul_convalid_documento = ''
+		titul_convalid_fecha = ''
+		titul_convalid_denomin = ''
+	CASE ELSE
+		titul_tipo_desc = ''
+END CHOOSE
+
+ds_colegiados.SetItem(fila,'titul_tipo', titul_tipo_desc)
+ds_colegiados.SetItem(fila,'titul_observaciones', titul_observaciones)
+ds_colegiados.SetItem(fila,'titul_pais', titul_pais)
+ds_colegiados.SetItem(fila,'titul_circunst_hab', titul_circunst_hab)
+ds_colegiados.SetItem(fila,'titul_convalid_docum', titul_convalid_documento)
+ds_colegiados.SetItem(fila,'titul_convalid_fecha', titul_convalid_fecha)
+ds_colegiados.SetItem(fila,'titul_convalid_denom', titul_convalid_denomin)
+ds_colegiados.SetItem(fila,'titul_permiso_tipo', titul_permiso_tipo)
+ds_colegiados.SetItem(fila,'titul_permiso_ambito', titul_permiso_ambito)
+ds_colegiados.SetItem(fila,'titul_permiso_regim', titul_permiso_regimen)
+ds_colegiados.SetItem(fila,'titul_permiso_caduc', titul_permiso_caducidad)
+
+//CONTABILIDAD
+f_colegiados_datos_fiscales(id_colegiado,ultima_factura,ret_voluntaria,iva_igic,irpf)
+f_colegiados_conceptos_remesables(id_colegiado,forma_de_pago,datos_bancarios_pago_iban,nombre_banco)
+//conc_facturables = f_colegiados_conceptos_facturables(id_colegiado)
+f_colegiados_empresas(id_colegiado,nom_empresa,nif_empresa,cuenta_empresa_iban,domicilio_empresa,poblacion_empresa)
+
+//Obtenemos la descripci$$HEX1$$f300$$ENDHEX$$n a partir del c$$HEX1$$f300$$ENDHEX$$digo del banco domiciliaci$$HEX1$$f300$$ENDHEX$$n
+select descripcion into :banco_domic from csi_bancos_maestro where id = :cod_banco_domic;
+
+ds_colegiados.SetItem(fila,'ultima_factura', ultima_factura)
+ds_colegiados.SetItem(fila,'ret_voluntaria', ret_voluntaria)
+ds_colegiados.SetItem(fila,'iva_igic', iva_igic)
+ds_colegiados.SetItem(fila,'irpf', irpf)
+ds_colegiados.SetItem(fila,'forma_de_pago', forma_de_pago)
+if f_es_vacio(datos_bancarios_pago_iban) then datos_bancarios_pago_iban = ''
+if f_es_vacio(datos_bancarios_cobro_iban) then datos_bancarios_cobro_iban = ''
+ds_colegiados.SetItem(fila,'datos_bancarios', f_devuelve_formato_iban_escrito( datos_bancarios_pago_iban))
+ds_colegiados.SetItem(fila,'nombre_banco', nombre_banco)
+//ds_colegiados.SetItem(fila,'conc_facturables', conc_facturables)
+ds_colegiados.SetItem(fila,'cuenta_domic',  f_devuelve_formato_iban_escrito( datos_bancarios_cobro_iban))
+ds_colegiados.SetItem(fila,'banco_domic', banco_domic)
+ds_colegiados.SetItem(fila,'nombre_empresa', nom_empresa)
+ds_colegiados.SetItem(fila,'nif_empresa', nif_empresa)
+ds_colegiados.SetItem(fila,'cuenta_empresa', f_devuelve_formato_iban_escrito( cuenta_empresa_iban))
+ds_colegiados.SetItem(fila,'domicilio_empresa', domicilio_empresa)
+ds_colegiados.SetItem(fila,'poblacion_empresa', poblacion_empresa)
+
+//SITUACIONES, ALTAS, BAJAS
+//sit_altas_bajas = f_colegiados_situaciones_altas_bajas(id_colegiado)
+//ds_colegiados.SetItem(fila,'sit_altas_bajas', sit_altas_bajas)
+
+//CESI$$HEX1$$d300$$ENDHEX$$N DATOS / INTERNET
+if per_todos_datos = 'S' then
+	per_cesion_dat = 'Todos'
+else
+	if per_comer_notel = 'S' then
+		per_cesion_dat = 'Datos sin telefono'
+	else
+		if per_comer_sitel = 'S' then
+			per_cesion_dat = 'Datos con telefono'
+		else
+			per_cesion_dat = 'N'
+		end if
+	end if
+end if
+
+circulares = ''
+if recibir_c_postales = 'S' then
+	circulares = 'Impresas'
+	if recibir_c_email = 'S' then circulares = circulares + cr + 'E-mail'
+else
+	if recibir_c_email = 'S' then 
+		circulares = 'E-mail'
+	else
+		circulares = 'N'
+	end if
+end if
+
+domic_activo = f_domicilio_activo( id_colegiado ) + ' ' + f_poblacion_activa ( id_colegiado )
+domic_fiscal = f_domicilio_fiscal( id_colegiado ) + ' ' + f_poblacion_fiscal ( id_colegiado )
+
+if f_es_vacio(domic_activo) then domic_activo = ''
+if f_es_vacio(domic_fiscal) then domic_fiscal = ''
+
+ds_colegiados.SetItem(fila,'per_cesion_dat', per_cesion_dat)
+ds_colegiados.SetItem(fila,'rec_circulares', circulares)
+if f_es_vacio(email) then email = ''
+ds_colegiados.SetItem(fila,'email', email)
+if f_es_vacio(url) then url = ''
+ds_colegiados.SetItem(fila,'url', url)
+ds_colegiados.SetItem(fila,'domic_activo', domic_activo)
+ds_colegiados.SetItem(fila,'domic_fiscal', domic_fiscal)
+
+
+//OTROS DATOS
+//otros_datos = f_colegiados_otros_datos(id_colegiado)
+//ds_colegiados.SetItem(fila,'otros_datos', otros_datos)
+
+
+//LISTA COLEGIADOS
+//listas_col = f_colegiados_listas_pertenece(id_colegiado)
+//ds_colegiados.SetItem(fila,'listas_col', listas_col)
+
+
+//SEGUROS
+f_colegiados_seguros(id_colegiado,seg_src_alta,seg_src_f_alta,seg_n_mutualista,seg_src_cober,seg_src_n_poliza,seg_src_coef_cm,seg_src_bonimp,seg_accidentes_alta,seg_accidentes_n_poliza,seg_accidentes_cia)
+ds_colegiados.SetItem(fila,'seguros_src_alta',seg_src_alta)
+ds_colegiados.SetItem(fila,'seguros_src_f_alta',seg_src_f_alta)
+ds_colegiados.SetItem(fila,'seguros_n_mutualista',seg_n_mutualista)
+ds_colegiados.SetItem(fila,'seguros_src_cober',seg_src_cober)
+ds_colegiados.SetItem(fila,'seguros_src_n_poliza',seg_src_n_poliza)
+ds_colegiados.SetItem(fila,'seguros_src_coef_cm',seg_src_coef_cm)
+ds_colegiados.SetItem(fila,'seguros_src_bonimp',seg_src_bonimp)
+ds_colegiados.SetItem(fila,'seguros_accid_alta',seg_accidentes_alta)
+ds_colegiados.SetItem(fila,'seguros_accid_poliza',seg_accidentes_n_poliza)
+ds_colegiados.SetItem(fila,'seguros_accid_cia',seg_accidentes_cia)
+
+
+//MUTUA
+f_colegiados_mutua(id_colegiado,num_mutualista,alta,grupo,f_alta,importe_pagar,f_alta_comple1,importe_pagar_comple1,f_alta_comple2,importe_pagar_comple2,total_pagar,importe_cobrar)
+ds_colegiados.SetItem(fila,'mut_n_mutualista',num_mutualista)
+ds_colegiados.SetItem(fila,'mut_alta',alta)
+ds_colegiados.SetItem(fila,'mut_grupo',grupo)
+ds_colegiados.SetItem(fila,'mut_f_alta',f_alta)
+ds_colegiados.SetItem(fila,'mut_imp_pagar',importe_pagar)
+ds_colegiados.SetItem(fila,'mut_f_alta_c1',f_alta_comple1)
+ds_colegiados.SetItem(fila,'mut_imp_pagar_c1',importe_pagar_comple1)
+ds_colegiados.SetItem(fila,'mut_f_alta_c2',f_alta_comple2)
+ds_colegiados.SetItem(fila,'mut_imp_pagar_c2',importe_pagar_comple2)
+ds_colegiados.SetItem(fila,'mut_total_pagar',total_pagar)
+ds_colegiados.SetItem(fila,'mut_imp_cobrar',importe_cobrar)
+
+
+////////////////////////////////////////////////////////////////////////////////////
+//MUSAAT
+select id_musaat, n_mutualista into :id_musaat, :musaat_n_mutlist from musaat where id_col = :id_colegiado;
+
+if not f_es_vacio(id_musaat) then
+	
+	//SEGURO DE RESPONSABILIDAD CIVIL
+	f_musaat_src(id_musaat,src_n_poliza,src_t_poliza,src_estado,src_importe,src_coef_cm,src_forma_pago,src_boni,src_bonimp,src_franqui,src_alta,src_f_alta,src_f_baja,src_cober,src_cober_f_alta,src_cober_f_baja,src_cia,src_cia_desc_larga)
+	
+	if f_es_vacio(musaat_n_mutlist) then musaat_n_mutlist = ''
+	ds_colegiados.SetItem(fila,'musaat_n_mutlist',musaat_n_mutlist)
+
+	ds_colegiados.SetItem(fila,'src_n_poliza',src_n_poliza)
+	ds_colegiados.SetItem(fila,'src_t_poliza',src_t_poliza)
+	ds_colegiados.SetItem(fila,'src_estado',src_estado)
+	ds_colegiados.SetItem(fila,'src_importe',src_importe)
+	ds_colegiados.SetItem(fila,'src_coef_cm',src_coef_cm)
+	//ds_colegiados.SetItem(fila,'src_forma_pago',src_forma_pago)
+	//ds_colegiados.SetItem(fila,'src_boni',src_boni)
+	//ds_colegiados.SetItem(fila,'src_bonimp',src_bonimp)
+	//ds_colegiados.SetItem(fila,'src_franqui',src_franqui)
+	ds_colegiados.SetItem(fila,'src_alta',src_alta)
+	ds_colegiados.SetItem(fila,'src_f_alta',src_f_alta)
+	ds_colegiados.SetItem(fila,'src_f_baja',src_f_baja)
+	ds_colegiados.SetItem(fila,'src_cober',src_cober)
+	ds_colegiados.SetItem(fila,'src_cober_f_alta',src_cober_f_alta)
+	ds_colegiados.SetItem(fila,'src_cober_f_baja',src_cober_f_baja)
+	ds_colegiados.SetItem(fila,'src_cia',src_cia)
+	ds_colegiados.SetItem(fila,'src_cia_desc_larga',src_cia_desc_larga)
+	
+	
+	//SEGURO DE ACCIDENTES
+	f_musaat_accidentes(id_musaat,accid_cia,accid_n_poliza,accid_asistencia,accid_importe,accid_alta,accid_f_alta,accid_f_baja,accid_cober_muerte,accid_cober_invalid,accid_cober_f_alta,accid_cober_f_baja)
+	
+	ds_colegiados.SetItem(fila,'accid_cia',accid_cia)
+	ds_colegiados.SetItem(fila,'accid_n_poliza',accid_n_poliza)
+	ds_colegiados.SetItem(fila,'accid_asistencia',accid_asistencia)
+	ds_colegiados.SetItem(fila,'accid_importe',accid_importe)
+	ds_colegiados.SetItem(fila,'accid_alta',accid_alta)
+	ds_colegiados.SetItem(fila,'accid_f_alta',accid_f_alta)
+	ds_colegiados.SetItem(fila,'accid_f_baja',accid_f_baja)
+	ds_colegiados.SetItem(fila,'accid_cober_muerte',accid_cober_muerte)
+	ds_colegiados.SetItem(fila,'accid_cober_invalid',accid_cober_invalid)
+	ds_colegiados.SetItem(fila,'accid_cober_f_alta',accid_cober_f_alta)
+	ds_colegiados.SetItem(fila,'accid_cober_f_baja',accid_cober_f_baja)
+	
+	
+	//SEGURO TASACIONES
+	f_musaat_tasaciones(id_musaat,tasad_n_poliza,tasad_importe,tasad_alta,tasad_f_alta,tasad_f_baja,tasad_cober,tasad_cober_f_alta,tasad_cober_f_baja,tasad_cia)
+	
+	ds_colegiados.SetItem(fila,'tasad_n_poliza',tasad_n_poliza)
+	ds_colegiados.SetItem(fila,'tasad_importe',tasad_importe)
+	ds_colegiados.SetItem(fila,'tasad_alta',tasad_alta)
+	ds_colegiados.SetItem(fila,'tasad_f_alta',tasad_f_alta)
+	ds_colegiados.SetItem(fila,'tasad_f_baja',tasad_f_baja)
+	ds_colegiados.SetItem(fila,'tasad_cober',tasad_cober)
+	ds_colegiados.SetItem(fila,'tasad_cober_f_alta',tasad_cober_f_alta)
+	ds_colegiados.SetItem(fila,'tasad_cober_f_baja',tasad_cober_f_baja)
+	ds_colegiados.SetItem(fila,'tasad_cia',tasad_cia)
+	
+	
+	//SEGURO PERITOS
+	f_musaat_peritos(id_musaat,peritos_n_poliza,peritos_importe,peritos_alta,peritos_f_alta,peritos_f_baja,peritos_cober,peritos_cober_f_alta,peritos_cober_f_baja,peritos_cia)
+	
+	ds_colegiados.SetItem(fila,'perit_n_poliza',peritos_n_poliza)
+	ds_colegiados.SetItem(fila,'perit_importe',peritos_importe)
+	ds_colegiados.SetItem(fila,'perit_alta',peritos_alta)
+	ds_colegiados.SetItem(fila,'perit_f_alta',peritos_f_alta)
+	ds_colegiados.SetItem(fila,'perit_f_baja',peritos_f_baja)
+	ds_colegiados.SetItem(fila,'perit_cober',peritos_cober)
+	ds_colegiados.SetItem(fila,'perit_cober_f_alta',peritos_cober_f_alta)
+	ds_colegiados.SetItem(fila,'perit_cober_f_baja',peritos_cober_f_baja)
+	ds_colegiados.SetItem(fila,'perit_cia',peritos_cia)
+	
+	
+	//CONCEPTOS DOMICILIABLES
+	//ds_colegiados.SetItem(fila,'musaat_conc_domic',f_musaat_conceptos_domic(id_colegiado))
+	
+	
+	//MOVIMIENTOS SRC
+	//ds_colegiados.SetItem(fila,'movimientos_src',f_musaat_movimientos_src(id_colegiado))
+	
+	
+	//COBERTURAS SRC
+	//ds_colegiados.SetItem(fila,'coberturas_src',f_musaat_coberturas_src(id_colegiado))
+	
+	
+	//OTROS
+	f_musaat_otros(id_musaat,musaat_otros)
+	ds_colegiados.SetItem(fila,'musaat_otros',musaat_otros)
+
+else
+	
+	ds_colegiados.SetItem(fila,'musaat_n_mutlist','')
+	ds_colegiados.SetItem(fila,'src_alta','')
+	ds_colegiados.SetItem(fila,'src_cober','')
+	ds_colegiados.SetItem(fila,'src_cober_f_alta','')
+	ds_colegiados.SetItem(fila,'src_cia','')
+	ds_colegiados.SetItem(fila,'src_coef_cm','')
+	ds_colegiados.SetItem(fila,'src_n_poliza','')
+	
+end if
+////////////////////////////////////////////////////////////////////////////////////
+
+
+////////////////////////////////////////////////////////////////////////////////////
+//PREMAAT
+select id_premaat into :id_premaat from premaat where id_col = :id_colegiado;
+
+if not f_es_vacio(id_premaat) then
+
+	//CABECERA
+	f_premaat_cabecera(id_premaat,premaat_alta,id_heredero,premaat_n_mutlist,premaat_f_pasivo,premaat_tipo_prest,premaat_situacion,premaat_tipo_mutlist,premaat_n_conyuges,premaat_n_hijos,premaat_f_baja,premaat_forma_pago,premaat_forma_cobro,premaat_grupo,premaat_f_alta,premaat_imp_pagar,premaat_grupo_c1,premaat_f_alta_c1,premaat_imp_pag_c1,premaat_grupo_c2,premaat_f_alta_c2,premaat_imp_pag_c2,premaat_total_pagar,premaat_imp_cobrar)
+	
+	ds_colegiados.SetItem(fila,'premaat_alta',premaat_alta)
+	ds_colegiados.SetItem(fila,'premaat_nif_hered',f_dame_nif(id_heredero))
+	ds_colegiados.SetItem(fila,'premaat_nom_hered',f_dame_cliente(id_heredero))
+	ds_colegiados.SetItem(fila,'premaat_n_mutlist',premaat_n_mutlist)
+	ds_colegiados.SetItem(fila,'premaat_f_pasivo',premaat_f_pasivo)
+	ds_colegiados.SetItem(fila,'premaat_tipo_prest',premaat_tipo_prest)
+	ds_colegiados.SetItem(fila,'premaat_situacion',premaat_situacion)
+	ds_colegiados.SetItem(fila,'premaat_tipo_mutlist',premaat_tipo_mutlist)
+	ds_colegiados.SetItem(fila,'premaat_n_conyuges',premaat_n_conyuges)
+	ds_colegiados.SetItem(fila,'premaat_n_hijos',premaat_n_hijos)
+	ds_colegiados.SetItem(fila,'premaat_f_baja',premaat_f_baja)
+	ds_colegiados.SetItem(fila,'premaat_forma_pago',premaat_forma_pago)
+	ds_colegiados.SetItem(fila,'premaat_forma_cobro',premaat_forma_cobro)
+	ds_colegiados.SetItem(fila,'premaat_grupo',premaat_grupo)
+	ds_colegiados.SetItem(fila,'premaat_f_alta',premaat_f_alta)
+	//ds_colegiados.SetItem(fila,'premaat_imp_pagar',premaat_imp_pagar)
+	ds_colegiados.SetItem(fila,'premaat_grupo_c1',premaat_grupo_c1)
+	ds_colegiados.SetItem(fila,'premaat_f_alta_c1',premaat_f_alta_c1)
+	//ds_colegiados.SetItem(fila,'premaat_imp_pag_c1',premaat_imp_pag_c1)
+	ds_colegiados.SetItem(fila,'premaat_grupo_c2',premaat_grupo_c2)
+	ds_colegiados.SetItem(fila,'premaat_f_alta_c2',premaat_f_alta_c2)
+	//ds_colegiados.SetItem(fila,'premaat_imp_pag_c2',premaat_imp_pag_c2)
+	//ds_colegiados.SetItem(fila,'premaat_total_pagar',premaat_total_pagar)
+	ds_colegiados.SetItem(fila,'premaat_imp_cobrar',premaat_imp_cobrar)
+	
+	
+	//BENEFICIARIOS
+	//beneficiarios = f_premaat_beneficiarios(id_colegiado)
+	//ds_colegiados.SetItem(fila,'premaat_benef',beneficiarios)
+	
+	
+	//CONCEPTOS DOMICILIABLES
+	//ds_colegiados.SetItem(fila,'premaat_conc_domic',f_premaat_conceptos_domic(id_colegiado))
+
+else
+	
+	ds_colegiados.SetItem(fila,'premaat_alta','')
+	ds_colegiados.SetItem(fila,'premaat_f_pasivo','')
+	ds_colegiados.SetItem(fila,'premaat_grupo','')
+	ds_colegiados.SetItem(fila,'premaat_n_mutlist','')
+	
+end if
+////////////////////////////////////////////////////////////////////////////////////
+
+//Obtenemos los domicilios profesionales
+domicilio =f_colegiados_domicilios(id_colegiado,'PR')
+ds_colegiados.SetItem(fila,'pr1_direccion',domicilio.direccion1)
+ds_colegiados.SetItem(fila,'pr1_poblacion',domicilio.poblacion1)
+ds_colegiados.SetItem(fila,'pr1_cp',domicilio.cp1)
+ds_colegiados.SetItem(fila,'pr1_provincia',domicilio.provincia1)
+ds_colegiados.SetItem(fila,'pr1_telefono',domicilio.telefono1)
+ds_colegiados.SetItem(fila,'pr1_fax',domicilio.fax1)
+ds_colegiados.SetItem(fila,'pr1_mail',domicilio.mail1)
+ds_colegiados.SetItem(fila,'pr2_direccion',domicilio.direccion2)
+ds_colegiados.SetItem(fila,'pr2_poblacion',domicilio.poblacion2)
+ds_colegiados.SetItem(fila,'pr2_cp',domicilio.cp2)
+ds_colegiados.SetItem(fila,'pr2_provincia',domicilio.provincia2)
+ds_colegiados.SetItem(fila,'pr2_telefono',domicilio.telefono2)
+ds_colegiados.SetItem(fila,'pr2_fax',domicilio.fax2)
+	
+if domicilio.correo1 then direccion_correo = '0'
+if domicilio.fiscal1 then direccion_fiscal = '0'
+if domicilio.correo2 then direccion_correo = '2'
+if domicilio.fiscal2 then direccion_fiscal = '2'
+	
+//Obtenemos el domicilio particulares
+domicilio =f_colegiados_domicilios(id_colegiado,'PA')
+ds_colegiados.SetItem(fila,'part1_direccion',domicilio.direccion1)
+ds_colegiados.SetItem(fila,'part1_poblacion',domicilio.poblacion1)
+ds_colegiados.SetItem(fila,'part1_cp',domicilio.cp1)
+ds_colegiados.SetItem(fila,'part1_provincia',domicilio.provincia1)
+ds_colegiados.SetItem(fila,'part1_telefono',domicilio.telefono1)
+ds_colegiados.SetItem(fila,'part1_movil',domicilio.movil1)
+if domicilio.correo1 then direccion_correo = '1'
+if domicilio.fiscal1 then direccion_fiscal = '1'
+select descripcion into :del from delegaciones where cod_delegacion = :delegacion;
+ds_colegiados.SetItem(fila,'delegacion',del)
+ds_colegiados.SetItem(fila,'direccion_correo',direccion_correo)
+ds_colegiados.SetItem(fila,'direccion_fiscal',direccion_fiscal)
+ds_colegiados.SetItem(fila,'funcionario',f_colegiados_organismo(id_colegiado,'F'))
+ds_colegiados.SetItem(fila,'contratado',f_colegiados_organismo(id_colegiado,'C'))
+
+//Andr$$HEX1$$e900$$ENDHEX$$s 18/04/2005: Obtenemos el nombre de la provincia del domicilio
+provincia_domic=f_provincia_descripcion(domicilio.provincia1)
+ds_colegiados.SetItem(fila,'provincia_domic',provincia_domic)
+
+ds_colegiados.setitem(fila,'n_acreditado',n_acreditado)
+//Recuperamos los datos de la sociedad
+if f_es_vacio(tipo_persona) then tipo_persona = ''
+if tipo_persona='S' then //Sociedad
+	sociedades = f_sociedades_colegiados(id_colegiado)	
+	ds_colegiados.SetItem(fila,'administrador',f_sociedad_administrador(id_colegiado))
+else
+	sociedades = f_colegiados_sociedades(id_colegiado)	
+end if
+ds_colegiados.SetItem(fila,'datos_sociedades',sociedades)
+
+//Campos extra
+ds_colegiados.SetItem(fila,'campo1',campos_extra.campo1)
+ds_colegiados.SetItem(fila,'campo2',campos_extra.campo2)
+ds_colegiados.SetItem(fila,'campo3',campos_extra.campo3)
+ds_colegiados.SetItem(fila,'campo4',campos_extra.campo4)
+ds_colegiados.SetItem(fila,'campo5',campos_extra.campo5)
+
+//Si el fichero es compuesto de mas de un colegiado mantiene el mismo n$$HEX1$$fa00$$ENDHEX$$mero de registro que el inicial 
+if count < 1  then
+
+	ds_colegiados.SetItem(fila,'registro_salida',f_numera_registro_salida())
+else
+	ds_colegiados.SetItem(fila,'registro_salida',ds_colegiados.getItemstring(1,'registro_salida'))
+end if
+
+// Guardamos los datos del datastore en un fichero de texto
+ds_colegiados.SaveAs(g_directorio_rtf+'plantillas.txt', text!, true)
+
+SetPointer(Arrow!)
+
+end subroutine
+

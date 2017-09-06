@@ -1,0 +1,37 @@
+HA$PBExportHeader$f_costes.srf
+global type f_costes from function_object
+end type
+
+forward prototypes
+global function double f_costes (string id_curso)
+end prototypes
+
+global function double f_costes (string id_curso);double tot_costes,tot_ponentes,costes
+if id_curso='%' then
+	
+SELECT sum(importe)
+INTO :tot_costes
+FROM formacion_costes;
+
+SELECT sum(importe)
+INTO :tot_ponentes
+FROM formacion_ponente_curso;
+	
+else
+	
+SELECT sum(importe)
+INTO :tot_costes
+FROM formacion_costes
+WHERE id_curso=:id_curso;
+
+SELECT sum(importe)
+INTO :tot_ponentes
+FROM formacion_ponente_curso
+WHERE id_curso=:id_curso;
+end if
+
+costes=tot_costes + tot_ponentes
+
+return costes
+end function
+

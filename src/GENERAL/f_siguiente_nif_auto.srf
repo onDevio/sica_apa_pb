@@ -1,0 +1,28 @@
+HA$PBExportHeader$f_siguiente_nif_auto.srf
+global type f_siguiente_nif_auto from function_object
+end type
+
+forward prototypes
+global function string f_siguiente_nif_auto ()
+end prototypes
+
+global function string f_siguiente_nif_auto ();  string nif_auto
+  
+  SELECT max(nif)  
+    INTO :nif_auto  
+    FROM clientes  
+   WHERE UPPER(substring(nif, 1 , 4)) = 'AUTO'   ;
+	
+if f_es_vacio(nif_auto) then 
+	nif_auto = 'AUTO00001'
+ELSE
+	nif_auto = string(long(RightA(nif_auto, 5)) + 1)
+	nif_auto = 'AUTO' + RightA('000000' + nif_auto, 5)
+END IF
+
+return nif_auto
+
+
+
+end function
+

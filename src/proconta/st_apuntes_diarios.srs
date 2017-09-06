@@ -1,0 +1,16 @@
+HA$PBExportHeader$st_apuntes_diarios.srs
+$PBExportComments$Permite tener la clasificaci$$HEX1$$f300$$ENDHEX$$n de diarios para los distintos tipos de apuntes
+global type st_apuntes_diarios from structure
+	string		facts_emitidas_exp
+	string		facts_emitidas_ot
+	string		cobros_multiples
+	string		remesas
+	string		ing_retira
+	string		domic_saldo
+	string		liq_honos
+	string		liq_premaat
+	string		liq_otros_pagos
+	string		devoluciones
+	string		facts_emitidas_general
+end type
+

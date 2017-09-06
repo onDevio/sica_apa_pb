@@ -1,0 +1,93 @@
+declare @colegio varchar(10)
+select @colegio = texto from var_globales where nombre = 'COLEGIO'
+
+if @colegio= 'COAATTER'
+begin
+	//SÓLO TERRES
+	//SCP-1735
+	update clientes set empresa = '01' where empresa is null or empresa = '';
+end
+
+if @colegio= 'COAATGUI'
+begin
+	//SOLO GUIPUZCUA
+	insert csi_param_facturas(serie,empresa, anyo, idioma, campo, texto ) values('%', '01', '%', '%', 'pie_pag_1', 'Paseo Arbol de Gernika, 21 accesorio - 20006 DONOSTIA-SAN SEBASTIAN, Tel:943471616-943461431 Fax:943455776');
+	insert csi_param_facturas(serie,empresa, anyo, idioma, campo, texto ) values('%', '01', '%', '%', 'pie_pag_2', 'CIF: Q2075002B');
+	insert csi_param_facturas(serie,empresa, anyo, idioma, campo, texto ) values('%', '01', '%', '%', 'pie_pag_3', 'email: colegio@coaatg.org internet: http://www.coaatg.org');
+
+	insert csi_param_facturas(serie,empresa, anyo, idioma, campo, texto ) values('%', '02', '%', '%', 'pie_pag_1', 'Paseo Arbol de Gernika, 21 accesorio - 20006 DONOSTIA-SAN SEBASTIAN, Tel:943471616-943461431 Fax:943455776');
+	insert csi_param_facturas(serie,empresa, anyo, idioma, campo, texto ) values('%', '02', '%', '%', 'pie_pag_2', 'CIF:  B75031898');
+	insert csi_param_facturas(serie,empresa, anyo, idioma, campo, texto ) values('%', '02', '%', '%', 'pie_pag_3', 'email: acatie@coaatg.org');
+end
+
+
+//TODOS. SCP-879
+insert into var_globales(nombre, texto, descripcion) values ('g_tipo_tramite_novacio','N','Elegir asignar un valor por defecto al tipo de tramite');
+//Todos. SCP-1778
+ALTER TABLE musaat_movimientos ADD n_contrato_ant2 CHAR(12) NULL;
+UPDATE musaat_movimientos SET n_contrato_ant2 = n_contrato_ant;
+ALTER TABLE musaat_movimientos DROP n_contrato_ant ;
+ALTER TABLE musaat_movimientos ADD n_contrato_ant CHAR(12) NULL ;
+UPDATE musaat_movimientos SET n_contrato_ant = n_contrato_ant2;
+ALTER TABLE musaat_movimientos DROP n_contrato_ant2;
+
+if @colegio= 'COAATGUI'
+begin
+	//SOLO BURGOS O TODO COLEGIO QUE LO SOLICITE VER INCIDENCIA SCP-879
+	update var_globales set texto = 'S' where nombre = 'g_tipo_tramite_novacio';
+end 
+
+insert into var_globales (nombre, sn, descripcion) values ('g_imprimir_registro_docs_fase', 'S', 'Variable para controlar la impresión del documento que se imprime con la asignación de num. de registro en los documentos de una fase'); 
+if @colegio= 'COAATLE'
+begin
+// SCP-1660. Alexis. 19/09/2011
+	// Sólo para León
+	UPDATE var_globales SET sn = 'N' WHERE nombre = 'g_imprimir_registro_docs_fase';
+end 
+	
+insert into var_globales (nombre, sn, descripcion) values ('permitir_generar_apuntes_garantias', 'S', 'Variable para controlar la generación de los apuntes relacionados con la garantia. En principio unicamente para Terres'); 
+// SCP-728. Alexis. 20-09-2011
+if @colegio= 'COAATTER'
+begin
+        // SÓLO PARA Terres:
+		UPDATE var_globales SET sn = 'N' WHERE nombre = 'permitir_generar_apuntes_garantias';
+end
+
+
+//SCP-1691 PARA TODOS 27/09/2011
+Insert into var_globales (nombre, sn, descripcion) VALUES ('g_asignar_n_visado','S','Activa el check del asignar nº visado del la ventana de Visto Bueno');
+if @colegio= 'COAATTFE'
+begin
+	//PARA TENERIFE 27/09/2011
+	UPDATE var_globales SET sn = 'N' WHERE nombre = 'g_asignar_n_visado';
+end 
+
+if @colegio= 'COAATTA'
+begin
+	// Para Alicante. SCP-1801.
+	create table dbo.caja_salidas_temp (id_caja_salida char(10) not null, fecha datetime null, centro char(10) null, concepto char(100) null, importe double precision null, banco char(10) null, tipo char(1) null, id_usuario char(10) null, id_colegiado char(10) null, remesa char(2) null, empresa char(5) null) ;
+	alter table dbo.caja_salidas_temp add constraint caja_salida primary key nonclustered (id_caja_salida) ;
+	insert into caja_salidas_temp select caja_salidas.*, '01' from caja_salidas;
+	drop table caja_salidas;
+	create table dbo.caja_salidas (id_caja_salida char(10) not null, fecha datetime null, centro char(10) null, concepto char(100) null, importe double precision null, banco char(10) null, tipo char(1) null, id_usuario char(10) null, id_colegiado char(10) null, remesa char(2) null, empresa char(5) null) ;
+	alter table dbo.caja_salidas add constraint caja_salida primary key nonclustered (id_caja_salida) ;
+	insert into caja_salidas select * from caja_salidas_temp;
+	drop table caja_salidas_temp;
+	create table dbo.csi_traspasos_basicos_temp (id_traspaso char(10) not null, tipo char(2) null, fecha datetime null, numero char(10) null, id_colegiado char(10) null, forma_pago char(2) null, banco char(10) null, importe double precision null, n_talon char(10) null, descripcion char(255) null, centro char(3) null, usuario char(10) null, eliminar char(1) null, empresa char(5) null) ;
+	alter table dbo.csi_traspasos_basicos_temp add constraint csi_traspasos_basicos_x primary key nonclustered (id_traspaso) ;
+	insert into csi_traspasos_basicos_temp select *, '01' from csi_traspasos_basicos;
+	drop table  csi_traspasos_basicos;
+	create table dbo.csi_traspasos_basicos (id_traspaso char(10) not null, tipo char(2) null, fecha datetime null, numero char(10) null, id_colegiado char(10) null, forma_pago char(2) null, banco char(10) null, importe double precision null, n_talon char(10) null, descripcion char(255) null, centro char(3) null, usuario char(10) null, eliminar char(1) null, empresa char(5) null) ;
+	alter table dbo.csi_traspasos_basicos add constraint csi_traspasos_basicos_x primary key nonclustered (id_traspaso) ;
+	insert into csi_traspasos_basicos select * from csi_traspasos_basicos_temp;
+	drop table csi_traspasos_basicos_temp;
+end 
+
+if @colegio= 'COAATLR'
+begin
+	//RIOJA SOLO: SCP-1637
+	update var_globales set texto='d_cobros_reclam_facturas_devolucion_lr' where nombre='g_devoluciones_carta_reclamacion';
+end
+
+//Se actualiza la fecha de versión
+update var_globales set texto='20111024', descripcion = 'versión v5.3.05' where nombre='g_version_minima';

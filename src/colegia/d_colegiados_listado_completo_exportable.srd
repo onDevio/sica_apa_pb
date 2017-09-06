@@ -1,0 +1,244 @@
+HA$PBExportHeader$d_colegiados_listado_completo_exportable.srd
+release 10.5;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.printername="" print.documentname="" print.orientation = 1 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes print.preview.outline=yes hidegrayline=no )
+header(height=616 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=68 color="536870912" )
+detail(height=244 color="536870912" height.autosize=yes )
+table(column=(type=char(10) update=yes updatewhereclause=yes name=id_colegiado dbname="colegiados.id_colegiado" dbalias=".id_colegiado" )
+ column=(type=char(15) update=yes updatewhereclause=yes name=n_colegiado dbname="colegiados.n_colegiado" dbalias=".n_colegiado" )
+ column=(type=char(80) update=yes updatewhereclause=yes name=apellidos dbname="colegiados.apellidos" dbalias=".apellidos" )
+ column=(type=char(50) update=yes updatewhereclause=yes name=nombre dbname="colegiados.nombre" dbalias=".nombre" )
+ column=(type=char(15) update=yes updatewhereclause=yes name=nif dbname="colegiados.nif" dbalias=".nif" )
+ column=(type=char(2) updatewhereclause=yes name=es_sociedad dbname="es_sociedad" )
+ column=(type=char(15) update=yes updatewhereclause=yes name=n_consejo dbname="colegiados.n_consejo" dbalias=".n_consejo" )
+ column=(type=datetime update=yes updatewhereclause=yes name=f_nacimiento dbname="colegiados.f_nacimiento" dbalias=".f_nacimiento" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=sexo dbname="colegiados.sexo" dbalias=".sexo" )
+ column=(type=char(60) update=yes updatewhereclause=yes name=tratamiento dbname="colegiados.tratamiento" dbalias=".tratamiento" )
+ column=(type=char(60) updatewhereclause=yes name=colegio dbname="colegio" )
+ column=(type=char(60) updatewhereclause=yes name=demarcacion dbname="demarcacion" )
+ column=(type=char(60) updatewhereclause=yes name=delegacion dbname="delegacion" )
+ column=(type=char(60) updatewhereclause=yes name=residente dbname="residente" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=ejerciente dbname="colegiados.ejerciente" dbalias=".ejerciente" values="	S/	N" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=alta_baja dbname="colegiados.alta_baja" dbalias=".alta_baja" values="	S/	N" )
+ column=(type=char(60) updatewhereclause=yes name=situacion dbname="situacion" )
+ column=(type=datetime updatewhereclause=yes name=f_situacion dbname="colegiados.f_situacion" dbalias=".f_situacion" )
+ column=(type=char(60) updatewhereclause=yes name=tipo_alta dbname="tipo_alta" )
+ column=(type=datetime update=yes updatewhereclause=yes name=f_alta dbname="colegiados.f_alta" dbalias=".f_alta" )
+ column=(type=char(60) updatewhereclause=yes name=tipo_baja dbname="tipo_baja" )
+ column=(type=datetime update=yes updatewhereclause=yes name=f_baja dbname="colegiados.f_baja" dbalias=".f_baja" )
+ column=(type=datetime update=yes updatewhereclause=yes name=f_colegiacion dbname="colegiados.f_colegiacion" dbalias=".f_colegiacion" )
+ column=(type=datetime updatewhereclause=yes name=f_fin_carrera dbname="f_fin_carrera" )
+ column=(type=char(15) update=yes updatewhereclause=yes name=n_acreditado dbname="colegiados.n_acreditado" dbalias=".n_acreditado" )
+ column=(type=char(160) update=yes updatewhereclause=yes name=domicilio_activo dbname="colegiados.domicilio_activo" dbalias=".domicilio_activo" )
+ column=(type=char(120) update=yes updatewhereclause=yes name=poblacion_activa dbname="colegiados.poblacion_activa" dbalias=".poblacion_activa" )
+ column=(type=char(160) update=yes updatewhereclause=yes name=domicilio_activo_fiscal dbname="colegiados.domicilio_activo_fiscal" dbalias=".domicilio_activo_fiscal" )
+ column=(type=char(120) update=yes updatewhereclause=yes name=poblacion_activa_fiscal dbname="colegiados.poblacion_activa_fiscal" dbalias=".poblacion_activa_fiscal" )
+ column=(type=char(30) updatewhereclause=yes name=tel_part dbname="tel_part" )
+ column=(type=char(30) updatewhereclause=yes name=tel_prof dbname="tel_prof" )
+ column=(type=char(30) updatewhereclause=yes name=tel_movil dbname="tel_movil" )
+ column=(type=char(30) updatewhereclause=yes name=tel_movil2 dbname="tel_movil2" )
+ column=(type=char(30) updatewhereclause=yes name=fax dbname="fax" )
+ column=(type=char(30) updatewhereclause=yes name=colegiados_telefono_web dbname="colegiados.telefono_web" dbalias=".telefono_web" )
+ column=(type=char(100) updatewhereclause=yes name=email dbname="colegiados.email" dbalias=".email" )
+ column=(type=char(100) updatewhereclause=yes name=url dbname="colegiados.url" dbalias=".url" )
+ column=(type=char(32768) update=yes updatewhereclause=no name=observaciones dbname="colegiados.observaciones" dbalias=".observaciones" )
+ column=(type=char(32768) update=yes updatewhereclause=no name=aviso dbname="colegiados.aviso" dbalias=".aviso" )
+ column=(type=char(1) updatewhereclause=yes name=col_cons dbname="col_cons" )
+ column=(type=char(1) updatewhereclause=yes name=col_cons_terc dbname="col_cons_terc" )
+ column=(type=char(1) updatewhereclause=yes name=colegiados_publicidad dbname="colegiados.publicidad" dbalias=".publicidad" )
+ column=(type=char(1) updatewhereclause=yes name=recibir_impreso dbname="recibir_impreso" )
+ column=(type=char(1) updatewhereclause=yes name=recibir_email dbname="recibir_email" )
+ column=(type=char(1) updatewhereclause=yes name=recibir_sms dbname="recibir_sms" )
+ column=(type=char(1) updatewhereclause=yes name=recibir_mensaje_web dbname="recibir_mensaje_web" )
+ column=(type=char(1) updatewhereclause=yes name=colegiados_visible_web dbname="colegiados.visible_web" dbalias=".visible_web" )
+ column=(type=char(1) updatewhereclause=yes name=colegiados_domicilio_web dbname="colegiados.domicilio_web" dbalias=".domicilio_web" )
+ column=(type=long updatewhereclause=yes name=colegiados_ultima_factura dbname="colegiados.ultima_factura" dbalias=".ultima_factura" )
+ column=(type=long updatewhereclause=yes name=colegiados_ultima_factura_rectif dbname="colegiados.ultima_factura_rectif" dbalias=".ultima_factura_rectif" )
+ column=(type=number updatewhereclause=yes name=colegiados_iva_igic dbname="colegiados.iva_igic" dbalias=".iva_igic" )
+ column=(type=number updatewhereclause=yes name=colegiados_irpf dbname="colegiados.irpf" dbalias=".irpf" )
+ column=(type=number updatewhereclause=yes name=colegiados_ret_voluntaria dbname="colegiados.ret_voluntaria" dbalias=".ret_voluntaria" )
+ column=(type=char(20) updatewhereclause=yes name=colegiados_cuenta_domic dbname="colegiados.cuenta_domic" dbalias=".cuenta_domic" )
+ column=(type=char(10) updatewhereclause=yes name=colegiados_banco_domic dbname="colegiados.banco_domic" dbalias=".banco_domic" )
+ column=(type=char(1) updatewhereclause=yes name=titulacion dbname="titulacion" )
+ column=(type=datetime updatewhereclause=yes name=f_registro_escuela dbname="f_registro_escuela" )
+ column=(type=datetime updatewhereclause=yes name=f_registro_ministerio dbname="f_registro_ministerio" )
+ column=(type=char(8) updatewhereclause=yes name=num_exp_universidad dbname="num_exp_universidad" )
+ column=(type=char(8) updatewhereclause=yes name=folio_ministerio dbname="folio_ministerio" )
+ column=(type=char(1) updatewhereclause=yes name=titulo_o_resguardo dbname="titulo_o_resguardo" )
+ column=(type=char(60) updatewhereclause=yes name=colegiados_cons_escuela_final dbname="colegiados.cons_escuela_final" dbalias=".cons_escuela_final" )
+ column=(type=char(60) updatewhereclause=yes name=colegiados_cons_procedencia dbname="colegiados.cons_procedencia" dbalias=".cons_procedencia" )
+ column=(type=char(40) updatewhereclause=yes name=colegiados_cons_documento_titulo dbname="colegiados.cons_documento_titulo" dbalias=".cons_documento_titulo" )
+ column=(type=char(60) updatewhereclause=yes name=colegiados_cons_denominacion_titulo dbname="colegiados.cons_denominacion_titulo" dbalias=".cons_denominacion_titulo" )
+ column=(type=datetime updatewhereclause=yes name=colegiados_cons_fecha_documento dbname="colegiados.cons_fecha_documento" dbalias=".cons_fecha_documento" )
+ column=(type=char(60) updatewhereclause=yes name=colegiados_cons_tipo_permiso dbname="colegiados.cons_tipo_permiso" dbalias=".cons_tipo_permiso" )
+ column=(type=char(60) updatewhereclause=yes name=colegiados_cons_ambito_permiso dbname="colegiados.cons_ambito_permiso" dbalias=".cons_ambito_permiso" )
+ column=(type=char(60) updatewhereclause=yes name=colegiados_cons_regimen_laboral dbname="colegiados.cons_regimen_laboral" dbalias=".cons_regimen_laboral" )
+ column=(type=datetime updatewhereclause=yes name=colegiados_cons_fecha_caducidad dbname="colegiados.cons_fecha_caducidad" dbalias=".cons_fecha_caducidad" )
+ column=(type=char(255) updatewhereclause=yes name=colegiados_cons_observaciones dbname="colegiados.cons_observaciones" dbalias=".cons_observaciones" )
+ column=(type=char(100) updatewhereclause=yes name=colegiados_email_profesional dbname="colegiados.email_profesional" dbalias=".email_profesional" )
+ retrieve="  SELECT colegiados.id_colegiado,   
+         colegiados.n_colegiado,   
+         colegiados.apellidos,   
+         colegiados.nombre,   
+         colegiados.nif,   
+         colegiados.tipo_persona as 'es_sociedad',   
+         colegiados.n_consejo,   
+         colegiados.f_nacimiento,   
+         colegiados.sexo,   
+         colegiados.tratamiento,   
+         colegios.descripcion as 'colegio',   
+         demarcaciones.descripcion as 'demarcacion',   
+         delegaciones.descripcion as 'delegacion',    
+         c_geograficos.descripcion as 'residente',   
+         colegiados.ejerciente,   
+         colegiados.alta_baja,   
+         t_altas_bajas_situaciones_a.descripcion as 'situacion',
+         colegiados.f_situacion,      
+         t_altas_bajas_situaciones_b.descripcion as 'tipo_alta',   
+         colegiados.f_alta,   
+         t_altas_bajas_situaciones_c.descripcion as 'tipo_baja' ,
+         colegiados.f_baja,   
+         colegiados.f_colegiacion,   
+         colegiados.f_titulacion as 'f_fin_carrera',   
+         colegiados.n_acreditado,   
+         colegiados.domicilio_activo,   
+         colegiados.poblacion_activa,   
+         colegiados.domicilio_activo_fiscal,   
+         colegiados.poblacion_activa_fiscal,   
+         colegiados.telefono_1 as 'tel_part',   
+         colegiados.telefono_2 as 'tel_prof',   
+         colegiados.telefono_3 as 'tel_movil',      
+         colegiados.telefono_4 as 'tel_movil2',      
+         colegiados.telefono_5 as 'fax', 
+         colegiados.telefono_web,        
+			colegiados.email,
+			colegiados.url,
+         colegiados.observaciones,   
+         colegiados.aviso,   
+         colegiados.per_comer_notel as 'col_cons',   
+         colegiados.per_todos_datos as 'col_cons_terc',   
+         colegiados.publicidad,   
+         colegiados.recibir_c_postales as 'recibir_impreso',  
+         colegiados.recibir_c_email as 'recibir_email',  
+         colegiados.recibir_c_sms as 'recibir_sms',   
+         colegiados.recibir_c_web as 'recibir_mensaje_web',   
+         colegiados.visible_web,   
+         colegiados.domicilio_web,   
+         colegiados.ultima_factura,   
+         colegiados.ultima_factura_rectif,   
+         colegiados.iva_igic,   
+         colegiados.irpf,   
+         colegiados.ret_voluntaria,   
+         colegiados.cuenta_domic,   
+         colegiados.banco_domic,   
+         colegiados.cons_tipo_titulacion as 'titulacion',   
+         colegiados.cons_fecha_rege as 'f_registro_escuela',   
+         colegiados.cons_fecha_regm as 'f_registro_ministerio',   
+         colegiados.cons_folio_e as 'num_exp_universidad',   
+         colegiados.cons_folio_m as 'folio_ministerio',   
+         colegiados.cons_tit_resg as 'titulo_o_resguardo',   
+         colegiados.cons_escuela_final,   
+         colegiados.cons_procedencia,   
+         colegiados.cons_documento_titulo,   
+         colegiados.cons_denominacion_titulo,   
+         colegiados.cons_fecha_documento,   
+         colegiados.cons_tipo_permiso,   
+         colegiados.cons_ambito_permiso,   
+         colegiados.cons_regimen_laboral,   
+         colegiados.cons_fecha_caducidad,   
+         colegiados.cons_observaciones,
+		colegiados.email_profesional   
+    FROM colegiados,   
+         colegios,   
+         demarcaciones,   
+         delegaciones,   
+         c_geograficos,   
+         t_altas_bajas_situaciones t_altas_bajas_situaciones_a,   
+         t_altas_bajas_situaciones t_altas_bajas_situaciones_b,   
+         t_altas_bajas_situaciones t_altas_bajas_situaciones_c  
+   WHERE ( colegiados.colegio *= colegios.cod_colegio) and  
+         ( colegiados.demarcacion *= demarcaciones.cod_demarcacion) and  
+         ( colegiados.delegacion *= delegaciones.cod_delegacion) and  
+         ( colegiados.c_geografico *= c_geograficos.c_geografico) and  
+         ( colegiados.situacion *= t_altas_bajas_situaciones_a.codigo) and  
+         ( colegiados.t_alta *= t_altas_bajas_situaciones_b.codigo) and  
+         ( colegiados.t_baja *= t_altas_bajas_situaciones_c.codigo)    
+" arguments=(("email_profesional", string)) )
+column(band=detail id=36 alignment="0" tabsequence=32766 border="0" color="0" x="4073" y="124" height="56" width="695" format="[general]" html.valueishtml="0"  name=email visible="1~tif( email_profesional = 'S' , 0, 1)" height.autosize=yes edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=header alignment="2" expression="f_poner_logo_listados_inferior (   )"border="0" color="16777215" x="0" y="68" height="52" width="434" format="[general]" html.valueishtml="0"  name=compute_6 visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15780518" )
+compute(band=header alignment="2" expression="f_poner_logo_listados_superior (   )"border="0" color="16777215" x="0" y="12" height="52" width="434" format="[general]" html.valueishtml="0"  name=compute_7 visible="1"  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15780518" )
+text(band=header alignment="0" text="" border="0" color="0" x="14" y="180" height="220" width="3378" html.valueishtml="0"  name=t_parametros visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+text(band=header alignment="0" text="Listado Completo" border="0" color="0" x="448" y="12" height="132" width="2930" html.valueishtml="0"  name=st_titulo_listado  tag="texto=colegiados.listado_completo" visible="1"  font.face="Arial" font.height="-18" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Nif" border="4" color="0" x="1138" y="448" height="52" width="265" html.valueishtml="0"  name=nif_t  tag="texto=general.nif" visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="N$$HEX2$$ba002000$$ENDHEX$$Cons." border="4" color="0" x="1408" y="448" height="52" width="251" html.valueishtml="0"  name=n_consejo_t  tag="texto=colegiados.n_cons" visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Sexo" border="4" color="0" x="1947" y="448" height="52" width="133" html.valueishtml="0"  name=sexo_t  tag="texto=general.sexo" visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="F. Nac." border="4" color="0" x="1664" y="448" height="52" width="279" html.valueishtml="0"  name=f_nacimiento_t  tag="texto=general.f_nacimiento" visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Ejerc." border="4" color="0" x="2414" y="448" height="52" width="146" html.valueishtml="0"  name=ejerciente_t  tag="texto=colegiados.ejerciente" visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="F. Sit." border="4" color="0" x="2816" y="448" height="52" width="279" html.valueishtml="0"  name=t_1  tag="texto=colegiados.f_sit" visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="F. Alta" border="4" color="0" x="3538" y="448" height="52" width="279" html.valueishtml="0"  name=f_alta_t  tag="texto=colegiados.fecha_alta" visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Alta" border="4" color="0" x="3099" y="448" height="52" width="119" html.valueishtml="0"  name=alta_baja_t  tag="texto=colegiados.alta" visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="F. Baja" border="4" color="0" x="4137" y="448" height="52" width="279" html.valueishtml="0"  name=f_baja_t  tag="texto=colegiados.fecha_baja" visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Residente" border="4" color="0" x="2085" y="448" height="52" width="325" html.valueishtml="0"  name=c_geografico_t  tag="texto=colegiados.residente" visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Situaci$$HEX1$$f300$$ENDHEX$$n" border="4" color="0" x="2565" y="448" height="52" width="247" html.valueishtml="0"  name=situacion_t  tag="texto=colegiados.situacion" visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Tipo Alta" border="4" color="0" x="3223" y="448" height="52" width="311" html.valueishtml="0"  name=t_alta_t  tag="texto=colegiados.tipo_alta" visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Tipo Baja" border="4" color="0" x="3822" y="448" height="52" width="311" html.valueishtml="0"  name=t_baja_t  tag="texto=colegiados.tipo_baja" visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Domicilio Activo" border="4" color="0" x="9" y="520" height="52" width="667" html.valueishtml="0"  name=domicilio_activo_t  tag="texto=colegiados.dom_activo" visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Poblacion Activa" border="4" color="0" x="681" y="520" height="52" width="512" html.valueishtml="0"  name=poblacion_activa_t  tag="texto=colegiados.poblacion-activa" visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Domicilio Activo Fiscal" border="4" color="0" x="1198" y="520" height="52" width="667" html.valueishtml="0"  name=domicilio_activo_fiscal_t  tag="texto=colegiados.dom_activa_fiscal" visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Pobl. Activa Fiscal" border="4" color="0" x="1870" y="520" height="52" width="544" html.valueishtml="0"  name=poblacion_activa_fiscal_t visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Tel. Part." border="4" color="0" x="2418" y="520" height="52" width="265" html.valueishtml="0"  name=telefono_1_t  tag="texto=general.tel_part" visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Tel. Prof" border="4" color="0" x="2688" y="520" height="52" width="265" html.valueishtml="0"  name=telefono_2_t  tag="texto=general.tel_prof" visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Tel. M$$HEX1$$f300$$ENDHEX$$vil" border="4" color="0" x="2958" y="520" height="52" width="265" html.valueishtml="0"  name=telefono_3_t  tag="texto=general.tel_movil" visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Fax" border="4" color="0" x="3227" y="520" height="52" width="270" html.valueishtml="0"  name=telefono_5_t  tag="texto=general.fax" visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="F. Coleg." border="4" color="0" x="3506" y="520" height="52" width="279" html.valueishtml="0"  name=f_colegiacion_t  tag="texto=colegiados.fecha_colegiacion" visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="F. Fin C." border="4" color="0" x="3790" y="520" height="52" width="279" html.valueishtml="0"  name=t_2  tag="texto=colegiados.fecha_fin_cole" visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="N$$HEX2$$ba002000$$ENDHEX$$Acreditado" border="4" color="0" x="4421" y="448" height="52" width="347" html.valueishtml="0"  name=n_acreditado_t  tag="texto=colegiados.num_acreditado" visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Apellidos" border="4" color="0" x="192" y="448" height="52" width="594" html.valueishtml="0"  name=apellidos_t  tag="texto=colegiados.apellidos" visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="N$$HEX1$$fa00$$ENDHEX$$m." border="4" color="0" x="9" y="448" height="52" width="178" html.valueishtml="0"  name=n_colegiado_t  tag="texto=colegiados.n_colegiado" visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Nombre" border="4" color="0" x="791" y="448" height="52" width="343" html.valueishtml="0"  name=nombre_t  tag="texto=colegiados.nombre" visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Email" border="4" color="0" x="4073" y="520" height="52" width="695" html.valueishtml="0"  name=email_t  tag="texto=general.mail" visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="1138" y="8" height="56" width="265" format="[general]" html.valueishtml="0"  name=nif visible="1" edit.limit=15 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=detail x1="0" y1="236" x2="4841" y2="236"  name=l_1 visible="1" pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="1090519039" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="0" x="1408" y="8" height="56" width="251" format="[general]" html.valueishtml="0"  name=n_consejo visible="1" edit.limit=15 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=9 alignment="2" tabsequence=32766 border="0" color="0" x="1947" y="8" height="56" width="133" format="[general]" html.valueishtml="0"  name=sexo visible="1" edit.limit=1 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="0" color="0" x="1664" y="8" height="56" width="279" format="dd/mm/yyyy" html.valueishtml="0"  name=f_nacimiento visible="1" edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=15 alignment="2" tabsequence=32766 border="0" color="0" x="2414" y="8" height="56" width="146" format="[general]" html.valueishtml="0"  name=ejerciente visible="1" checkbox.text="" checkbox.on="S" checkbox.off="N" checkbox.scale=no checkbox.threed=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=18 alignment="0" tabsequence=32766 border="0" color="0" x="2816" y="8" height="56" width="279" format="dd/mm/yyyy" html.valueishtml="0"  name=f_situacion visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=20 alignment="2" tabsequence=32766 border="0" color="0" x="3538" y="8" height="56" width="279" format="dd/mm/yyyy" html.valueishtml="0"  name=f_alta visible="1" edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=16 alignment="2" tabsequence=32766 border="0" color="0" x="3099" y="8" height="56" width="119" format="[general]" html.valueishtml="0"  name=alta_baja visible="1" checkbox.text="" checkbox.on="S" checkbox.off="N" checkbox.scale=no checkbox.threed=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=22 alignment="2" tabsequence=32766 border="0" color="0" x="4137" y="8" height="56" width="279" format="dd/mm/yyyy" html.valueishtml="0"  name=f_baja visible="1" edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=14 alignment="0" tabsequence=32766 border="0" color="0" x="2085" y="8" height="56" width="325" format="[general]" html.valueishtml="0"  name=residente visible="1" height.autosize=yes edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=21 alignment="0" tabsequence=32766 border="0" color="0" x="3822" y="8" height="56" width="311" format="[general]" html.valueishtml="0"  name=tipo_baja visible="1" height.autosize=yes edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=25 alignment="0" tabsequence=32766 border="0" color="0" x="4421" y="8" height="56" width="347" format="[general]" html.valueishtml="0"  name=n_acreditado  tag=" " visible="1" edit.limit=15 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=26 alignment="0" tabsequence=32766 border="0" color="0" x="9" y="124" height="56" width="667" format="[general]" html.valueishtml="0"  name=domicilio_activo visible="1" height.autosize=yes edit.limit=160 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=27 alignment="0" tabsequence=32766 border="0" color="0" x="681" y="124" height="56" width="512" format="[general]" html.valueishtml="0"  name=poblacion_activa visible="1" height.autosize=yes edit.limit=120 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=28 alignment="0" tabsequence=32766 border="0" color="0" x="1198" y="124" height="56" width="667" format="[general]" html.valueishtml="0"  name=domicilio_activo_fiscal visible="1" height.autosize=yes edit.limit=160 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=29 alignment="0" tabsequence=32766 border="0" color="0" x="1870" y="124" height="56" width="544" format="[general]" html.valueishtml="0"  name=poblacion_activa_fiscal visible="1" height.autosize=yes edit.limit=120 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=30 alignment="0" tabsequence=32766 border="0" color="0" x="2418" y="124" height="56" width="265" format="[general]" html.valueishtml="0"  name=tel_part visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=31 alignment="0" tabsequence=32766 border="0" color="0" x="2688" y="124" height="56" width="265" format="[general]" html.valueishtml="0"  name=tel_prof visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=32 alignment="0" tabsequence=32766 border="0" color="0" x="2958" y="124" height="56" width="265" format="[general]" html.valueishtml="0"  name=tel_movil visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=34 alignment="0" tabsequence=32766 border="0" color="0" x="3227" y="124" height="56" width="270" format="[general]" html.valueishtml="0"  name=fax visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=23 alignment="2" tabsequence=32766 border="0" color="0" x="3506" y="124" height="56" width="279" format="dd/mm/yyyy" html.valueishtml="0"  name=f_colegiacion visible="1" edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="192" y="8" height="56" width="594" format="[general]" html.valueishtml="0"  name=apellidos visible="1" height.autosize=yes edit.limit=80 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="9" y="8" height="56" width="178" format="[general]" html.valueishtml="0"  name=n_colegiado visible="1" edit.limit=15 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="791" y="8" height="56" width="343" format="[general]" html.valueishtml="0"  name=nombre visible="1" height.autosize=yes edit.limit=50 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=24 alignment="0" tabsequence=32766 border="0" color="0" x="3790" y="124" height="56" width="279" format="dd/mm/yyyy" html.valueishtml="0"  name=f_fin_carrera visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=19 alignment="0" tabsequence=32766 border="0" color="0" x="3223" y="8" height="56" width="311" format="[general]" html.valueishtml="0"  name=tipo_alta visible="1" height.autosize=yes edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=17 alignment="0" tabsequence=32766 border="0" color="0" x="2565" y="8" height="56" width="247" format="[general]" html.valueishtml="0"  name=situacion visible="1" height.autosize=yes edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=footer alignment="0" expression="datetime(today(),now())"border="0" color="0" x="206" y="4" height="56" width="544" format="dd/mm/yyyy     hh:mm:ss" html.valueishtml="0"  name=compute_8 visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+compute(band=footer alignment="0" expression="f_idiomas_cambia_texto('general.registros','Registros : ') + count(  n_colegiado  for all )"border="0" color="0" x="1463" y="4" height="56" width="622" format="[GENERAL]" html.valueishtml="0"  name=compute_2 visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+compute(band=footer alignment="1" expression="f_idiomas_cambia_texto('general.pagina','P$$HEX1$$e100$$ENDHEX$$gina: ') + page() + ' de ' + pageCount()"border="0" color="0" x="4137" y="4" height="56" width="713" format="[general]" html.valueishtml="0"  name=page_1 visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=footer alignment="0" text="Fecha:" border="0" color="0" x="18" y="4" height="52" width="178" html.valueishtml="0"  name=t_7  tag="texto=general.fecha" visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=72 alignment="0" tabsequence=0 border="0" color="0" x="4073" y="124" height="56" width="695" html.valueishtml="0"  name=colegiados_email_profesional visible="1~tif( email_profesional = 'S' , 1, 0)" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" pagingmethod=0 generatedddwframes="1" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()
+ 

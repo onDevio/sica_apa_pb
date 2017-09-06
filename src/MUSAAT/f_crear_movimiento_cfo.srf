@@ -1,0 +1,84 @@
+HA$PBExportHeader$f_crear_movimiento_cfo.srf
+global type f_crear_movimiento_cfo from function_object
+end type
+
+forward prototypes
+global function integer f_crear_movimiento_cfo (string id_fase)
+end prototypes
+
+global function integer f_crear_movimiento_cfo (string id_fase);Datetime ldt_fecha_cfo
+
+boolean lb_generar_movimientos, lb_comprobar_generacion_movimientos
+lb_comprobar_generacion_movimientos = false
+lb_generar_movimientos = false
+
+ldt_fecha_cfo = f_fecha_cfo_total(id_fase)
+
+if f_es_vacio(string(ldt_fecha_cfo )) then return -1
+
+String tipo_actuacion, tipo_obra,id_fases_colegiados
+int num_registros
+boolean tiene_movi, es_sociedad, tiene_movi_asociados
+datastore ds_fases_colegiados, ds_colegiados_asociados
+st_musaat_datos  lst_musaat_datos
+String id_colegiado, id_colegiado_aso
+int i, j
+
+
+//comprobamos que los colegiados del contrato no tienen movimientos de alta de musaat en el contrato.
+//creamos el ds de los colegiados del contrato
+ds_fases_colegiados = create datastore						
+ds_fases_colegiados.dataobject = 'd_fases_colegiados'
+ds_fases_colegiados.settransobject(sqlca)		
+ds_fases_colegiados.retrieve(id_fase)	
+		
+tiene_movi = false
+tiene_movi_asociados = false
+es_sociedad = false
+	
+	
+FOR i = 1 TO ds_fases_colegiados.RowCount()
+		
+	//miramos si tienen asociados
+	id_colegiado = ds_fases_colegiados.getItemString(i,'id_col')
+
+
+	if (f_colegiado_src_cia(id_colegiado) = 'MU') then	
+		tiene_movi_asociados = f_tiene_movi_musaat(id_fase,id_colegiado, true)
+		if (tiene_movi_asociados = false) then	
+			if not (lb_comprobar_generacion_movimientos) and not (lb_generar_movimientos) then 
+				if MessageBox("Atencion","Se ha detectado que dispone de un final de obra Total sin movimientos de MUSAAT asociados." + CR + " $$HEX1$$bf00$$ENDHEX$$Desea crear los correspondientes movimientos a cada uno de los colegiados?" ,Question!,YesNo!, 1) <> 1 then				
+					lb_comprobar_generacion_movimientos = true
+					lb_generar_movimientos = false
+					continue
+				else 	
+					lb_comprobar_generacion_movimientos = true
+					if not (f_comprobar_fecha_mov_cfo(id_fase)) then 
+						lb_generar_movimientos = false
+						continue
+					end if 	
+					lb_generar_movimientos = true
+				end if 	
+			end if
+					
+			if (lb_generar_movimientos) then 
+				//aqui se rellena la estructura del nuevo movimiento	
+				lst_musaat_datos = f_rellenar_datos_movimiento(id_fase,id_colegiado, true)
+						
+				IF f_colegiado_tipopersona(id_colegiado) = 'S' THEN
+					f_musaat_calcula_prima_sociedad (lst_musaat_datos)
+				ELSE
+					f_musaat_calcula_prima (lst_musaat_datos)
+				END IF									
+			end if					
+		end if						
+	end if	 
+
+NEXT	
+	
+return 1
+	
+
+
+end function
+

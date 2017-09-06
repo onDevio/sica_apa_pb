@@ -1,0 +1,7 @@
+HA$PBExportHeader$st_sellador_datos_abrir_pdf.srs
+global type st_sellador_datos_abrir_pdf from structure
+	integer		fila_seleccionada
+	datawindow		ficheros
+	string		modulo
+end type
+

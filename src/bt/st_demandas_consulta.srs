@@ -1,0 +1,6 @@
+HA$PBExportHeader$st_demandas_consulta.srs
+global type st_demandas_consulta from structure
+	string		id_col
+	string		tipo_demanda
+end type
+

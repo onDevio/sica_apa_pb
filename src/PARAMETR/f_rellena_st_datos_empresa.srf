@@ -1,0 +1,33 @@
+HA$PBExportHeader$f_rellena_st_datos_empresa.srf
+global type f_rellena_st_datos_empresa from function_object
+end type
+
+forward prototypes
+global subroutine f_rellena_st_datos_empresa (ref st_datos_empresa_emisora ast_datos_empresa, string as_id_empresa)
+end prototypes
+
+global subroutine f_rellena_st_datos_empresa (ref st_datos_empresa_emisora ast_datos_empresa, string as_id_empresa);string ls_nom_empresa, ls_direccion_empresa, ls_cp_empresa, ls_nif_empresa, ls_pobla_empresa, ls_logo_empresa, ls_email_empresa, ls_web_empresa
+
+SELECT nombre, nif, direccion, codigo_postal, poblacion, logo, email, web INTO :ls_nom_empresa, :ls_nif_empresa, :ls_direccion_empresa, :ls_cp_empresa, :ls_pobla_empresa, :ls_logo_empresa, :ls_email_empresa, :ls_web_empresa 
+FROM csi_empresas WHERE codigo = :as_id_empresa;
+
+if f_es_vacio(ls_nom_empresa) then ls_nom_empresa = ''
+if f_es_vacio(ls_nif_empresa) then ls_nif_empresa = ''
+if f_es_vacio(ls_direccion_empresa) then ls_direccion_empresa = ''
+if f_es_vacio(ls_cp_empresa) then ls_cp_empresa = ''
+if f_es_vacio(ls_pobla_empresa) then ls_pobla_empresa = ''
+if f_es_vacio(ls_logo_empresa) then ls_logo_empresa = ' '
+if f_es_vacio(ls_web_empresa) then ls_web_empresa=' '
+if f_es_vacio(ls_email_empresa) then ls_email_empresa=' '
+
+
+ast_datos_empresa.nombre_empresa = ls_nom_empresa
+ast_datos_empresa.nif_empresa = ls_nif_empresa
+ast_datos_empresa.direccion_empresa = ls_direccion_empresa 
+ast_datos_empresa.poblacion_empresa = ls_cp_empresa +' '+ ls_pobla_empresa
+ast_datos_empresa.logo_empresa = ls_logo_empresa
+ast_datos_empresa.email_empresa = ls_email_empresa 
+ast_datos_empresa.web_empresa = ls_web_empresa
+
+end subroutine
+

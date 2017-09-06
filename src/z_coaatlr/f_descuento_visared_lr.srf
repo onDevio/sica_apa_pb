@@ -1,0 +1,21 @@
+HA$PBExportHeader$f_descuento_visared_lr.srf
+global type f_descuento_visared_lr from function_object
+end type
+
+forward prototypes
+global function double f_descuento_visared_lr (string concepto)
+end prototypes
+
+global function double f_descuento_visared_lr (string concepto);//CREADA POR RICARDO 2004-12-30
+
+double retorno
+
+SELECT descuento 
+INTO :retorno
+FROM descuentos_visared_lr
+WHERE ( concepto = :concepto);
+
+return retorno
+
+end function
+

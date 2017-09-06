@@ -1,0 +1,83 @@
+HA$PBExportHeader$f_imprimir_listado_transferencias.srf
+global type f_imprimir_listado_transferencias from function_object
+end type
+
+forward prototypes
+global function long f_imprimir_listado_transferencias (string nombre_ventana, ref string lista_liquidaciones)
+end prototypes
+
+global function long f_imprimir_listado_transferencias (string nombre_ventana, ref string lista_liquidaciones);// Imprime un objeto diferenciado seg$$HEX1$$fa00$$ENDHEX$$n el nombre_ventana recibido como argumento, con los id's disponibles en el argumento lista_liquidaciones
+//	arg1: nombre_ventana: identifica:
+//		el objeto dw a emplear en la impresi$$HEX1$$f300$$ENDHEX$$n
+//		Si se debe diferenciar por empresa
+//		la sql : si se debe ampliar con otras campos adicionales: filtro por empresa, ...
+//		Textos de mensajes
+//		
+//	arg2: lista_liquidaciones: id's a recuperar en la impresi$$HEX1$$f300$$ENDHEX$$n
+String sql_nueva, nombre_ds
+long i, num_impresiones
+datastore ds_liquidacion_listado
+
+SetPointer(HourGlass!)
+
+if nombre_ventana = 'w_garantias_devolucion' THEN RETURN 1
+if nombre_ventana = 'w_premaat_pago_prestaciones' AND g_colegio = 'COAATB' THEN RETURN 1
+
+lista_liquidaciones =  LeftA(lista_liquidaciones, LenA(lista_liquidaciones)-2) +")" // Quitamos la $$HEX1$$fa00$$ENDHEX$$ltima coma
+
+messagebox(g_idioma.of_getmsg('general.impresion_list_tranf_gen','IMPRESION DEL LISTADO DE TRANSFERENCIAS GENERADAS'), g_idioma.of_getmsg('general.impresion_papel','Coloque papel blanco en la impresora, va a salir el listado de transferencias generado'))
+
+CHOOSE CASE nombre_ventana 
+	CASE 'w_liquidaciones_lista'
+		nombre_ds = g_listado_liquid_honos //if g_colegio = 'COAATGC' then  'd_liquidacion_listado_banco_gc'
+	CASE 'w_premaat_pago_prestaciones'
+		nombre_ds =  'd_premaat_listado_remesa_pagos'
+	CASE 'w_premaat_liquid_lista'
+		nombre_ds = g_listado_liquid_otros_pagos
+	CASE 'w_garantias_liquidaciones'
+		nombre_ds = g_listado_liquid_otros_pagos
+		if g_colegio = 'COAATCC' and g_empresa = '02' then nombre_ds = 'd_garantias_listado_banco_cc_fundi'
+//	CASE 'w_garantias_devolucion'
+		CASE 'w_ing_ret_lista'
+		nombre_ds = 'd_ing_ret_listado_banco_al'
+END CHOOSE	
+
+ds_liquidacion_listado = create datastore
+ds_liquidacion_listado.dataobject = nombre_ds
+ds_liquidacion_listado.SetTransObject(SQLCA)
+sql_nueva = ds_liquidacion_listado.describe("datawindow.table.select") + ' and id_liquidacion in ' + lista_liquidaciones // quitamos el sufijo con el nombre de la tabla ... premaat_liquidaciones., fases_liquidaciones, csi_traspasos_basicos
+CHOOSE CASE  nombre_ventana 
+	CASE 'w_premaat_pago_prestaciones'
+		sql_nueva = f_reemplaza (sql_nueva, 'and id_liquidacion in','Where id_liquidacion in','') // cambiamos el nombre del campo id 
+	CASE 'w_garantias_liquidaciones' 
+		sql_nueva +=" and premaat_liquidaciones.empresa = '"+g_empresa+"' and csi_bancos.empresa = '"+g_empresa+"' " 
+	CASE 'w_ing_ret_lista'
+		sql_nueva = f_reemplaza (sql_nueva, 'id_liquidacion in','id_traspaso in','') // cambiamos el nombre del campo id 
+END CHOOSE
+ds_liquidacion_listado.modify("datawindow.table.select= ~"" + sql_nueva + "~"")
+ds_liquidacion_listado.retrieve()
+ds_liquidacion_listado.groupcalc()
+
+IF ds_liquidacion_listado.RowCount() = 0  THEN
+	destroy ds_liquidacion_listado
+	RETURN 1
+END IF
+
+num_impresiones = f_var_global_numero('numero_impresos_listados_domiciliaciones')
+//IF (g_colegio = 'COAATZ' or g_colegio = 'COAATCC') then num_impresiones++
+CHOOSE CASE nombre_ventana 
+	CASE 'w_premaat_pago_prestaciones' 
+		f_logo_empresa_ds(g_empresa,ds_liquidacion_listado,'008')
+	CASE 'w_liquidaciones_lista','w_garantias_liquidaciones', 'w_premaat_liquid_lista' 
+		f_logo_empresa_ds(g_empresa ,ds_liquidacion_listado, '005')
+
+END CHOOSE
+for i = 1 to num_impresiones
+	ds_liquidacion_listado.print()
+next
+destroy ds_liquidacion_listado
+SetPointer(Arrow!)
+
+return 1
+end function
+

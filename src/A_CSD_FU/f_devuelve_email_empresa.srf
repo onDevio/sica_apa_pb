@@ -1,0 +1,11 @@
+HA$PBExportHeader$f_devuelve_email_empresa.srf
+global type f_devuelve_email_empresa from function_object
+end type
+
+forward prototypes
+global function string f_devuelve_email_empresa ()
+end prototypes
+
+global function string f_devuelve_email_empresa ();return g_email_empresa
+end function
+

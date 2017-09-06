@@ -1,0 +1,34 @@
+HA$PBExportHeader$f_colegiados_agrupaciones.srf
+$PBExportComments$Dado un colegiado obtiene la lista de las agrupaciones a las que pertenece
+global type f_colegiados_agrupaciones from function_object
+end type
+
+forward prototypes
+global function string f_colegiados_agrupaciones (string id_col)
+end prototypes
+
+global function string f_colegiados_agrupaciones (string id_col);datastore ds_agrupaciones
+int i
+string retorno='',agrup,t_agrup
+
+ds_agrupaciones = create datastore
+ds_agrupaciones.dataobject = 'd_colegiados_agrupaciones'
+ds_agrupaciones.SetTransObject(SQLCA)
+
+ds_agrupaciones.Retrieve(id_col)
+for i= 1 to ds_agrupaciones.rowcount()
+	t_agrup = ''
+	agrup = ds_agrupaciones.GetItemString(i,'agrupacion')
+	select descripcion into :t_agrup from t_agrupaciones where cod_agrupacion = :agrup;
+	if f_es_vacio(retorno) then 
+		retorno = LeftA(t_agrup,3)
+	else
+		retorno = retorno +','+ LeftA(t_agrup,3)
+	end if
+next
+
+destroy ds_agrupaciones
+
+return retorno
+end function
+

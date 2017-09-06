@@ -1,0 +1,17 @@
+HA$PBExportHeader$f_dame_colegiado_nom_via.srf
+global type f_dame_colegiado_nom_via from function_object
+end type
+
+forward prototypes
+global function string f_dame_colegiado_nom_via (string id_colegiado)
+end prototypes
+
+global function string f_dame_colegiado_nom_via (string id_colegiado);string nom_via=''
+
+SELECT nom_via into :nom_via
+FROM domicilios
+WHERE id_colegiado=:id_colegiado AND comercial = 'S';
+
+return nom_via
+end function
+

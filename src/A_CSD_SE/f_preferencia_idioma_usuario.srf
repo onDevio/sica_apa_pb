@@ -1,0 +1,19 @@
+HA$PBExportHeader$f_preferencia_idioma_usuario.srf
+global type f_preferencia_idioma_usuario from function_object
+end type
+
+forward prototypes
+global subroutine f_preferencia_idioma_usuario (string login, ref string idioma)
+end prototypes
+
+global subroutine f_preferencia_idioma_usuario (string login, ref string idioma);// DEVUELVE EL IDIOMA ASIGNADO AL USUARIO SEGUN EL LOGIN
+ 
+ SELECT t_usuario.cod_tipo_idioma  
+    INTO :idioma  
+    FROM t_usuario  
+   WHERE t_usuario.login = :login   ;
+	
+	
+
+end subroutine
+

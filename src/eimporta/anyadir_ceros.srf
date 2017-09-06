@@ -1,0 +1,20 @@
+HA$PBExportHeader$anyadir_ceros.srf
+global type anyadir_ceros from function_object
+end type
+
+forward prototypes
+global function string anyadir_ceros (ref string palabra, int longitud)
+end prototypes
+
+global function string anyadir_ceros (ref string palabra, int longitud);// esta funci$$HEX1$$f300$$ENDHEX$$n a$$HEX1$$f100$$ENDHEX$$ade ceros por la izquierda
+// parametros son :
+// palabra un string que contiene la variable que se va a$$HEX1$$f100$$ENDHEX$$adir ceros
+// longitud la longitud del string en total.
+
+
+palabra = trim(palabra)
+palabra = FillA("0", longitud - LenA(palabra)) + palabra
+return(palabra)
+
+end function
+

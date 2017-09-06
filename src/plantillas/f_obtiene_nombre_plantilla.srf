@@ -1,0 +1,25 @@
+HA$PBExportHeader$f_obtiene_nombre_plantilla.srf
+global type f_obtiene_nombre_plantilla from function_object
+end type
+
+forward prototypes
+global function string f_obtiene_nombre_plantilla (string plantilla)
+end prototypes
+
+global function string f_obtiene_nombre_plantilla (string plantilla);// Obtiene el nombre de la plantilla
+string ls_nombre
+
+select ruta
+into :ls_nombre
+from plantillas
+where codigo =:plantilla; 
+
+
+
+return ls_nombre
+
+
+
+
+end function
+

@@ -1,0 +1,23 @@
+HA$PBExportHeader$f_razon.srf
+global type f_razon from function_object
+end type
+
+forward prototypes
+global function string f_razon (string id_regsoc)
+end prototypes
+
+global function string f_razon (string id_regsoc);//devuelve la razon
+string devolver,id_colegiado
+
+if g_modo_funcionamiento='1' then	
+	select id_colegiado_sociedad into :id_colegiado from regsoc where id_regsoc=:id_regsoc;
+	if f_es_vacio(id_colegiado) then return ''
+   select apellidos into :devolver from colegiados where id_colegiado=:id_colegiado;
+else
+	select razon_social into :devolver from regsoc where id_regsoc=:id_regsoc;
+end if
+if f_es_vacio(devolver) then return ''
+
+return devolver
+end function
+

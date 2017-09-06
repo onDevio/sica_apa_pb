@@ -1,0 +1,13 @@
+HA$PBExportHeader$f_dame_provincia_colegio.srf
+global type f_dame_provincia_colegio from function_object
+end type
+
+forward prototypes
+global function string f_dame_provincia_colegio ()
+end prototypes
+
+global function string f_dame_provincia_colegio ();// Devuelve el valor de la variable global
+
+return g_col_provincia
+end function
+

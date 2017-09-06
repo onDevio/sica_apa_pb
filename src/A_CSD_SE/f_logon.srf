@@ -1,0 +1,26 @@
+HA$PBExportHeader$f_logon.srf
+global type f_logon from function_object
+end type
+
+forward prototypes
+global function integer f_logon ()
+end prototypes
+
+global function integer f_logon ();open(w_csd_logon)
+IF Message.DoubleParm = -1 then
+	Messagebox(g_titulo,"Acceso No Permitido.", StopSign!)
+end if
+
+
+// Se realiza el cambio para la variable g_explotacion_por_defecto <> '0000'	
+// Se ubica el proyecto asociado al departamento del usuario
+if g_explotacion_por_defecto <> '0000' then
+	g_explotacion_por_defecto = f_dame_dpto_usuario(g_usuario)
+	//messagebox("departamento", g_explotacion_por_defecto)
+end if
+
+
+return Message.doubleparm
+
+end function
+

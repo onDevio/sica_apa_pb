@@ -1,0 +1,24 @@
+HA$PBExportHeader$f_verificar_colegiados_no_grabados.srf
+global type f_verificar_colegiados_no_grabados from function_object
+end type
+
+forward prototypes
+global subroutine f_verificar_colegiados_no_grabados (string id_fase, datawindow dw_col, datawindowchild dw)
+end prototypes
+
+global subroutine f_verificar_colegiados_no_grabados (string id_fase, datawindow dw_col, datawindowchild dw);string col,cole
+double i,col_bd,num
+
+dw_col.AcceptText()
+
+dw.Reset()
+for i=1 to dw_col.RowCount() 
+	col= dw_col.GetItemString(i,'id_col')
+	dw.InsertRow(0)
+	dw.SetItem(dw.RowCount(),'id_col',col)	
+next
+
+
+
+end subroutine
+

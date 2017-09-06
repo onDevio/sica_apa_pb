@@ -1,0 +1,19 @@
+HA$PBExportHeader$f_colegiado_procedencia.srf
+global type f_colegiado_procedencia from function_object
+end type
+
+forward prototypes
+global function string f_colegiado_procedencia (string id_col)
+end prototypes
+
+global function string f_colegiado_procedencia (string id_col);string procedencia
+  SELECT cons_procedencia
+    INTO :procedencia  
+    FROM colegiados   
+    WHERE ( id_colegiado = :id_col ) ;
+
+if f_es_vacio(procedencia) then procedencia = ''
+
+return procedencia
+end function
+

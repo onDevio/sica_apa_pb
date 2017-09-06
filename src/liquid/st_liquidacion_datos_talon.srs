@@ -1,0 +1,9 @@
+HA$PBExportHeader$st_liquidacion_datos_talon.srs
+global type st_liquidacion_datos_talon from structure
+	string		n_talon_inicial
+	datetime		fecha_talon
+	string		banco
+	datetime		f_vencimiento
+	string		texto_manual
+end type
+

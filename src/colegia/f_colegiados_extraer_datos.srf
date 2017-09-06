@@ -1,0 +1,223 @@
+HA$PBExportHeader$f_colegiados_extraer_datos.srf
+global type f_colegiados_extraer_datos from function_object
+end type
+
+forward prototypes
+global subroutine f_colegiados_extraer_datos ()
+end prototypes
+
+global subroutine f_colegiados_extraer_datos ();// Esta funci$$HEX1$$f300$$ENDHEX$$n se encarga de hacer el mantenimiento de los datos del colegiado, solo si eres un usuario con ese permiso
+// hace uso de la transacci$$HEX1$$f300$$ENDHEX$$n bbdd_sms para apuntar a la base de datos de mensajeria
+long n_reg, fila, fila_insert
+string ls_inifile
+string sexo,c_geografico, situacion, id_colegiado, tv,nom_via,cp,provincia,poblacion, tv_tr,nom_via_tr,cp_tr,provincia_tr,poblacion_tr
+string nif, apellidos, nombre, telefono_1,telefono_2,telefono_3,telefono_4,telefono_5, email
+long n_col, cofan, cofbn, coftc, cosco, cotip,cofna,cosex, cp_l, cp_tr_l, codot,cocir
+datastore ds_origen, ds_destino
+n_tr bbdd_sms
+
+// Miramos si tenemos permiso para esto
+SELECT count(*) into :n_reg from t_permisos where cod_usuario = :g_usuario and cod_aplicacion = '0000000041' and permiso = 'E';
+if n_reg < 1 then return
+
+if g_colegio='COAATNA' then
+	if MessageBox("Exportaci$$HEX1$$f300$$ENDHEX$$n de Colegiados","$$HEX1$$bf00$$ENDHEX$$Regenerar la base de datos de colegiados?",Question!,YesNo!) <> 1 then return
+end if
+
+// Comprobamos que no se hayan pasado ya
+if	g_fecha_sms = datetime(today(), time("00:00")) then return
+
+if n_reg>0 then
+	// Recupero el nombre del fichero .INI
+	ls_inifile = gnv_app.of_GetAppInifile()
+	
+	// Crearemos la transaccion
+	bbdd_sms = create n_tr
+	
+	// llamamos a la funcion que permite hacer la conexion con la base de datos de listeria. Los par$$HEX1$$e100$$ENDHEX$$metros son
+	// Fichero_ini, seccion, nombre de la transaccion, informar de errores
+	if f_conexion(ls_inifile, 'sms', bbdd_sms, FALSE)<0 then
+		// Se ha producido alg$$HEX1$$fa00$$ENDHEX$$n error en la conexion con la base de datos por lo que tan solo le dejaremos cancelar
+		return
+	END IF
+	
+	// Ahora es cuando pasamos la informaci$$HEX1$$f300$$ENDHEX$$n de una bbdd a la otra
+	// 1. Borramos todos los colegiados primero
+	if g_colegio='COAATNA' then
+		delete from "datos colegiados" where conum<5000 or conum>=6000 using bbdd_sms;
+	else
+		delete from "datos colegiados" using bbdd_sms;
+	end if
+	
+	// 2.Para cada uno de los colegiados hacemos el traspaso
+//	ds_destino = create datastore
+//	ds_destino.dataobject = 'd_colegiados_bbdd_sms'
+//	ds_destino.settransobject(bbdd_sms)
+	
+	ds_origen = create datastore
+	ds_origen.dataobject = 'd_colegiados_extraccion_datos'
+	ds_origen.settransobject(SQLCA)
+	ds_origen.retrieve()
+	
+	for fila = 1 TO ds_origen.RowCount()
+		w_aplic_frame.setmicrohelp(string(fila))
+		id_colegiado = ds_origen.GetItemString(fila, 'id_colegiado')
+		n_col = long(ds_origen.GetItemString(fila, 'n_colegiado'))
+		nif = ds_origen.GetItemString(fila, 'nif'); if f_es_vacio(nif) then nif = '000000'
+		apellidos = ds_origen.GetItemString(fila, 'apellidos'); if f_es_vacio(apellidos) then apellidos = 'DESCONOCIDO'
+		nombre = ds_origen.GetItemString(fila, 'nombre'); if f_es_vacio(nombre) then nombre = 'DESCONOCIDO'
+		sexo = ds_origen.GetItemString(fila, 'sexo')
+		if sexo = 'F' then sexo = '1' else sexo = '0'
+		c_geografico = ds_origen.GetItemString(fila, 'c_geografico')
+		// 0 residente procedente de escuela / 1 residente procedente de otro colegio / 2 no residente / 3 habilitado
+		CHOOSE CASE c_geografico
+			CASE 'R', 'RNE','REE'
+				c_geografico = '0'
+			CASE 'REO'
+				c_geografico = '1'
+			CASE 'N','NRE'
+				c_geografico = '2'
+			CASE 'H'
+				c_geografico = '3'
+			CASE 'PR'
+				c_geografico = '4'
+			CASE ELSE
+				c_geografico = '0'
+		END CHOOSE
+		//SCP-624
+		if ds_origen.GetItemString(fila, 'alta_baja')='S' then
+			if g_colegio='COAATNA' then
+				situacion='0'
+			else
+				situacion = ds_origen.GetItemString(fila, 't_alta')
+			end if
+		else
+			if g_colegio='COAATNA' then
+				situacion='1'
+			else
+				situacion = ds_origen.GetItemString(fila, 't_baja')
+			end if
+		end if
+		//0 de alta / 1 muerto / 2 baja voluntaria / 3 baja colegial / 4 pendiente
+		if g_colegio <> 'COAATNA' then
+			CHOOSE CASE situacion
+				CASE 'A1','A2','A3'
+					situacion = '0'
+				CASE 'B4'
+					situacion = '1'
+				CASE 'B2'
+					situacion = '2'
+				CASE 'B6', 'B1'
+					situacion = '3'
+				CASE ELSE
+					situacion = '4'
+			END CHOOSE
+		end if
+		cosco = long(situacion)
+
+		nom_via=''
+		tv=""
+		cp=""
+		provincia=""
+		poblacion=""
+		
+  		SELECT domicilios.tipo_via, domicilios.nom_via, domicilios.cp, domicilios.cod_prov, poblaciones.descripcion INTO :tv,:nom_via,:cp,:provincia,:poblacion FROM domicilios,poblaciones WHERE ( domicilios.cod_pob = poblaciones.cod_pob ) and ( domicilios.id_colegiado = :id_colegiado ) AND ( domicilios.particular = 'S' );
+		if not f_es_vacio(tv) and tv<>'00' then 	nom_via = tv + ' '+nom_via
+		if f_es_vacio(nom_via) then nom_via = 'DESCONOCIDA'
+		if f_es_vacio(poblacion) then poblacion = 'DESCONOCIDA'
+		if f_es_vacio(provincia) then provincia = 'DESCONOCIDA'
+		nom_via_tr=''
+		tv_tr=""
+		cp_tr=""
+		provincia_tr=""
+		poblacion_tr=""
+		
+  		SELECT domicilios.tipo_via, domicilios.nom_via, domicilios.cp, domicilios.cod_prov, poblaciones.descripcion INTO :tv_tr,:nom_via_tr,:cp_tr,:provincia_tr,:poblacion_tr FROM domicilios,poblaciones WHERE ( domicilios.cod_pob = poblaciones.cod_pob ) and ( domicilios.id_colegiado = :id_colegiado ) AND ( domicilios.profesional = 'S' );
+		  
+		if not f_es_vacio(tv_tr) and tv_tr<>'00' then nom_via_tr = tv_tr + ' '+nom_via_tr
+		if f_es_vacio(nom_via_tr) then nom_via_tr = 'DESCONOCIDA'
+		if f_es_vacio(poblacion_tr) then poblacion_tr = 'DESCONOCIDA'
+		if f_es_vacio(provincia_tr) then provincia_tr = 'DESCONOCIDA'
+		if nom_via<>nom_via_tr then codot = 1
+		if isnull(codot) then codot = 0
+		cofan = long(string(ds_origen.GetItemDatetime(fila, 'f_alta'), "YYYYMMDD"))
+		cofbn = long(string(ds_origen.GetItemDatetime(fila, 'f_baja'), "YYYYMMDD"))
+		coftc = long(string(ds_origen.GetItemDatetime(fila, 'f_titulacion'), "YYYYMMDD"))
+		cotip = long(c_geografico)
+		cofna = long(string(ds_origen.GetItemDatetime(fila, 'f_nacimiento'), "YYYYMMDD"))
+		cosex = long(sexo)
+		cp_l = long(cp)
+		telefono_1 = ds_origen.GetItemString(fila, 'telefono_1');if f_es_vacio(telefono_1) then telefono_1 = '00000'
+		telefono_2 = ds_origen.GetItemString(fila, 'telefono_2');if f_es_vacio(telefono_2) then telefono_2 = '00000'
+		telefono_3 = ds_origen.GetItemString(fila, 'telefono_3');if f_es_vacio(telefono_3) then telefono_3 = '00000'
+		telefono_4 = ds_origen.GetItemString(fila, 'telefono_4');if f_es_vacio(telefono_4) then telefono_4 = '00000'
+		telefono_5 = ds_origen.GetItemString(fila, 'telefono_5');if f_es_vacio(telefono_5) then telefono_5 = '00000'
+		email = ds_origen.GetItemString(fila, 'email');if f_es_vacio(email) then email = '00000'
+		cp_tr_l = long(cp_tr)
+
+		string c_email,c_post
+		c_email=ds_origen.GetItemString(fila, 'recibir_c_email')
+		c_post=ds_origen.GetItemString(fila, 'recibir_c_postales')
+		
+		if c_email='S' and c_post='S' then
+			cocir=5
+		elseif c_email='S' and c_post='N' then
+			cocir=3
+		elseif c_email='N' and c_post='S' then
+			cocir=1
+		elseif c_email='N' and c_post='N' then
+			cocir=0
+		else
+			cocir=0
+		end if
+
+//		fila_insert = ds_destino.insertrow(0)
+//		ds_destino.setitem(fila_insert, 'conum', long(ds_origen.GetItemString(fila, 'n_colegiado')))// numero
+//		ds_destino.setitem(fila_insert, 'cocif', ds_origen.GetItemString(fila, 'nif'))// nif
+//		ds_destino.setitem(fila_insert, 'coap1', ds_origen.GetItemString(fila, 'apellidos'))// apellido 1
+////		ds_destino.setitem(fila_insert, 'coap2', ds_origen.GetItemString(fila, ''))// apellido 2
+//		ds_destino.setitem(fila_insert, 'conob', ds_origen.GetItemString(fila, 'nombre'))// nombre
+//		ds_destino.setitem(fila_insert, 'cosco', long(situacion))//0 de alta / 1 muerto / 2 baja voluntaria / 3 baja colegial / 4 pendiente
+//		ds_destino.setitem(fila_insert, 'cofan', long(string(ds_origen.GetItemDatetime(fila, 'f_alta'), "YYYYMMDD")))// fecha colegiaci$$HEX1$$f300$$ENDHEX$$n aaaammdd
+//		ds_destino.setitem(fila_insert, 'cofbn', long(string(ds_origen.GetItemDatetime(fila, 'f_baja'), "YYYYMMDD")))// fecha baja colegiaci$$HEX1$$f300$$ENDHEX$$n aaaammdd
+//		ds_destino.setitem(fila_insert, 'coftc', long(string(ds_origen.GetItemDatetime(fila, 'f_titulacion'), "YYYYMMDD")))// fecha terminaci$$HEX1$$f300$$ENDHEX$$n carrera aaaammdd
+//		ds_destino.setitem(fila_insert, 'cotip', long(c_geografico))// 0 residente procedente de escuela / 1 residente procedente de otro colegio / 2 no residente / 3 habilitado
+//		ds_destino.setitem(fila_insert, 'cofna', long(string(ds_origen.GetItemDatetime(fila, 'f_nacimiento'), "YYYYMMDD")))// fecha nacimiento aaaammdd
+//		ds_destino.setitem(fila_insert, 'cosex', long(sexo))// 0 masculino / 1 femenino
+//		ds_destino.setitem(fila_insert, 'codip', nom_via)// direcci$$HEX1$$f300$$ENDHEX$$n particular
+//		ds_destino.setitem(fila_insert, 'copbp', long(cp))// c$$HEX1$$f300$$ENDHEX$$digo poblaci$$HEX1$$f300$$ENDHEX$$n particular
+//		ds_destino.setitem(fila_insert, 'copop', poblacion)// nombre de la poblaci$$HEX1$$f300$$ENDHEX$$n particular
+//		ds_destino.setitem(fila_insert, 'coprp', provincia)// provincia particular
+//		ds_destino.setitem(fila_insert, 'cot1p', ds_origen.GetItemString(fila, 'telefono_1'))// tel$$HEX1$$e900$$ENDHEX$$fono particular
+//		ds_destino.setitem(fila_insert, 'cotfp', ds_origen.GetItemString(fila, 'telefono_5'))// fax particular
+//		ds_destino.setitem(fila_insert, 'cotmp', ds_origen.GetItemString(fila, 'telefono_3'))// m$$HEX1$$f300$$ENDHEX$$vil particular
+//		ds_destino.setitem(fila_insert, 'cotep', ds_origen.GetItemString(fila, 'email'))// mail particular
+//		ds_destino.setitem(fila_insert, 'codot', long(codot))// usar la direcci$$HEX1$$f300$$ENDHEX$$n de: 0 particular / 1 trabajo
+//		ds_destino.setitem(fila_insert, 'codit', nom_via_tr)// direcci$$HEX1$$f300$$ENDHEX$$n trabajo
+//		ds_destino.setitem(fila_insert, 'copbt', long(cp_tr))// c$$HEX1$$f300$$ENDHEX$$digo poblaci$$HEX1$$f300$$ENDHEX$$n trabajo
+//		ds_destino.setitem(fila_insert, 'copot', poblacion_tr)// nombre de la poblaci$$HEX1$$f300$$ENDHEX$$n trabajo
+//		ds_destino.setitem(fila_insert, 'coprt', provincia)// provincia trabajo
+//		ds_destino.setitem(fila_insert, 'cot1t', ds_origen.GetItemString(fila, 'telefono_2'))// tel$$HEX1$$e900$$ENDHEX$$fono trabajo
+////		ds_destino.setitem(fila_insert, 'cotft', ds_origen.GetItemString(fila, ''))// fax trabajo
+//		ds_destino.setitem(fila_insert, 'cotmt', ds_origen.GetItemString(fila, 'telefono_4'))// m$$HEX1$$f300$$ENDHEX$$vil trabajo
+////		ds_destino.setitem(fila_insert, 'cotet', ds_origen.GetItemString(fila, ''))// mail trabajo
+//		ds_destino.setitem(fila_insert, 'cocir', 0)// ENV$$HEX1$$cd00$$ENDHEX$$O DE CIRCULARES: 0 no enviar / 1 papel al trabajo / 2 papel al domicilio / 3 mail al trabajo / 4 mail domicilio / 5 papel y mail trabajo / 6 papel y mail domicilio / 7 papel trabajo y mail domicilio / 8 papel domicilio y mail trabajo
+
+	  	INSERT INTO "datos colegiados"
+         ( conum,cocif,coap1,coap2,conob,cosco,cofan,cofbn,coftc,cotip,cofna,cosex,codip,copbp,copop,coprp,cot1p,cotfp,cotmp,cotep,codot,codit,copbt,copot,coprt,cot1t,cotft,cotmt,cotet,cocir )  
+	  VALUES ( :n_col,:nif,:apellidos, null,:nombre,:cosco,:cofan,:cofbn,:coftc,:cotip,:cofna,:cosex,:nom_via,:cp_l,:poblacion,:provincia,:telefono_1,:telefono_5,:telefono_3,:email,:codot,:nom_via_tr,:cp_tr_l,:poblacion_tr,:provincia_tr,:telefono_2, null, :telefono_4,null,:cocir ) using bbdd_sms;
+	  
+	  
+		w_aplic_frame.setmicrohelp(bbdd_sms.sqlerrtext)
+		//if bbdd_sms.sqlcode<>0 then exit
+	next
+	g_fecha_sms = datetime(today(), time("00:00"))
+	
+	destroy ds_origen
+	disconnect using bbdd_sms;
+	destroy bbdd_sms
+end if 
+
+w_aplic_frame.setmicrohelp('')
+end subroutine
+

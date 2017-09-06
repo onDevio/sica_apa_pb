@@ -1,0 +1,7 @@
+HA$PBExportHeader$st_ofertas_consulta.srs
+global type st_ofertas_consulta from structure
+	string		id_oferta
+	string		id_oferta_asignada
+	string		id_ofertante
+end type
+

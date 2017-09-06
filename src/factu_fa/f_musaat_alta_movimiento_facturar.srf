@@ -1,0 +1,75 @@
+HA$PBExportHeader$f_musaat_alta_movimiento_facturar.srf
+global type f_musaat_alta_movimiento_facturar from function_object
+end type
+
+forward prototypes
+global function long f_musaat_alta_movimiento_facturar (string id_factura)
+end prototypes
+
+global function long f_musaat_alta_movimiento_facturar (string id_factura);// Genera alta de movimiento en MUSAAT 
+// S$$HEX1$$f300$$ENDHEX$$lo si la factura no es PROFORMA 
+
+// Pendiente:
+// 	Pruebas (datos de musaat_params_linea_fe ): no respeta el importe pasado. Calcula de nuevo el importe a asociar, etc.
+// 	Diferenciaci$$HEX1$$f300$$ENDHEX$$n Sociedad
+
+// Devuelve:
+// 1 => Ok
+// 0 => No Procede
+// -1 => Error
+
+string id_linea, proforma, id_col, id_fase, tipo_csd, n_contrato_ant, funcionario, tipo_factura, id_colegiado
+st_musaat_datos st_musaat_datos 
+double pem, porcentaje, base_musaat
+
+// Datos de la factura 
+SELECT proforma, id_persona, id_minuta, tipo_factura INTO :proforma, :id_col, :id_fase, :tipo_factura FROM csi_facturas_emitidas WHERE id_factura = :id_factura ;
+
+// S$$HEX1$$f300$$ENDHEX$$lo si la factura no es PROFORMA 
+// RETURN
+IF proforma = 'S' THEN RETURN 0
+
+// S$$HEX1$$f300$$ENDHEX$$lo si hay una l$$HEX1$$ed00$$ENDHEX$$nea de MUSAAT RETURN
+id_linea = f_musaat_id_linea_factura (id_factura)
+IF f_es_vacio(id_linea) THEN RETURN 0
+
+
+
+SELECT pem_certificacion, tipo_csd, n_contrato_ant, porcentaje, base_musaat, id_col
+	INTO :pem, :tipo_csd, :n_contrato_ant, :porcentaje, :base_musaat , :id_colegiado
+	FROM musaat_params_linea_fe WHERE id_linea = :id_linea ;
+	
+if	tipo_csd = '23' or tipo_csd= '25'  or tipo_csd= '20' then
+	st_musaat_datos.importe_sobre_honos= base_musaat
+end if
+
+// Asignamos si es funcionario
+SELECT facturado INTO :funcionario FROM fases_colegiados WHERE id_fase = :id_fase AND id_col = :id_col ;
+
+if tipo_factura = '02' and not(f_es_vacio(id_colegiado)) then id_col = id_colegiado
+// Generamos MUSAAT para colegiados....
+// ====================================================
+st_musaat_datos.n_visado = id_fase
+st_musaat_datos.id_col = id_col
+st_musaat_datos.id_minuta = ''
+st_musaat_datos.funcionario = funcionario
+st_musaat_datos.pem_certificacion = pem
+st_musaat_datos.tipo_csd = tipo_csd
+st_musaat_datos.n_contrato_ant = n_contrato_ant 
+st_musaat_datos.porcentaje = porcentaje
+//st_musaat_datos.prima_comp = base_musaat
+st_musaat_datos.recuperar = TRUE
+st_musaat_datos.genera_movi = TRUE
+//SCP-832. Jesus. Se a$$HEX1$$f100$$ENDHEX$$ade id de factura para vincularla al movimiento
+st_musaat_datos.id_factura=id_linea
+
+IF f_colegiado_tipopersona(id_col) = 'S' THEN
+	f_musaat_calcula_prima_sociedad (st_musaat_datos)
+ELSE
+	f_musaat_calcula_prima (st_musaat_datos)
+END IF
+// ====================================================
+
+RETURN 1
+end function
+

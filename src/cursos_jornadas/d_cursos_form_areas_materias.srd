@@ -1,0 +1,17 @@
+HA$PBExportHeader$d_cursos_form_areas_materias.srd
+release 7;
+datawindow(units=0 timer_interval=0 color=79741120 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=84 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=68 color="536870912" )
+table(column=(type=char(10) update=yes updatewhereclause=yes key=yes name=id_curso dbname="formacion_areas_materias_curso.id_curso" )
+ column=(type=char(2) update=yes updatewhereclause=yes key=yes name=codigo dbname="formacion_areas_materias_curso.codigo" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=tipo dbname="formacion_areas_materias_curso.tipo" initial="M" values="Materia	M/$$HEX1$$c100$$ENDHEX$$rea	A/" )
+ retrieve="PBSELECT( VERSION(400) TABLE(NAME=~"formacion_areas_materias_curso~" ) COLUMN(NAME=~"formacion_areas_materias_curso.id_curso~") COLUMN(NAME=~"formacion_areas_materias_curso.codigo~") COLUMN(NAME=~"formacion_areas_materias_curso.tipo~")WHERE(    EXP1 =~"formacion_areas_materias_curso.id_curso~"   OP =~"=~"    EXP2 =~":id_curso~" ) ) ARG(NAME = ~"id_curso~" TYPE = string) " update="formacion_areas_materias_curso" updatewhere=1 updatekeyinplace=no arguments=(("id_curso", string)) )
+text(band=header alignment="2" text="Tipo" border="6" color="0" x="9" y="8" height="52" width="608"  name=tipo_t  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Descripci$$HEX1$$f300$$ENDHEX$$n" border="6" color="0" x="635" y="8" height="52" width="1947"  name=codigo_t  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=20 border="0" color="0" x="0" y="4" height="56" width="608" format="[general]"  name=tipo  tag=" " radiobuttons.columns=2 radiobuttons.scale=no radiobuttons.threed=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="79741120" )
+column(band=detail id=2 alignment="0" tabsequence=10 border="5" color="0" x="631" y="4" height="56" width="1957" format="[general]"  name=codigo  tag=" " dddw.name=d_dddw_areas_materias dddw.displaycolumn=descripcion dddw.datacolumn=codigo dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any dddw.nilisnull=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

@@ -1,0 +1,8 @@
+HA$PBExportHeader$st_certificados_etiquetas.srs
+global type st_certificados_etiquetas from structure
+	datastore		ds_etiquetas
+	double		posx
+	double		posy
+	string		etiqueta
+end type
+

@@ -1,0 +1,963 @@
+HA$PBExportHeader$f_visared_importacion_enterprise_apa.srf
+global type f_visared_importacion_enterprise_apa from function_object
+end type
+
+forward prototypes
+global function st_visared_importacion f_visared_importacion_enterprise_apa (string fichero)
+end prototypes
+
+global function st_visared_importacion f_visared_importacion_enterprise_apa (string fichero);string f_entrada,f_visado,f_abono,f_final_obra,n_consejo_fase,tipo_tramite
+string emplazamiento,tipo_via_emplazamiento,puerta,piso
+string titulo,tipo_actuacion,tipo_obra,observaciones, tipo_gestion,tipo_obra_oficial
+string n_expedi,n_registro,fase,colegiado,n_registro_visared,n_expedi_visared,n_visado
+string cerrado,destino,n_calle,poblacion,desc_poblacion,provincia,id_fase, cod_pos, destino_int
+string tipologia_edif,cc_hormigon,cc_hormigon_tipo,cc_acero,cc_acero_tipo,cc_forjado,cc_muros,cc_cubiertas
+double sup_parcela
+string total_cli,cli_nif[],promotor_cli[],contratista_cli[],pagador_cli[],nombre_cli[],id_cli[],n_cli[], tipo_via_cli[],id_prov_cli[], tipo_persona[]
+string apellidos_cli[],observaciones_cli[],nombre_via_cli[],id_pob_cli[],telefono_cli[],fax_cli[],url[],email[],cod_pos_cli[], desc_pob_cli[]
+string total_col,col_numero[],col_autor[],col_director[],id_col[],col_nombre[],col_nif[],col_miembro_sociedad[],col_func[]
+string total_arq,arq_numero[],arq_autor[],arq_director[],id_arq[],arq_nombre[],arq_apellidos[], arq_titulacion
+string total_aso,aso_numero[],aso_autor[],aso_director[],id_aso[],aso_nombre[],aso_nif[],aso_direc[]
+string total_gastos, tipo_gasto[], tipo_iva[],  descripcion_gasto[]
+double importe[], iva[]
+string id_representante[],nif_representante[], nombre_representante[], direccion_representante[], poblacion_representante[], provincia_representante[], telefono_representante[], cp_representante[]
+string apellidos_representante[]
+string miembro_sociedad[],sociedad[]
+double honorarios, pem,num_viv,sup_viv,sup_garaje, num_viv_vpo
+double sup_otros,volumen,altura,num_edif
+double porcen_cli[],col_porcentaje[],aso_porcentaje[]
+string administracion
+string delegacion
+string id_referencia_web
+int i, j, fila, check
+string num, escalera, ref_catastral
+string id_colegiado,pais
+boolean si
+
+string nivel_control_calidad, estudio_geotecnico, control_calidad_externo,uso,tipo_viv,colindantes, colindantes2m
+double plantas_baj,sup_baj,plantas_sob,sup_sob
+st_visared_incidencias incidencias
+string dato_a_comprobar
+string cli_texto, id_cliente,rep_nif[],rep_id[]
+double pres_seguridad
+string n_visado_pb,n_visado_pe,mantenimiento
+string f_visado_pb,f_visado_pe,f_mantenimiento
+//SCP-367 Variables creadas
+long num_col,num_col_2
+string id_colegio
+
+
+st_visared_importacion st_fase
+
+setpointer(Hourglass!)
+
+//Creamos los datastore  
+st_fase.poblacion = create datastore
+st_fase.poblacion.dataobject = 'd_visared_poblacion'
+
+st_fase.ds_detalle_fase = create datastore
+st_fase.ds_detalle_fase.dataobject = 'd_visared_contrato'
+
+st_fase.ds_colegiados = create datastore
+st_fase.ds_colegiados.dataobject = 'd_visared_colegiados'
+
+
+st_fase.ds_asociados = create datastore
+st_fase.ds_asociados.dataobject = 'd_visared_asociados'
+
+st_fase.ds_arquitectos = create datastore
+st_fase.ds_arquitectos.dataobject = 'd_visared_arquitectos'
+
+st_fase.ds_clientes = create datastore
+st_fase.ds_clientes.dataobject = 'd_visared_promotores'
+
+st_fase.ds_incidencias = create datastore
+st_fase.ds_incidencias.dataobject = 'd_visared_incidencias'
+
+st_fase.ds_clientes_nuevos = create datastore
+st_fase.ds_clientes_nuevos.dataobject = 'd_clientes_detalle'
+
+st_fase.ds_gastos = create datastore
+st_fase.ds_gastos.dataobject = 'd_fases_informes'
+
+st_fase.ds_representantes_nuevos = create datastore
+st_fase.ds_representantes_nuevos.dataobject = 'd_clientes_detalle'
+
+//Cogemos los datos del fichero .INI de [CONTRATO]
+if  ProfileString(fichero,"VERSION","version","")='FEW' then
+	n_expedi = ProfileString(fichero,"CONTRATO","n_exp_colegial","")
+	n_registro = ProfileString(fichero,"CONTRATO","n_reg_colegial","")	
+else
+	n_registro = ProfileString(fichero,"CONTRATO","n_registro","")
+	n_expedi = ProfileString(fichero,"CONTRATO","n_expedi","")
+end if
+n_visado = ProfileString(fichero,"CONTRATO","n_visado","")
+
+// Para Alicante y Leon redondeamos a 5 cifras
+colegiado = ProfileString(fichero,"CONTRATO","colegiado","")
+//if g_colegio='COAATA' or g_colegio='COAATLE' then	colegiado = right('00000'+colegiado,5)
+colegiado = f_eimporta_redondear_colegiados(colegiado)
+
+f_entrada= ProfileString(fichero,"CONTRATO","f_entrada","")
+f_visado= ProfileString(fichero,"CONTRATO","f_visado","")
+f_abono= ProfileString(fichero,"CONTRATO","f_abono","")
+f_final_obra= ProfileString(fichero,"CONTRATO","f_final_obra","")
+cerrado= ProfileString(fichero,"CONTRATO","cerrado","N")
+if f_es_vacio(cerrado) then cerrado = 'N'
+titulo= ProfileString(fichero,"CONTRATO","titulo","")
+tipo_actuacion= ProfileString(fichero,"CONTRATO","tipo_actuacion","")
+tipo_obra= ProfileString(fichero,"CONTRATO","tipo_obra","")
+destino= ProfileString(fichero,"CONTRATO","destino","")
+destino_int=ProfileString(fichero,"CONTRATO","destino_interno","")
+tipo_via_emplazamiento= ProfileString(fichero,"CONTRATO","tipo_via_emplazamiento","")
+
+tipo_gestion = ProfileString(fichero,"CONTRATO","gestion_de_cobro","")
+observaciones = ProfileString(fichero,"CONTRATO","observaciones","")
+
+n_calle = profilestring(fichero, "CONTRATO", "n_calle" , "")
+piso = profilestring(fichero, "CONTRATO", "piso" , "")
+puerta = profilestring(fichero, "CONTRATO", "puerta" , "")
+
+honorarios = double(profilestring(fichero, "CONTRATO", "honorarios" , ""))
+
+emplazamiento= ProfileString(fichero,"CONTRATO","emplazamiento","")
+poblacion= ProfileString(fichero,"CONTRATO","poblacion","")
+desc_poblacion=ProfileString(fichero,"CONTRATO","desc_poblacion","")
+cod_pos=ProfileString(fichero,"CONTRATO","cod_pos","")
+provincia=ProfileString(fichero,"CONTRATO","provincia","")
+escalera=ProfileString(fichero,"CONTRATO","escalera","")
+n_consejo_fase=ProfileString(fichero,"CONTRATO","n_consejo_fase","")
+
+num_viv= double(ProfileString(fichero,"CONTRATO","num_viv",""))
+num_viv_vpo= double(ProfileString(fichero,"CONTRATO","n_viv_vpo",""))
+sup_viv= double(ProfileString(fichero,"CONTRATO","sup_viv",""))
+sup_garaje= double(ProfileString(fichero,"CONTRATO","sup_garaje",""))
+sup_otros= double(ProfileString(fichero,"CONTRATO","sup_otros",""))
+pem= double(ProfileString(fichero,"CONTRATO","pem",""))
+volumen= double(ProfileString(fichero,"CONTRATO","volumen",""))
+altura= double(ProfileString(fichero,"CONTRATO","altura",""))
+administracion=ProfileString(fichero,"CONTRATO","administracion","")
+tipo_obra_oficial=ProfileString(fichero,"CONTRATO","tipo_obra_oficial","")
+num_edif= double(ProfileString(fichero,"CONTRATO","num_edif",""))
+ref_catastral= ProfileString(fichero,"CONTRATO","ref_catastral","")
+
+nivel_control_calidad= ProfileString(fichero,"CONTRATO","nivel control calidad","")
+estudio_geotecnico= ProfileString(fichero,"CONTRATO","estudio geotecnico","")
+control_calidad_externo= ProfileString(fichero,"CONTRATO","control calidad externo","")
+plantas_baj= double(ProfileString(fichero,"CONTRATO","plantas_baj",""))
+sup_baj= double(ProfileString(fichero,"CONTRATO","sup_baj",""))
+plantas_sob= double(ProfileString(fichero,"CONTRATO","plantas_sob",""))
+sup_sob= double(ProfileString(fichero,"CONTRATO","sup_sob",""))
+
+tipo_viv = ProfileString(fichero,"CONTRATO","tipo_viv","")
+uso = ProfileString(fichero,"CONTRATO","uso","")
+colindantes = ProfileString(fichero,"CONTRATO","colindantes","")
+colindantes2m = ProfileString(fichero,"CONTRATO","colindantes2m","")
+if f_es_vacio(colindantes2m) then colindantes2m = ProfileString(fichero,"CONTRATO","colindates2m","")
+if f_es_vacio(colindantes2m) then colindantes2m='N'
+
+tipologia_edif = ProfileString(fichero,"CONTRATO","tipologia_edif","")
+cc_hormigon = ProfileString(fichero,"CONTRATO","cc_hormigon","N")
+if f_es_vacio(cc_hormigon) then cc_hormigon = 'N'
+cc_hormigon_tipo = ProfileString(fichero,"CONTRATO","cc_hormigon_tipo","1")
+if f_es_vacio(cc_hormigon_tipo) then cc_hormigon_tipo = '1'
+cc_acero = ProfileString(fichero,"CONTRATO","cc_acero","N")
+if f_es_vacio(cc_acero) then cc_acero = 'N'
+cc_acero_tipo = ProfileString(fichero,"CONTRATO","cc_acero_tipo","1")
+if f_es_vacio(cc_acero_tipo) then cc_acero_tipo = '1'
+cc_forjado = ProfileString(fichero,"CONTRATO","cc_forjado","N")
+if f_es_vacio(cc_forjado) then cc_forjado = 'N'
+cc_muros = ProfileString(fichero,"CONTRATO","cc_muros","N")
+if f_es_vacio(cc_muros) then cc_muros = 'N'
+cc_cubiertas = ProfileString(fichero,"CONTRATO","cc_cubiertas","N")
+if f_es_vacio(cc_cubiertas) then cc_cubiertas = 'N'
+sup_parcela = double(ProfileString(fichero,"CONTRATO","sup_parcela","0"))
+
+
+pres_seguridad = double(ProfileString(fichero,"CONTRATO","pres_seguridad","0"))
+n_visado_pb = ProfileString(fichero,"CONTRATO","n_visado_pb","")
+n_visado_pe = ProfileString(fichero,"CONTRATO","n_visado_pe","")
+f_visado_pe = ProfileString(fichero,"CONTRATO","f_visado_pe","")
+f_visado_pb = ProfileString(fichero,"CONTRATO","f_visado_pb","")
+f_mantenimiento = ProfileString(fichero,"CONTRATO","f_mantenimiento","")
+mantenimiento = ProfileString(fichero,"CONTRATO","mantenimiento","N")
+if f_es_vacio(mantenimiento) then mantenimiento = 'N'
+
+delegacion = ProfileString(fichero,"COLEGIO","delegaci$$HEX1$$f300$$ENDHEX$$n","")
+id_colegio = ProfileString(fichero,"COLEGIO","colegio","")
+id_referencia_web = ProfileString(fichero,"DESCRIPTORES","id_referencia","")
+
+	
+n_registro_visared = colegiado + "-" + ProfileString(fichero,"CONTRATO","n_registro","")
+n_expedi_visared = colegiado + "-" + ProfileString(fichero,"CONTRATO","n_expedi","")
+
+//Ponemos los datos dentro del datawindows de d_visared_contrato
+st_fase.ds_detalle_fase.InsertRow(0)
+st_fase.ds_detalle_fase.setitem(1,'n_registro',n_registro)
+st_fase.ds_detalle_fase.setitem(1,'n_expedi',n_expedi)
+st_fase.ds_detalle_fase.setitem(1,'n_visado',n_visado)
+st_fase.ds_detalle_fase.SetItem(1,"n_registro_visared",n_registro_visared)
+st_fase.ds_detalle_fase.SetItem(1,"n_expedi_visared",n_expedi_visared)
+st_fase.ds_detalle_fase.SetItem(1,"colegiado",colegiado)
+st_fase.ds_detalle_fase.setitem(1,'n_consejo_fase',n_consejo_fase)
+st_fase.ds_detalle_fase.setitem(1,'pres_seguridad',pres_seguridad)
+st_fase.ds_detalle_fase.setitem(1,'id_referencia_web',id_referencia_web)
+st_fase.ds_detalle_fase.setitem(1,'destino_int',destino_int)
+choose case  ProfileString(fichero,"DESCRIPTORES","tipo","")
+	case 'NUEVO','SUBSA'
+		tipo_tramite='REDAP'
+	case 'ANEXO'
+		tipo_tramite='REDOC'	
+	case 'NU_VI','REGU'
+		tipo_tramite='IP'
+	case 'VV'
+		tipo_tramite='VV'				
+	case 'MUSAAT'
+		tipo_tramite='MUSAAT'
+	case else
+		tipo_tramite='REDAP'
+end choose
+
+st_fase.ds_detalle_fase.setitem(1,'tipo_tramite',tipo_tramite)
+//COMPROBAMOS EL COLEGIADO
+//SCP-367
+/*if f_es_vacio(g_campos_subsanados.colegiado) then
+	select id_colegiado into :id_colegiado from colegiados where n_colegiado=:colegiado;
+	dato_a_comprobar=colegiado
+else
+	select id_colegiado into :id_colegiado from colegiados where n_colegiado=:g_campos_subsanados.colegiado;
+	dato_a_comprobar=g_campos_subsanados.colegiado
+end if
+
+
+
+if f_es_vacio(id_colegiado) then
+	incidencias.incidencia = ' El n$$HEX1$$fa00$$ENDHEX$$mero de Colegiado '+string(i)+' :'+colegiado +' NO existe en la base de datos'
+	incidencias.solucion = 'NO se incorporar$$HEX1$$e100$$ENDHEX$$n los datos del arquitecto'
+	incidencias.campo_anomalo = 'N$$HEX2$$ba002000$$ENDHEX$$Colegiado '+string(i)
+	incidencias.valor_codigo = dato_a_comprobar
+	incidencias.valor_descripcion =dato_a_comprobar
+	incidencias.evento_asociado = 'csd_asociar_colegiado'
+	incidencias.nivel_incidencia = 'G'
+	f_visared_incidencias(st_fase.ds_incidencias,incidencias)				
+elseif not f_colegiados_fases_domiciliadas(id_colegiado) then
+	incidencias.incidencia = ' El Colegiado '+ colegiado+' NO tiene domiciliado el cargo de Expedientes'
+	incidencias.solucion = 'Debe revisar los Datos de Pago de Expedientes del colegiado'
+	incidencias.campo_anomalo = 'N$$HEX2$$ba002000$$ENDHEX$$Colegiado '+string(i)
+	incidencias.valor_codigo = dato_a_comprobar
+	incidencias.valor_descripcion =''
+	incidencias.evento_asociado = ''
+	incidencias.nivel_incidencia = 'M'
+	f_visared_incidencias(st_fase.ds_incidencias,incidencias)
+else
+	st_fase.ds_detalle_fase.setitem(1,'colegiado',dato_a_comprobar)
+end if*/
+
+if f_es_vacio(f_entrada)=true then 
+	st_fase.ds_detalle_fase.setitem(1,'f_entrada',"")
+	else 
+	st_fase.ds_detalle_fase.setitem(1,'f_entrada',date(f_entrada))
+end if 
+if f_es_vacio(f_visado)=true then 
+	st_fase.ds_detalle_fase.setitem(1,'f_visado',"")
+	else 
+	st_fase.ds_detalle_fase.setitem(1,'f_visado',date(f_visado))
+end if 
+if f_es_vacio(f_abono)=true then 
+	st_fase.ds_detalle_fase.setitem(1,'f_abono',"")
+	else 
+	st_fase.ds_detalle_fase.setitem(1,'f_abono',date(f_abono))
+end if
+if f_es_vacio(f_final_obra)=true then 
+	st_fase.ds_detalle_fase.setitem(1,'f_final_obra',"")
+	else 
+	st_fase.ds_detalle_fase.setitem(1,'f_final_obra',date(f_final_obra))
+end if 
+if f_es_vacio(f_mantenimiento) then 
+	st_fase.ds_detalle_fase.setitem(1,'f_mantenimiento',"")
+else 
+	st_fase.ds_detalle_fase.setitem(1,'f_mantenimiento',date(f_mantenimiento))
+end if 
+if f_es_vacio(f_visado_pe) then 
+	st_fase.ds_detalle_fase.setitem(1,'f_visado_pe',"")
+else 
+	st_fase.ds_detalle_fase.setitem(1,'f_visado_pe',date(f_visado_pe))
+end if 
+if f_es_vacio(f_visado_pb) then 
+	st_fase.ds_detalle_fase.setitem(1,'f_visado_pb',"")
+else 
+	st_fase.ds_detalle_fase.setitem(1,'f_visado_pb',date(f_visado_pb))
+end if 
+st_fase.ds_detalle_fase.setitem(1,'n_visado_pb',n_visado_pb)
+st_fase.ds_detalle_fase.setitem(1,'n_visado_pe',n_visado_pe)
+st_fase.ds_detalle_fase.setitem(1,'mantenimiento',mantenimiento)
+
+st_fase.ds_detalle_fase.setitem(1,'cerrado',cerrado)
+st_fase.ds_detalle_fase.setitem(1,'titulo',titulo)
+
+//COMPROBAMOS TIPO_ACTUACION
+dato_a_comprobar=''
+
+select d_t_descripcion into :dato_a_comprobar from t_fases where c_t_fase = :tipo_actuacion;
+
+if f_es_vacio(dato_a_comprobar) then
+	incidencias.incidencia='La Actuaci$$HEX1$$f300$$ENDHEX$$n c$$HEX1$$f300$$ENDHEX$$digo '+tipo_actuacion+' NO existe en la base de datos'
+	incidencias.solucion='NO se incorporar$$HEX1$$e100$$ENDHEX$$n los datos de la Actuaci$$HEX1$$f300$$ENDHEX$$n'
+	incidencias.campo_anomalo='Tipo fase'
+	incidencias.valor_codigo=dato_a_comprobar
+	incidencias.valor_descripcion=dato_a_comprobar
+	incidencias.evento_asociado=''
+	incidencias.nivel_incidencia='M'	
+	f_visared_incidencias(st_fase.ds_incidencias,incidencias)	
+else 
+	st_fase.ds_detalle_fase.setitem(1,'tipo_actuacion',tipo_actuacion)
+end if
+
+//COMPROBAMOS TIPO_OBRA
+dato_a_comprobar=''
+
+select d_t_trabajo into :dato_a_comprobar from tipos_trabajos where c_t_trabajo = :tipo_obra;
+
+if f_es_vacio(dato_a_comprobar) then
+	incidencias.incidencia='La Obra c$$HEX1$$f300$$ENDHEX$$digo '+tipo_obra+' NO existe en la base de datos'
+	incidencias.solucion='NO se incorporar$$HEX1$$e100$$ENDHEX$$n los datos de la Obra'
+	incidencias.campo_anomalo='Tipo fase'
+	incidencias.valor_codigo=tipo_obra
+	incidencias.valor_descripcion=dato_a_comprobar
+	incidencias.evento_asociado=''
+	incidencias.nivel_incidencia='M'	
+	f_visared_incidencias(st_fase.ds_incidencias,incidencias)	
+else 
+	st_fase.ds_detalle_fase.setitem(1,'tipo_obra',tipo_obra)	
+end if
+
+//COMPROBAMOS DESTINO
+dato_a_comprobar=''
+
+select d_trabajo into : dato_a_comprobar from trabajos where c_trabajo = :destino;
+
+if f_es_vacio(dato_a_comprobar) then
+	incidencias.incidencia='El Destino c$$HEX1$$f300$$ENDHEX$$digo '+destino+' NO existe en la base de datos'
+	incidencias.solucion='NO se incorporar$$HEX1$$e100$$ENDHEX$$n los datos del Destino'
+	incidencias.campo_anomalo='Destino'
+	incidencias.valor_codigo=destino
+	incidencias.valor_descripcion=dato_a_comprobar
+	incidencias.evento_asociado=''
+	incidencias.nivel_incidencia='M'	
+	f_visared_incidencias(st_fase.ds_incidencias,incidencias)	
+else 
+	st_fase.ds_detalle_fase.setitem(1, 'destino',destino)
+end if
+
+
+//COMPROBAMOS TIPO VIA EMPLAZAMIENTO
+dato_a_comprobar=''
+
+select descripcion into :dato_a_comprobar from tipos_via where cod_tipo_via = :tipo_via_emplazamiento;
+
+if f_es_vacio(dato_a_comprobar) then
+	incidencias.incidencia='El Tipo de Via c$$HEX1$$f300$$ENDHEX$$digo '+tipo_via_emplazamiento+' NO existe en la base de datos'
+	incidencias.solucion='NO se incorporar$$HEX1$$e100$$ENDHEX$$n los datos del Tipo de Via'
+	incidencias.campo_anomalo='Tipo fase'
+	incidencias.valor_codigo=tipo_via_emplazamiento
+	incidencias.valor_descripcion=dato_a_comprobar
+	incidencias.evento_asociado=''
+	incidencias.nivel_incidencia='M'	
+	f_visared_incidencias(st_fase.ds_incidencias,incidencias)	
+else 
+	st_fase.ds_detalle_fase.setitem(1,'tipo_via_emplazamiento',tipo_via_emplazamiento)
+end if
+
+st_fase.ds_detalle_fase.setitem(1,'emplazamiento',emplazamiento)
+st_fase.ds_detalle_fase.SetItem(1, "n_calle",n_calle)
+st_fase.ds_detalle_fase.SetItem(1, "piso",piso)
+st_fase.ds_detalle_fase.SetItem(1, "puerta",puerta)
+
+//COMPROBAMOS POBLACION FASE
+dato_a_comprobar=''
+int cuantas
+string pob_parcial,retorno_comprobacion
+
+
+
+/* comprobar Poblacion*/
+int cuantos
+st_visared_poblacion st_res
+// Si tiene valor la variable global g_campos_subsanados utilizamos su valor
+retorno_comprobacion=''
+if f_es_vacio(g_campos_subsanados.cod_pob_emplaz) then
+	dato_a_comprobar=cod_pos
+	st_res=f_devuelve_st_poblacion(dato_a_comprobar,desc_poblacion,false)
+	retorno_comprobacion=st_res.cod_pob
+else
+	dato_a_comprobar=g_campos_subsanados.cod_pos_emplaz
+	desc_poblacion = g_campos_subsanados.desc_poblacion_emplaz	
+	retorno_comprobacion=g_campos_subsanados.cod_pob_emplaz
+end if
+
+
+if retorno_comprobacion='-1' then
+	incidencias.incidencia='La Poblaci$$HEX1$$f300$$ENDHEX$$n c$$HEX1$$f300$$ENDHEX$$digo '+dato_a_comprobar+' NO existe en la base de datos'
+	incidencias.solucion='Busque la poblaci$$HEX1$$f300$$ENDHEX$$n que corresponda para ese c$$HEX1$$f300$$ENDHEX$$digo. Pulse el bot$$HEX1$$f300$$ENDHEX$$n "Subsanar" para ello'
+	incidencias.campo_anomalo='poblacion'
+	incidencias.valor_codigo=dato_a_comprobar
+	incidencias.valor_descripcion=desc_poblacion
+	incidencias.evento_asociado='csd_poblacion_seleccion'
+	incidencias.nivel_incidencia='G'
+	f_visared_incidencias(st_fase.ds_incidencias,incidencias)
+	fila=st_fase.poblacion.InsertRow(0)
+	st_fase.poblacion.setitem(fila,'cod_pos',dato_a_comprobar)
+	st_fase.poblacion.setitem(fila,'descripcion',desc_poblacion)
+	st_fase.poblacion.setitem(fila,'provincia',provincia)
+else
+	st_fase.ds_detalle_fase.setitem(1,'poblacion',retorno_comprobacion)
+	st_fase.ds_detalle_fase.setitem(1,'desc_poblacion',desc_poblacion)
+	st_fase.ds_detalle_fase.setitem(1,'provincia',f_dame_provincia(dato_a_comprobar))
+end if
+
+st_fase.ds_detalle_fase.setitem(1,'administracion',administracion)
+st_fase.ds_detalle_fase.setitem(1,'tipo_obra_oficial',tipo_obra_oficial)
+
+//COMPROBAMOS TIPO GESTION
+select descripcion into :dato_a_comprobar from t_gestion where cod_gestion = :tipo_gestion;
+
+if f_es_vacio(dato_a_comprobar) then
+	incidencias.incidencia='El Tipo de Gesti$$HEX1$$f300$$ENDHEX$$n c$$HEX1$$f300$$ENDHEX$$digo '+administracion+' NO existe en la base de datos'
+	incidencias.solucion='no se incorporar$$HEX1$$e100$$ENDHEX$$n los datos del Tipo de Gesti$$HEX1$$f300$$ENDHEX$$n'
+	incidencias.campo_anomalo='Tipo gestion'
+	incidencias.valor_codigo=administracion
+	incidencias.valor_descripcion=dato_a_comprobar
+	incidencias.evento_asociado=''
+	incidencias.nivel_incidencia='M'
+	f_visared_incidencias(st_fase.ds_incidencias,incidencias)
+else
+	st_fase.ds_detalle_fase.setitem(1,'gestion_de_cobro',tipo_gestion)
+end if
+
+st_fase.ds_detalle_fase.setitem(1, "observaciones",observaciones)
+st_fase.ds_detalle_fase.SetItem(1, "honorarios",honorarios)
+
+st_fase.ds_detalle_fase.setitem(1,'ref_catastral',ref_catastral)
+st_fase.ds_detalle_fase.setitem(1,'escalera',escalera)
+
+st_fase.ds_detalle_fase.setitem(1,'num_viv',num_viv)
+st_fase.ds_detalle_fase.setitem(1,'n_viv_vpo',num_viv_vpo)
+st_fase.ds_detalle_fase.setitem(1,'sup_viv',sup_viv)
+st_fase.ds_detalle_fase.setitem(1,'sup_garaje',sup_garaje)
+st_fase.ds_detalle_fase.setitem(1,'sup_otros',sup_otros)
+
+st_fase.ds_detalle_fase.setitem(1,'pem',pem)
+st_fase.ds_detalle_fase.setitem(1,'volumen',volumen)
+st_fase.ds_detalle_fase.setitem(1,'altura',altura)
+
+st_fase.ds_detalle_fase.setitem(1,'num_edif',num_edif)
+
+st_fase.ds_detalle_fase.SetItem(1, "niv_cont",nivel_control_calidad)
+st_fase.ds_detalle_fase.SetItem(1, "estudio_geo",estudio_geotecnico)
+st_fase.ds_detalle_fase.SetItem(1, "cc_externo",control_calidad_externo)
+st_fase.ds_detalle_fase.SetItem(1, "plantas_baj",plantas_baj)
+st_fase.ds_detalle_fase.SetItem(1, "sup_baj",sup_baj)
+st_fase.ds_detalle_fase.SetItem(1, "plantas_sob",plantas_sob)
+st_fase.ds_detalle_fase.SetItem(1, "sup_sob",sup_sob)
+
+st_fase.ds_detalle_fase.SetItem(1, "tipo_viv",tipo_viv)
+st_fase.ds_detalle_fase.SetItem(1, "uso",uso)
+st_fase.ds_detalle_fase.SetItem(1, "colindantes",colindantes)
+st_fase.ds_detalle_fase.SetItem(1, "colindantes2m",colindantes2m)
+
+
+st_fase.ds_detalle_fase.SetItem(1, "tipologia_edif",tipologia_edif)
+st_fase.ds_detalle_fase.SetItem(1, "cc_hormigon",cc_hormigon)
+st_fase.ds_detalle_fase.SetItem(1, "cc_hormigon_tipo",cc_hormigon_tipo)
+st_fase.ds_detalle_fase.SetItem(1, "cc_acero",cc_acero)
+st_fase.ds_detalle_fase.SetItem(1, "cc_acero_tipo",cc_acero_tipo)
+st_fase.ds_detalle_fase.SetItem(1, "cc_forjados",cc_forjado)
+st_fase.ds_detalle_fase.SetItem(1, "cc_muros",cc_muros)
+st_fase.ds_detalle_fase.SetItem(1, "cc_cubiertas",cc_cubiertas)
+st_fase.ds_detalle_fase.SetItem(1, "sup_parcela",sup_parcela)
+
+st_fase.ds_detalle_fase.SetItem(1, "delegacion",delegacion)
+
+total_cli=ProfileString(fichero,"CLIENTES","total","*")
+for i=1 to integer(total_cli)
+	//Cogemos los datos del fichero .INI de [CLIENTES]
+
+	cli_nif[i]=ProfileString(fichero,"CLIENTES",'nif_'+string(i),"")
+	porcen_cli[i]=double(ProfileString(fichero,"CLIENTES",'participacion_'+string(i),""))
+	promotor_cli[i]=ProfileString(fichero,"CLIENTES",'promotor_'+string(i),"S")
+	contratista_cli[i]=ProfileString(fichero,"CLIENTES",'contratista_'+string(i),"N")	
+	pagador_cli[i]=ProfileString(fichero,"CLIENTES",'pagador_'+string(i),"S")	
+	
+	//El id no se usa.
+	n_cli[i]=ProfileString(fichero,"CLIENTES",'n_cliente_'+string(i),"")	
+
+	tipo_persona[i]=ProfileString(fichero,"CLIENTES",'tipo_persona_'+string(i),"")
+
+	nombre_cli[i]=ProfileString(fichero,"CLIENTES",'nombre_'+string(i),"")
+	apellidos_cli[i]=ProfileString(fichero,"CLIENTES",'apellidos_'+string(i),"")
+	observaciones_cli[i]=ProfileString(fichero,"CLIENTES",'observaciones_'+string(i),"")
+	nombre_via_cli[i]=ProfileString(fichero,"CLIENTES",'nombre_via_'+string(i),"")
+	tipo_via_cli[i]=ProfileString(fichero,"CLIENTES",'tipo_via_'+string(i),"00")
+	id_pob_cli[i]=ProfileString(fichero,"CLIENTES",'id_pob_'+string(i),"")
+	cod_pos_cli[i]=ProfileString(fichero,"CLIENTES",'cod_pos_'+string(i),"")
+	desc_pob_cli[i]=ProfileString(fichero,"CLIENTES",'poblacion_'+string(i),"")	
+	telefono_cli[i]=ProfileString(fichero,"CLIENTES",'telefono_'+string(i),"")
+	fax_cli[i]=ProfileString(fichero,"CLIENTES",'fax_'+string(i),"")
+	email[i]=ProfileString(fichero,"CLIENTES",'email_'+string(i),"")
+	url[i]=ProfileString(fichero,"CLIENTES",'url_'+string(i),"")
+	id_prov_cli[i]=ProfileString(fichero,"CLIENTES",'provincia_'+string(i),"")
+	
+	nif_representante[i] = 	ProfileString(fichero,"CLIENTES",'rep_nif_'+string(i),"")
+	nombre_representante[i] = 	ProfileString(fichero,"CLIENTES",'rep_nombre_'+string(i),"")
+	apellidos_representante[i] = 	ProfileString(fichero,"CLIENTES",'rep_apellidos_'+string(i),"")	
+	direccion_representante[i] = 	ProfileString(fichero,"CLIENTES",'rep_direccion_'+string(i),"")
+	poblacion_representante[i] = 	ProfileString(fichero,"CLIENTES",'rep_poblacion_'+string(i),"")
+	provincia_representante[i] = 	ProfileString(fichero,"CLIENTES",'rep_provincia_'+string(i),"")
+	telefono_representante[i] = 	ProfileString(fichero,"CLIENTES",'rep_telefono_'+string(i),"")
+	cp_representante[i] = 	ProfileString(fichero,"CLIENTES",'rep_cp_'+string(i),"")
+		
+	dato_a_comprobar=''
+	// COMPROBACION DEL REPRESENTANTE
+	if cli_nif[i]<>nif_representante[i] and not(f_es_vacio(nif_representante[i])) then
+		// COMPROBAMOS QUE EL CLIENTE ES REPRESENTANTE
+
+		if f_es_vacio(g_campos_subsanados.rep_nif[i]) then
+			select clientes.id_cliente into :dato_a_comprobar from clientes, clientes_terceros where clientes.nif = :nif_representante[i] 
+			and clientes.id_cliente = clientes_terceros.id_cliente and clientes_terceros.c_tercero = '23';
+			rep_nif[i]=nif_representante[i] 
+			rep_id[i]=dato_a_comprobar
+		else
+			select clientes.id_cliente into :dato_a_comprobar from clientes, clientes_terceros where clientes.nif = :g_campos_subsanados.rep_nif[i] 
+			and clientes.id_cliente = clientes_terceros.id_cliente and clientes_terceros.c_tercero = '23';			
+			rep_nif[i]=g_campos_subsanados.rep_nif[i] 
+			rep_id[i]=dato_a_comprobar
+		end if	
+
+		if f_es_vacio(dato_a_comprobar) and not(f_es_vacio(nif_representante[i])) then
+
+			//Comprobamos si el cliente existe pero NO EXISTE COMO REPRESENTANTE			
+			if f_es_vacio(dato_a_comprobar) and not(f_es_vacio(rep_nif[i])) then
+				incidencias.incidencia = ' El representante '+rep_nif[i]+' especificado NO existe en la Base de Datos'
+				incidencias.solucion = 'El representante debe ser dado de alta. Pulse el bot$$HEX1$$f300$$ENDHEX$$n "Subsanar" para ello '
+				incidencias.campo_anomalo = 'Representante '+string(i)
+				incidencias.valor_codigo = rep_nif[i]
+				incidencias.valor_descripcion = rep_nif[i]
+				incidencias.evento_asociado = 'csd_representante_nuevo'
+				incidencias.nivel_incidencia = 'G'
+				f_visared_incidencias(st_fase.ds_incidencias,incidencias)		
+		
+				j= st_fase.ds_representantes_nuevos.InsertRow(0)
+				st_fase.ds_representantes_nuevos.setitem(j,'nif',rep_nif[i])
+				st_fase.ds_representantes_nuevos.setitem(j,'nombre',nombre_representante[i])
+				st_fase.ds_representantes_nuevos.setitem(j,'apellidos',apellidos_representante[i])		
+				st_fase.ds_representantes_nuevos.setitem(j,'nombre_via',direccion_representante[i])
+				st_fase.ds_representantes_nuevos.setitem(j,'tipo_via','00')	
+			else
+				incidencias.incidencia = ' Existe un cliente con el NIF '+string(nif_representante[i])+', pero no est$$HEX2$$e1002000$$ENDHEX$$definido como representante'
+				incidencias.solucion = 'El representante debe ser dado de alta. Existe un cliente con dicho NIF, pero no es representante.. Pulse el bot$$HEX1$$f300$$ENDHEX$$n "Subsanar" para ello '
+				incidencias.campo_anomalo = 'Representante '+string(i)
+				incidencias.valor_codigo = rep_nif[i]
+				incidencias.valor_descripcion =rep_nif[i]
+				incidencias.evento_asociado = 'csd_representante_modif'
+				incidencias.nivel_incidencia = 'G'					
+				f_visared_incidencias(st_fase.ds_incidencias,incidencias)	
+				
+				j= st_fase.ds_representantes_nuevos.InsertRow(0)
+				st_fase.ds_representantes_nuevos.setitem(j,'nif',rep_nif[i])				
+			end if
+			
+			/* comprobar Poblacion del representante*/
+			// Si tiene valor la variable global g_campos_subsanados utilizamos su valor
+			retorno_comprobacion=''			
+			if f_es_vacio(g_campos_subsanados.cod_pob_rep[i]) then
+				dato_a_comprobar=cp_representante[i]
+				desc_poblacion = poblacion_representante[i]
+				st_res=f_devuelve_st_poblacion(dato_a_comprobar,desc_poblacion,false)
+				retorno_comprobacion=st_res.cod_pob
+			else
+				dato_a_comprobar=g_campos_subsanados.cod_pos_rep[i]
+				desc_poblacion = g_campos_subsanados.desc_poblacion_rep[i]	
+				retorno_comprobacion=g_campos_subsanados.cod_pob_rep[i]
+			end if		
+
+			
+			if retorno_comprobacion='-1' then //f_es_vacio(cod_pob_rep) then
+				incidencias.incidencia='La Poblaci$$HEX1$$f300$$ENDHEX$$n c$$HEX1$$f300$$ENDHEX$$digo '+dato_a_comprobar+' del representante '+string(i)+' NO existe en la base de datos'
+				incidencias.solucion='Busque la poblaci$$HEX1$$f300$$ENDHEX$$n que corresponda para ese c$$HEX1$$f300$$ENDHEX$$digo. Pulse el bot$$HEX1$$f300$$ENDHEX$$n "Subsanar" para ello'
+				incidencias.campo_anomalo='rep_poblacion'+string(i)
+				incidencias.valor_codigo=dato_a_comprobar
+				incidencias.valor_descripcion=desc_poblacion
+				incidencias.evento_asociado='csd_poblacion_seleccion'
+				incidencias.nivel_incidencia='M'
+				f_visared_incidencias(st_fase.ds_incidencias,incidencias)
+				fila=st_fase.poblacion.InsertRow(0)
+				st_fase.poblacion.setitem(fila,'cod_pos',dato_a_comprobar)
+				st_fase.poblacion.setitem(fila,'descripcion',desc_poblacion)
+				st_fase.poblacion.setitem(fila,'provincia',provincia_representante[i])
+			end if
+
+			st_fase.ds_representantes_nuevos.setitem(j,'cod_prov',provincia_representante[i])	
+			st_fase.ds_representantes_nuevos.setitem(j,'cod_pob',retorno_comprobacion)
+			st_fase.ds_representantes_nuevos.setitem(j,'cp',dato_a_comprobar)
+			st_fase.ds_representantes_nuevos.setitem(j,'telefono',telefono_representante[i])				
+			select cod_pais into :pais from paises where nombre='Espa$$HEX1$$f100$$ENDHEX$$a';
+			st_fase.ds_representantes_nuevos.setitem(j,'pais',pais)
+			/**/
+		
+		end if
+	end if	// FIN DE COMPROBACION DEL REPRESENTANTE
+
+	
+	// COMPROBACION DEL CLIENTE
+	dato_a_comprobar = ''
+
+	if f_es_vacio(g_campos_subsanados.cli_nif[i]) then
+		select clientes.id_cliente into :dato_a_comprobar from clientes, clientes_terceros where clientes.nif = :cli_nif[i] 
+		and clientes.id_cliente = clientes_terceros.id_cliente ;
+		cli_texto=cli_nif[i] 
+		id_cliente=dato_a_comprobar
+	else
+		select clientes.id_cliente into :dato_a_comprobar from clientes, clientes_terceros where clientes.nif = :g_campos_subsanados.cli_nif[i] 
+		and clientes.id_cliente = clientes_terceros.id_cliente ;
+		cli_texto=g_campos_subsanados.cli_nif[i]
+		id_cliente=dato_a_comprobar
+	end if	
+	
+	id_cli[i]=dato_a_comprobar
+
+
+	if f_es_vacio(dato_a_comprobar) then
+		incidencias.incidencia = ' El cliente '+string(cli_texto)+' especificado NO existe en la Base de Datos'
+		incidencias.solucion = 'El Promotor debe ser dado de alta. Pulse el bot$$HEX1$$f300$$ENDHEX$$n "Subsanar" para ello '
+		incidencias.campo_anomalo = 'Cliente '+string(i)
+		incidencias.valor_codigo = cli_texto
+		incidencias.valor_descripcion = cli_texto
+		incidencias.evento_asociado = 'csd_cliente_nuevo'
+		incidencias.nivel_incidencia = 'G'
+		f_visared_incidencias(st_fase.ds_incidencias,incidencias)		
+
+		j= st_fase.ds_clientes_nuevos.InsertRow(0)
+//		st_fase.ds_clientes_nuevos.setitem(i,'participacion',porcen_cli[i])
+//		st_fase.ds_clientes_nuevos.setitem(i,'promotor',promotor_cli[i])
+//		st_fase.ds_clientes_nuevos.setitem(i,'contratista',contratista_cli[i])	
+//		st_fase.ds_clientes_nuevos.setitem(i,'pagador',pagador_cli[i])	
+		st_fase.ds_clientes_nuevos.setitem(j,'nif',cli_texto)
+		st_fase.ds_clientes_nuevos.setitem(j,'id_cliente',id_cli[i])
+		st_fase.ds_clientes_nuevos.setitem(j,'n_cliente',n_cli[i])
+		st_fase.ds_clientes_nuevos.setitem(j,'tipo_persona',tipo_persona[i])
+		st_fase.ds_clientes_nuevos.setitem(j,'nombre',nombre_cli[i])
+		st_fase.ds_clientes_nuevos.setitem(j,'apellidos',apellidos_cli[i])
+		st_fase.ds_clientes_nuevos.setitem(j,'observaciones',observaciones_cli[i])
+		st_fase.ds_clientes_nuevos.setitem(j,'nombre_via',nombre_via_cli[i])
+
+		/*tipo_via_emplazamiento*/
+		dato_a_comprobar=''
+		select descripcion into :dato_a_comprobar from tipos_via where cod_tipo_via = :tipo_via_cli[i];
+
+		if f_es_vacio(dato_a_comprobar) then
+			incidencias.incidencia='El Tipo de Via c$$HEX1$$f300$$ENDHEX$$digo '+tipo_via_cli[i]+' del cliente '+string(i)+' NO existe en la base de datos'
+			incidencias.solucion='NO se incorporar$$HEX1$$e100$$ENDHEX$$n los datos del Tipo de Via'
+			incidencias.campo_anomalo='Tipo Via cliente '+string(i)
+			incidencias.valor_codigo=tipo_via_cli[i]
+			incidencias.valor_descripcion=dato_a_comprobar
+			incidencias.evento_asociado=''
+			incidencias.nivel_incidencia='M'	
+			f_visared_incidencias(st_fase.ds_incidencias,incidencias)	
+		else 
+			st_fase.ds_clientes_nuevos.setitem(j,'tipo_via',tipo_via_cli[i])	
+		end if
+		/**/
+
+
+		/* comprobar Poblacion*/
+		// Si tiene valor la variable global g_campos_subsanados utilizamos su valor
+		retorno_comprobacion=''
+		if f_es_vacio(g_campos_subsanados.cod_pob_clientes[i]) then
+			dato_a_comprobar=cod_pos_cli[i]
+			desc_poblacion = desc_pob_cli[i]
+			st_res=f_devuelve_st_poblacion(dato_a_comprobar,desc_poblacion,false)
+			retorno_comprobacion=st_res.cod_pob			
+		else
+			dato_a_comprobar=g_campos_subsanados.cod_pos_clientes[i]
+			desc_poblacion = g_campos_subsanados.desc_poblacion_clientes[i]	
+			retorno_comprobacion=g_campos_subsanados.cod_pob_clientes[i]
+		end if		
+				
+		if retorno_comprobacion='-1' then
+			incidencias.incidencia='La Poblaci$$HEX1$$f300$$ENDHEX$$n c$$HEX1$$f300$$ENDHEX$$digo '+cod_pos_cli[i]+' del cliente '+string(i)+' NO existe en la base de datos'
+			incidencias.solucion='Busque la poblaci$$HEX1$$f300$$ENDHEX$$n que corresponda para ese c$$HEX1$$f300$$ENDHEX$$digo. Pulse el bot$$HEX1$$f300$$ENDHEX$$n "Subsanar" para ello'
+			incidencias.campo_anomalo='clientes_poblacion'+string(i)
+			incidencias.valor_codigo=dato_a_comprobar
+			incidencias.valor_descripcion=desc_poblacion
+			incidencias.evento_asociado='csd_poblacion_seleccion'
+			incidencias.nivel_incidencia='M'
+			f_visared_incidencias(st_fase.ds_incidencias,incidencias)
+			fila=st_fase.poblacion.InsertRow(0)
+			st_fase.poblacion.setitem(fila,'cod_pos',dato_a_comprobar)
+			st_fase.poblacion.setitem(fila,'descripcion',desc_poblacion)
+			st_fase.poblacion.setitem(fila,'provincia',id_prov_cli[i])
+		end if
+			st_fase.ds_clientes_nuevos.setitem(j,'cod_prov',id_prov_cli[i])	
+			st_fase.ds_clientes_nuevos.setitem(j,'cod_pob',retorno_comprobacion)	
+			st_fase.ds_clientes_nuevos.setitem(j,'cp',dato_a_comprobar)
+			//st_fase.ds_clientes_nuevos.setitem(j,'cod_prov',ProfileString(fichero,"CLIENTES",'provincia_'+string(i),""))	
+			
+			select cod_pais into :pais from paises where nombre='Espa$$HEX1$$f100$$ENDHEX$$a';
+			st_fase.ds_clientes_nuevos.setitem(j,'pais',pais)
+		/**/
+	
+		st_fase.ds_clientes_nuevos.setitem(j,'email',email[i])
+		st_fase.ds_clientes_nuevos.setitem(j,'url',url[i])
+		st_fase.ds_clientes_nuevos.setitem(j,'telefono',telefono_cli[i])	
+		st_fase.ds_clientes_nuevos.setitem(j,'fax',fax_cli[i])	
+	else // Dato a comprobar NO VACIO
+		dato_a_comprobar = ''
+		if f_es_vacio(g_campos_subsanados.cli_nif[i]) then
+			select clientes.id_cliente into :dato_a_comprobar from clientes, clientes_terceros where clientes.nif = :cli_nif[i] 
+			and clientes.id_cliente = clientes_terceros.id_cliente and clientes_terceros.c_tercero = '01';
+		else
+			select clientes.id_cliente into :dato_a_comprobar from clientes, clientes_terceros where clientes.nif = :g_campos_subsanados.cli_nif[i] 
+			and clientes.id_cliente = clientes_terceros.id_cliente and clientes_terceros.c_tercero = '01';
+		end if		
+		
+		if f_es_vacio(dato_a_comprobar) then
+			incidencias.incidencia = 'Cliente '+string(cli_texto)+': El tipo de cliente es incorrecto'
+			incidencias.solucion = 'Se debe a$$HEX1$$f100$$ENDHEX$$adir el tipo de cliente "CLIENTE COAAT"' //. Pulse el bot$$HEX1$$f300$$ENDHEX$$n "Subsanar" para ello '
+			incidencias.campo_anomalo = 'Cliente '+string(i)
+			incidencias.valor_codigo = id_cli[i]
+			incidencias.valor_descripcion = cli_texto
+			incidencias.evento_asociado = 'csd_tipo_tercero_cliente'
+			incidencias.nivel_incidencia = 'M'
+			f_visared_incidencias(st_fase.ds_incidencias,incidencias)		
+	
+			j= st_fase.ds_clientes_nuevos.InsertRow(0)
+
+			st_fase.ds_clientes_nuevos.setitem(j,'nif',cli_texto)
+			st_fase.ds_clientes_nuevos.setitem(j,'id_cliente',id_cli[i])
+			st_fase.ds_clientes_nuevos.setitem(j,'n_cliente',n_cli[i])
+			st_fase.ds_clientes_nuevos.setitem(j,'nombre',nombre_cli[i])
+			st_fase.ds_clientes_nuevos.setitem(j,'apellidos',apellidos_cli[i])
+			st_fase.ds_clientes_nuevos.setitem(j,'observaciones',observaciones_cli[i])
+			st_fase.ds_clientes_nuevos.setitem(j,'nombre_via',nombre_via_cli[i])
+		end if
+		
+		
+	end if
+
+	/**/	
+//Ponemos los datos dentro del datawindows de d_visared_promotores
+
+	st_fase.ds_clientes.InsertRow(0)
+	st_fase.ds_clientes.setitem(i,'nif',cli_texto)
+	st_fase.ds_clientes.setitem(i,'id_cliente',id_cliente)
+	st_fase.ds_clientes.setitem(i,'participacion',porcen_cli[i])
+	st_fase.ds_clientes.setitem(i,'promotor',promotor_cli[i])
+	st_fase.ds_clientes.setitem(i,'contratista',contratista_cli[i])	
+	st_fase.ds_clientes.setitem(i,'n_cliente',n_cli[i])	
+	
+	st_fase.ds_clientes.setitem(i,'pagador',pagador_cli[i])	
+	st_fase.ds_clientes.setitem(i,'nombre',nombre_cli[i])	
+	st_fase.ds_clientes.setitem(i,'apellidos',apellidos_cli[i])	
+	st_fase.ds_clientes.setitem(i,'observaciones',observaciones_cli[i])	
+	st_fase.ds_clientes.setitem(i,'nombre_via',nombre_via_cli[i])	
+	st_fase.ds_clientes.setitem(i,'id_pob',id_pob_cli[i])	
+	st_fase.ds_clientes.setitem(i,'telefono',telefono_cli[i])	
+	st_fase.ds_clientes.setitem(i,'fax',fax_cli[i])	
+	
+	
+	if cli_nif[i]<>nif_representante[i] and not(f_es_vacio(nif_representante[i])) then
+		st_fase.ds_clientes.setitem(i,'id_representante',rep_id[i])	
+		st_fase.ds_clientes.setitem(i,'nif_representante',rep_nif[i])	
+	end if
+
+	
+next 
+
+// se rellena los datos relacionados con los pagos en la plataforma
+f_eimporta_get_datos_pagos_plataforma(fichero, st_fase)
+
+// cogemos y rellenamos los colegiados
+total_col=ProfileString(fichero,"COLEGIADOS","total","*")
+
+for i=1 to integer(total_col)
+	//Cogemos los datos del fichero .INI de [COLEGIADOS]
+	col_numero[i]=ProfileString(fichero,"COLEGIADOS",'numero_'+string(i),"")	
+	col_numero[i] = f_eimporta_redondear_colegiados(col_numero[i])
+	//Redondeamos a 5 cifras para Alicante y Leon
+	if g_colegio='COAATA' or g_colegio='COAATLE' then	col_numero[i] = right('00000'+col_numero[i],5)
+	col_porcentaje[i]=double(ProfileString(fichero,"COLEGIADOS",'porcentaje_'+string(i),"0"))
+	col_autor[i]=ProfileString(fichero,"COLEGIADOS",'autor_'+string(i),"")	
+	col_director[i]=ProfileString(fichero,"COLEGIADOS",'director_'+string(i),"")
+	col_nombre[i]=ProfileString(fichero,"COLEGIADOS",'nombre_'+string(i),"")
+	col_nif[i]=ProfileString(fichero,"COLEGIADOS",'nif_'+string(i),"")		
+	col_miembro_sociedad[i]=ProfileString(fichero,"COLEGIADOS",'miembro_sociedad_'+string(i),"")		
+	col_func[i]=ProfileString(fichero,"COLEGIADOS",'funcionario_'+string(i),"N")		
+
+	//Ponemos los datos dentro del datawindows de d_visared_colegiados		
+	st_fase.ds_colegiados.InsertRow(0)
+	
+	/*comprobaciones*/
+	dato_a_comprobar=''
+	
+	/*if f_es_vacio(g_campos_subsanados.col_numero[i]) then
+		select n_colegiado into :dato_a_comprobar from colegiados where n_colegiado = :col_numero[i];
+	else
+		dato_a_comprobar=g_campos_subsanados.col_numero[i]
+	end if*/
+	
+	//SCP-367
+	if f_es_vacio(g_campos_subsanados.col_numero[i]) then
+		//Comprobamos si existe algun colegiado a partir del nif
+		select count(*) into :num_col from colegiados where nif= :col_nif[i] and alta_baja='S';		
+		
+		if num_col=1 then
+			//Solo existe un colegiado con este NIF dado de alta
+			select n_colegiado into :dato_a_comprobar from colegiados where nif= :col_nif[i] and alta_baja='S';			
+		else
+			//Si existe mas de un colegiado con este NIF dado de alta o no existe ninguno, comprobamos por n$$HEX2$$ba002000$$ENDHEX$$de colegiado y colegio
+			select count(*) into :num_col_2 from colegiados where n_colegiado= :col_numero[i] and colegio = :id_colegio;
+			if num_col_2 = 1 then
+				select n_colegiado into :dato_a_comprobar from colegiados  where n_colegiado= :col_numero[i] and colegio = :id_colegio  and alta_baja='S';
+			end if
+		end if
+	else
+		dato_a_comprobar=g_campos_subsanados.col_numero[i]
+	end if
+	//FIN SCP-367
+
+	//select n_colegiado into :dato_a_comprobar from colegiados where n_colegiado = :col_numero[i];
+
+	if f_es_vacio(dato_a_comprobar) then
+		incidencias.incidencia='El Colegiado '+string(i)+' :'+col_numero[i] +' con NIF: '+col_nif[i]+' no esta dado de alta en la BD o esta duplicado.Compruebe los datos del Colegiado y que no este dado de baja.'
+		//incidencias.incidencia=' El Colegiado '+string(i)+' :'+col_numero[i] +' (NIF:'+col_nif[i]+') NO ha sido encontrado por su NIF ni por el numero de colegiado y colegio en la base de datos. Revise que el NIF sea correcto y que este dado de alta'
+		incidencias.solucion='NO se incorporar$$HEX1$$e100$$ENDHEX$$n los datos del Colegiado'
+		incidencias.campo_anomalo='Colegiado '+string(i)
+		incidencias.valor_codigo=col_numero[i]
+		incidencias.valor_descripcion=dato_a_comprobar
+		incidencias.evento_asociado='csd_asociar_colegiado'
+		incidencias.nivel_incidencia='G'	
+		f_visared_incidencias(st_fase.ds_incidencias,incidencias)	
+	else
+		st_fase.ds_colegiados.setitem(i,'numero',dato_a_comprobar) //col_numero[i])
+		// Se actualiza el dato del colegiado pagador. 
+		st_fase.ds_fases_pagos_plataforma.setitem(i, 'n_colegiado', dato_a_comprobar )
+	end if
+		/**/
+	st_fase.ds_colegiados.setitem(i,'numero',dato_a_comprobar) //col_numero[i])	  
+	st_fase.ds_colegiados.setitem(i,'porcentaje',col_porcentaje[i])
+	st_fase.ds_colegiados.setitem(i,'autor',col_autor[i])
+	st_fase.ds_colegiados.setitem(i,'director',col_director[i])		
+	st_fase.ds_colegiados.setitem(i,'nombre',col_nombre[i])		
+	st_fase.ds_colegiados.setitem(i,'nif',col_nif[i])		
+	st_fase.ds_colegiados.setitem(i,'miembro_sociedad',col_miembro_sociedad[i])		
+	st_fase.ds_colegiados.setitem(i,'funcionario',col_func[i])
+	//SCP-367 Cambiamos de lugar esta l$$HEX1$$ed00$$ENDHEX$$nea de c$$HEX1$$f300$$ENDHEX$$digo para evitar posibles efectos colaterales.
+	st_fase.ds_detalle_fase.setitem(1,'colegiado',dato_a_comprobar)
+next 
+		
+//Cogemos los datos del fichero .INI de [ARQUITECTOS]
+total_arq=ProfileString(fichero,"ARQUITECTOS","total","*")
+for i=1 to integer(total_arq)
+	arq_numero[i]=ProfileString(fichero,"ARQUITECTOS",'numero_'+string(i),"")
+	arq_nombre[i]=ProfileString(fichero,"ARQUITECTOS",'nombre_'+string(i),"")
+	arq_apellidos[i]=ProfileString(fichero,"ARQUITECTOS",'apellidos_'+string(i),"")
+	arq_autor[i]=ProfileString(fichero,"ARQUITECTOS",'autor_'+string(i),"")	
+	arq_director[i]=ProfileString(fichero,"ARQUITECTOS",'director_'+string(i),"")
+	arq_titulacion = ProfileString(fichero,"ARQUITECTOS",'titulacion_'+string(i),"")
+	
+	//Ponemos los datos dentro del datawindows de d_visared_arquitectos		
+	st_fase.ds_arquitectos.InsertRow(0)
+	st_fase.ds_arquitectos.setitem(i,'apellidos',arq_apellidos[i])
+	st_fase.ds_arquitectos.setitem(i,'nombre',arq_nombre[i])			
+	st_fase.ds_arquitectos.setitem(i,'autor',arq_autor[i])
+	st_fase.ds_arquitectos.setitem(i,'director',arq_director[i])
+	SELECT count(codigo) into :check from titulaciones where descripcion = :arq_titulacion;
+	if check > 0 then
+		st_fase.ds_arquitectos.setitem(i,'titulacion',arq_titulacion)
+	end if
+next 
+
+
+//	Cogemos y rellenamos asociados
+		total_aso=ProfileString(fichero,"ASOCIADOS","total","*")
+		for i=1 to integer(total_aso)
+			//Cogemos los datos del fichero .INI de [ASOCIADOS]
+			aso_numero[i]=ProfileString(fichero,"ASOCIADOS",'numero_'+string(i),"")
+			aso_numero[i]=f_eimporta_redondear_colegiados(aso_numero[i])
+			aso_porcentaje[i]=double(ProfileString(fichero,"ASOCIADOS",'porcentaje_'+string(i),""))
+			aso_autor[i]=ProfileString(fichero,"ASOCIADOS",'autor_'+string(i),"")		
+			aso_direc[i]=ProfileString(fichero,"ASOCIADOS",'director_'+string(i),"")		
+			aso_nombre[i]=ProfileString(fichero,"ASOCIADOS",'nombre_'+string(i),"")
+			aso_nif[i]=ProfileString(fichero,"ASOCIADOS",'nif_'+string(i),"")		
+			miembro_sociedad[i]=ProfileString(fichero,"ASOCIADOS",'miembro_sociedad_'+string(i),"")	
+			sociedad[i]=ProfileString(fichero,"ASOCIADOS",'sociedad_'+string(i),"")				
+			sociedad[i]=f_eimporta_redondear_colegiados(sociedad[i])
+			select n_colegiado into :num from colegiados where n_colegiado = :sociedad[i];
+			if f_es_vacio(num) then
+				//Recorremos todos los colegiados
+				total_col=ProfileString(fichero,"COLEGIADOS","total","*")
+				for j=1 to integer(total_col)			
+					num=ProfileString(fichero,"COLEGIADOS",'numero_'+string(j),"")
+				   // Si la sociedad del asociado corresponde con algun colegiado ORIGINAL (es decir, sin subsanar)
+					// Hacemos la comprobacion contra el campo subsanado
+					if num<>sociedad[i] then continue
+					if not(f_es_vacio(g_campos_subsanados.col_numero[j])) then	sociedad[i]=g_campos_subsanados.col_numero[j]
+
+				next
+			end if
+			
+			/*comprobaciones*/
+			dato_a_comprobar=''
+			select n_colegiado into :dato_a_comprobar from colegiados where n_colegiado = :aso_numero[i];
+		
+			if f_es_vacio(dato_a_comprobar) then												
+				incidencias.incidencia='El Colegiado Asociado n$$HEX1$$fa00$$ENDHEX$$mero '+aso_numero[i]+' NO existe en la base de datos'
+				incidencias.solucion='NO se incorporar$$HEX1$$e100$$ENDHEX$$n los datos del Asociado'
+				incidencias.campo_anomalo='Asociado'
+				incidencias.valor_codigo=aso_numero[i]
+				incidencias.valor_descripcion=dato_a_comprobar
+				incidencias.evento_asociado=''
+				incidencias.nivel_incidencia='G'	
+				f_visared_incidencias(st_fase.ds_incidencias,incidencias)	
+			end if
+	
+			//Ponemos los datos dentro del datawindows de d_visared_asociados		
+			st_fase.ds_asociados.InsertRow(0)
+			st_fase.ds_asociados.setitem(i,'numero',aso_numero[i])	
+			st_fase.ds_asociados.setitem(i,'porcentaje',aso_porcentaje[i])	
+			st_fase.ds_asociados.setitem(i,'autor',aso_autor[i])	
+			st_fase.ds_asociados.setitem(i,'director',aso_direc[i])	
+			st_fase.ds_asociados.setitem(i,'nombre',aso_nombre[i])	
+			st_fase.ds_asociados.setitem(i,'nif',aso_nif[i])	
+			st_fase.ds_asociados.setitem(i,'miembro_sociedad',miembro_sociedad[i])	
+			st_fase.ds_asociados.setitem(i,'sociedad',sociedad[i])	
+			
+		next 
+
+
+
+		total_gastos=ProfileString(fichero,"GASTOS","total","*")
+		for i=1 to integer(total_gastos)
+			tipo_gasto[i]=ProfileString(fichero,"GASTOS",'tipo_gasto_'+string(i),"")
+			tipo_iva[i]=ProfileString(fichero,"GASTOS",'tipo_iva_'+string(i),"")
+			importe[i]=double(ProfileString(fichero,"GASTOS",'importe_'+string(i),""))
+			iva[i]=double(ProfileString(fichero,"GASTOS",'iva_'+string(i),""))
+		   descripcion_gasto[i]=ProfileString(fichero,"GASTOS",'descripcion_gasto_'+string(i),"")
+			
+			// Ponemos los datos dentro del datawindows de descuentos
+			st_fase.ds_gastos.InsertRow(0)
+			//Ponemos el id
+			st_fase.ds_gastos.setitem(i,'id_informe',f_siguiente_numero('FASES-INFORMES',10))
+			st_fase.ds_gastos.setitem(i,'tipo_informe',tipo_gasto[i])
+			st_fase.ds_gastos.setitem(i,'t_iva',tipo_iva[i])
+			st_fase.ds_gastos.setitem(i,'cuantia_colegiado',importe[i])
+			st_fase.ds_gastos.setitem(i,'impuesto_colegiado',iva[i])
+			st_fase.ds_gastos.setitem(i,'descripcion',descripcion_gasto[i])
+		next		
+		
+		
+SetPointer(Arrow!)	
+
+return st_fase
+end function
+

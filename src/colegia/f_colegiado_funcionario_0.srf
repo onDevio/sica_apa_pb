@@ -1,0 +1,36 @@
+HA$PBExportHeader$f_colegiado_funcionario_0.srf
+global type f_colegiado_funcionario_0 from function_object
+end type
+
+forward prototypes
+global function string f_colegiado_funcionario_0 (string id_fase, string id_col)
+end prototypes
+
+global function string f_colegiado_funcionario_0 (string id_fase, string id_col);string cod_pob_fase
+datetime hoy, f_ini, f_fin
+string mensaje = '', descripcion, cod_pob
+
+hoy=datetime(today(),now())
+SELECT fases.poblacion  
+ INTO :cod_pob_fase
+ FROM fases  
+WHERE fases.id_fase = :id_fase   ;
+
+
+SELECT incompatibilidades.fecha_inicio,incompatibilidades.fecha_fin,  t_incompatibilidad.descripcion, incompatibilidades.cod_pob
+INTO :f_ini, :f_fin, :descripcion, :cod_pob
+FROM incompatibilidades, t_incompatibilidad 
+WHERE  incompatibilidades.incompatibilidad = 'S'  AND  
+incompatibilidades.fecha_inicio <= :hoy AND   
+incompatibilidades.fecha_fin >= :hoy AND
+incompatibilidades.id_colegiado = :id_col AND  
+incompatibilidades.cod_pob = :cod_pob_fase AND
+incompatibilidades.tipo_incompatibilidad = t_incompatibilidad.cod_incompatibilidad;
+
+if sqlca.SQLNrows >0 then
+	mensaje = 'El colegiado ' + f_colegiado_apellido(id_col) + ' (' + f_colegiado_n_col(id_col) + ')' + ' es funcionario en ' + f_poblacion_descripcion(cod_pob) + ' La Prima de MUSAAT debe ser 0'
+end if
+
+return mensaje
+end function
+

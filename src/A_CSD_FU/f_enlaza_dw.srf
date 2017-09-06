@@ -1,0 +1,21 @@
+HA$PBExportHeader$f_enlaza_dw.srf
+$PBExportComments$Enlaza dw_1(master) con dw_esclava a trav$$HEX1$$e900$$ENDHEX$$s de col1 y col_esclava.
+global type f_enlaza_dw from function_object
+end type
+
+forward prototypes
+global function integer f_enlaza_dw (ref u_dw dw_1, ref u_dw dw_esclava, string col1, string col_esclava)
+end prototypes
+
+global function integer f_enlaza_dw (ref u_dw dw_1, ref u_dw dw_esclava, string col1, string col_esclava);//ENLAZA DOS DATAWINDOWS (CONTROLES U_DW)
+//SE PRESUPONE QUE ESTO YA ESTA EJECUTADO EN EL OPEN DE LA VENTANA PRINCIPAL:
+
+dw_1.of_SetLinkage(TRUE) 
+dw_esclava.of_SetLinkage(TRUE)
+dw_esclava.inv_linkage.of_LinkTo(dw_1)
+dw_esclava.inv_linkage.of_SetArguments (col1,col_esclava) 
+dw_esclava.inv_linkage.of_SetUseColLinks(2)
+dw_esclava.inv_linkage.of_SetUpdateBottomUp (TRUE)
+return 1
+end function
+

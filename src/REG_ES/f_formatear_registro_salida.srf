@@ -1,0 +1,58 @@
+HA$PBExportHeader$f_formatear_registro_salida.srf
+global type f_formatear_registro_salida from function_object
+end type
+
+forward prototypes
+global function string f_formatear_registro_salida (string serie, string numero)
+end prototypes
+
+global function string f_formatear_registro_salida (string serie, string numero);st_control_eventos c_evento 
+string cont,formato,anyo,deleg
+int enes,i,aes,des
+
+c_evento.evento = 'REGISTRO_ES'
+f_control_eventos(c_evento)
+cont = c_evento.param1
+
+formato= cont
+if PosA(formato, 'n')>0 then
+	// la numeracion
+	// Contamos las enes que hay
+	for i=1 to LenA(formato)
+		if MidA(formato, i, 1) = 'n' then enes++
+	next
+	// Construimos el n$$HEX1$$fa00$$ENDHEX$$mero como quieren
+	numero = right('0000000000000000000000'+numero,enes)
+	// Y lo reemplazamos en el formato
+	cont = ReplaceA(cont,PosA(formato, 'n'),enes,numero)
+end if
+
+if PosA(formato, 'a')>0 then
+	// Lleva el a$$HEX1$$f100$$ENDHEX$$o
+	// Contamos las aes que hay
+	for i=1 to LenA(formato)
+		if MidA(formato, i, 1) = 'a' then aes++
+	next
+	// Construimos el a$$HEX1$$f100$$ENDHEX$$o como quieren
+	anyo = RightA(string(year(today())),aes)
+	// Y lo reemplazamos en el formato
+	cont = ReplaceA(cont,PosA(formato, 'a'),aes,anyo)
+end if
+
+if PosA(formato, 'd')>0 then
+	// Lleva la delegaci$$HEX1$$f300$$ENDHEX$$n
+	// Contamos las des que hay
+	for i=1 to LenA(formato)
+		if MidA(formato, i, 1) = 'd' then des++
+	next
+	// Construimos la delegaci$$HEX1$$f300$$ENDHEX$$n como quieren
+	deleg = f_delegacion_siglas(g_cod_delegacion)
+	if isnull(deleg) then deleg = ''
+	// Y lo reemplazamos en el formato
+	cont = ReplaceA(cont,PosA(formato, 'd'),des,deleg)
+end if
+
+
+return serie+'-'+cont
+end function
+

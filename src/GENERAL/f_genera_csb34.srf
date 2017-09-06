@@ -1,0 +1,264 @@
+HA$PBExportHeader$f_genera_csb34.srf
+global type f_genera_csb34 from function_object
+end type
+
+forward prototypes
+global function long f_genera_csb34 (datawindow dw_lista, st_cobros_datos_remesa datos_remesa, string nombre_ventana, ref string lista_liquidaciones)
+end prototypes
+
+global function long f_genera_csb34 (datawindow dw_lista, st_cobros_datos_remesa datos_remesa, string nombre_ventana, ref string lista_liquidaciones);// PRODUCTOS SOPORTADOS: SICAP
+//// DESCRIPCI$$HEX1$$d300$$ENDHEX$$N: Genera un fichero con el formato CSB 34 con las transferencias a realizar a partir de la emisi$$HEX1$$f300$$ENDHEX$$n de $$HEX1$$f300$$ENDHEX$$rdenes de pago.
+String NombreFichero,formato_fichero,NombreFicheroConRuta,directorio,CabTipo1,CabTipo2,CabTipo3,CabTipo4,CabTipo5,CabTipo6 // Registros de cabecera
+String BenTipo1,BenTipo2,BenTipo3,BenTipo4,BenTipo5,BenTipo6,BenTipo7, BenTipo8 // Registros de beneficiarios
+String NifOrdenante,FechaEnvio,FechaEmision,Entidad,Sucursal,Cuenta,DC,CC	// Informaci$$HEX1$$f300$$ENDHEX$$n de cabecera
+String NombreBanco,CalleBanco,LocBanco,iban,iban_formateado,bic_formateado,NombreBen,EntidadBen,SucursalBen,CuentaBen,DCBen // Informaci$$HEX1$$f300$$ENDHEX$$n de beneficiarios
+String NuCol,NifProv,NifReceptor,id_col, id_cli, id_liq, ls_id_fase, id_fase, n_fact_liq, StrImporte, ConceptoTrans = "Transf. Liquidaciones de Contratos", ls_conceptoFactGastos = "Facturas Gastos"
+String RegTotal, StrNumBen,StrNumReg, NumContrato, NombreOrd, CalleOrd, LocOrd, DomBen,PobBen, sl_nif_colegio, nombre_empresa,direccion_empresa, nom_fich_completo_XML
+int NumRegistros,NumBenef, hFichero	// Manejador del fichero
+Long i, retorno
+Decimal ImporteTotal,Importe
+Datetime f_liquidacion
+uo_migrar_a_norma_34_14 iuo_migrar_a_norma_34_14 
+n_cst_filesrvwin32 cambia_directorio
+
+retorno = 0
+
+SetPointer(HourGlass!)
+
+if datos_remesa.banco='-1' then RETURN -1
+iban = gnv_control_cuentas_bancarias.of_obtener_iban_nombre_modulo ('BANCOS',datos_remesa.banco) 
+if not (gnv_control_cuentas_bancarias.of_validar_cuenta( 'BP', f_obtener_iban_from_cc(iban,'ES'), datos_remesa.formato, datos_remesa.banco )) then return -1
+
+iuo_migrar_a_norma_34_14 = create uo_migrar_a_norma_34_14 
+cambia_directorio = create n_cst_filesrvwin32
+
+directorio = cambia_directorio.of_getcurrentdirectory()
+//si el formato es el csb34-14, se pasa el fichero por el conversor.
+NombreFichero = 'TR'+string(today(),'yymmdd') +'-'+String(Now(), "hhmmss") 
+//if datos_remesa.formato = 'S' then NombreFichero += '_14'
+choose case (datos_remesa.formato)
+	case 'X'
+		NombreFicheroConRuta = g_directorio_temporal + NombreFichero + '_14.f34'
+		NombreFichero = NombreFichero + '_ISO20022'
+		nom_fich_completo_XML = NombreFichero
+
+		if GetFileSaveName('Seleccione nombre del fichero XML',nom_fich_completo_XML,NombreFichero,'.XML','Ficheros de Transferencias formato ISO 20022 (*.XML),*.XML') <> 1 Then
+			cambia_directorio.of_changedirectory(directorio)
+			destroy cambia_directorio
+			return -1
+		End If
+	case else
+		if datos_remesa.formato = 'S' then NombreFichero = NombreFichero + '_14'
+		NombreFicheroConRuta = NombreFichero
+		if GetFileSaveName('Seleccione nombre de fichero CSB formato 34',NombreFicheroConRuta,NombreFichero,'.' + upper(g_ext_csb34),'Ficheros CSB formato 34 (*.'+ g_ext_csb34+'),*.'+g_ext_csb34) <> 1 Then
+			cambia_directorio.of_changedirectory(directorio)
+			destroy cambia_directorio
+			return -1
+		End If
+end choose
+
+
+if isnull(datos_remesa.fecha) then datos_remesa.fecha=datetime( today())
+if f_es_vacio(lista_liquidaciones) then lista_liquidaciones = '( '
+
+nombre_empresa = g_nombre_empresa_csb
+direccion_empresa = g_direccion_empresa_csb
+NifOrdenante = g_cif_empresa // El ordenante es el colegio; su nif es el que sigue
+NifOrdenante = f_completar_con_caracteres(NifOrdenante,10,'D',' ')
+FechaEnvio = String(today(),"ddmmyy")
+FechaEmision = String(today(),"ddmmyy")
+IF nombre_ventana = 'w_garantias_liquidaciones' THEN FechaEmision = String(datos_remesa.fecha,"ddmmyy")
+Entidad = f_conta_entidad_cuenta(iban)
+Sucursal = f_conta_sucursal_cuenta(iban)
+DC = f_conta_dc_cuenta(iban)
+Cuenta	= f_conta_num_cuenta(iban)
+If IsNull(Entidad) Then Entidad = ''
+If IsNull(Sucursal) Then Sucursal = ''
+If IsNull(DC) Then DC = ''
+If IsNull(Cuenta) Then Cuenta = ''
+Entidad = f_completar_con_caracteres(Entidad,4,'I','0')
+Sucursal = f_completar_con_caracteres(Sucursal,4,'I','0')
+DC = f_completar_con_caracteres(DC,2,'I','0')
+Cuenta = f_completar_con_caracteres(Cuenta,10,'I','0')
+
+Cabtipo1 = '03' + '56' + NifOrdenante + Space(12) + '001' + FechaEnvio + FechaEmision +	Entidad + Sucursal + Cuenta + '0' + Space(3) + DC + Space(7)
+// Registros de cabecera
+if isnull(NombreOrd) then NombreOrd=''
+if isnull(CalleOrd) then CalleOrd=''
+if isnull(LocOrd) then LocOrd=''
+NombreOrd = NombreOrd + FillA(' ', 36 - LenA(NombreOrd))
+CalleOrd = CalleOrd + FillA(' ', 36 - LenA(CalleOrd))
+LocOrd = LocOrd + FillA(' ', 36 - LenA(LocOrd))
+if LenA(nombre_empresa)>36 then nombre_empresa = MidA(nombre_empresa,1,36)
+if LenA(direccion_empresa)>36 then direccion_empresa = MidA(direccion_empresa,1,36)
+NombreOrd = f_completar_con_caracteres(nombre_empresa,36,'D',' ')
+CalleOrd  = f_completar_con_caracteres(direccion_empresa,36,'D',' ')
+LocOrd    = f_completar_con_caracteres(g_localidad_empresa,36,'D',' ')
+CabTipo2 = '03' + '56' + NifOrdenante + Space(12) + '002' + NombreOrd + space(7)
+CabTipo3 = '03' + '56' + NifOrdenante + Space(12) + '003' + CalleOrd + space(7)
+CabTipo4 = '03' + '56' + NifOrdenante + Space(12) + '004' + LocOrd + space(7)
+NumRegistros = 4
+
+// Comenzamos la generaci$$HEX1$$f300$$ENDHEX$$n del fichero
+hFichero = FileOpen(NombreFicheroConRuta,Linemode!,write!,shared!,replace!)
+FileWrite(hFichero, CabTipo1)
+FileWrite(hFichero, CabTipo2)
+FileWrite(hFichero, CabTipo3)
+FileWrite(hFichero, CabTipo4)
+
+// Registros de beneficiario
+Importe = 0
+ImporteTotal = 0
+NumBenef = 0
+For i = 1 to dw_lista.RowCount()
+	if dw_lista.GetItemString(i,'procesar_registro') <> 'S' then CONTINUE
+	NumBenef++  
+	importe = dw_lista.GetItemNumber(i,'importe')
+	ImporteTotal += Importe
+	id_col = dw_lista.GetItemString(i,'id_colegiado')	
+	
+	ConceptoTrans = datos_remesa.concepto 
+	CHOOSE CASE nombre_ventana
+		CASE 'w_liquidaciones_lista'
+				id_liq = dw_lista.getitemstring(i, 'id_liquidacion')
+				f_liquidacion = datos_remesa.fecha
+				//ConceptoTrans = datos_remesa.concepto // calculada
+				IF f_existe_columna_en_dw(dw_lista,'id_minuta') = 1 THEN  // S$$HEX1$$f300$$ENDHEX$$lo Liquidaciones con datos de Expedientes: ConceptoTrans, ls_conceptoFactGastos
+					id_fase = dw_lista.getitemstring(i, 'id_fase')
+					ConceptoTrans = 'Transf.Liq.Fact.:' + f_liquidacion_factura_honos(id_liq)
+					if ConceptoTrans = 'Transf.Liq.Fact.:' THEN			// No ha encontrado la factura correspondiente por lo que deberiamos poner otro conceto
+						SELECT csi_facturas_emitidas.n_fact INTO :n_fact_liq FROM csi_facturas_emitidas,fases_liquidaciones 	WHERE ( fases_liquidaciones.id_fase = csi_facturas_emitidas.id_fase ) and fases_liquidaciones.id_liquidacion = :id_liq;
+						if f_es_Vacio(n_fact_liq) then				// Ponemos el concepto de la liquidacion
+							ConceptoTrans = dw_lista.GetItemString(i, 'concepto')
+						else			// Ponemos la factura asociada, ya que no habia de honorarios
+							ConceptoTrans = 'Transf.Liq.Fact.:' + n_fact_liq
+						end if
+						if g_colegio = 'COAATB' AND id_fase = 'LIQMANUAL' and not f_es_vacio(dw_lista.GetItemString(i,'concepto')) then ConceptoTrans = dw_lista.GetItemString(i,'concepto')			// Cuando es una liquidaci$$HEX1$$f300$$ENDHEX$$n manual que coja el concepto introducido // Provisionalmente solo para Bizkaia que lo han pedido
+					else
+						if g_colegio = 'COAATCC' then
+						ls_conceptoFactGastos = 'Fact.Gastos: ' + f_liquidacion_factura_gastos(id_fase)
+							if (ls_conceptoFactGastos = 'Fact.Gastos: ' or f_es_vacio(ls_conceptoFactGastos)) then 
+								ls_conceptoFactGastos = ''
+							else
+								ls_conceptoFactGastos = MidA(ls_conceptoFactGastos,1,36) + space( 36 - LenA(ls_conceptoFactGastos))
+							end if	
+						end if	///Fin cambios ICC-341. Alexis. Obtenemos los datos relativos a la factura de gastos relacionada. Ahora se debe a$$HEX1$$f100$$ENDHEX$$adir m$$HEX1$$e100$$ENDHEX$$s abajo///
+					end if
+				END IF // id_minuta, Liquidaciones con datos de Expedientes
+		CASE 'w_premaat_pago_prestaciones'
+				id_liq = dw_lista.getitemstring(i, 'id_liquidacion')
+				f_liquidacion = DateTime (Today())
+				ConceptoTrans = datos_remesa.concepto 
+		CASE 'w_premaat_liquid_lista'
+				id_liq = dw_lista.getitemstring(i, 'id_liquidacion')
+				f_liquidacion = DateTime (Today())
+				ConceptoTrans = datos_remesa.concepto 
+		CASE 'w_garantias_liquidaciones'
+				id_liq = dw_lista.getitemstring(i, 'id_liquidacion')
+				f_liquidacion = datos_remesa.fecha
+				IF f_existe_columna_en_dw(dw_lista,'descripcion_larga') =1 THEN  ConceptoTrans = dw_lista.GetItemString(i,'descripcion_larga')
+		CASE 'w_garantias_devolucion'
+				id_liq = dw_lista.getitemstring(i, 'id_liquidacion')
+				f_liquidacion = datos_remesa.fecha
+				ConceptoTrans = 'Devolucion Garantia'
+		CASE 'w_ing_ret_lista'
+				id_liq = dw_lista.getitemstring(i, 'id_traspaso')
+				// f_liquidacion = datos_remesa.fecha // No aplica
+				IF f_existe_columna_en_dw(dw_lista,'descripcion') =1 THEN  ConceptoTrans = dw_lista.GetItemString(i,'descripcion')
+	END CHOOSE
+	IF f_es_vacio(ConceptoTrans) THEN ConceptoTrans = ''
+	lista_liquidaciones += '~'' + id_liq + + '~'' + ', ' 
+	
+	IF f_existe_columna_en_dw(dw_lista,'estado') =1 THEN dw_lista.SetItem(i,'estado','L')
+	IF f_existe_columna_en_dw(dw_lista,'f_liquidacion') =1  THEN dw_lista.SetItem(i,'f_liquidacion',f_liquidacion)		
+	IF f_existe_columna_en_dw(dw_lista,'cta_pago') =1 THEN dw_lista.SetItem(i,'cta_pago',f_dame_cuenta_contable_banco(datos_remesa.banco))
+	
+	IF f_es_vacio(id_col) THEN  // Cliente
+		id_cli = dw_lista.GetItemString(i,'id_beneficiario')
+		
+		NombreBen = dw_lista.GetItemString(i,'nombre')
+		select nif into :nifreceptor from clientes where id_cliente = :id_cli;
+		DomBen = f_domicilio_cliente(id_cli)
+		PobBen = f_poblacion_cliente(id_cli)
+	ELSE		// Colegiado
+		NombreBen = f_colegiado_nombre_apellido(id_col)
+		select nif into :nifreceptor from colegiados where id_colegiado = :id_col;
+		DomBen = f_domicilio_fiscal(id_col)
+		PobBen = f_poblacion_fiscal(id_col)
+	END IF
+
+	NifReceptor = f_completar_con_caracteres(NifReceptor,12,'I',' ')
+	NombreBen = MidA(NombreBen,1,36) + space(36 - LenA(NombreBen))
+	DomBen = MidA(DomBen,1,36) + space( 36 - LenA(DomBen))
+	PobBen = MidA(PobBen,1,36) + space( 36 - LenA(PobBen))
+	ConceptoTrans = MidA(ConceptoTrans,1,36) + space( 36 - LenA(ConceptoTrans))
+	
+	iban = dw_lista.GetItemString(i,'iban')
+	EntidadBen = f_completar_con_caracteres( f_conta_entidad_cuenta(iban) ,4,'I','0')
+	SucursalBen = f_completar_con_caracteres( f_conta_sucursal_cuenta(iban) ,4,'I','0')
+	DCBen = f_completar_con_caracteres( f_conta_dc_cuenta(iban) ,2,'I','0')
+	CuentaBen = f_completar_con_caracteres( f_conta_num_cuenta(iban) ,4,'I','0')
+
+	StrImporte = String(f_redondea(Importe),"#0.00")
+	StrImporte = ReplaceA(StrImporte,PosA(StrImporte,','),1,'')
+	StrImporte = f_completar_con_caracteres(StrImporte,12,'I','0')
+
+	BenTipo1 = '06' + '56' + NifOrdenante + NifReceptor + '010' + StrImporte + EntidadBen + SucursalBen + CuentaBen + '1' + '9' + Space(2) + DCBen + Space(7)
+	IF datos_remesa.formato <> 'N' THEN	BenTipo1 += f_completar_con_caracteres(dw_lista.GetItemString(i,'iban'),34,'D',' ')  + f_completar_con_caracteres(dw_lista.GetItemString(i,'bic'),11,'D',' ')
+	
+	BenTipo2 = '06' + '56' + NifOrdenante + NifReceptor + '011' + NombreBen + Space(7) 
+	BenTipo3 = '06' + '56' + NifOrdenante + NifReceptor + '012' + DomBen + Space(7) 
+	BenTipo5 = '06' + '56' + NifOrdenante + NifReceptor + '014' + PobBen + Space(7) 
+	BenTipo7 = '06' + '56' + NifOrdenante + NifReceptor + '016' + ConceptoTrans + Space(7) 
+	NumRegistros = NumRegistros + 5
+			
+	FileWrite(hFichero,BenTipo1)
+	FileWrite(hFichero,BenTipo2)
+	FileWrite(hFichero,BenTipo3)
+	FileWrite(hFichero,BenTipo5)
+	FileWrite(hFichero,BenTipo7)
+	
+	if NOT f_es_vacio(ls_conceptoFactGastos) AND g_colegio = 'COAATCC' then
+		BenTipo8 = '06' + '56' + NifOrdenante + NifReceptor + '017' + ls_conceptoFactGastos + Space(7)
+		NumRegistros ++
+		FileWrite(hFichero,BenTipo8)
+	end if 		
+Next
+
+StrImporte = String(f_redondea(ImporteTotal),"#0.00")
+StrImporte = ReplaceA(StrImporte,PosA(StrImporte,','),1,'')
+StrImporte = f_completar_con_caracteres(StrImporte,12,'I','0')
+StrNumBen = f_completar_con_caracteres( string(NumBenef) ,8,'I','0')
+NumRegistros ++
+StrNumReg = String(NumRegistros)
+StrNumReg = f_completar_con_caracteres (StrNumReg,10,'I','0')
+RegTotal = '08' + '56' + NifOrdenante + Space(15) + StrImporte + StrNumBen + StrNumReg + Space(13)
+
+FileWrite(hFichero,RegTotal)
+FileClose(hFichero)
+
+//si el formato es el csb34-14, se pasa el fichero por el conversor.
+if datos_remesa.formato <> 'N' then iuo_migrar_a_norma_34_14.f_pasar_norma34_14( NombreFicheroConRuta,NombreFicheroConRuta )
+destroy iuo_migrar_a_norma_34_14
+
+if (datos_remesa.formato = 'X' ) then
+	n_sepa_ws_consumption uo_sepa
+	uo_sepa=create n_sepa_ws_consumption
+	
+	retorno= uo_sepa.of_get_transf_file( NombreFicheroConRuta, nom_fich_completo_XML)
+	destroy uo_sepa
+end if	
+
+// Cambiamos al directorio raiz de la aplicacion, como corresponde estar para que todas las imagenes sigan funcionando
+cambia_directorio.of_changedirectory(directorio)
+destroy cambia_directorio
+
+SetPointer(Arrow!)
+
+if retorno < 0 then return retorno
+
+dw_lista.Update()
+
+return 1
+end function
+

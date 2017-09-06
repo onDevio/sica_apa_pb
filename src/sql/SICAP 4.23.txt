@@ -1,0 +1,59 @@
+// V. 4.2.3
+alter table registro_series add cod_aplicacion char(10) null;
+alter table registro add serie char(10) null;
+alter table hon_tablas add caso_limite double precision null;
+
+update registro_series set cod_aplicacion='%' where cod_aplicacion=null;
+
+// CURSOR PARA ACTUALIZAR LA TABLA DE REGISTRO CON LA SERIE CORRESPONDIENTE
+declare c_registro cursor for
+select id_registro,n_registro
+from registro;
+open c_registro
+declare @n_registro varchar(20),@id_registro varchar(10),@pos integer,@serie char(10)
+FETCH c_registro
+INTO @id_registro,@n_registro
+
+WHILE (@@sqlstatus  = 0)
+BEGIN
+	select @pos=charindex('-',@n_registro)
+	select @pos=@pos - 1
+	if @pos > 0
+	BEGIN
+		select @serie=substring(@n_registro,1,@pos)
+		update registro set serie=@serie where id_registro=@id_registro
+	END
+	FETCH c_registro
+	INTO @id_registro,@n_registro
+
+END;
+CLOSE c_registro;
+
+
+
+// SOLO TARRAGONA
+insert into t_control_eventos (control,evento,activo,param1,id_control) values ('REGISTRO_ES','REGISTRO_ES','S','nnnnnn','REGES1');
+
+// SOLO NAVARRA
+insert into t_control_eventos (control,evento,activo,param1,id_control) values ('REGISTRO_ES','REGISTRO_ES','S','aannnnnnn','REGES1');
+
+//RESTO DE COLEGIOS
+insert into t_control_eventos (control,evento,activo,param1,id_control) values ('REGISTRO_ES','REGISTRO_ES','S','nnnnnnnnnn','REGES1');
+
+
+
+// SOLO GRAN CANARIA
+update listados set dw='d_fases_listado_por_colegiado_certif_gc' where dw='d_fases_listado_por_colegiado_certif' and descripcion='Listados para certificados'; 
+
+// SOLO TERRES 
+create table dbo.coaatteb_dip (id char(10) not null, sup_desde double precision null, sup_hasta double precision null, dip_base double precision null) ;
+alter table dbo.coaatteb_dip add constraint pk_id primary key clustered (id) ;
+create table dbo.coaatteb_coef_tipo_obra (tipo_obra char(3) not null, coef_reduc double precision null) ;
+alter table dbo.coaatteb_coef_tipo_obra add constraint pk_tipoobra primary key clustered (tipo_obra) ;
+create table dbo.coaatteb_coef_tipo_dest (tipo_dest char(3) not null, coef_reduc double precision null) ;
+alter table dbo.coaatteb_coef_tipo_dest add constraint pk_tipo_dest primary key clustered (tipo_dest) ;
+create table dbo.coaatteb_coef_tipo_act (tipo_act char(3) not null, coef_reduc double precision null, dip_min double precision null, dip_max double precision null) ;
+alter table dbo.coaatteb_coef_tipo_act add constraint pk_tipoact primary key clustered (tipo_act) ;
+
+// SOLO TERUEL
+insert into t_control_eventos (control,evento,activo,id_control) values ('ALTA_MUSAAT','VISAR','S','TER01');

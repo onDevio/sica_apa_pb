@@ -1,0 +1,50 @@
+HA$PBExportHeader$f_calcular_pem_min_cc.srf
+global type f_calcular_pem_min_cc from function_object
+end type
+
+forward prototypes
+global function integer f_calcular_pem_min_cc (ref st_honteor_datos st_hon)
+end prototypes
+
+global function integer f_calcular_pem_min_cc (ref st_honteor_datos st_hon);String Tarifa
+Double Fa, Sup, Tipo_terr, Pem_min, Num_resp, Uso, Dificil_Acc, Sup_Acond, Fs, Sup_Urb, Nave
+
+// Parece que no se utiliza Fa sino Ca
+//Fa = g_fa
+Fa = g_ca
+
+Tarifa 			= st_hon.tarifa
+Sup 				= st_hon.superficie
+Num_resp		= st_hon.num_resp
+Uso				= st_hon.uso
+Dificil_Acc		= st_hon.dificil_acc
+Sup_Acond		= st_hon.sup_acond
+Sup_Urb			= st_hon.sup_urb
+Tipo_Terr		= st_hon.tipo_terr
+Nave				= st_hon.nave
+
+
+CHOOSE CASE Tarifa
+	CASE '1000','1001','1002','1003','1143'
+		Pem_min = 95 * (1 + 0.1 * Num_resp) * Fa
+		Pem_min = Pem_min * Sup
+		
+	CASE '1024','1025','1026','1027','1028','1029'
+//		Fs = 1 - 0.00001 * Sup_Acond
+//		if Fs < 0.9 then Fs = 0.9
+//		Pem_min = 296 * Uso * Dificil_Acc * Fs * Fa
+		Pem_min = 296 * Uso * Fa		
+
+	CASE '1033','1034','1035','1036','1038','1037', '1104','1106'
+		Pem_min = Sup_Urb * 60 * Fa * Tipo_Terr
+
+	CASE '1101'
+		Pem_min = Sup * Nave * Fa
+END CHOOSE
+
+st_hon.pem_min = f_redondea(Pem_min)
+
+return 1
+
+end function
+

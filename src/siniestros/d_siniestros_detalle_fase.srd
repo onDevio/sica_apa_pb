@@ -1,0 +1,18 @@
+HA$PBExportHeader$d_siniestros_detalle_fase.srd
+release 7;
+datawindow(units=0 timer_interval=0 color=79741120 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=188 color="536870912" )
+table(column=(type=char(10) update=yes updatewhereclause=yes key=yes name=id_fase dbname="fases.id_fase" )
+ column=(type=char(11) update=yes updatewhereclause=yes name=n_registro dbname="fases.n_registro" )
+ column=(type=char(14) update=yes updatewhereclause=yes name=n_expedi dbname="fases.n_expedi" )
+ retrieve="PBSELECT( VERSION(400) TABLE(NAME=~"fases~" ) COLUMN(NAME=~"fases.id_fase~") COLUMN(NAME=~"fases.n_registro~") COLUMN(NAME=~"fases.n_expedi~")WHERE(    EXP1 =~"fases.id_fase~"   OP =~"=~"    EXP2 =~":id_fase~" ) ) ARG(NAME = ~"id_fase~" TYPE = string) " update="fases" updatewhere=1 updatekeyinplace=no arguments=(("id_fase", string)) )
+groupbox(band=detail text="Registro Vinculado"border="5" color="8388608" x="32" y="0" height="168" width="1669"  name=gb_1  font.face="MS Sans Serif" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="79741120" )
+text(band=detail alignment="1" text="N$$HEX2$$ba002000$$ENDHEX$$Expediente" border="0" color="0" x="46" y="68" height="52" width="311"  name=n_expedi_t  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="5" color="0" x="384" y="64" height="56" width="411" format="[general]"  name=n_expedi edit.limit=14 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+text(band=detail alignment="1" text="N$$HEX2$$ba002000$$ENDHEX$$Registro:" border="0" color="0" x="823" y="68" height="52" width="306"  name=n_registro_t  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="5" color="0" x="1157" y="64" height="56" width="329" format="[general]"  name=n_registro edit.limit=11 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+button(band=detail text="..."filename=""action="0" border="0" color="0" x="1504" y="60" height="64" width="73" vtextalign="0" htextalign="0"  name=b_1  font.face="MS Sans Serif" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="67108864" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

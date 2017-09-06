@@ -1,0 +1,54 @@
+HA$PBExportHeader$f_devuelve_st_poblacion.srf
+global type f_devuelve_st_poblacion from function_object
+end type
+
+forward prototypes
+global function st_visared_poblacion f_devuelve_st_poblacion (string cod_pos, string descripcion, boolean abrir_ventana)
+end prototypes
+
+global function st_visared_poblacion f_devuelve_st_poblacion (string cod_pos, string descripcion, boolean abrir_ventana);string id_pob,pob_parcial
+long contador,res
+st_visared_poblacion busqueda_pob
+
+
+busqueda_pob.cod_pos=cod_pos
+busqueda_pob.descripcion=descripcion
+
+
+//Obtiene el c$$HEX1$$f300$$ENDHEX$$digo de poblacion asociado a un c$$HEX1$$f300$$ENDHEX$$digo postal
+SELECT count(*)
+  INTO :contador
+  FROM poblaciones  
+WHERE poblaciones.cod_pos = :cod_pos   ;
+
+if contador > 1 then
+	pob_parcial = LeftA(descripcion, 5)
+	pob_parcial += '%'
+	select count(*) into :res from poblaciones where cod_pos = :cod_pos	and descripcion like :pob_parcial;	
+	if res=1 then
+		select cod_pob into :busqueda_pob.cod_pob from poblaciones where cod_pos = :cod_pos and descripcion like :pob_parcial;	
+	else
+
+		if abrir_ventana then
+		// Abrimos la ventana de busqueda
+			openwithparm(w_eimporta_busqueda_poblacion,busqueda_pob)	
+			if Not(IsNUll(Message.PowerObjectparm)) and IsValid(Message.PowerObjectParm) then busqueda_pob=Message.PowerObjectParm
+			//id_pob=Message.StringParm					
+		else
+			// dejamos la apertura de la ventana de busqueda para las subsanaciones			
+			busqueda_pob.cod_pob='-1'
+		end if
+	end if
+
+else
+	SELECT poblaciones.cod_pob,poblaciones.cod_pob,poblaciones.descripcion
+	  INTO :busqueda_pob.cod_pob,:busqueda_pob.cod_pos,:busqueda_pob.descripcion
+  	  FROM poblaciones  
+	WHERE poblaciones.cod_pos = :cod_pos   ;
+end if
+
+if f_es_vacio(busqueda_pob.cod_pob) then busqueda_pob.cod_pob='-1'
+
+return busqueda_pob
+end function
+

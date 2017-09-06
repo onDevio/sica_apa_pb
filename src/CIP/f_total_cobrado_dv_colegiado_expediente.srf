@@ -1,0 +1,26 @@
+HA$PBExportHeader$f_total_cobrado_dv_colegiado_expediente.srf
+global type f_total_cobrado_dv_colegiado_expediente from function_object
+end type
+
+forward prototypes
+global function double f_total_cobrado_dv_colegiado_expediente (string id_exp, string id_col, string tipo_act)
+end prototypes
+
+global function double f_total_cobrado_dv_colegiado_expediente (string id_exp, string id_col, string tipo_act);double dv_cobrado = 0
+
+  SELECT sum(base_dv)  
+    INTO :dv_cobrado  
+    FROM fases_minutas, fases
+   WHERE fases.id_fase = fases_minutas.id_fase and
+			fases.id_expedi = :id_exp and
+			fases_minutas.id_colegiado = :id_col and	
+         fases_minutas.anulada <> 'S' and 
+			fases_minutas.fecha_pago <> null and
+			fases.fase = :tipo_act
+			;
+
+if isnull(dv_cobrado) then dv_cobrado = 0
+
+return dv_cobrado
+end function
+

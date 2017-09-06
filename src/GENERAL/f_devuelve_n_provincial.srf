@@ -1,0 +1,11 @@
+HA$PBExportHeader$f_devuelve_n_provincial.srf
+global type f_devuelve_n_provincial from function_object
+end type
+
+forward prototypes
+global function string f_devuelve_n_provincial ()
+end prototypes
+
+global function string f_devuelve_n_provincial ();return g_colegio_n_provincial
+end function
+

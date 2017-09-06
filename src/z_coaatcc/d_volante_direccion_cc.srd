@@ -1,0 +1,79 @@
+HA$PBExportHeader$d_volante_direccion_cc.srd
+release 10.5;
+datawindow(units=3 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 635 print.margin.right = 635 print.margin.top = 635 print.margin.bottom = 635 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes print.preview.outline=yes hidegrayline=no )
+header(height=0 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=4445 color="536870912" height.autosize=yes )
+detail(height=20214 color="536870912" height.autosize=yes )
+table(column=(type=char(10) updatewhereclause=yes key=yes name=id_fase dbname="fases.id_fase" dbalias=".id_fase" )
+ column=(type=char(1) updatewhereclause=yes name=colegiado dbname="colegiado" )
+ column=(type=char(1) updatewhereclause=yes name=cliente dbname="cliente" )
+ column=(type=char(1) updatewhereclause=yes name=colegiado_soc dbname="colegiado_soc" )
+ column=(type=char(1) updatewhereclause=yes name=tipo_obra dbname="tipo_obra" )
+ column=(type=char(1) updatewhereclause=yes name=uso_obra dbname="uso_obra" )
+ column=(type=char(1) updatewhereclause=yes name=alcalde dbname="alcalde" )
+ column=(type=char(1) updatewhereclause=yes name=emplazamiento dbname="emplazamiento" )
+ column=(type=char(1) updatewhereclause=yes name=archivo dbname="archivo" )
+ column=(type=char(1) updatewhereclause=yes name=n_registro_sal dbname="n_registro_sal" )
+ column=(type=char(1) updatewhereclause=yes name=colegio_direc dbname="colegio_direc" )
+ column=(type=char(1) updatewhereclause=yes name=colegio_pob dbname="colegio_pob" )
+ column=(type=char(1) updatewhereclause=yes name=colegio_tlf dbname="colegio_tlf" )
+ column=(type=char(1) updatewhereclause=yes name=colegio_fax dbname="colegio_fax" )
+ column=(type=char(1) updatewhereclause=yes name=colegio_email dbname="colegio_email" )
+ column=(type=char(1) updatewhereclause=yes name=colegio dbname="colegio" )
+ column=(type=char(1) updatewhereclause=yes name=tipo_actuacion dbname="tipo_actuacion" )
+ column=(type=char(1) updatewhereclause=yes name=arquitecto dbname="arquitecto" )
+ column=(type=char(1) updatewhereclause=yes name=provincia dbname="provincia" )
+ column=(type=char(1) updatewhereclause=yes name=tipo_tramite dbname="tipo_tramite" )
+ retrieve="  SELECT fases.id_fase,   
+         ' ' as colegiado,   
+         ' ' as cliente,   
+         ' ' as colegiado_soc,   
+         ' ' as tipo_obra,   
+         ' ' as uso_obra,   
+         ' ' as alcalde,   
+         ' ' as emplazamiento,   
+         ' ' as archivo,   
+         ' ' as n_registro_sal,   
+         ' ' as colegio_direc,   
+         ' ' as colegio_pob,   
+         ' ' as colegio_tlf,   
+         ' ' as colegio_fax,   
+         ' ' as colegio_email,   
+         ' ' as colegio,   
+         ' ' as tipo_actuacion,   
+         ' ' as arquitecto  ,
+		' ' as provincia,
+		' ' as tipo_tramite
+    FROM fases  
+   WHERE fases.id_fase = :id_fase    
+" update="fases" updatewhere=0 updatekeyinplace=no arguments=(("id_fase", string)) )
+bitmap(band=detail filename=".\imagenes\logo_ecoaat.gif" x="1058" y="635" height="2116" width="1455" border="0"  name=p_2 visible="1" )
+column(band=detail id=16 alignment="0" tabsequence=32766 border="0" color="0" x="2698" y="344" height="370" width="16430" format="[general]" html.valueishtml="0"  name=colegio visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" font.italic="1" background.mode="2" background.color="1090519039" )
+compute(band=detail alignment="0" expression="colegio_direc+' - '+colegio_pob"border="0" color="0" x="2698" y="821" height="370" width="16430" format="[GENERAL]" html.valueishtml="0"  name=compute_12 visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" font.italic="1" background.mode="2" background.color="1090519039" )
+compute(band=detail alignment="0" expression="'Referencia: '+ archivo "border="0" color="0" x="2566" y="10187" height="555" width="7143" format="[GENERAL]" html.valueishtml="0"  name=compute_2 visible="1"  font.face="Times New Roman" font.height="-12" font.weight="400"  font.family="1" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+column(band=detail id=18 alignment="0" tabsequence=32766 border="0" color="0" x="3836" y="19289" height="899" width="9551" format="[general]" html.valueishtml="0"  name=arquitecto visible="1~tif(f_es_vacio(arquitecto),0,1)"  slideup=directlyabove height.autosize=yes edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Times New Roman" font.height="-12" font.weight="400"  font.family="1" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+compute(band=detail alignment="0" expression="'Tengo el honor de comunicarle a V.S que:'"border="0" color="0" x="2619" y="11377" height="555" width="7143" format="[GENERAL]" html.valueishtml="0"  name=compute_7 visible="1"  font.face="Times New Roman" font.height="-12" font.weight="400"  font.family="1" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="3836" y="12409" height="1111" width="9551" format="[general]" html.valueishtml="0"  name=cliente visible="1" height.autosize=yes edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Times New Roman" font.height="-12" font.weight="400"  font.family="1" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="3836" y="14949" height="1111" width="9551" format="[general]" html.valueishtml="0"  name=colegiado visible="1"  slideup=directlyabove height.autosize=yes edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Times New Roman" font.height="-12" font.weight="400"  font.family="1" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+compute(band=detail alignment="0" expression="'Como Arquitecto u otros t$$HEX1$$e900$$ENDHEX$$cnicos participa D./D$$HEX1$$aa00$$ENDHEX$$.:'"border="0" color="0" x="2619" y="18124" height="687" width="15610" format="[GENERAL]" html.valueishtml="0"  name=compute_14 visible="1~tif(f_es_vacio(arquitecto),0,1)"  slideup=directlyabove  font.face="Times New Roman" font.height="-12" font.weight="400"  font.family="1" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039"  height.autosize=yes)
+compute(band=detail alignment="0" expression="'ha/n designado ante este Colegio y en esta fecha, al/los Colegiado/s:'"border="0" color="0" x="2619" y="13997" height="476" width="15319" format="[GENERAL]" html.valueishtml="0"  name=compute_3 visible="1"  slideup=directlyabove  font.face="Times New Roman" font.height="-12" font.weight="400"  font.family="1" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+compute(band=detail alignment="0" expression="'C$$HEX1$$c100$$ENDHEX$$CERES, '+ string(day(today()))+ ' de ' + f_mes() + ' de ' +string(year(today()))"border="0" color="0" x="11826" y="7859" height="476" width="6985" format="[GENERAL]" html.valueishtml="0"  name=compute_5 visible="1"  font.face="Times New Roman" font.height="-12" font.weight="400"  font.family="1" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+compute(band=detail alignment="0" expression="'SALIDA N$$HEX2$$ba002000$$ENDHEX$$'+ n_registro_sal "border="0" color="0" x="11826" y="8732" height="476" width="6985" format="[GENERAL]" html.valueishtml="0"  name=compute_9 visible="1"  font.face="Times New Roman" font.height="-12" font.weight="400"  font.family="1" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+compute(band=detail alignment="0" expression="'Telf: '+colegio_tlf +' Fax: '+colegio_fax+ ' E-mail: '+colegio_email"border="0" color="0" x="2698" y="1297" height="370" width="16430" format="[GENERAL]" html.valueishtml="0"  name=compute_13 visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" font.italic="1" background.mode="2" background.color="1090519039" )
+compute(band=detail alignment="0" expression="'Aparejador o Arquitecto T$$HEX1$$e900$$ENDHEX$$cnico de las obras de '+ tipo_obra +' que han de realizarse en '+ trim(emplazamiento)"border="0" color="0" x="2619" y="16457" height="1349" width="15610" format="[GENERAL]" html.valueishtml="0"  name=compute_10 visible="1"  slideup=directlyabove  font.face="Times New Roman" font.height="-12" font.weight="400"  font.family="1" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039"  height.autosize=yes)
+compute(band=detail alignment="2" expression="tipo_actuacion"border="0" color="0" x="2619" y="5504" height="1058" width="15610" format="[GENERAL]" html.valueishtml="0"  name=compute_11 visible="1"  font.face="Times New Roman" font.height="-12" font.weight="700"  font.family="1" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+compute(band=detail alignment="2" expression="if ( tipo_tramite = 'REDAP' or tipo_tramite = 'REDOC', 'COMUNICACI$$HEX1$$d300$$ENDHEX$$N COLEGIAL','VOLANTE DE DIRECCI$$HEX1$$d300$$ENDHEX$$N')"border="0" color="0" x="2619" y="4207" height="555" width="15610" format="[GENERAL]" html.valueishtml="0"  name=compute_4 visible="1"  font.face="Times New Roman" font.height="-17" font.weight="700"  font.family="1" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+compute(band=footer alignment="0" expression="'AL ALCALDE PRESIDENTE DEL AYUNTAMIENTO DE '+upper( alcalde )+' ('+upper(provincia)+')'"border="0" color="0" x="2540" y="3599" height="476" width="15531" format="[GENERAL]" html.valueishtml="0"  name=compute_6 visible="1"  slideup=directlyabove  font.face="Times New Roman" font.height="-12" font.weight="400"  font.family="1" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039"  height.autosize=yes)
+compute(band=footer alignment="0" expression="'EL PRESIDENTE'"border="0" color="0" x="14657" y="0" height="476" width="3413" format="[GENERAL]" html.valueishtml="0"  name=compute_15 visible="1"  slideup=directlyabove  font.face="Times New Roman" font.height="-12" font.weight="400"  font.family="1" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039"  height.autosize=yes)
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" pagingmethod=0 generatedddwframes="1" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()
+ 

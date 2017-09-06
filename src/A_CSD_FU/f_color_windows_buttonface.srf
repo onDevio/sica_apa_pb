@@ -1,0 +1,13 @@
+HA$PBExportHeader$f_color_windows_buttonface.srf
+global type f_color_windows_buttonface from function_object
+end type
+
+forward prototypes
+global function long f_color_windows_buttonface ()
+end prototypes
+
+global function long f_color_windows_buttonface ();
+return 78682240
+
+end function
+

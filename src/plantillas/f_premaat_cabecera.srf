@@ -1,0 +1,93 @@
+HA$PBExportHeader$f_premaat_cabecera.srf
+$PBExportComments$dado un id_premaat obtiene sus datos de premaat
+global type f_premaat_cabecera from function_object
+end type
+
+forward prototypes
+global subroutine f_premaat_cabecera (string id_premaat, ref string alta, ref string id_heredero, ref string n_mutualista, ref string f_pasivo, ref string tipo_prestacion, ref string situacion, ref string tipo_mutualista, ref string n_conyuges, ref string n_hijos, ref string f_baja, ref string forma_pago, ref string forma_cobro, ref string grupo, ref string f_alta, ref string importe_pagar, ref string grupo_comple1, ref string f_alta_comple1, ref string importe_pagar_comple1, ref string grupo_comple2, ref string f_alta_comple2, ref string importe_pagar_comple2, ref string total_pagar, ref string importe_cobrar)
+end prototypes
+
+global subroutine f_premaat_cabecera (string id_premaat, ref string alta, ref string id_heredero, ref string n_mutualista, ref string f_pasivo, ref string tipo_prestacion, ref string situacion, ref string tipo_mutualista, ref string n_conyuges, ref string n_hijos, ref string f_baja, ref string forma_pago, ref string forma_cobro, ref string grupo, ref string f_alta, ref string importe_pagar, ref string grupo_comple1, ref string f_alta_comple1, ref string importe_pagar_comple1, ref string grupo_comple2, ref string f_alta_comple2, ref string importe_pagar_comple2, ref string total_pagar, ref string importe_cobrar);//Esta funci$$HEX1$$f300$$ENDHEX$$n establece los par$$HEX1$$e100$$ENDHEX$$metros que se le pasan por referencia con el valor
+//correspondiente al premaat indicado por ID_PREMAAT
+
+string tipo_prestacion_cod, situacion_cod, tipo_mutualista_cod, forma_pago_cod
+string forma_cobro_cod, grupo_cod 
+double importe_pagar_aux, importe_pagar_comple1_aux, importe_pagar_comple2_aux
+
+datastore ds_premaat
+
+ds_premaat = create datastore
+ds_premaat.dataobject ='d_premaat_cabecera'
+ds_premaat.SetTransObject(SQLCA)
+
+ds_premaat.Retrieve(id_premaat)
+
+if ds_premaat.rowcount() > 0 then
+	
+	alta = ds_premaat.getitemstring(1, 'alta')
+	id_heredero = ds_premaat.getitemstring(1, 'id_heredero')
+	n_mutualista = ds_premaat.getitemstring(1, 'n_mutualista')
+	f_pasivo = string(ds_premaat.getitemdatetime(1, 'f_pasivo'),"dd/mm/yyyy")
+	tipo_prestacion_cod = ds_premaat.getitemstring(1, 'tipo_prestacion')
+	select descripcion into :tipo_prestacion from premaat_tipo_pres where codigo = :tipo_prestacion_cod;
+	situacion_cod = ds_premaat.getitemstring(1, 'situacion')
+	select descripcion into :situacion from premaat_situacion where codigo = :situacion_cod;
+	tipo_mutualista_cod = ds_premaat.getitemstring(1, 'tipo_mutualista')
+	select descripcion into :tipo_mutualista from premaat_tipo_mut where codigo = :tipo_mutualista_cod;
+	n_conyuges = string(ds_premaat.getitemnumber(1, 'n_conyuges'))
+	n_hijos = string(ds_premaat.getitemnumber(1, 'n_hijos'))
+	f_baja = string(ds_premaat.getitemdatetime(1, 'f_baja'),"dd/mm/yyyy")
+	forma_pago_cod = ds_premaat.getitemstring(1, 'forma_pago')
+	select descripcion into :forma_pago from csi_formas_de_pago where tipo_pago = :forma_pago_cod;
+	forma_cobro_cod = ds_premaat.getitemstring(1, 'forma_cobro')
+	select descripcion into :forma_cobro from csi_formas_de_pago where tipo_pago = :forma_cobro_cod;
+	grupo_cod = ds_premaat.getitemstring(1, 'grupo')
+	select descripcion into :grupo from premaat_grupo where codigo = :grupo_cod;
+	f_alta = string(ds_premaat.getitemdatetime(1, 'f_alta'),"dd/mm/yyyy")
+	//importe_pagar_aux = ds_premaat.getitemnumber(1, 'importe_pagar')
+	//importe_pagar = string(importe_pagar_aux)
+	grupo_comple1 = ds_premaat.getitemstring(1, 'grupo_comple1')
+	f_alta_comple1 = string(ds_premaat.getitemdatetime(1, 'f_alta_comple1'),"dd/mm/yyyy")
+	//importe_pagar_comple1_aux = ds_premaat.getitemnumber(1, 'importe_pagar_comple1')
+	//importe_pagar_comple1 = string(importe_pagar_comple1_aux)
+	grupo_comple2 = ds_premaat.getitemstring(1, 'grupo_comple2')
+	f_alta_comple2 = string(ds_premaat.getitemdatetime(1, 'f_alta_comple2'),"dd/mm/yyyy")
+	//importe_pagar_comple2_aux = ds_premaat.getitemnumber(1, 'importe_pagar_comple2')
+	//importe_pagar_comple2 = string(importe_pagar_comple2_aux)
+	//total_pagar = string(importe_pagar_aux + importe_pagar_comple1_aux + importe_pagar_comple2_aux)
+	importe_cobrar = string(ds_premaat.getitemnumber(1, 'importe_cobrar'))
+
+end if
+
+if f_es_vacio(alta) then 
+	alta = ''
+else
+	if alta = 'S' then alta = 'S$$HEX1$$ed00$$ENDHEX$$'
+	if alta = 'N' then alta = 'No'
+end if
+if f_es_vacio(id_heredero) then id_heredero = ''
+if f_es_vacio(n_mutualista) then n_mutualista = ''
+if f_es_vacio(f_pasivo) then f_pasivo = ''
+if f_es_vacio(tipo_prestacion) then tipo_prestacion = ''
+if f_es_vacio(situacion) then situacion = ''
+if f_es_vacio(tipo_mutualista) then tipo_mutualista = ''
+if f_es_vacio(n_conyuges) then n_conyuges = ''
+if f_es_vacio(n_hijos) then n_hijos = ''
+if f_es_vacio(f_baja) then f_baja = ''
+if f_es_vacio(forma_pago) then forma_pago = ''
+if f_es_vacio(forma_cobro) then forma_cobro = ''
+if f_es_vacio(grupo) then grupo = ''
+if f_es_vacio(f_alta) then f_alta = ''
+if f_es_vacio(importe_pagar) then importe_pagar = ''
+if f_es_vacio(grupo_comple1) then grupo_comple1 = ''
+if f_es_vacio(f_alta_comple1) then f_alta_comple1 = ''
+if f_es_vacio(importe_pagar_comple1) then importe_pagar_comple1 = ''
+if f_es_vacio(grupo_comple2) then grupo_comple2 = ''
+if f_es_vacio(f_alta_comple2) then f_alta_comple2 = ''
+if f_es_vacio(importe_pagar_comple2) then importe_pagar_comple2 = ''
+if f_es_vacio(total_pagar) then total_pagar = ''
+if f_es_vacio(importe_cobrar) then importe_cobrar = ''
+
+destroy ds_premaat
+end subroutine
+

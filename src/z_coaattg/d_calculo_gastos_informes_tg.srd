@@ -1,0 +1,69 @@
+HA$PBExportHeader$d_calculo_gastos_informes_tg.srd
+release 10.5;
+datawindow(units=0 timer_interval=0 color=79741120 processing=0 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes print.preview.outline=yes hidegrayline=no )
+header(height=68 color="536870912" )
+summary(height=72 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=68 color="536870912" height.autosize=yes )
+table(column=(type=char(1) updatewhereclause=yes name=compute_0001 dbname="compute_0001" )
+ column=(type=number updatewhereclause=yes name=compute_0002 dbname="compute_0002" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=id_fase dbname="fases_informes.id_fase" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=id_informe dbname="fases_informes.id_informe" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=tipo_informe dbname="fases_informes.tipo_informe" )
+ column=(type=number update=yes updatewhereclause=yes name=cuantia_cliente dbname="fases_informes.cuantia_cliente" initial="0" )
+ column=(type=number update=yes updatewhereclause=yes name=cuantia_colegiado dbname="fases_informes.cuantia_colegiado" initial="0" )
+ column=(type=char(32768) update=yes updatewhereclause=yes name=descripcion dbname="fases_informes.descripcion" )
+ column=(type=number update=yes updatewhereclause=yes name=impuesto_cliente dbname="fases_informes.impuesto_cliente" initial="0" )
+ column=(type=number update=yes updatewhereclause=yes name=impuesto_colegiado dbname="fases_informes.impuesto_colegiado" initial="0" )
+ column=(type=char(2) update=yes updatewhereclause=yes name=t_iva dbname="fases_informes.t_iva" )
+ column=(type=char(1) updatewhereclause=yes name=tipo_actuacion dbname="tipo_actuacion" )
+ column=(type=char(255) updatewhereclause=yes name=formula dbname="formula" )
+ column=(type=char(255) updatewhereclause=yes name=formula_desarrollo dbname="formula_desarrollo" )
+ retrieve="  SELECT convert(char(1),''), convert(double precision,0),   
+         fases_informes.id_fase,   
+         fases_informes.id_informe,   
+         fases_informes.tipo_informe,   
+         fases_informes.cuantia_cliente,   
+         fases_informes.cuantia_colegiado,   
+         fases_informes.descripcion,   
+         fases_informes.impuesto_cliente,   
+         fases_informes.impuesto_colegiado,   
+         fases_informes.t_iva,
+		  '' as tipo_actuacion,
+		  convert(char(255),'') as formula,
+		  convert(char(255),'') as formula_desarrollo
+    FROM fases_informes  
+   WHERE fases_informes.id_fase = :id_fase    
+" arguments=(("id_fase", string))  sort="tipo_actuacion A " )
+group(level=1 header.height=68 trailer.height=24 by=("tipo_actuacion" ) header.color="536870912" trailer.color="536870912" )
+text(band=header alignment="2" text="Tipo Descuento" border="4" color="0" x="14" y="8" height="52" width="1079" html.valueishtml="0"  name=t_1  tag="texto=fases.tipo_dto" visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="IVA/IGIC" border="4" color="0" x="1111" y="8" height="52" width="201" html.valueishtml="0"  name=t_8  tag="texto=fases.iva_igic" visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Base" border="4" color="0" x="1330" y="8" height="52" width="283" html.valueishtml="0"  name=t_6  tag="texto=fases.base" visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Impuesto" border="4" color="0" x="1632" y="8" height="52" width="238" html.valueishtml="0"  name=t_7  tag="texto=general.impuesto" visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Total" border="4" color="0" x="1888" y="8" height="52" width="283" html.valueishtml="0"  name=t_10  tag="texto=general.total" visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+button(band=header text="Desglose" filename="" enabled=yes action="0" border="0" color="0" x="3159" y="4" height="72" width="274" vtextalign="0" htextalign="0"  name=b_desglose visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="67108864" )
+text(band=header alignment="2" text="Comentario" border="4" color="0" x="2190" y="8" height="52" width="955" html.valueishtml="0"  name=t_4  tag="texto=general.comentario" visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=header.1 id=12 alignment="0" tabsequence=60 border="0" color="0" x="14" y="8" height="52" width="2560" format="[general]" html.valueishtml="0"  name=tipo_actuacion visible="1" dddw.name=d_dddw_tipos_fases dddw.displaycolumn=compute_1 dddw.datacolumn=c_t_fase dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="MS Sans Serif" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="78" y="100" height="56" width="370" format="[general]" html.valueishtml="0"  name=id_fase visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="480" y="100" height="56" width="370" format="[general]" html.valueishtml="0"  name=id_informe visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+button(band=detail text="..." filename="" enabled=yes action="0" border="0" color="0" x="896" y="0" height="64" width="73" vtextalign="2" htextalign="0"  name=b_informes visible="1~t0"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="0" font.charset="0" background.mode="2" background.color="67108864" )
+button(band=detail text="Inf." filename="" enabled=yes action="0" border="0" color="0" x="983" y="0" height="64" width="101" vtextalign="0" htextalign="0"  name=b_documento visible="1~t0"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="67108864" )
+column(band=detail id=7 alignment="1" tabsequence=30 border="5" color="0" x="1326" y="4" height="56" width="283" format="###,###,##0.00" html.valueishtml="0"  name=cuantia_colegiado visible="1" editmask.mask="###,###.00" editmask.focusrectangle=no  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+column(band=detail id=10 alignment="1" tabsequence=32766 border="5" color="0" x="1623" y="4" height="56" width="238" format="###,###,##0.00" html.valueishtml="0"  name=impuesto_colegiado visible="1" editmask.mask="###,###.00" editmask.focusrectangle=no  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="79741120" )
+compute(band=detail alignment="1" expression=" cuantia_colegiado +  impuesto_colegiado "border="5" color="0" x="1879" y="4" height="56" width="283" format="#,###,###.00" html.valueishtml="0"  name=compute_2 visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="79741120" )
+column(band=detail id=11 alignment="0" tabsequence=10 border="0" color="0" x="1106" y="0" height="64" width="73" format="[general]" html.valueishtml="0"  name=t_iva visible="1" dddw.name=d_dddw_csi_t_iva dddw.displaycolumn=descripcion dddw.datacolumn=t_iva dddw.percentwidth=1000 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="5" color="0" x="9" y="4" height="52" width="1074" format="[general]" html.valueishtml="0"  name=tipo_informe visible="1" dddw.name=d_dddw_informes dddw.displaycolumn=descripcion dddw.datacolumn=codigo dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=yes dddw.useasborder=no dddw.case=any dddw.vscrollbar=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="80269524" )
+compute(band=detail alignment="2" expression="String(f_dame_porcent_iva (  t_iva )) +  '%'"border="0" color="0" x="1193" y="4" height="60" width="114" format="[GENERAL]" html.valueishtml="0"  name=iva visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="79741120" )
+column(band=detail id=8 alignment="0" tabsequence=40 border="5" color="0" x="2185" y="4" height="56" width="955" format="[general]" html.valueishtml="0"  name=descripcion visible="1"  slideup=allabove edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autovscroll=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+compute(band=summary alignment="1" expression="sum( cuantia_colegiado +  impuesto_colegiado  for all)"border="5" color="0" x="1879" y="8" height="56" width="283" format="#,###,###.00" html.valueishtml="0"  name=compute_4 visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="79741120" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" pagingmethod=0 generatedddwframes="1" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()
+ 

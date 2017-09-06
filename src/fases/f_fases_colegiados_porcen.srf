@@ -1,0 +1,22 @@
+HA$PBExportHeader$f_fases_colegiados_porcen.srf
+global type f_fases_colegiados_porcen from function_object
+end type
+
+forward prototypes
+global function double f_fases_colegiados_porcen (string id_fase, string id_col)
+end prototypes
+
+global function double f_fases_colegiados_porcen (string id_fase, string id_col);double porc
+
+SELECT fases_colegiados.porcen_a  
+INTO :porc  
+FROM fases_colegiados  
+WHERE ( fases_colegiados.id_fase = :id_fase ) AND  
+		( fases_colegiados.id_col = :id_col )   ;
+
+if isnull(porc) then porc = 0		
+		
+return porc
+
+end function
+

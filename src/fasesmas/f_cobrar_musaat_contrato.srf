@@ -1,0 +1,188 @@
+HA$PBExportHeader$f_cobrar_musaat_contrato.srf
+global type f_cobrar_musaat_contrato from function_object
+end type
+
+forward prototypes
+global subroutine f_cobrar_musaat_contrato (statictext st_proceso, datawindow dw_pago, string i_id_col, double cip, double musaat, datawindow dw_3, boolean factura, integer impr_copias, integer impr_orig, boolean facturar, string id_cliente)
+end prototypes
+
+global subroutine f_cobrar_musaat_contrato (statictext st_proceso, datawindow dw_pago, string i_id_col, double cip, double musaat, datawindow dw_3, boolean factura, integer impr_copias, integer impr_orig, boolean facturar, string id_cliente);string forma_pago, banco, asunto, id_col, tipo_movimiento_csd, pendiente = 'N'
+string obra_oficial, t_visado, id_minuta, id_fase, n_aviso, pagador, t_iva
+string t_iva_honos, t_iva_desplaza, t_iva_dv, t_iva_cip, facturado = 'S', concepto_honos, t_iva_impresos
+datetime fecha_pago, fecha
+double porc_renuncia = 0, porc_iva, base_musaat, total_cliente, iva_cip = 0, total_colegiado
+double porc_iva_honos, porc_iva_desplaza, porc_iva_dv, porc_iva_cip, irpf, total_aviso, iva_dv = 0, dv=0, porc_iva_impresos
+boolean genera_movi = false, encontrado = false, es_sociedad = false
+datawindow dw_vacio
+datetime fecha_vacia
+
+dw_vacio = create datawindow
+
+setnull(fecha_vacia)
+if facturar then forma_pago 	= dw_pago.getitemstring(1, 'forma_pago') 
+if facturar then fecha_pago 	= dw_pago.getitemdatetime(1, 'fecha_pago') else fecha_pago = fecha_vacia
+if facturar then banco 		= dw_pago.getitemstring(1, 'banco')
+asunto		= dw_pago.getitemstring(1, 'asunto')
+
+id_col = i_id_col
+
+if musaat <> 0 then genera_movi = true else genera_movi = false
+if f_colegiado_tipopersona(id_col) = 'S' then
+	es_sociedad = true		
+end if		
+
+obra_oficial = '0' // No es obra oficial
+t_visado = '1' // tipo de visado alta.
+
+// tipo de movimiento csd = t_visado + obra_oficial, lo grabaremos en el campo tipo_minuta de la minuta
+tipo_movimiento_csd = t_visado + obra_oficial
+
+// Comprobamos que no hay una minuta ya creada de musaat para el colegiado y la fase
+int existe_minuta
+
+/*  SELECT count (*)  
+    INTO :existe_minuta  
+    FROM fases_minutas  
+   WHERE ( fases_minutas.id_fase = :g_id_fase ) AND  
+         ( fases_minutas.id_colegiado = :id_col ) AND  
+         ( fases_minutas.anulada = 'N' ) AND  
+         ( fases_minutas.tipo_minuta = '10' )         ; */
+
+// Cambiamos la select para que en el proceso de cobro mensual de musaat genere el aviso
+// aunque existan avisos anteriores(siempre que no lleven musaat)
+
+  SELECT count (*)  
+    INTO :existe_minuta  
+    FROM fases_minutas  
+   WHERE ( fases_minutas.id_fase = :g_id_fase ) AND  
+         ( fases_minutas.id_colegiado = :id_col ) AND  
+         ( fases_minutas.anulada = 'N' ) AND  
+         ( fases_minutas.base_musaat > 0 )         ;			
+			
+			
+if existe_minuta > 0 then return
+
+
+
+st_proceso.text = 'Generando Aviso de Gastos ...'
+id_fase =  g_id_fase
+id_minuta = f_siguiente_numero('FASES-MINUTAS',10)
+n_aviso = f_numera_aviso(true) // Modificado Ricardo 2005-05-12
+irpf = g_irpf_por_defecto
+fecha = datetime(today())
+pagador = '1'
+t_iva = g_t_iva_defecto
+porc_iva =  f_dame_porcent_iva(g_t_iva_defecto)
+base_musaat = musaat
+total_cliente = 0
+
+SELECT colegiados.irpf INTO :irpf FROM colegiados WHERE colegiados.id_colegiado = :id_col   ;
+
+SELECT t_iva INTO :t_iva_honos FROM csi_articulos_servicios 
+WHERE csi_articulos_servicios.codigo = :g_codigos_conceptos.honorarios and csi_articulos_servicios.colegio = :g_colegio;
+
+SELECT t_iva INTO :t_iva_desplaza FROM csi_articulos_servicios  
+WHERE csi_articulos_servicios.codigo = :g_codigos_conceptos.desplazamientos and csi_articulos_servicios.colegio = :g_colegio;
+
+SELECT t_iva INTO :t_iva_cip FROM csi_articulos_servicios  
+WHERE csi_articulos_servicios.codigo = :g_codigos_conceptos.cip and csi_articulos_servicios.colegio = :g_colegio;
+
+SELECT t_iva INTO :t_iva_dv FROM csi_articulos_servicios  
+WHERE csi_articulos_servicios.codigo = :g_codigos_conceptos.dv and csi_articulos_servicios.colegio = :g_colegio;
+
+SELECT descripcion INTO :concepto_honos FROM csi_articulos_servicios  
+WHERE csi_articulos_servicios.codigo = :g_codigos_conceptos.honorarios and csi_articulos_servicios.colegio = :g_colegio;
+
+SELECT t_iva INTO :t_iva_impresos FROM csi_articulos_servicios  
+WHERE csi_articulos_servicios.codigo = :g_codigos_conceptos.impresos and csi_articulos_servicios.colegio = :g_colegio;
+
+porc_iva_honos = f_dame_porcent_iva(t_iva_honos)
+porc_iva_desplaza = f_dame_porcent_iva(t_iva_desplaza)
+porc_iva_dv = f_dame_porcent_iva(t_iva_dv)
+porc_iva_cip = f_dame_porcent_iva(t_iva_cip)
+porc_iva_impresos = f_dame_porcent_iva(t_iva_impresos)
+
+iva_cip = f_aplica_t_iva(cip, t_iva_cip)
+iva_dv = f_aplica_t_iva(dv, t_iva_dv)
+total_colegiado = musaat + cip + iva_cip + dv + iva_dv
+
+
+if not factura then 
+	pendiente = 'S'
+	facturado = 'N'
+end if
+
+INSERT INTO fases_minutas  
+	( id_minuta, id_fase, id_colegiado, id_cliente, cantidad, pendiente, facturado, id_honorario,   
+	  f_facturado, id_factura, tipo_minuta, irpf, importe_irpf, n_aviso, fecha, fecha_pago,   
+	  tipo_gestion, pagador, reclamar, t_iva, porc_iva, forma_pago, aplica_honos, porc_honos,   
+	  concepto_honos, base_honos, iva_honos, aplica_desplaza, base_desplaza, iva_desplaza,   
+	  concepto_desplaza, aplica_dv, base_dv, iva_dv, aplica_cip, base_cip, iva_cip, aplica_musaat,   
+	  base_musaat, iva_musaat, aplica_retvol, porc_retvol, base_retvol, iva_retvol, total_cliente,   
+	  total_colegiado, t_iva_honos, t_iva_desplaza, t_iva_dv, t_iva_cip, porc_iva_honos,   
+	  porc_iva_desplaza, porc_iva_dv, porc_iva_cip, anulada, banco, irpf_cliente, observaciones,
+	  base_garantia, total_aviso, aplica_impresos, t_iva_impresos, porc_iva_impresos, base_impresos,
+	  iva_impresos, paga_asalariado, paga_externo, paga_dv, t_minuta, urgente,
+	  base_cip_suplida, t_iva_cip_suplida, porc_iva_cip_suplida, iva_cip_suplida, musaat_suplida)
+VALUES 
+	( :id_minuta, :id_fase, :id_col, :id_cliente, null, :pendiente, :facturado, null, 
+		null, null, :tipo_movimiento_csd, :irpf, 0, :n_aviso, :fecha, :fecha_pago,   
+	  'S', :pagador, 'S', :t_iva, :porc_iva, :forma_pago, 'N', 0, 
+	  :concepto_honos, 0, 0, 'N',  0, 0,   
+	  null, 'N', 0, 0, 'N', :cip, :iva_cip, 'S',   
+	  :base_musaat, 0, 'N', 0, 0, 0, :total_cliente,   
+	  :total_colegiado, :t_iva_honos, :t_iva_desplaza, :t_iva_dv, :t_iva_cip, :porc_iva_honos,   
+	  :porc_iva_desplaza, :porc_iva_dv, :porc_iva_cip, 'N', :banco, 'N', null,
+	  0, :total_aviso, 'N', :t_iva_impresos, :porc_iva_impresos, 0,
+	  0, 'N', 'N', 'P', 'P', 'N',0,'00',0,0,0)  ;
+
+COMMIT;
+
+// Si no est$$HEX2$$e1002000$$ENDHEX$$marcado el check no se genera la factura
+if not factura then 
+	if isvalid(g_detalle_fases) then
+		g_detalle_fases.postevent('csd_refrescar_avisos')
+		g_detalle_fases.postevent('csd_refrescar_src')	
+	end if
+	st_proceso.text = 'Proceso Finalizado ...'
+//	messagebox(g_titulo, 'Proceso Finalizado')
+	return
+end if
+
+// Generamos las facturas
+st_proceso.text = 'Recuperando Datos ...'
+dw_3.Retrieve(id_minuta)
+st_proceso.text = 'Generando Facturas ...'
+// g_cobro_obligado : con esto no regulariza : puede dejar de usarse usando el tipo_movimiento_csd
+g_cobro_obligado = 'S'
+// Modificado Ricardo 2005-05-10
+st_generar_facturas_minutas parametros_factura_minuta
+
+parametros_factura_minuta.dw_minuta 			= dw_3
+parametros_factura_minuta.num_orig 				= impr_copias
+parametros_factura_minuta.num_copias 			= impr_orig
+parametros_factura_minuta.regulariza_musaat	= false
+parametros_factura_minuta.movimiento_musaat	= genera_movi
+parametros_factura_minuta.tipo_movimiento_csd= tipo_movimiento_csd
+parametros_factura_minuta.tipo_prev				= ''
+parametros_factura_minuta.dw_factura			= dw_vacio
+// Por tratarse de una SGC es sencillo determinar la serie, por el total del colegiado
+if total_colegiado>=0 then
+	parametros_factura_minuta.serie				= g_serie_fases
+else
+	parametros_factura_minuta.serie				= g_facturas_negativas_serie
+end if
+
+f_generar_facturas_minuta(parametros_factura_minuta)
+//f_generar_facturas_minuta(dw_3,impr_copias,impr_orig, FALSE, genera_movi, tipo_movimiento_csd, '',dw_vacio)
+// FIN Modificado Ricardo 2005-05-10
+g_cobro_obligado = 'N'
+
+
+if isvalid(g_detalle_fases) then
+	g_detalle_fases.postevent('csd_refrescar_avisos')
+	g_detalle_fases.postevent('csd_refrescar_src')	
+end if
+destroy (dw_vacio)
+end subroutine
+

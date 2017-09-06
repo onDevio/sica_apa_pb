@@ -1,0 +1,6 @@
+HA$PBExportHeader$st_asistente.srs
+global type st_asistente from structure
+	string		dw
+	string		campo
+end type
+

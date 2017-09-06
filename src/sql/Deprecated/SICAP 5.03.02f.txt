@@ -1,0 +1,4 @@
+//CACERES
+update csi_param_facturas set texto ='Agencia de Seguros Exclusiva de MUSAAT, ~nMutua de Seguros a Prima Fija.~nCon nº de Registro: M0368B10407377' where serie='PC' and empresa=<Empresa> and campo ='N_emisor2';
+//Se actualiza la fecha de versión
+update var_globales set texto='20110608', descripcion = 'versión v5.3.02f' where nombre='g_version_minima';

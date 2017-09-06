@@ -1,0 +1,21 @@
+HA$PBExportHeader$st_datos_etiquetas.srs
+global type st_datos_etiquetas from structure
+	string		n_visado
+	string		fecha
+	string		pem
+	string		superficie
+	string		descripcion
+	string		colegiado
+	string		colegiado2
+	string		colegiado3
+	string		promotor
+	string		emplazamiento
+	string		poblacion
+	string		codigos
+	integer		tipo
+	string		contratista
+	string		num_visados
+	string		tipo_tramite
+	string		n_registro
+end type
+

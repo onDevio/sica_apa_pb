@@ -1,0 +1,21 @@
+HA$PBExportHeader$f_fases_n_calle.srf
+global type f_fases_n_calle from function_object
+end type
+
+forward prototypes
+global function string f_fases_n_calle (string id_fase)
+end prototypes
+
+global function string f_fases_n_calle (string id_fase);string  n_calle
+
+SELECT fases.n_calle  
+INTO :n_calle  
+FROM fases  
+WHERE fases.id_fase = :id_fase   ;
+
+if f_es_vacio(n_calle) then n_calle = ''
+
+return n_calle
+
+end function
+

@@ -1,0 +1,84 @@
+HA$PBExportHeader$f_mailing.srf
+global type f_mailing from function_object
+end type
+
+forward prototypes
+global subroutine f_mailing (string destinatarios, string adjuntos_absoluta, string asunto, string mail, string adjuntos_relativa)
+end prototypes
+
+global subroutine f_mailing (string destinatarios, string adjuntos_absoluta, string asunto, string mail, string adjuntos_relativa);//Funci$$HEX1$$f300$$ENDHEX$$n encargada de mandar uno o varios mail a los destinatarios
+//
+//Par$$HEX1$$e100$$ENDHEX$$metros
+//		Destinatarios: lista de destinatarios. Formato 'fmontoya@csd-systems.com;jdelgado@csd-systems.com;...
+//		Adjuntos: 		ficheros a adjuntar.		Formato 'c:\icav\fotos\icav.bmp';.....'
+//		Asunto:			asunto para los mails.
+//		Mail:				cuerpo del mail.
+
+string ls_Filter
+mailsession lms_Session
+mailmessage lm_Message
+mailrecipient lm_Recipient
+mailFileDescription lmf_File
+mailreturncode lmc_Return
+
+//Incluimos los ficheros adjuntos. Recorremos el string "adjuntos" y desglosamos los ficheros
+//que se encuentran separados entre ";". Ej: Fichero1;fichero2;fichero3;
+int pos_anterior_pc,pos_pc,i,j,pos_anterior_dir,pos_dir,eliminado
+string ls_FileName, ls_PathName, ls_UserName,fichero_a_adjuntar,direccion,direccion_relativa
+ulong ll_Length
+
+pos_anterior_dir = 0
+pos_dir = PosA(destinatarios,';',1)
+j = 0
+
+//Vamos recorriendo las direcciones una a una
+DO UNTIL  pos_anterior_dir >= LenA(destinatarios)
+	j = j + 1
+	direccion = MidA(destinatarios,pos_anterior_dir+1,pos_dir - pos_anterior_dir - 1)
+	pos_anterior_dir = pos_dir
+	pos_dir = PosA(destinatarios,';',pos_anterior_dir + 1)
+	//Incluimos el destinatario
+	lm_Recipient.Address = direccion
+	lm_Recipient.Name = direccion
+	lm_Recipient.RecipientType = mailTo!
+	lm_Message.Recipient[j] = lm_Recipient
+	//Para cada una de las direcciones adjuntamos los ficheros
+	if (not f_es_vacio(adjuntos_absoluta)) and (not f_es_vacio(adjuntos_relativa)) then
+		i = 0
+		pos_anterior_pc = 0
+		pos_pc = PosA(adjuntos_absoluta,';',1)	
+		DO UNTIL  pos_anterior_pc >= LenA(adjuntos_absoluta)
+			i = i + 1
+			fichero_a_adjuntar = MidA(adjuntos_absoluta,pos_anterior_pc+1,(pos_pc - pos_anterior_pc)-1)
+			pos_anterior_pc = pos_pc
+			pos_pc = PosA(adjuntos_absoluta,';',pos_anterior_pc + 1)
+			//Averiguamos el nombre del fichero
+			direccion_relativa = f_devuelve_dir_relativa(fichero_a_adjuntar)
+			//Primero comprobamos si todavia continua en los ficheros adjuntos, ya que 
+			//puede que tras adjuntarlo, lo hayan borrado de los datos adjuntos o del equipo.
+			if fileexists(fichero_a_adjuntar) then
+				eliminado = PosA(adjuntos_relativa,direccion_relativa,1)
+				if eliminado <> 0 then //El fichero no ha sido eliminado y lo incluimos
+					lmf_File.FileType = mailAttach!
+					lmf_File.FileName = direccion_relativa
+					lmf_file.PathName = fichero_a_adjuntar
+					lm_Message.Attachmentfile[i] = lmf_File	
+				end if
+			else
+				i = i - 1
+			end if
+		LOOP
+	end if
+LOOP
+lm_Message.NoteText = mail
+lm_Message.Subject = asunto
+lms_Session = create mailsession
+lmc_Return = lms_Session.mailLogon()
+lmc_Return = lms_Session.mailSend(lm_Message)
+if lmc_Return <> mailReturnSuccess! then
+	MessageBox(g_titulo, "Se produjo un error durante el envio.")
+end if
+lmc_Return = lms_Session.mailLogoff()
+destroy lms_Session
+end subroutine
+

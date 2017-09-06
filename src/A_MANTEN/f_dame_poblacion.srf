@@ -1,0 +1,21 @@
+HA$PBExportHeader$f_dame_poblacion.srf
+global type f_dame_poblacion from function_object
+end type
+
+forward prototypes
+global function string f_dame_poblacion (string codigo)
+end prototypes
+
+global function string f_dame_poblacion (string codigo);string pobla
+
+SELECT poblaciones.descripcion  
+    INTO :pobla
+    FROM poblaciones  
+   WHERE poblaciones.cod_pob = :codigo; 
+         
+IF f_es_vacio (pobla) then pobla = ''
+			
+				
+return pobla
+end function
+

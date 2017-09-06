@@ -1,0 +1,21 @@
+HA$PBExportHeader$f_separar_apellidos.srf
+$PBExportComments$Separa los apellidos (pasados como una cadena)
+global type f_separar_apellidos from function_object
+end type
+
+forward prototypes
+global subroutine f_separar_apellidos (string apellidos, ref string ap1, ref string ap2)
+end prototypes
+
+global subroutine f_separar_apellidos (string apellidos, ref string ap1, ref string ap2);long pos, tam
+
+tam = LenA(apellidos)
+pos = PosA(apellidos, ' ')
+
+ap1 = LeftA(apellidos, pos - 1)
+ap2 = RightA(apellidos, tam - pos)
+
+if f_es_vacio(ap1) then ap1 = ''
+if f_es_vacio(ap2) then ap2 = ''
+end subroutine
+

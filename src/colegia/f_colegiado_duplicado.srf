@@ -1,0 +1,23 @@
+HA$PBExportHeader$f_colegiado_duplicado.srf
+global type f_colegiado_duplicado from function_object
+end type
+
+forward prototypes
+global function integer f_colegiado_duplicado (string n_colegiado)
+end prototypes
+
+global function integer f_colegiado_duplicado (string n_colegiado);long hay
+int retorno
+
+retorno = 0
+select count(*) into :hay from colegiados where n_colegiado = :n_colegiado;
+if hay > 0 then
+	retorno = 1
+else
+	retorno  = 0
+end if
+
+return retorno
+
+end function
+

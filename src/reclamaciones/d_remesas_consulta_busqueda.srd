@@ -1,0 +1,14 @@
+HA$PBExportHeader$d_remesas_consulta_busqueda.srd
+release 7;
+datawindow(units=0 timer_interval=0 color=79416533 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=264 color="536870912" )
+table(column=(type=char(10) updatewhereclause=no name=n_remesa dbname="name_1" )
+ )
+groupbox(band=detail text=" Par$$HEX1$$e100$$ENDHEX$$metros de b$$HEX1$$fa00$$ENDHEX$$squeda "border="6" color="16711680" x="59" y="20" height="224" width="2139"  name=gb_1  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="79741120" )
+button(band=detail text="&Buscar"filename=""action="0" border="0" color="0" x="2249" y="44" height="100" width="256" vtextalign="0" htextalign="0"  name=b_1  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="67108864" )
+text(band=detail alignment="1" text="N$$HEX2$$ba002000$$ENDHEX$$Remesa:" border="0" color="0" x="590" y="120" height="52" width="393"  name=n_registro_t  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="5" color="0" x="1024" y="120" height="56" width="411"  name=n_remesa  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

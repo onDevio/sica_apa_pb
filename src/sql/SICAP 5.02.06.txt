@@ -1,0 +1,3 @@
+Insert into csi_series (serie, empresa, contador, descripcion, recib, anyo, proforma) values('RECTIF', <código empresa aseguradora>, 0, 'Serie rectificativa de la empresa aseguradora', 'S', '2011', 'N');
+//Se actualiza la fecha de versión
+update var_globales set texto='20110315', descripcion = 'versión v5.2.06' where nombre='g_version_minima';

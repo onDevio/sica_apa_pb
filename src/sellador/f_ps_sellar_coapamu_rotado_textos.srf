@@ -1,0 +1,226 @@
+HA$PBExportHeader$f_ps_sellar_coapamu_rotado_textos.srf
+global type f_ps_sellar_coapamu_rotado_textos from function_object
+end type
+
+forward prototypes
+global subroutine f_ps_sellar_coapamu_rotado_textos (st_sello sello)
+end prototypes
+
+global subroutine f_ps_sellar_coapamu_rotado_textos (st_sello sello);
+//Esta funcion tiene como entradas el nombre del fichero pdf, la posicion (top y left) 
+//desde donde se referencian todas las demas 
+string fichero_pdf, posicion, rotado
+n_escritor_pdf sellador
+double x_ini = 0.3, y_ini = 1.2
+double x, y
+integer r,g,b
+long alto_sello, ancho_sello
+double margen_v, margen_h
+
+sellador = create n_escritor_pdf
+
+// Color 
+r = 0
+g = 0
+b = 0
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////// CAMPOS EXTERNOS ///////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////
+
+string fase_corta, n_expediente, n_registro, sl_f_entrada, sl_f_visado
+string num_doc, id_fase, nombre, nombre1, nombre2, nombre3, nombre4, id_col
+datetime f_visado,f_entrada
+integer i
+id_fase=sello.id_fase
+
+select fases.n_expedi into :n_expediente from fases where fases.id_fase= :id_fase;
+select fases.fase into :fase_corta from fases where fases.id_fase= :id_fase;
+n_expediente=n_expediente+"-"+fase_corta
+select fases.n_registro into :n_registro from fases where fases.id_fase= :id_fase;
+select fases.f_entrada into :f_entrada from fases where fases.id_fase= :id_fase;
+select fases.f_visado into :f_visado from fases where fases.id_fase= :id_fase;
+num_doc=f_ps_generar_sig_num_doc_visared(id_fase,n_registro)
+g_st_sellado_visared_consulta.n_documento=num_doc
+
+if f_es_vacio(n_expediente) then n_expediente = ''
+if f_es_vacio(n_registro) then n_registro = ''
+
+sl_f_entrada = string(f_entrada,"dd/mm/yy") 
+sl_f_visado = string(f_visado,"dd/mm/yy") 
+if f_es_vacio(sl_f_entrada) then sl_f_entrada = '01/01/1990'
+if f_es_vacio(sl_f_visado) then sl_f_visado = '01/01/1990'
+if isnull(num_doc) then num_doc=''
+
+//para los nombres de los colegiados, recogemos el n_col, el
+datastore ds_nombre
+ds_nombre	= create datastore
+ds_nombre.dataObject = 'd_fases_colegiados'
+ds_nombre.SetTransObject(SQLCA)
+ds_nombre.retrieve(id_fase)
+for i=1 to ds_nombre.rowcount()
+	id_col=ds_nombre.getitemString(i,'id_col')
+	nombre=f_colegiado_ncol_nombre_apellido(id_col)
+	if isnull(nombre) then
+		nombre=""
+	else
+		if i=1 then
+			nombre1=nombre
+		elseif i=2 then
+			nombre2=nombre
+		elseif i=3 then
+			nombre3=nombre
+		elseif i=4 then
+			nombre4=nombre
+		end if
+	end if
+next 
+//////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////// INICIALIZACI$$HEX1$$d300$$ENDHEX$$N ////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////
+
+fichero_pdf = sello.fichero
+posicion = sello.posicion
+rotado = "S"
+// Posicion libre
+x = sello.x
+y = sello.y
+// Margenes
+margen_v = sello.margen_v
+margen_h = sello.margen_h
+sellador.i_fichero_pdf_salida = sello.fichero_salida
+
+if sellador.f_abrir_fichero_sello(fichero_pdf) > 0 then
+  
+ sellador.f_margenes("2",0,0,0,0)
+ 
+ // Tama$$HEX1$$f100$$ENDHEX$$o del sello 5x5 en cm
+ ancho_sello = 28
+ alto_sello = 1.4
+ 
+sellador.f_calculo_coordenadas_iniciales(posicion,ancho_sello,alto_sello,margen_v,margen_h,x,y,rotado)
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////// TEXTOS ////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////
+
+string linea_expediente, linea_registro, linea_f_entrada, linea_f_visado
+string linea_arquitectos, texto_colegio, texto_colegio_2, linea_visado, linea_visado_2, linea_visado_3, linea_visado_4
+
+//Texto colegio
+texto_colegio = "COLEGIO OFICIAL DE APAREJADORES Y ARQUITECTOS T$$HEX1$$c900$$ENDHEX$$CNICOS"
+texto_colegio_2 = "DE LA REGI$$HEX1$$d300$$ENDHEX$$N DE MURCIA"
+sellador.f_inserta_texto(x_ini+0.1,y_ini - 0.2,90,texto_colegio,8,r,g,b,"Arialbl","Left")
+sellador.f_inserta_texto(x_ini+0.5,y_ini + 2.7,90,texto_colegio_2,8,r,g,b,"Arialbl","Left")
+
+//Texto expediente
+linea_expediente = "$$HEX2$$b7002000$$ENDHEX$$Expediente: "
+sellador.f_inserta_texto(x_ini+0,y_ini+10.5,90,linea_expediente,6,r,g,b,"Arial","Left")
+sellador.f_inserta_texto(x_ini+0,y_ini+12.9,90,n_expediente,6,150,150,150,"Arial","Left")
+
+//Texto registro
+linea_registro = "$$HEX2$$b7002000$$ENDHEX$$Registro: "
+sellador.f_inserta_texto(x_ini+0.2,y_ini+10.5,90,linea_registro,6,r,g,b,"Arial","Left")
+sellador.f_inserta_texto(x_ini+0.2,y_ini+12.9,90,n_registro,6,150,150,150,"Arial","Left")
+
+//Texto fecha de entrada
+linea_f_entrada = "$$HEX2$$b7002000$$ENDHEX$$Fecha de entrada: "
+sellador.f_inserta_texto(x_ini+0.4,y_ini+10.5,90,linea_f_entrada,6,r,g,b,"Arial","Left")
+sellador.f_inserta_texto(x_ini+0.4,y_ini+12.9,90,sl_f_entrada,6,150,150,150,"Arial","Left")
+
+//Texto fecha de visado
+linea_f_visado = "$$HEX2$$b7002000$$ENDHEX$$Fecha de visado: "
+sellador.f_inserta_texto(x_ini+0.6,y_ini+10.5,90,linea_f_visado,6,r,g,b,"Arial","Left")
+sellador.f_inserta_texto(x_ini+0.6,y_ini+12.9,90,sl_f_visado,6,150,150,150,"Arial","Left")
+
+//numero de pagina
+sellador.f_inserta_texto(x_ini+1,y_ini+10.7,90,"P$$HEX1$$e100$$ENDHEX$$g. %1g de %G",6,150,150,150,"Arialbl","Left")
+
+//Arquitectos
+linea_arquitectos = "$$HEX2$$b7002000$$ENDHEX$$Arquitecto/s T$$HEX1$$e900$$ENDHEX$$cnico/s: "
+sellador.f_inserta_texto(x_ini+0,y_ini+15,90,linea_arquitectos,6,r,g,b,"Arial","Left")
+sellador.f_inserta_texto(x_ini+0.2,y_ini+15,90,nombre1,6,150,150,150,"Arial","Left")
+sellador.f_inserta_texto(x_ini+0.4,y_ini+15,90,nombre2,6,150,150,150,"Arial","Left")
+sellador.f_inserta_texto(x_ini+0.6,y_ini+15,90,nombre3,6,150,150,150,"Arial","Left")
+sellador.f_inserta_texto(x_ini+0.8,y_ini+15,90,nombre4,6,150,150,150,"Arial","Left")
+
+//VISADO
+linea_visado = "VISADO"
+linea_visado_2 = "El presente documento fue visado el "+sl_f_visado+","
+linea_visado_3 = "quedando copia electr$$HEX1$$f300$$ENDHEX$$nica del mismo en el COAATMU" 
+linea_visado_4 = "con el identificador de documento "+num_doc
+sellador.f_inserta_texto(x_ini+0.1,y_ini+20,90,linea_visado,11,128,0,0,"Arialbl","Left")
+sellador.f_inserta_texto(x_ini+0.3,y_ini+20,90,linea_visado_2,4,128,0,0,"Arialbl","Left")
+sellador.f_inserta_texto(x_ini+0.5,y_ini+20,90,linea_visado_3,4,128,0,0,"Arialbl","Left")
+sellador.f_inserta_texto(x_ini+0.7,y_ini+20,90,linea_visado_4,4,128,0,0,"Arialbl","Left")
+
+//textos externos
+int k,tammax,tamtexto,l,fin,diftam
+string color,texto,textoaux,resto,codigo,activo
+real numlin
+numlin = 0
+for k=1 to sello.dw_textos_sello.rowcount() //este for recorre los textos
+	activo = sello.dw_textos_sello.getitemstring(k,'activo')
+	if activo ='N' then continue
+	color=sello.dw_textos_sello.getitemstring(k,'color')
+	codigo=sello.dw_textos_sello.getitemstring(k,'codigo')
+	textoaux = sello.dw_textos_sello.getitemstring(k,'texto')
+	fin=0
+	do while fin=0 //este while recorre las lineas de cada texto
+		tamtexto=LenA(textoaux)
+		tammax=PosA(textoaux,"#")-1
+		diftam=tamtexto - tammax
+		if tammax<>-1 then
+			//el texto se va a dividir
+			texto=MidA(textoaux,0,tammax)
+			resto=MidA(textoaux,tammax+4,diftam)
+			textoaux=resto
+		else
+			fin=1
+			texto=MidA(textoaux,0,tamtexto)
+		end if
+		sellador.f_inserta_texto(x_ini + 0.9 + numlin,y_ini + 20,90,texto,4,r,g,b,"Arialbl","Left")
+		numlin = numlin + 0.2
+	loop	
+next
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////// IM$$HEX1$$c100$$ENDHEX$$GENES /////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////
+
+//// linea larga
+//sellador.f_inserta_simbolo(0,0,90,2,26,r,g,b,"_","Arial","Left")
+//
+//// imagen del logo
+//sellador.f_inserta_imagen(0.8,0.2,90,"logo_murcia.jpg",0.27,"Left")
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////
+
+// Fin 
+sellador.f_estampa_sello_nt()
+
+end if
+//-----Fin sello
+
+
+
+end subroutine
+

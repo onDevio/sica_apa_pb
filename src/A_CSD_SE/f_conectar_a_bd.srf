@@ -1,0 +1,89 @@
+HA$PBExportHeader$f_conectar_a_bd.srf
+global type f_conectar_a_bd from function_object
+end type
+
+forward prototypes
+global function integer f_conectar_a_bd (string nombre_tran, string proceso)
+end prototypes
+
+global function integer f_conectar_a_bd (string nombre_tran, string proceso);
+// g_tran_sqlca
+// g_tran_bd_ejercicio 
+// g_tran_bd_ejercicio_ant
+// g_tran_bd_ejercicio_post
+
+  String ls_inifile
+  String mensaje
+
+// Recupero el nombre del fichero .INI
+IF proceso <> 'PRUEBAS' then
+   ls_inifile = gnv_app.of_GetAppInifile()
+else
+	ls_inifile = 'bd_pruebas.ini'
+end if
+
+CHOOSE CASE nombre_tran
+	CASE 'sqlca'
+
+  // COMPRUEBO LA CONEXI$$HEX1$$d300$$ENDHEX$$N CON EL OBJETO SQLCA
+    // Inicio los valores necesarios para la conexi$$HEX1$$f300$$ENDHEX$$n con los datos generales
+	 
+	//  21/10/04 Cambios diferenciaci$$HEX1$$f300$$ENDHEX$$n acceso a Pruebas SICA y Contabilidad
+	If sqlca.of_init(ls_inifile,"Database") = -1 then
+		//database  es el nombre de la secci$$HEX1$$f300$$ENDHEX$$n de base de datos en "conta.ini"
+		 MessageBox(g_titulo, "La conexi$$HEX1$$f300$$ENDHEX$$n ha fallado con el fichero "+ ls_inifile + CR + sqlca.SQLErrText,StopSign!)
+//		 HALT
+	end if
+	// Fin 21/10/04
+	
+	if sqlca.of_connect() = -1 then
+		 MessageBox(g_titulo, "La conexi$$HEX1$$f300$$ENDHEX$$n con la Base de Datos ha fallado." +cr+ sqlca.sqlerrtext , StopSign! )
+		 HALT
+	elseif sqlca.sqlcode <> 0 then
+		 MessageBox(g_titulo, "La conexi$$HEX1$$f300$$ENDHEX$$n con la Base de Datos ha fallado." + cr+sqlca.sqlerrtext , StopSign! )
+		 HALT
+	end if
+
+	CASE 'bd_ejercicio'
+
+	  // COMPRUEBO LA CONEXI$$HEX1$$d300$$ENDHEX$$N CON EL OBJETO BD_EJERCICIO
+		 // Inicio los valores necesarios para la conexi$$HEX1$$f300$$ENDHEX$$n con el ejercicio
+		
+		if bd_ejercicio.of_connect() = -1 then
+				if ( proceso = 'NORMAL' OR proceso = 'PRUEBAS' ) then
+					mensaje = "La conexi$$HEX1$$f300$$ENDHEX$$n con la Base de Datos del ejercicio ha fallado."
+				elseif proceso = 'CIERRE' then
+					mensaje = "La conexi$$HEX1$$f300$$ENDHEX$$n con el Ejercicio a cerrar ha fallado."
+				end if
+					MessageBox(g_titulo, mensaje +cr+ bd_ejercicio.sqlerrtext,StopSign!) 
+				HALT
+
+		elseif bd_ejercicio.sqlcode <> 0 then
+				if ( proceso = 'NORMAL' OR proceso = 'PRUEBAS' ) then
+					mensaje = "La conexi$$HEX1$$f300$$ENDHEX$$n con la Base de Datos del ejercicio ha fallado."
+				elseif proceso = 'CIERRE' then
+					mensaje = "La conexi$$HEX1$$f300$$ENDHEX$$n con el Ejercicio a cerrar ha fallado."
+				end if
+					MessageBox(g_titulo, mensaje +cr+ bd_ejercicio.sqlerrtext,StopSign!) 			 
+				HALT
+		end if
+	
+	CASE 'Perfil_externo'
+		if g_perfil_externo.of_connect() = -1 then
+				mensaje = "La conexi$$HEX1$$f300$$ENDHEX$$n con el perfil externo ha fallado."
+				MessageBox(g_titulo, mensaje ,StopSign!) 
+				Return -1
+				HALT
+		end if
+	
+		if g_perfil_externo.sqlcode <> 0 then
+				mensaje = "La conexi$$HEX1$$f300$$ENDHEX$$n con la Base de Datos del Colegio Oficial ha fallado."	
+				return -1
+				HALT
+		end if
+	
+END CHOOSE
+
+return 1
+end function
+

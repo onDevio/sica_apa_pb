@@ -1,0 +1,22 @@
+HA$PBExportHeader$f_devolver_diario.srf
+global type f_devolver_diario from function_object
+end type
+
+forward prototypes
+global function string f_devolver_diario (string diario)
+end prototypes
+
+global function string f_devolver_diario (string diario);string dev
+
+CHOOSE CASE diario
+	CASE 'FE'
+		dev= g_diario_f_emitidas
+	CASE 'FR' 
+		dev= '911'
+	CASE ELSE
+		dev= '001'
+END CHOOSE
+
+return dev
+end function
+

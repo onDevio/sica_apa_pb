@@ -1,0 +1,42 @@
+HA$PBExportHeader$f_devuelve_mail_persona.srf
+global type f_devuelve_mail_persona from function_object
+end type
+
+forward prototypes
+global function string f_devuelve_mail_persona (string id_col)
+global function string f_devuelve_mail_persona (string id_persona, string tipo_persona)
+end prototypes
+
+global function string f_devuelve_mail_persona (string id_col);string email
+
+  SELECT colegiados.email  
+    INTO :email  
+    FROM colegiados  
+   WHERE colegiados.id_colegiado = :id_col;
+
+	return email
+
+
+
+end function
+
+global function string f_devuelve_mail_persona (string id_persona, string tipo_persona);string email
+
+if tipo_persona='C' then
+  email = f_devuelve_mail_profesional(id_persona);
+else
+  SELECT clientes.email  
+    INTO :email  
+    FROM clientes
+   WHERE clientes.id_cliente = :id_persona;
+end if
+
+
+if IsNull(email) then email=''
+
+return email
+
+
+
+end function
+

@@ -1,0 +1,33 @@
+HA$PBExportHeader$f_campos_e_s_visibles.srf
+global type f_campos_e_s_visibles from function_object
+end type
+
+forward prototypes
+global function integer f_campos_e_s_visibles (string campo)
+end prototypes
+
+global function integer f_campos_e_s_visibles (string campo);CHOOSE CASE g_colegio
+	CASE 'COAATBU','COAATB','COAATMU'
+		CHOOSE CASE campo
+			CASE 'interno_t'
+				return 1
+			CASE 'interno'
+				return 1
+			CASE 'oficial_t'
+				return 1
+			CASE 'oficial'
+				return 1
+			CASE ELSE
+				return 0
+		END CHOOSE
+	CASE ELSE
+		// ... Por definir ...
+		// tipos de Registro en otros colegios
+		//MessageBOx(g_titulo,'Otro colegio')
+		return 0
+END CHOOSE
+
+return 1
+
+end function
+

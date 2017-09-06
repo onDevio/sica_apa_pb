@@ -1,0 +1,26 @@
+HA$PBExportHeader$f_total_concepto_fases_informes.srf
+global type f_total_concepto_fases_informes from function_object
+end type
+
+forward prototypes
+global function double f_total_concepto_fases_informes (string id_fase, string tipo_informe)
+end prototypes
+
+global function double f_total_concepto_fases_informes (string id_fase, string tipo_informe);  double cuantia_cliente, cuantia_colegiado, total
+  
+  
+  SELECT fases_informes.cuantia_cliente,   
+         fases_informes.cuantia_colegiado,   
+         sum(fases_informes.cuantia_cliente+fases_informes.cuantia_colegiado )  
+    INTO :cuantia_cliente,   
+         :cuantia_colegiado,   
+         :total  
+    FROM fases_informes  
+   WHERE ( fases_informes.id_fase = :id_fase ) AND  
+         ( fases_informes.tipo_informe = :tipo_informe )   ;
+			
+			
+			return total
+
+end function
+

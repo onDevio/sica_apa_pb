@@ -1,0 +1,26 @@
+HA$PBExportHeader$f_cambiar_directorio_activo.srf
+global type f_cambiar_directorio_activo from function_object
+end type
+
+forward prototypes
+global function integer f_cambiar_directorio_activo (string directorio)
+end prototypes
+
+global function integer f_cambiar_directorio_activo (string directorio);// Funci$$HEX1$$f300$$ENDHEX$$n creada por Roberto Marco el 22/03/2005
+// Dada la ruta absoluta contenida el el par$$HEX1$$e100$$ENDHEX$$metro de entrada, 
+// Cambia la ruta por defecto que usa el PB.
+
+// USO OBLIGADO : Se debe usar despu$$HEX1$$e900$$ENDHEX$$s de cada llamada a las funciones GetFileOpenName,
+// GetFileSaveName, dw.SaveAs, listbox.DirList y mailsession.mailLogon para restaurar el
+// directorio base correcto, ya que estas funciones pueden cambiarlo.
+
+integer err
+n_cst_filesrvwin32 nuevo_directorio
+nuevo_directorio = create n_cst_filesrvwin32
+err=nuevo_directorio.of_changedirectory(directorio)
+destroy nuevo_directorio
+
+return err
+
+end function
+

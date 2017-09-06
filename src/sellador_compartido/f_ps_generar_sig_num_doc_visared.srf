@@ -1,0 +1,37 @@
+HA$PBExportHeader$f_ps_generar_sig_num_doc_visared.srf
+global type f_ps_generar_sig_num_doc_visared from function_object
+end type
+
+forward prototypes
+global function string f_ps_generar_sig_num_doc_visared (string fase, string registro)
+end prototypes
+
+global function string f_ps_generar_sig_num_doc_visared (string fase, string registro);string valor,aleatorio,cont_registro
+int num,cont_reg
+
+
+
+//creamos el contador de cada registro
+
+select count(*) 
+into :cont_reg
+from fases_documentos_visared
+where id_fase=:fase and sellado='S';
+
+
+
+cont_registro=string(cont_reg+1)
+cont_registro=RightA('000'+cont_registro,3)
+
+//Creamos el numero aleatorio
+randomize(0)
+num=Rand(9999)
+aleatorio=string(RightA('0000'+string(num),5))
+
+valor=registro+"-"+cont_registro+"-"+aleatorio
+
+
+
+return valor
+end function
+

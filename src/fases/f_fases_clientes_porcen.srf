@@ -1,0 +1,22 @@
+HA$PBExportHeader$f_fases_clientes_porcen.srf
+global type f_fases_clientes_porcen from function_object
+end type
+
+forward prototypes
+global function double f_fases_clientes_porcen (string id_fase, string id_cli)
+end prototypes
+
+global function double f_fases_clientes_porcen (string id_fase, string id_cli);double porc
+
+SELECT porcen  
+INTO :porc  
+FROM fases_clientes  
+WHERE ( fases_clientes.id_fase = :id_fase ) AND  
+		( fases_clientes.id_cliente = :id_cli )   ;
+
+if isnull(porc) then porc = 0		
+		
+return porc
+
+end function
+

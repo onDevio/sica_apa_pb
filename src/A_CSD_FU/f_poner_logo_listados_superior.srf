@@ -1,0 +1,14 @@
+HA$PBExportHeader$f_poner_logo_listados_superior.srf
+global type f_poner_logo_listados_superior from function_object
+end type
+
+forward prototypes
+global function string f_poner_logo_listados_superior ()
+end prototypes
+
+global function string f_poner_logo_listados_superior ();// Func. que pone una determinada inscripci$$HEX1$$f300$$ENDHEX$$n en el logo_SUPerior
+
+return g_etiqueta_empresa
+
+end function
+

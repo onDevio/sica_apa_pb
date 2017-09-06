@@ -1,0 +1,19 @@
+HA$PBExportHeader$f_total_dias_curso.srf
+global type f_total_dias_curso from function_object
+end type
+
+forward prototypes
+global function integer f_total_dias_curso (string id_curso)
+end prototypes
+
+global function integer f_total_dias_curso (string id_curso);integer total
+
+select count(id_curso_fechas)
+into :total
+from formacion_fechas
+where id_curso=:id_curso;
+
+
+return total
+end function
+

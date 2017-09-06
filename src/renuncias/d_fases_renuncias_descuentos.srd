@@ -1,0 +1,75 @@
+HA$PBExportHeader$d_fases_renuncias_descuentos.srd
+release 10.5;
+datawindow(units=0 timer_interval=0 color=79741120 processing=0 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes print.preview.outline=no hidegrayline=no )
+header(height=80 color="536870912" )
+summary(height=0 color="536870912" height.autosize=yes )
+footer(height=0 color="536870912" )
+detail(height=64 color="536870912" height.autosize=yes )
+table(column=(type=char(1) updatewhereclause=yes name=marcado dbname="marcado" initial="N" values="	S/	N" )
+ column=(type=char(30) updatewhereclause=yes name=descripcion dbname="descripcion" )
+ column=(type=char(1) updatewhereclause=yes name=devolver dbname="devolver" )
+ column=(type=char(1) updatewhereclause=yes name=gastos_tramitacion dbname="gastos_tramitacion" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=id_fase dbname="fases_informes.id_fase" dbalias=".id_fase" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=id_informe dbname="fases_informes.id_informe" dbalias=".id_informe" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=tipo_informe dbname="fases_informes.tipo_informe" dbalias=".tipo_informe" )
+ column=(type=number update=yes updatewhereclause=yes name=cuantia_cliente dbname="fases_informes.cuantia_cliente" dbalias=".cuantia_cliente" initial="0" )
+ column=(type=number update=yes updatewhereclause=yes name=cuantia_colegiado dbname="fases_informes.cuantia_colegiado" dbalias=".cuantia_colegiado" initial="0" )
+ retrieve="  SELECT DISTINCT convert(char(1),'') as marcado,  
+         convert(char(30), csi_articulos_servicios.descripcion) as descripcion, 
+		'' as devolver,
+		'' as gastos_tramitacion,
+         fases_informes.id_fase,   
+         fases_informes.id_informe,   
+         fases_informes.tipo_informe,   
+         fases_informes.cuantia_cliente,   
+         fases_informes.cuantia_colegiado  
+    FROM fases_informes,   
+         csi_articulos_servicios ,
+		csi_facturas_emitidas, 
+         csi_lineas_fact_emitidas
+   WHERE ( fases_informes.tipo_informe = csi_articulos_servicios.codigo ) and  
+         ( fases_informes.id_fase = csi_facturas_emitidas.id_minuta ) and
+		( csi_lineas_fact_emitidas.id_factura = csi_facturas_emitidas.id_factura ) and
+		( csi_facturas_emitidas.proforma='N' ) and
+		( csi_lineas_fact_emitidas.articulo = fases_informes.tipo_informe ) and
+		( csi_facturas_emitidas.id_minuta = :id_fase ) and
+		( csi_facturas_emitidas.id_persona = :id_col )
+" arguments=(("id_fase", string),("id_col", string),("porc_realizado", number),("tipo_persona", string)) )
+text(band=header alignment="2" text="Realizado" border="4" color="0" x="2071" y="16" height="52" width="370" html.valueishtml="0"  name=t_2 visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Facturado" border="4" color="0" x="1673" y="16" height="52" width="370" html.valueishtml="0"  name=t_4 visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Total" border="4" color="0" x="1275" y="16" height="52" width="370" html.valueishtml="0"  name=t_3 visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="A Devolver" border="4" color="0" x="2469" y="16" height="52" width="370" html.valueishtml="0"  name=t_1 visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="5" color="0" x="9" y="8" height="52" width="69" format="[general]" html.valueishtml="0"  name=marcado visible="1" checkbox.text="" checkbox.on="S" checkbox.off="N" checkbox.scale=no checkbox.threed=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+compute(band=detail alignment="1" expression="( total *  porc_realizado ) / 100 "border="0" color="0" x="2071" y="8" height="52" width="370" format="[General]" html.valueishtml="0"  name=realizado visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+column(band=detail id=3 alignment="1" tabsequence=20 border="0" color="0" x="2469" y="8" height="52" width="370" format="#,##0.00" html.valueishtml="0"  name=devolver visible="1" edit.limit=0 edit.case=any edit.format="#,##0.00" edit.focusrectangle=no edit.autoselect=no  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+compute(band=detail alignment="1" expression="if (tipo_informe='12', 
+    f_total_facturado_musaat_renuncias(id_fase, id_col), 
+ f_total_facturado_concepto(id_fase, tipo_informe, id_col)
+)"border="0" color="0" x="1673" y="8" height="52" width="370" format="#,##0.00" html.valueishtml="0"  name=pagado visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+compute(band=detail alignment="0" expression="if (pagado >= realizado, //Si pagamos m$$HEX1$$e100$$ENDHEX$$s de lo renunciado, se aplica la renuncia
+   (-1) * f_redondea( pagado - realizado)
+, //sino se devuelve lo pagado
+   (-1) * pagado
+)
+"border="0" color="0" x="2857" y="8" height="52" width="370" format="#,##0.00" html.valueishtml="0"  name=devolver_real visible="0"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+compute(band=detail alignment="0" expression="f_fases_colegiados_porcen( id_fase , id_col ) / f_fases_colegiados_porcen_total( id_fase )"border="5" color="0" x="3255" y="8" height="52" width="183" format="#,##0.00" html.valueishtml="0"  name=porcen_ponderado visible="0"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+column(band=detail id=9 alignment="1" tabsequence=32766 border="5" color="0" x="3456" y="8" height="52" width="283" format="###,###,##0.00" html.valueishtml="0"  name=cuantia_colegiado visible="0" editmask.mask="###,###.00" editmask.focusrectangle=no  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+compute(band=detail alignment="0" expression="'Devolver '+ descripcion +':' "border="0" color="0" x="105" y="8" height="52" width="1157" format="[GENERAL]" html.valueishtml="0"  name=compute_2 visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="80269524" )
+column(band=detail id=4 alignment="0" tabsequence=30 border="0" color="0" x="3739" y="0" height="52" width="23" format="[general]" html.valueishtml="0"  name=gastos_tramitacion visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+compute(band=detail alignment="1" expression="if (tipo_informe='12', 
+       f_musaat_calcula_prima_devoluciones(id_fase, id_col),
+    if ( tipo_persona ='cli',  cuantia_cliente * porcen_ponderado,
+    cuantia_colegiado *  porcen_ponderado
+    )
+)"border="0" color="0" x="1285" y="8" height="52" width="370" format="#,##0.00" html.valueishtml="0"  name=total visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" pagingmethod=0 generatedddwframes="1" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()
+ 

@@ -1,0 +1,18 @@
+HA$PBExportHeader$f_devuelve_mail_profesional.srf
+global type f_devuelve_mail_profesional from function_object
+end type
+
+forward prototypes
+global function string f_devuelve_mail_profesional (string id_col)
+end prototypes
+
+global function string f_devuelve_mail_profesional (string id_col);string email_profesional, email_particular
+
+select email_profesional, email into :email_profesional, :email_particular from colegiados where id_colegiado= :id_col;
+
+if f_es_vacio(email_profesional) then 	return email_particular
+
+
+return email_profesional
+end function
+

@@ -1,0 +1,37 @@
+HA$PBExportHeader$f_colegiados_ids_sociedades.srf
+global type f_colegiados_ids_sociedades from function_object
+end type
+
+forward prototypes
+global function string f_colegiados_ids_sociedades (string id_col)
+end prototypes
+
+global function string f_colegiados_ids_sociedades (string id_col);//Devuelve en una cadena separada por comas las sociedades a las que pertenece el colegiado (el N$$HEX2$$ba002000$$ENDHEX$$de Sociedad)
+int i
+string retorno='',id_soc
+
+datastore ds_sociedades
+
+ds_sociedades = create datastore
+ds_sociedades.dataobject ='d_colegiados_sociedades'
+ds_sociedades.SetTransObject(SQLCA)
+
+ds_sociedades.Retrieve(id_col)
+
+for i = 1 to ds_sociedades.rowcount()
+	id_soc = ds_sociedades.GetItemString(i,'id_col_soc')
+	if f_es_vacio(id_soc) then continue
+	if f_es_vacio(retorno) then
+		retorno = "'"+id_soc+"'"
+//		retorno = id_soc
+	else
+		retorno = retorno+','+"'"+id_soc+"'"
+//		retorno = retorno+','+id_soc
+	end if
+next
+
+destroy ds_sociedades
+
+return retorno
+end function
+

@@ -1,0 +1,63 @@
+HA$PBExportHeader$f_eimporta_comprobar_correo.srf
+global type f_eimporta_comprobar_correo from function_object
+end type
+
+forward prototypes
+global function st_correos_recibidos f_eimporta_comprobar_correo ()
+end prototypes
+
+global function st_correos_recibidos f_eimporta_comprobar_correo ();mailSession				mSes
+mailReturnCode			mRet
+mailMessage			mMsg
+mailRecipient	  Recipient
+st_correos_recibidos recibidos
+int li_cuantos
+
+string ls_ret
+long n
+
+li_cuantos = 0
+
+//Creamos la sesion recibiendo los mails
+mSes = create mailSession
+mRet = mSes.mailLogon ( mailNewSessionWithDownLoad! )
+
+ls_ret = f_mail_error_to_string ( mRet, 'Logon:', FALSE )
+
+If mRet <> mailReturnSuccess! Then
+	MessageBox ("Conexi$$HEX1$$f300$$ENDHEX$$n", 'Error recibiendo correos' )
+	recibidos.codigo[1] = -1
+	return recibidos
+End If
+
+//Cogemos todos los mails nuevos que hayan
+mSes.mailGetMessages(TRUE)
+
+FOR n = 1 to UpperBound(mSes.MessageID[])
+		mRet = mSes.mailReadMessage(mSes.MessageID[n], mMsg, mailEntireMessage!, false)
+		Recipient = mMsg.Recipient[1]
+		recibidos.codigo[n] = n
+		recibidos.nombre[n] = Recipient.Name 
+		recibidos.correo[n] = Recipient.Address 
+		recibidos.asunto[n] = mMsg.Subject
+		recibidos.descargar[n] = 'S'
+		li_cuantos ++
+		If mRet <> mailReturnSuccess! Then
+			MessageBox ("Conexi$$HEX1$$f300$$ENDHEX$$n", 'Error descargando ficheros' )
+			recibidos.codigo[1] = -1
+			return recibidos
+		End If
+NEXT
+
+mSes.mailLogoff ( )
+
+destroy mSes
+
+if li_cuantos > 0 then
+	return recibidos
+else
+	recibidos.codigo[1] = -1
+	return recibidos
+end if
+end function
+

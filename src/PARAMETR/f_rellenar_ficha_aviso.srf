@@ -1,0 +1,331 @@
+HA$PBExportHeader$f_rellenar_ficha_aviso.srf
+global type f_rellenar_ficha_aviso from function_object
+end type
+
+forward prototypes
+global subroutine f_rellenar_ficha_aviso (u_dw dw_minuta, u_dw dw_impreso_minuta)
+end prototypes
+
+global subroutine f_rellenar_ficha_aviso (u_dw dw_minuta, u_dw dw_impreso_minuta);	// Funci$$HEX1$$f300$$ENDHEX$$n que rellena el aviso de factura, v$$HEX1$$e100$$ENDHEX$$lida para todo colegio
+int i , fila
+string tipo_gestion, id_fase, id_col, id_cli, pagador, aplica_honos='N', aplica_desplaza='N', aplica_dv='N', aplica_cip='N'
+string aplica_musaat='N', aplica_retvol='N', concepto_honos='', concepto_desplaza='', nombre_emisor, direc_emisor
+string pobla_emisor, nombre_receptor, direc_receptor, pobla_receptor, irpf_cliente, observaciones='', aplica_impresos='N'
+string concepto_otros=''
+double base_dv=0, base_cip=0, base_musaat=0, porc_irpf, base_garantia=0, base_impresos = 0, base_honos, base_desplaza, base_irpf = 0
+
+dw_impreso_minuta.reset()
+id_fase = dw_minuta.getitemstring(1, 'id_fase')
+id_col = dw_minuta.getitemstring(1, 'id_colegiado')
+id_cli = dw_minuta.getitemstring(1, 'id_cliente')
+tipo_gestion = dw_minuta.getitemstring(1, 'tipo_gestion')
+aplica_honos = dw_minuta.getitemstring(1, 'aplica_honos')
+aplica_desplaza = dw_minuta.getitemstring(1, 'aplica_desplaza')
+aplica_dv = dw_minuta.getitemstring(1, 'aplica_dv')
+aplica_cip = dw_minuta.getitemstring(1, 'aplica_cip')
+aplica_musaat = dw_minuta.getitemstring(1, 'aplica_musaat')
+aplica_retvol = dw_minuta.getitemstring(1, 'aplica_retvol')
+aplica_impresos = dw_minuta.getitemstring(1, 'aplica_impresos')
+porc_irpf = dw_minuta.getitemnumber(1, 'irpf')
+irpf_cliente = dw_minuta.getitemstring(1, 'irpf_cliente')
+base_dv = dw_minuta.getitemnumber(1, 'base_dv')
+base_cip = dw_minuta.getitemnumber(1, 'base_cip')
+base_musaat = dw_minuta.getitemnumber(1, 'base_musaat')
+base_garantia = dw_minuta.getitemnumber(1, 'base_garantia')
+base_impresos = dw_minuta.getitemnumber(1, 'base_impresos')
+observaciones = dw_minuta.getitemstring(1, 'observaciones')
+pagador = dw_minuta.getitemstring(1, 'pagador')
+
+// Modificado Ricardo 2005-04-21
+if dw_minuta.getitemstring(1, 'irpf_cliente') ='S' then 
+	if aplica_honos = 'S' then base_irpf += dw_minuta.getitemnumber(1, 'base_honos')
+	if aplica_desplaza = 'S' then base_irpf += dw_minuta.getitemnumber(1, 'base_desplaza')
+end if
+// FIN Modificado Ricardo 2005-04-21
+
+CHOOSE CASE  tipo_gestion
+	CASE 'C', 'A'
+		if aplica_honos = 'S' then 
+			fila = dw_impreso_minuta.insertrow(0)
+			concepto_honos= dw_minuta.getitemstring(1, 'concepto_honos')
+			if f_es_vacio(concepto_honos) then concepto_honos = ''			
+			dw_impreso_minuta.setitem(fila, 'descripcion', concepto_honos )			
+			dw_impreso_minuta.setitem(fila, 'base', dw_minuta.getitemnumber(1, 'base_honos'))
+			dw_impreso_minuta.setitem(fila, 'iva', dw_minuta.getitemnumber(1, 'iva_honos'))
+			if irpf_cliente = 'S' then dw_impreso_minuta.setitem(fila, 'irpf', f_redondea(dw_minuta.getitemnumber(1, 'base_honos') * porc_irpf /100 ))			
+		end if
+		if aplica_desplaza = 'S' then 
+			fila = dw_impreso_minuta.insertrow(0)
+			concepto_desplaza =  dw_minuta.getitemstring(1, 'concepto_desplaza') 
+			if f_es_vacio(concepto_desplaza) then concepto_desplaza = f_devuelve_desc_concepto(g_codigos_conceptos.desplazamientos)
+			dw_impreso_minuta.setitem(fila, 'descripcion', concepto_desplaza)			
+			dw_impreso_minuta.setitem(fila, 'base', dw_minuta.getitemnumber(1, 'base_desplaza'))
+			dw_impreso_minuta.setitem(fila, 'iva', dw_minuta.getitemnumber(1, 'iva_desplaza'))
+			if irpf_cliente = 'S' and g_aplica_irpf_en_desplaza = 'S' then  dw_impreso_minuta.setitem(fila, 'irpf', f_redondea(dw_minuta.getitemnumber(1, 'base_desplaza') * porc_irpf /100 ))			
+		end if		
+		if aplica_retvol = 'S' then 
+			fila = dw_impreso_minuta.insertrow(0)
+			dw_impreso_minuta.setitem(fila, 'descripcion', f_devuelve_desc_concepto(g_codigos_conceptos.retvol))			
+			dw_impreso_minuta.setitem(fila, 'base', dw_minuta.getitemnumber(1, 'base_retvol'))
+			dw_impreso_minuta.setitem(fila, 'iva', 0)
+			dw_impreso_minuta.setitem(fila, 'irpf', 0)			
+		end if
+		if aplica_dv = 'S' then 
+			fila = dw_impreso_minuta.insertrow(0)
+			dw_impreso_minuta.setitem(fila, 'descripcion', f_devuelve_desc_concepto(g_codigos_conceptos.dv))			
+			dw_impreso_minuta.setitem(fila, 'base', dw_minuta.getitemnumber(1, 'base_dv'))
+			dw_impreso_minuta.setitem(fila, 'iva', dw_minuta.getitemnumber(1, 'iva_dv'))
+			dw_impreso_minuta.setitem(fila, 'irpf', 0)			
+		end if						
+		if aplica_cip = 'S' then 
+			fila = dw_impreso_minuta.insertrow(0)
+			dw_impreso_minuta.setitem(fila, 'descripcion', f_devuelve_desc_concepto(g_codigos_conceptos.cip))			
+			dw_impreso_minuta.setitem(fila, 'base', dw_minuta.getitemnumber(1, 'base_cip'))
+			dw_impreso_minuta.setitem(fila, 'iva', dw_minuta.getitemnumber(1, 'iva_cip'))
+			dw_impreso_minuta.setitem(fila, 'irpf', 0)			
+		end if						
+		if aplica_musaat = 'S' then 
+			fila = dw_impreso_minuta.insertrow(0)
+			dw_impreso_minuta.setitem(fila, 'descripcion', f_devuelve_desc_concepto(g_codigos_conceptos.musaat_variable))			
+			dw_impreso_minuta.setitem(fila, 'base', dw_minuta.getitemnumber(1, 'base_musaat'))
+			dw_impreso_minuta.setitem(fila, 'iva', 0)
+			dw_impreso_minuta.setitem(fila, 'irpf', 0)			
+		end if	
+		if base_garantia > 0 then 
+			fila = dw_impreso_minuta.insertrow(0)
+			dw_impreso_minuta.setitem(fila, 'descripcion', f_devuelve_desc_concepto(g_codigos_conceptos.dev_garantia))			
+			dw_impreso_minuta.setitem(fila, 'base', (-1) * dw_minuta.getitemnumber(1, 'base_garantia'))
+			dw_impreso_minuta.setitem(fila, 'iva', 0)
+			dw_impreso_minuta.setitem(fila, 'irpf', 0)			
+		end if			
+		if aplica_impresos = 'S' and base_impresos > 0 then 
+			fila = dw_impreso_minuta.insertrow(0)
+			// En Zaragoza se ha utilizado el campo de concepto_otros para la descripcion de los libros
+			if g_colegio = 'COAATZ' or g_colegio = 'COAATGU' or g_colegio = 'COAATLE' then
+				concepto_otros = dw_minuta.getitemstring(1, 'concepto_otros')
+				if f_es_vacio(concepto_otros) then concepto_otros = f_devuelve_desc_concepto(g_codigos_conceptos.impresos)	
+				dw_impreso_minuta.setitem(fila, 'descripcion', concepto_otros)
+			else
+				dw_impreso_minuta.setitem(fila, 'descripcion', f_devuelve_desc_concepto(g_codigos_conceptos.impresos))
+			end if
+			dw_impreso_minuta.setitem(fila, 'base', dw_minuta.getitemnumber(1, 'base_impresos'))
+			dw_impreso_minuta.setitem(fila, 'iva', dw_minuta.getitemnumber(1, 'iva_impresos'))
+			dw_impreso_minuta.setitem(fila, 'irpf', 0)			
+		end if								
+
+	CASE 'S'			
+		if aplica_dv = 'S' then 
+			fila = dw_impreso_minuta.insertrow(0)
+			dw_impreso_minuta.setitem(fila, 'descripcion', f_devuelve_desc_concepto(g_codigos_conceptos.dv))			
+			dw_impreso_minuta.setitem(fila, 'base', dw_minuta.getitemnumber(1, 'base_dv'))
+			dw_impreso_minuta.setitem(fila, 'iva', dw_minuta.getitemnumber(1, 'iva_dv'))
+			dw_impreso_minuta.setitem(fila, 'irpf', 0)			
+		end if						
+		if aplica_cip = 'S' then 
+			fila = dw_impreso_minuta.insertrow(0)
+			dw_impreso_minuta.setitem(fila, 'descripcion', f_devuelve_desc_concepto(g_codigos_conceptos.cip))			
+			dw_impreso_minuta.setitem(fila, 'base', dw_minuta.getitemnumber(1, 'base_cip'))
+			dw_impreso_minuta.setitem(fila, 'iva', dw_minuta.getitemnumber(1, 'iva_cip'))
+			dw_impreso_minuta.setitem(fila, 'irpf', 0)
+			// En Guipuzcoa si hay cip y es sgc se muestra el mensaje del descuento
+			if g_colegio = 'COAATGUI' then
+				double importe_descuento5,base,iva
+///********** ALEXIS. 04/01/2010. Con el cambios de a$$HEX1$$f100$$ENDHEX$$o se pierden los datos relativos al descuento. ********///
+				//	dw_impreso_minuta.object.descuento5.visible = true
+				
+//				base = f_redondea(dw_minuta.getitemnumber(1, 'base_cip') * 5 / 100)
+//				iva = f_aplica_t_iva(base, '16')
+//				importe_descuento5 = base + iva
+//				dw_impreso_minuta.setitem(1, 'importe_descuento5', importe_descuento5)
+			
+//				if importe_descuento5 > 0 then 
+	//				dw_impreso_minuta.object.imp_desc5.visible = true
+		//			dw_impreso_minuta.object.total_con_desc.visible = true
+			//		dw_impreso_minuta.object.euro.visible = true
+				//end if
+				// Descuento Visared
+				string t_act, t_obra, visared, t_iva
+				double porc_dto_visared = 0
+				
+				// Obtenemos los datos necesarios para el dto visared
+				SELECT fases.fase, fases.tipo_trabajo, fases.e_mail  
+				INTO :t_act, :t_obra, :visared  
+				FROM fases  
+				WHERE fases.id_fase = :id_fase   ;
+				
+				// Si se debe aplicar a$$HEX1$$f100$$ENDHEX$$adimos la linea
+				if visared = 'V' Then
+					fila = dw_impreso_minuta.insertrow(0)
+					porc_dto_visared = f_descuento_visared_gui(t_act, t_obra)
+					dw_impreso_minuta.setitem(fila, 'descripcion', f_devuelve_desc_concepto(g_codigos_conceptos.dto_visared) + ' ' + string (porc_dto_visared) + '%')
+					base = (-1) * f_redondea(base_cip * porc_dto_visared / 100)					
+					dw_impreso_minuta.setitem(fila, 'base', base)
+					t_iva = f_csi_articulos_servicios_t_iva(g_codigos_conceptos.dto_visared,g_empresa)
+					// No hacemos redondeo para que el % de iva salga bien en la factura
+					iva = f_dame_porcent_iva(t_iva) * base / 100					
+					dw_impreso_minuta.setitem(fila, 'iva',  iva)
+					dw_impreso_minuta.setitem(fila, 'irpf', 0)
+				End If				
+			end if
+		end if						
+		if aplica_musaat = 'S' then 
+			fila = dw_impreso_minuta.insertrow(0)
+			dw_impreso_minuta.setitem(fila, 'descripcion', f_devuelve_desc_concepto(g_codigos_conceptos.musaat_variable))			
+			dw_impreso_minuta.setitem(fila, 'base', dw_minuta.getitemnumber(1, 'base_musaat'))
+			dw_impreso_minuta.setitem(fila, 'iva', 0)
+			dw_impreso_minuta.setitem(fila, 'irpf', 0)			
+		end if				
+		if aplica_impresos = 'S' and base_impresos > 0 then 
+			fila = dw_impreso_minuta.insertrow(0)
+			// En Zaragoza se ha utilizado el campo de concepto_otros para la descripcion de los libros
+			if g_colegio = 'COAATZ' or g_colegio = 'COAATGU' or g_colegio = 'COAATLE' then
+				concepto_otros = dw_minuta.getitemstring(1, 'concepto_otros')
+				if f_es_vacio(concepto_otros) then concepto_otros = f_devuelve_desc_concepto(g_codigos_conceptos.impresos)	
+				dw_impreso_minuta.setitem(fila, 'descripcion', concepto_otros)
+			else
+				dw_impreso_minuta.setitem(fila, 'descripcion', f_devuelve_desc_concepto(g_codigos_conceptos.impresos))
+			end if
+			dw_impreso_minuta.setitem(fila, 'base', dw_minuta.getitemnumber(1, 'base_impresos'))
+			dw_impreso_minuta.setitem(fila, 'iva', dw_minuta.getitemnumber(1, 'iva_impresos'))
+			dw_impreso_minuta.setitem(fila, 'irpf', 0)			
+		end if						
+END CHOOSE
+
+
+string tipo_act, tipo_obra, uso_obra, descripcion_obra = ''
+tipo_act = f_dame_fase(id_fase)
+tipo_obra = f_dame_tipo_obra(id_fase)
+uso_obra = f_dame_uso_obra(id_fase)
+descripcion_obra = f_dame_desc_tipo_actuacion(tipo_act) + ' / ' + f_dame_desc_tipo_obra(tipo_obra) + ' / ' + f_dame_desc_destino_obra(uso_obra)
+
+if f_es_vacio(descripcion_obra) then descripcion_obra = ''
+
+if dw_impreso_minuta.rowcount() > 0 then
+	dw_impreso_minuta.setitem(1, 'n_aviso', dw_minuta.getitemstring(1, 'n_aviso'))			
+	dw_impreso_minuta.setitem(1, 'fecha', dw_minuta.getitemdatetime(1, 'fecha'))	
+	dw_impreso_minuta.setitem(1, 'tipo_obra', descripcion_obra)	
+	dw_impreso_minuta.setitem(1, 'desc_obra', f_dame_descripcion_contrato(id_fase))	
+	dw_impreso_minuta.setitem(1, 'emp_obra', f_dame_direccion_contrato(id_fase))	
+	dw_impreso_minuta.setitem(1, 'cliente', f_dame_cliente_nom_ape(id_cli))	
+	CHOOSE CASE g_colegio
+		case 'COAATB'
+			dw_impreso_minuta.setitem(1, 'n_contrato', f_dame_fase(id_fase) + ' - ' + f_dame_exp(id_fase))
+		case 'COAATLR'
+      	dw_impreso_minuta.setitem(1, 'n_contrato', ' EXP: ' + f_dame_exp(id_fase) + ' - Contrato: ' + f_dame_n_reg(id_fase))
+		case 'COAATZ', 'COAATGU', 'COAATLE', 'COAATAVI'
+			for i=1 to dw_impreso_minuta.rowcount()
+				dw_impreso_minuta.setitem(i, 'n_contrato', f_dame_exp(id_fase))
+				dw_impreso_minuta.setitem(i, 'n_visado', f_fases_n_salida(id_fase))
+			next
+		CASE ELSE
+			dw_impreso_minuta.setitem(1, 'n_contrato', f_dame_n_reg(id_fase))								
+	END CHOOSE
+	// En el Footer
+	dw_impreso_minuta.setitem(dw_impreso_minuta.rowcount(), 'n_aviso', dw_minuta.getitemstring(1, 'n_aviso'))		
+	dw_impreso_minuta.setitem(dw_impreso_minuta.rowcount(), 'n_col', f_colegiado_n_col(id_col))			
+	dw_impreso_minuta.setitem(dw_impreso_minuta.rowcount(), 'datos_complement', f_minutas_info_honos(id_fase, id_col))		
+	dw_impreso_minuta.setitem(dw_impreso_minuta.rowcount(), 'cli_cobrado', f_total_cobrado_honos_col_cli(id_fase, id_col, id_cli))		
+	dw_impreso_minuta.setitem(dw_impreso_minuta.rowcount(), 'observaciones', observaciones)	
+
+	choose case  tipo_gestion
+		case 'C'
+			// Emisor colegiado, receptor cliente
+			// Emisor
+			nombre_emisor = f_nombre_colegiado(id_col)	
+			dw_impreso_minuta.setitem(1, 'nombre_emisor', nombre_emisor)
+			direc_emisor = f_domicilio_activo(id_col)
+			dw_impreso_minuta.setitem(1, 'direc_emisor', direc_emisor)				
+			pobla_emisor = f_poblacion_activa(id_col)
+			dw_impreso_minuta.setitem(1, 'pobla_emisor', pobla_emisor)		
+			// Receptor
+			nombre_receptor= f_dame_cliente_nom_ape(id_cli)	
+			dw_impreso_minuta.setitem(1, 'nombre_receptor', nombre_receptor)
+			direc_receptor = f_dame_domicilio(id_cli)
+			dw_impreso_minuta.setitem(1, 'direc_receptor', direc_receptor)				
+			pobla_receptor = f_retorna_poblacion(id_cli)
+			dw_impreso_minuta.setitem(1, 'pobla_receptor', pobla_receptor)		
+			// Footer
+			dw_impreso_minuta.setitem(dw_impreso_minuta.rowcount(), 'nombre_receptor', nombre_receptor)
+			dw_impreso_minuta.setitem(dw_impreso_minuta.rowcount(), 'direc_receptor', direc_receptor)
+			dw_impreso_minuta.setitem(dw_impreso_minuta.rowcount(), 'pobla_receptor', pobla_receptor)				
+		case 'S', 'A'
+			// Emisor colegio
+			dw_impreso_minuta.setitem(1, 'nombre_emisor', g_nombre_colegio_carta)
+			dw_impreso_minuta.setitem(1, 'direc_emisor', g_direc_colegio_carta)
+			//Cambio Luis CBU-71
+			if (g_colegio = 'COAATBU')then
+				dw_impreso_minuta.setitem(1, 'direc_emisor', Upper(g_direc_colegio_carta))
+			end if
+			//fin cambio
+			dw_impreso_minuta.setitem(1, 'pobla_emisor', g_pobla_colegio_carta)				
+			// Receptor : Colegiado, cliente, empresa
+			if g_colegio = 'COAATZ' or g_colegio = 'COAATGU' or g_colegio = 'COAATLE' or g_colegio = 'COAATAVI' then pagador = '3' // El receptor es el cliente
+			choose case pagador
+				case '1' // Colegiado
+					nombre_receptor = f_nombre_colegiado(id_col)	
+					dw_impreso_minuta.setitem(1, 'nombre_receptor', nombre_receptor)
+					direc_receptor = f_domicilio_activo(id_col)
+					dw_impreso_minuta.setitem(1, 'direc_receptor', direc_receptor)	
+					pobla_receptor = f_poblacion_activa(id_col)
+					dw_impreso_minuta.setitem(1, 'pobla_receptor', pobla_receptor)					
+					
+				case '2' // Empresa
+					string nombre_empresa, direc_empresa, pobla_empresa
+//					SELECT colegiados.nombre_empresa,   
+//					colegiados.domicilio_empresa,   
+//					colegiados.poblacion_empresa  
+//					INTO :nombre_empresa,   
+//					:direc_empresa,   
+//					:pobla_empresa  
+//					FROM colegiados  
+//					WHERE colegiados.id_colegiado = :id_col   
+//					;
+					string id_empresa
+					SELECT colegiados.id_empresa  
+					INTO :id_empresa 
+					FROM colegiados  
+					WHERE colegiados.id_colegiado = :id_col  ;
+					
+					nombre_receptor = f_dame_cliente_nom_ape(id_empresa)
+					direc_receptor = f_dame_domicilio(id_empresa)
+					pobla_receptor = f_retorna_poblacion(id_empresa)
+//					nombre_receptor= nombre_empresa
+					dw_impreso_minuta.setitem(1, 'nombre_receptor', nombre_receptor)
+//					direc_receptor = direc_empresa
+					dw_impreso_minuta.setitem(1, 'direc_receptor', direc_receptor)				
+//					pobla_receptor = pobla_empresa
+					dw_impreso_minuta.setitem(1, 'pobla_receptor', pobla_receptor)			
+				case '3' // CLiente
+					nombre_receptor= f_dame_cliente_nom_ape(id_cli)	
+					dw_impreso_minuta.setitem(1, 'nombre_receptor', nombre_receptor)
+					direc_receptor = f_dame_domicilio(id_cli)
+					dw_impreso_minuta.setitem(1, 'direc_receptor', direc_receptor)				
+					pobla_receptor = f_retorna_poblacion(id_cli)
+					dw_impreso_minuta.setitem(1, 'pobla_receptor', pobla_receptor)						
+			end choose
+			// Footer
+			dw_impreso_minuta.setitem(dw_impreso_minuta.rowcount(), 'nombre_receptor', nombre_receptor)
+			dw_impreso_minuta.setitem(dw_impreso_minuta.rowcount(), 'direc_receptor', direc_receptor)
+			dw_impreso_minuta.setitem(dw_impreso_minuta.rowcount(), 'pobla_receptor', pobla_receptor)			
+	end choose
+	// Configuraciones especiales
+	if g_colegio = 'COAATZ' or g_colegio = 'COAATGU' or g_colegio = 'COAATLE' or g_colegio = 'COAATAVI' then
+		base_honos = dw_minuta.getitemnumber(1, 'base_honos')
+		base_desplaza = dw_minuta.getitemnumber(1, 'base_desplaza')
+		if isnull(base_honos) then base_honos = 0
+		if isnull(base_desplaza) then base_desplaza = 0
+		dw_impreso_minuta.setitem(1, 'colegiado', f_nombre_colegiado(id_col))
+		dw_impreso_minuta.setitem(1, 'total_aviso', base_honos+base_desplaza)
+		for i=dw_impreso_minuta.rowcount() to 1 step -1
+			if dw_impreso_minuta.getitemnumber(i, 'base') = 0 then dw_impreso_minuta.deleterow(i)
+			dw_impreso_minuta.setitem(i, 'base_irpf', base_irpf)// Modificado Ricardo 2005-04-21			
+		next
+	end if	
+	//Cambio Luis CRI-131
+	if(dw_impreso_minuta.dataobject = 'd_ficha_aviso_factura_lr' or dw_impreso_minuta.dataobject = 'd_ficha_aviso_factura_visared_lr')then
+		dw_impreso_minuta.object.observaciones.visible = TRUE
+	end if
+	//fin cambio
+end if
+end subroutine
+

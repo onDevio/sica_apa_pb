@@ -1,0 +1,13 @@
+HA$PBExportHeader$d_dddw_formacion_subtipo_conv.srd
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=84 color="536870912" )
+table(column=(type=char(3) update=yes updatewhereclause=yes key=yes name=cod_subtipo dbname="formacion_subtipo_conv.cod_subtipo" )
+ column=(type=char(150) update=yes updatewhereclause=yes name=descripcion dbname="formacion_subtipo_conv.descripcion" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=cod_tipo dbname="formacion_subtipo_conv.cod_tipo" )
+ retrieve="PBSELECT( VERSION(400) TABLE(NAME=~"formacion_subtipo_conv~" ) COLUMN(NAME=~"formacion_subtipo_conv.cod_subtipo~") COLUMN(NAME=~"formacion_subtipo_conv.descripcion~") COLUMN(NAME=~"formacion_subtipo_conv.cod_tipo~")WHERE(    EXP1 =~"formacion_subtipo_conv.cod_tipo~"   OP =~"=~"    EXP2 =~":cod_tipo~" ) ) ARG(NAME = ~"cod_tipo~" TYPE = string) " update="formacion_subtipo_conv" updatewhere=1 updatekeyinplace=no arguments=(("cod_tipo", string)) )
+column(band=detail id=2 alignment="0" tabsequence=20 border="0" color="0" x="9" y="4" height="64" width="2798" format="[general]"  name=descripcion  tag=" " edit.limit=150 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

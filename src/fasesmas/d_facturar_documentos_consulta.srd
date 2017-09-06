@@ -1,0 +1,12 @@
+HA$PBExportHeader$d_facturar_documentos_consulta.srd
+release 7;
+datawindow(units=0 timer_interval=0 color=79741120 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=80 color="536870912" )
+table(column=(type=char(2) updatewhereclause=yes name=cf_li_lo dbname="cfo_li_lo" )
+ )
+column(band=detail id=1 alignment="0" tabsequence=10 border="5" color="0" x="421" y="12" height="56" width="1449" format="[general]"  name=cf_li_lo dddw.name=d_dddw_documentos_csi_art_serv dddw.displaycolumn=t_documentos_d_t_documentos dddw.datacolumn=t_documentos_c_t_documentos dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any dddw.nilisnull=yes dddw.vscrollbar=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=detail alignment="1" text="Documento:" border="0" color="0" x="37" y="16" height="52" width="338"  name=t_1  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="80269524" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

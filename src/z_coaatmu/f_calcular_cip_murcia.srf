@@ -1,0 +1,294 @@
+HA$PBExportHeader$f_calcular_cip_murcia.srf
+$PBExportComments$Calcula el total de cip para murcia
+global type f_calcular_cip_murcia from function_object
+end type
+
+forward prototypes
+global function integer f_calcular_cip_murcia (ref st_cip_datos st_cip_datos)
+end prototypes
+
+global function integer f_calcular_cip_murcia (ref st_cip_datos st_cip_datos);String TipoAct		// Tipo de actuacion del contrato
+String TipoActAnt	
+String TipoObra
+double FA 		// Factor de actualizaci$$HEX1$$f300$$ENDHEX$$n
+double Coef	// Coeficiente de c$$HEX1$$e100$$ENDHEX$$lculo de honorarios
+double Sup	// Superficie total construida de la obra
+double Pres	// Presupuesto del contrato
+double BaseCuadro	// Base de tarificacion(Presupuesto contrato)/FA (Factor act.)/1000
+double minimo	// Honorarios Minimos
+double coef_aux	// Coeficiente F aplicado
+string tarifa
+double Honorarios	= 0 // Honorarios calculados del contrato
+double Volumen	// Variable para recojer el volumen para demoliciones.
+String AplicadoMinimo = "N"
+String  administracion
+double Ca
+double altura
+string colindantes
+
+FA = g_fa
+Ca = g_ca
+TipoAct = st_cip_datos.tipo_act
+TipoObra = st_cip_datos.tipo_obra
+administracion = st_cip_datos.admon
+Volumen = st_cip_datos.volumen
+sup = st_cip_datos.superficie
+Pres = st_cip_datos.pem
+colindantes = st_cip_datos.colindantes
+altura = st_cip_datos.altura
+
+if not f_es_vacio(st_cip_datos.id_fase) then
+	TipoAct = f_dame_fase(st_cip_datos.id_fase)
+	TipoObra = f_dame_tipo_obra(st_cip_datos.id_fase)
+	administracion = f_expedientes_administracion(st_cip_datos.id_fase)
+	Volumen = f_fases_usos_volumen(st_cip_datos.id_fase)
+	sup = f_fases_usos_suma_superficies(st_cip_datos.id_fase)
+	Pres = f_fases_usos_pem(st_cip_datos.id_fase) 
+	colindantes = f_fases_usos_colindantes(st_cip_datos.id_fase)
+	altura =  f_fases_usos_altura(st_cip_datos.id_fase)
+end if
+
+BaseCuadro = (Pres / FA)
+if (BaseCuadro = 0) or (Isnull(BaseCuadro) )  then BaseCuadro = 1
+IF Pres = 0 then pres = 1
+
+SELECT coef_aux, tarifa, minimo INTO :coef_aux, :tarifa, :minimo FROM cip_tarifa WHERE ( tipo_actuacion = :TipoAct ) AND ( ( tipo_obra = :TipoObra ) or ( tipo_obra = '*' )  );
+If SQLCA.SQLCode <> 0 Then
+	MessageBox(g_titulo,'Esta Tarifa no Tiene Honorarios Te$$HEX1$$f300$$ENDHEX$$ricos. Entrada tabla.',StopSign!,OK!,1)
+	return -1
+End if
+
+minimo = minimo * FA	// Honorarios M$$HEX1$$ed00$$ENDHEX$$nimos
+Choose Case Tarifa
+	CASE '1'
+		SELECT coef INTO :Coef  FROM cip_tablas WHERE desde < :Sup AND hasta >= :Sup AND tarifa = :Tarifa;		
+		Honorarios = (Pres * Coef * coef_aux) / 100
+		If Honorarios < Minimo Then 
+			Honorarios = Minimo
+			AplicadoMinimo = "S"
+		End if
+	CASE '2'
+		SELECT coef INTO :Coef FROM cip_tablas WHERE desde < :BaseCuadro AND hasta >= :BaseCuadro AND tarifa = :Tarifa;
+		Honorarios = (Pres * Coef * coef_aux) / 100
+		If Honorarios < Minimo Then 
+			Honorarios = Minimo
+			AplicadoMinimo = "S"
+		End if		
+	CASE '41'
+		Honorarios = 0
+		SELECT minimo INTO :Minimo FROM cip_tarifa WHERE ( tipo_actuacion = :TipoAct ) ;
+		Honorarios = Minimo * FA
+	CASE '42'
+		Honorarios = 0
+		SELECT minimo INTO :Minimo FROM cip_tarifa WHERE ( tipo_actuacion = :TipoAct ) ;
+		Honorarios = Minimo * FA	
+	CASE '43'
+		Honorarios = 0		
+		SELECT minimo INTO :Minimo FROM cip_tarifa WHERE ( tipo_actuacion = :TipoAct ) ;
+		Honorarios = Minimo * FA
+	CASE '51'
+		//Pte
+		SELECT minimo INTO :Minimo FROM cip_tarifa WHERE ( tipo_actuacion = :TipoAct ) ;
+		Honorarios = Minimo * FA
+	CASE '510'
+		Honorarios = 0	
+		SELECT minimo INTO :Minimo FROM cip_tarifa WHERE ( tipo_actuacion = :TipoAct ) ;
+		Honorarios = Minimo * FA
+	CASE '511'
+		Honorarios = 0	
+		SELECT minimo INTO :Minimo FROM cip_tarifa WHERE ( tipo_actuacion = :TipoAct ) ;
+		Honorarios = Minimo * FA
+	CASE '512'
+		Honorarios = 0	
+		SELECT minimo INTO :Minimo FROM cip_tarifa WHERE ( tipo_actuacion = :TipoAct ) ;
+		Honorarios = Minimo * FA
+	CASE '513'
+		Honorarios = 0	
+		SELECT minimo INTO :Minimo FROM cip_tarifa WHERE ( tipo_actuacion = :TipoAct ) ;
+		Honorarios = Minimo * FA
+	CASE '52'	
+		//Pte		
+		SELECT minimo INTO :Minimo FROM cip_tarifa WHERE ( tipo_actuacion = :TipoAct ) ;
+		Honorarios = Minimo * FA
+	CASE '53'	
+		//Pte		
+		SELECT minimo INTO :Minimo FROM cip_tarifa WHERE ( tipo_actuacion = :TipoAct ) ;
+		Honorarios = Minimo * FA
+	CASE '54'		
+		//Pte		
+		SELECT minimo INTO :Minimo FROM cip_tarifa WHERE ( tipo_actuacion = :TipoAct ) ;
+		Honorarios = Minimo * FA
+	CASE '55'
+		DOUBLE a	//Pts. m3 para las alturas
+		if altura <= 12 then
+			a=0.12
+		else
+			a=0.18
+		end if
+		if  colindantes='02' OR colindantes='03' then
+			coef = 1
+		elseif colindantes='01' and  ( TipoObra='91' or TipoObra='93') then
+			coef = 0.8
+		else
+			SELECT coef INTO :Coef FROM cip_tablas WHERE desde < :Volumen AND hasta >= :Volumen AND tarifa = :Tarifa;
+		end if
+		Honorarios = Volumen * a * Coef * coef_aux * Fa 
+		If Honorarios < Minimo Then 
+			Honorarios = Minimo
+			AplicadoMinimo = "S"
+		End if		
+	CASE 'A13'
+		SELECT coef INTO :Coef FROM cip_tablas WHERE desde < :BaseCuadro AND hasta >= :BaseCuadro AND tarifa = :Tarifa;
+		Honorarios = (Pres * Coef * coef_aux) / 100
+		If Honorarios < Minimo Then 
+			Honorarios = Minimo
+			AplicadoMinimo = "S"
+		End if		
+	CASE 'A163'
+		SELECT coef INTO :Coef  FROM cip_tablas WHERE desde < :Sup AND hasta >= :Sup AND tarifa = :Tarifa;			
+		Honorarios = (Pres * Coef * coef_aux) / 100
+		If Honorarios < Minimo Then 
+			Honorarios = Minimo
+			AplicadoMinimo = "S"
+		End if		
+	CASE 'A164'
+		SELECT coef INTO :Coef FROM cip_tablas WHERE desde < :BaseCuadro AND hasta >= :BaseCuadro AND tarifa = :Tarifa;
+		Honorarios = (Pres * Coef * coef_aux) / 100		
+		If Honorarios < Minimo Then 
+			Honorarios = Minimo
+			AplicadoMinimo = "S"
+		End if		
+	CASE 'A22'
+		SELECT coef INTO :Coef FROM cip_tablas WHERE desde < :Pres AND hasta >= :Pres AND tarifa = :Tarifa;
+		Honorarios = (Pres * Coef * coef_aux) / 100
+		If Honorarios < Minimo Then 
+			Honorarios = Minimo
+			AplicadoMinimo = "S"
+		End if				
+
+	CASE 'A222'	// Seguridad de Derribos
+		if altura <= 12 then
+			a=0.12
+		else
+			a=0.18
+		end if
+		if  colindantes='02' OR colindantes='03' then
+			coef = 1
+		elseif colindantes='01' and  ( TipoObra='91' or TipoObra='93') then
+			coef = 0.8
+		else
+			SELECT coef INTO :Coef FROM cip_tablas WHERE desde < :Volumen AND hasta >= :Volumen AND tarifa = :Tarifa;
+		end if
+		Honorarios = Volumen * a * Coef * coef_aux * Ca * 1.7
+		If Honorarios < Minimo Then 
+			Honorarios = Minimo
+			AplicadoMinimo = "S"
+		End if		
+	CASE 'G'		
+		Honorarios = 0
+		SELECT minimo INTO :Minimo FROM cip_tarifa WHERE ( tipo_actuacion = :TipoAct ) ;
+		Honorarios = Minimo * FA
+	END CHOOSE
+	
+//case 'A' // EDIFICACIONES
+//		SELECT coef INTO :Coef  FROM cip_calchon WHERE desde < :Sup AND hasta >= :Sup AND cuadro = :Tabla;
+//	
+//	Case 'D','F' // DEMOLICIONES
+////		Long a	//Pts. m3 para las alturas
+////		altura = f_fases_usos_altura(id_fase)
+//		if altura <= 12 then
+//			a=20
+//		else
+//			a=30
+//		end if
+//		
+//		if  colindantes='02' OR colindantes='03' then
+//			coef = 1
+//		elseif colindantes='01' and  ( TipoObra='91' or TipoObra='93') then
+//			coef = 0.8
+//		else
+//			SELECT coef INTO :Coef FROM cip_calchon WHERE desde < :Volumen AND hasta >= :Volumen AND cuadro = :Tabla;
+//		end if
+//				
+//	case else
+//
+//		SELECT coef INTO :Coef FROM cip_calchon WHERE desde < :BaseCuadro AND hasta >= :BaseCuadro AND cuadro = :Tabla;
+//		
+//end choose
+//
+//If SQLCA.SQLCode <> 0 Then
+//	MessageBox(g_titulo,'Se ha producido un error en la tabla '+Tabla,StopSign!,OK!,1)
+//	return -1
+//End if
+//Choose Case Tabla
+//	Case 'D'
+//		Honorarios = Volumen * a * Coef * coef_aux * Fa //por qu$$HEX2$$e9002000$$ENDHEX$$multiplica por el coef. correcctor??
+//	Case 'F'
+//		Honorarios = Volumen * a * Coef * coef_aux * Ca * 1.7
+//	Case else
+//		IF Pres = 0 then pres = 1
+//		Honorarios = (Pres * Coef * coef_aux) / 100
+//End Choose
+//// Aseguramos que los honorarios no sean menores que el m$$HEX1$$ed00$$ENDHEX$$nimo
+//If Honorarios < Minimo Then 
+//	Honorarios = Minimo
+//	AplicadoMinimo = "S"
+//End if
+//
+////if administracion = "S" then Honorarios = Honorarios * 0.8
+//Honorarios = f_redondea(Honorarios)
+//
+//If Honorarios = 0 Then
+//	MessageBox(g_titulo,'El contrato seleccionado no tiene c$$HEX1$$e100$$ENDHEX$$lculo de honorarios asociado',StopSign!,Ok!,1)
+//	return -1
+//End if
+//
+////end if //Grupo 3 Direccion Obra
+//
+////if grupo = '4' then//Informes, Certificados y similares
+//SELECT minimo INTO :Minimo FROM cip_tarifa WHERE ( tipo_actuacion = :TipoAct ) ;
+//If SQLCA.SQLCode <> 0 Then
+//	MessageBox(g_titulo,'Se ha producido un error en el acceso al Coeficiente F',StopSign!,OK!,1)
+//	return -1
+//End if
+//
+//Honorarios = Minimo * FA	// Honorarios M$$HEX1$$ed00$$ENDHEX$$nimos
+//
+////if administracion = "S" then Honorarios = Honorarios * 0.8
+//Honorarios = f_redondea(Honorarios)
+//
+//If Honorarios = 0 Then
+//	MessageBox('Informaci$$HEX1$$f300$$ENDHEX$$n','El contrato seleccionado no tiene c$$HEX1$$e100$$ENDHEX$$lculo de honorarios asociado',StopSign!,Ok!,1)
+//	if TipoAct = '20' or TipoAct = '21' or TipoAct = '22' or TipoAct = '23' or TipoAct = '24' or TipoAct = '25' or TipoAct = '26' or TipoAct = '27' or TipoAct = '28' then 
+//		messagebox('Atenci$$HEX1$$f300$$ENDHEX$$n', 'No se aplica MUSAAT ni honorarios ~r te$$HEX1$$f300$$ENDHEX$$ricos por tratarse de una actuaci$$HEX1$$f300$$ENDHEX$$n de Seguridad (Antigua) ~r APLICARLO SOBRE HONORARIOS REALES',Information!)
+//		return -1
+//	end if
+//	return -1
+//End if
+//
+////end if // Grupo 4
+//
+////if grupo = '2' then//Crtl calidad
+//SELECT minimo INTO :Minimo FROM cip_tarifa WHERE ( tipo_actuacion = :TipoAct ) ;
+//If SQLCA.SQLCode <> 0 Then
+//	MessageBox(g_titulo,'Se ha producido un error en el acceso al Coeficiente F',StopSign!,OK!,1)
+//	return -1
+//End if
+//
+//Honorarios = Minimo * FA	// Honorarios M$$HEX1$$ed00$$ENDHEX$$nimos
+//
+////	if administracion = "S" then Honorarios = Honorarios * 0.8
+//Honorarios = f_redondea(Honorarios)
+//
+If Honorarios = 0 Then
+	MessageBox(g_titulo,'Esta Tarifa no Tiene Honorarios Te$$HEX1$$f300$$ENDHEX$$ricos',StopSign!,OK!,1)
+	return -1
+End if
+st_cip_datos.hon_teor =  f_redondea(honorarios)
+st_cip_datos.cip =  f_redondea(st_cip_datos.hon_teor * g_porc_cip_defecto /100)
+st_cip_datos.aplicar_fijo = aplicadominimo
+st_cip_datos.importe_minimo = minimo
+st_cip_datos.tarifa = tarifa
+return 1
+end function
+

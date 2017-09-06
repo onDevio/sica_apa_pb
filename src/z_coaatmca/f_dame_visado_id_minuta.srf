@@ -1,0 +1,16 @@
+HA$PBExportHeader$f_dame_visado_id_minuta.srf
+global type f_dame_visado_id_minuta from function_object
+end type
+
+forward prototypes
+global function string f_dame_visado_id_minuta (string id_minuta)
+end prototypes
+
+global function string f_dame_visado_id_minuta (string id_minuta);string n_visado
+
+select archivo into :n_visado 
+from fases f,fases_minutas m where f.id_fase=m.id_fase and m.id_minuta=:id_minuta;
+
+return n_visado
+end function
+

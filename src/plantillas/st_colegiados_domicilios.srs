@@ -1,0 +1,24 @@
+HA$PBExportHeader$st_colegiados_domicilios.srs
+global type st_colegiados_domicilios from structure
+	string		direccion1
+	string		poblacion1
+	string		cp1
+	string		provincia1
+	string		telefono1
+	string		fax1
+	string		mail1
+	string		movil1
+	string		direccion2
+	string		poblacion2
+	string		cp2
+	string		provincia2
+	string		telefono2
+	string		fax2
+	string		mail2
+	string		movil2
+	boolean		correo1
+	boolean		fiscal1
+	boolean		correo2
+	boolean		fiscal2
+end type
+

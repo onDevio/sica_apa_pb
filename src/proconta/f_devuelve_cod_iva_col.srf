@@ -1,0 +1,11 @@
+HA$PBExportHeader$f_devuelve_cod_iva_col.srf
+global type f_devuelve_cod_iva_col from function_object
+end type
+
+forward prototypes
+global function string f_devuelve_cod_iva_col ()
+end prototypes
+
+global function string f_devuelve_cod_iva_col ();return g_codigos_conceptos.ret_iva
+end function
+

@@ -1,0 +1,446 @@
+HA$PBExportHeader$f_genera_factura_negativa.srf
+global type f_genera_factura_negativa from function_object
+end type
+
+forward prototypes
+global function string f_genera_factura_negativa (st_generar_facturas_minutas generar_facturas)
+end prototypes
+
+global function string f_genera_factura_negativa (st_generar_facturas_minutas generar_facturas);// Generamos una factura negativa
+
+// Par$$HEX1$$e100$$ENDHEX$$metros
+// serie: Serie de la factura. Si es null se coger$$HEX2$$e1002000$$ENDHEX$$como serie la serie de la factura original
+// id_factura: id de la factura para la cual queremos crear su negativa
+// motivo: Motivo de la anulaci$$HEX1$$f300$$ENDHEX$$n
+// f_anul: Fecha de anulaci$$HEX1$$f300$$ENDHEX$$n que si no es nula se pondr$$HEX2$$e1002000$$ENDHEX$$como fecha de pago de la factura negativa
+//
+string ls_serie, ls_serie_factura, es_recibo, recibo
+datastore ds_lineas_factura, ds_cobros_factura,ds_factura_detalle, ds_cobros_mult_factura
+st_facturas lst_facturas
+
+//Variables para guardar temporalmente los datos de la factura original
+string n_col, nif, nombre, domicilio, poblacion, proyecto, cuenta, tipo_persona, contado, pagado, txt_desc, emitida, formadepago, contabilizada
+string conta_pago, notas, asunto, obs, centro, banco, id_persona, t_iva, moneda, cuenta_reten, tipo_factura, emisor, id_fase, id_nueva_factura
+string n_nueva_factura, id_minuta,empresa, solo_pagos, id_ingreso, id_nueva_linea, descripcion, descripcion_larga, articulo, cta_presupuestaria
+string n_factura, reimpresa, id_nuevo_cobro, formapago, talon, aplica_irpf_colegio, id_cliente_pagador, nif_pagador, nombre_pagador, domicilio_pagador
+string poblacion_pagador, otro_pagador, id_recibo, reclamar, domicilio_largo, domicilio_pagador_largo, id_cobro_multiple
+double base_imp, n_base_imponible, iva, n_iva, descuento, n_descuento, total, n_total, subtotal, n_subtotal, importe_reten
+double n_importe_reten, tipo_reten, i, porcent_dto, j, subtotal_iva, porcen_dto, importe_dto, precio, unidades, importe
+double irpf_colegio
+datetime fecha, f_pago, f_conta, f_conta_pago,hoy,f_vencimiento
+
+// Por el cambio para pasar los par$$HEX1$$e100$$ENDHEX$$metros como estructura... se definen las variables aqu$$HEX2$$ed002000$$ENDHEX$$y toman valor aqu$$HEX1$$ed00$$ENDHEX$$
+string id_factura, serie, motivo, tipo_anul
+datetime f_anul
+
+// ASIGNADO DE LOS VALORES DE LA ESTRUCTURA A LAS VARIABLES LOCALES
+id_factura 				= generar_facturas.id_factura
+serie						= generar_facturas.serie
+motivo					= generar_facturas.motivo_anul
+f_anul						= generar_facturas.f_anul
+tipo_anul   				= generar_facturas.tipo_anul
+id_cobro_multiple 		= generar_facturas.id_cobro_multiple //Agregado el 13/08/08
+
+hoy = datetime(Today())
+
+//Creamos DS de detalle facturas
+ds_factura_detalle = create datastore
+ds_factura_detalle.dataobject ='d_facturacion_emitida_detalle'
+ds_factura_detalle.SetTransObject(SQLCA)
+ds_factura_detalle.Retrieve(id_factura)
+
+//Creamos DS de lineas facturas
+ds_lineas_factura = create datastore
+ds_lineas_factura.dataobject ='d_fases_lineas_facturas'
+ds_lineas_factura.SetTransObject(SQLCA)
+ds_lineas_factura.Retrieve(id_factura)
+
+//Creamos DS de Cobros Simples Facturas
+ds_cobros_factura = create datastore
+ds_cobros_factura.dataobject ='d_fases_cobros_facturas'
+ds_cobros_factura.SetTransObject(SQLCA)
+ds_cobros_factura.Retrieve(id_factura)
+
+if f_es_vacio(g_explotacion_por_defecto) then g_explotacion_por_defecto = f_dame_dpto_usuario(g_usuario)
+
+SELECT n_fact, fecha, n_col, nif, nombre, domicilio, poblacion, proyecto, cuenta, tipo_persona, contado, pagado, base_imp,
+		 iva, txt_desc, descuento, total, subtotal, f_pago, emitida, reimpresa, formadepago, contabilizada, f_conta, 
+		 conta_pago, f_conta_pago, notas, asunto, observaciones_text, centro, banco, id_persona, t_iva, moneda, tipo_reten,
+		 cuenta_reten, importe_reten, tipo_factura, emisor, id_fase, irpf_colegio, id_minuta, empresa, id_ingreso, 
+		 id_cliente_pagador, nif_pagador, nombre_pagador, domicilio_pagador, poblacion_pagador, solo_pagos, otro_pagador,
+		 reclamar, domicilio_largo, domicilio_pagador_largo
+INTO :n_factura,:fecha,:n_col,:nif,:nombre,:domicilio,:poblacion,:proyecto,:cuenta,:tipo_persona,:contado,:pagado,:base_imp,
+	  :iva,:txt_desc,:descuento,:total,:subtotal,:f_pago,:emitida,:reimpresa,:formadepago,:contabilizada,:f_conta,
+	  :conta_pago,:f_conta_pago,:notas,:asunto,:obs,:centro,:banco,:id_persona,:t_iva,:moneda,:tipo_reten,
+	  :cuenta_reten,:importe_reten,:tipo_factura,:emisor,:id_fase,:irpf_colegio,:id_minuta,:empresa,:id_ingreso,
+	  :id_cliente_pagador,:nif_pagador,:nombre_pagador,:domicilio_pagador,:poblacion_pagador,:solo_pagos,:otro_pagador,
+	  :reclamar, :domicilio_largo, :domicilio_pagador_largo
+FROM csi_facturas_emitidas  
+WHERE id_factura = :id_factura ;
+
+//Hacemos los valores negativos
+n_base_imponible 	= - base_imp
+n_descuento			= - descuento
+n_iva 				= - iva
+n_total				= - total
+n_subtotal			= - subtotal
+n_importe_reten	= - importe_reten
+irpf_colegio 		= - irpf_colegio
+id_nueva_factura  = f_siguiente_numero('FACTUEMI',10)
+
+
+
+if not f_es_vacio(motivo) then obs = LeftA(obs+cr+motivo, 200)
+
+serie=f_devuelve_serie_abono(id_factura)
+
+// Andr$$HEX1$$e900$$ENDHEX$$s: Si no nos pasan ninguna serie cogemos la de la factura original
+if f_es_vacio(serie) then 
+	ls_serie=LeftA(n_factura,PosA(n_factura,'-')-1)
+	ls_serie_factura = ls_serie
+else
+	ls_serie=serie
+	// Modificado David 07/02/2006 - Como lo han pedido en Zaragoza lo ponemos as$$HEX2$$ed002000$$ENDHEX$$s$$HEX1$$f300$$ENDHEX$$lo para ellos
+	if g_colegio = 'COAATZ' then
+		// Modificado Ricardo 2005-05-09
+		ls_serie_factura=LeftA(n_factura,PosA(n_factura,'-')-1)
+		// Pedido por zaragoza... si la serie de la factura es de un recibo, no hay que aplicar la serie pasada, sino la propia
+		SELECT recib into :es_recibo from csi_series where serie = :ls_serie_factura;
+		if f_es_vacio(es_recibo) then es_recibo = 'N' // Evitando el nulo
+		if es_recibo = 'S' then ls_serie = ls_serie_factura
+		// FIN Modificado Ricardo 2005-05-09
+	end if
+end if
+
+//Preguntamos si es recibo o factura, para completar el campo observaciones:
+SELECT recib into :recibo from csi_series where serie = :ls_serie;
+if f_es_vacio(recibo) then recibo = 'N' 
+
+//rellenamos la observacion de la factura o del recibo
+if recibo = 'N' then 
+	if f_es_vacio(tipo_anul) or tipo_anul <> 'D' then // Tipo "Anulacion"
+		obs = 'Factura correspondiente a la anulaci$$HEX1$$f300$$ENDHEX$$n de la factura num. '
+	else // Tipo "Devolucion"
+		obs = 'Factura correspondiente a la devoluci$$HEX1$$f300$$ENDHEX$$n de la factura num. '
+	end if
+else 
+	if f_es_vacio(tipo_anul) or tipo_anul <> 'D' then // Tipo "Anulacion"
+		obs = 'Recibo correspondiente a la anulaci$$HEX1$$f300$$ENDHEX$$n del recibo num. '
+	else // Tipo "Devolucion"
+		obs = 'Recibo correspondiente a la devoluci$$HEX1$$f300$$ENDHEX$$n del recibo num. '
+	end if
+end if
+obs = LeftA(obs+ n_factura+" ."+cr+motivo, 200) // Cambio para a$$HEX1$$f100$$ENDHEX$$adir observacion a facturas rectif. Raul. 19/06/2013
+
+
+///***SCP-1193. Cambia la funci$$HEX1$$f300$$ENDHEX$$n para obtener la numeraci$$HEX1$$f300$$ENDHEX$$n de las facturas. Alexis. 25/03/2011 ***///
+lst_facturas.cod_empresa = f_obtener_empresa_factura(id_factura)
+
+// Generamos nuevo n$$HEX1$$fa00$$ENDHEX$$mero de factura en funci$$HEX1$$f300$$ENDHEX$$n del tipo q sea la factura
+CHOOSE CASE tipo_factura
+	CASE g_colegio_cliente
+		//n_nueva_factura 	=f_siguiente_n_fact_emitida(g_colegio_cliente,ls_serie,emisor,hoy)
+		lst_facturas.tipo_factura =g_colegio_cliente
+	CASE g_colegio_colegiado
+		//n_nueva_factura 	=f_siguiente_n_fact_emitida(g_colegio_colegiado,ls_serie,emisor,hoy)
+		lst_facturas.tipo_factura =g_colegio_colegiado
+	CASE g_colegiado_cliente
+		//n_nueva_factura 	=f_siguiente_n_fact_emitida(g_colegiado_cliente,ls_serie,emisor,hoy)
+		lst_facturas.tipo_factura =g_colegiado_cliente
+	CASE g_musaat_colegiado
+		//n_nueva_factura   =f_siguiente_n_fact_emitida(g_musaat_colegiado,ls_serie,emisor,hoy)
+		lst_facturas.tipo_factura =g_musaat_colegiado
+END CHOOSE
+
+n_nueva_factura 	=f_siguiente_n_fact_emitida_empresa(lst_facturas,ls_serie,emisor,hoy)
+
+if isvalid(g_dw1) then
+	g_dw1.SetItem(1,'estado',g_fases_estados.registrado)
+	g_dw1.Update()
+end if
+
+// Si se le pasa una fecha de pago cogemos $$HEX1$$e900$$ENDHEX$$sta (ventana de anulaci$$HEX1$$f300$$ENDHEX$$n de avisos)
+if date(f_anul) <> date('01/01/1900') then f_pago = f_anul
+
+
+double row
+ //Hacemos la inserci$$HEX1$$f300$$ENDHEX$$n en el Datastore
+row = ds_factura_detalle.InsertRow(0)
+ds_factura_detalle.SetItem(ds_factura_detalle.RowCount(),'n_fact',n_nueva_factura)
+ds_factura_detalle.SetItem(ds_factura_detalle.RowCount(),'fecha',hoy)
+ds_factura_detalle.SetItem(ds_factura_detalle.RowCount(),'n_col',n_col)
+ds_factura_detalle.SetItem(ds_factura_detalle.RowCount(),'nif',nif)
+ds_factura_detalle.SetItem(ds_factura_detalle.RowCount(),'nombre',nombre)
+ds_factura_detalle.SetItem(ds_factura_detalle.RowCount(),'domicilio',domicilio)
+ds_factura_detalle.SetItem(ds_factura_detalle.RowCount(),'domicilio_largo',domicilio_largo)
+ds_factura_detalle.SetItem(ds_factura_detalle.RowCount(),'poblacion',poblacion)
+ds_factura_detalle.SetItem(ds_factura_detalle.RowCount(),'proyecto',proyecto)
+ds_factura_detalle.SetItem(ds_factura_detalle.RowCount(),'cuenta',cuenta)
+ds_factura_detalle.SetItem(ds_factura_detalle.RowCount(),'tipo_persona',tipo_persona)
+ds_factura_detalle.SetItem(ds_factura_detalle.RowCount(),'contado','N')
+ds_factura_detalle.SetItem(ds_factura_detalle.RowCount(),'pagado','S')
+ds_factura_detalle.SetItem(ds_factura_detalle.RowCount(),'base_imp',n_base_imponible)
+ds_factura_detalle.SetItem(ds_factura_detalle.RowCount(),'iva',n_iva)
+ds_factura_detalle.SetItem(ds_factura_detalle.RowCount(),'txt_desc',txt_desc)
+ds_factura_detalle.SetItem(ds_factura_detalle.RowCount(),'descuento',n_descuento)
+ds_factura_detalle.SetItem(ds_factura_detalle.RowCount(),'total',n_total)
+ds_factura_detalle.SetItem(ds_factura_detalle.RowCount(),'subtotal',n_subtotal)
+ds_factura_detalle.SetItem(ds_factura_detalle.RowCount(),'f_pago',f_pago)
+ds_factura_detalle.SetItem(ds_factura_detalle.RowCount(),'emitida','N')
+ds_factura_detalle.SetItem(ds_factura_detalle.RowCount(),'reimpresa','N')
+ds_factura_detalle.SetItem(ds_factura_detalle.RowCount(),'formadepago',formadepago)
+ds_factura_detalle.SetItem(ds_factura_detalle.RowCount(),'contabilizada','N')
+ds_factura_detalle.SetItem(ds_factura_detalle.RowCount(),'id_factura',id_nueva_factura)
+ds_factura_detalle.SetItem(ds_factura_detalle.RowCount(),'centro',centro)
+ds_factura_detalle.SetItem(ds_factura_detalle.RowCount(),'banco',banco)
+ds_factura_detalle.SetItem(ds_factura_detalle.RowCount(),'id_persona',id_persona)
+ds_factura_detalle.SetItem(ds_factura_detalle.RowCount(),'t_iva',t_iva)
+ds_factura_detalle.SetItem(ds_factura_detalle.RowCount(),'moneda',moneda)
+ds_factura_detalle.SetItem(ds_factura_detalle.RowCount(),'tipo_reten',tipo_reten)
+ds_factura_detalle.SetItem(ds_factura_detalle.RowCount(),'cuenta_reten',cuenta_reten)
+ds_factura_detalle.SetItem(ds_factura_detalle.RowCount(),'importe_reten',n_importe_reten)
+ds_factura_detalle.SetItem(ds_factura_detalle.RowCount(),'tipo_factura',tipo_factura)
+ds_factura_detalle.SetItem(ds_factura_detalle.RowCount(),'emisor',emisor)
+ds_factura_detalle.SetItem(ds_factura_detalle.RowCount(),'id_fase',id_fase)
+ds_factura_detalle.SetItem(ds_factura_detalle.RowCount(),'usuario',g_usuario)
+ds_factura_detalle.SetItem(ds_factura_detalle.RowCount(),'observaciones_text',obs)
+ds_factura_detalle.SetItem(ds_factura_detalle.RowCount(),'obs',LeftA(obs,200))
+ds_factura_detalle.SetItem(ds_factura_detalle.RowCount(),'asunto',asunto)
+ds_factura_detalle.SetItem(ds_factura_detalle.RowCount(),'anulada','S')
+ds_factura_detalle.SetItem(ds_factura_detalle.RowCount(),'abonada','N')
+ds_factura_detalle.SetItem(ds_factura_detalle.RowCount(),'irpf_colegio',irpf_colegio)
+ds_factura_detalle.SetItem(ds_factura_detalle.RowCount(),'id_minuta',id_minuta)
+ds_factura_detalle.SetItem(ds_factura_detalle.RowCount(),'empresa',empresa)
+ds_factura_detalle.SetItem(ds_factura_detalle.RowCount(),'solo_pagos',solo_pagos) // MODIFICADO RICARDO 2005-03-02
+ds_factura_detalle.SetItem(ds_factura_detalle.RowCount(),'reclamar',reclamar) // MODIFICADO DAVID 26/12/2005
+// Si es solo a efectos de pago, la marcamos como contabilizada la cabecera
+if solo_pagos = 'S' then ds_factura_detalle.SetItem(ds_factura_detalle.RowCount(),'contabilizada','S')// MODIFICADO RICARDO 2005-03-02.
+ds_factura_detalle.SetItem(ds_factura_detalle.RowCount(),'otro_pagador',otro_pagador) // MODIFICADO DAVID 29/06/2005
+if otro_pagador = 'S' then
+	ds_factura_detalle.SetItem(ds_factura_detalle.RowCount(),'id_cliente_pagador',id_cliente_pagador)
+	ds_factura_detalle.SetItem(ds_factura_detalle.RowCount(),'nif_pagador',nif_pagador)
+	ds_factura_detalle.SetItem(ds_factura_detalle.RowCount(),'nombre_pagador',nombre_pagador)
+	ds_factura_detalle.SetItem(ds_factura_detalle.RowCount(),'domicilio_pagador',domicilio_pagador)
+	ds_factura_detalle.SetItem(ds_factura_detalle.RowCount(),'domicilio_pagador_largo',domicilio_pagador_largo)	
+	ds_factura_detalle.SetItem(ds_factura_detalle.RowCount(),'poblacion_pagador',poblacion_pagador)
+end if
+datetime fecha_nula
+setnull(fecha_nula)
+
+
+
+// Si la forma de pago es PA, debe quedarse impagada
+
+if not isnull(id_ingreso)  then 
+	ds_factura_detalle.SetItem(ds_factura_detalle.RowCount(),'pagado','N')
+	ds_factura_detalle.SetItem(ds_factura_detalle.RowCount(),'f_pago',fecha_nula)
+
+end if
+// MODIFICADO RICARDO 05-02-09
+if formadepago = 'DB' and pagado = 'N' then
+	setnull(f_pago)
+	ds_cobros_factura.SetItem(ds_cobros_factura.RowCount(),'f_pago',f_pago)
+	ds_cobros_factura.SetItem(ds_cobros_factura.RowCount(),'pagado','N')
+end if
+
+
+
+//	VAMOS A GENERAR LINEAS A LA INVERSA DE ESA FACTURA
+ds_lineas_factura.Retrieve(id_factura)
+j=ds_lineas_factura.RowCount()
+
+for i=1 to j
+		id_nueva_linea = f_siguiente_numero('LINEA_FEMI', 10)
+		
+		descripcion 		= ds_lineas_factura.GetItemString(i,'descripcion')
+		descripcion_larga = ds_lineas_factura.GetItemString(i,'descripcion_larga')
+		precio				= - ds_lineas_factura.GetItemNumber(i,'precio')
+		unidades				= ds_lineas_factura.GetItemNumber(i,'unidades')
+		subtotal				= - ds_lineas_factura.GetItemNumber(i,'subtotal')
+		articulo				= ds_lineas_factura.GetItemString(i,'articulo')
+		t_iva					= ds_lineas_factura.GetItemString(i,'t_iva')
+		subtotal_iva		= - ds_lineas_factura.GetItemNumber(i,'subtotal_iva')
+		total					= -ds_lineas_factura.GetItemNumber(i,'total')
+		porcen_dto			= ds_lineas_factura.GetItemNumber(i,'porcent_dto')
+		importe_dto			= -ds_lineas_factura.GetItemNumber(i,'importe_dto')
+		cuenta				= ds_lineas_factura.GetItemString(i,'cuenta')
+		centro				= ds_lineas_factura.GetItemString(i,'centro')
+		proyecto				= ds_lineas_factura.GetItemString(i,'proyecto')
+		cta_presupuestaria= ds_lineas_factura.GetItemString(i,'cta_presupuestaria')
+		id_persona			= ds_lineas_factura.GetItemString(i,'id_persona')
+		tipo_persona		= ds_lineas_factura.GetItemString(i,'tipo_persona')
+		id_recibo			= ds_lineas_factura.GetItemString(i,'id_recibo')
+
+		// MODIFICADO RICARDO 04-06-17
+		CHOOSE CASE g_colegio
+			CASE 'COAATB'
+				double porcent_irpf, importe_irpf
+				porcent_irpf   = ds_lineas_factura.GetItemNumber(i,'porcent_irpf')
+				importe_irpf   = - ds_lineas_factura.GetItemNumber(i,'importe_irpf')
+				aplica_irpf_colegio  = ds_lineas_factura.GetItemString(i,'aplica_irpf_colegio')
+		END CHOOSE 
+		// FIN MODIFICADO RICARDO 04-06-17
+		
+	ds_lineas_factura.InsertRow(0)
+	ds_lineas_factura.SetItem(ds_lineas_factura.RowCount(),'id_factura',id_nueva_factura)
+	ds_lineas_factura.SetItem(ds_lineas_factura.RowCount(),'id_linea',id_nueva_linea)
+	ds_lineas_factura.SetItem(ds_lineas_factura.RowCount(),'descripcion',descripcion)
+	ds_lineas_factura.SetItem(ds_lineas_factura.RowCount(),'descripcion_larga',descripcion_larga)	
+	ds_lineas_factura.SetItem(ds_lineas_factura.RowCount(),'precio',precio)
+	ds_lineas_factura.SetItem(ds_lineas_factura.RowCount(),'unidades',unidades)
+	ds_lineas_factura.SetItem(ds_lineas_factura.RowCount(),'subtotal',subtotal)
+	ds_lineas_factura.SetItem(ds_lineas_factura.RowCount(),'articulo',articulo)
+	ds_lineas_factura.SetItem(ds_lineas_factura.RowCount(),'t_iva',t_iva)
+	ds_lineas_factura.SetItem(ds_lineas_factura.RowCount(),'subtotal_iva',subtotal_iva)
+	ds_lineas_factura.SetItem(ds_lineas_factura.RowCount(),'total',total)
+	ds_lineas_factura.SetItem(ds_lineas_factura.RowCount(),'porcent_dto',porcent_dto)
+	ds_lineas_factura.SetItem(ds_lineas_factura.RowCount(),'importe_dto',importe_dto)
+	ds_lineas_factura.SetItem(ds_lineas_factura.RowCount(),'cuenta',cuenta)
+	ds_lineas_factura.SetItem(ds_lineas_factura.RowCount(),'centro',f_devuelve_centro(g_cod_delegacion))
+	ds_lineas_factura.SetItem(ds_lineas_factura.RowCount(),'proyecto',proyecto)
+	ds_lineas_factura.SetItem(ds_lineas_factura.RowCount(),'cta_presupuestaria',cta_presupuestaria)
+	ds_lineas_factura.SetItem(ds_lineas_factura.RowCount(),'id_persona',id_persona)
+	ds_lineas_factura.SetItem(ds_lineas_factura.RowCount(),'tipo_persona',tipo_persona)
+	ds_lineas_factura.SetItem(ds_lineas_factura.RowCount(),'id_fase',id_fase)
+	ds_lineas_factura.SetItem(ds_lineas_factura.RowCount(),'fecha',hoy)
+	///*** SCP-1193. Se comenta el c$$HEX1$$f300$$ENDHEX$$digo para obtener el recibo de musaat ya que con la externalizaci$$HEX1$$f300$$ENDHEX$$n de la aseguradora no hace falta. Alexis. 25/03/2011 ***///
+	// Si la linea es de musaat y ten$$HEX1$$ed00$$ENDHEX$$a n$$HEX2$$ba002000$$ENDHEX$$recibo, asignamos uno nuevo
+//	if not isnull(id_recibo) and articulo = g_codigos_conceptos.musaat_variable then
+//		ds_lineas_factura.SetItem(ds_lineas_factura.RowCount(),'id_recibo',f_siguiente_n_fact_emitida_za('','MU','',hoy))
+//	end if	
+
+
+	// MODIFICADO RICARDO 04-06-17
+	CHOOSE CASE g_colegio
+		CASE 'COAATB'
+			ds_lineas_factura.SetItem(ds_lineas_factura.RowCount(),'porcent_irpf', porcent_irpf)
+			ds_lineas_factura.SetItem(ds_lineas_factura.RowCount(),'importe_irpf', importe_irpf)
+			ds_lineas_factura.SetItem(ds_lineas_factura.RowCount(),'aplica_irpf_colegio', aplica_irpf_colegio)
+	END CHOOSE 
+	// FIN MODIFICADO RICARDO 04-06-17
+next
+
+
+
+// Modificado Yexaira 17-08-07
+// El tipo 'D' es la devoluci$$HEX1$$f300$$ENDHEX$$n de factura por abono, no se realiza el cobro
+if f_es_vacio(tipo_anul) or tipo_anul <> 'D' then  // SI EL TIPO ES ANULACION
+	//	GENERAMOS LOS COBROS
+	ds_cobros_factura.Retrieve(id_factura)
+	j=ds_cobros_factura.RowCount()	
+	
+	for i = 1 to j
+		id_nuevo_cobro = f_siguiente_numero('COBRO_FEMI',10)
+	
+		formapago 			= ds_cobros_factura.GetItemString(i,'forma_pago')
+		importe 				= - ds_cobros_factura.GetItemNumber(i,'importe')
+		f_pago				= ds_cobros_factura.GetItemDateTime(i,'f_pago')
+		pagado				= ds_cobros_factura.GetItemString(i,'pagado')
+		banco 				= ds_cobros_factura.GetItemString(i,'banco')
+		talon					= ds_cobros_factura.GetItemString(i,'n_talon')
+		proyecto				= ds_cobros_factura.GetItemString(i,'proyecto')
+		cta_presupuestaria= ds_cobros_factura.GetItemString(i,'cta_presupuestaria')
+		// Si se le pasa una fecha de pago cogemos $$HEX1$$e900$$ENDHEX$$sta (ventana de anulaci$$HEX1$$f300$$ENDHEX$$n de avisos)
+		if date(f_anul) <> date('01/01/1900') then f_pago = f_anul	
+		f_vencimiento = f_f_venc_forma_de_pago(formapago,f_pago)
+		cuenta = f_cuenta_forma_de_pago(formapago,banco,'',1)
+		
+		ds_cobros_factura.InsertRow(0)
+		ds_cobros_factura.SetItem(ds_cobros_factura.RowCount(),'id_pago',id_nuevo_cobro)
+		ds_cobros_factura.SetItem(ds_cobros_factura.RowCount(),'id_factura',id_nueva_factura)
+		ds_cobros_factura.SetItem(ds_cobros_factura.RowCount(),'forma_pago',formapago)
+		ds_cobros_factura.SetItem(ds_cobros_factura.RowCount(),'importe',importe)
+		ds_cobros_factura.SetItem(ds_cobros_factura.RowCount(),'f_pago',f_pago)
+		ds_cobros_factura.SetItem(ds_cobros_factura.RowCount(),'pagado',pagado) //El mismo estado que el cobro de la factura
+		ds_cobros_factura.SetItem(ds_cobros_factura.RowCount(),'f_vencimiento',f_vencimiento)
+		ds_cobros_factura.SetItem(ds_cobros_factura.RowCount(),'n_talon',talon)
+		ds_cobros_factura.SetItem(ds_cobros_factura.RowCount(),'banco',banco)
+		ds_cobros_factura.SetItem(ds_cobros_factura.RowCount(),'cuenta',cuenta)
+		ds_cobros_factura.SetItem(ds_cobros_factura.RowCount(),'centro',f_devuelve_centro(g_cod_delegacion))
+		ds_cobros_factura.SetItem(ds_cobros_factura.RowCount(),'proyecto',g_explotacion_por_defecto)
+		if generar_facturas.modulo='MINUTAS_ANULA' then
+			ds_cobros_factura.SetItem(ds_cobros_factura.RowCount(),'contabilizado','S')		
+		else
+			ds_cobros_factura.SetItem(ds_cobros_factura.RowCount(),'contabilizado','N')
+		end if
+		if pagado='N' then
+			ds_cobros_factura.SetItem(ds_cobros_factura.RowCount(),'contabilizado','S')
+			ds_cobros_factura.SetItem(ds_cobros_factura.RowCount(),'f_contabilizado',f_pago)
+		end if		
+		//Yexaira 01/07/08 Se agrega usuario a los cobros
+		ds_cobros_factura.SetItem(ds_cobros_factura.RowCount(),'cod_usuario',g_usuario)
+		//yexaira 02/02/10
+		ds_cobros_factura.SetItem(ds_cobros_factura.RowCount(),'empresa',g_empresa)
+		
+		// Modificado Yexaira 13/08/08 
+	
+		// Si la anulaci$$HEX1$$f300$$ENDHEX$$n de una factura viene de un cobro multiple y se va a generar cobros simples se hace lo siguiente
+		if (isnull(id_cobro_multiple)  or id_cobro_multiple = '')  and (formadepago = 'CM' ) and generar_facturas.tipo_cobro = 'S' then
+				ds_cobros_factura.SetItem(ds_cobros_factura.RowCount(),'importe', n_total )
+				ds_factura_detalle.SetItem(ds_factura_detalle.RowCount(),'formadepago',generar_facturas.formapago)
+				ds_cobros_factura.SetItem(ds_cobros_factura.RowCount(),'forma_pago',generar_facturas.formapago)
+			ELSE
+				// Si provienen de un cobro multiple se asocia el id
+				ds_cobros_factura.SetItem(ds_cobros_factura.RowCount(),'id_cobro_multiple',id_cobro_multiple)	
+		end if
+		// Fin Modificaci$$HEX1$$f300$$ENDHEX$$n
+		
+		// MODIFICADO RICARDO 05-02-09
+//		CHOOSE CASE g_colegio
+//			CASE 'COAATZ', 'COAATGU', 'COAATLE', 'COAATAVI', ''
+				if not isnull(id_ingreso) then
+					setnull(f_pago)
+					ds_cobros_factura.SetItem(ds_cobros_factura.RowCount(),'f_pago',f_pago)
+					ds_cobros_factura.SetItem(ds_cobros_factura.RowCount(),'pagado','N')
+				end if
+	//	END CHOOSE
+		// FIN MODIFICADO RICARDO 05-02-09
+		
+		/*
+		if formadepago = 'DB' and pagado = 'N' then
+			setnull(f_pago)
+			ds_cobros_factura.SetItem(ds_cobros_factura.RowCount(),'f_pago',f_pago)
+			ds_cobros_factura.SetItem(ds_cobros_factura.RowCount(),'pagado','N')
+		end if
+		*/
+
+	next
+else  // SI EL TIPO ES DEVOLUCION
+	
+	// modificado Yexaira 17-08-07
+	if not f_es_vacio(tipo_anul) and tipo_anul = 'D' then 
+		ds_factura_detalle.SetItem(ds_factura_detalle.RowCount(),'pagado','N')
+		ds_factura_detalle.SetItem(ds_factura_detalle.RowCount(),'f_pago',fecha_nula)
+		if g_colegio = 'COAATNA' then
+			// Se coloca la forma de pago CA por que tienen una cuenta de gasto diferente a la personal
+			ds_factura_detalle.SetItem(ds_factura_detalle.RowCount(),'formadepago','CA')
+		else
+			ds_factura_detalle.SetItem(ds_factura_detalle.RowCount(),'formadepago','LI')
+		end if
+	end if
+	
+end if
+
+ds_factura_detalle.Update()
+ds_lineas_factura.Update()
+ds_cobros_factura.Update()
+
+//Se abre la ventana de liquidaciones desde aqui cuando se realiza una devolucion de una factura.
+
+if not f_es_vacio(tipo_anul) and tipo_anul = 'D' then 
+	openwithparm(w_garantias_liquidaciones_generar,id_nueva_factura)
+end if
+
+// La factura original se deja como anulada
+update csi_facturas_emitidas set anulada='S'  WHERE  id_factura = :id_factura;
+
+destroy ds_factura_detalle
+destroy ds_lineas_factura
+destroy ds_cobros_factura
+
+//devolver n_nueva_Factura?
+return id_nueva_factura
+//return n_nueva_factura
+
+end function
+

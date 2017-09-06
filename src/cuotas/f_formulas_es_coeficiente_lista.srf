@@ -1,0 +1,32 @@
+HA$PBExportHeader$f_formulas_es_coeficiente_lista.srf
+$PBExportComments$objetos b$$HEX1$$e100$$ENDHEX$$sicos
+global type f_formulas_es_coeficiente_lista from function_object
+end type
+
+forward prototypes
+global function boolean f_formulas_es_coeficiente_lista (string codigo)
+end prototypes
+
+global function boolean f_formulas_es_coeficiente_lista (string codigo);// Devuelve true si el coeficiente de codigo especificado tiene una lista de posibles valores (en coeficientes_listas)
+
+string colegio
+long num_lista
+
+colegio = f_colegio()
+  
+  SELECT count(*) INTO :num_lista
+    FROM coeficientes_listas  
+   WHERE ( coeficientes_listas.codigo = :codigo ) AND  
+         ( coeficientes_listas.colegio = :colegio OR  
+         coeficientes_listas.colegio is null OR  
+         coeficientes_listas.colegio = '' )    ;
+
+if num_lista > 0 then
+	return true
+else
+	return false
+end if
+
+
+end function
+

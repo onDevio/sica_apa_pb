@@ -1,0 +1,27 @@
+HA$PBExportHeader$f_colegiado_cod_colegio.srf
+global type f_colegiado_cod_colegio from function_object
+end type
+
+forward prototypes
+global function string f_colegiado_cod_colegio (string id_col)
+end prototypes
+
+global function string f_colegiado_cod_colegio (string id_col);// Devuelve el colegio de procedencia del colegiado
+
+string cod_colegiado, tipo
+SELECT colegiados.colegio, colegiados.c_geografico
+INTO :cod_colegiado , :tipo 
+FROM colegiados  
+WHERE ( colegiados.id_colegiado = :id_col )    ;
+
+if f_es_vacio(cod_colegiado) then cod_colegiado = ''
+
+if g_colegio = 'COAATCC' then
+	if tipo <> 'H' then cod_colegiado= '10'
+	cod_colegiado = f_conversion_codigo_colegio_caceres(cod_colegiado, 1, SQLCA)
+	if isnull(cod_colegiado)then cod_colegiado=''
+end if
+
+return cod_colegiado
+end function
+

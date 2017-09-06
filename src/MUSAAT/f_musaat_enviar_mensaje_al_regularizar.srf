@@ -1,0 +1,72 @@
+HA$PBExportHeader$f_musaat_enviar_mensaje_al_regularizar.srf
+global type f_musaat_enviar_mensaje_al_regularizar from function_object
+end type
+
+forward prototypes
+global subroutine f_musaat_enviar_mensaje_al_regularizar (double importe_cobrado, double importe_movimiento_musaat, string id_factura)
+end prototypes
+
+global subroutine f_musaat_enviar_mensaje_al_regularizar (double importe_cobrado, double importe_movimiento_musaat, string id_factura);datastore ds_permisos_usuarios_aplicacion 
+long fila_usuario
+string n_factura
+integer li_msg 
+// Obtenemos el n_factura a partir del id_factura
+select n_fact into :n_factura from csi_facturas_emitidas where id_factura = :id_factura;
+
+// Si es nulo se informa al usuario  	 SCP-453
+if f_es_vacio(n_factura) then
+li_msg = messagebox("Sistema","El sistema va a enviar un mensaje de regularizaci$$HEX1$$f300$$ENDHEX$$n que carece de factura asociada ya que recoge un movimiento de musaat de importe 0 $$HEX1$$bf00$$ENDHEX$$Desea continuar?",exclamation!, YesNo!, 1)
+if li_msg =0 then 
+	return
+end if
+end if
+
+// Creamos el datawindow y recuperamos para todos los que tengan el permiso
+ds_permisos_usuarios_aplicacion = create datastore
+ds_permisos_usuarios_aplicacion.dataobject = 'd_permisos_usuarios_aplicacion'
+ds_permisos_usuarios_aplicacion.settransobject(SQLCA)
+ds_permisos_usuarios_aplicacion.retrieve('0000000040') // Recuperamos todos los que tengan este permiso
+
+// Generamos los mensajes
+g_mensajes_insercion.s_o_c = 'S'
+g_mensajes_insercion.asunto = 'REGULARIZACI$$HEX1$$d300$$ENDHEX$$N DE MUSAAT'
+g_mensajes_insercion.codigo_origen = 'SISTEMA'
+g_mensajes_insercion.fecha = datetime(today(), now())
+if  f_es_vacio(n_factura) then
+// 	 SCP-453
+//si es vacio el numero de la factura nos encontramos con un movimiento de musaat de importe 0, modificamos el mensaje y seguimos
+	g_mensajes_insercion.mensaje = 'Regularizaci$$HEX1$$f300$$ENDHEX$$n realizada por el usuario '+upper(f_dame_nombre_usuario(g_usuario))
+	g_mensajes_insercion.mensaje += ' el cual no implica factura.'
+else
+	if g_colegio="CASE 'COAATBI" THEN// 	 SCP-453 para este colegio y se deberia hacer para todos en proximas incidencias se muestra solo aquellos datos que poseemos a la hora de generar la factura, es decir , la cantidad que lleva la factura. 
+		g_mensajes_insercion.mensaje = 'Regularizaci$$HEX1$$f300$$ENDHEX$$n realizada en la factura '+n_factura+' cobrada por el usuario '+upper(f_dame_nombre_usuario(g_usuario))
+		g_mensajes_insercion.mensaje += ' cuyo importe en la factura es de '+string(importe_cobrado, '###,##0.00')+' .'
+		
+	else//Este mensaje no es correcto para Bizk almenos, hay que comprobar si lo es para otros colegios.
+		g_mensajes_insercion.mensaje = 'Regularizaci$$HEX1$$f300$$ENDHEX$$n realizada en la factura '+n_factura+' cobrada por el usuario '+upper(f_dame_nombre_usuario(g_usuario))
+		g_mensajes_insercion.mensaje += ' cuyo importe en la factura era de '+string(importe_cobrado, '###,##0.00')+' y el mismo en el movimiento de musaat es de '+string(importe_movimiento_musaat, '###,##0.00')+'.'
+		g_mensajes_insercion.mensaje += ' Diferencia : '+string(importe_cobrado - importe_movimiento_musaat, '###,##0.00')
+	end if 
+end if			
+		
+// Mandamos el mensaje a todos los que tienen el permiso
+FOR fila_usuario = 1 TO ds_permisos_usuarios_aplicacion .RowCount()
+	// Mandamos un mensaje a cada uno de los distintos usuarios que tengan el permiso
+	g_mensajes_insercion.id_mensaje = f_siguiente_numero('MENSAJES',10)
+	g_mensajes_insercion.destino = ds_permisos_usuarios_aplicacion .GetItemString(fila_usuario, 'cod_usuario')
+	f_enviar_mensaje()
+NEXT
+
+
+// VAciamos la estructura por si acaso
+g_mensajes_insercion.s_o_c = ''
+g_mensajes_insercion.asunto = ''
+g_mensajes_insercion.codigo_origen = ''
+setnull(g_mensajes_insercion.fecha)
+g_mensajes_insercion.mensaje = ''
+g_mensajes_insercion.id_mensaje = ''
+g_mensajes_insercion.destino = ''
+
+destroy ds_permisos_usuarios_aplicacion 
+end subroutine
+

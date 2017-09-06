@@ -1,0 +1,9 @@
+HA$PBExportHeader$st_factufa_facturas_pendientes.srs
+global type st_factufa_facturas_pendientes from structure
+	string		id_col
+	datastore		dw_facturas
+	double		total_favor
+	double		total_contra
+	string		tipo_gestion
+end type
+

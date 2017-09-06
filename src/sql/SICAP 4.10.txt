@@ -1,0 +1,11 @@
+// V. 4.1.0
+
+// TODOS
+alter table fases add piso char(10) null, puerta char(10) null ;
+
+alter table fases add destino_int char(3) null ;
+create table t_destinos (codigo char(3) not null, descripcion char(60) null) ;
+alter table t_destinos add constraint t_destinos_x primary key nonclustered (codigo) ;
+
+create table dbo.colegiados_autorizaciones (id_col_autorizado char(10) not null, id_colegiado char(10) not null, nombre char(255) null, nif char(15) null) ;
+alter table dbo.colegiados_autorizaciones add constraint pk_col_auto primary key nonclustered (id_col_autorizado) ;

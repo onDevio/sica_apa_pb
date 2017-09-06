@@ -1,0 +1,26 @@
+HA$PBExportHeader$f_dame_n_aviso_id_cobro.srf
+global type f_dame_n_aviso_id_cobro from function_object
+end type
+
+forward prototypes
+global function string f_dame_n_aviso_id_cobro (string id_cobro)
+end prototypes
+
+global function string f_dame_n_aviso_id_cobro (string id_cobro);// Devolver$$HEX2$$e1002000$$ENDHEX$$el numero de aviso del cobro asociado
+string n_aviso
+
+SELECT fases_minutas.n_aviso
+ INTO :n_aviso
+ FROM csi_cobros,   
+		csi_facturas_emitidas,   
+		fases_minutas
+ WHERE ( csi_cobros.id_factura = csi_facturas_emitidas.id_factura ) and  
+		 ( csi_facturas_emitidas.id_fase = fases_minutas.id_minuta ) and  
+		 ( csi_cobros.id_pago = :id_cobro );
+
+// Evitamos el nulo
+if isnull(n_aviso) then n_aviso = ''
+
+return n_aviso
+end function
+

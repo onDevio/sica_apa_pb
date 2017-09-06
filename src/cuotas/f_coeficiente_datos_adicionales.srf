@@ -1,0 +1,43 @@
+HA$PBExportHeader$f_coeficiente_datos_adicionales.srf
+$PBExportComments$objetos b$$HEX1$$e100$$ENDHEX$$sicos
+global type f_coeficiente_datos_adicionales from function_object
+end type
+
+forward prototypes
+global function string f_coeficiente_datos_adicionales (string variable, string tipo, string id_formula)
+end prototypes
+
+global function string f_coeficiente_datos_adicionales (string variable, string tipo, string id_formula);// Si el tipo del coeficiente no es una f$$HEX1$$f300$$ENDHEX$$rmula devolvemos los datos adicionales del coeficiente.
+// por el contrario si el coeficiente es una f$$HEX1$$f300$$ENDHEX$$rmula devolvemos la descripci$$HEX1$$f300$$ENDHEX$$n de la f$$HEX1$$f300$$ENDHEX$$rmula en concreto. 
+// En este caso hay una redirecci$$HEX1$$f300$$ENDHEX$$n a la f$$HEX1$$f300$$ENDHEX$$rmula.
+
+string datos_adicionales, formula_descripcion, formula_definicion
+string colegio
+
+colegio = f_colegio()
+  
+if tipo <> 'F' then  
+
+  SELECT coeficientes.datos_adicionales
+    INTO :datos_adicionales  
+    FROM coeficientes  
+   WHERE coeficientes.codigo = :variable and 
+         (colegio = :colegio or colegio = '' or colegio is null) order by colegio desc ;
+			// Ser$$HEX1$$ed00$$ENDHEX$$a conveniente tener en cuenta tambi$$HEX1$$e900$$ENDHEX$$n la fecha
+
+else
+	  SELECT formulas.descripcion, formulas.formula 
+    INTO :formula_descripcion, :formula_definicion
+    FROM formulas  
+   WHERE ( formulas.id_formula = :id_formula);
+
+	// Si existe una descripci$$HEX1$$f300$$ENDHEX$$n de la f$$HEX1$$f300$$ENDHEX$$rmula es porque deseamos que aparezca $$HEX1$$e900$$ENDHEX$$sta al ser la definici$$HEX1$$f300$$ENDHEX$$n
+	// demasiado complicada. Si no hay descripci$$HEX1$$f300$$ENDHEX$$n mostramos la definici$$HEX1$$f300$$ENDHEX$$n directamente.
+	datos_adicionales = formula_descripcion
+	if f_es_vacio(datos_adicionales) then datos_adicionales = f_formulas_presentacion_formula(formula_definicion)
+	
+end if
+
+return datos_adicionales
+end function
+

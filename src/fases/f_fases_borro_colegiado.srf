@@ -1,0 +1,25 @@
+HA$PBExportHeader$f_fases_borro_colegiado.srf
+global type f_fases_borro_colegiado from function_object
+end type
+
+forward prototypes
+global function string f_fases_borro_colegiado (string id_col, datawindow dw1, datawindow dw2)
+end prototypes
+
+global function string f_fases_borro_colegiado (string id_col, datawindow dw1, datawindow dw2);string id_fase,mensaje,col
+integer i
+
+mensaje=''
+for i=1 to dw1.rowcount()
+	col=dw1.getitemstring(i,'id_col')
+	if col=id_col then mensaje=mensaje + cr + 'No se puede borrar este colegiado mientras tenga SRC.'
+next
+
+for i=1 to dw2.rowcount()
+	col=dw2.getitemstring(i,'id_col')
+	if col=id_col then mensaje=mensaje + cr + 'No se puede borrar este colegiado mientras tenga reparos.'
+next
+
+return mensaje
+end function
+

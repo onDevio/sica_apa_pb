@@ -1,0 +1,69 @@
+HA$PBExportHeader$f_actualiza_numero_bd_ejercicio.srf
+global type f_actualiza_numero_bd_ejercicio from function_object
+end type
+
+forward prototypes
+global subroutine f_actualiza_numero_bd_ejercicio (string contador, double nuevo_valor)
+end prototypes
+
+global subroutine f_actualiza_numero_bd_ejercicio (string contador, double nuevo_valor);//double i
+//
+// SELECT contador.valor  
+//    INTO :i  
+//    FROM contador 
+//   WHERE contador.contador = :contador    
+//	USING bd_ejercicio;
+//
+//i=i+1
+
+/* modificacion de ricardo para control sobre la rioja */
+datastore ds_permisos_usuarios_aplicacion
+long fila_usuario
+
+// Creamos el datawindow y recuperamos para todos los que tengan el permiso
+ds_permisos_usuarios_aplicacion = create datastore
+ds_permisos_usuarios_aplicacion.dataobject = 'd_permisos_usuarios_aplicacion'
+ds_permisos_usuarios_aplicacion.settransobject(SQLCA)
+
+IF f_numeracion_unica_asientos() = 'S' THEN contador = 'UNI'
+
+// Recuperamos todos los que tengan este permiso
+if ds_permisos_usuarios_aplicacion.retrieve('apuntes')>0 then
+	string i
+	SELECT contador.valor  INTO :i FROM contador WHERE contador.contador = :contador  USING bd_ejercicio;
+	
+	// Generamos los mensajes
+	g_mensajes_insercion.s_o_c = 'S'
+	g_mensajes_insercion.asunto = 'ACTUALIZAR CONTADOR CONTABLE'
+	g_mensajes_insercion.codigo_origen = 'SISTEMA'
+	g_mensajes_insercion.fecha = datetime(today(), now())
+	g_mensajes_insercion.mensaje = 'Actualizando el contador '+contador
+	g_mensajes_insercion.mensaje += '          valor antiguo '+i
+	g_mensajes_insercion.mensaje += '          valor actual '+string(nuevo_valor)
+	g_mensajes_insercion.mensaje += '          usuario '+f_dame_nombre_usuario(g_usuario)
+				
+				
+	// Mandamos el mensaje a todos los que tienen el permiso
+	FOR fila_usuario = 1 TO ds_permisos_usuarios_aplicacion .RowCount()
+		// Mandamos un mensaje a cada uno de los distintos usuarios que tengan el permiso
+		g_mensajes_insercion.id_mensaje = f_siguiente_numero('MENSAJES',10)
+		g_mensajes_insercion.destino = ds_permisos_usuarios_aplicacion .GetItemString(fila_usuario, 'cod_usuario')
+		f_enviar_mensaje()
+	NEXT
+	
+end if
+
+destroy ds_permisos_usuarios_aplicacion
+
+// Actualizacion del contador propiamente
+update contador
+set contador.valor=:nuevo_valor
+where contador.contador=:contador
+using bd_ejercicio;
+
+commit;
+
+
+//return right('0000000000000000000000'+string(i),longitud)
+end subroutine
+

@@ -1,0 +1,12 @@
+HA$PBExportHeader$f_conceptos_codigo_garantia.srf
+global type f_conceptos_codigo_garantia from function_object
+end type
+
+forward prototypes
+global function string f_conceptos_codigo_garantia ()
+end prototypes
+
+global function string f_conceptos_codigo_garantia ();// FUNCION CREADA POR RICARDO PARA DEVOLVER EL CODIGO DE LA GARANTIA PARA LA FACTURA DE HONORARIOS DE TENERIFE, EN PRINCIPIO
+return g_codigos_conceptos.dev_garantia
+end function
+

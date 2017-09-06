@@ -1,0 +1,18 @@
+HA$PBExportHeader$f_contador_anyo.srf
+global type f_contador_anyo from function_object
+end type
+
+forward prototypes
+global function string f_contador_anyo ()
+end prototypes
+
+global function string f_contador_anyo ();double anyo_ant
+string a
+SELECT valor
+INTO :anyo_ant
+FROM contadores
+WHERE contador='FORMACION_ANYO';
+a=string(anyo_ant)
+return a
+end function
+

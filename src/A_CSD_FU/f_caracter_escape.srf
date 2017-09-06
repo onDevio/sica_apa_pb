@@ -1,0 +1,36 @@
+HA$PBExportHeader$f_caracter_escape.srf
+global type f_caracter_escape from function_object
+end type
+
+forward prototypes
+global function string f_caracter_escape (string cadena, string caracter)
+end prototypes
+
+global function string f_caracter_escape (string cadena, string caracter);// Esta funci$$HEX1$$f300$$ENDHEX$$n sustituye el caracter para que no de error un dw_1.modify("datawindow.table.select= ~"" + isql_nuevo + "~"")
+// Cuando la cadena de la select contiene un apostrofe.
+//Concatena el mismo caracter dos veces
+// CA'N JOSEP  =  CA''N JOSEP  -> asi no da error
+string cad
+long i=1
+
+cad=cadena
+do while i<= len(cad)
+	if mid(cad,i,1)=caracter then
+		if i=len(cad) then
+			cad=cad+caracter
+			exit
+		end if
+		if mid(cad,i+1,1)<>caracter then
+			cad=left(cad,i)+caracter+mid(cad,i+1)
+			i++
+		end if
+	end if
+	i++		
+	loop
+
+return cad
+
+
+
+end function
+

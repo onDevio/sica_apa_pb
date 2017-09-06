@@ -1,0 +1,2 @@
+﻿INSERT INTO messages_ca (tag, traduccion, modulo, nombre) VALUES ('fases.fecha_importacion','Data importació' ,'fases','fecha_importacion');	
+INSERT INTO messages_ca (tag, traduccion, modulo, nombre) VALUES ('fases.fecha_orden_pago','Data Ordre de Pagament' ,'fases','fecha_orden_pago');	

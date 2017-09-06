@@ -1,0 +1,19 @@
+HA$PBExportHeader$f_devuelve_tipo_reparo.srf
+global type f_devuelve_tipo_reparo from function_object
+end type
+
+forward prototypes
+global function string f_devuelve_tipo_reparo (string cod_reparo)
+end prototypes
+
+global function string f_devuelve_tipo_reparo (string cod_reparo);string tipo_reparo
+
+  SELECT t_reparos_fases.descripcion  
+    INTO :tipo_reparo  
+    FROM t_reparos_fases  
+   WHERE t_reparos_fases.codigo = :cod_reparo;
+	
+return tipo_reparo
+
+end function
+

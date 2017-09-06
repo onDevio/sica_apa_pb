@@ -1,0 +1,61 @@
+HA$PBExportHeader$f_calcular_dv_bizkaia.srf
+$PBExportComments$Calcula el total de dv para bizkaia
+global type f_calcular_dv_bizkaia from function_object
+end type
+
+forward prototypes
+global function integer f_calcular_dv_bizkaia (ref st_dv_datos st_dv_datos)
+end prototypes
+
+global function integer f_calcular_dv_bizkaia (ref st_dv_datos st_dv_datos);double importe_total
+int cuantos
+if isnull(st_dv_datos.porcentaje) then st_dv_datos.porcentaje  = 100
+// Si es obra de la administracion no se cobran los derechos de visado
+if st_dv_datos.administracion then 
+	st_dv_datos.dv = 0
+	return 0
+end if
+
+// Si existe este descuento en otra fase del expediente entonces dv = 0 
+  SELECT count(*)  
+    INTO :cuantos  
+    FROM fases_informes,   
+         fases  
+   WHERE ( fases_informes.id_fase = fases.id_fase ) and  
+         ( ( fases.id_expedi = :st_dv_datos.id_expediente )   and
+         (fases_informes.tipo_informe = :g_codigos_conceptos.dv ) AND 
+			( fases.id_fase <> :st_dv_datos.id_fase) )   ;
+if cuantos > 0 and st_dv_datos.regularizacion <> 'S' then
+	st_dv_datos.dv = 0
+	return 0
+end if	
+
+if LeftA(st_dv_datos.tipoact, 1) = '0' or LeftA(st_dv_datos.tipoact, 1) = '3' then
+	st_dv_datos.pem = f_redondea(st_dv_datos.pem * 3 / 100 )
+end if
+
+// INC. 7668
+if LeftA(st_dv_datos.tipoact, 1) = '8' then
+	st_dv_datos.pem = 0
+end if
+
+SELECT dv_sobre_pem.importe
+INTO :importe_total
+FROM dv_sobre_pem
+WHERE dv_sobre_pem.pem_desde <= :st_dv_datos.pem AND
+		dv_sobre_pem.pem_hasta >= :st_dv_datos.pem ;
+
+if sqlca.sqlcode <> 0 then
+	st_dv_datos.dv = 0
+	return -1
+end if
+if isnull(importe_total) then importe_total = 0
+
+importe_total = f_redondea(importe_total * st_dv_datos.porcentaje / 100 )
+
+st_dv_datos.dv = importe_total
+
+
+return 0
+end function
+

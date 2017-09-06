@@ -1,0 +1,29 @@
+HA$PBExportHeader$f_fase_puede_cobrarse_aviso_estado.srf
+global type f_fase_puede_cobrarse_aviso_estado from function_object
+end type
+
+forward prototypes
+global function long f_fase_puede_cobrarse_aviso_estado (string estado, boolean b_mostrar_mensaje)
+end prototypes
+
+global function long f_fase_puede_cobrarse_aviso_estado (string estado, boolean b_mostrar_mensaje);// CREADA POR Ricardo 04-07-22
+// Funcion que permite saber dado un estado si se puede o no cobrar avisos
+
+string p_facturar 
+boolean facturar=false
+
+select p_facturar
+into :p_facturar
+from expedientes_estado
+where cod_estado = :estado;
+	
+if p_facturar 	= 'S' then facturar=true
+	
+if not facturar then
+	if b_mostrar_mensaje then messagebox(g_titulo, g_idioma.of_getmsg('fases.msg_estado_contrato','El estado del contrato es : ') + f_obtener_estado(estado) +'.'+cr + g_idioma.of_getmsg('fases.msg_cobrar_aviso','No se puede cobrar el aviso.'))
+	return 0
+end if
+
+return 1
+end function
+

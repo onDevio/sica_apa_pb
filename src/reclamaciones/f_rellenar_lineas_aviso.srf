@@ -1,0 +1,124 @@
+HA$PBExportHeader$f_rellenar_lineas_aviso.srf
+global type f_rellenar_lineas_aviso from function_object
+end type
+
+forward prototypes
+global function datastore f_rellenar_lineas_aviso (string id_minuta)
+end prototypes
+
+global function datastore f_rellenar_lineas_aviso (string id_minuta);double base_honos = 0, base_cip = 0, base_musaat = 0, base_dv = 0, base_retvol = 0, base_garantia = 0, base_desplaza = 0
+double iva_honos = 0, iva_cip = 0, iva_musaat = 0, iva_dv = 0, iva_retvol = 0, iva_garantia = 0, iva_desplaza = 0
+double total_base = 0, total_iva = 0
+double irpf = 0
+string aplica_honos, aplica_desplaza, aplica_dv, aplica_cip, aplica_musaat, aplica_retvol
+datastore ds_minuta, ds_minuta_lineas
+string tipo_gestion
+string concepto_honos = ''
+
+ds_minuta = create datastore
+ds_minuta_lineas = create datastore
+
+ds_minuta.dataobject = 'd_factu_minutas_detalle'
+ds_minuta.settransobject(sqlca)
+ds_minuta.retrieve(id_minuta)
+
+ds_minuta_lineas.dataobject = 'd_notif_detalle'
+
+tipo_gestion = ds_minuta.getitemstring(1, 'tipo_gestion')
+aplica_honos = ds_minuta.getitemstring(1, 'aplica_honos')
+aplica_desplaza = ds_minuta.getitemstring(1, 'aplica_desplaza')
+aplica_dv = ds_minuta.getitemstring(1, 'aplica_dv')
+aplica_cip = ds_minuta.getitemstring(1, 'aplica_cip')
+aplica_musaat = ds_minuta.getitemstring(1, 'aplica_musaat')
+aplica_retvol = ds_minuta.getitemstring(1, 'aplica_retvol')
+
+concepto_honos = ds_minuta.getitemstring(1, 'concepto_honos')
+
+if tipo_gestion = 'C' then
+	// IRPF Minuta
+	irpf = ds_minuta.getitemnumber(1, 'importe_irpf')
+	
+	// Honorarios
+	base_honos = ds_minuta.getitemnumber(1, 'base_honos')
+	if base_honos <> 0 and aplica_honos = 'S' then
+		iva_honos = ds_minuta.getitemnumber(1, 'iva_honos')
+		ds_minuta_lineas.insertrow(0)
+		ds_minuta_lineas.setitem(ds_minuta_lineas.rowcount(), 'descripcion', concepto_honos)//f_devuelve_desc_concepto(g_codigos_conceptos.honorarios))
+		ds_minuta_lineas.setitem(ds_minuta_lineas.rowcount(), 'importe', base_honos)
+		ds_minuta_lineas.setitem(ds_minuta_lineas.rowcount(), 'iva_importe', iva_honos)
+		ds_minuta_lineas.setitem(ds_minuta_lineas.rowcount(), 'total', base_honos + iva_honos)	
+	end if
+	
+	// Desplazamientos
+	base_desplaza = ds_minuta.getitemnumber(1, 'base_desplaza')
+	if base_desplaza <> 0 AND aplica_desplaza = 'S' then
+		iva_desplaza = ds_minuta.getitemnumber(1, 'iva_desplaza')
+		ds_minuta_lineas.insertrow(0)
+		ds_minuta_lineas.setitem(ds_minuta_lineas.rowcount(), 'descripcion', f_devuelve_desc_concepto(g_codigos_conceptos.desplazamientos))
+		ds_minuta_lineas.setitem(ds_minuta_lineas.rowcount(), 'importe', base_desplaza)
+		ds_minuta_lineas.setitem(ds_minuta_lineas.rowcount(), 'iva_importe', iva_desplaza)
+		ds_minuta_lineas.setitem(ds_minuta_lineas.rowcount(), 'total', base_desplaza + iva_desplaza)	
+	end if
+	// GARANTIA
+	base_garantia = ds_minuta.getitemnumber(1, 'base_garantia')
+	if base_garantia <> 0 then
+		ds_minuta_lineas.insertrow(0)
+		ds_minuta_lineas.setitem(ds_minuta_lineas.rowcount(), 'descripcion', f_devuelve_desc_concepto(g_codigos_conceptos.dev_garantia))
+		ds_minuta_lineas.setitem(ds_minuta_lineas.rowcount(), 'importe', (-1) * base_garantia)
+		ds_minuta_lineas.setitem(ds_minuta_lineas.rowcount(), 'iva_importe', 0)
+		ds_minuta_lineas.setitem(ds_minuta_lineas.rowcount(), 'total', (-1) * base_garantia)	
+	end if
+	// RETVOL
+	base_retvol = ds_minuta.getitemnumber(1, 'base_retvol')
+	if base_retvol <> 0 and aplica_retvol = 'S' then
+		ds_minuta_lineas.insertrow(0)
+		ds_minuta_lineas.setitem(ds_minuta_lineas.rowcount(), 'descripcion', f_devuelve_desc_concepto(g_codigos_conceptos.retvol))
+		ds_minuta_lineas.setitem(ds_minuta_lineas.rowcount(), 'importe', base_retvol)
+		ds_minuta_lineas.setitem(ds_minuta_lineas.rowcount(), 'iva_importe', 0)
+		ds_minuta_lineas.setitem(ds_minuta_lineas.rowcount(), 'total', base_retvol)	
+	end if	
+end if
+// CIP
+base_cip = ds_minuta.getitemnumber(1, 'base_cip')
+if base_cip <> 0 and aplica_cip = 'S' then
+	iva_cip = ds_minuta.getitemnumber(1, 'iva_cip')
+	ds_minuta_lineas.insertrow(0)
+	ds_minuta_lineas.setitem(ds_minuta_lineas.rowcount(), 'descripcion', f_devuelve_desc_concepto(g_codigos_conceptos.cip))
+	ds_minuta_lineas.setitem(ds_minuta_lineas.rowcount(), 'importe', base_cip)
+	ds_minuta_lineas.setitem(ds_minuta_lineas.rowcount(), 'iva_importe', iva_cip)
+	ds_minuta_lineas.setitem(ds_minuta_lineas.rowcount(), 'total', base_cip + iva_cip)	
+end if
+// MUSAAT
+base_musaat = ds_minuta.getitemnumber(1, 'base_musaat')
+if base_musaat <> 0 and aplica_musaat = 'S' then
+	ds_minuta_lineas.insertrow(0)
+	ds_minuta_lineas.setitem(ds_minuta_lineas.rowcount(), 'descripcion', f_devuelve_desc_concepto(g_codigos_conceptos.musaat_variable))
+	ds_minuta_lineas.setitem(ds_minuta_lineas.rowcount(), 'importe', base_musaat)
+	ds_minuta_lineas.setitem(ds_minuta_lineas.rowcount(), 'iva_importe', 0)
+	ds_minuta_lineas.setitem(ds_minuta_lineas.rowcount(), 'total', base_musaat )	
+end if
+// DV
+base_dv = ds_minuta.getitemnumber(1, 'base_dv')
+if base_dv <> 0 and aplica_dv = 'S' then
+	iva_dv = ds_minuta.getitemnumber(1, 'iva_dv')
+	ds_minuta_lineas.insertrow(0)
+	ds_minuta_lineas.setitem(ds_minuta_lineas.rowcount(), 'descripcion', f_devuelve_desc_concepto(g_codigos_conceptos.dv))
+	ds_minuta_lineas.setitem(ds_minuta_lineas.rowcount(), 'importe', base_dv)
+	ds_minuta_lineas.setitem(ds_minuta_lineas.rowcount(), 'iva_importe', iva_dv)
+	ds_minuta_lineas.setitem(ds_minuta_lineas.rowcount(), 'total', base_dv + iva_dv)	
+end if
+
+
+total_base = ds_minuta_lineas.getitemnumber(ds_minuta_lineas.rowcount(), 'total_base')
+total_iva = ds_minuta_lineas.getitemnumber(ds_minuta_lineas.rowcount(), 'total_iva')
+
+ds_minuta_lineas.setitem(ds_minuta_lineas.rowcount(), 'irpf', irpf)	
+ds_minuta_lineas.setitem(ds_minuta_lineas.rowcount(), 'total_final', total_base + total_iva - irpf)	
+
+
+destroy ds_minuta
+
+return ds_minuta_lineas
+
+end function
+

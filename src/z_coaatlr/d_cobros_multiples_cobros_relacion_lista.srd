@@ -1,0 +1,72 @@
+HA$PBExportHeader$d_cobros_multiples_cobros_relacion_lista.srd
+release 10.5;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes print.preview.outline=yes hidegrayline=no )
+header(height=148 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=72 color="536870912" )
+table(column=(type=char(10) update=yes updatewhereclause=yes key=yes name=id_pago dbname="csi_cobros.id_pago" )
+ column=(type=char(15) updatewhereclause=yes name=csi_facturas_emitidas_n_fact dbname="csi_facturas_emitidas.n_fact" )
+ column=(type=char(2) update=yes updatewhereclause=yes name=csi_cobros_forma_pago dbname="csi_cobros.forma_pago" )
+ column=(type=number update=yes updatewhereclause=yes name=csi_cobros_importe dbname="csi_cobros.importe" )
+ column=(type=datetime update=yes updatewhereclause=yes name=csi_cobros_f_pago dbname="csi_cobros.f_pago" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=csi_cobros_pagado dbname="csi_cobros.pagado" initial="N" values="	S/	N" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=csi_cobros_banco dbname="csi_cobros.banco" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=id_cobro_multiple dbname="csi_cobros.id_cobro_multiple" )
+ column=(type=char(10) updatewhereclause=yes name=csi_cobros_id_factura dbname="csi_cobros.id_factura" )
+ column=(type=datetime updatewhereclause=yes name=csi_facturas_emitidas_f_conta dbname="csi_facturas_emitidas.f_conta" )
+ column=(type=char(1) updatewhereclause=yes name=csi_facturas_emitidas_contabilizada dbname="csi_facturas_emitidas.contabilizada" values="	S/	N" )
+ column=(type=char(1) updatewhereclause=yes name=csi_facturas_emitidas_anulada dbname="csi_facturas_emitidas.anulada" )
+ column=(type=datetime updatewhereclause=yes name=csi_facturas_emitidas_fecha dbname="csi_facturas_emitidas.fecha" )
+ column=(type=char(40) updatewhereclause=yes name=csi_facturas_emitidas_nombre dbname="csi_facturas_emitidas.nombre" )
+ column=(type=char(10) updatewhereclause=yes name=id_fase dbname="csi_facturas_emitidas.id_fase" )
+ column=(type=char(10) updatewhereclause=yes name=id_minuta dbname="csi_facturas_emitidas.id_minuta" )
+ retrieve="  SELECT csi_cobros.id_pago,   
+         csi_facturas_emitidas.n_fact,   
+         csi_cobros.forma_pago,   
+         csi_cobros.importe,   
+         csi_cobros.f_pago,   
+         csi_cobros.pagado,   
+         csi_cobros.banco,   
+         csi_cobros.id_cobro_multiple,   
+         csi_cobros.id_factura,   
+         csi_facturas_emitidas.f_conta,   
+         csi_facturas_emitidas.contabilizada,   
+         csi_facturas_emitidas.anulada,   
+         csi_facturas_emitidas.fecha,   
+         csi_facturas_emitidas.nombre,   
+         csi_facturas_emitidas.id_fase,   
+         csi_facturas_emitidas.id_minuta  
+    FROM csi_cobros,   
+         csi_facturas_emitidas  
+   WHERE ( csi_cobros.id_factura = csi_facturas_emitidas.id_factura ) and  
+         ( ( csi_cobros.id_cobro_multiple = :id_cobro_multiple ) )    
+" update="csi_cobros" updatewhere=0 updatekeyinplace=no arguments=(("id_cobro_multiple", string)) )
+compute(band=header alignment="0" expression="string(rowcount())+' cobros.'"border="0" color="0" x="1170" y="4" height="52" width="494" format="[GENERAL]" html.valueishtml="0"  name=compute_1 visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+text(band=header alignment="0" text="Cobros de facturas relacionados con el cobro multiple" border="0" color="16777215" x="5" y="4" height="52" width="1161" html.valueishtml="0"  name=fases_n_registro_t visible="1"  font.face="Microsoft Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="255" )
+text(band=header alignment="2" text="N$$HEX2$$ba002000$$ENDHEX$$Factura" border="6" color="0" x="402" y="88" height="52" width="585" html.valueishtml="0"  name=csi_facturas_emitidas_n_fact_t visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="80269524" )
+text(band=header alignment="2" text="F. Factura" border="6" color="0" x="1006" y="88" height="52" width="402" html.valueishtml="0"  name=csi_cobros_banco_t visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="80269524" )
+text(band=header alignment="2" text="C" border="6" color="0" x="1842" y="88" height="52" width="169" html.valueishtml="0"  name=csi_cobros_pagado_t visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="80269524" )
+text(band=header alignment="2" text="F. Contabilizado" border="6" color="0" x="1426" y="88" height="52" width="402" html.valueishtml="0"  name=csi_cobros_f_pago_t visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="80269524" )
+text(band=header alignment="2" text="N$$HEX2$$ba002000$$ENDHEX$$Registro" border="6" color="0" x="23" y="88" height="52" width="361" html.valueishtml="0"  name=t_1 visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="80269524" )
+column(band=detail id=13 alignment="0" tabsequence=32766 border="0" color="0" x="1006" y="4" height="60" width="402" format="[shortdate] " html.valueishtml="0"  name=csi_facturas_emitidas_fecha visible="1" editmask.mask="dd/mm/yyyy" editmask.focusrectangle=no  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+column(band=detail id=10 alignment="0" tabsequence=32766 border="0" color="0" x="1426" y="4" height="60" width="402" format="[shortdate] " html.valueishtml="0"  name=csi_facturas_emitidas_f_conta visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+button(band=detail text="..." filename="" enabled=yes action="0" border="0" color="0" x="2350" y="4" height="64" width="78" vtextalign="0" htextalign="0"  name=b_buscar_cobro visible="1~t0/*if ( f_es_vacio(  id_pago   ), 1, 0)*/"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="67108864" )
+column(band=detail id=11 alignment="2" tabsequence=32766 border="0" color="0" x="1842" y="4" height="60" width="169" format="[general]" html.valueishtml="0"  name=csi_facturas_emitidas_contabilizada visible="1" checkbox.text="" checkbox.on="S" checkbox.off="N" checkbox.scale=no checkbox.threed=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+button(band=detail text="X" filename="" enabled=yes action="0" border="0" color="0" x="2117" y="0" height="72" width="91" vtextalign="0" htextalign="0"  name=b_borrar_cobro visible="1~t0/*if ( f_es_vacio(id_cobro_multiple ), 0, 1)*/"  font.face="MS Sans Serif" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="67108864" )
+button(band=detail text="<--" filename="" enabled=yes action="0" border="0" color="0" x="2030" y="0" height="72" width="91" vtextalign="0" htextalign="0"  name=b_reenlazar visible="1~t0/*if ( f_es_vacio(id_cobro_multiple ), 1, 0)*/"  font.face="MS Sans Serif" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="67108864" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="402" y="4" height="60" width="585" format="[general]" html.valueishtml="0"  name=csi_facturas_emitidas_n_fact visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+compute(band=detail alignment="0" expression="if ( f_es_vacio(id_minuta) , f_dame_n_reg( id_fase ),  f_dame_n_reg( id_minuta ) )"border="0" color="0" x="23" y="4" height="60" width="361" format="[GENERAL]" html.valueishtml="0"  name=compute_3 visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+line(band=summary x1="2217" y1="4" x2="2857" y2="4"  name=l_1 visible="1" pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="1090519039" )
+compute(band=summary alignment="1" expression="sum(csi_cobros_importe for all)"border="0" color="0" x="2272" y="16" height="60" width="585" format="#,##0.00" html.valueishtml="0"  name=compute_2 visible="0"  font.face="MS Sans Serif" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" pagingmethod=0 generatedddwframes="1" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()
+ 

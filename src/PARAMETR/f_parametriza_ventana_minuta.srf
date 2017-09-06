@@ -1,0 +1,563 @@
+HA$PBExportHeader$f_parametriza_ventana_minuta.srf
+global type f_parametriza_ventana_minuta from function_object
+end type
+
+forward prototypes
+global subroutine f_parametriza_ventana_minuta (w_minutas_detalle w)
+end prototypes
+
+global subroutine f_parametriza_ventana_minuta (w_minutas_detalle w);choose case upper(g_colegio)
+	case 'COAATB'
+		w.dw_minuta.object.cobro_a_cuenta_t.visible = "1~tif (tipo_gestion = 'S', 0, 1)"
+		w.dw_minuta.object.cobro_a_cuenta.visible = "1~tif (tipo_gestion = 'S', 0, 1)"
+		
+	case 'COAATMU'
+		w.dw_minuta.object.aplica_dv.checkbox.text = 'Tasas de Visado.........................................................................'
+		w.dw_impresion.dataobject = 'd_ficha_aviso_factura_burgos'
+		
+	case 'COAATBU'
+		w.dw_impresion.dataobject = 'd_ficha_aviso_factura_burgos'
+		w.dw_minuta.object.tipo_minuta.visible = true
+		
+	case 'COAATGUI'
+		w.dw_minuta.object.aplica_cip.checkbox.text = 'D.I.C. .........................................................................................................................'
+		w.dw_impresion.dataobject = 'd_ficha_aviso_factura_gui'
+		w.dw_minuta.object.porc_musaat.visible = true
+		w.dw_minuta.object.t_porc_musaat.visible = true
+		w.dw_minuta.object.tipo_minuta.visible = true
+		
+	case 'COAATGC'
+		w.dw_minuta.object.porc_musaat.visible = true
+		w.dw_minuta.object.t_porc_musaat.visible = true
+		w.dw_impresion.dataobject = 'd_ficha_aviso_factura_grancanaria'
+		w.dw_minuta.object.t_iva_honos.tabsequence = 141
+		w.dw_minuta.object.t_iva_desplaza.tabsequence = 171
+		w.dw_minuta.object.t_iva_dv.tabsequence = 201
+		w.dw_minuta.object.t_iva_cip.tabsequence = 221
+		w.dw_minuta.object.b_calc_musaat.visible = true
+		w.dw_minuta.object.tipo_minuta.visible = true
+		// Modificado Ricardo 2005-06-15
+		// Para los nuevos cambios!
+		// Suplido CIP
+		w.dw_minuta.object.cip_suplida_t.visible = "0~tif (tipo_gestion = 'S' , 0 ,1)"
+		w.dw_minuta.object.base_cip_suplida.visible = "0~tif (tipo_gestion = 'S' , 0 ,1)"
+		w.dw_minuta.object.porc_iva_cip_suplida.visible = "0~tif (tipo_gestion = 'S' , 0 ,1)"
+		w.dw_minuta.object.t_iva_cip_suplida.visible = "0~tif (tipo_gestion = 'S' , 0 ,1)"
+		w.dw_minuta.object.iva_cip_suplida.visible = "0~tif (tipo_gestion = 'S' , 0 ,1)"
+		w.dw_minuta.object.cip_suplida_t.text = "SUPLIDO C.I.P. ........................................................................................................................."
+		// Suplido Musaat
+		w.dw_minuta.object.musaat_suplida_t.text = "SUPLIDO M.U.S.A.A.T. ........................................................................................................................."
+		w.dw_minuta.object.musaat_suplida_t.visible = "0~tif (tipo_gestion = 'S' , 0 ,1)"
+		w.dw_minuta.object.musaat_suplida.visible = "0~tif (tipo_gestion = 'S' , 0 ,1)"
+		// FIN Modificado Ricardo 2005-06-15
+		w.dw_minuta.object.aplica_desplaza.visible = "0~tif (tipo_gestion = 'S', 1, 0)"
+		w.dw_minuta.object.concepto_desplaza.visible = "0~tif (tipo_gestion = 'S', 1, 0)"
+		w.dw_minuta.object.base_desplaza.visible = true
+		w.dw_minuta.object.iva_desplaza.visible = "0~tif (tipo_gestion = 'S', 1, 0)"
+		w.dw_minuta.object.t_iva_desplaza.visible = "0~tif (tipo_gestion = 'S', 1, 0)"
+		w.dw_minuta.object.porc_iva_desplaza.visible = "0~tif (tipo_gestion = 'S', 1, 0)"		
+		w.dw_minuta.object.aplica_desplaza.checkbox.text = '..............................................................................................................'				
+		w.dw_minuta.SetItem(1,'concepto_desplaza','EXCESO DE DEVOLUCI$$HEX1$$d300$$ENDHEX$$N DE CIP')
+		w.dw_minuta.object.aplica_impresos.visible = "0~tif (tipo_gestion = 'S', 1, 0)"
+		w.dw_minuta.object.base_impresos.visible = true
+		w.dw_minuta.object.iva_impresos.visible = "0~tif (tipo_gestion = 'S', 1, 0)"
+		w.dw_minuta.object.t_iva_impresos.visible = "0~tif (tipo_gestion = 'S', 1, 0)"
+		w.dw_minuta.object.porc_iva_impresos.visible = "0~tif (tipo_gestion = 'S', 1, 0)"
+		w.dw_minuta.object.concepto_otros.visible = "0~tif (tipo_gestion = 'S', 1, 0)"
+		w.dw_minuta.SetItem(1,'concepto_otros','GASTOS DE TRAMITACI$$HEX1$$d300$$ENDHEX$$N / ANULACI$$HEX1$$d300$$ENDHEX$$N')
+		w.dw_minuta.object.aplica_impresos.checkbox.text = '..............................................................................................................'		
+		
+	case 'COAATLR'
+		w.dw_impresion.dataobject = 'd_ficha_aviso_factura_lr'
+		w.dw_minuta.object.b_calc_musaat.visible = true
+		w.dw_minuta.object.t_iva_honos.tabsequence = 141
+		w.dw_minuta.object.t_iva_desplaza.tabsequence = 171
+		w.dw_minuta.object.t_iva_dv.tabsequence = 201
+		w.dw_minuta.object.t_iva_cip.tabsequence = 221
+		w.dw_minuta.object.tipo_minuta.visible = true
+		w.dw_minuta.object.tipo_minuta.protect="0~t1"
+		//Si el contrato tiene visared la carta a enviar es otra
+		if w.idw_1.getitemstring(1,'e_mail') = 'V' then w.dw_impresion.dataobject = 'd_ficha_aviso_factura_visared_lr'
+		
+	case 'COAATCU'
+		w.dw_minuta.object.aplica_dv.checkbox.text = 'Gastos de Tramitaci$$HEX1$$f300$$ENDHEX$$n.........................................................................'
+		w.dw_impresion.dataobject = 'd_ficha_aviso_factura_cu'
+		w.dw_minuta.object.aplica_impresos.visible = true
+		w.dw_minuta.object.base_impresos.visible = true
+		w.dw_minuta.object.iva_impresos.visible = true
+		w.dw_minuta.object.t_iva_impresos.visible = true
+		w.dw_minuta.object.porc_iva_impresos.visible = true
+		w.dw_minuta.object.t_2.visible = false
+		w.dw_minuta.object.aplica_retvol.visible = false
+		w.dw_minuta.object.porc_retvol.visible = false
+		w.dw_minuta.object.base_retvol.visible = false
+		w.dw_minuta.object.b_calc_musaat.visible = true
+		w.dw_minuta.object.tipo_minuta.visible = true
+		w.dw_minuta.object.t_12.visible = false
+		w.dw_minuta.object.base_garantia.visible = false
+		
+	case 'COAATTFE'
+		w.cbx_aviso.visible = false
+		w.dw_minuta.object.aplica_dv.visible = true
+		w.dw_minuta.object.base_dv.visible = true
+		w.dw_minuta.object.porc_iva_dv.visible = true
+		w.dw_minuta.object.t_iva_dv.visible = true
+		w.dw_minuta.object.iva_dv.visible = true
+		w.dw_minuta.object.aplica_retvol.visible = false
+		w.dw_minuta.object.t_2.visible = false
+		w.dw_minuta.object.porc_retvol.visible = false
+		w.dw_minuta.object.base_retvol.visible = false
+		w.dw_minuta.object.t_12.visible = false
+		w.dw_minuta.object.base_garantia.visible = false
+		w.dw_minuta.object.porc_musaat.visible = true
+		w.dw_minuta.object.t_porc_musaat.visible = true
+		w.dw_impresion.dataobject = 'd_ficha_aviso_factura_grancanaria'
+		w.dw_minuta.object.t_iva_honos.tabsequence = 141
+		w.dw_minuta.object.t_iva_desplaza.tabsequence = 171
+		w.dw_minuta.object.t_iva_dv.tabsequence = 201
+		w.dw_minuta.object.t_iva_cip.tabsequence = 221
+		w.dw_minuta.object.b_calc_musaat.visible = true		
+		w.dw_minuta.object.tipo_minuta.visible = true		
+		w.cbx_f_honos.text = 'Rec. de Honorarios'
+		if w.dw_minuta.getitemstring(1, 'pagador') = '3' and (w.dw_minuta.getitemstring(1, 'tipo_gestion') = 'S' or w.dw_minuta.getitemstring(1, 'tipo_gestion') = 'A')then
+			w.cbx_f_gastos.text = 'Rec. Gastos'
+		else
+			w.cbx_f_gastos.text = 'Fact. Gastos'
+		end if
+		w.dw_minuta.object.cobro_a_cuenta_t.visible = "1~tif (tipo_gestion = 'S', 0, 1)"
+		w.dw_minuta.object.cobro_a_cuenta.visible = "1~tif (tipo_gestion = 'S', 0, 1)"
+		
+	case 'COAATZ'
+		w.dw_impresion.dataobject = 'd_ficha_aviso_factura_za'		
+		w.dw_minuta.object.aplica_cip.checkbox.text = 'D.I.P. .........................................................................................................................'		
+		w.dw_minuta.object.aplica_impresos.visible = true
+		w.dw_minuta.object.base_impresos.visible = true
+		w.dw_minuta.object.iva_impresos.visible = true
+		w.dw_minuta.object.t_iva_impresos.visible = true
+		w.dw_minuta.object.porc_iva_impresos.visible = true
+		w.dw_minuta.object.aplica_impresos.checkbox.text = 'Libros.......................................................................................................................'
+		w.dw_minuta.object.t_2.visible = false
+		w.dw_minuta.object.aplica_retvol.visible = false
+		w.dw_minuta.object.porc_retvol.visible = false
+		w.dw_minuta.object.base_retvol.visible = false
+		w.cbx_f_musaat.visible = true
+		w.cbx_aviso.X = 891
+		w.cbx_f_honos.X = 1237
+		w.cbx_f_gastos.X = 1598
+		w.cbx_f_musaat.X = 1975
+		w.cbx_aviso.Width = 347
+		w.cbx_f_honos.Width = 347
+		w.cbx_f_gastos.Width = 355
+		w.cbx_f_musaat.Width = 351		
+		w.cbx_aviso.Text = 'Aviso Pago'
+		w.cbx_f_honos.Text = 'Fact. Honos'
+		w.cbx_f_gastos.Text = 'Fact. Gastos'
+		w.cbx_f_musaat.Text = 'Fact. Visado'
+		w.dw_minuta.object.b_calc_musaat.visible = true
+		w.dw_minuta.object.tipo_minuta.visible = true
+		w.dw_minuta.object.porc_musaat.visible = true
+		w.dw_minuta.object.t_porc_musaat.visible = true
+		w.dw_minuta.object.concepto_otros.visible = true
+		w.dw_minuta.object.cobro_a_cuenta_t.visible = "1~tif (tipo_gestion = 'S', 0, 1)"
+		w.dw_minuta.object.cobro_a_cuenta.visible = "1~tif (tipo_gestion = 'S', 0, 1)"
+		w.cbx_aviso.visible = false // Modificado Ricardo 2005-04-29. As$$HEX2$$ed002000$$ENDHEX$$las cartas siempre se sacan desde reclamaciones
+		w.cbx_aviso.enabled = false // Modificado Ricardo 2005-04-29. As$$HEX2$$ed002000$$ENDHEX$$las cartas siempre se sacan desde reclamaciones
+		
+	case 'COAATGU'
+		w.cbx_aviso.visible = false
+		w.dw_minuta.object.aplica_dv.checkbox.text = 'Gastos de Visado..................................................................................'		
+		w.dw_impresion.dataobject = 'd_ficha_aviso_factura_gu'
+		w.dw_minuta.object.aplica_cip.checkbox.text = 'D.I.P. .........................................................................................................................'		
+		w.dw_minuta.object.aplica_impresos.visible = true
+		w.dw_minuta.object.base_impresos.visible = true
+		w.dw_minuta.object.iva_impresos.visible = true
+		w.dw_minuta.object.t_iva_impresos.visible = true
+		w.dw_minuta.object.porc_iva_impresos.visible = true
+		w.dw_minuta.object.aplica_impresos.checkbox.text = 'Libros.......................................................................................................................'		
+		w.dw_minuta.object.t_2.visible = false
+		w.dw_minuta.object.aplica_retvol.visible = false
+		w.dw_minuta.object.porc_retvol.visible = false
+		w.dw_minuta.object.base_retvol.visible = false
+		w.cbx_f_musaat.visible = true
+//		w.cbx_aviso.X = 891
+		w.cbx_f_honos.X = 1237
+		w.cbx_f_gastos.X = 1598
+		w.cbx_f_musaat.X = 1975
+//		w.cbx_aviso.Width = 347
+		w.cbx_f_honos.Width = 347
+		w.cbx_f_gastos.Width = 355
+		w.cbx_f_musaat.Width = 351		
+//		w.cbx_aviso.Text = 'Aviso Pago'
+		w.cbx_f_honos.Text = 'Fact. Honos'
+		w.cbx_f_gastos.Text = 'Fact. Gastos'
+		w.cbx_f_musaat.Text = 'Fact. Visado'
+		w.dw_minuta.object.b_calc_musaat.visible = true
+		w.dw_minuta.object.tipo_minuta.visible = true
+		w.dw_minuta.object.porc_musaat.visible = true
+		w.dw_minuta.object.t_porc_musaat.visible = true
+		w.dw_minuta.object.concepto_otros.visible = true
+		//w.dw_minuta.object.cobro_a_cuenta_t.visible = "1~tif (tipo_gestion = 'S', 0, 1)"
+		//w.dw_minuta.object.cobro_a_cuenta.visible = "1~tif (tipo_gestion = 'S', 0, 1)"
+		w.dw_minuta.object.cobro_a_cuenta_t.visible = false
+		w.dw_minuta.object.cobro_a_cuenta.visible = false
+		w.dw_minuta.object.pem_certificacion.visible= true
+		w.dw_minuta.object.pem_certificacion_t.visible= true
+
+	case 'COAATLE'
+		w.dw_minuta.object.aplica_dv.visible = false
+		w.dw_minuta.object.base_dv.visible = false
+		w.dw_minuta.object.porc_iva_dv.visible = false
+		w.dw_minuta.object.t_iva_dv.visible = false
+		w.dw_minuta.object.iva_dv.visible = false
+		w.dw_minuta.object.aplica_cip.checkbox.text = 'D.I.P. .........................................................................................................................'		
+		w.dw_minuta.object.aplica_impresos.visible = true
+		w.dw_minuta.object.base_impresos.visible = true
+		w.dw_minuta.object.iva_impresos.visible = true
+		w.dw_minuta.object.t_iva_impresos.visible = true
+		w.dw_minuta.object.porc_iva_impresos.visible = true
+		w.dw_minuta.object.aplica_impresos.checkbox.text = 'Libros.......................................................................................................................'
+		w.dw_minuta.object.aplica_retvol.checkbox.text = 'Hucha.......................................................................................................................'
+		w.dw_minuta.object.base_retvol.tabsequence = 405
+		w.dw_minuta.object.paga_dv.tabsequence = 335		
+		w.cbx_aviso.visible = false
+		w.cbx_f_musaat.visible = false		
+		w.dw_impresion.dataobject = 'd_ficha_aviso_factura_gu'
+//		w.cbx_aviso.X = 891
+		w.cbx_f_honos.X = 1237
+		w.cbx_f_gastos.X = 1598
+		w.cbx_f_musaat.X = 1975
+//		w.cbx_aviso.Width = 347
+		w.cbx_f_honos.Width = 347
+		w.cbx_f_gastos.Width = 600
+		w.cbx_f_musaat.Width = 351		
+//		w.cbx_aviso.Text = 'Aviso Pago'
+		w.cbx_f_honos.Text = 'Fact. Honos'
+		w.cbx_f_gastos.Text = 'Fact. Prof. Gastos'
+//		w.cbx_f_musaat.Text = 'Fact. Libros'
+		w.dw_minuta.object.b_calc_musaat.visible = true
+		w.dw_minuta.object.tipo_minuta.visible = true
+//		w.dw_minuta.object.porc_musaat.visible = true
+//		w.dw_minuta.object.t_porc_musaat.visible = true
+		w.dw_minuta.object.concepto_otros.visible = true
+		w.dw_minuta.object.bonif_musaat_t.visible = true
+		w.dw_minuta.object.base_otros.visible = true
+		w.dw_minuta.object.n_contrato_ant.tabsequence = 385
+		
+	case 'COAATAVI'
+		w.dw_minuta.object.aplica_cip.checkbox.text = 'D.I.P. .........................................................................................................................'		
+		w.dw_minuta.object.paga_dv.tabsequence = 335
+		w.dw_minuta.object.aplica_dv.checkbox.text = 'Gastos de Tramitaci$$HEX1$$f300$$ENDHEX$$n.........................................................................'
+		w.dw_minuta.object.t_2.visible = false
+		w.dw_minuta.object.aplica_retvol.visible = false
+		w.dw_minuta.object.porc_retvol.visible = false
+		w.dw_minuta.object.base_retvol.visible = false	
+		w.dw_minuta.object.t_12.visible = false
+		w.dw_minuta.object.base_garantia.visible = false
+//		w.dw_impresion.dataobject = 'd_ficha_aviso_factura_avi'
+		w.cbx_aviso.visible = false
+		w.cbx_f_musaat.visible = true		
+		w.cbx_aviso.X = 891
+		w.cbx_f_honos.X = 1237
+		w.cbx_f_gastos.X = 1598
+		w.cbx_f_musaat.X = 1975
+		w.cbx_aviso.Width = 347
+		w.cbx_f_honos.Width = 347
+		w.cbx_f_gastos.Width = 355
+		w.cbx_f_musaat.Width = 351		
+		w.cbx_aviso.Text = 'Aviso Pago'
+		w.cbx_f_honos.Text = 'Fact. Honos'
+		w.cbx_f_gastos.Text = 'Fact. Gastos'
+		w.cbx_f_musaat.Text = 'Fact. Visado'
+		w.dw_minuta.object.b_calc_musaat.visible = true
+		w.dw_minuta.object.tipo_minuta.visible = true
+		w.dw_minuta.object.porc_musaat.visible = true
+		w.dw_minuta.object.t_porc_musaat.visible = true
+		
+	case 'COAATA'
+		w.dw_minuta.object.aplica_cip.checkbox.text = 'D.I.P. .........................................................................................................................'				
+		w.dw_minuta.object.aplica_dv.visible = false
+		w.dw_minuta.object.base_dv.visible = false
+		w.dw_minuta.object.porc_iva_dv.visible = false
+		w.dw_minuta.object.t_iva_dv.visible = false
+		w.dw_minuta.object.iva_dv.visible = false
+		w.dw_minuta.object.aplica_impresos.visible = true
+		w.dw_minuta.object.base_impresos.visible = true
+		w.dw_minuta.object.iva_impresos.visible = true
+		w.dw_minuta.object.t_iva_impresos.visible = true
+		w.dw_minuta.object.porc_iva_impresos.visible = true
+		w.dw_minuta.object.aplica_impresos.checkbox.text = 'Libro Control Calidad CV.................................................................................................................'
+		w.dw_minuta.object.t_12.visible = false
+		w.dw_minuta.object.base_garantia.visible = false
+		w.cbx_aviso.visible = false		
+		w.dw_minuta.object.porc_musaat.visible = true
+		w.dw_minuta.object.t_porc_musaat.visible = true
+		w.dw_minuta.object.tipo_minuta.visible = true
+
+	case 'COAATNA'
+		w.dw_minuta.object.aplica_dv.checkbox.text = 'Gastos de Tramitaci$$HEX1$$f300$$ENDHEX$$n.........................................................................'
+		w.dw_minuta.object.aplica_cip.checkbox.text = 'D.I.P. ............................................................................................'
+		w.dw_minuta.object.aplica_impresos.checkbox.text = 'Gastos Por Gesti$$HEX1$$f300$$ENDHEX$$n Cobro Minutas....................................................'		
+		w.dw_minuta.object.aplica_impresos.visible =  "0~tif (tipo_gestion = 'S' , 0 ,1)"
+		w.dw_minuta.object.base_impresos.visible =  "0~tif (tipo_gestion = 'S' , 0 ,1)"
+		w.dw_minuta.object.iva_impresos.visible =  "0~tif (tipo_gestion = 'S' , 0 ,1)"
+		w.dw_minuta.object.t_iva_impresos.visible =  "0~tif (tipo_gestion = 'S' , 0 ,1)"
+		w.dw_minuta.object.porc_iva_impresos.visible =  "0~tif (tipo_gestion = 'S' , 0 ,1)"
+		w.dw_minuta.object.porc_musaat.visible = true
+		w.dw_minuta.object.t_porc_musaat.visible = true
+		w.dw_minuta.object.tipo_minuta.visible = true		
+		w.dw_minuta.object.aplica_retvol.visible = false
+		w.dw_minuta.object.porc_retvol.visible = false
+		w.dw_minuta.object.base_retvol.visible = false	
+		w.dw_minuta.object.t_2.visible = false
+		w.dw_minuta.object.paga_dv.tabsequence = 335
+		w.cbx_f_musaat.visible = true
+		w.cbx_aviso.visible = false		
+		w.cbx_aviso.X = 891
+		w.cbx_f_honos.X = 1237
+		w.cbx_f_gastos.X = 1598
+		w.cbx_f_musaat.X = 1975
+		w.cbx_aviso.Width = 347
+		w.cbx_f_honos.Width = 347
+		w.cbx_f_gastos.Width = 355
+		w.cbx_f_musaat.Width = 351		
+		w.cbx_aviso.Text = 'Carta Aviso'
+		w.cbx_f_honos.Text = 'Fact. Honos'
+		w.cbx_f_gastos.Text = 'Fact. Gastos'
+		w.cbx_f_musaat.Text = 'Fact. G.Tram.'		
+		
+	case 'COAATTGN'
+		w.dw_minuta.object.aplica_cip.checkbox.text = 'Drets Intervenci$$HEX2$$f3002000$$ENDHEX$$Professional .....................................................................'
+		w.dw_minuta.object.t_12.text = 'Devoluci$$HEX2$$f3002000$$ENDHEX$$Arres .....................................................................'		
+		w.dw_minuta.object.aplica_impresos.checkbox.text = 'Despeses Gesti$$HEX2$$f3002000$$ENDHEX$$Cobrament...................................................'		
+		w.dw_minuta.object.aplica_impresos.visible =  "0~tif (tipo_gestion = 'S' , 0 ,1)"
+		w.dw_minuta.object.base_impresos.visible =  "0~tif (tipo_gestion = 'S' , 0 ,1)"
+		w.dw_minuta.object.iva_impresos.visible =  "0~tif (tipo_gestion = 'S' , 0 ,1)"
+		w.dw_minuta.object.t_iva_impresos.visible =  "0~tif (tipo_gestion = 'S' , 0 ,1)"
+		w.dw_minuta.object.porc_iva_impresos.visible =  "0~tif (tipo_gestion = 'S' , 0 ,1)"
+		w.dw_minuta.object.aplica_dv.visible = false
+		w.dw_minuta.object.base_dv.visible = false
+		w.dw_minuta.object.porc_iva_dv.visible = false
+		w.dw_minuta.object.t_iva_dv.visible = false
+		w.dw_minuta.object.iva_dv.visible = false
+		w.dw_factura_gastos.dataobject = 'd_factu_gastos_tg'
+		w.dw_minuta.object.porc_musaat.visible = true
+		w.dw_minuta.object.t_porc_musaat.visible = true
+		w.dw_minuta.object.tipo_minuta.visible = true		
+		w.dw_minuta.object.aplica_retvol.visible = false
+		w.dw_minuta.object.porc_retvol.visible = false
+		w.dw_minuta.object.base_retvol.visible = false	
+		w.dw_minuta.object.t_2.visible = false
+		//w.dw_minuta.object.paga_dv.tabsequence = 335
+		w.cbx_f_musaat.visible = true
+		w.cbx_aviso.visible = false		
+		w.cbx_aviso.X = 891
+		w.cbx_f_honos.X = 1237
+		w.cbx_f_gastos.X = 1598
+		w.cbx_f_musaat.X = 1975
+		w.cbx_aviso.Width = 347
+		w.cbx_f_honos.Width = 347
+		w.cbx_f_gastos.Width = 355
+		w.cbx_f_musaat.Width = 351		
+		//w.cbx_aviso.Text = 'Carta Aviso'
+		w.cbx_f_honos.Text = 'Fact. Honos'
+		w.cbx_f_gastos.Text = 'Fact. Gastos'
+		w.cbx_f_musaat.visible =false	
+		w.dw_minuta.object.paga_asalariado.checkbox.text = 'Paga Asalariado:'
+		w.dw_minuta.object.paga_externo.checkbox.text = 'Paga Empresa:'
+		
+		
+	case 'COAATTEB'
+		w.dw_minuta.object.aplica_cip.checkbox.text = 'Drets Intervenci$$HEX2$$f3002000$$ENDHEX$$Professional .....................................................................'
+		w.dw_minuta.object.t_12.text = 'Devoluci$$HEX2$$f3002000$$ENDHEX$$Arres .....................................................................'		
+		w.dw_minuta.object.aplica_impresos.checkbox.text = 'Despeses Gesti$$HEX2$$f3002000$$ENDHEX$$Cobrament...................................................'		
+		w.dw_minuta.object.aplica_impresos.visible =  "0~tif (tipo_gestion = 'S' , 0 ,1)"
+		w.dw_minuta.object.base_impresos.visible =  "0~tif (tipo_gestion = 'S' , 0 ,1)"
+		w.dw_minuta.object.iva_impresos.visible =  "0~tif (tipo_gestion = 'S' , 0 ,1)"
+		w.dw_minuta.object.t_iva_impresos.visible =  "0~tif (tipo_gestion = 'S' , 0 ,1)"
+		w.dw_minuta.object.porc_iva_impresos.visible =  "0~tif (tipo_gestion = 'S' , 0 ,1)"
+		w.dw_minuta.object.aplica_dv.visible = false
+		w.dw_minuta.object.base_dv.visible = false
+		w.dw_minuta.object.porc_iva_dv.visible = false
+		w.dw_minuta.object.t_iva_dv.visible = false
+		w.dw_minuta.object.iva_dv.visible = false
+		w.dw_factura_gastos.dataobject = 'd_factu_gastos_teb'
+		w.dw_minuta.object.porc_musaat.visible = true
+		w.dw_minuta.object.t_porc_musaat.visible = true
+		w.dw_minuta.object.tipo_minuta.visible = true		
+		w.dw_minuta.object.aplica_retvol.visible = false
+		w.dw_minuta.object.porc_retvol.visible = false
+		w.dw_minuta.object.base_retvol.visible = false	
+		w.dw_minuta.object.t_2.visible = false
+		//w.dw_minuta.object.paga_dv.tabsequence = 335
+		w.cbx_f_musaat.visible = true
+		w.cbx_aviso.visible = false		
+		w.cbx_aviso.X = 891
+		w.cbx_f_honos.X = 1237
+		w.cbx_f_gastos.X = 1598
+		w.cbx_f_musaat.X = 1975
+		w.cbx_aviso.Width = 347
+		w.cbx_f_honos.Width = 347
+		w.cbx_f_gastos.Width = 355
+		w.cbx_f_musaat.Width = 351		
+		//w.cbx_aviso.Text = 'Carta Aviso'
+		w.cbx_f_honos.Text = 'Fact. Honos'
+		w.cbx_f_gastos.Text = 'Fact. Gastos'
+		w.cbx_f_musaat.visible =false	
+		w.dw_minuta.object.paga_asalariado.checkbox.text = 'Paga Asalariado:'
+		w.dw_minuta.object.paga_externo.checkbox.text = 'Paga Empresa:'
+		w.dw_minuta.object.t_iva_honos.tabsequence = 141
+		w.dw_minuta.object.t_iva_desplaza.tabsequence = 171
+		w.dw_minuta.object.t_iva_dv.tabsequence = 201
+		w.dw_minuta.object.t_iva_cip.tabsequence = 221		
+		
+	case 'COAATCC'
+		w.dw_impresion.dataobject = 'd_aviso_factura_cc'
+		w.cbx_aviso.Text = 'Aviso Fact.'
+		w.dw_minuta.object.tipo_minuta.visible = true
+		w.dw_minuta.object.aplica_dv.visible = true
+		w.dw_minuta.object.aplica_dv.checkbox.text = 'Gastos A. Renuncia.........................................................................'		
+		w.dw_minuta.object.base_dv.visible = true
+		w.dw_minuta.object.porc_iva_dv.visible = true
+		w.dw_minuta.object.t_iva_dv.visible = true
+		w.dw_minuta.object.iva_dv.visible = true
+		w.dw_minuta.object.aplica_impresos.visible = true
+		w.dw_minuta.object.base_impresos.visible = true
+		w.dw_minuta.object.iva_impresos.visible = true
+		w.dw_minuta.object.t_iva_impresos.visible = true
+		w.dw_minuta.object.porc_iva_impresos.visible = true
+		w.dw_minuta.object.aplica_impresos.checkbox.text = 'Libros.......................................................................................................................'
+		w.dw_minuta.object.aplica_retvol.visible = false
+		w.dw_minuta.object.porc_retvol.visible = false
+		w.dw_minuta.object.base_retvol.visible = false
+		w.dw_minuta.object.t_2.visible = false
+		w.dw_minuta.object.t_12.visible = false		
+		w.dw_minuta.object.base_garantia.visible = false
+		w.dw_minuta.object.t_iva_dv.tabsequence = 201		
+
+	case 'COAATTER'
+		w.cbx_aviso.visible = false
+		w.dw_minuta.object.aplica_dv.checkbox.text = 'Gastos de Visado..................................................................................'		
+//		w.dw_impresion.dataobject = 'd_ficha_aviso_factura_gu'
+		w.dw_minuta.object.aplica_cip.checkbox.text = 'D.I.P. .........................................................................................................................'		
+		w.dw_minuta.object.aplica_impresos.visible = true
+		w.dw_minuta.object.base_impresos.visible = true
+		w.dw_minuta.object.iva_impresos.visible = true
+		w.dw_minuta.object.t_iva_impresos.visible = true
+		w.dw_minuta.object.porc_iva_impresos.visible = true
+		w.dw_minuta.object.aplica_impresos.checkbox.text = 'Libros.......................................................................................................................'		
+		w.dw_minuta.object.t_2.visible = false
+		w.dw_minuta.object.aplica_retvol.visible = false
+		w.dw_minuta.object.porc_retvol.visible = false
+		w.dw_minuta.object.base_retvol.visible = false
+		w.cbx_f_musaat.visible = true
+//		w.cbx_aviso.X = 891
+		w.cbx_f_honos.X = 1237
+		w.cbx_f_gastos.X = 1598
+		w.cbx_f_musaat.X = 1975
+//		w.cbx_aviso.Width = 347
+		w.cbx_f_honos.Width = 347
+		w.cbx_f_gastos.Width = 355
+		w.cbx_f_musaat.Width = 351		
+//		w.cbx_aviso.Text = 'Aviso Pago'
+		w.cbx_f_honos.Text = 'Fact. Honos'
+		w.cbx_f_gastos.Text = 'Fact. Gastos'
+		w.cbx_f_musaat.Text = 'Fact. Visado'
+		w.dw_minuta.object.tipo_minuta.visible = true
+		w.dw_minuta.object.porc_musaat.visible = true
+		w.dw_minuta.object.t_porc_musaat.visible = true
+		w.dw_minuta.object.concepto_otros.visible = true
+		w.dw_minuta.object.t_12.visible = false		
+		w.dw_minuta.object.base_garantia.visible = false		
+		
+		
+		
+	case 'COAATMCA'
+		w.dw_minuta.object.aplica_dv.checkbox.text = 'Cuota Colegial de Visado (CCV) .........................................................................'
+		w.dw_minuta.object.aplica_impresos.checkbox.text = 'Cuota de Mantenimiento.................................................................................'		
+		w.dw_minuta.object.aplica_cip.checkbox.text = 'Cuota por Intervenci$$HEX1$$f300$$ENDHEX$$n Profesional...................................................'
+		w.dw_minuta.object.aplica_impresos.visible = "0~tif (mantenimiento = 'S', 1, 0)"
+		w.dw_minuta.object.iva_impresos.visible = "0~tif (mantenimiento = 'S', 1, 0)"
+		w.dw_minuta.object.t_iva_impresos.visible = "0~tif (mantenimiento = 'S', 1, 0)"
+		w.dw_minuta.object.porc_iva_impresos.visible = "0~tif (mantenimiento = 'S', 1, 0)"				
+		w.dw_minuta.object.base_impresos.visible =  "0~tif (mantenimiento = 'S' , 1 ,0)"
+		w.dw_factura_gastos.dataobject = 'd_factu_gastos_mca'
+		w.dw_minuta.object.porc_musaat.visible = true
+		w.dw_minuta.object.t_porc_musaat.visible = true
+		w.dw_minuta.object.tipo_minuta.visible = true		
+		w.dw_minuta.object.aplica_retvol.visible = false
+		w.dw_minuta.object.porc_cip.visible = true
+		w.dw_minuta.object.t_8.visible = true
+		w.dw_minuta.object.porc_retvol.visible = false
+		w.dw_minuta.object.base_retvol.visible = false	
+		w.dw_minuta.object.t_2.visible = false
+		w.dw_minuta.object.paga_dv.visible  = true	
+		w.dw_minuta.object.paga_dv.tabsequence = 335	
+		w.cbx_aviso.visible = false
+		w.cbx_f_honos.visible = true
+		w.cbx_f_gastos.visible = true	
+		w.cbx_f_musaat.visible =true	
+		w.cbx_aviso.X = 891
+		w.cbx_f_honos.X = 891  //1237
+		w.cbx_f_gastos.X = 1450 //1598
+		w.cbx_f_musaat.X = 1950 //1975
+		w.cbx_aviso.Width = 347
+		w.cbx_f_honos.Width = 347
+		w.cbx_f_gastos.Width = 355
+		w.cbx_f_musaat.Width = 351		
+		w.cbx_f_musaat.Text = 'R. Musaat'
+		w.cbx_f_honos.Text = 'Fact. Honos'
+		w.cbx_f_gastos.Text = 'Fact. Gastos'
+		w.cbx_aviso.Text = 'Fact. CCV'
+		
+		w.dw_minuta.object.paga_asalariado.checkbox.text = 'Paga Asalariado:'
+		w.dw_minuta.object.paga_externo.checkbox.text = 'Paga Empresa:'
+		w.dw_minuta.object.t_iva_honos.tabsequence = 141
+		w.dw_minuta.object.t_iva_desplaza.tabsequence = 171
+		w.dw_minuta.object.t_iva_dv.tabsequence = 201
+		w.dw_minuta.object.t_iva_cip.tabsequence = 221	
+		
+		
+		case 'COAATLL'
+		w.dw_minuta.object.aplica_cip.checkbox.text = 'Drets Intervenci$$HEX2$$f3002000$$ENDHEX$$Professional .....................................................................'
+		w.dw_minuta.object.t_12.text = 'Devoluci$$HEX2$$f3002000$$ENDHEX$$Arres .....................................................................'		
+		w.dw_minuta.object.aplica_impresos.checkbox.text = 'Despeses Gesti$$HEX2$$f3002000$$ENDHEX$$Cobrament...................................................'		
+		w.dw_minuta.object.aplica_impresos.visible =  "0~tif (tipo_gestion = 'S' , 0 ,1)"
+		w.dw_minuta.object.base_impresos.visible =  "0~tif (tipo_gestion = 'S' , 0 ,1)"
+		w.dw_minuta.object.iva_impresos.visible =  "0~tif (tipo_gestion = 'S' , 0 ,1)"
+		w.dw_minuta.object.t_iva_impresos.visible =  "0~tif (tipo_gestion = 'S' , 0 ,1)"
+		w.dw_minuta.object.porc_iva_impresos.visible =  "0~tif (tipo_gestion = 'S' , 0 ,1)"
+		w.dw_minuta.object.aplica_dv.visible = false
+		w.dw_minuta.object.base_dv.visible = false
+		w.dw_minuta.object.porc_iva_dv.visible = false
+		w.dw_minuta.object.t_iva_dv.visible = false
+		w.dw_minuta.object.iva_dv.visible = false
+		w.dw_factura_gastos.dataobject = 'd_factu_gastos_lle'
+		w.dw_minuta.object.porc_musaat.visible = true
+		w.dw_minuta.object.t_porc_musaat.visible = true
+		w.dw_minuta.object.tipo_minuta.visible = true		
+		w.dw_minuta.object.aplica_retvol.visible = false
+		w.dw_minuta.object.porc_retvol.visible = false
+		w.dw_minuta.object.base_retvol.visible = false	
+		w.dw_minuta.object.t_2.visible = false
+		//w.dw_minuta.object.paga_dv.tabsequence = 335
+		w.cbx_f_musaat.visible = true
+		w.cbx_aviso.visible = false		
+		w.cbx_aviso.X = 891
+		w.cbx_f_honos.X = 1237
+		w.cbx_f_gastos.X = 1598
+		w.cbx_f_musaat.X = 1975
+		w.cbx_aviso.Width = 347
+		w.cbx_f_honos.Width = 347
+		w.cbx_f_gastos.Width = 355
+		w.cbx_f_musaat.Width = 351		
+		//w.cbx_aviso.Text = 'Carta Aviso'
+		w.cbx_f_honos.Text = 'Fact. Honos'
+		w.cbx_f_gastos.Text = 'Fact. Gastos'
+		w.cbx_f_musaat.visible =false	
+		w.cbx_f_gastos.enabled =false	
+		w.dw_minuta.object.paga_asalariado.checkbox.text = 'Paga Asalariado:'
+		w.dw_minuta.object.paga_externo.checkbox.text = 'Paga Empresa:'
+end choose
+
+end subroutine
+

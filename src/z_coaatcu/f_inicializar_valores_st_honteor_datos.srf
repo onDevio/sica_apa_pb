@@ -1,0 +1,47 @@
+HA$PBExportHeader$f_inicializar_valores_st_honteor_datos.srf
+global type f_inicializar_valores_st_honteor_datos from function_object
+end type
+
+forward prototypes
+global subroutine f_inicializar_valores_st_honteor_datos (w_calculo_honorarios w)
+end prototypes
+
+global subroutine f_inicializar_valores_st_honteor_datos (w_calculo_honorarios w);double nulo
+setnull(nulo)
+
+w.dw_1.setitem(1, 'contenido', '')
+w.dw_1.setitem(1, 'desarrollo', '')
+w.dw_1.setitem(1, 'importe', 0)
+w.dw_1.setitem(1, 'nueva_planta', 'N')
+w.dw_1.setitem(1, 'presupuesto', 0)
+w.dw_1.setitem(1, 'superficie', 0)
+w.dw_1.setitem(1, 'volumen', 0)
+w.dw_1.setitem(1, 'altura', 0)
+w.dw_1.setitem(1, 'tipologia', nulo)
+w.dw_1.setitem(1, 'tipo_edificio', nulo)
+w.dw_1.setitem(1, 'edad', 0)
+w.dw_1.setitem(1, 'perimetro', 0)
+w.dw_1.setitem(1, 'tipo_terreno', nulo)
+w.dw_1.setitem(1, 'perim_sup', 0)
+w.dw_1.setitem(1, 'plantas_dif', 0)
+w.dw_1.setitem(1, 'plantas_ide', 0)
+w.dw_1.setitem(1, 'alz_sec_det', nulo)
+w.dw_1.setitem(1, 'parcelas', 0)
+w.dw_1.setitem(1, 'cantidad', 0)
+w.dw_1.setitem(1, 'valor_tasacion', 0)
+w.dw_1.setitem(1, 'desc_prec', 'N')
+w.dw_1.setitem(1, 'num_ofertas', 0)
+w.dw_1.setitem(1, 'num_partidas', 0)
+w.dw_1.setitem(1, 'horas', 0)
+w.dw_1.setitem(1, 'horas_extra', 0)
+w.dw_1.setitem(1, 'distancia', 0)
+w.dw_1.setitem(1, 'jornadas', 0)
+w.dw_1.setitem(1, 'noches', 0)
+w.dw_1.setitem(1, 'radio', 0)
+w.dw_1.setitem(1, 'estructura', nulo)
+w.dw_1.setitem(1, 'tipo_inst', nulo)
+w.dw_1.setitem(1, 'num_viviendas', 0)
+w.dw_1.setitem(1, 'num_plantas', 0)
+
+end subroutine
+

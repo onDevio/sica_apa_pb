@@ -1,0 +1,8 @@
+HA$PBExportHeader$st_certificados_registos.srs
+global type st_certificados_registos from structure
+	string		id_escrito
+	datetime		f_intro
+	datetime		f_vencimiento
+	string		descripcion
+end type
+

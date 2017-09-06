@@ -1,0 +1,24 @@
+HA$PBExportHeader$f_obtener_empresa_articulo.srf
+global type f_obtener_empresa_articulo from function_object
+end type
+
+forward prototypes
+global function string f_obtener_empresa_articulo (string as_cod_articulo)
+end prototypes
+
+global function string f_obtener_empresa_articulo (string as_cod_articulo);string ls_cod_empresa
+
+select csi_articulos_servicios.empresa into :ls_cod_empresa
+from csi_articulos_servicios
+where csi_articulos_servicios.codigo = :as_cod_articulo
+and activo = 'S';
+
+if (f_es_vacio(ls_cod_empresa)) then
+	select csi_articulos_servicios.empresa into :ls_cod_empresa
+	from csi_articulos_servicios
+	where csi_articulos_servicios.codigo = :as_cod_articulo;	
+end if 
+
+return ls_cod_empresa
+end function
+

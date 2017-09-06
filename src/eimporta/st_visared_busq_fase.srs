@@ -1,0 +1,7 @@
+HA$PBExportHeader$st_visared_busq_fase.srs
+global type st_visared_busq_fase from structure
+	string		n_registro
+	string		n_expedi
+	boolean		few
+end type
+

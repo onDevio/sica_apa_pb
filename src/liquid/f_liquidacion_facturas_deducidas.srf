@@ -1,0 +1,28 @@
+HA$PBExportHeader$f_liquidacion_facturas_deducidas.srf
+global type f_liquidacion_facturas_deducidas from function_object
+end type
+
+forward prototypes
+global function string f_liquidacion_facturas_deducidas (string id_liq)
+end prototypes
+
+global function string f_liquidacion_facturas_deducidas (string id_liq);// Funci$$HEX1$$f300$$ENDHEX$$n que devuelve los numeros de las facturas deducidas de una liquidaci$$HEX1$$f300$$ENDHEX$$n
+string retorno=''
+int i
+
+datastore ds_fact
+ds_fact = create datastore
+ds_fact.dataobject = 'd_liquidacion_facturas_deducidas'
+ds_fact.SetTransObject(SQLCA)
+ds_fact.retrieve(id_liq)
+
+for i=1 to ds_fact.rowcount()
+	retorno += ds_fact.getitemstring(i, 'n_fact') + ' - '
+next
+
+destroy ds_fact
+retorno = LeftA(retorno, LenA(retorno)-3)
+
+return retorno
+end function
+

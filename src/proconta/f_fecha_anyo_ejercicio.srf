@@ -1,0 +1,30 @@
+HA$PBExportHeader$f_fecha_anyo_ejercicio.srf
+global type f_fecha_anyo_ejercicio from function_object
+end type
+
+forward prototypes
+global function integer f_fecha_anyo_ejercicio (u_dw dw)
+end prototypes
+
+global function integer f_fecha_anyo_ejercicio (u_dw dw);// Comprueba que no haya ning$$HEX1$$fa00$$ENDHEX$$n apunte con fecha en a$$HEX1$$f100$$ENDHEX$$o distinto del ejercicio contable
+
+long i, fallos
+datetime fecha
+
+// Comprobamos que si hay alg$$HEX1$$fa00$$ENDHEX$$n apunte modificado que sea menor a la fecha l$$HEX1$$ed00$$ENDHEX$$mite
+fallos = 0
+
+
+for i = 1 to dw.RowCount()
+	fecha = dw.GetItemDatetime(i, 'fecha')
+	// Comprobamos si alguna fecha no es del ejercicio 
+	if (String(Year(date(fecha))) <> g_ejercicio OR IsNull(fecha)) then fallos += 1
+next
+
+
+if fallos > 0 then return -1
+
+return 1
+
+end function
+

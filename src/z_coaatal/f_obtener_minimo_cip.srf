@@ -1,0 +1,28 @@
+HA$PBExportHeader$f_obtener_minimo_cip.srf
+global type f_obtener_minimo_cip from function_object
+end type
+
+forward prototypes
+global function double f_obtener_minimo_cip (st_cip_datos ast_cip_datos)
+end prototypes
+
+global function double f_obtener_minimo_cip (st_cip_datos ast_cip_datos);double ld_minimo
+
+ld_minimo = 0
+
+choose case ast_cip_datos.tipo_tramite
+		
+	case 'REDAP', 'REDOC'
+		SELECT numero INTO :ld_minimo FROM var_globales WHERE var_globales.nombre = 'g_minimo_cip_REDAP';
+	case else	
+		if f_obtener_descuento_tarifas_al(ast_cip_datos.tipo_tramite, ast_cip_datos.tipo_act, ast_cip_datos.tipo_obra ) = 0.95 then 
+			SELECT numero INTO :ld_minimo FROM var_globales WHERE var_globales.nombre = 'g_cip_minimo_direccion_visados';			
+		else
+			SELECT numero INTO :ld_minimo FROM var_globales WHERE var_globales.nombre = 'g_cip_minimo';
+		end if		
+
+end choose	
+
+return ld_minimo
+end function
+

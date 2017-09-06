@@ -1,0 +1,52 @@
+HA$PBExportHeader$f_balance.srf
+global type f_balance from function_object
+end type
+
+forward prototypes
+global function double f_balance (string id_curso)
+end prototypes
+
+global function double f_balance (string id_curso);double tot_costes,tot_ponentes,tot_importes,balance
+if id_curso='%' then
+
+SELECT sum(importe)
+INTO :tot_costes
+FROM formacion_costes;
+
+
+SELECT sum(importe)
+INTO :tot_ponentes
+FROM formacion_ponente_curso;
+
+
+SELECT sum(importe)
+INTO :tot_importes
+FROM formacion_asistentes;
+
+
+else
+	
+SELECT sum(importe)
+INTO :tot_costes
+FROM formacion_costes
+WHERE id_curso=:id_curso;
+
+SELECT sum(importe)
+INTO :tot_ponentes
+FROM formacion_ponente_curso
+WHERE id_curso=:id_curso;
+
+
+SELECT sum(importe)
+INTO :tot_importes
+FROM formacion_asistentes
+WHERE id_curso=:id_curso;
+
+end if
+
+
+balance=tot_importes - tot_costes - tot_ponentes
+
+return balance
+end function
+

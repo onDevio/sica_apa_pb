@@ -1,0 +1,62 @@
+HA$PBExportHeader$f_colegiados_domicilios.srf
+$PBExportComments$Dado un colegiado devuelve su  domicilio (del tipo deseado)
+global type f_colegiados_domicilios from function_object
+end type
+
+forward prototypes
+global function st_colegiados_domicilios f_colegiados_domicilios (string id_colegiado, string tipo)
+end prototypes
+
+global function st_colegiados_domicilios f_colegiados_domicilios (string id_colegiado, string tipo);//f_colegiados_domicilios
+//Par$$HEX1$$e100$$ENDHEX$$metros:
+//			id_colegiado: identificador del colegiado del que queremos conocer la direcci$$HEX1$$f300$$ENDHEX$$n
+//			tipo			: tipo domicilio (PA : Particular, PR:Profesional)
+//Andr$$HEX1$$e900$$ENDHEX$$s 18/04/2005: He modificado esta funcion para que use d_colegiados_domicilios.
+//Antes usaba d_colegiados_tipos_domicilios que a d$$HEX1$$ed00$$ENDHEX$$a de hoy no exist$$HEX1$$ed00$$ENDHEX$$a (?)
+
+string particular='N',profesional='N',filtro=''
+int i
+st_colegiados_domicilios retorno
+datastore ds_domicilios
+
+if tipo = 'PA' then filtro = "particular='S'"
+if tipo = 'PR' then filtro = "profesional='S'"
+
+ds_domicilios = create datastore
+
+ds_domicilios.dataobject='d_colegiados_domicilios'
+ds_domicilios.SetTransObject(SQLCA)
+
+ds_domicilios.Retrieve(id_colegiado)
+ds_domicilios.SetFilter(filtro)
+ds_domicilios.Filter()
+
+for i=1 to ds_domicilios.rowcount()
+if i>2 then exit
+if i=1 then
+	retorno.direccion1= ds_domicilios.GetItemString(i,'nom_via')
+	retorno.poblacion1= f_poblacion_descripcion(ds_domicilios.GetItemString(i,'cod_pob'))
+	retorno.cp1 		= ds_domicilios.GetItemString(i,'cp')
+	retorno.provincia1= f_provincia_descripcion(ds_domicilios.GetItemString(i,'cod_prov'))
+	retorno.telefono1 = ds_domicilios.GetItemString(i,'tel')
+	retorno.fax1		= ds_domicilios.GetItemString(i,'fax')
+	retorno.movil1		= ds_domicilios.GetItemString(i,'movil')
+	retorno.correo1	= ds_domicilios.GetItemString(i,'comercial')='S'
+	retorno.fiscal1	= ds_domicilios.GetItemString(i,'fiscal')='S'
+else
+	retorno.direccion2= ds_domicilios.GetItemString(i,'nom_via')
+	retorno.poblacion2= f_poblacion_descripcion(ds_domicilios.GetItemString(i,'cod_pob'))
+	retorno.cp2 		= ds_domicilios.GetItemString(i,'cp')
+	retorno.provincia2= f_provincia_descripcion(ds_domicilios.GetItemString(i,'cod_prov'))
+	retorno.telefono2 = ds_domicilios.GetItemString(i,'tel')
+	retorno.fax2		= ds_domicilios.GetItemString(i,'fax')
+	retorno.movil2		= ds_domicilios.GetItemString(i,'movil')
+	retorno.correo2	= ds_domicilios.GetItemString(i,'comercial')='S'
+	retorno.fiscal2	= ds_domicilios.GetItemString(i,'fiscal')='S'
+end if
+next
+
+destroy ds_domicilios
+return retorno
+end function
+

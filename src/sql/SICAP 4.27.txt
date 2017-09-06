@@ -1,0 +1,32 @@
+//TODOS
+alter table csd_sms_enviados add error char(255) null;
+alter table registro_anexos add id_documento_modulo char(20) null;
+
+// TERUEL
+update fases_minutas set concepto_otros = 'LIBRO DE INCIDENCIAS' where base_impresos > 0 and concepto_otros = null and pendiente = 'S'  ;
+
+
+// Terres
+
+insert into listados values ('Llistat de Visats','d_fases_listado_visados','w_fases_listados','00','S') ;
+insert into listados values ('Llistat Renuncies','d_fases_listado_renuncias_teb','w_fases_listados','00','S') ;
+
+
+// TODOS
+
+  INSERT INTO menu  
+         ( codigo,   
+           descripcion,   
+           objeto,   
+           visible,   
+           enabled,   
+           ventana,   
+           activo )  
+  VALUES ( '0000000195',   
+           'Titulaciones',   
+           'm_aplic_frame.m_file.m_open.m_expedientes.m_titulaciones',   
+           '1',   
+           '1',   
+           'w_mant_titulaciones',   
+           'S')  ;
+

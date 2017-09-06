@@ -1,0 +1,16 @@
+HA$PBExportHeader$f_eimporta_es_archivo_ini.srf
+global type f_eimporta_es_archivo_ini from function_object
+end type
+
+forward prototypes
+global function boolean f_eimporta_es_archivo_ini (string archivo)
+end prototypes
+
+global function boolean f_eimporta_es_archivo_ini (string archivo);/* A partir del nombre de un fichero de un paquete determina si se trata del INI del paquete */
+
+archivo = upper(RightA(archivo, 4))
+
+return archivo = '.INI' or archivo = '.EXP' or RightA(archivo, 3) = '.HR'
+
+end function
+

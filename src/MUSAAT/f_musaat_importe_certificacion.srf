@@ -1,0 +1,40 @@
+HA$PBExportHeader$f_musaat_importe_certificacion.srf
+global type f_musaat_importe_certificacion from function_object
+end type
+
+forward prototypes
+global function integer f_musaat_importe_certificacion (ref st_musaat_datos st_musaat_datos, string id_fase)
+end prototypes
+
+global function integer f_musaat_importe_certificacion (ref st_musaat_datos st_musaat_datos, string id_fase);
+
+double prima_total, base_musaat, total
+string cod_musaat
+
+cod_musaat= g_codigos_conceptos.musaat_variable
+
+  SELECT musaat_params_linea_fe.prima_total,   
+         musaat_params_linea_fe.base_musaat ,   
+        sum(musaat_params_linea_fe.base_musaat) as total  
+    INTO :prima_total,   
+         :base_musaat,   
+         :total  
+    FROM csi_facturas_emitidas,   
+         csi_lineas_fact_emitidas,   
+         musaat_params_linea_fe  
+   WHERE 
+         ( csi_facturas_emitidas.id_factura = csi_lineas_fact_emitidas.id_factura )  and 
+			( csi_lineas_fact_emitidas.id_linea = musaat_params_linea_fe.id_linea ) and  
+			(csi_facturas_emitidas.anulada = 'N') and
+			(csi_facturas_emitidas.id_minuta = :id_fase) and (csi_lineas_fact_emitidas.articulo = :cod_musaat)
+			
+		group by musaat_params_linea_fe.id_linea	
+		;
+
+
+st_musaat_datos.prima_total = prima_total
+st_musaat_datos.importe_sobre_honos = total
+
+return total
+end function
+

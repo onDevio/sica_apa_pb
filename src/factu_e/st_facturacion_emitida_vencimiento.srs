@@ -1,0 +1,9 @@
+HA$PBExportHeader$st_facturacion_emitida_vencimiento.srs
+global type st_facturacion_emitida_vencimiento from structure
+	double		n_vencimiento
+	double		dias_primer
+	double		dias_entre
+	datetime		fecha_inicial
+	string		formapago
+end type
+

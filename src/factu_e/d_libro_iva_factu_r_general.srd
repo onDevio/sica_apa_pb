@@ -1,0 +1,22 @@
+HA$PBExportHeader$d_libro_iva_factu_r_general.srd
+release 10.5;
+datawindow(units=0 timer_interval=0 color=1090519039 processing=5 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 0 print.margin.right = 0 print.margin.top = 97 print.margin.bottom = 97 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes print.preview.outline=yes hidegrayline=no )
+header(height=0 color="536870912" )
+summary(height=8 color="536870912" )
+footer(height=4 color="536870912" )
+detail(height=392 color="536870912" height.autosize=yes )
+table(column=(type=char(10) updatewhereclause=yes name=a dbname="a" )
+ unbound = "yes"arguments=(("fecha_ini", datetime),("fecha_fin", datetime),("centro", string),("empresa", string)) )
+report(band=detail dataobject="d_libro_iva_factu_r" x="23" y="60" height="136" width="3433" border="0"  height.autosize=yes criteria="" nest_arguments=((" fecha_ini "),(" fecha_fin "),(" centro ")) trail_footer = no  name=dw_cabecera visible="1"  slideup=allabove )
+report(band=detail dataobject="d_libro_iva_factu_r_resumen" x="23" y="244" height="120" width="3433" border="0"  height.autosize=yes criteria="" nest_arguments=((" fecha_ini "),(" fecha_fin "),(" centro ")) newpage = yes trail_footer = no  name=dw_resumen visible="1"  slideup=allabove )
+htmltable(border="0" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" pagingmethod=0 generatedddwframes="1" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()
+ 

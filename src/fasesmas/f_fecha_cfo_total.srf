@@ -1,0 +1,25 @@
+HA$PBExportHeader$f_fecha_cfo_total.srf
+global type f_fecha_cfo_total from function_object
+end type
+
+forward prototypes
+global function datetime f_fecha_cfo_total (string id_fase)
+end prototypes
+
+global function datetime f_fecha_cfo_total (string id_fase);
+
+datetime ldt_fecha_cfo
+
+setnull(ldt_fecha_cfo)
+
+
+select fecha into :ldt_fecha_cfo 
+from fases_finales 
+where id_fase =:id_fase 
+and total_parcial in ('V', 'T') 
+and not ((fecha = null ) or (fecha = '' )) ;
+
+
+return ldt_fecha_cfo
+end function
+

@@ -1,0 +1,26 @@
+HA$PBExportHeader$f_siguiente_nif_repre.srf
+global type f_siguiente_nif_repre from function_object
+end type
+
+forward prototypes
+global function string f_siguiente_nif_repre ()
+end prototypes
+
+global function string f_siguiente_nif_repre ();  string nif_auto
+  
+  SELECT max(nif)  
+    INTO :nif_auto  
+    FROM clientes  
+   WHERE UPPER(substring(nif, 1 , 3)) = 'REP'   ;
+	
+if f_es_vacio(nif_auto) then 
+	nif_auto = 'REP000001'
+ELSE
+	nif_auto = string(long(RightA(nif_auto, 6)) + 1)
+	nif_auto = 'REP' + RightA('000000' + nif_auto, 6)
+END IF
+
+return nif_auto
+
+end function
+

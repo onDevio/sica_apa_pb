@@ -1,0 +1,57 @@
+HA$PBExportHeader$f_colegiados_mutua.srf
+$PBExportComments$Dado un colegiado obtiene sus datos de premaat
+global type f_colegiados_mutua from function_object
+end type
+
+forward prototypes
+global subroutine f_colegiados_mutua (string id_col, ref string n_mutualista, ref string alta, ref string grupo, ref string f_alta, ref string importe_pagar, ref string f_alta_comple1, ref string importe_pagar_comple1, ref string f_alta_comple2, ref string importe_pagar_comple2, ref string total_pagar, ref string importe_cobrar)
+end prototypes
+
+global subroutine f_colegiados_mutua (string id_col, ref string n_mutualista, ref string alta, ref string grupo, ref string f_alta, ref string importe_pagar, ref string f_alta_comple1, ref string importe_pagar_comple1, ref string f_alta_comple2, ref string importe_pagar_comple2, ref string total_pagar, ref string importe_cobrar);//Esta funci$$HEX1$$f300$$ENDHEX$$n establece los par$$HEX1$$e100$$ENDHEX$$metros que se le pasan por referencia con el valor
+//que le corresponde al colegiado indicado por ID_COL
+string cod_grupo
+double importe_pagar_aux, importe_pagar_comple1_aux, importe_pagar_comple2_aux
+
+datastore ds_mutua
+
+ds_mutua = create datastore
+ds_mutua.dataobject ='d_colegiados_premaat'
+ds_mutua.SetTransObject(SQLCA)
+
+ds_mutua.Retrieve(id_col)
+
+if ds_mutua.rowcount() > 0 then
+	n_mutualista = ds_mutua.getitemstring(1, 'n_mutualista')
+	alta = ds_mutua.getitemstring(1, 'alta')
+	cod_grupo = ds_mutua.getitemstring(1, 'grupo')
+	select descripcion into :grupo from premaat_grupo where codigo = :cod_grupo;
+	f_alta = string(ds_mutua.getitemdatetime(1, 'f_alta'),"dd/mm/yyyy")
+	importe_pagar_aux = ds_mutua.getitemnumber(1, 'importe_pagar')
+	f_alta_comple1 = string(ds_mutua.getitemdatetime(1, 'f_alta_comple1'),"dd/mm/yyyy")
+	importe_pagar_comple1_aux = ds_mutua.getitemnumber(1, 'importe_pagar_comple1')
+	f_alta_comple2 = string(ds_mutua.getitemdatetime(1, 'f_alta_comple2'),"dd/mm/yyyy")
+	importe_pagar_comple2_aux = ds_mutua.getitemnumber(1, 'importe_pagar_comple2')
+	importe_pagar = string(importe_pagar_aux)
+	importe_pagar_comple1 = string(importe_pagar_comple1_aux)
+	importe_pagar_comple2 = string(importe_pagar_comple2_aux)
+	total_pagar = string(importe_pagar_aux + importe_pagar_comple1_aux + importe_pagar_comple2_aux)
+	importe_cobrar = string(ds_mutua.getitemnumber(1, 'importe_cobrar'))
+	
+end if
+
+if f_es_vacio(n_mutualista) then n_mutualista = ''
+if f_es_vacio(alta) then alta = ''
+if f_es_vacio(grupo) then grupo = ''
+if f_es_vacio(f_alta) then f_alta = ''
+if f_es_vacio(f_alta_comple1) then f_alta_comple1 = ''
+if f_es_vacio(f_alta_comple2) then f_alta_comple2 = ''
+if f_es_vacio(importe_pagar) then importe_pagar = ''
+if f_es_vacio(importe_pagar_comple1) then importe_pagar_comple1 = ''
+if f_es_vacio(importe_pagar_comple2) then importe_pagar_comple2 = ''
+if f_es_vacio(total_pagar) then total_pagar = ''
+if f_es_vacio(importe_cobrar) then importe_cobrar = ''
+
+destroy ds_mutua
+
+end subroutine
+

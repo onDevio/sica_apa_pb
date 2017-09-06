@@ -1,0 +1,9 @@
+HA$PBExportHeader$st_fases_pagos.srs
+global type st_fases_pagos from structure
+	string		id_fase
+	double		id_fases_pagos_plataforma
+	double		importe_pago
+	string		forma_pago_plataforma
+	string		conciliado
+end type
+

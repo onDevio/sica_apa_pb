@@ -1,0 +1,68 @@
+HA$PBExportHeader$f_anyadir_dia_semana_a_fecha.srf
+global type f_anyadir_dia_semana_a_fecha from function_object
+end type
+
+forward prototypes
+global function string f_anyadir_dia_semana_a_fecha (datetime fecha)
+end prototypes
+
+global function string f_anyadir_dia_semana_a_fecha (datetime fecha);integer li_numerodia, li_mes, li_dia, li_a$$HEX1$$f100$$ENDHEX$$o
+string ls_nombredia, ls_nombremes
+
+li_numerodia = daynumber(date(fecha))
+li_mes = month(date(fecha))
+
+choose case li_numerodia
+	case 1
+		ls_nombredia = "Domingo"
+	case 2
+		ls_nombredia = "Lunes"
+	case 3
+		ls_nombredia = "Martes"
+	case 4
+		ls_nombredia = "Miercoles"
+	case 5
+		ls_nombredia = "Jueves"
+	case 6
+		ls_nombredia = "Viernes"
+	case 7
+		ls_nombredia = "Sabado"
+		
+end choose
+
+choose case li_mes
+	case 1
+		ls_nombremes = "Enero"
+	case 2
+		ls_nombremes = "Febrero"
+	case 3
+		ls_nombremes = "Marzo"
+	case 4
+		ls_nombremes = "Abril"
+	case 5
+		ls_nombremes = "Mayo"
+	case 6
+		ls_nombremes = "Junio"
+	case 7
+		ls_nombremes = "Julio"
+	case 8
+		ls_nombremes = "Agosto"
+	case 9
+		ls_nombremes = "Septiembre"
+	case 10
+		ls_nombremes = "Octubre"
+	case 11
+		ls_nombremes = "Noviembre"
+	case 12
+		ls_nombremes = "Diciembre"
+	
+end choose
+
+li_dia = day(date(fecha))
+li_a$$HEX1$$f100$$ENDHEX$$o = year(date(fecha))
+
+return ls_nombredia + ", " + string(li_dia) + " de " + ls_nombremes + " de " + string(li_a$$HEX1$$f100$$ENDHEX$$o)
+
+
+end function
+

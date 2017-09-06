@@ -1,0 +1,11 @@
+HA$PBExportHeader$st_mensajes_insercion.srs
+global type st_mensajes_insercion from structure
+	string		id_mensaje
+	string		destino
+	string		codigo_origen
+	string		s_o_c
+	datetime		fecha
+	string		asunto
+	string		mensaje
+end type
+

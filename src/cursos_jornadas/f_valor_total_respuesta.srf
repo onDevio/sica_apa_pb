@@ -1,0 +1,20 @@
+HA$PBExportHeader$f_valor_total_respuesta.srf
+global type f_valor_total_respuesta from function_object
+end type
+
+forward prototypes
+global function integer f_valor_total_respuesta (string id_pregunta)
+end prototypes
+
+global function integer f_valor_total_respuesta (string id_pregunta);integer valor
+//(formacion_encuesta.n_pregunta=:n_pregunta) AND
+
+SELECT count(valor_respuesta)
+INTO :valor
+FROM formacion_asistentes_test,formacion_mant_test
+WHERE (formacion_asistentes_test.id_pregunta=:id_pregunta) AND
+		(formacion_asistentes_test.id_respuesta_test=formacion_mant_test.id_respuesta_test);
+		
+return valor;
+end function
+

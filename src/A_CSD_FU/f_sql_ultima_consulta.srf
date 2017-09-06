@@ -1,0 +1,32 @@
+HA$PBExportHeader$f_sql_ultima_consulta.srf
+global type f_sql_ultima_consulta from function_object
+end type
+
+forward prototypes
+global function string f_sql_ultima_consulta (string as_columna_dw, u_dw a_dw_actual, string as_dato)
+end prototypes
+
+global function string f_sql_ultima_consulta (string as_columna_dw, u_dw a_dw_actual, string as_dato);// Funci$$HEX1$$f300$$ENDHEX$$n que dada una columna cualquiera de consulta nos devuelve el valor que se visualiza en pantalla
+
+string descripcion
+string ls_expresion_evaluacion, ls_parametro
+
+choose case a_dw_actual.describe(as_columna_dw + '.Edit.Style')
+	case 'ddlb', 'dddw', 'radiobuttons'
+			ls_expresion_evaluacion = "Evaluate('LookUpDisplay(" + as_columna_dw + ")', 1)"
+			ls_parametro = a_dw_actual.Describe (ls_expresion_evaluacion) 	
+	case 'checkbox'
+			if as_dato = 'S' or as_dato = '1' then ls_parametro = 'S$$HEX1$$ed00$$ENDHEX$$'		
+			if as_dato = 'N' or as_dato = '0' then ls_parametro = 'No'			
+	case 'edit', 'editmask'
+		if MidA(as_dato, 1, 1) = '%' then as_dato = MidA (as_dato, 2, LenA(as_dato) -1)
+		if MidA(as_dato, LenA(as_dato) , 1 ) = '%' then as_dato = MidA(as_dato, 1, LenA(as_dato) -1 )
+		ls_parametro = as_dato
+end choose
+
+if f_es_vacio(ls_parametro) then return as_dato
+
+return ls_parametro
+
+end function
+

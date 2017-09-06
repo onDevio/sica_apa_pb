@@ -1,0 +1,21 @@
+HA$PBExportHeader$f_dame_remesada_factura.srf
+global type f_dame_remesada_factura from function_object
+end type
+
+forward prototypes
+global function string f_dame_remesada_factura (string id_factura)
+end prototypes
+
+global function string f_dame_remesada_factura (string id_factura);long n_reg
+
+// Contamos a ver si hay cobros metidos en una remesa
+SELECT count(*) into :n_reg from csi_cobros where id_factura = :id_factura and n_remesa is not null and devuelto = 'S' and pagado <>'S';
+
+// Si los hay la factura est$$HEX2$$e1002000$$ENDHEX$$remesada, sino, no lo est$$HEX1$$e100$$ENDHEX$$
+if n_reg>0 then 
+	return 'S'
+else
+	return 'N'
+end if
+end function
+

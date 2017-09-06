@@ -1,0 +1,311 @@
+HA$PBExportHeader$f_liquidacion_generar_informe.srf
+global type f_liquidacion_generar_informe from function_object
+end type
+
+forward prototypes
+global function integer f_liquidacion_generar_informe (datawindow dw_informe, datawindow dw_lista, long fila_origen)
+end prototypes
+
+global function integer f_liquidacion_generar_informe (datawindow dw_informe, datawindow dw_lista, long fila_origen);// f_liquidacion_generar_informe
+// Genera el informe de una liquidaci$$HEX1$$f300$$ENDHEX$$n
+// Par$$HEX1$$e100$$ENDHEX$$metros:
+// 	dw_informe --> dw donde generaremos el informe
+// 	dw_lista ----> dw de donde cogeremos los datos de la liquidaci$$HEX1$$f300$$ENDHEX$$n
+// 	fila_origen -> Fila del dw_lista correspondiente a la liquidaci$$HEX1$$f300$$ENDHEX$$n para la que queremos crear el informe
+// Valor de retorno:
+//		1 todo ha ido bien
+//		-1 El dataobject est$$HEX2$$e1002000$$ENDHEX$$vac$$HEX1$$ed00$$ENDHEX$$o (La variable global que lo contiene no tiene valor)
+
+// A$$HEX1$$f100$$ENDHEX$$adido codigo para cuando el id_liq es vacio que saque el impreso, es decir
+// cuando no haya facturas de expedientes que saque la carta al menos, aunque habr$$HEX2$$e1002000$$ENDHEX$$que completarlo
+string id_liq, articulo, ape, nom, ape_nom 
+string tipo_act,tipo_obra, descripcion_obra,uso_obra, id_fase
+long j, fila
+datastore ds_lineas
+double lineas_honos, lineas_gastos, importe,tot
+
+ds_lineas = create datastore
+ds_lineas.dataobject = 'ds_informe_liquidacion'
+ds_lineas.SetTransObject(SQLCA)
+
+//Andr$$HEX1$$e900$$ENDHEX$$s 20/09/2005
+//i3264
+//Cambiamos el dataobject de idw_informe seg$$HEX1$$fa00$$ENDHEX$$n el tipo de liquidacion
+string ls_tipo
+ls_tipo=dw_lista.getitemstring(fila_origen,'tipo')
+
+if ls_tipo='9' then
+	dw_informe.dataobject=g_hoja_liquidacion_manual
+else
+	dw_informe.dataobject=g_hoja_liquidacion
+end if
+
+if(g_colegio ='COAATTGN' or g_colegio = 'COAATTEB' OR g_colegio='COAATLL')then
+	if ls_tipo = '1' then
+		dw_informe.dataobject = 'd_informe_extorno_tg'
+	end if
+end if
+
+if g_activa_multiempresa = 'S' then f_logo_empresa(g_empresa ,dw_informe, '005') 
+
+//Comprobamos que el dataobject no es vacio
+if f_es_vacio(dw_informe.dataobject) then
+  destroy ds_lineas
+  return -1
+end if
+
+//i3264
+//Si la liquidacion es manual y el colegio es Bizkaia el informe es diferente y se rellena de forma distinta
+if ls_tipo='9' and g_colegio='COAATB' then
+	fila=dw_informe.insertrow(0)
+	dw_informe.setitem(fila,'colegiado',dw_lista.getitemstring(fila_origen, 'id_colegiado'))
+	dw_informe.setitem(fila,'importe',dw_lista.getitemnumber(fila_origen, 'importe'))
+	dw_informe.setitem(fila,'f_liquidacion', dw_lista.getitemdatetime(fila_origen, 'f_liquidacion'))
+	destroy ds_lineas
+	return 1
+end if
+
+// No quieren que salga el art$$HEX1$$ed00$$ENDHEX$$culo de devoluci$$HEX1$$f300$$ENDHEX$$n de garant$$HEX1$$ed00$$ENDHEX$$a en las hojas de liquidaci$$HEX1$$f300$$ENDHEX$$n
+CHOOSE CASE g_colegio
+	CASE 'COAATLR', 'COAATZ', 'COAATGU', 'COAATLE'
+		ds_lineas.setfilter("(articulo <> '"+g_codigos_conceptos.dev_garantia+"')")
+		ds_lineas.filter()
+END CHOOSE
+
+// No quieren que salga la retenci$$HEX1$$f300$$ENDHEX$$n voluntaria (hucha)
+if g_colegio = 'COAATLE' then
+	ds_lineas.setfilter("(articulo <> '"+g_codigos_conceptos.retvol+"')")
+	ds_lineas.filter()
+end if
+
+
+
+id_liq = dw_lista.getitemstring(fila_origen, 'id_liquidacion')
+ 
+if f_es_vacio(id_liq) then
+	lineas_honos = 0
+	lineas_gastos = 0
+else
+	// Honorarios
+	ds_lineas.retrieve(id_liq, g_colegiado_cliente )
+	lineas_honos = ds_lineas.rowcount()
+	articulo = ''
+
+	for j=1 to ds_lineas.rowcount()
+		//SCP-1381
+		string ls_id_minuta
+		ls_id_minuta = dw_lista.getitemstring(fila_origen, 'id_fase')
+		
+		if ds_lineas.getitemstring(j, 'articulo') <> articulo then
+	   	fila=dw_informe.insertrow(0)
+			//SCP-1381
+			if lower(dw_informe.describe("n_registro.name")) = 'n_registro' and not f_es_vacio(ls_id_minuta) then 
+				dw_informe.setitem(fila,'n_registro', f_dame_n_reg (f_minutas_id_fase (ls_id_minuta)))
+			end if 
+			dw_informe.setitem(fila, 'id_liquidacion', dw_lista.getitemstring(fila_origen, 'id_liquidacion'))
+			dw_informe.setitem(fila, 'colegiado', dw_lista.getitemstring(fila_origen, 'id_colegiado'))
+			ape_nom = f_nombre_colegiado(dw_lista.getitemstring(fila_origen , 'id_colegiado'))
+			dw_informe.setitem(fila, 'ape_nom', ape_nom)
+			dw_informe.setitem(fila, 'f_entrada', dw_lista.getitemdatetime(fila_origen, 'f_entrada'))
+			dw_informe.setitem(fila, 'f_liquidacion', dw_lista.getitemdatetime(fila_origen, 'f_liquidacion'))
+			dw_informe.setitem(fila, 'concepto', f_liquidacion_expediente(dw_lista.getitemstring(fila_origen, 'id_liquidacion')))
+			importe = dw_lista.getitemnumber(fila_origen, 'importe')
+			dw_informe.setitem(fila, 'importe', importe)
+			dw_informe.setitem(fila, 'saldo_deudor', dw_lista.getitemnumber(fila_origen, 'saldo_deudor'))
+			dw_informe.setitem(fila, 'deuda_facturas', dw_lista.getitemnumber(fila_origen, 'deuda_facturas'))
+			//SCP-394 Jesus 06/07/2010
+			if j=1 then
+				dw_informe.setitem(fila, 'irpf', f_liquidacion_irpf_factura_honos(id_liq))
+			else
+				dw_informe.setitem(fila, 'irpf', 0)
+			end if
+			dw_informe.setitem(fila, 'num_aviso', f_minutas_n_aviso(dw_lista.getitemstring(fila_origen, 'id_fase')))
+			dw_informe.setitem(fila, 'fact_deducidas', f_liquidacion_facturas_deducidas(dw_lista.getitemstring(fila_origen, 'id_liquidacion')))
+			//S$$HEX1$$f300$$ENDHEX$$lo en detalle
+			dw_informe.setitem(fila, 'observaciones', dw_lista.getitemstring(fila_origen, 'observaciones'))
+			articulo = ds_lineas.getitemstring(j, 'articulo')
+			dw_informe.setitem(fila, 'factu_articulo', ds_lineas.getitemstring(j, 'articulo'))
+			dw_informe.setitem(fila, 'factu_concepto', ds_lineas.getitemstring(j, 'descripcion'))
+			dw_informe.setitem(fila, 'factu_importe', ds_lineas.getitemnumber(j, 'subtotal_linea'))
+			dw_informe.setitem(fila, 'factu_iva', ds_lineas.getitemnumber(j, 'iva_linea'))
+			dw_informe.setitem(fila, 'factu_total', ds_lineas.getitemnumber(j, 'total_linea'))
+			dw_informe.setitem(fila, 'factu_tipo', 'H')
+			dw_informe.setitem(fila, 'texto_liq', 'Con esta fecha hemos ordenado una transferencia a tu cuenta bancaria de ' +&
+			string(importe,"#,##0.00") + ' ' + CharA(128) +'. Dicha cantidad corresponde a la diferencia entre los importes de las facturas de honorarios '+&
+			'y de gastos  (cuyas copias adjuntamos) ,  habi$$HEX1$$e900$$ENDHEX$$ndose adem$$HEX1$$e100$$ENDHEX$$s a$$HEX1$$f100$$ENDHEX$$adido o deducido, en su caso, las siguientes cantidades :' )
+
+			if lower(dw_informe.describe("factu_numero.name")) = 'factu_numero' then dw_informe.setitem(fila, 'factu_numero', ds_lineas.getitemstring(j, 'n_fact'))			
+
+			CHOOSE CASE  g_colegio
+//				case 'COAATLR'
+//					dw_informe.setitem(fila, 'factu_numero', ds_lineas.getitemstring(j, 'n_fact'))
+				case 'COAATB', 'COAATA'
+					// Miramos el tipo de liquidacion
+					dw_informe.setitem(fila, 'tipo_liquidacion',dw_lista.getitemstring(fila_origen, 'tipo'))
+					if dw_lista.getitemstring(fila_origen, 'tipo') = '1' then
+						dw_informe.setitem(fila, 'texto_liq', 'Con esta fecha hemos ordenado una transferencia a tu cuenta bancaria de ' +&
+						string(importe,"#,##0.00") + ' ' + CharA(128) +'. Dicha cantidad corresponde a una devoluci$$HEX1$$f300$$ENDHEX$$n (adjuntamos copia de '+&
+						'la factura) ,   con las siguientes cantidades :' )
+					end if
+				case 'COAATAVI', 'COAATNA', 'COAATTGN', 'COAATTEB', 'COAATMCA','COAATLL'
+					dw_informe.setitem(fila, 'id_fase', f_minutas_id_fase (dw_lista.getitemstring(fila_origen, 'id_fase')))		
+				case 'COAATCC'
+					
+					//tot= ds_lineas.getitemnumber(j, 'subtotal_linea')+ds_lineas.getitemnumber(j, 'iva_linea') - f_liquidacion_irpf_factura_honos(id_liq) 
+					//dw_informe.setitem(fila, 'factu_total',tot)
+					id_fase =  f_minutas_id_fase (dw_lista.getitemstring(fila_origen, 'id_fase'))
+					dw_informe.setitem(fila, 'id_fase',id_fase)		
+					///SCP-1092. Alexis. Se comenta debido a que se ha parametrizado el valor con la var global g_hoja_liq_referencia, que se carga antes. 24/03/2011 ***///
+					//dw_informe.Setitem(fila, 'concepto', f_fases_n_salida(id_fase))
+				//Modificado por Luis 03/02/2009 para incidencia cgi-42
+				case 'COAATGUI'
+					dw_informe.setitem(fila, 'texto_liq', 'Con esta fecha hemos ordenado una transferencia a tu cuenta bancaria de ' +&
+					string(importe,"#,##0.00") + ' ' + CharA(128) +'. Dicha cantidad corresponde a la diferencia entre los importes de las facturas de honorarios '+&
+					'y de gastos ( '+f_liquidacion_facturas_gastos_y_honorarios(dw_lista.getitemstring(fila_origen, 'id_fase'),dw_lista.getitemstring(fila_origen, 'id_colegiado'))+' ), que ya est$$HEX1$$e100$$ENDHEX$$n disponibles en la p$$HEX1$$e100$$ENDHEX$$gina Web, habi$$HEX1$$e900$$ENDHEX$$ndose adem$$HEX1$$e100$$ENDHEX$$s a$$HEX1$$f100$$ENDHEX$$adido o deducido, en su caso, las siguientes cantidades :' )
+				//fin modificado Luis
+			END CHOOSE
+		end if
+	next
+
+	// Gastos
+	ds_lineas.retrieve(id_liq, g_colegio_colegiado )
+	lineas_gastos = ds_lineas.rowcount()
+	articulo = ''
+	for j=1 to ds_lineas.rowcount()
+		if ds_lineas.getitemstring(j, 'articulo') <> articulo then
+			fila = dw_informe.insertrow(0)
+			dw_informe.setitem(fila, 'id_liquidacion', dw_lista.getitemstring(fila_origen, 'id_liquidacion'))
+			dw_informe.setitem(fila, 'colegiado', dw_lista.getitemstring(fila_origen, 'id_colegiado'))
+			ape_nom = f_nombre_colegiado(dw_lista.getitemstring(fila_origen, 'id_colegiado'))
+			dw_informe.setitem(fila, 'ape_nom', ape_nom)
+			dw_informe.setitem(fila, 'f_entrada', dw_lista.getitemdatetime(fila_origen, 'f_entrada'))
+			dw_informe.setitem(fila, 'f_liquidacion', dw_lista.getitemdatetime(fila_origen, 'f_liquidacion'))
+			dw_informe.setitem(fila, 'concepto', f_liquidacion_expediente(dw_lista.getitemstring(fila_origen, 'id_liquidacion')))
+			importe = dw_lista.getitemnumber(fila_origen, 'importe')
+			dw_informe.setitem(fila, 'importe', importe)
+			dw_informe.setitem(fila, 'saldo_deudor', dw_lista.getitemnumber(fila_origen, 'saldo_deudor'))
+			dw_informe.setitem(fila, 'deuda_facturas', dw_lista.getitemnumber(fila_origen, 'deuda_facturas'))
+			dw_informe.setitem(fila, 'irpf', 0)
+			dw_informe.setitem(fila, 'num_aviso', f_minutas_n_aviso(dw_lista.getitemstring(fila_origen, 'id_fase')))
+			dw_informe.setitem(fila, 'fact_deducidas', f_liquidacion_facturas_deducidas(dw_lista.getitemstring(fila_origen, 'id_liquidacion')))
+			dw_informe.setitem(fila, 'observaciones', dw_lista.getitemstring(fila_origen, 'observaciones'))
+			articulo = ds_lineas.getitemstring(j, 'articulo')
+			dw_informe.setitem(fila, 'factu_articulo', ds_lineas.getitemstring(j, 'articulo'))
+			dw_informe.setitem(fila, 'factu_concepto', ds_lineas.getitemstring(j, 'descripcion'))
+			dw_informe.setitem(fila, 'factu_importe', ds_lineas.getitemnumber(j, 'subtotal_linea'))
+			dw_informe.setitem(fila, 'factu_iva', ds_lineas.getitemnumber(j, 'iva_linea'))
+			dw_informe.setitem(fila, 'factu_total', ds_lineas.getitemnumber(j, 'total_linea'))
+			dw_informe.setitem(fila, 'factu_tipo', 'G')
+     	 	dw_informe.setitem(fila, 'texto_liq', 'Con esta fecha hemos ordenado una transferencia a tu cuenta bancaria de ' +&
+			string(importe,"#,##0.00") + ' ' + CharA(128) +'. Dicha cantidad corresponde a la diferencia entre los importes de las facturas de honorarios '+&
+			'y de gastos  (cuyas copias adjuntamos) ,  habi$$HEX1$$e900$$ENDHEX$$ndose adem$$HEX1$$e100$$ENDHEX$$s a$$HEX1$$f100$$ENDHEX$$adido o deducido, en su caso, las siguientes cantidades :' )
+	
+			if lower(dw_informe.describe("factu_numero.name")) = 'factu_numero' then dw_informe.setitem(fila, 'factu_numero', ds_lineas.getitemstring(j, 'n_fact'))			
+			
+			CHOOSE CASE g_colegio
+//				CASE 'COAATLR'
+//					dw_informe.setitem(fila, 'factu_numero', ds_lineas.getitemstring(j, 'n_fact'))
+				CASE 'COAATB', 'COAATA'
+					// Miramos el tipo de liquidacion
+					dw_informe.setitem(fila, 'tipo_liquidacion',dw_lista.getitemstring(fila_origen, 'tipo'))
+					if dw_lista.getitemString(fila_origen, 'tipo') = '1' then
+						dw_informe.setitem(fila, 'texto_liq', 'Con esta fecha hemos ordenado una transferencia a tu cuenta bancaria de ' +&
+						string(importe,"#,##0.00") + ' ' + CharA(128) +'. Dicha cantidad corresponde a una devoluci$$HEX1$$f300$$ENDHEX$$n (adjuntamos copia de '+&
+						'la factura) ,   con las siguientes cantidades :' )
+					end if
+				case 'COAATAVI', 'COAATNA'
+					dw_informe.setitem(fila, 'id_fase', f_minutas_id_fase (dw_lista.getitemstring(fila_origen, 'id_fase')))		
+					//Se pasa los datos del colegio
+				case 'COAATCC'
+					dw_informe.setitem(fila, 'id_fase', f_minutas_id_fase (dw_lista.getitemstring(fila_origen, 'id_fase')))		
+					id_fase = f_minutas_id_fase (dw_lista.getitemstring(fila_origen, 'id_fase'))
+					tipo_act = f_dame_fase(id_fase)
+					tipo_obra = f_dame_tipo_obra(id_fase)
+					uso_obra = f_dame_uso_obra(id_fase)
+					descripcion_obra = f_dame_desc_tipo_actuacion(tipo_act) + ' / ' + f_dame_desc_tipo_obra(tipo_obra) + ' / ' + f_dame_desc_destino_obra(uso_obra)
+					dw_informe.setitem(fila, 'tipo_obra', descripcion_obra)
+					dw_informe.Setitem(fila, 'concepto', f_fases_n_salida(id_fase))
+				//Modificado por Luis 03/02/2009 para incidencia cgi-42
+				case 'COAATGUI'
+					dw_informe.setitem(fila, 'texto_liq', 'Con esta fecha hemos ordenado una transferencia a tu cuenta bancaria de ' +&
+					string(importe,"#,##0.00") + ' ' + CharA(128) +'. Dicha cantidad corresponde a la diferencia entre los importes de las facturas de honorarios '+&
+					'y de gastos ( '+f_liquidacion_facturas_gastos_y_honorarios(dw_lista.getitemstring(fila_origen, 'id_fase'),dw_lista.getitemstring(fila_origen, 'id_colegiado'))+' ), que ya est$$HEX1$$e100$$ENDHEX$$n disponibles en la p$$HEX1$$e100$$ENDHEX$$gina Web, habi$$HEX1$$e900$$ENDHEX$$ndose adem$$HEX1$$e100$$ENDHEX$$s a$$HEX1$$f100$$ENDHEX$$adido o deducido, en su caso, las siguientes cantidades :' )
+				//fin modificado Luis
+			END CHOOSE
+		end if
+	next
+end if
+
+// No quieren que salga la retenci$$HEX1$$f300$$ENDHEX$$n voluntaria (hucha)
+if g_colegio = 'COAATLE' then
+	int i
+	ds_lineas.setfilter("(articulo = '"+g_codigos_conceptos.retvol+"')")
+	ds_lineas.filter()
+	if ds_lineas.rowcount() > 0 and dw_informe.rowcount() > 0 then 
+		for i=1 to dw_informe.rowcount()
+			dw_informe.setitem(i, 'hucha', ds_lineas.getitemnumber(1, 'total'))
+		next
+	end if
+end if
+
+
+// Si id_liq es vacio, es decir, no es una liquidaciones de minutas entonces insertamos una $$HEX1$$fa00$$ENDHEX$$nica l$$HEX1$$ed00$$ENDHEX$$nea.
+// a su vez deber$$HEX1$$ed00$$ENDHEX$$amos imprimir otro tipo de impreso.
+if lineas_honos = 0 and lineas_gastos = 0 then
+	fila = dw_informe.insertrow(0)
+	dw_informe.setitem(fila, 'id_liquidacion', dw_lista.getitemstring(fila_origen, 'id_liquidacion'))
+	dw_informe.setitem(fila, 'colegiado', dw_lista.getitemstring(fila_origen, 'id_colegiado'))
+	ape_nom = f_nombre_colegiado(dw_lista.getitemstring(fila_origen, 'id_colegiado'))
+	dw_informe.setitem(fila, 'ape_nom', ape_nom)
+	//	dw_informe.setitem(fila, 'f_entrada', dw_lista.getitemdatetime(fila_origen, 'f_entrada'))
+	dw_informe.setitem(fila, 'f_liquidacion', dw_lista.getitemdatetime(fila_origen, 'f_liquidacion'))
+	dw_informe.setitem(fila, 'concepto', f_liquidacion_expediente(dw_lista.getitemstring(fila_origen, 'id_liquidacion')))
+	importe = dw_lista.getitemnumber(fila_origen, 'importe')
+	dw_informe.setitem(fila, 'importe', importe)
+	dw_informe.setitem(fila, 'saldo_deudor', dw_lista.getitemnumber(fila_origen, 'saldo_deudor'))
+	dw_informe.setitem(fila, 'deuda_facturas', dw_lista.getitemnumber(fila_origen, 'deuda_facturas'))
+	dw_informe.setitem(fila, 'irpf', f_liquidacion_irpf_factura_honos(dw_lista.getitemstring(fila_origen, 'id_liquidacion')))
+	dw_informe.setitem(fila, 'num_aviso', f_minutas_n_aviso(dw_lista.getitemstring(fila_origen, 'id_fase')))
+	dw_informe.setitem(fila, 'fact_deducidas', f_liquidacion_facturas_deducidas(dw_lista.getitemstring(fila_origen, 'id_liquidacion')))
+ 	dw_informe.setitem(fila, 'observaciones', dw_lista.getitemstring(fila_origen, 'observaciones'))
+ 	dw_informe.setitem(fila, 'texto_liq', 'Con esta fecha hemos ordenado una transferencia a tu cuenta bancaria de ' +&
+	string(importe,"#,##0.00") + ' ' + CharA(128) +'. Dicha cantidad corresponde a la devoluci$$HEX1$$f300$$ENDHEX$$n de una factura de '+&
+	'gastos,  habi$$HEX1$$e900$$ENDHEX$$ndose adem$$HEX1$$e100$$ENDHEX$$s a$$HEX1$$f100$$ENDHEX$$adido o deducido, en su caso, las siguientes cantidades :' )
+	//Modificado por Luis 03/02/2009 para incidencia cgi-42
+	if(g_colegio = 'COAATGUI')then
+		dw_informe.setitem(fila, 'texto_liq', 'Con esta fecha hemos ordenado una transferencia a tu cuenta bancaria de ' +&
+		string(importe,"#,##0.00") + ' ' + CharA(128) +'. Dicha cantidad corresponde a la diferencia entre los importes de las facturas de honorarios '+&
+		'y de gastos ( '+f_liquidacion_facturas_deducidas(dw_lista.getitemstring(fila_origen, 'id_liquidacion'))+' ), que ya est$$HEX1$$e100$$ENDHEX$$n disponibles en la p$$HEX1$$e100$$ENDHEX$$gina Web, habi$$HEX1$$e900$$ENDHEX$$ndose adem$$HEX1$$e100$$ENDHEX$$s a$$HEX1$$f100$$ENDHEX$$adido o deducido, en su caso, las siguientes cantidades :' )
+	end if
+	//fin modificado Luis
+end if
+
+
+//if g_colegio=  'COAATTGN' then
+if g_serie_liquidaciones = 'LIQUID' and g_colegio <> 'COAATZ' then
+	if lower(dw_informe.describe("nombre_emisor.name")) = 'nombre_emisor' then dw_informe.setitem(1,'nombre_emisor',g_nombre_colegio_carta)
+	if lower(dw_informe.describe("direcc_emisor.name")) = 'direcc_emisor' then dw_informe.setitem(1,'direcc_emisor',g_direc_colegio_carta)
+	if lower(dw_informe.describe("poblac_emisor.name")) = 'poblac_emisor' then 	dw_informe.setitem(1,'poblac_emisor',g_pobla_colegio_carta)
+	if lower(dw_informe.describe("nif_emisor.name")) = 'nif_emisor' then 	dw_informe.setitem(1,'nif_emisor',g_col_nif)
+	if(g_colegio = 'COAATCC')then
+		dw_informe.setitem(1,'email_emisor',g_email_colegio_carta)
+	end if
+	if lower(dw_informe.describe("forma_pago.name")) = 'forma_pago' then dw_informe.setitem(1,'forma_pago',dw_lista.getitemstring(1, 'forma_pago'))
+end if
+
+///*** SCP-950. Se a$$HEX1$$f100$$ENDHEX$$ade en principio para Coaat Zaragora una referencia al n$$HEX2$$ba002000$$ENDHEX$$de Registro. 11/02/2011. Alexis ***///
+/*string ls_id_minuta
+ls_id_minuta = dw_lista.getitemstring(dw_lista.getrow(), 'id_fase')
+
+if lower(dw_informe.describe("n_registro.name")) = 'n_registro' and not f_es_vacio(ls_id_minuta) then 
+	dw_informe.setitem(1,'n_registro', f_dame_n_reg (f_minutas_id_fase (ls_id_minuta)))
+end if */	
+
+
+destroy ds_lineas
+
+return 1
+
+
+end function
+

@@ -1,0 +1,36 @@
+HA$PBExportHeader$f_es_superusuario.srf
+global type f_es_superusuario from function_object
+end type
+
+forward prototypes
+global function string f_es_superusuario ()
+end prototypes
+
+global function string f_es_superusuario ();string permiso=''
+long per=-1
+
+  SELECT permiso
+    INTO :permiso
+    FROM t_permisos  
+   WHERE ( t_permisos.cod_usuario = :g_usuario ) AND  
+         ( t_permisos.cod_aplicacion = 'E' )   ;
+
+if f_es_vacio(permiso) then 
+
+	SELECT t_grupo_permisos.permiso
+    INTO :permiso
+	FROM t_usuario_grupos,t_grupo_permisos
+	WHERE ( t_usuario_grupos.cod_usuario = :g_usuario ) and (t_usuario_grupos.cod_grupo=t_grupo_permisos.cod_grupo) and
+			( t_grupo_permisos.cod_aplicacion = 'E');
+			
+//else
+//	MEssageBox("","permiso usuario")				
+//
+end if
+
+if f_es_vacio(permiso) then permiso='-1'
+
+
+return permiso
+end function
+

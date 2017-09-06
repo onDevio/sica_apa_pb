@@ -1,0 +1,19 @@
+HA$PBExportHeader$f_dame_fase.srf
+global type f_dame_fase from function_object
+end type
+
+forward prototypes
+global function string f_dame_fase (string id_fase)
+end prototypes
+
+global function string f_dame_fase (string id_fase);string fase
+
+  SELECT fases.fase  
+    INTO :fase  
+    FROM fases  
+   WHERE fases.id_fase = :id_fase   ;
+	
+
+return fase
+end function
+

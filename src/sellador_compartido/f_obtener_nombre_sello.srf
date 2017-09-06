@@ -1,0 +1,30 @@
+HA$PBExportHeader$f_obtener_nombre_sello.srf
+global type f_obtener_nombre_sello from function_object
+end type
+
+forward prototypes
+global function string f_obtener_nombre_sello ()
+end prototypes
+
+global function string f_obtener_nombre_sello ();long random
+string retorno
+
+//Obtenemos el primero
+Randomize(0)
+random = rand(32767)
+retorno = string(random)
+
+//Comprobamos y repetimos
+
+DO WHILE fileexists(".\sello_" + retorno + ".txt")
+//	messagebox('','Regeneramos')
+	Randomize(0)
+	random = rand(32767)
+	retorno = string(random)
+LOOP
+
+//messagebox('retorno',retorno)
+
+return retorno
+end function
+

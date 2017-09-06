@@ -1,0 +1,10 @@
+HA$PBExportHeader$st_asistentes_consulta.srs
+global type st_asistentes_consulta from structure
+	string		n_colegiado
+	string		nombre
+	string		apellidos
+	string		pagado
+	string		escuela_practica_juridica
+	string		id_asistente
+end type
+

@@ -1,0 +1,51 @@
+HA$PBExportHeader$f_arquitectos_fases.srf
+global type f_arquitectos_fases from function_object
+end type
+
+forward prototypes
+global function string f_colegiados_fase (string id_fase)
+global function string f_arquitectos_fases (string id_fase)
+end prototypes
+
+global function string f_colegiados_fase (string id_fase);string colegiados,id_col
+
+ DECLARE colegiados CURSOR FOR  
+  SELECT fases_colegiados.id_col  
+    FROM fases_colegiados  
+   WHERE fases_colegiados.id_fase = :id_fase ;
+	
+open colegiados;
+fetch colegiados into :id_col;
+do while SQLCA.sqlcode=0
+	colegiados= colegiados + f_colegiado_apellido(id_col) + cr
+	fetch colegiados into :id_col;	
+loop
+close colegiados;
+
+return colegiados
+end function
+
+global function string f_arquitectos_fases (string id_fase);string arquitectos,id_arqui,ape,nom
+
+ DECLARE arquitectos_ CURSOR FOR  
+  SELECT fases_arquitectos.id_arqui,  fases_arquitectos.apellidos,   fases_arquitectos.nombre 
+    FROM fases_arquitectos  
+   WHERE fases_arquitectos.id_fase = :id_fase ;
+
+	
+open arquitectos_;
+fetch arquitectos_ into :id_arqui,:ape,:nom;
+do while SQLCA.sqlcode=0
+	if f_es_vacio(nom) then
+		arquitectos= arquitectos + ape +', '
+	else
+		arquitectos= arquitectos + nom+' '+ape +', '
+	end if
+	fetch arquitectos_ into :id_arqui,:ape,:nom;
+loop
+arquitectos=LeftA(arquitectos,LenA(arquitectos)-2)
+close arquitectos_;
+
+return arquitectos
+end function
+

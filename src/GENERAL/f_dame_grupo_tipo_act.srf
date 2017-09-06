@@ -1,0 +1,17 @@
+HA$PBExportHeader$f_dame_grupo_tipo_act.srf
+global type f_dame_grupo_tipo_act from function_object
+end type
+
+forward prototypes
+global function string f_dame_grupo_tipo_act (string tipo_act)
+end prototypes
+
+global function string f_dame_grupo_tipo_act (string tipo_act);string grupo
+  SELECT t_fases.grupo  
+    INTO :grupo  
+    FROM t_fases  
+   WHERE t_fases.c_t_fase = :tipo_act   ;
+
+return grupo
+end function
+

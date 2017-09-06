@@ -1,0 +1,278 @@
+HA$PBExportHeader$f_conversion_codigo_colegio_caceres.srf
+global type f_conversion_codigo_colegio_caceres from function_object
+end type
+
+forward prototypes
+global function string f_conversion_codigo_colegio_caceres (string codigo_colegio_sica, integer tipo_conversion, n_tr tr)
+end prototypes
+
+global function string f_conversion_codigo_colegio_caceres (string codigo_colegio_sica, integer tipo_conversion, n_tr tr);string cod
+string res
+string nombre
+integer cod_int
+
+//tipo marca el tipo de conversion:
+// 1 (SICA) convertira por el codigo colegio al c$$HEX1$$f300$$ENDHEX$$digo de provincia 
+// 3 (MIGRACI$$HEX1$$d300$$ENDHEX$$N) convertir$$HEX2$$e1002000$$ENDHEX$$de codigo provincia al c$$HEX1$$f300$$ENDHEX$$digo de colegio
+// probado con Valores:	Colegio	Provincia
+//						MADRID	31		28
+//						BADAJOZ 07		06
+
+if tipo_conversion = 1 then
+	cod = trim(codigo_colegio_sica)
+elseif tipo_conversion = 3 then
+	//cod = codigo_colegio_sica
+	select descripcion into :nombre from colegios where cod_colegio = :codigo_colegio_sica using tr;
+	select cod_provincia into :cod from provincias where ltrim(rtrim(nombre)) = ltrim(rtrim(:nombre)) using tr;
+end if
+
+IF NOT(IsNumber(cod)) THEN RETURN 'ZZ'
+cod_int = integer(cod)
+
+if tipo_conversion < 3 then
+	choose case cod_int
+		case 25	//A CORU$$HEX1$$d100$$ENDHEX$$A
+				res = '15'
+		case 1 //ALAVA
+				res = '01'
+		case 2	//ALBACETE
+				res = '02'
+		case 3	//ALICANTE
+				res = '03'
+		case 4	//ALMERIA
+				res = '04'
+		case 5	//ASTURIAS
+				res = '33'
+		case 6 //AVILA
+				res = '05'
+		case 7	//BADAJOZ
+				res = '06'
+		case 8	//BARCELONA
+				res = '08'
+		case 9	//BURGOS
+				res = '09'
+		case 10	//CACERES
+				res = '00'
+		case 11	//CADIZ
+				res = '11'
+		case 12	//CANTABRIA
+				res = '39'
+		case 13 //CASTELLON
+				res = '12'
+		case 14	//CIUDAD REAL
+				res = '13'
+		case 15	//CORDOBA
+				res = '14'
+		case 16	//CUENCA
+				res = '16'
+	//	case 'E'	//ESCUELA
+	//			res = '15'
+		case 96	//FUERTEVENTURA
+				res = '96'
+		case 17	//GIRONA
+				res = '17'
+		case 27	//GRAN CANARIA
+				res = '35'
+		case 18	//GRANADA
+				res = '18'
+		case 19	//GUADALAJARA
+				res = '19'
+		case 20	//GUIPUZCOA
+				res = '20'
+		case 21 //	HUELVA
+				res = '21'
+		case 22	//HUESCA
+				res = '22'
+		case 23	//IBIZA
+				res = '86'
+		case 24	//JAEN
+				res = '23'
+		case 26	//LA RIOJA
+				res = '26'
+		case 56	//LANZAROTE
+				res = '95'
+		case 28	//LEON
+				res = '24'
+		case 29	//LLEIDA
+				res = '25'
+		case 30	//LUGO
+				res = '27'
+		case 31	//MADRID
+				res = '28'
+		case 32	//MALAGA
+				res = '29'
+		case 33	//MALLORCA
+				res = '07'
+		case 34	//MENORCA
+				res = '85'
+		case 35	//MURCIA
+				res = '30'
+		case 36	//NAVARRA
+				res = '31'
+	//	case '62'	//NUEVA COLEGIACION
+	//			res = '15'
+		case 37	//OURENSE
+				res = '32'
+		case 38	//PALENCIA
+				res = '34'
+		case 39	//PONTEVEDRA
+				res = '36'
+		case 40	//SALAMANCA
+				res = '37'
+		case 41	//SEGOVIA
+				res = '40'
+		case 42	//SEVILLA
+				res = '41'
+		case 43	//SORIA
+				res = '42'
+		case 44	//TARRAGONA
+				res = '43'
+		case 45	//TENERIFE
+				res = '38'
+		case 53	//TERRES
+				res = '75'
+		case 46	//TERUEL
+				res = '44'
+		case 47	//TOLEDO
+				res = '45'
+		case 48	//VALENCIA
+				res = '46'
+		case 49	//VALLADOLID
+				res = '47'
+	//	case '50'	//VIZCAYA
+	//			res = '15'
+		case 51	//ZAMORA
+				res = '49'
+		case 52	//ZARAGOZA
+				res = '50'
+		case else
+				res = 'ZZ'
+	
+	end choose
+end if
+
+if tipo_conversion = 3 then
+	
+	choose case cod_int
+		case 15	//A CORU$$HEX1$$d100$$ENDHEX$$A
+				res = '25'
+		case 1//ALAVA
+				res = "01"
+		case 2	//ALBACETE
+				res = "02"
+		case 3	//ALICANTE
+				res = "03"
+		case 4	//ALMERIA
+				res = "04"
+		case 33	//ASTURIAS
+				res = "05"
+		case 5 //AVILA
+				res = "06"
+		case 6	//BADAJOZ
+				res = "07"
+		case 8	//BARCELONA
+				res = "08"
+		case 9	//BURGOS
+				res = "09"
+		case 10	//CACERES
+				res = "00"
+		case 11	//CADIZ
+				res = "11"
+		case 39	//CANTABRIA
+				res = "12"
+		case 12 //CASTELLON
+				res = "13"
+		case 13	//CIUDAD REAL
+				res = "14"
+		case 14	//CORDOBA
+				res = "15"
+		case 16	//CUENCA
+				res = "16"
+	//	case "E"	//ESCUELA
+	//			res = "15"
+		case 96	//FUERTEVENTURA
+				res = "96"
+		case 17	//GIRONA
+				res = "17"
+		case 35	//GRAN CANARIA
+				res = "27"
+		case 18	//GRANADA
+				res = "18"
+		case 19	//GUADALAJARA
+				res = "19"
+		case 20	//GUIPUZCOA
+				res = "20"
+		case 21 //	HUELVA
+				res = "21"
+		case 22	//HUESCA
+				res = "22"
+		case 86	//IBIZA
+				res = "23"
+		case 23	//JAEN
+				res = "24"
+		case 26	//LA RIOJA
+				res = "26"
+		case 95	//LANZAROTE
+				res = "56"
+		case 24	//LEON
+				res = "28"
+		case 25	//LLEIDA
+				res = "29"
+		case 27	//LUGO
+				res = "30"
+		case 28	//MADRID
+				res = "31"
+		case 29	//MALAGA
+				res = "32"
+		case 7	//MALLORCA
+				res = "33"
+		case 85	//MENORCA
+				res = "34"
+		case 30	//MURCIA
+				res = "35"
+		case 31	//NAVARRA
+				res = "36"
+	//	case "62"	//NUEVA COLEGIACION
+	//			res = "15"
+		case 32	//OURENSE
+				res = "37"
+		case 34	//PALENCIA
+				res = "38"
+		case 36	//PONTEVEDRA
+				res = "39"
+		case 37	//SALAMANCA
+				res = "40"
+		case 40	//SEGOVIA
+				res = "41"
+		case 41	//SEVILLA
+				res = "42"
+		case 42	//SORIA
+				res = "43"
+		case 43	//TARRAGONA
+				res = "44"
+		case 38	//TENERIFE
+				res = "45"
+		case 75	//TERRES
+				res = "53"
+		case 44	//TERUEL
+				res = "46"
+		case 45	//TOLEDO
+				res = "47"
+		case 46	//VALENCIA
+				res = "48"
+		case 47	//VALLADOLID
+				res = "49"
+	//	case "50"	//VIZCAYA
+	//			res = "15"
+		case 49	//ZAMORA
+				res = "51"
+		case 50//ZARAGOZA
+				res = "52"
+		case else
+				res = 'ZZ'
+	
+	end choose
+end if
+return res
+end function
+

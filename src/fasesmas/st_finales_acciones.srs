@@ -1,0 +1,6 @@
+HA$PBExportHeader$st_finales_acciones.srs
+global type st_finales_acciones from structure
+	string		tipo_trabajo
+	string		trabajo
+end type
+

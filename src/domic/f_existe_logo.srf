@@ -1,0 +1,48 @@
+HA$PBExportHeader$f_existe_logo.srf
+global type f_existe_logo from function_object
+end type
+
+forward prototypes
+global function integer f_existe_logo (string cod_empresa, string as_modulo)
+end prototypes
+
+global function integer f_existe_logo (string cod_empresa, string as_modulo);//*****************************************************************************************************************//
+//* cod_empresa * Par$$HEX1$$e100$$ENDHEX$$metro que identifica la empresa a la cual deba estar asociado el logotipo que se pretende utilizar * Mirar la tabla csi_empresas *****//
+//* as_modulo * Identificativo de un m$$HEX1$$f300$$ENDHEX$$dulo concreto de la aplicaci$$HEX1$$f300$$ENDHEX$$n * Mirar el contenido de la tabla tipos_modulos_logos *************************//
+// ****************************************************************************************************************//
+//* La funci$$HEX1$$f300$$ENDHEX$$n se utilizar$$HEX2$$e1002000$$ENDHEX$$para saber si existe alg$$HEX1$$fa00$$ENDHEX$$n logo de la empresa para el m$$HEX1$$f300$$ENDHEX$$dulo indicado que est$$HEX2$$e1002000$$ENDHEX$$visible en la tabla csi_empresas_logos  *********//
+//* En caso de que no fuera visible el logo se indicar$$HEX2$$e1002000$$ENDHEX$$que no existen. Si no existen valores en la tabla csi_empresas_logos, se buscar$$HEX2$$e1002000$$ENDHEX$$si existe en la tabla **//
+//* csi_empresas. ****************************************************************************************************//
+// ****************************************************************************************************************//
+
+string ls_nom_logo, ls_visible
+integer n_registros
+
+n_registros = 0
+
+// Se busca logo del m$$HEX1$$f300$$ENDHEX$$dulo espec$$HEX1$$ed00$$ENDHEX$$fico
+select logo, visible
+into :ls_nom_logo, :ls_visible
+from csi_empresas_logos
+where codigo_empresa = :cod_empresa
+and modulo = :as_modulo;
+
+if ((not (f_es_vacio(ls_nom_logo))) and ls_visible = 'S') then 
+	
+	n_registros = 1
+	
+else 	
+	if not (ls_visible = 'N') then
+		select logo
+		into :ls_nom_logo
+		from csi_empresas
+		where codigo = :cod_empresa;
+	
+		if (not (f_es_vacio(ls_nom_logo))) then n_registros = 1
+	end if 	
+	
+end if 	
+
+return n_registros
+end function
+

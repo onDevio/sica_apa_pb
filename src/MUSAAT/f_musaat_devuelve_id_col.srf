@@ -1,0 +1,21 @@
+HA$PBExportHeader$f_musaat_devuelve_id_col.srf
+global type f_musaat_devuelve_id_col from function_object
+end type
+
+forward prototypes
+global function string f_musaat_devuelve_id_col (string id_poliza)
+end prototypes
+
+global function string f_musaat_devuelve_id_col (string id_poliza);string id_colegiado
+
+
+SELECT id_col 
+INTO :id_colegiado 
+FROM musaat, colegiados
+WHERE colegiados.id_colegiado = musaat.id_col and
+musaat.src_n_poliza = :id_poliza  and c_geografico <> 'H' ;
+
+
+return id_colegiado
+end function
+

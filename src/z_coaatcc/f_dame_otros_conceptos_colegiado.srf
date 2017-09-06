@@ -1,0 +1,29 @@
+HA$PBExportHeader$f_dame_otros_conceptos_colegiado.srf
+global type f_dame_otros_conceptos_colegiado from function_object
+end type
+
+forward prototypes
+global function string f_dame_otros_conceptos_colegiado (string id_col, string codigo)
+end prototypes
+
+global function string f_dame_otros_conceptos_colegiado (string id_col, string codigo);//Devuelve el valor que tiene un concepto en especifico
+string valor,  s_n
+
+
+  SELECT       otros_datos_colegiado.s_n  
+    INTO         :s_n
+    FROM otros_datos_colegiado  
+   WHERE otros_datos_colegiado.id_colegiado = :id_col  and otros_datos_colegiado.cod_caracteristica= :codigo    ;
+	
+
+if isnull(s_n) and valor = '' then
+	valor = ''
+else
+	valor = s_n
+end if
+
+
+
+return valor
+end function
+

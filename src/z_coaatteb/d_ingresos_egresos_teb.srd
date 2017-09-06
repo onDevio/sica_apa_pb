@@ -1,0 +1,154 @@
+HA$PBExportHeader$d_ingresos_egresos_teb.srd
+$PBExportComments$Report para agrupar por articulo la cantidad indicada solo para honorarios
+release 10.5;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes print.preview.outline=yes hidegrayline=no )
+header(height=260 color="536870912" )
+summary(height=84 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=0 color="536870912" )
+table(column=(type=char(10) updatewhereclause=yes name=csi_articulos_servicios_codigo dbname="csi_articulos_servicios.codigo" dbalias=".codigo" )
+ column=(type=char(32768) updatewhereclause=no name=csi_articulos_servicios_descripcion dbname="csi_articulos_servicios.descripcion" dbalias=".descripcion" )
+ column=(type=number updatewhereclause=yes name=csi_cobros_importe dbname="csi_cobros.importe" dbalias=".importe" )
+ column=(type=number updatewhereclause=yes name=importe2 dbname="importe2" )
+ column=(type=number updatewhereclause=yes name=importe3 dbname="importe3" )
+ column=(type=number updatewhereclause=yes name=importe4 dbname="importe4" )
+ column=(type=char(2) updatewhereclause=yes name=csi_facturas_emitidas_empresa dbname="csi_facturas_emitidas.empresa" dbalias=".empresa" )
+ retrieve="  SELECT csi_articulos_servicios.codigo,   
+		csi_articulos_servicios.descripcion as descripcion, 
+         csi_cobros.importe,   
+         0.00 as importe2,   
+         0.00 as importe3,   
+         0.00 as importe4,
+csi_facturas_emitidas.empresa  
+    FROM csi_facturas_emitidas,   
+         csi_lineas_fact_emitidas,   
+         csi_cobros,   
+         csi_articulos_servicios,   
+         csi_centros,   
+         csi_t_iva  
+   WHERE ( csi_facturas_emitidas.id_factura = csi_cobros.id_factura ) and  
+         ( csi_facturas_emitidas.id_factura = csi_lineas_fact_emitidas.id_factura ) and  
+         ( csi_lineas_fact_emitidas.articulo = csi_articulos_servicios.codigo ) and  
+         ( csi_lineas_fact_emitidas.centro = csi_centros.centro ) and  
+         ( csi_lineas_fact_emitidas.t_iva = csi_t_iva.t_iva ) and  
+         (csi_cobros.pagado = 'S') AND  
+         (csi_cobros.forma_pago <> 'CM') and
+		(csi_facturas_emitidas.centro like :centro) and
+		(csi_lineas_fact_emitidas.articulo like :concepto) and
+		(csi_facturas_emitidas.f_pago >= :f_pago_desde or csi_facturas_emitidas.f_pago is null) and
+		(csi_facturas_emitidas.f_pago < :f_pago_hasta or csi_facturas_emitidas.f_pago is null) and
+		(csi_facturas_emitidas.fecha >= :fecha_desde or csi_facturas_emitidas.fecha is null) and
+		(csi_facturas_emitidas.fecha < :fecha_hasta or csi_facturas_emitidas.fecha is null)
+   
+   UNION   all 
+  SELECT csi_articulos_servicios.codigo,  
+csi_articulos_servicios.descripcion as descripcion, 
+         0.00 as importe1,   
+         csi_cobros_multiples.importe,   
+         0.00 as importe3,   
+         0.00 as importe4,
+csi_facturas_emitidas.empresa  
+    FROM csi_facturas_emitidas,   
+         csi_lineas_fact_emitidas,   
+         csi_cobros,   
+         csi_cobros_multiples,   
+         csi_articulos_servicios,   
+         csi_centros,   
+         csi_t_iva  
+   WHERE ( csi_facturas_emitidas.id_factura = csi_cobros.id_factura ) and  
+         ( csi_cobros.id_cobro_multiple = csi_cobros_multiples.id_cobro_multiple ) and  
+         ( csi_facturas_emitidas.id_factura = csi_lineas_fact_emitidas.id_factura ) and  
+         ( csi_lineas_fact_emitidas.articulo = csi_articulos_servicios.codigo ) and  
+         ( csi_lineas_fact_emitidas.centro = csi_centros.centro ) and  
+         ( csi_lineas_fact_emitidas.t_iva = csi_t_iva.t_iva ) and  
+         (csi_cobros_multiples.forma_pago <> 'CM') and
+		(csi_facturas_emitidas.centro like :centro) and
+		(csi_lineas_fact_emitidas.articulo like :concepto) and
+		(csi_facturas_emitidas.f_pago >= :f_pago_desde or csi_facturas_emitidas.f_pago is null) and
+		(csi_facturas_emitidas.f_pago < :f_pago_hasta or csi_facturas_emitidas.f_pago is null) and
+		(csi_facturas_emitidas.fecha >= :fecha_desde or csi_facturas_emitidas.fecha is null) and
+		(csi_facturas_emitidas.fecha < :fecha_hasta or csi_facturas_emitidas.fecha is null)
+   
+   UNION all 
+  SELECT csi_articulos_servicios.codigo, 
+csi_articulos_servicios.descripcion as descripcion,  
+         0.00 as importe1,   
+         0.00 as importe2,   
+         fases_liquidaciones.importe,   
+         0.00 as importe4  ,
+csi_facturas_emitidas.empresa
+    FROM csi_facturas_emitidas,   
+         csi_lineas_fact_emitidas,   
+         fases_liquidaciones,   
+         csi_articulos_servicios,   
+         csi_centros,   
+         csi_t_iva  
+   WHERE ( csi_facturas_emitidas.id_fase = fases_liquidaciones.id_fase ) and  
+         ( csi_facturas_emitidas.id_factura = csi_lineas_fact_emitidas.id_factura ) and  
+         ( csi_lineas_fact_emitidas.articulo = csi_articulos_servicios.codigo ) and  
+         ( csi_lineas_fact_emitidas.centro = csi_centros.centro ) and  
+         ( csi_lineas_fact_emitidas.t_iva = csi_t_iva.t_iva ) and  
+         (fases_liquidaciones.estado = 'L') and
+		(csi_facturas_emitidas.centro like :centro) and
+		(csi_lineas_fact_emitidas.articulo like :concepto) and
+		(csi_facturas_emitidas.f_pago >= :f_pago_desde or csi_facturas_emitidas.f_pago is null) and
+		(csi_facturas_emitidas.f_pago < :f_pago_hasta or csi_facturas_emitidas.f_pago is null) and
+		(csi_facturas_emitidas.fecha >= :fecha_desde or csi_facturas_emitidas.fecha is null) and
+		(csi_facturas_emitidas.fecha < :fecha_hasta or csi_facturas_emitidas.fecha is null)
+
+   UNION all 
+  SELECT csi_articulos_servicios.codigo,   
+csi_articulos_servicios.descripcion as descripcion,
+         0.00 as importe1,   
+         0.00 as importe2,   
+         0.00 as importe3,   
+         premaat_liquidaciones.importe  ,
+csi_facturas_emitidas.empresa
+    FROM csi_facturas_emitidas,   
+         csi_lineas_fact_emitidas,   
+         premaat_liquidaciones,   
+         csi_articulos_servicios,   
+         csi_centros,   
+         csi_t_iva  
+   WHERE ( csi_facturas_emitidas.id_factura = premaat_liquidaciones.id_factura ) and  
+         ( csi_facturas_emitidas.id_factura = csi_lineas_fact_emitidas.id_factura ) and  
+         ( csi_lineas_fact_emitidas.articulo = csi_articulos_servicios.codigo ) and  
+         ( csi_lineas_fact_emitidas.centro = csi_centros.centro ) and  
+         ( csi_lineas_fact_emitidas.t_iva = csi_t_iva.t_iva ) and  
+         ( premaat_liquidaciones.estado = 'L') and
+		(csi_facturas_emitidas.centro like :centro) and
+		(csi_lineas_fact_emitidas.articulo like :concepto) and
+		(csi_facturas_emitidas.f_pago >= :f_pago_desde or csi_facturas_emitidas.f_pago is null) and
+		(csi_facturas_emitidas.f_pago < :f_pago_hasta or csi_facturas_emitidas.f_pago is null) and
+		(csi_facturas_emitidas.fecha >= :fecha_desde or csi_facturas_emitidas.fecha is null) and
+		(csi_facturas_emitidas.fecha < :fecha_hasta or csi_facturas_emitidas.fecha is null) 
+" filter=" csi_facturas_emitidas_empresa =f_devuelve_empresa()"arguments=(("centro", string),("concepto", string),("f_pago_desde", datetime),("f_pago_hasta", datetime),("fecha_desde", datetime),("fecha_hasta", datetime))  sort="csi_articulos_servicios_codigo A " )
+group(level=1 header.height=0 trailer.height=68 by=("csi_articulos_servicios_codigo" ) header.color="536870912" trailer.color="536870912" )
+text(band=header alignment="2" text="Egresos" border="4" color="0" x="2386" y="180" height="52" width="841" html.valueishtml="0"  name=t_2 visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Art$$HEX1$$ed00$$ENDHEX$$culo" border="4" color="0" x="41" y="180" height="52" width="1477" html.valueishtml="0"  name=csi_articulos_servicios_codigo_t visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Ingresos" border="4" color="0" x="1531" y="180" height="52" width="841" html.valueishtml="0"  name=t_1 visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="0" expression=" csi_cobros_importe + importe2  "border="0" color="0" x="997" y="8" height="52" width="841" format="[GENERAL]" html.valueishtml="0"  name=compute_1 visible="0"  font.face="MS Sans Serif" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="0" expression=" importe3 + importe4 "border="0" color="0" x="2199" y="8" height="52" width="837" format="[GENERAL]" html.valueishtml="0"  name=compute_2 visible="0"  font.face="MS Sans Serif" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=trailer.1 x1="41" y1="4" x2="3365" y2="4"  name=l_1 visible="1" pen.style="0" pen.width="5" pen.color="16777215"  background.mode="2" background.color="1090519039" )
+text(band=trailer.1 alignment="1" text="$$HEX1$$ac20$$ENDHEX$$" border="0" color="0" x="2318" y="4" height="52" width="55" html.valueishtml="0"  name=t_3 visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=trailer.1 alignment="1" text="$$HEX1$$ac20$$ENDHEX$$" border="0" color="0" x="3173" y="4" height="52" width="55" html.valueishtml="0"  name=t_4 visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=trailer.1 alignment="0" expression=" csi_articulos_servicios_codigo +' - '+ csi_articulos_servicios_descripcion "border="0" color="0" x="41" y="8" height="52" width="1477" format="[GENERAL]" html.valueishtml="0"  name=compute_3 visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=trailer.1 alignment="1" expression=" sum( compute_1  for group 1) "border="0" color="0" x="1531" y="8" height="56" width="782" format="#,##0.00" html.valueishtml="0"  name=base_imponible_total visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=trailer.1 alignment="1" expression=" sum( compute_2  for group 1) "border="0" color="0" x="2386" y="4" height="56" width="782" format="#,##0.00" html.valueishtml="0"  name=importe_iva_total visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="0" expression=" sum( compute_1  for all) "border="0" color="0" x="1531" y="20" height="52" width="782" format="#,##0.00" html.valueishtml="0"  name=suma_total_1 visible="0"  font.face="MS Sans Serif" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="0" expression=" sum( compute_2  for all) "border="0" color="0" x="2386" y="16" height="52" width="782" format="[GENERAL]" html.valueishtml="0"  name=suma_total_2 visible="0"  font.face="MS Sans Serif" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=footer alignment="0" text="Fecha:" border="0" color="0" x="73" y="32" height="56" width="178" html.valueishtml="0"  name=t_7 visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+compute(band=footer alignment="0" expression="datetime(today(),now())"border="0" color="0" x="261" y="32" height="56" width="544" format="dd/mm/yyyy     hh:mm:ss" html.valueishtml="0"  name=compute_8 visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+compute(band=footer alignment="1" expression="'P$$HEX1$$e100$$ENDHEX$$gina: ' + page() + ' de ' + pageCount()"border="0" color="0" x="2528" y="32" height="56" width="699" format="[general]" html.valueishtml="0"  name=page_1 visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+line(band=footer x1="73" y1="8" x2="3227" y2="4"  name=l_2 visible="1" pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="1073741824" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" pagingmethod=0 generatedddwframes="1" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()
+ 

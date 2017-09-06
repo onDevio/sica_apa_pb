@@ -1,0 +1,93 @@
+HA$PBExportHeader$f_cuenta_contable_defecto_cli_provs.srf
+global type f_cuenta_contable_defecto_cli_provs from function_object
+end type
+
+forward prototypes
+global function string f_cuenta_contable_defecto_cli_provs (string tipo, string codigo)
+end prototypes
+
+global function string f_cuenta_contable_defecto_cli_provs (string tipo, string codigo);// tipo: C: clientes, P:proveedores
+long digitos_relleno
+string relleno, cuenta_contable, cuenta, prefijo, estado
+string titulo, nif
+// Devuelve la cuenta contable por defecto con los d$$HEX1$$ed00$$ENDHEX$$gitos necesarios
+
+if f_es_vacio(codigo) then codigo = ''
+
+// si la cuenta contable s$$HEX1$$f300$$ENDHEX$$lo contiene caracts. num$$HEX1$$e900$$ENDHEX$$ricos le damos el siguiente valor con dicho prefijo,
+//		si contiene caracts. num$$HEX1$$e900$$ENDHEX$$ricos (CTAA) le damos el prefijo + el c$$HEX1$$f300$$ENDHEX$$digo.
+
+	CHOOSE CASE tipo
+		CASE 'C'
+			digitos_relleno = g_num_digitos - LenA(g_prefijo_clientes)
+			//relleno = right('0000000000',digitos_relleno)
+			relleno = RightA('9999999999',digitos_relleno)
+			cuenta_contable = g_prefijo_clientes + relleno
+			prefijo = g_prefijo_clientes + '%'
+						
+		CASE 'P'
+			digitos_relleno = g_num_digitos - LenA(g_prefijo_proveedores)
+			//relleno = right('0000000000',digitos_relleno)
+			relleno = RightA('9999999999',digitos_relleno)
+			cuenta_contable = g_prefijo_proveedores + relleno 
+			prefijo = g_prefijo_proveedores + '%'
+	END CHOOSE
+		
+	// Para evitar problemas con las cuentas que tienen letras, cogemos la cuenta que empiece por el prefijo y que no tenga letras 
+	select max(cuenta) into :cuenta from cuentas where cuenta like :prefijo and final = 'D' and empresa = 'S' and cuenta < :cuenta_contable using bd_ejercicio;
+	cuenta_contable = String( Double(cuenta)+1 )
+	
+/*	CASE ELSE
+		
+		CHOOSE CASE tipo
+			CASE 'C'
+				prefijo = g_prefijo_clientes + '%'
+			CASE 'P'
+				prefijo = g_prefijo_proveedores + '%'
+		END CHOOSE
+		
+		select max(cuenta) into :cuenta from cuentas where cuenta like :prefijo and final = 'D' and empresa = 'S' using bd_ejercicio;
+		cuenta_contable = String( Double(cuenta)+1 )
+
+END CHOOSE*/
+	if f_es_vacio(cuenta_contable) then
+		cuenta_contable = RightA('0000000000',g_num_digitos)
+	else
+		titulo = f_dame_cliente(codigo)
+		nif = f_dame_nif (codigo)
+		// Creo la nueva cuenta contable para el cliente en el Plan de cuentas, 
+		// 	y actualizo en el cliente la cuenta contable
+		
+		// Modificado Ricardo 2005-05-23
+		//insert into cuentas values (:cuenta_contable,:titulo,:nif,'D','S',0,0,0,0,'',0,0,0,0,0) USING bd_ejercicio;
+		st_cuenta cuenta_struct
+		
+		cuenta_struct.cuenta 		= cuenta_contable
+		cuenta_struct.titulo 		= titulo
+		cuenta_struct.resumen 		= nif
+		cuenta_struct.final 			= 'D'
+		cuenta_struct.empresa		= 'S'
+		cuenta_struct.debe			= 0
+		cuenta_struct.haber			= 0
+		cuenta_struct.saldo			= 0
+		cuenta_struct.presupuesto	= 0
+		cuenta_struct.id_col			= ''
+		cuenta_struct.s1				= 0
+		cuenta_struct.s2				= 0
+		cuenta_struct.s3				= 0
+		cuenta_struct.ica				= 0
+		cuenta_struct.otros			= 0
+		if not f_es_vacio(f_cuenta_pgc_sincronizada(cuenta_struct, 'N')) then 
+			rollback using bd_ejercicio;
+		else
+			commit using bd_ejercicio;
+		end if
+		
+		// fin Modificado Ricardo 2005-05-23
+		
+		// actualizo la cuenta contable para el cliente
+		f_actualizo_cuenta_cliente_tercero (codigo, cuenta_contable)
+	end if
+return cuenta_contable 
+end function
+

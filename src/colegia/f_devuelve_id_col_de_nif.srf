@@ -1,0 +1,54 @@
+HA$PBExportHeader$f_devuelve_id_col_de_nif.srf
+global type f_devuelve_id_col_de_nif from function_object
+end type
+
+forward prototypes
+global function string f_devuelve_id_col_de_nif (string nif)
+end prototypes
+
+global function string f_devuelve_id_col_de_nif (string nif);string retorno, nif_m, id
+
+nif_m = RightA('000000000'+nif,9)
+
+SELECT colegiados.id_colegiado  
+INTO :retorno  
+FROM colegiados  
+WHERE right('000000000'+colegiados.nif,9) = :nif_m and c_geografico <> 'H'
+ORDER BY colegiados.id_colegiado ;
+
+if retorno = '' then // Si tiene letra pero no correcta
+		
+	nif_m = LeftA(RightA('000000000'+nif,9),8)
+		
+	SELECT colegiados.id_colegiado
+   INTO :retorno  
+   FROM colegiados  
+   WHERE substring(right('000000000'+colegiados.nif,9),1,8) = :nif_m and c_geografico <> 'H'  ;
+
+end if
+
+if retorno = '' then // Si el nif no tiene letra
+	
+	nif_m = LeftA(RightA('000000000'+nif,9),8)
+
+  	SELECT colegiados.id_colegiado  
+   INTO :retorno  
+   FROM colegiados  
+   WHERE substring(right('000000000'+colegiados.nif,9),2,8) = :nif_m and c_geografico <> 'H'  ;
+
+end if
+
+if retorno = '' then // Si el primer numero no correcto
+	
+	nif_m = RightA('000000000'+nif,8)
+
+  	SELECT colegiados.id_colegiado  
+   INTO :retorno  
+   FROM colegiados  
+   WHERE substring(right('000000000'+colegiados.nif,9),2,8) = :nif_m  and c_geografico <> 'H' ;
+
+end if
+
+return retorno
+end function
+

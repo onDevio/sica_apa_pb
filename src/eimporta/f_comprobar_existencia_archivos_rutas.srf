@@ -1,0 +1,28 @@
+HA$PBExportHeader$f_comprobar_existencia_archivos_rutas.srf
+global type f_comprobar_existencia_archivos_rutas from function_object
+end type
+
+forward prototypes
+global function integer f_comprobar_existencia_archivos_rutas (string rutas[5, 5])
+end prototypes
+
+global function integer f_comprobar_existencia_archivos_rutas (string rutas[5, 5]);//Funcion a la q le pasaremos un vector de rutas y comprobar$$HEX2$$e1002000$$ENDHEX$$que ese archivo existe en la ruta especificada
+//si todas las rutas existen la funcion devolvera 0, si no es asi devolvera el indice cuya ruta no existe saliendo 
+//de la funcion
+
+int i
+boolean existe
+
+for i = 1 to 5
+	if rutas[i,1] <> "" and not f_es_vacio(rutas[i,1]) then
+		existe = FileExists(trim(rutas[i,1]))
+		if not existe then
+			return i
+		end if
+	end if
+next
+
+
+return 0
+end function
+

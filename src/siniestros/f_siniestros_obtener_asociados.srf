@@ -1,0 +1,68 @@
+HA$PBExportHeader$f_siniestros_obtener_asociados.srf
+global type f_siniestros_obtener_asociados from function_object
+end type
+
+forward prototypes
+global function string f_siniestros_obtener_asociados (string id_siniestro, string separador)
+end prototypes
+
+global function string f_siniestros_obtener_asociados (string id_siniestro, string separador);//Dado un id_siniestro obtiene una lista con el nombre de los colegiados asociados a ese siniestro
+//separador: C$$HEX1$$f300$$ENDHEX$$mo vamos a separar los asociados. 'P'=punto y coma 'N'=nueva linea
+
+string ls_nombres_asociados, ls_apellidos, ls_nombre, ls_separador
+string ls_id_col
+boolean lb_salir=false
+int i
+
+if separador='P' then
+	ls_separador = ';'
+else 
+	ls_separador = '~n~r'
+end if
+
+datastore ds_cols
+ds_cols = create datastore
+ds_cols.dataobject = 'd_siniestros_detalle_colegiados'
+ds_cols.settransobject(sqlca)
+ds_cols.retrieve(id_siniestro)
+
+for i = 1 to ds_cols.rowcount()
+	ls_id_col=ds_cols.GetItemString(i,'id_colegiado')
+
+	select apellidos, nombre into :ls_apellidos, :ls_nombre from colegiados where id_colegiado = :ls_id_col ;
+
+	if f_es_vacio (ls_nombre) then 
+		ls_nombre = ''
+	else
+		ls_nombre = ', ' + ls_nombre
+	end if
+
+	ls_nombres_asociados = ls_nombres_asociados + ls_apellidos + ls_nombre + ls_separador
+next 	
+
+destroy ds_cols
+
+//declare cursor_siniestro cursor for 
+//select id_colegiado from fases_siniestros_coles where id_siniestro=:id_siniestro;
+//
+//open cursor_siniestro;
+//
+//do while true
+//	fetch cursor_siniestro into :ls_id_col;
+//
+//	if sqlca.sqlnrows=0 then
+//		//lb_salir=true
+//		exit
+//	end if
+//
+//	select apellidos,nombre into :ls_apellidos,:ls_nombre from colegiados where id_colegiado=:ls_id_col;
+//
+//	ls_nombres_asociados=ls_nombres_asociados+ls_apellidos+','+ls_nombre+ls_separador
+//
+//loop
+//
+//close cursor_siniestro;
+
+return ls_nombres_asociados
+end function
+

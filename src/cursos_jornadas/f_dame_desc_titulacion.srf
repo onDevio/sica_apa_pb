@@ -1,0 +1,27 @@
+HA$PBExportHeader$f_dame_desc_titulacion.srf
+global type f_dame_desc_titulacion from function_object
+end type
+
+forward prototypes
+global function string f_dame_desc_titulacion (string id_asistente)
+end prototypes
+
+global function string f_dame_desc_titulacion (string id_asistente);//Dado una asistente nos devuelve la descripcion de su titulacion
+
+string descripcion = '',titulacion=''
+
+  SELECT formacion_asistentes.cod_titulacion
+    INTO :titulacion
+    FROM formacion_asistentes  
+   WHERE formacion_asistentes.id_asistente = :id_asistente;
+
+  SELECT formacion_titulacion.descripcion  
+    INTO :descripcion  
+    FROM formacion_titulacion  
+   WHERE formacion_titulacion.cod_titulacion = :titulacion   ;
+
+if f_es_vacio(descripcion) then descripcion = ''
+
+return descripcion
+end function
+

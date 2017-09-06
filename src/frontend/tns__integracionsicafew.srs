@@ -1,0 +1,15 @@
+HA$PBExportHeader$tns__integracionsicafew.srs
+$PBExportComments$Proxy imported from Web service using Web Service Proxy Generator.
+global type tns__integracionSicaFew from structure
+   string usuario
+   string password
+   string colegio
+   string referencia
+   string n_reg_entrada
+   string n_expediente
+   string n_visado
+   string f_entrada
+   string f_visado_tecnico
+   string f_visado_entrada
+end type
+

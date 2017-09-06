@@ -1,0 +1,11 @@
+HA$PBExportHeader$st_terceros_codigos.srs
+global type st_terceros_codigos from structure
+	string		codigo_cliente
+	string		ben_premaat
+	string		empresas
+	string		ofertante
+	string		ponente
+	string		representantes
+	string		cliente_gabinete
+end type
+

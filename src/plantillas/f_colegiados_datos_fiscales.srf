@@ -1,0 +1,36 @@
+HA$PBExportHeader$f_colegiados_datos_fiscales.srf
+$PBExportComments$Dado un colegiado devuelve sus datos fiscales
+global type f_colegiados_datos_fiscales from function_object
+end type
+
+forward prototypes
+global subroutine f_colegiados_datos_fiscales (string id_col, ref string ultima_factura, ref string ret_voluntaria, ref string iva_igic, ref string irpf)
+end prototypes
+
+global subroutine f_colegiados_datos_fiscales (string id_col, ref string ultima_factura, ref string ret_voluntaria, ref string iva_igic, ref string irpf);//Esta funci$$HEX1$$f300$$ENDHEX$$n establece los par$$HEX1$$e100$$ENDHEX$$metros que se le pasan por referencia con el valor
+//que le corresponde al colegiado indicado por ID_COL
+
+
+datastore ds_datos_fiscales
+
+ds_datos_fiscales = create datastore
+ds_datos_fiscales.dataobject ='d_colegiados_datos_fiscales'
+ds_datos_fiscales.SetTransObject(SQLCA)
+
+ds_datos_fiscales.Retrieve(id_col)
+
+if ds_datos_fiscales.rowcount() > 0 then
+	ultima_factura = string(ds_datos_fiscales.getitemnumber(1, 'ultima_factura'))
+	ret_voluntaria = string(ds_datos_fiscales.getitemnumber(1, 'ret_voluntaria'))
+	iva_igic = string(ds_datos_fiscales.getitemnumber(1, 'iva_igic'))
+	irpf = string(ds_datos_fiscales.getitemnumber(1, 'irpf'))
+end if
+
+if f_es_vacio(ultima_factura) then ultima_factura = ''
+if f_es_vacio(ret_voluntaria) then ret_voluntaria = ''
+if f_es_vacio(iva_igic) then iva_igic = ''
+if f_es_vacio(irpf) then irpf = ''
+
+destroy ds_datos_fiscales
+end subroutine
+

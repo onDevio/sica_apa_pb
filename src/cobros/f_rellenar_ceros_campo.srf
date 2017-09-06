@@ -1,0 +1,29 @@
+HA$PBExportHeader$f_rellenar_ceros_campo.srf
+global type f_rellenar_ceros_campo from function_object
+end type
+
+forward prototypes
+global function string f_rellenar_ceros_campo (string dato, long longitud)
+end prototypes
+
+global function string f_rellenar_ceros_campo (string dato, long longitud);// Dado un dato sustituye el primer punto por ceros hasta la longitud que se nos indique
+
+string cuenta_final
+long pos_punto
+int num_ceros
+
+pos_punto=PosA(dato,'.')
+if pos_punto <= 0 then pos_punto=PosA(dato,',')
+
+//No se encuentra el '.' entonces retornamos lo mismo
+if pos_punto<=0 then return dato
+	
+num_ceros=longitud - (LenA(dato)-1)
+cuenta_final=ReplaceA(dato,pos_punto,1,FillA('0',num_ceros))
+return cuenta_final
+
+	
+
+
+end function
+

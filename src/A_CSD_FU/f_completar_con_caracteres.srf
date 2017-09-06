@@ -1,0 +1,42 @@
+HA$PBExportHeader$f_completar_con_caracteres.srf
+global type f_completar_con_caracteres from function_object
+end type
+
+forward prototypes
+global function string f_completar_con_caracteres (string cadena, integer long_total, string donde, string caracter)
+end prototypes
+
+global function string f_completar_con_caracteres (string cadena, integer long_total, string donde, string caracter);//Esta funci$$HEX1$$f300$$ENDHEX$$n rellena con cualquier caracteres en la parte especificada 'D' = derecha ,   'I' = izquierda, la cadena especificada en el par$$HEX1$$e100$$ENDHEX$$metro 'cadena'
+// hasta llegar a la longitud total...
+string ceros = '',retorno
+double long_cadena,num_ceros,i
+
+if IsNull(cadena) then cadena = ''
+if IsNull(caracter) then caracter = ''
+
+long_cadena = LenA(cadena)
+
+//si la cadena es mayor que la cantidad total entonces coge los long_total primeros caracteres de la cadena
+if long_cadena>long_total then 
+	retorno = LeftA(cadena,long_total)
+	return retorno
+end if
+
+	
+num_ceros = long_total - long_cadena
+for i = 1 to num_ceros
+	ceros = ceros + caracter
+next
+
+if donde='D' then
+	retorno = cadena + ceros
+else
+	retorno = ceros + cadena
+end if
+
+retorno = left (retorno,long_total)
+
+return retorno
+
+end function
+

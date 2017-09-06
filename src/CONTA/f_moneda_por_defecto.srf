@@ -1,0 +1,13 @@
+HA$PBExportHeader$f_moneda_por_defecto.srf
+$PBExportComments$Devolver$$HEX2$$e1002000$$ENDHEX$$la moneda con la que queremos crear docums. o hacer consultas o listados por defecto.
+global type f_moneda_por_defecto from function_object
+end type
+
+forward prototypes
+global function character f_moneda_por_defecto ()
+end prototypes
+
+global function character f_moneda_por_defecto ();// Devolver$$HEX2$$e1002000$$ENDHEX$$la moneda con la que queremos crear docums. o hacer consultas o listados por defecto
+return moneda_ejercicio
+end function
+

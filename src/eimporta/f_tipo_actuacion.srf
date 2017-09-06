@@ -1,0 +1,18 @@
+HA$PBExportHeader$f_tipo_actuacion.srf
+global type f_tipo_actuacion from function_object
+end type
+
+forward prototypes
+global function string f_tipo_actuacion (string codigo)
+end prototypes
+
+global function string f_tipo_actuacion (string codigo);string retorno
+
+select d_t_descripcion into :retorno from t_fases where c_t_fase = :codigo;
+
+if f_es_vacio(retorno) then retorno = 'DESCONOCIDO'
+
+return retorno
+
+end function
+

@@ -1,0 +1,17 @@
+HA$PBExportHeader$f_listas_obtener_sql.srf
+global type f_listas_obtener_sql from function_object
+end type
+
+forward prototypes
+global function string f_listas_obtener_sql (string id_lista)
+end prototypes
+
+global function string f_listas_obtener_sql (string id_lista);string retorno=''
+
+if f_es_vacio(id_lista) then return retorno
+
+retorno = "select colegiados.id_colegiado from listas_miembros,colegiados where listas_miembros.id_lista_miembro = colegiados.id_colegiado and listas_miembros.id_lista = '"+id_lista+"'"
+
+return retorno
+end function
+

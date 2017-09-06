@@ -1,0 +1,377 @@
+HA$PBExportHeader$f_configurar_menu_1.srf
+global type f_configurar_menu_1 from function_object
+end type
+
+forward prototypes
+global subroutine f_configurar_menu_1 ()
+end prototypes
+
+global subroutine f_configurar_menu_1 ();//En esta funci$$HEX1$$f300$$ENDHEX$$n configuraremos el men$$HEX1$$fa00$$ENDHEX$$.
+
+datastore ds_menu
+ds_menu = create datastore
+ds_menu.dataobject = 'd_menu_1'
+ds_menu.settransobject(sqlca)
+ds_menu.retrieve()
+ 
+int i
+string codigo, descripcion,objeto,ent_visible, ent_enabled,ventana,activo
+
+for i = 1 to ds_menu.rowcount()
+	codigo = ds_menu.getitemstring(i, 'codigo')
+	descripcion = ds_menu.getitemstring(i, 'descripcion') 
+	objeto = ds_menu.getitemstring(i, 'objeto') 
+	ent_visible = ds_menu.getitemstring(i, 'visible')
+	ent_enabled = ds_menu.getitemstring(i, 'enabled')
+	ventana = ds_menu.getitemstring(i, 'ventana')
+	activo = ds_menu.getitemstring(i,'activo')
+
+	If activo='S' then 
+		choose case codigo 
+			/* C$$HEX1$$d300$$ENDHEX$$DIGO DE MANTENIMIENTOS,ASESOR$$HEX1$$cd00$$ENDHEX$$A  */
+			case '0000000134'
+				m_aplic_frame.m_file.m_open.m_asesoria.text = descripcion	
+				m_aplic_frame.m_file.m_open.m_asesoria.visible =(ent_visible = '1') 
+				m_aplic_frame.m_file.m_open.m_asesoria.enabled =(ent_enabled = '1')
+			/* C$$HEX1$$d300$$ENDHEX$$DIGO DE MANTENIMIENTOS,TIPO DE ASUNTOS DENTRO D ASESOR$$HEX1$$cd00$$ENDHEX$$A */
+			case '0000000135'
+				m_aplic_frame.m_file.m_open.m_asesoria.m_tipoasuntos.text = descripcion	
+				m_aplic_frame.m_file.m_open.m_asesoria.m_tipoasuntos.visible =(ent_visible = '1') 
+				m_aplic_frame.m_file.m_open.m_asesoria.m_tipoasuntos.enabled =(ent_enabled = '1')
+			/* C$$HEX1$$d300$$ENDHEX$$DIGO DE ASESOR$$HEX1$$cd00$$ENDHEX$$A JUR$$HEX1$$cd00$$ENDHEX$$DICA*/
+			case '0000000136'
+				m_aplic_frame.m_file.m_new.m_asesoriajuridica.text = descripcion	
+				m_aplic_frame.m_file.m_new.m_asesoriajuridica.visible =(ent_visible = '1') 
+				m_aplic_frame.m_file.m_new.m_asesoriajuridica.enabled =(ent_enabled = '1')
+			/* C$$HEX1$$d300$$ENDHEX$$DIGO DE ASESOR$$HEX1$$cd00$$ENDHEX$$A JUR$$HEX1$$cd00$$ENDHEX$$DICA, CONSULTA DETALLADA*/
+			case '0000000137'
+				m_aplic_frame.m_file.m_new.m_asesoriajuridica.m_consultadetallada4.text = descripcion	
+				m_aplic_frame.m_file.m_new.m_asesoriajuridica.m_consultadetallada4.visible =(ent_visible = '1') 
+				m_aplic_frame.m_file.m_new.m_asesoriajuridica.m_consultadetallada4.enabled =(ent_enabled = '1')
+			/* C$$HEX1$$d300$$ENDHEX$$DIGO DE VIA ADMINISTRATIVA Y JUDICIAL */
+			case '0000000138'
+				m_aplic_frame.m_file.m_new.m_asesoriajuridica.m_administrativajudicial.text = descripcion	
+				m_aplic_frame.m_file.m_new.m_asesoriajuridica.m_administrativajudicial.visible =(ent_visible = '1') 
+				m_aplic_frame.m_file.m_new.m_asesoriajuridica.m_administrativajudicial.enabled =(ent_enabled = '1')
+			/* C$$HEX1$$d300$$ENDHEX$$DIGO DE TABLAS DE CUOTAS ACTUALES */
+			case '0000000139'
+				m_aplic_frame.m_file.m_new.m_premaat1.m_tablasdecuotasactuales.text = descripcion	
+				m_aplic_frame.m_file.m_new.m_premaat1.m_tablasdecuotasactuales.visible =(ent_visible = '1') 
+				m_aplic_frame.m_file.m_new.m_premaat1.m_tablasdecuotasactuales.enabled =(ent_enabled = '1')
+			/* C$$HEX1$$d300$$ENDHEX$$DIGO DE GENERACI$$HEX1$$d300$$ENDHEX$$N DE CUOTAS */
+			case '0000000140'
+				m_aplic_frame.m_file.m_new.m_premaat1.m_generaciondecuotas.text = descripcion	
+				m_aplic_frame.m_file.m_new.m_premaat1.m_generaciondecuotas.visible =(ent_visible = '1') 
+				m_aplic_frame.m_file.m_new.m_premaat1.m_generaciondecuotas.enabled =(ent_enabled = '1')
+			/* C$$HEX1$$d300$$ENDHEX$$DIGO DE FINALES DE OBRA */
+			case '0000000141'
+				m_aplic_frame.m_file.m_new.m_fases.m_finalesobra.text = descripcion	
+				m_aplic_frame.m_file.m_new.m_fases.m_finalesobra.visible =(ent_visible = '1') 
+				m_aplic_frame.m_file.m_new.m_fases.m_finalesobra.enabled =(ent_enabled = '1')
+			/* C$$HEX1$$d300$$ENDHEX$$DIGO DE GARANT$$HEX1$$cd00$$ENDHEX$$AS */
+			case '0000000142'
+				m_aplic_frame.m_file.m_new.m_fases.m_garantias.text = descripcion	
+				m_aplic_frame.m_file.m_new.m_fases.m_garantias.visible =(ent_visible = '1') 
+				m_aplic_frame.m_file.m_new.m_fases.m_garantias.enabled =(ent_enabled = '1')
+			/* C$$HEX1$$d300$$ENDHEX$$DIGO DE LIQUIDACIONES PAGOS */
+			case '0000000143'
+				m_aplic_frame.m_file.m_new.m_contabilidad0.m_liquidacionespagos.text = descripcion	
+				m_aplic_frame.m_file.m_new.m_contabilidad0.m_liquidacionespagos.visible =(ent_visible = '1') 
+				m_aplic_frame.m_file.m_new.m_contabilidad0.m_liquidacionespagos.enabled =(ent_enabled = '1')
+			/* C$$HEX1$$d300$$ENDHEX$$DIGO DE TIPOS DE COMUNICADOS */
+			case '0000000144'
+				m_aplic_frame.m_file.m_open.m_registro.m_tiposcomunicados.text = descripcion	
+				m_aplic_frame.m_file.m_open.m_registro.m_tiposcomunicados.visible =(ent_visible = '1') 
+				m_aplic_frame.m_file.m_open.m_registro.m_tiposcomunicados.enabled =(ent_enabled = '1')
+			/* C$$HEX1$$d300$$ENDHEX$$DIGO DE GENERAR DEVOLUCION MANUAL */
+			case '0000000145'
+				m_aplic_frame.m_file.m_new.m_contabilidad0.m_generardevolucionesmanual.text = descripcion	
+				m_aplic_frame.m_file.m_new.m_contabilidad0.m_generardevolucionesmanual.visible =(ent_visible = '1') 
+				m_aplic_frame.m_file.m_new.m_contabilidad0.m_generardevolucionesmanual.enabled =(ent_enabled = '1')
+			/* C$$HEX1$$d300$$ENDHEX$$DIGO DE CAJA */
+			case '0000000146'
+				m_aplic_frame.m_file.m_new.m_contabilidad0.m_caja.text = descripcion	
+				m_aplic_frame.m_file.m_new.m_contabilidad0.m_caja.visible =(ent_visible = '1') 
+				m_aplic_frame.m_file.m_new.m_contabilidad0.m_caja.enabled =(ent_enabled = '1')
+			/* C$$HEX1$$d300$$ENDHEX$$DIGO DE INGRESA-RETIRA */
+			case '0000000147'
+				m_aplic_frame.m_file.m_new.m_contabilidad0.m_ingresa_retira.text = descripcion	
+				m_aplic_frame.m_file.m_new.m_contabilidad0.m_ingresa_retira.visible =(ent_visible = '1') 
+				m_aplic_frame.m_file.m_new.m_contabilidad0.m_ingresa_retira.enabled =(ent_enabled = '1')
+			/* C$$HEX1$$d300$$ENDHEX$$DIGO DE FAMILIAS DE INCIDENCIAS */
+			case '0000000148'
+				m_aplic_frame.m_file.m_open.m_expedientes.m_familiasdeincidencias.text = descripcion	
+				m_aplic_frame.m_file.m_open.m_expedientes.m_familiasdeincidencias.visible =(ent_visible = '1') 
+				m_aplic_frame.m_file.m_open.m_expedientes.m_familiasdeincidencias.enabled =(ent_enabled = '1')				
+			/* C$$HEX1$$d300$$ENDHEX$$DIGO DE CALCULO DE CUOTA MINIMA */
+			case '0000000149'
+				m_aplic_frame.m_file.m_new.m_contabilidad0.m_calculodelacuotaminima.text = descripcion	
+				m_aplic_frame.m_file.m_new.m_contabilidad0.m_calculodelacuotaminima.visible =(ent_visible = '1') 
+				m_aplic_frame.m_file.m_new.m_contabilidad0.m_calculodelacuotaminima.enabled =(ent_enabled = '1')
+			/* C$$HEX1$$d300$$ENDHEX$$DIGO DE DEVOLUCIONES */
+			case '0000000150'
+				m_aplic_frame.m_file.m_new.m_contabilidad0.m_devoluciones.text = descripcion	
+				m_aplic_frame.m_file.m_new.m_contabilidad0.m_devoluciones.visible =(ent_visible = '1') 
+				m_aplic_frame.m_file.m_new.m_contabilidad0.m_devoluciones.enabled =(ent_enabled = '1')
+			/* C$$HEX1$$d300$$ENDHEX$$DIGO DE VISADOS CONSEJO */
+			case '0000000151'
+				m_aplic_frame.m_file.m_new.m_fases.m_visadosconsejo.text = descripcion	
+				m_aplic_frame.m_file.m_new.m_fases.m_visadosconsejo.visible =(ent_visible = '1') 
+				m_aplic_frame.m_file.m_new.m_fases.m_visadosconsejo.enabled =(ent_enabled = '1')
+			/* C$$HEX1$$d300$$ENDHEX$$DIGO DE ARTE CEMENTO */
+			case '0000000152'
+				m_aplic_frame.m_file.m_new.m_fases.m_artecemento.text = descripcion	
+				m_aplic_frame.m_file.m_new.m_fases.m_artecemento.visible =(ent_visible = '1') 
+				m_aplic_frame.m_file.m_new.m_fases.m_artecemento.enabled =(ent_enabled = '1')
+			/* C$$HEX1$$d300$$ENDHEX$$DIGO DE COBRO MENSUAL */
+			case '0000000153'
+				m_aplic_frame.m_file.m_new.m_src.m_cobromensual.text = descripcion	
+				m_aplic_frame.m_file.m_new.m_src.m_cobromensual.visible =(ent_visible = '1') 
+				m_aplic_frame.m_file.m_new.m_src.m_cobromensual.enabled =(ent_enabled = '1')
+			/* C$$HEX1$$d300$$ENDHEX$$DIGO DE COBROS M$$HEX1$$da00$$ENDHEX$$LTIPLES */
+			case '0000000154'
+				m_aplic_frame.m_file.m_new.m_contabilidad0.m_cobrosmultiples.text = descripcion
+				m_aplic_frame.m_file.m_new.m_contabilidad0.m_cobrosmultiples.visible =(ent_visible = '1')
+				m_aplic_frame.m_file.m_new.m_contabilidad0.m_cobrosmultiples.enabled =(ent_enabled = '1')
+			/* C$$HEX1$$d300$$ENDHEX$$DIGO DE ACTUALIZACI$$HEX1$$d300$$ENDHEX$$N MASIVA CONCEPTOS */
+			case '0000000155'
+				m_aplic_frame.m_file.m_new.m_contabilidad0.m_actualizacionmasivaconceptos.text = descripcion
+				m_aplic_frame.m_file.m_new.m_contabilidad0.m_actualizacionmasivaconceptos.visible =(ent_visible = '1')
+				m_aplic_frame.m_file.m_new.m_contabilidad0.m_actualizacionmasivaconceptos.enabled =(ent_enabled = '1')
+			/* C$$HEX1$$d300$$ENDHEX$$DIGO DE LAS ACCIONES DE FINALES DE OBRA */
+			case '0000000156'
+				m_aplic_frame.m_file.m_open.m_expedientes.m_accionesfinalesdeobra.text = descripcion
+				m_aplic_frame.m_file.m_open.m_expedientes.m_accionesfinalesdeobra.visible =(ent_visible = '1') 
+				m_aplic_frame.m_file.m_open.m_expedientes.m_accionesfinalesdeobra.enabled =(ent_enabled = '1')
+			/* C$$HEX1$$d300$$ENDHEX$$DIGO DE REC$$HEX1$$c100$$ENDHEX$$LCULO AVISOS */
+			case '0000000157'
+				m_aplic_frame.m_file.m_new.m_src.m_recalculoavisos.text = descripcion
+				m_aplic_frame.m_file.m_new.m_src.m_recalculoavisos.visible =(ent_visible = '1') 
+				m_aplic_frame.m_file.m_new.m_src.m_recalculoavisos.enabled =(ent_enabled = '1')
+			/* C$$HEX1$$d300$$ENDHEX$$DIGO DE CONSEJO PROYECTO PILOTO*/
+			case '0000000158'
+				m_aplic_frame.m_file.m_new.m_fases.m_consejoproyectopiloto.text = descripcion
+				m_aplic_frame.m_file.m_new.m_fases.m_consejoproyectopiloto.visible =(ent_visible = '1')
+				m_aplic_frame.m_file.m_new.m_fases.m_consejoproyectopiloto.enabled =(ent_enabled = '1')
+			/* C$$HEX1$$d300$$ENDHEX$$DIGO DE REGISTRO DE CARTAS*/
+			case '0000000159'
+				m_aplic_frame.m_file.m_open.m_colegiados.m_registroacreditaciones.text = descripcion
+				m_aplic_frame.m_file.m_open.m_colegiados.m_registroacreditaciones.visible =(ent_visible = '1')
+				m_aplic_frame.m_file.m_open.m_colegiados.m_registroacreditaciones.enabled =(ent_enabled = '1')
+			/* C$$HEX1$$d300$$ENDHEX$$DIGO DE IMPORTACION DE FACTURAS*/
+			case '0000000160'
+				m_aplic_frame.m_file.m_new.m_contabilidad0.m_importacionfacturas.text = descripcion
+				m_aplic_frame.m_file.m_new.m_contabilidad0.m_importacionfacturas.visible =(ent_visible = '1')
+				m_aplic_frame.m_file.m_new.m_contabilidad0.m_importacionfacturas.enabled =(ent_enabled = '1')
+			/* C$$HEX1$$d300$$ENDHEX$$DIGO DE TIPOS DE DESCRIPCIONES */
+			case '0000000161'
+				m_aplic_frame.m_file.m_open.m_expedientes.m_tiposdedescripciones.text = descripcion	
+				m_aplic_frame.m_file.m_open.m_expedientes.m_tiposdedescripciones.visible =(ent_visible = '1') 
+				m_aplic_frame.m_file.m_open.m_expedientes.m_tiposdedescripciones.enabled =(ent_enabled = '1')
+			/* C$$HEX1$$d300$$ENDHEX$$DIGO DE RENUNCIAS */
+			case '0000000162'
+				m_aplic_frame.m_file.m_new.m_fases.m_renuncias.text = descripcion
+				m_aplic_frame.m_file.m_new.m_fases.m_renuncias.visible =(ent_visible = '1') 
+				m_aplic_frame.m_file.m_new.m_fases.m_renuncias.enabled =(ent_enabled = '1')
+			/* C$$HEX1$$d300$$ENDHEX$$DIGO DE MANTENIMIENTOS, ESTAD$$HEX1$$cd00$$ENDHEX$$STICAS */
+			case '0000000163'
+				m_aplic_frame.m_file.m_open.m_estadisticas0.text = descripcion	
+				m_aplic_frame.m_file.m_open.m_estadisticas0.visible =(ent_visible = '1') 
+				m_aplic_frame.m_file.m_open.m_estadisticas0.enabled =(ent_enabled = '1')
+			/* C$$HEX1$$d300$$ENDHEX$$DIGO DE MANTENIMIENTO DE ALMACENES */
+			case '0000000164'
+				m_aplic_frame.m_file.m_open.m_registro.m_almacenes.text = descripcion
+				m_aplic_frame.m_file.m_open.m_registro.m_almacenes.visible =(ent_visible = '1')
+				m_aplic_frame.m_file.m_open.m_registro.m_almacenes.enabled =(ent_enabled = '1')
+			/* C$$HEX1$$d300$$ENDHEX$$DIGO DE EXTORNO */
+			case '0000000165'
+				m_aplic_frame.m_file.m_new.m_contabilidad0.m_extorno.text = descripcion
+				m_aplic_frame.m_file.m_new.m_contabilidad0.m_extorno.visible =(ent_visible = '1')
+				m_aplic_frame.m_file.m_new.m_contabilidad0.m_extorno.enabled =(ent_enabled = '1')
+			/* C$$HEX1$$d300$$ENDHEX$$DIGO C$$HEX1$$c100$$ENDHEX$$LCULO HONORARIOS ORIENTATIVOS DENTRO DE UTILES */
+			case '0000000166'
+				m_aplic_frame.m_file.m_new.m_cip.m_calculohonorariosorientativos.text = descripcion
+				m_aplic_frame.m_file.m_new.m_cip.m_calculohonorariosorientativos.visible =(ent_visible = '1') 
+				m_aplic_frame.m_file.m_new.m_cip.m_calculohonorariosorientativos.enabled =(ent_enabled = '1')
+			/* C$$HEX1$$d300$$ENDHEX$$DIGO DE MANTENIMIENTO DE COEFICIENTES */
+			case '0000000167'
+				m_aplic_frame.m_file.m_open.m_coeficientes.text = descripcion	
+				m_aplic_frame.m_file.m_open.m_coeficientes.visible =(ent_visible = '1') 
+				m_aplic_frame.m_file.m_open.m_coeficientes.enabled =(ent_enabled = '1')
+			/* C$$HEX1$$d300$$ENDHEX$$DIGO DE MANTENIMIENTO DE ZONAS POBLACIONES */
+			case '0000000168'
+				m_aplic_frame.m_file.m_open.m_general.m_zonaspoblaciones.text = descripcion	
+				m_aplic_frame.m_file.m_open.m_general.m_zonaspoblaciones.visible =(ent_visible = '1') 
+				m_aplic_frame.m_file.m_open.m_general.m_zonaspoblaciones.enabled =(ent_enabled = '1')
+			/* C$$HEX1$$d300$$ENDHEX$$DIGO DE MANTENIMIENTO DE SELLOS */
+			case '0000000169'
+				m_aplic_frame.m_file.m_open.m_expedientes.m_sellos.text = descripcion	
+				m_aplic_frame.m_file.m_open.m_expedientes.m_sellos.visible =(ent_visible = '1') 
+				m_aplic_frame.m_file.m_open.m_expedientes.m_sellos.enabled =(ent_enabled = '1')
+			/* C$$HEX1$$d300$$ENDHEX$$DIGO DE APARATOS T$$HEX1$$c900$$ENDHEX$$CNICOS */
+			case '0000000170'
+				m_aplic_frame.m_file.m_new.m_secretaria.m_aparatostecnicos.text = descripcion
+				m_aplic_frame.m_file.m_new.m_secretaria.m_aparatostecnicos.visible =(ent_visible = '1') 
+				m_aplic_frame.m_file.m_new.m_secretaria.m_aparatostecnicos.enabled =(ent_enabled = '1')
+			/* C$$HEX1$$d300$$ENDHEX$$DIGO DE ESTADISTICAS MUSAAT */
+			case '0000000171'
+				m_aplic_frame.m_file.m_new.m_src.m_estadisticas1.text = descripcion	
+				m_aplic_frame.m_file.m_new.m_src.m_estadisticas1.visible =(ent_visible = '1') 
+				m_aplic_frame.m_file.m_new.m_src.m_estadisticas1.enabled =(ent_enabled = '1')
+			/* C$$HEX1$$d300$$ENDHEX$$DIGO DE CALIDAD */
+			case '0000000172'
+				m_aplic_frame.m_file.m_new.m_calidad.toolbaritemtext = descripcion	
+//				m_aplic_frame.m_file.m_new.m_calidad.toolbaritemvisible =(ent_visible = '1') Da error con el PB7 build 10135
+				m_aplic_frame.m_file.m_new.m_calidad.enabled =(ent_enabled = '1')
+			/* C$$HEX1$$d300$$ENDHEX$$DIGO DE MANTENIMIENTO DE FAMILIAS DE CONCEPTOS */
+			case '0000000173'
+				m_aplic_frame.m_file.m_open.m_contabilidad.m_familias.text = descripcion	
+				m_aplic_frame.m_file.m_open.m_contabilidad.m_familias.visible =(ent_visible = '1') 
+				m_aplic_frame.m_file.m_open.m_contabilidad.m_familias.enabled =(ent_enabled = '1')
+			/* C$$HEX1$$d300$$ENDHEX$$DIGO DE MANTENIMIENTO DE SERIES DE FACTURAS */
+			case '0000000174'
+				m_aplic_frame.m_file.m_open.m_contabilidad.m_seriesfacturas.text = descripcion
+				m_aplic_frame.m_file.m_open.m_contabilidad.m_seriesfacturas.visible =(ent_visible = '1') 
+				m_aplic_frame.m_file.m_open.m_contabilidad.m_seriesfacturas.enabled =(ent_enabled = '1')
+			/* C$$HEX1$$d300$$ENDHEX$$DIGO DE SALDO CUENTA BANCARIA COLEGIADO */
+			case '0000000175'
+				m_aplic_frame.m_file.m_new.m_contabilidad0.m_saldocuentacolegiado.text = descripcion
+				m_aplic_frame.m_file.m_new.m_contabilidad0.m_saldocuentacolegiado.visible =(ent_visible = '1')
+				m_aplic_frame.m_file.m_new.m_contabilidad0.m_saldocuentacolegiado.enabled =(ent_enabled = '1')
+			/* C$$HEX1$$d300$$ENDHEX$$DIGO DE CUADRE DE CAJA*/
+			case '0000000176'
+				m_aplic_frame.m_file.m_new.m_contabilidad0.m_cuadredecaja.text = descripcion
+				m_aplic_frame.m_file.m_new.m_contabilidad0.m_cuadredecaja.visible =(ent_visible = '1')
+				m_aplic_frame.m_file.m_new.m_contabilidad0.m_cuadredecaja.enabled =(ent_enabled = '1')
+			/* C$$HEX1$$d300$$ENDHEX$$DIGO DE INGRESA-RETIRA */
+			case '0000000177'
+				m_aplic_frame.m_file.m_new.m_contabilidad0.m_ingresa_retiradirecto.text = descripcion
+				m_aplic_frame.m_file.m_new.m_contabilidad0.m_ingresa_retiradirecto.visible =(ent_visible = '1')
+				m_aplic_frame.m_file.m_new.m_contabilidad0.m_ingresa_retiradirecto.enabled =(ent_enabled = '1')
+			/* C$$HEX1$$d300$$ENDHEX$$DIGO APLICACIONES GRUPOS */
+			case '0000000178'
+				m_aplic_frame.m_file.m_new.m_seguridad.m_grupos.text = descripcion
+				m_aplic_frame.m_file.m_new.m_seguridad.m_grupos.visible =(ent_visible = '1') 
+				m_aplic_frame.m_file.m_new.m_seguridad.m_grupos.enabled =(ent_enabled = '1')
+			/* C$$HEX1$$d300$$ENDHEX$$DIGO DE REGISTRO DE ALMACEN */
+			case '0000000179'
+				m_aplic_frame.m_file.m_new.m_gestordeproyectos.text = descripcion
+				m_aplic_frame.m_file.m_new.m_gestordeproyectos.visible =(ent_visible = '1') 
+				m_aplic_frame.m_file.m_new.m_gestordeproyectos.enabled =(ent_enabled = '1')
+			/* C$$HEX1$$d300$$ENDHEX$$DIGO DE MANTENIMIENTO DE CODIGOS DE ALMACEN */
+			case '0000000180'
+				m_aplic_frame.m_file.m_open.m_almac$$HEX1$$e900$$ENDHEX$$n.m_otro.text = descripcion
+				m_aplic_frame.m_file.m_open.m_almac$$HEX1$$e900$$ENDHEX$$n.m_otro.visible =(ent_visible = '1') 
+				m_aplic_frame.m_file.m_open.m_almac$$HEX1$$e900$$ENDHEX$$n.m_otro.enabled =(ent_enabled = '1')
+			/* C$$HEX1$$d300$$ENDHEX$$DIGO DE MANTENIMIENTO DE TIPOS DE DOCUMENTO DE ALMACEN  */
+			case '0000000181'
+				m_aplic_frame.m_file.m_open.m_almac$$HEX1$$e900$$ENDHEX$$n.m_mas.text = descripcion
+				m_aplic_frame.m_file.m_open.m_almac$$HEX1$$e900$$ENDHEX$$n.m_mas.visible =(ent_visible = '1') 
+				m_aplic_frame.m_file.m_open.m_almac$$HEX1$$e900$$ENDHEX$$n.m_mas.enabled =(ent_enabled = '1')
+			/* C$$HEX1$$d300$$ENDHEX$$DIGO DE MANTENIMIENTO DE ALMACEN  */
+			case '0000000182'
+				if g_usar_idioma = "S" then
+					descripcion = g_idioma.of_getmsg( "menu.almacen",descripcion)
+				end if
+				m_aplic_frame.m_file.m_open.m_almac$$HEX1$$e900$$ENDHEX$$n.text = descripcion
+				m_aplic_frame.m_file.m_open.m_almac$$HEX1$$e900$$ENDHEX$$n.visible =(ent_visible = '1') 
+				m_aplic_frame.m_file.m_open.m_almac$$HEX1$$e900$$ENDHEX$$n.enabled =(ent_enabled = '1')	
+			/* C$$HEX1$$d300$$ENDHEX$$DIGO DE CEGAS  */
+			case '0000000183'
+				m_aplic_frame.m_file.m_new.m_fases.m_cegas.text = descripcion
+				m_aplic_frame.m_file.m_new.m_fases.m_cegas.visible =(ent_visible = '1') 
+				m_aplic_frame.m_file.m_new.m_fases.m_cegas.enabled =(ent_enabled = '1')
+			/* C$$HEX1$$d300$$ENDHEX$$DIGO DE CARTAS DE CONTROL */
+			case '0000000184'
+				m_aplic_frame.m_file.m_new.m_fases.m_cartascontrol.text = descripcion	
+				m_aplic_frame.m_file.m_new.m_fases.m_cartascontrol.visible =(ent_visible = '1') 
+				m_aplic_frame.m_file.m_new.m_fases.m_cartascontrol.enabled =(ent_enabled = '1')
+			/* C$$HEX1$$d300$$ENDHEX$$DIGO DE IMPORTACION RECIBOS EXTERNOS */
+			case '0000000185'
+				m_aplic_frame.m_file.m_new.m_contabilidad0.m_importacionrecibosexternos.text = descripcion
+				m_aplic_frame.m_file.m_new.m_contabilidad0.m_importacionrecibosexternos.visible =(ent_visible = '1')
+				m_aplic_frame.m_file.m_new.m_contabilidad0.m_importacionrecibosexternos.enabled =(ent_enabled = '1')
+			/* C$$HEX1$$d300$$ENDHEX$$DIGO DE IMPORTACION CONCEPTOS FACTURABLES */
+			case '0000000186'
+				m_aplic_frame.m_file.m_new.m_contabilidad0.m_importacionconceptosfacturables.text = descripcion
+				m_aplic_frame.m_file.m_new.m_contabilidad0.m_importacionconceptosfacturables.visible =(ent_visible = '1')
+				m_aplic_frame.m_file.m_new.m_contabilidad0.m_importacionconceptosfacturables.enabled =(ent_enabled = '1')
+			/* C$$HEX1$$d300$$ENDHEX$$DIGO DE MANTENIMIENTO DE COEFICIENTE IPC */
+			case '0000000187'
+				m_aplic_frame.m_file.m_open.m_contabilidad.m_coeficienteipc.text = descripcion
+				m_aplic_frame.m_file.m_open.m_contabilidad.m_coeficienteipc.visible =(ent_visible = '1') 
+				m_aplic_frame.m_file.m_open.m_contabilidad.m_coeficienteipc.enabled =(ent_enabled = '1')
+			/* C$$HEX1$$d300$$ENDHEX$$DIGO DE MANTENIMIENTO DE LIBROS  */
+			case '0000000188'
+				m_aplic_frame.m_file.m_open.m_libros0.text = descripcion
+				m_aplic_frame.m_file.m_open.m_libros0.visible =(ent_visible = '1') 
+				m_aplic_frame.m_file.m_open.m_libros0.enabled =(ent_enabled = '1')
+			/* C$$HEX1$$d300$$ENDHEX$$DIGO DE MANTENIMIENTO DE UBICACIONES EN LIBROS  */
+			case '0000000189'
+				m_aplic_frame.m_file.m_open.m_libros0.m_ubicaciones.text = descripcion
+				m_aplic_frame.m_file.m_open.m_libros0.m_ubicaciones.visible =(ent_visible = '1') 
+				m_aplic_frame.m_file.m_open.m_libros0.m_ubicaciones.enabled =(ent_enabled = '1')
+			/* C$$HEX1$$d300$$ENDHEX$$DIGO DE REC$$HEX1$$c100$$ENDHEX$$LCUO DIP AVISOS */
+			case '0000000190'
+				m_aplic_frame.m_file.m_new.m_avisosdefactura.m_recalculodip.text = descripcion
+				m_aplic_frame.m_file.m_new.m_avisosdefactura.m_recalculodip.visible =(ent_visible = '1')
+				m_aplic_frame.m_file.m_new.m_avisosdefactura.m_recalculodip.enabled =(ent_enabled = '1')
+			/* C$$HEX1$$d300$$ENDHEX$$DIGO DE S$$HEX1$$c100$$ENDHEX$$BANA DE PREMAAT */
+			case '0000000191'
+				m_aplic_frame.m_file.m_new.m_premaat1.m_s$$HEX1$$e100$$ENDHEX$$bana.text = descripcion
+				m_aplic_frame.m_file.m_new.m_premaat1.m_s$$HEX1$$e100$$ENDHEX$$bana.visible =(ent_visible = '1')
+				m_aplic_frame.m_file.m_new.m_premaat1.m_s$$HEX1$$e100$$ENDHEX$$bana.enabled =(ent_enabled = '1')
+			/* C$$HEX1$$d300$$ENDHEX$$DIGO DE MANTENIMIENTO DE FIRMAS DIGITALES  */
+			case '0000000192'
+				m_aplic_frame.m_file.m_open.m_colegiados.m_firmadigital.text = descripcion
+				m_aplic_frame.m_file.m_open.m_colegiados.m_firmadigital.visible =(ent_visible = '1') 
+				m_aplic_frame.m_file.m_open.m_colegiados.m_firmadigital.enabled =(ent_enabled = '1')
+			/* C$$HEX1$$d300$$ENDHEX$$DIGO DE REGISTRO SOCIEDADES */
+			case '0000000193'
+				m_aplic_frame.m_file.m_new.m_registrosociedades.text = descripcion
+				m_aplic_frame.m_file.m_new.m_registrosociedades.visible =(ent_visible = '1')
+				m_aplic_frame.m_file.m_new.m_registrosociedades.enabled =(ent_enabled = '1')
+			/* C$$HEX1$$d300$$ENDHEX$$DIGO DE MANTENIMIENTOS DE REGISTRO SOCIEDADES */
+			case '0000000194'
+				m_aplic_frame.m_file.m_open.m_mantregistrosociedades.text = descripcion
+				m_aplic_frame.m_file.m_open.m_mantregistrosociedades.visible =(ent_visible = '1') 
+				m_aplic_frame.m_file.m_open.m_mantregistrosociedades.enabled =(ent_enabled = '1')
+		    /* C$$HEX1$$d300$$ENDHEX$$DIGO DE MANTENIMIENTOS DE TITULACIONES */
+			case '0000000196'
+				m_aplic_frame.m_file.m_open.m_colegiados.m_titulaciones0.text = descripcion
+				m_aplic_frame.m_file.m_open.m_colegiados.m_titulaciones0.visible =(ent_visible = '1') 
+    			m_aplic_frame.m_file.m_open.m_colegiados.m_titulaciones0.enabled =(ent_enabled = '1')
+ 			/* C$$HEX1$$d300$$ENDHEX$$DIGO DE AYUDAS USUARIO */
+			case '0000000197'
+				m_aplic_frame.m_file.m_open.m_ayudasusuario.text = descripcion
+				m_aplic_frame.m_file.m_open.m_ayudasusuario.visible =(ent_visible = '1')
+				m_aplic_frame.m_file.m_open.m_ayudasusuario.enabled =(ent_enabled = '1')
+ 			/* C$$HEX1$$d300$$ENDHEX$$DIGO DE COMPROBAR CUENTAS BANCARIAS */
+			case '0000000198'
+				m_aplic_frame.m_file.m_open.m_ayudasusuario.m_comprcuentasbanc.text = descripcion
+				m_aplic_frame.m_file.m_open.m_ayudasusuario.m_comprcuentasbanc.visible =(ent_visible = '1')
+				m_aplic_frame.m_file.m_open.m_ayudasusuario.m_comprcuentasbanc.enabled =(ent_enabled = '1')
+ 			/* C$$HEX1$$d300$$ENDHEX$$DIGO DE DEPURAR ESTADILLO */
+			case '0000000199'
+				m_aplic_frame.m_file.m_open.m_ayudasusuario.m_depuraci$$HEX1$$f300$$ENDHEX$$n.text = descripcion
+				m_aplic_frame.m_file.m_open.m_ayudasusuario.m_depuraci$$HEX1$$f300$$ENDHEX$$n.visible =(ent_visible = '1')
+				m_aplic_frame.m_file.m_open.m_ayudasusuario.m_depuraci$$HEX1$$f300$$ENDHEX$$n.enabled =(ent_enabled = '1')	
+			/* C$$HEX1$$d300$$ENDHEX$$DIGO DE MANTENIMIENTOS, IDIOMAS DENTRO DE GENERAL	 */
+			case '0000000200'
+				m_aplic_frame.m_file.m_open.m_general.m_tipoidioma.text = descripcion	
+				m_aplic_frame.m_file.m_open.m_general.m_tipoidioma.visible =(ent_visible = '1') 
+				m_aplic_frame.m_file.m_open.m_general.m_tipoidioma.enabled =(ent_enabled = '1')	
+			case '0000000211'
+				m_aplic_frame.m_file.m_new.m_fases.m_f_contratos_otras_demarcaciones.text = descripcion	
+				m_aplic_frame.m_file.m_new.m_fases.m_f_contratos_otras_demarcaciones.visible =(ent_visible = '1') 
+				m_aplic_frame.m_file.m_new.m_fases.m_f_contratos_otras_demarcaciones.enabled =(ent_enabled = '1')	
+				
+				
+		end choose
+	end if
+next
+
+destroy ds_menu
+
+end subroutine
+

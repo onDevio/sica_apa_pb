@@ -1,0 +1,27 @@
+HA$PBExportHeader$anyadircerosn_arqui.srf
+global type anyadircerosn_arqui from function_object
+end type
+
+forward prototypes
+global function string anyadircerosn_arqui (string n_arqui)
+end prototypes
+
+global function string anyadircerosn_arqui (string n_arqui);string izquierda, derecha
+
+izquierda= LeftA (n_arqui,1)
+derecha = RightA (n_arqui,1)
+
+if isnull(n_arqui) or n_arqui='' then return(n_arqui)
+
+IF (izquierda <> "%") and  (derecha <> "%") THEN
+	do while LenA(n_arqui) < 5 
+		n_arqui = "0"+ n_arqui
+	loop
+else
+	n_arqui = ""
+end if
+return(n_arqui)
+
+
+end function
+

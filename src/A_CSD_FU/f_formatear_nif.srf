@@ -1,0 +1,43 @@
+HA$PBExportHeader$f_formatear_nif.srf
+global type f_formatear_nif from function_object
+end type
+
+forward prototypes
+global function string f_formatear_nif (string nif)
+end prototypes
+
+global function string f_formatear_nif (string nif);//Da formato a un nif:
+//		- Si no lleva letra, le calcula la letra y se la a$$HEX1$$f100$$ENDHEX$$ade
+//		- Si lleva letra, comprueba que la letra es correcta
+
+string ult_caracter,letra_nif, primer_caracter,mensaje
+
+primer_caracter = LeftA(nif,1)
+if not isnumber(primer_caracter) then return nif
+ult_caracter = MidA(nif,LenA(nif),1)
+
+//Si el $$HEX1$$fa00$$ENDHEX$$ltimo n$$HEX1$$fa00$$ENDHEX$$mero es n$$HEX1$$fa00$$ENDHEX$$mero, entonces es un DNI sin n$$HEX1$$fa00$$ENDHEX$$mero, sino hay que hacer la comprobaci$$HEX1$$f300$$ENDHEX$$n de nif
+
+if isnumber(ult_caracter)=false then
+	if f_nif_ok(nif)=1 then return nif
+  //Tomamos solo el n$$HEX1$$fa00$$ENDHEX$$mero y le quitamos la letra para volv$$HEX1$$e900$$ENDHEX$$rsela a calcular
+	nif =MidA(nif,1,LenA(nif)-1)
+end if
+
+letra_nif = f_calcula_letra_nif(nif)
+
+if not isnumber(ult_caracter) and letra_nif <> ult_caracter then 
+	mensaje = "Letra del NIF incorrecta. Se pondr$$HEX2$$e1002000$$ENDHEX$$la correcta."
+	if g_usar_idioma ="S" then
+		mensaje = g_idioma.of_getmsg( "nif.letra_mal", mensaje)
+	end if
+	messagebox(g_titulo,mensaje,Information!)
+end if
+
+nif = nif + upper(letra_nif)
+
+return nif
+	
+
+end function
+

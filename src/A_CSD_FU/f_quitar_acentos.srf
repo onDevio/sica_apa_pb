@@ -1,0 +1,75 @@
+HA$PBExportHeader$f_quitar_acentos.srf
+global type f_quitar_acentos from function_object
+end type
+
+forward prototypes
+global function string f_quitar_acentos (string mi_texto)
+end prototypes
+
+global function string f_quitar_acentos (string mi_texto);// Esta funcion retorna un string quitandole los acentos, si no tiene deja el string como esta.
+// Tanto en mayusculas como en minusculas.
+
+int i
+long p,le,le1
+string ar[10]
+string sin_acentos,no_tiene,encontrado
+
+ar [1] = "$$HEX1$$e100$$ENDHEX$$"
+ar [2] = "$$HEX1$$e900$$ENDHEX$$"
+ar [3] = "$$HEX1$$ed00$$ENDHEX$$"
+ar [4] = "$$HEX1$$f300$$ENDHEX$$"
+ar [5] = "$$HEX1$$fa00$$ENDHEX$$"
+ar [6] = "$$HEX1$$c100$$ENDHEX$$"
+ar [7] = "$$HEX1$$c900$$ENDHEX$$"
+ar [8] = "$$HEX1$$cd00$$ENDHEX$$"
+ar [9] = "$$HEX1$$d300$$ENDHEX$$"
+ar [10] = "$$HEX1$$da00$$ENDHEX$$"
+// Devuelvo este texto (no_tiene) si es que no contiene ningun acento el string
+   no_tiene = mi_texto
+// Hago un for/next de la longitud del campo por si existen varios acentos en el string
+	le1 = LenA(mi_texto)
+	for le = 1 to le1
+// Me recorro las vocales		
+	  for i = 1 to 10
+		 p = PosA(mi_texto, ar[i])
+	    if p <> 0 then
+			encontrado = 'S'
+			choose case i
+				case 1
+					sin_acentos = ReplaceA(mi_texto, p, 1, "a")
+				case 2
+					sin_acentos = ReplaceA(mi_texto, p, 1, "e")
+				case 3
+					sin_acentos = ReplaceA(mi_texto, p, 1, "i")
+				case 4
+					sin_acentos = ReplaceA(mi_texto, p, 1, "o")
+				case 5
+					sin_acentos = ReplaceA(mi_texto, p, 1, "u")
+				case 6
+					sin_acentos = ReplaceA(mi_texto, p, 1, "A")
+				case 7
+					sin_acentos = ReplaceA(mi_texto, p, 1, "E")
+				case 8
+					sin_acentos = ReplaceA(mi_texto, p, 1, "I")
+				case 9
+					sin_acentos = ReplaceA(mi_texto, p, 1, "O")
+				case 10
+					sin_acentos = ReplaceA(mi_texto, p, 1, "U")
+			end choose
+			      mi_texto = sin_acentos
+		 end if
+	  next
+   next
+	
+ if encontrado = 'S' then
+	   return sin_acentos
+ else
+		return no_tiene
+ end if
+ 
+	 
+
+
+
+end function
+

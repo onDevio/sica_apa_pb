@@ -1,0 +1,21 @@
+HA$PBExportHeader$f_total_cobrado_musaat_contrato.srf
+global type f_total_cobrado_musaat_contrato from function_object
+end type
+
+forward prototypes
+global function double f_total_cobrado_musaat_contrato (string id_fase)
+end prototypes
+
+global function double f_total_cobrado_musaat_contrato (string id_fase);double musaat_cobrado = 0
+
+  SELECT sum(base_musaat)  
+    INTO :musaat_cobrado  
+    FROM fases_minutas  
+   WHERE fases_minutas.id_fase = :id_fase   and
+           fases_minutas.anulada <> 'S' and fases_minutas.fecha_pago <> null;
+
+if isnull(musaat_cobrado) then musaat_cobrado = 0
+
+return musaat_cobrado
+end function
+

@@ -1,0 +1,21 @@
+HA$PBExportHeader$f_coeficientes_presentacion.srf
+$PBExportComments$objetos b$$HEX1$$e100$$ENDHEX$$sicos. A$$HEX1$$f100$$ENDHEX$$adido
+global type f_coeficientes_presentacion from function_object
+end type
+
+forward prototypes
+global function string f_coeficientes_presentacion (string codigo)
+end prototypes
+
+global function string f_coeficientes_presentacion (string codigo);string  codigo_presentacion = ''
+ 
+SELECT coeficientes.codigo_presentacion  
+INTO :codigo_presentacion  
+FROM coeficientes  
+WHERE coeficientes.codigo = :codigo   ;
+
+if f_es_vacio(codigo_presentacion) then return '['+codigo+']'
+return '['+codigo_presentacion+']'
+
+end function
+

@@ -1,0 +1,17 @@
+HA$PBExportHeader$f_colegiados_organismo.srf
+$PBExportComments$Dado un colegiado y una situaci$$HEX1$$f300$$ENDHEX$$n profesional devuelve el organismo de esta situaci$$HEX1$$f300$$ENDHEX$$n
+global type f_colegiados_organismo from function_object
+end type
+
+forward prototypes
+global function string f_colegiados_organismo (string id_col, string situacion)
+end prototypes
+
+global function string f_colegiados_organismo (string id_col, string situacion);//Devuelve el organismo de un colegiado que corresponda con una situacio$$HEX1$$f300$$ENDHEX$$n profesional...
+string organismo
+select organismo into :organismo from incompatibilidades where id_colegiado = :id_col
+	and tipo_situacion = :situacion;
+
+return organismo
+end function
+

@@ -1,0 +1,19 @@
+HA$PBExportHeader$f_fases_visado_provisional.srf
+global type f_fases_visado_provisional from function_object
+end type
+
+forward prototypes
+global function boolean f_fases_visado_provisional (string id_fase)
+end prototypes
+
+global function boolean f_fases_visado_provisional (string id_fase);int vp
+
+select count(*)
+into :vp
+from fases
+where tipo_registro = 'VP' ;
+
+return vp > 0
+
+end function
+

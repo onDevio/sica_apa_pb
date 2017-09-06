@@ -1,0 +1,15 @@
+HA$PBExportHeader$f_color_habilitado.srf
+global type f_color_habilitado from function_object
+end type
+
+forward prototypes
+global function long f_color_habilitado ()
+end prototypes
+
+global function long f_color_habilitado ();// Simplemente devolvemos el color de fondo que debe tener un campo modificable
+
+n_cst_color lnv_color // Contiene constantes sobre colores
+return lnv_color.WHITE
+
+end function
+

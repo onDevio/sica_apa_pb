@@ -1,0 +1,10 @@
+HA$PBExportHeader$st_cobrar_avisos_za.srs
+global type st_cobrar_avisos_za from structure
+	string		id_fase
+	string		id_expedi
+	string		n_fase
+	string		n_expedi
+	string		id_minuta
+	string		n_aviso
+end type
+

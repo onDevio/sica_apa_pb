@@ -1,0 +1,28 @@
+HA$PBExportHeader$f_devuelve_pagador_fact.srf
+global type f_devuelve_pagador_fact from function_object
+end type
+
+forward prototypes
+global function string f_devuelve_pagador_fact (string id_factura)
+end prototypes
+
+global function string f_devuelve_pagador_fact (string id_factura);// Devuelve el nombre del pagador de la factura
+// Se pasa como parametros el id_factura
+
+string pagador, nombre
+
+
+SELECT csi_facturas_emitidas.nombre_pagador  , nombre
+INTO :pagador  , :nombre
+FROM csi_facturas_emitidas  
+WHERE csi_facturas_emitidas.id_factura = :id_factura   
+  ;
+			  
+if isnull(nombre) then nombre = ''		  
+if isnull(pagador) then pagador = nombre
+
+ return pagador
+
+
+end function
+

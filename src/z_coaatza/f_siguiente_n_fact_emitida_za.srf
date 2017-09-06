@@ -1,0 +1,20 @@
+HA$PBExportHeader$f_siguiente_n_fact_emitida_za.srf
+$PBExportComments$PRINCIPAL, Devuelve el num. de factura emitida
+global type f_siguiente_n_fact_emitida_za from function_object
+end type
+
+forward prototypes
+global function string f_siguiente_n_fact_emitida_za (string tipo_factura, string serie, string id_persona, datetime fecha)
+end prototypes
+
+global function string f_siguiente_n_fact_emitida_za (string tipo_factura, string serie, string id_persona, datetime fecha);// Zaragoza - Devuelve el num. de recibo de musaat
+string n_fact, num
+
+num = f_siguiente_n_fact_fe (tipo_factura, serie, 5)
+
+// Utilizaremos 2 d$$HEX1$$ed00$$ENDHEX$$gitos para la serie y 8 para la numeraci$$HEX1$$f300$$ENDHEX$$n(2 del ejercicio y 5 del n$$HEX1$$fa00$$ENDHEX$$mero)	
+n_fact = LeftA(RightA(TRIM(serie),2) + '-' + RightA(g_ejercicio,2) + num, 10)
+
+return n_fact
+end function
+

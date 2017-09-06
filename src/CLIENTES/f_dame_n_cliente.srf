@@ -1,0 +1,24 @@
+HA$PBExportHeader$f_dame_n_cliente.srf
+global type f_dame_n_cliente from function_object
+end type
+
+forward prototypes
+global function string f_dame_n_cliente (string id_cliente)
+end prototypes
+
+global function string f_dame_n_cliente (string id_cliente);string datos_cliente = ''
+string n_cliente
+long num_clientes
+
+select count(*) into :num_clientes from clientes where id_cliente=:id_cliente;
+if num_clientes > 0 then  
+	select n_cliente into :n_cliente from clientes where id_cliente=:id_cliente;
+	IF f_es_vacio (n_cliente) THEN n_cliente = ''
+	datos_cliente = n_cliente
+
+end if
+//messagebox ('',datos_colegiado)
+
+return datos_cliente
+end function
+

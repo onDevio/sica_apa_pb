@@ -1,0 +1,12 @@
+HA$PBExportHeader$f_conceptos_codigo_cobro_a_cuenta.srf
+global type f_conceptos_codigo_cobro_a_cuenta from function_object
+end type
+
+forward prototypes
+global function string f_conceptos_codigo_cobro_a_cuenta ()
+end prototypes
+
+global function string f_conceptos_codigo_cobro_a_cuenta ();// FUNCION CREADA POR RICARDO PARA DEVOLVER EL CODIGO DEL CODIGO A CUENTA PARA LA FACTURA DE HONORARIOS DE TENERIFE Y DE ZARAGOZA
+return g_codigos_conceptos.cobro_a_cuenta
+end function
+

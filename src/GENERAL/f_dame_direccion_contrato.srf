@@ -1,0 +1,46 @@
+HA$PBExportHeader$f_dame_direccion_contrato.srf
+global type f_dame_direccion_contrato from function_object
+end type
+
+forward prototypes
+global function string f_dame_direccion_contrato (string id_fase)
+end prototypes
+
+global function string f_dame_direccion_contrato (string id_fase);string cod_tipo_via, nombre_calle, n_calle,   cp  , desc_tipo_via, poblacion, cod_pob,puerta,piso
+string direccion_completa = ''
+
+SELECT fases.tipo_via_emplazamiento,  fases.emplazamiento,  fases.n_calle,   fases.poblacion  ,fases.puerta,fases.piso
+INTO :cod_tipo_via,   :nombre_calle,   :n_calle,   :cod_pob  , :puerta , :piso
+FROM fases  
+HAVING ( fases.id_fase = :id_fase )   ;
+
+desc_tipo_via = f_dame_desc_tipo_via(cod_tipo_via)
+if f_es_vacio(puerta) then 
+	puerta = ''
+else
+	puerta='pta.'+puerta 
+end if
+
+if f_es_vacio(piso) then 
+	piso = ''
+else
+	piso = piso+'$$HEX1$$ba00$$ENDHEX$$'
+end if
+if f_es_vacio(desc_tipo_via) then desc_tipo_via = ''
+if f_es_vacio(nombre_calle) then nombre_calle = ''
+if f_es_vacio(n_calle) then n_calle = ''
+cp = f_devuelve_cod_postal(cod_pob)
+if f_es_vacio(cp) then cp = ''
+poblacion = f_dame_poblacion(cod_pob)
+if f_es_vacio(poblacion) then poblacion = ''
+
+if (g_colegio='COAATGC') then
+	direccion_completa = desc_tipo_via + ' ' + nombre_calle + ' ' + n_calle
+else
+	direccion_completa = desc_tipo_via + ' ' + nombre_calle + ' ' + n_calle+' '+puerta +' '+piso+ ' - ' + cp + ' - ' + poblacion
+end if
+
+return direccion_completa
+
+end function
+

@@ -1,0 +1,36 @@
+declare @colegio varchar(10)
+select @colegio = texto from var_globales where nombre = 'COLEGIO'
+
+insert into listados values('Listado Num Viv Obra Nueva','d_fases_listado_num_viv_cerrado','w_fases_listados','00','S');
+
+DELETE from listados where ventana like 'w_facturacion_emitidas' AND dw = 'd_libro_iva_factu_e_general_f_conta' ;
+DELETE from listados where ventana like 'w_facturacion_emitidas' AND dw = 'd_libro_iva_factu_e_exentas' ;
+
+--NAVARRA
+--ICN-376
+if @colegio='COAATNA'
+begin
+UPDATE listados SET dw='d_colegiados_listado_general_telef_prof_na' WHERE descripcion='Listado General con Tlfno Prof.' AND ventana='w_colegiados_listados'
+end
+
+--LA RIOJA
+--CRI-170
+if @colegio='COAATLR'
+begin
+INSERT INTO notificaciones (nombre, dataobject, tipo_destinatario, codigo, sig_carta, tiene_detalle) VALUES ('Listado de Minutas Impagadas con más de 180 días','d_fases_listado_impagadas_180_dias','P','6','@@','S')
+end
+
+--TERRES
+--ICTL-241
+if @colegio='COAATTEB'
+begin
+UPDATE listados SET dw='d_renuncias_carta_promotor_teb' WHERE ventana='w_renuncias_impresos' AND descripcion='Carta Promotor'
+UPDATE listados SET dw='d_renuncias_carta_colarq_teb' WHERE ventana='w_renuncias_impresos' AND descripcion='Carta Col. Arq.'
+UPDATE listados SET dw='d_renuncias_carta_propietario_teb' WHERE ventana='w_renuncias_impresos' AND descripcion='Carta Propietario'
+UPDATE listados SET dw='d_renuncias_carta_colegiado_teb' WHERE ventana='w_renuncias_impresos' AND descripcion='Carta Colegiado'
+end
+
+-- SCP 299
+INSERT INTO menu ( codigo, descripcion,  objeto, visible, enabled, ventana, activo )  
+  VALUES ('0000000207','Mantenimiento de Equivalencias VU-AT','m_aplic_frame.m_file.m_open.m_general.m_mant_equivalencia', '1', '1',  'w_mant_equivalencias', 'S' );
+

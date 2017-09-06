@@ -1,0 +1,1409 @@
+HA$PBExportHeader$m_csd_frame.srm
+forward
+global type m_csd_frame from pfc_m_master
+end type
+type m_consultadeproyectos from menu within m_new
+end type
+type m_altadefichas from menu within m_new
+end type
+type m_listadoseinformes from menu within m_new
+end type
+type m_new from pfc_m_master`m_new within m_file
+m_consultadeproyectos m_consultadeproyectos
+m_altadefichas m_altadefichas
+m_listadoseinformes m_listadoseinformes
+end type
+type m_municipios from menu within m_open
+end type
+type m_open from pfc_m_master`m_open within m_file
+m_municipios m_municipios
+end type
+type m_- from menu within m_file
+end type
+type m_cb_det_nuevo from menu within m_file
+end type
+type m_cb_det_grabar from menu within m_file
+end type
+type m_cb_det_anterior from menu within m_file
+end type
+type m_cb_det_siguiente from menu within m_file
+end type
+type m_cb_list_detalle from menu within m_file
+end type
+type m_cb_list_consultar from menu within m_file
+end type
+type m_cb_ayuda from menu within m_file
+end type
+type m_cb_listados from menu within m_file
+end type
+type m_cb_consulta from menu within m_file
+end type
+type m_file from pfc_m_master`m_file within m_csd_frame
+m_- m_-
+m_cb_det_nuevo m_cb_det_nuevo
+m_cb_det_grabar m_cb_det_grabar
+m_cb_det_anterior m_cb_det_anterior
+m_cb_det_siguiente m_cb_det_siguiente
+m_cb_list_detalle m_cb_list_detalle
+m_cb_list_consultar m_cb_list_consultar
+m_cb_ayuda m_cb_ayuda
+m_cb_listados m_cb_listados
+m_cb_consulta m_cb_consulta
+end type
+end forward
+
+global type m_csd_frame from pfc_m_master
+end type
+global m_csd_frame m_csd_frame
+
+on m_csd_frame.create
+m_csd_frame=this
+call super::create
+end on
+
+on m_csd_frame.destroy
+call super::destroy
+end on
+
+type m_file from pfc_m_master`m_file within m_csd_frame
+m_- m_-
+m_cb_det_nuevo m_cb_det_nuevo
+m_cb_det_grabar m_cb_det_grabar
+m_cb_det_anterior m_cb_det_anterior
+m_cb_det_siguiente m_cb_det_siguiente
+m_cb_list_detalle m_cb_list_detalle
+m_cb_list_consultar m_cb_list_consultar
+m_cb_ayuda m_cb_ayuda
+m_cb_listados m_cb_listados
+m_cb_consulta m_cb_consulta
+end type
+
+on m_file.create
+call super::create
+this.text = "&Archivo"
+this.m_-=create m_-
+this.m_cb_det_nuevo=create m_cb_det_nuevo
+this.m_cb_det_grabar=create m_cb_det_grabar
+this.m_cb_det_anterior=create m_cb_det_anterior
+this.m_cb_det_siguiente=create m_cb_det_siguiente
+this.m_cb_list_detalle=create m_cb_list_detalle
+this.m_cb_list_consultar=create m_cb_list_consultar
+this.m_cb_ayuda=create m_cb_ayuda
+this.m_cb_listados=create m_cb_listados
+this.m_cb_consulta=create m_cb_consulta
+this.Item[UpperBound(this.Item)+1]=this.m_-
+this.Item[UpperBound(this.Item)+1]=this.m_cb_det_nuevo
+this.Item[UpperBound(this.Item)+1]=this.m_cb_det_grabar
+this.Item[UpperBound(this.Item)+1]=this.m_cb_det_anterior
+this.Item[UpperBound(this.Item)+1]=this.m_cb_det_siguiente
+this.Item[UpperBound(this.Item)+1]=this.m_cb_list_detalle
+this.Item[UpperBound(this.Item)+1]=this.m_cb_list_consultar
+this.Item[UpperBound(this.Item)+1]=this.m_cb_ayuda
+this.Item[UpperBound(this.Item)+1]=this.m_cb_listados
+this.Item[UpperBound(this.Item)+1]=this.m_cb_consulta
+end on
+
+on m_file.destroy
+call super::destroy
+destroy(this.m_-)
+destroy(this.m_cb_det_nuevo)
+destroy(this.m_cb_det_grabar)
+destroy(this.m_cb_det_anterior)
+destroy(this.m_cb_det_siguiente)
+destroy(this.m_cb_list_detalle)
+destroy(this.m_cb_list_consultar)
+destroy(this.m_cb_ayuda)
+destroy(this.m_cb_listados)
+destroy(this.m_cb_consulta)
+end on
+
+type m_new from pfc_m_master`m_new within m_file
+m_consultadeproyectos m_consultadeproyectos
+m_altadefichas m_altadefichas
+m_listadoseinformes m_listadoseinformes
+end type
+
+on m_new.create
+call super::create
+this.text = "M$$HEX1$$f300$$ENDHEX$$dulos"
+this.microhelp = ""
+this.toolbaritemvisible = false
+this.m_consultadeproyectos=create m_consultadeproyectos
+this.m_altadefichas=create m_altadefichas
+this.m_listadoseinformes=create m_listadoseinformes
+this.Item[UpperBound(this.Item)+1]=this.m_consultadeproyectos
+this.Item[UpperBound(this.Item)+1]=this.m_altadefichas
+this.Item[UpperBound(this.Item)+1]=this.m_listadoseinformes
+end on
+
+on m_new.destroy
+call super::destroy
+destroy(this.m_consultadeproyectos)
+destroy(this.m_altadefichas)
+destroy(this.m_listadoseinformes)
+end on
+
+type m_open from pfc_m_master`m_open within m_file
+m_municipios m_municipios
+end type
+
+event m_open::clicked;//Override ancestor's script
+end event
+
+on m_open.create
+call super::create
+this.text = "&Tablas auxiliares"
+this.microhelp = ""
+this.toolbaritemvisible = false
+this.m_municipios=create m_municipios
+this.Item[UpperBound(this.Item)+1]=this.m_municipios
+end on
+
+on m_open.destroy
+call super::destroy
+destroy(this.m_municipios)
+end on
+
+type m_close from pfc_m_master`m_close within m_file
+end type
+
+on m_close.create
+call super::create
+this.visible = false
+this.text = "&Cerrar"
+this.microhelp = "Cerrar"
+this.toolbaritemname = "Exit!"
+end on
+
+on m_close.destroy
+call super::destroy
+end on
+
+type m_dash11 from pfc_m_master`m_dash11 within m_file
+end type
+
+on m_dash11.create
+call super::create
+this.visible = false
+end on
+
+on m_dash11.destroy
+call super::destroy
+end on
+
+type m_save from pfc_m_master`m_save within m_file
+end type
+
+on m_save.create
+call super::create
+this.visible = false
+this.text = "&Guardar~tCtrl+S"
+this.microhelp = "Guardar"
+this.toolbaritemvisible = false
+this.toolbaritemspace = 1
+end on
+
+on m_save.destroy
+call super::destroy
+end on
+
+type m_saveas from pfc_m_master`m_saveas within m_file
+end type
+
+on m_saveas.create
+call super::create
+this.visible = false
+this.text = "&Salvar como..."
+this.microhelp = "Guardar como"
+end on
+
+on m_saveas.destroy
+call super::destroy
+end on
+
+type m_dash12 from pfc_m_master`m_dash12 within m_file
+end type
+
+on m_dash12.create
+call super::create
+this.visible = false
+end on
+
+on m_dash12.destroy
+call super::destroy
+end on
+
+type m_print from pfc_m_master`m_print within m_file
+end type
+
+on m_print.create
+call super::create
+this.visible = false
+this.text = "&Imprimir...~tCtrl+P"
+this.microhelp = "Imprimir"
+this.toolbaritemtext = "Imprimir"
+end on
+
+on m_print.destroy
+call super::destroy
+end on
+
+type m_printpreview from pfc_m_master`m_printpreview within m_file
+end type
+
+on m_printpreview.create
+call super::create
+this.visible = false
+this.text = "&Presentaci$$HEX1$$f300$$ENDHEX$$n preliminar"
+this.microhelp = "Presentaci$$HEX1$$f300$$ENDHEX$$n preliminar"
+this.toolbaritemvisible = false
+this.toolbaritemtext = "Vista Previa"
+end on
+
+on m_printpreview.destroy
+call super::destroy
+end on
+
+type m_pagesetup from pfc_m_master`m_pagesetup within m_file
+end type
+
+on m_pagesetup.create
+call super::create
+this.visible = false
+this.text = "Preparar P$$HEX1$$e100$$ENDHEX$$&gina..."
+this.microhelp = "Formato de p$$HEX1$$e100$$ENDHEX$$gina"
+end on
+
+on m_pagesetup.destroy
+call super::destroy
+end on
+
+type m_printimmediate from pfc_m_master`m_printimmediate within m_file
+end type
+
+on m_printimmediate.create
+call super::create
+this.text = "Imprimir Ahora"
+this.microhelp = "Imprimir"
+this.toolbaritemvisible = false
+this.toolbaritemtext = "Imprimir"
+end on
+
+on m_printimmediate.destroy
+call super::destroy
+end on
+
+type m_dash13 from pfc_m_master`m_dash13 within m_file
+end type
+
+on m_dash13.create
+call super::create
+end on
+
+on m_dash13.destroy
+call super::destroy
+end on
+
+type m_delete from pfc_m_master`m_delete within m_file
+end type
+
+on m_delete.create
+call super::create
+this.text = "&Borrar~tCtrl+D"
+this.microhelp = "Borrar"
+this.toolbaritemtext = "Borrar"
+end on
+
+event m_delete::clicked;// Llamamos al evento "csd_borrar" de la ventana
+Of_SendMessage('csd_borrar')
+end event
+
+on m_delete.destroy
+call super::destroy
+end on
+
+type m_properties from pfc_m_master`m_properties within m_file
+end type
+
+on m_properties.create
+call super::create
+this.text = "P&ropiedades"
+this.microhelp = "Propiedades"
+end on
+
+on m_properties.destroy
+call super::destroy
+end on
+
+type m_dash14 from pfc_m_master`m_dash14 within m_file
+end type
+
+on m_dash14.create
+call super::create
+this.visible = false
+end on
+
+on m_dash14.destroy
+call super::destroy
+end on
+
+type m_exit from pfc_m_master`m_exit within m_file
+end type
+
+on m_exit.create
+call super::create
+this.text = "Sa&lir"
+this.microhelp = "Salir de la aplicaci$$HEX1$$f300$$ENDHEX$$n"
+this.toolbaritemvisible = true
+this.toolbaritemtext = "Salir"
+end on
+
+on m_exit.destroy
+call super::destroy
+end on
+
+type m_pfcmrudash1 from pfc_m_master`m_pfcmrudash1 within m_file
+end type
+
+on m_pfcmrudash1.create
+call super::create
+end on
+
+on m_pfcmrudash1.destroy
+call super::destroy
+end on
+
+type m_pfcmru1 from pfc_m_master`m_pfcmru1 within m_file
+end type
+
+on m_pfcmru1.create
+call super::create
+end on
+
+on m_pfcmru1.destroy
+call super::destroy
+end on
+
+type m_pfcmru2 from pfc_m_master`m_pfcmru2 within m_file
+end type
+
+on m_pfcmru2.create
+call super::create
+end on
+
+on m_pfcmru2.destroy
+call super::destroy
+end on
+
+type m_pfcmru3 from pfc_m_master`m_pfcmru3 within m_file
+end type
+
+on m_pfcmru3.create
+call super::create
+end on
+
+on m_pfcmru3.destroy
+call super::destroy
+end on
+
+type m_pfcmru4 from pfc_m_master`m_pfcmru4 within m_file
+end type
+
+on m_pfcmru4.create
+call super::create
+end on
+
+on m_pfcmru4.destroy
+call super::destroy
+end on
+
+type m_pfcmru5 from pfc_m_master`m_pfcmru5 within m_file
+end type
+
+on m_pfcmru5.create
+call super::create
+end on
+
+on m_pfcmru5.destroy
+call super::destroy
+end on
+
+type m_edit from pfc_m_master`m_edit within m_csd_frame
+end type
+
+on m_edit.create
+call super::create
+this.text = "&Edici$$HEX1$$f300$$ENDHEX$$n"
+end on
+
+on m_edit.destroy
+call super::destroy
+end on
+
+type m_undo from pfc_m_master`m_undo within m_edit
+end type
+
+on m_undo.create
+call super::create
+this.visible = false
+this.text = "&Deshacer~tCtrl+Z"
+this.microhelp = "Deshace la $$HEX1$$fa00$$ENDHEX$$ltima acci$$HEX1$$f300$$ENDHEX$$n"
+this.toolbaritemvisible = false
+this.toolbaritemtext = "Deshacer"
+end on
+
+on m_undo.destroy
+call super::destroy
+end on
+
+type m_dash21 from pfc_m_master`m_dash21 within m_edit
+end type
+
+on m_dash21.create
+call super::create
+this.visible = false
+end on
+
+on m_dash21.destroy
+call super::destroy
+end on
+
+type m_cut from pfc_m_master`m_cut within m_edit
+end type
+
+on m_cut.create
+call super::create
+this.text = "Cor&tar~tCtrl+X"
+this.microhelp = "Mueve la selecci$$HEX1$$f300$$ENDHEX$$n al portapapeles"
+this.toolbaritemvisible = false
+end on
+
+on m_cut.destroy
+call super::destroy
+end on
+
+type m_copy from pfc_m_master`m_copy within m_edit
+end type
+
+on m_copy.create
+call super::create
+this.text = "&Copiar~tCtrl+C"
+this.microhelp = "Copia la selecci$$HEX1$$f300$$ENDHEX$$n al portapapeles"
+this.toolbaritemvisible = false
+end on
+
+on m_copy.destroy
+call super::destroy
+end on
+
+type m_paste from pfc_m_master`m_paste within m_edit
+end type
+
+on m_paste.create
+call super::create
+this.text = "&Pegar~tCtrl+V"
+this.microhelp = "Inserta el contenido del portapapeles al punto de inserci$$HEX1$$f300$$ENDHEX$$n actual"
+this.toolbaritemvisible = false
+end on
+
+on m_paste.destroy
+call super::destroy
+end on
+
+type m_pastespecial from pfc_m_master`m_pastespecial within m_edit
+end type
+
+on m_pastespecial.create
+call super::create
+this.text = "Pegado &Especial..."
+this.microhelp = "Inserta el contenido del portapapeles al punto de inserci$$HEX1$$f300$$ENDHEX$$n actual como enlace, objeto u otro formato"
+end on
+
+on m_pastespecial.destroy
+call super::destroy
+end on
+
+type m_clear from pfc_m_master`m_clear within m_edit
+end type
+
+on m_clear.create
+call super::create
+this.text = "&Quitar selecci$$HEX1$$f300$$ENDHEX$$n"
+this.microhelp = "Quita la selecci$$HEX1$$f300$$ENDHEX$$n"
+end on
+
+on m_clear.destroy
+call super::destroy
+end on
+
+type m_dash22 from pfc_m_master`m_dash22 within m_edit
+end type
+
+on m_dash22.create
+call super::create
+this.visible = false
+end on
+
+on m_dash22.destroy
+call super::destroy
+end on
+
+type m_selectall from pfc_m_master`m_selectall within m_edit
+end type
+
+on m_selectall.create
+call super::create
+this.visible = false
+this.text = "Seleccionar todo~tCtrl+A"
+this.microhelp = "Selecciona todo"
+end on
+
+on m_selectall.destroy
+call super::destroy
+end on
+
+type m_dash23 from pfc_m_master`m_dash23 within m_edit
+end type
+
+on m_dash23.create
+call super::create
+this.visible = false
+end on
+
+on m_dash23.destroy
+call super::destroy
+end on
+
+type m_find from pfc_m_master`m_find within m_edit
+end type
+
+on m_find.create
+call super::create
+this.visible = false
+this.text = "&Buscar~tCtrl+F"
+this.microhelp = "Busca el texto que se especifique"
+this.toolbaritemvisible = false
+end on
+
+on m_find.destroy
+call super::destroy
+end on
+
+type m_replace from pfc_m_master`m_replace within m_edit
+end type
+
+on m_replace.create
+call super::create
+this.visible = false
+this.text = "&Reemplazar~tCtrl+H"
+this.microhelp = "Reemplaza un texto por otro"
+this.toolbaritemvisible = false
+end on
+
+on m_replace.destroy
+call super::destroy
+end on
+
+type m_dash24 from pfc_m_master`m_dash24 within m_edit
+end type
+
+on m_dash24.create
+call super::create
+this.visible = false
+end on
+
+on m_dash24.destroy
+call super::destroy
+end on
+
+type m_updatelinks from pfc_m_master`m_updatelinks within m_edit
+end type
+
+on m_updatelinks.create
+call super::create
+this.visible = false
+this.text = "Actualizar enlaces"
+this.microhelp = "Actualizar enlaces"
+end on
+
+on m_updatelinks.destroy
+call super::destroy
+end on
+
+type m_object1 from pfc_m_master`m_object1 within m_edit
+end type
+
+on m_object1.create
+call super::create
+this.visible = false
+this.text = "&Objeto"
+this.microhelp = "Comandos para activar un objeto"
+end on
+
+on m_object1.destroy
+call super::destroy
+end on
+
+type m_edit1 from pfc_m_master`m_edit1 within m_object1
+end type
+
+on m_edit1.create
+call super::create
+this.text = "&Edici$$HEX1$$f300$$ENDHEX$$n"
+this.microhelp = "Activa el objeto seleccionado"
+end on
+
+on m_edit1.destroy
+call super::destroy
+end on
+
+type m_open1 from pfc_m_master`m_open1 within m_object1
+end type
+
+on m_open1.create
+call super::create
+this.text = "&Abrir"
+this.microhelp = ""
+end on
+
+on m_open1.destroy
+call super::destroy
+end on
+
+type m_view from pfc_m_master`m_view within m_csd_frame
+end type
+
+on m_view.create
+call super::create
+this.visible = false
+this.text = "&Vista"
+end on
+
+on m_view.destroy
+call super::destroy
+end on
+
+type m_ruler from pfc_m_master`m_ruler within m_view
+end type
+
+on m_ruler.create
+call super::create
+this.text = "&Regla"
+this.microhelp = "Muestra u oculta la regla"
+end on
+
+on m_ruler.destroy
+call super::destroy
+end on
+
+type m_dash31 from pfc_m_master`m_dash31 within m_view
+end type
+
+on m_dash31.create
+call super::create
+end on
+
+on m_dash31.destroy
+call super::destroy
+end on
+
+type m_largeicon from pfc_m_master`m_largeicon within m_view
+end type
+
+on m_largeicon.create
+call super::create
+this.text = "Iconos &Grandes"
+this.microhelp = "Iconos grandes"
+end on
+
+on m_largeicon.destroy
+call super::destroy
+end on
+
+type m_smallicons from pfc_m_master`m_smallicons within m_view
+end type
+
+on m_smallicons.create
+call super::create
+this.text = "Iconos &Peque$$HEX1$$f100$$ENDHEX$$os"
+this.microhelp = "Iconos peque$$HEX1$$f100$$ENDHEX$$os"
+end on
+
+on m_smallicons.destroy
+call super::destroy
+end on
+
+type m_list from pfc_m_master`m_list within m_view
+end type
+
+on m_list.create
+call super::create
+this.text = "&Lista"
+this.microhelp = "Lista"
+end on
+
+on m_list.destroy
+call super::destroy
+end on
+
+type m_details from pfc_m_master`m_details within m_view
+end type
+
+on m_details.create
+call super::create
+this.text = "&Detalles"
+this.microhelp = "Detalles"
+end on
+
+on m_details.destroy
+call super::destroy
+end on
+
+type m_dash32 from pfc_m_master`m_dash32 within m_view
+end type
+
+on m_dash32.create
+call super::create
+end on
+
+on m_dash32.destroy
+call super::destroy
+end on
+
+type m_arrangeicons from pfc_m_master`m_arrangeicons within m_view
+end type
+
+on m_arrangeicons.create
+call super::create
+this.text = "Organizar &Iconos"
+this.microhelp = "Comandos para organizar los iconos"
+end on
+
+on m_arrangeicons.destroy
+call super::destroy
+end on
+
+type m_by1 from pfc_m_master`m_by1 within m_arrangeicons
+end type
+
+on m_by1.create
+call super::create
+this.text = "por"
+this.microhelp = "Organizar por"
+end on
+
+on m_by1.destroy
+call super::destroy
+end on
+
+type m_dash33 from pfc_m_master`m_dash33 within m_arrangeicons
+end type
+
+on m_dash33.create
+call super::create
+end on
+
+on m_dash33.destroy
+call super::destroy
+end on
+
+type m_autoarrange from pfc_m_master`m_autoarrange within m_arrangeicons
+end type
+
+on m_autoarrange.create
+call super::create
+this.text = "&Organizaci$$HEX1$$f300$$ENDHEX$$n autom$$HEX1$$e100$$ENDHEX$$tica"
+this.microhelp = "Organizaci$$HEX1$$f300$$ENDHEX$$n autom$$HEX1$$e100$$ENDHEX$$tica"
+end on
+
+on m_autoarrange.destroy
+call super::destroy
+end on
+
+type m_dash34 from pfc_m_master`m_dash34 within m_view
+end type
+
+on m_dash34.create
+call super::create
+end on
+
+on m_dash34.destroy
+call super::destroy
+end on
+
+type m_first from pfc_m_master`m_first within m_view
+end type
+
+on m_first.create
+call super::create
+this.visible = false
+this.text = "&Primero"
+this.microhelp = "Primero"
+end on
+
+on m_first.destroy
+call super::destroy
+end on
+
+type m_nextpage from pfc_m_master`m_nextpage within m_view
+end type
+
+on m_nextpage.create
+call super::create
+this.visible = false
+this.text = "&Siguiente"
+this.microhelp = "Siguiente"
+end on
+
+on m_nextpage.destroy
+call super::destroy
+end on
+
+type m_priorpage from pfc_m_master`m_priorpage within m_view
+end type
+
+on m_priorpage.create
+call super::create
+this.visible = false
+this.text = "&Anterior"
+this.microhelp = "Anterior"
+end on
+
+on m_priorpage.destroy
+call super::destroy
+end on
+
+type m_lastpage from pfc_m_master`m_lastpage within m_view
+end type
+
+on m_lastpage.create
+call super::create
+this.visible = false
+this.text = "&Ultimo"
+this.microhelp = "Ultimo"
+end on
+
+on m_lastpage.destroy
+call super::destroy
+end on
+
+type m_dash35 from pfc_m_master`m_dash35 within m_view
+end type
+
+on m_dash35.create
+call super::create
+this.visible = false
+end on
+
+on m_dash35.destroy
+call super::destroy
+end on
+
+type m_sort from pfc_m_master`m_sort within m_view
+end type
+
+on m_sort.create
+call super::create
+this.text = "&Ordenar..."
+this.microhelp = "Ordena las filas"
+end on
+
+on m_sort.destroy
+call super::destroy
+end on
+
+type m_filter from pfc_m_master`m_filter within m_view
+end type
+
+on m_filter.create
+call super::create
+this.text = "Fil&tro..."
+this.microhelp = "Filtra las filas"
+end on
+
+on m_filter.destroy
+call super::destroy
+end on
+
+type m_dash36 from pfc_m_master`m_dash36 within m_view
+end type
+
+on m_dash36.create
+call super::create
+end on
+
+on m_dash36.destroy
+call super::destroy
+end on
+
+type m_zoom from pfc_m_master`m_zoom within m_view
+end type
+
+on m_zoom.create
+call super::create
+this.microhelp = "Zoom de la presentaci$$HEX1$$f300$$ENDHEX$$n preliminar"
+end on
+
+on m_zoom.destroy
+call super::destroy
+end on
+
+type m_insert from pfc_m_master`m_insert within m_csd_frame
+end type
+
+on m_insert.create
+call super::create
+this.visible = false
+this.text = "&Insertar"
+end on
+
+on m_insert.destroy
+call super::destroy
+end on
+
+type m_insertfile from pfc_m_master`m_insertfile within m_insert
+end type
+
+on m_insertfile.create
+call super::create
+this.text = "&Fichero..."
+this.microhelp = "Inserta el texto de otro fichero"
+end on
+
+on m_insertfile.destroy
+call super::destroy
+end on
+
+type m_picture from pfc_m_master`m_picture within m_insert
+end type
+
+on m_picture.create
+call super::create
+this.text = "&Im$$HEX1$$e100$$ENDHEX$$gen..."
+this.microhelp = "Inserta una im$$HEX1$$e100$$ENDHEX$$gen de un fichero gr$$HEX1$$e100$$ENDHEX$$fico"
+end on
+
+on m_picture.destroy
+call super::destroy
+end on
+
+type m_dash41 from pfc_m_master`m_dash41 within m_insert
+end type
+
+on m_dash41.create
+call super::create
+end on
+
+on m_dash41.destroy
+call super::destroy
+end on
+
+type m_object from pfc_m_master`m_object within m_insert
+end type
+
+on m_object.create
+call super::create
+this.text = "&Objeto..."
+this.microhelp = "Inserta un objeto"
+end on
+
+on m_object.destroy
+call super::destroy
+end on
+
+type m_tools from pfc_m_master`m_tools within m_csd_frame
+end type
+
+on m_tools.create
+call super::create
+this.text = "&Herramientas"
+end on
+
+on m_tools.destroy
+call super::destroy
+end on
+
+type m_toolbars from pfc_m_master`m_toolbars within m_tools
+end type
+
+on m_toolbars.create
+call super::create
+this.text = "&Organizar herramientas"
+this.microhelp = "Organiza los botones de herramientas"
+end on
+
+on m_toolbars.destroy
+call super::destroy
+end on
+
+type m_window from pfc_m_master`m_window within m_csd_frame
+end type
+
+on m_window.create
+call super::create
+this.text = "&Ventana"
+end on
+
+on m_window.destroy
+call super::destroy
+end on
+
+type m_cascade from pfc_m_master`m_cascade within m_window
+end type
+
+on m_cascade.create
+call super::create
+this.text = "&Cascada"
+this.microhelp = "Ajusta las ventanas en cascada de forma que quedan visibles los t$$HEX1$$ed00$$ENDHEX$$tulos"
+end on
+
+on m_cascade.destroy
+call super::destroy
+end on
+
+type m_tilehorizontal from pfc_m_master`m_tilehorizontal within m_window
+end type
+
+on m_tilehorizontal.create
+call super::create
+this.text = "Ajuste &Horizontal"
+this.microhelp = "Ajusta las ventanas horizontalmente de forma que todas quedan visibles"
+end on
+
+on m_tilehorizontal.destroy
+call super::destroy
+end on
+
+type m_tilevertical from pfc_m_master`m_tilevertical within m_window
+end type
+
+on m_tilevertical.create
+call super::create
+this.text = "Ajuste &Vertical"
+this.microhelp = "Ajusta las ventanas verticalmente de forma que todas quedan visibles"
+end on
+
+on m_tilevertical.destroy
+call super::destroy
+end on
+
+type m_layer from pfc_m_master`m_layer within m_window
+end type
+
+on m_layer.create
+call super::create
+this.text = "&Superpuestas"
+this.microhelp = "Superpone las ventanas de forma una queda visible y las dem$$HEX1$$e100$$ENDHEX$$s ocultas detr$$HEX1$$e100$$ENDHEX$$s"
+end on
+
+on m_layer.destroy
+call super::destroy
+end on
+
+type m_dash51 from pfc_m_master`m_dash51 within m_window
+end type
+
+on m_dash51.create
+call super::create
+end on
+
+on m_dash51.destroy
+call super::destroy
+end on
+
+type m_minimizeall from pfc_m_master`m_minimizeall within m_window
+end type
+
+on m_minimizeall.create
+call super::create
+this.text = "&Minimizar Todas las Ventanas"
+this.microhelp = "Minimiza todas las ventanas"
+end on
+
+on m_minimizeall.destroy
+call super::destroy
+end on
+
+type m_undoarrange from pfc_m_master`m_undoarrange within m_window
+end type
+
+on m_undoarrange.create
+call super::create
+this.visible = false
+this.text = "&Deshacer"
+this.microhelp = "Deshacer"
+this.toolbaritemvisible = false
+end on
+
+on m_undoarrange.destroy
+call super::destroy
+end on
+
+type m_help from pfc_m_master`m_help within m_csd_frame
+end type
+
+on m_help.create
+call super::create
+this.text = "A&yuda"
+end on
+
+on m_help.destroy
+call super::destroy
+end on
+
+type m_helptopics from pfc_m_master`m_helptopics within m_help
+end type
+
+on m_helptopics.create
+call super::create
+this.text = "&Contenidos"
+this.microhelp = "Contenidos"
+end on
+
+on m_helptopics.destroy
+call super::destroy
+end on
+
+type m_dash61 from pfc_m_master`m_dash61 within m_help
+end type
+
+on m_dash61.create
+call super::create
+end on
+
+on m_dash61.destroy
+call super::destroy
+end on
+
+type m_about from pfc_m_master`m_about within m_help
+end type
+
+on m_about.create
+call super::create
+this.text = "&Acerca de..."
+this.microhelp = "Informaci$$HEX1$$f300$$ENDHEX$$n del programa"
+end on
+
+on m_about.destroy
+call super::destroy
+end on
+
+type m_consultadeproyectos from menu within m_new
+end type
+
+on m_consultadeproyectos.create
+call super::create
+this.text = "M$$HEX1$$f300$$ENDHEX$$dulo 1"
+this.toolbaritemname = "Open!"
+this.toolbaritemtext = "Lista"
+end on
+
+on m_consultadeproyectos.destroy
+call super::destroy
+end on
+
+type m_altadefichas from menu within m_new
+end type
+
+on m_altadefichas.create
+call super::create
+this.text = "M$$HEX1$$f300$$ENDHEX$$dulo 2"
+this.toolbaritemname = "Open!"
+this.toolbaritemtext = "Detalle"
+end on
+
+on m_altadefichas.destroy
+call super::destroy
+end on
+
+type m_listadoseinformes from menu within m_new
+end type
+
+on m_listadoseinformes.create
+call super::create
+this.text = "M$$HEX1$$f300$$ENDHEX$$dulo 3"
+this.toolbaritemname = "Open!"
+end on
+
+on m_listadoseinformes.destroy
+call super::destroy
+end on
+
+type m_municipios from menu within m_open
+end type
+
+event clicked;//message.stringparm = "w_refer_le"
+//of_SendMessage ("pfc_open")
+end event
+
+on m_municipios.create
+call super::create
+this.text = "Tipos de referencia"
+end on
+
+on m_municipios.destroy
+call super::destroy
+end on
+
+type m_- from menu within m_file
+end type
+
+on m_-.create
+call super::create
+this.visible = false
+this.text = "-"
+end on
+
+on m_-.destroy
+call super::destroy
+end on
+
+type m_cb_det_nuevo from menu within m_file
+end type
+
+on m_cb_det_nuevo.create
+call super::create
+this.visible = false
+this.text = "cb_det_nuevo"
+end on
+
+event clicked;// Llamamos al evento "csd_nuevo" de la ventana
+Of_SendMessage('csd_nuevo')
+end event
+
+on m_cb_det_nuevo.destroy
+call super::destroy
+end on
+
+type m_cb_det_grabar from menu within m_file
+end type
+
+on m_cb_det_grabar.create
+call super::create
+this.visible = false
+this.text = "cb_det_grabar"
+end on
+
+event clicked;// Llamamos al evento "csd_grabar" de la ventana
+Of_SendMessage('csd_grabar')
+end event
+
+on m_cb_det_grabar.destroy
+call super::destroy
+end on
+
+type m_cb_det_anterior from menu within m_file
+end type
+
+on m_cb_det_anterior.create
+call super::create
+this.visible = false
+this.text = "cb_det_anterior"
+end on
+
+event clicked;// Llamamos al evento "csd_anterior" de la ventana
+Of_SendMessage('csd_anterior')
+end event
+
+on m_cb_det_anterior.destroy
+call super::destroy
+end on
+
+type m_cb_det_siguiente from menu within m_file
+end type
+
+on m_cb_det_siguiente.create
+call super::create
+this.visible = false
+this.text = "cb_det_siguiente"
+end on
+
+event clicked;// Llamamos al evento "csd_siguiente" de la ventana
+Of_SendMessage('csd_siguiente')
+end event
+
+on m_cb_det_siguiente.destroy
+call super::destroy
+end on
+
+type m_cb_list_detalle from menu within m_file
+end type
+
+on m_cb_list_detalle.create
+call super::create
+this.visible = false
+this.text = "cb_list_detalle"
+end on
+
+event clicked;// Llamamos al evento "csd_detalle" de la ventana
+Of_SendMessage('csd_detalle')
+end event
+
+on m_cb_list_detalle.destroy
+call super::destroy
+end on
+
+type m_cb_list_consultar from menu within m_file
+end type
+
+on m_cb_list_consultar.create
+call super::create
+this.visible = false
+this.text = "cb_lista"
+end on
+
+event clicked;// Llamamos al evento "csd_lista" de la ventana
+Of_SendMessage('csd_lista')
+end event
+
+on m_cb_list_consultar.destroy
+call super::destroy
+end on
+
+type m_cb_ayuda from menu within m_file
+end type
+
+on m_cb_ayuda.create
+call super::create
+this.visible = false
+this.text = "cb_ayuda"
+end on
+
+on m_cb_ayuda.destroy
+call super::destroy
+end on
+
+type m_cb_listados from menu within m_file
+end type
+
+on m_cb_listados.create
+call super::create
+this.text = "cb_listados"
+end on
+
+event clicked;// Llamamos al evento "csd_listados" de la ventana
+Of_SendMessage('csd_listados')
+
+end event
+
+on m_cb_listados.destroy
+call super::destroy
+end on
+
+type m_cb_consulta from menu within m_file
+end type
+
+event clicked;// Llamamos al evento "csd_consulta" de la ventana
+Of_Sendmessage('csd_consulta')
+
+end event
+
+on m_cb_consulta.create
+call super::create
+this.text = "cb_consulta"
+end on
+
+on m_cb_consulta.destroy
+call super::destroy
+end on
+

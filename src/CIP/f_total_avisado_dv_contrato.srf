@@ -1,0 +1,28 @@
+HA$PBExportHeader$f_total_avisado_dv_contrato.srf
+global type f_total_avisado_dv_contrato from function_object
+end type
+
+forward prototypes
+global function double f_total_avisado_dv_contrato (string id_fase)
+end prototypes
+
+global function double f_total_avisado_dv_contrato (string id_fase);double dv_avisado = 0
+if f_es_vacio(g_id_minuta_actual) then
+  SELECT sum(base_dv)  
+    INTO :dv_avisado  
+    FROM fases_minutas  
+   WHERE fases_minutas.id_fase = :id_fase   and
+           fases_minutas.anulada <> 'S';
+else
+  SELECT sum(base_dv)  
+    INTO :dv_avisado  
+    FROM fases_minutas  
+   WHERE fases_minutas.id_fase = :id_fase   and
+           fases_minutas.anulada <> 'S' and fases_minutas.id_minuta <> :g_id_minuta_actual;
+	
+end if
+if isnull(dv_avisado) then dv_avisado = 0
+
+return dv_avisado
+end function
+

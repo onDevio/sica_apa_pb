@@ -1,0 +1,33 @@
+HA$PBExportHeader$f_validar_cuenta_mensaje.srf
+$PBExportComments$$$HEX1$$cd00$$ENDHEX$$dem a f_validar cuenta, pero se le pasa como par$$HEX1$$e100$$ENDHEX$$m. parte del mensaje de error
+global type f_validar_cuenta_mensaje from function_object
+end type
+
+forward prototypes
+global function string f_validar_cuenta_mensaje (string cuenta, integer fila, string titulo)
+end prototypes
+
+global function string f_validar_cuenta_mensaje (string cuenta, integer fila, string titulo);string mensaje, aux
+integer num
+
+// Comprueba si la cuenta es nula, no es desarrollo o no est$$HEX2$$e1002000$$ENDHEX$$activa
+
+// Inicializo
+mensaje = ''
+aux = 'En la fila ' +string(fila)+' la cuenta ' + titulo + ' '
+
+if f_es_vacio(cuenta) then mensaje += aux + 'debe llevar valor.'+cr 
+	
+//comprobaciones de la cuenta
+select count(*) into :num from cuentas where cuenta=:cuenta using bd_ejercicio;
+if  (num<1 and not isnull(cuenta) ) then mensaje += aux + cuenta + ' no existe.' +cr
+		
+if f_es_cuenta_desarrollo(cuenta) = -1 and num=1 then 
+	mensaje += aux + cuenta + '  debe ser de desarrollo.' +cr
+elseif f_es_cuenta_empresa(cuenta) = -1 and num=1 then
+	mensaje += aux + cuenta + '  debe estar activa.' +cr
+end if
+
+return mensaje
+end function
+

@@ -1,0 +1,22 @@
+declare @colegio varchar(10)
+select @colegio = texto from var_globales where nombre = 'COLEGIO'
+
+create table dbo.t_fases_finales (codigo char(1) not null, descripcion varchar(60) null) ;
+alter table dbo.t_fases_finales add constraint pk_codigo primary key clustered (codigo) ;
+
+insert into t_fases_finales (codigo,descripcion) values ('P','Parcial');
+insert into t_fases_finales (codigo,descripcion) values ('T','Totalmente en una Fase');
+insert into t_fases_finales (codigo,descripcion) values ('V','Varias Fases Totalmente');
+
+
+--Todos
+update var_globales set texto='20100218' where nombre='g_version_minima';
+
+If @colegio = 'COAATMCA' 
+begin
+insert into t_fases_finales (codigo,descripcion) values ('O','Otro');
+update t_control_eventos set param1 = 'd_proconta_cobros_facts_contabilizada_mca' where evento = 'CONTA_CFACTC' and param1 = 'd_proconta_cobros_facts_contabilizada_za';
+update var_globales set texto='d_liquidacion_listado_banco_mca' where nombre='g_listado_liquid_honos'
+update listados set dw='d_liquidacion_listado_banco_mca' where dw='d_liquidacion_listado_banco' and ventana='w_liquidaciones_listados'
+end
+go

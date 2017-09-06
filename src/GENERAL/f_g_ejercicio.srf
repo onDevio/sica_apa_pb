@@ -1,0 +1,11 @@
+HA$PBExportHeader$f_g_ejercicio.srf
+global type f_g_ejercicio from function_object
+end type
+
+forward prototypes
+global function string f_g_ejercicio ()
+end prototypes
+
+global function string f_g_ejercicio ();return g_ejercicio
+end function
+

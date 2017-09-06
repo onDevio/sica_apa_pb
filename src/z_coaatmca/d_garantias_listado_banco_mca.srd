@@ -1,0 +1,84 @@
+HA$PBExportHeader$d_garantias_listado_banco_mca.srd
+release 10.5;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 0 print.margin.right = 0 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes print.preview.outline=yes hidegrayline=no )
+header(height=1384 color="536870912" )
+summary(height=400 color="536870912" )
+footer(height=96 color="536870912" )
+detail(height=92 color="536870912" height.autosize=yes )
+table(column=(type=char(10) updatewhereclause=yes name=id_liquidacion dbname="premaat_liquidaciones.id_liquidacion" )
+ column=(type=datetime updatewhereclause=yes name=f_liquidacion dbname="premaat_liquidaciones.f_liquidacion" )
+ column=(type=char(1) updatewhereclause=yes name=contabilizada dbname="premaat_liquidaciones.contabilizada" values="	S/	N" )
+ column=(type=char(200) updatewhereclause=yes name=nombre dbname="premaat_liquidaciones.nombre" )
+ column=(type=char(10) updatewhereclause=yes name=id_colegiado dbname="premaat_liquidaciones.id_colegiado" )
+ column=(type=char(10) updatewhereclause=yes name=id_beneficiario dbname="premaat_liquidaciones.id_beneficiario" )
+ column=(type=number updatewhereclause=yes name=importe dbname="premaat_liquidaciones.importe" )
+ column=(type=char(20) updatewhereclause=yes name=banco dbname="premaat_liquidaciones.banco" )
+ column=(type=char(60) updatewhereclause=yes name=banco_descripcion dbname="csi_bancos_maestro.descripcion" )
+ column=(type=char(20) updatewhereclause=yes name=n_documento dbname="premaat_liquidaciones.n_documento" )
+ column=(type=char(40) updatewhereclause=yes name=csi_bancos_nombre dbname="csi_bancos.nombre" )
+ column=(type=char(4) updatewhereclause=yes name=csi_bancos_entidad dbname="csi_bancos.entidad" )
+ column=(type=char(4) updatewhereclause=yes name=csi_bancos_sucursal dbname="csi_bancos.sucursal" )
+ column=(type=char(2) updatewhereclause=yes name=csi_bancos_cod_seg dbname="csi_bancos.cod_seg" )
+ column=(type=char(10) updatewhereclause=yes name=csi_bancos_cuenta_banco dbname="csi_bancos.cuenta_banco" )
+ column=(type=char(100) updatewhereclause=yes name=descripcion_larga dbname="premaat_liquidaciones.descripcion_larga" )
+ column=(type=char(2) updatewhereclause=yes name=csi_bancos_empresa dbname="csi_bancos.empresa" )
+ retrieve="  SELECT premaat_liquidaciones.id_liquidacion,   
+         premaat_liquidaciones.f_liquidacion,   
+         premaat_liquidaciones.contabilizada,   
+         premaat_liquidaciones.nombre,   
+         premaat_liquidaciones.id_colegiado,   
+         premaat_liquidaciones.id_beneficiario,   
+         premaat_liquidaciones.importe,   
+         premaat_liquidaciones.banco,   
+			csi_bancos_maestro.descripcion,
+         premaat_liquidaciones.n_documento,
+			csi_bancos.nombre,   
+			csi_bancos.entidad,
+			csi_bancos.sucursal,
+			csi_bancos.cod_seg,
+			csi_bancos.cuenta_banco,
+			premaat_liquidaciones.descripcion_larga,
+			 csi_bancos.empresa 
+    FROM premaat_liquidaciones,csi_bancos_maestro, csi_bancos
+   WHERE 
+			premaat_liquidaciones.cta_pago *= csi_bancos.cuenta_contable AND
+			substring(premaat_liquidaciones.banco, 1, 4) *= csi_bancos_maestro.cod AND
+			( premaat_liquidaciones.f_liquidacion <> null ) AND  
+         ( premaat_liquidaciones.importe > 0 )    
+" filter=" csi_bancos_empresa = f_devuelve_empresa()")
+compute(band=header alignment="0" expression=" csi_bancos_nombre "border="0" color="0" x="517" y="780" height="76" width="1847" format="[GENERAL]" html.valueishtml="0"  name=compute_6 visible="1"  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+compute(band=header alignment="0" expression="f_dame_ciudad() + ', ' + day( date(today()))+' de '+ lower( f_obtener_mes(today()) )+ ' de ' + year(date( today()))"border="0" color="0" x="1888" y="636" height="64" width="1285" format="[GENERAL]" html.valueishtml="0"  name=compute_5 visible="1"  font.face="Times New Roman" font.height="-10" font.weight="400"  font.family="1" font.pitch="2" font.charset="0" font.italic="1" background.mode="1" background.color="553648127" )
+compute(band=header alignment="3" expression="~"Muy Se$$HEX1$$f100$$ENDHEX$$ores Nuestros: les rogamos que con cargo a nuestra cuenta corriente ~" + if(isnull(  csi_bancos_cuenta_banco),'',  csi_bancos_entidad+'-'+ csi_bancos_sucursal +'-'+ csi_bancos_cod_seg +'-'+csi_bancos_cuenta_banco )  + ~" efect$$HEX1$$fa00$$ENDHEX$$en las transferencias que a continuaci$$HEX1$$f300$$ENDHEX$$n les detallamos.~""border="0" color="0" x="329" y="1012" height="228" width="3049" format="[GENERAL]" html.valueishtml="0"  name=compute_4 visible="1"  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+text(band=header alignment="2" text="Titular" border="4" color="0" x="329" y="1324" height="56" width="622" html.valueishtml="0"  name=t_9 visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Cuenta" border="4" color="0" x="969" y="1324" height="56" width="567" html.valueishtml="0"  name=t_2 visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Banco" border="4" color="0" x="1554" y="1324" height="56" width="640" html.valueishtml="0"  name=fases_liquidaciones_forma_pago_t visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Importe" border="4" color="0" x="2213" y="1324" height="56" width="283" html.valueishtml="0"  name=t_3 visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Concepto" border="4" color="0" x="2514" y="1324" height="56" width="864" html.valueishtml="0"  name=t_10 visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=summary alignment="2" text="POR EL COLEGIO" border="0" color="0" x="581" y="272" height="64" width="681" html.valueishtml="0"  name=t_5 visible="1~tif (F_EMPRESA_ES_COLEGIO()='S',1,0)
+"  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=summary alignment="2" text="TOTAL A TRANSFERIR :" border="0" color="0" x="1477" y="32" height="56" width="594" html.valueishtml="0"  name=t_7 visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="sum(importe for all)"border="0" color="0" x="2098" y="32" height="60" width="398" format="#,##0.00" html.valueishtml="0"  name=compute_1 visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=summary x1="2075" y1="12" x2="2505" y2="12"  name=l_2 visible="1" pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="1073741824" )
+text(band=summary alignment="2" text="N$$HEX2$$ba002000$$ENDHEX$$Transferencias :" border="0" color="0" x="485" y="32" height="56" width="521" html.valueishtml="0"  name=t_4 visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="0" expression="RowCount()"border="0" color="0" x="1029" y="32" height="52" width="128" format="[GENERAL]" html.valueishtml="0"  name=compute_2 visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+compute(band=footer alignment="0" expression="datetime(today(),now())"border="0" color="0" x="14" y="32" height="52" width="544" format="dd/mm/yyyy     hh:mm:ss" html.valueishtml="0"  name=compute_21 visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+compute(band=footer alignment="1" expression="'P$$HEX1$$e100$$ENDHEX$$gina ' + page() + ' de ' + pageCount()"border="0" color="0" x="2679" y="32" height="52" width="626" format="[general]" html.valueishtml="0"  name=compute_22 visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="329" y="8" height="60" width="622" format="[general]" html.valueishtml="0"  name=nombre visible="1" height.autosize=yes edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="0" color="0" x="969" y="8" height="60" width="567" format="[general]" html.valueishtml="0"  name=banco visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=9 alignment="0" tabsequence=32766 border="0" color="0" x="1554" y="8" height="60" width="640" format="[general]" html.valueishtml="0"  name=banco_descripcion visible="1" height.autosize=yes edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="1" tabsequence=32766 border="0" color="0" x="2213" y="8" height="60" width="283" format="#,##0.00" html.valueishtml="0"  name=importe visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=16 alignment="0" tabsequence=32766 border="0" color="0" x="2514" y="8" height="60" width="864" format="[general]" html.valueishtml="0"  name=descripcion_larga visible="1" height.autosize=yes edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+bitmap(band=header filename=".\imagenes\Logo_coaamca.jpg" x="311" y="36" height="396" width="434" border="0"  name=p_logo_empresa visible="1" )
+text(band=header alignment="0" text="COLEGIO OFICIAL DE APAREJADORES, ARQUITECTOS
+T$$HEX1$$c900$$ENDHEX$$CNICOS E INGENIEROS DE EDIFICACI$$HEX1$$d300$$ENDHEX$$N DE MALLORCA" border="0" color="0" x="901" y="192" height="184" width="2048" html.valueishtml="0"  name=t_1 visible="1"  font.face="Arial" font.height="-11" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" pagingmethod=0 generatedddwframes="1" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()
+ 

@@ -1,0 +1,19 @@
+HA$PBExportHeader$f_obtener_estado.srf
+global type f_obtener_estado from function_object
+end type
+
+forward prototypes
+global function string f_obtener_estado (string codigo)
+end prototypes
+
+global function string f_obtener_estado (string codigo);string descripcion
+
+  SELECT expedientes_estado.descripcion  
+    INTO :descripcion  
+    FROM expedientes_estado  
+   WHERE expedientes_estado.cod_estado = :codigo ;
+
+if f_es_vacio(descripcion) then descripcion='Sin Descripcion'
+return descripcion
+end function
+

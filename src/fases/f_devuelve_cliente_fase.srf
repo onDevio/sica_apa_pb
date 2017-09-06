@@ -1,0 +1,20 @@
+HA$PBExportHeader$f_devuelve_cliente_fase.srf
+global type f_devuelve_cliente_fase from function_object
+end type
+
+forward prototypes
+global function string f_devuelve_cliente_fase (string id_fase)
+end prototypes
+
+global function string f_devuelve_cliente_fase (string id_fase); string id_cliente,nombre
+ 
+ SELECT fases_clientes.id_cliente  
+    INTO :id_cliente  
+    FROM fases_clientes  
+   WHERE fases_clientes.id_fase = :id_fase   ;
+
+nombre = f_dame_cliente(id_cliente)+'   NIF: '+f_dame_nif(id_cliente)
+
+return nombre
+end function
+

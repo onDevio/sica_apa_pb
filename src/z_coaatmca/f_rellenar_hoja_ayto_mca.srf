@@ -1,0 +1,318 @@
+HA$PBExportHeader$f_rellenar_hoja_ayto_mca.srf
+global type f_rellenar_hoja_ayto_mca from function_object
+end type
+
+forward prototypes
+global subroutine f_rellenar_hoja_ayto_mca (string id_fase, string tipo_carta, integer copias)
+end prototypes
+
+global subroutine f_rellenar_hoja_ayto_mca (string id_fase, string tipo_carta, integer copias);// FUNCION QUE SE UTILIZARA PARA RELLENAR TODOS LOS DATOS NECESARIOS PARA OBTENER LAS CARTAS DEL AYUNTAMIENTO
+// SE HA HECHO COMO FUNCION EXTERNA PARA QUE PUEDA SER LLAMADA DESDE TODOS LOS LUGARES SIEMPRE DE LA MISMA FORMA, AUNQUE
+// ESTO CONLLEVE M$$HEX1$$c100$$ENDHEX$$S ACCESOS A BBDD EN CIERTOS CASOS, PERO FACILITA LA ADAPTACI$$HEX1$$d300$$ENDHEX$$N Y UNICIDAD DEL CODIGO
+
+// Variables para almacenar los datos a colocar en 
+string sl_colegio, sl_total_colegiados, sl_cliente, sl_total_clientes, sl_fecha, pobla,sl_num_contrato,sl_archivo, sl_incompatibilidades, sl_total_col_autor, ls_dir_cliente
+string sl_organismos_incompatibilidad, sl_num_coac, sl_arquitectos, sl_tipo_act, sl_des_tipo_act, n_expedi, fase, tipo_trabajo, trabajo, nif_cliente,titulacion,cod_titulacion,ls_pob_cliente
+// Variables para iterar
+long i, cols, itera_incompatible,row
+// Variables temporales para procesar datos
+string colegiado, id_col, id_fases_col, n_col, apell, nomb, nif, daf, paf, organismo, apellidos_arq,colegiado_as
+string descripcion, obs, t_via, nomvia,numero,des_via, emplazamiento, poblacion, cp_asociado
+string tipo_via_prof, nom_via_prof, cod_pob_prof, cod_prov_prof, colegiado_autor, desc_trabajo, ls_visado_basico, ls_visado_ejec
+datetime ldtt_hoy, f_ini, f_fin, ldt_f_visado_basico, ldt_f_visado_ejec
+date ldt_hoy
+int pos_espacio
+long n_inc, ll_fila
+datetime f_abono,f_entrada, f_visado
+double    ldb_presupuesto, ldb_superficie
+string piso, puerta
+
+sl_colegio= g_nombre_colegio_carta
+
+// Creamos el datastore a imprimir
+datastore ds_imprime_hoja
+ds_imprime_hoja = create datastore
+ds_imprime_hoja.dataobject = 'd_oficio_mca'
+ds_imprime_hoja.settransobject(sqlca)
+ds_imprime_hoja.insertrow(0)
+
+// Construimos la fecha que aparecer$$HEX2$$e1002000$$ENDHEX$$en el escrito
+ldtt_hoy =datetime(today(),now())
+ldt_hoy  = today()
+sl_fecha = g_col_ciudad + ', ' + string(day(ldt_hoy)) + ' de ' + lower(f_obtener_mes (ldtt_hoy)) + ' de ' + string(year(ldt_hoy))
+
+// Recuperamos los datos del contrato
+SELECT n_registro, n_expedi, descripcion, tipo_trabajo, trabajo, observaciones, fase, tipo_via_emplazamiento,   
+       emplazamiento, n_calle, poblacion, archivo, f_abono,f_entrada, f_visado, piso, puerta
+INTO :sl_num_contrato, :n_expedi, :descripcion, :tipo_trabajo, :trabajo, :obs, :fase, 
+	  :t_via, :nomvia, :numero, :poblacion, :sl_archivo, :f_abono, :f_entrada, :f_visado, :piso, :puerta
+FROM fases  
+WHERE fases.id_fase = :id_fase   ;
+
+//Trae los datos del tipo de obra
+  SELECT tipos_trabajos.d_t_trabajo  
+    INTO :desc_trabajo  
+    FROM tipos_trabajos  
+   WHERE tipos_trabajos.c_t_trabajo = :tipo_trabajo   ;
+
+if isnull(desc_trabajo) then desc_trabajo =''
+
+//Trae los datos visado y fecha de proyecto
+  SELECT coaatmca_fases_estadisticas.n_visado_pb,   
+         coaatmca_fases_estadisticas.f_visado_pb, 
+	    coaatmca_fases_estadisticas.n_visado_pe,   
+         coaatmca_fases_estadisticas.f_visado_pe    
+    INTO :ls_visado_basico,   
+         :ldt_f_visado_basico,
+		:ls_visado_ejec,   
+         :ldt_f_visado_ejec
+    FROM coaatmca_fases_estadisticas  
+   WHERE coaatmca_fases_estadisticas.id_fase = :id_fase   ;
+	
+if isnull(ls_visado_basico) then ls_visado_basico =''
+
+// Creamos un datastore para recuperar los colegiados del contrato
+datastore ds_fases_colegiados
+ds_fases_colegiados = create datastore
+ds_fases_colegiados.dataobject = 'd_fases_colegiados'
+ds_fases_colegiados.setFilter("renunciado<>'S'")
+ds_fases_colegiados.Settransobject(SQLCA)
+ds_fases_colegiados.retrieve(id_fase)
+
+sl_total_colegiados =''
+sl_total_col_autor = ''
+sl_incompatibilidades = 'N'
+sl_organismos_incompatibilidad = ''
+for i = 1 to ds_fases_colegiados.rowcount()
+	colegiado = ''
+	colegiado_as ='* '
+	id_col = ds_fases_colegiados.getitemstring(i,"id_col")
+	id_fases_col = ds_fases_colegiados.getitemstring(i, 'id_fases_colegiados')
+	colegiado_autor = ''
+	
+
+	if f_colegiado_tipopersona(id_col) <> 'S' then
+		select n_colegiado,apellidos,nombre,nif,domicilio_activo,poblacion_activa 
+		into :n_col, :apell, :nomb, :nif, :daf, :paf
+		from colegiados where id_colegiado=:id_col;
+
+		if ds_fases_colegiados.getitemstring(i,'tipo_a') = 'S' then
+			if f_es_vacio(nomb) then colegiado_autor = apell else colegiado_autor = nomb +	' ' + apell
+			if not f_es_vacio(n_col) then colegiado_autor += ' (N$$HEX2$$ba002000$$ENDHEX$$Col.: ' + n_col +') '
+		end if
+		
+		// Colocamos los datos tal como tienen que salir, todo seguido y separando con comas entre colegiados
+		if f_es_vacio(nomb) then colegiado = apell else colegiado = nomb +	' ' + apell
+		
+		if isnull(nif) then nif = '....'
+		if isnull(daf) then daf = '....'
+		if isnull(paf) then paf = '....'
+		
+		if not f_es_vacio(n_col) then colegiado += ' (N$$HEX2$$ba002000$$ENDHEX$$Col.: ' + n_col +'); ' + 'con NIF ' + nif + ',' + ' con domicilio en ' + daf+' ('+paf+')'  
+		colegiado = colegiado_as + colegiado
+		colegiado+=cr
+
+	else
+		// Creamos un dastastore para obtener todos los colegiados de esa sociedad
+		datastore ds_cols_soc
+		ds_cols_soc = create datastore
+		ds_cols_soc.dataobject = 'ds_fases_colegiados_asociados'
+		ds_cols_soc.settransobject(sqlca)
+		ds_cols_soc.retrieve(id_fases_col)
+
+
+		colegiado = ''
+		for cols = 1 to ds_cols_soc.rowcount()
+			colegiado_as ='* '
+			id_col = ds_cols_soc.getitemstring(cols,"id_col_per")
+			select n_colegiado,apellidos,nombre,nif,domicilio_activo,poblacion_activa 
+				into :n_col, :apell, :nomb, :nif, :daf, :paf
+				from colegiados where id_colegiado=:id_col;
+			
+			if isnull(nif) then nif = '....'
+			if isnull(daf) then daf = '....'
+			if isnull(paf) then paf = '....'
+
+			// Colocamos los datos tal como tienen que salir, todo seguido y separando con comas entre colegiados
+			if LenA(colegiado)>0 then colegiado += ', ' 
+			if f_es_vacio(nomb) then colegiado += apell else colegiado += nomb +	' ' + apell
+			if not f_es_vacio(n_col) then colegiado += ' (N$$HEX2$$ba002000$$ENDHEX$$Col.: ' + n_col +'); '+ 'con NIF ' + nif + ',' + ' con domicilio en ' + daf+' ('+paf+')' 
+			
+			if ds_fases_colegiados.getitemstring(i,'tipo_a') = 'S' then
+				if f_es_vacio(nomb) then colegiado_autor = apell else colegiado_autor = nomb +	' ' + apell
+				if not f_es_vacio(n_col) then colegiado_autor += ' (N$$HEX2$$ba002000$$ENDHEX$$Col.: ' + n_col +'); '
+		end if
+
+			colegiado = colegiado_as + colegiado
+			colegiado+=cr
+
+
+		next
+		// Destruimos el datastore creado
+		destroy ds_cols_soc
+	end if
+//	if len(sl_total_colegiados)>0 then sl_total_colegiados += ', ' else sl_total_colegiados = 'D./D$$HEX1$$aa00$$ENDHEX$$. '
+	sl_total_colegiados += colegiado
+	sl_total_col_autor += colegiado_autor
+next
+// Destruimos le datastore 
+destroy ds_fases_colegiados
+
+
+// Hay que hacer el recorrido de los clientes buscando los promotores
+datastore ds_fases_promotores
+ds_fases_promotores = create datastore
+ds_fases_promotores.dataobject = 'd_fases_promotores'
+ds_fases_promotores.SetTransObject(SQLCA)
+ds_fases_promotores.retrieve(id_fase)
+sl_total_clientes = ''
+for i = 1 to ds_fases_promotores.RowCount()
+	if ds_fases_promotores.getitemstring(i,"promotor") = 'S' then 
+		sl_cliente = ''
+
+		string id_cliente
+		double porcen
+		id_cliente = ds_fases_promotores.getitemstring(i,"id_cliente")
+		porcen = ds_fases_promotores.getitemnumber(i,"porcen")
+		if porcen=0 then continue
+		sl_cliente += f_dame_cliente ( id_cliente )
+		ls_dir_cliente = f_domicilio_cliente(id_cliente)
+		ls_pob_cliente = f_poblacion_cliente(id_cliente)
+		
+		if isnull(ls_dir_cliente) then ls_dir_cliente = ''
+		if isnull(ls_pob_cliente) then ls_pob_cliente = ''
+		select nif into :nif_cliente from clientes where id_cliente = :id_cliente;
+		if isnull(nif_cliente) then nif_cliente = ''
+		
+		sl_total_clientes += '* ' + sl_cliente
+		sl_total_clientes += '; '
+		sl_total_clientes += ' con NIF ' + nif_cliente + ','		
+		sl_total_clientes += ' con domicilio en ' + ls_dir_cliente +' ('+ls_pob_cliente+')' +cr
+	end if
+next
+
+// Destruimos el datastore
+destroy ds_fases_promotores
+
+
+
+// Obtenemos los arquitectos participantes en la obra
+datastore ds_fases_arquitectos
+ds_fases_arquitectos = create datastore
+ds_fases_arquitectos.dataobject = 'd_fases_arquitectos'
+ds_fases_arquitectos.settransobject (SQLCA)
+ds_fases_arquitectos.retrieve(id_fase)
+// REcorremos los arquitectos del contrato
+sl_arquitectos=''
+FOR i = 1 TO ds_fases_arquitectos.RowCount()
+	if ds_fases_arquitectos.GetItemString(i, 'tipo_a')='S' then
+		apellidos_arq = ds_fases_arquitectos.GetItemString(i, 'apellidos')
+		cod_titulacion = ds_fases_arquitectos.GetItemString(i, 'titulacion')
+		select descripcion into :titulacion from titulaciones where codigo = :cod_titulacion;
+		if not f_es_vacio(ds_fases_arquitectos.GetItemString(i, 'nombre')) then apellidos_arq += ', '+ds_fases_arquitectos.GetItemString(i, 'nombre')
+//		if len(sl_arquitectos)=0 then  sl_arquitectos += "Sr./s "
+		sl_arquitectos += apellidos_arq +' ('+titulacion+' )'+'; '
+	end if
+NEXT
+if not f_es_vacio(sl_total_col_autor) then sl_arquitectos += sl_total_col_autor
+// Destruimos el datastore
+destroy ds_fases_arquitectos
+
+
+sl_tipo_act = fase
+sl_des_tipo_act = f_dame_desc_tipo_actuacion(sl_tipo_act)
+if isnull(sl_des_tipo_act) then sl_des_tipo_act=''
+
+string descrip, municipio
+select municipios.descripcion, poblaciones.cod_pos,municipios.descripcion into :descrip, :cp_asociado,:pobla from poblaciones, municipios 
+where poblaciones.pob_mopu = municipios.cod_muni and 
+poblaciones.provincia = municipios.provincia   and 
+poblaciones.cod_pob = :poblacion;
+
+// Obtenemos la descritpcion del tipo de via
+des_via = f_dame_desc_tipo_via(t_via)
+
+// Construimos la direccion
+emplazamiento = ''
+if not f_es_vacio(des_via) then emplazamiento += des_via +" "
+if not f_es_vacio(nomvia) then emplazamiento += nomvia +" "
+if not f_es_vacio(numero) then emplazamiento += numero +", "
+if not f_es_vacio(piso) then emplazamiento += "piso "+piso +", "
+if not f_es_vacio(puerta) then emplazamiento += "puerta "+puerta +", "
+//if not f_es_vacio(poblacion) then emplazamiento += poblacion +"- "
+if not f_es_vacio(pobla) then emplazamiento += pobla +" "
+
+
+// Creamos el datastore para obtener la superficie
+datastore ds_superficie_presupuesto
+ds_superficie_presupuesto = create datastore
+ds_superficie_presupuesto.dataobject = 'd_fases_expedientes_estadistica_mca'
+ds_superficie_presupuesto.settransobject (SQLCA)
+ll_fila =ds_superficie_presupuesto.retrieve(id_fase)
+
+ldb_presupuesto = ds_superficie_presupuesto.getitemnumber(ll_fila,"pem")
+ldb_superficie    = ds_superficie_presupuesto.getitemnumber(ll_fila,"superficie")
+
+// Destruimos el datastore
+destroy ds_superficie_presupuesto
+
+if  isnull(cp_asociado) then cp_asociado= ' ' 
+municipio =  cp_asociado + '  ' + pobla//descrip 
+
+// Colocamos los datos obtenidos en el datastore para su impresion
+ds_imprime_hoja.setitem(1,"archivo",sl_archivo)
+ds_imprime_hoja.setitem(1,"colegiado",sl_total_colegiados)
+ds_imprime_hoja.setitem(1,"cliente",sl_total_clientes)  
+ds_imprime_hoja.setitem(1,"emplazamiento",emplazamiento)  
+ds_imprime_hoja.setitem(1,"descripcion",desc_trabajo + ' ' + descripcion)
+ds_imprime_hoja.setitem(1,"fecha",sl_fecha)
+ds_imprime_hoja.setitem(1,"poblacion",pobla)
+ds_imprime_hoja.setitem(1,"arquitectos", sl_arquitectos)
+ds_imprime_hoja.setitem(1,"tipo_actuacion",sl_des_tipo_act)
+ds_imprime_hoja.setitem(1,"presupuesto",ldb_presupuesto)
+ds_imprime_hoja.setitem(1,"f_entrada",ldt_hoy)
+ds_imprime_hoja.setitem(1,"f_visado",f_visado)
+ds_imprime_hoja.setitem(1,"colegio",sl_colegio)
+ds_imprime_hoja.setitem(1,"superficie",ldb_superficie)
+ds_imprime_hoja.setitem(1,"secretario",g_secretario)
+ds_imprime_hoja.setitem(1,"f_visado_pb",ldt_f_visado_basico)
+ds_imprime_hoja.setitem(1,"n_visado_pb",ls_visado_basico)
+ds_imprime_hoja.setitem(1,"f_visado_pe",ldt_f_visado_ejec)
+ds_imprime_hoja.setitem(1,"n_visado_pe",ls_visado_ejec)
+
+
+n_csd_impresion_formato uo_impresion
+uo_impresion=create n_csd_impresion_formato
+uo_impresion.copias=1
+uo_impresion.generar_registro='S' //g_formato_impresion.generar_registro
+uo_impresion.tipo_receptor='O'
+uo_impresion.asunto_email='CARTA AL AYUNTAMIENTO DE '+pobla
+uo_impresion.asunto_registro='CARTA AL AYUNTAMIENTO DE '+pobla
+uo_impresion.receptor='AYUNTAMIENTO DE '+pobla
+uo_impresion.serie='RS'
+uo_impresion.tipo_doc='AY'
+uo_impresion.dw=ds_imprime_hoja
+uo_impresion.visualizar_web = 'N'
+uo_impresion.email = 'N'
+uo_impresion.pdf= 'N'
+uo_impresion.papel='S'
+uo_impresion.referencia=id_fase
+uo_impresion.ruta_automatica=false
+uo_impresion.destino='F'
+uo_impresion.ruta_relativa1=''
+uo_impresion.ruta_relativa2=string(year(date(f_entrada)))
+uo_impresion.ruta_relativa3=sl_num_contrato
+uo_impresion.nombre="carta_ayuntamiento"
+uo_impresion.expediente=sl_num_contrato
+uo_impresion.n_expedi =id_fase
+if uo_impresion.f_opciones_impresion()>0 then uo_impresion.f_impresion()
+
+//for i = 1 TO copias
+//	ds_imprime_hoja.print()
+//next
+//
+
+// Destruimos el datastore
+destroy ds_imprime_hoja
+end subroutine
+

@@ -1,0 +1,5 @@
+HA$PBExportHeader$st_reclamaciones_facturas.srs
+global type st_reclamaciones_facturas from structure
+	string		consulta
+end type
+

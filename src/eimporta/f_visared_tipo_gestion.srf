@@ -1,0 +1,18 @@
+HA$PBExportHeader$f_visared_tipo_gestion.srf
+global type f_visared_tipo_gestion from function_object
+end type
+
+forward prototypes
+global function string f_visared_tipo_gestion (string codigo)
+end prototypes
+
+global function string f_visared_tipo_gestion (string codigo);string retorno
+
+select descripcion into :retorno from t_gestion where cod_gestion = :codigo;
+
+if f_es_vacio(retorno) then retorno = ''
+
+return retorno
+
+end function
+

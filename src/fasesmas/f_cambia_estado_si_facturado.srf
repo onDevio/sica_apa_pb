@@ -1,0 +1,71 @@
+HA$PBExportHeader$f_cambia_estado_si_facturado.srf
+global type f_cambia_estado_si_facturado from function_object
+end type
+
+forward prototypes
+global function integer f_cambia_estado_si_facturado (string id_fase)
+end prototypes
+
+global function integer f_cambia_estado_si_facturado (string id_fase);double cip_a_abonar = 0, cip_abonada = 0
+datetime fecha_hoy
+string retorno = ''
+string archivo_exp, archivo_fase, n_salida, id_expedi,t_tramite
+st_control_eventos c_evento
+fecha_hoy = datetime(today(), now())
+string estado="04"
+
+//if visar_al_facturar <>"0" then
+select fases.archivo,fases.id_tramite into :archivo_fase, :t_tramite from fases where id_fase = :id_fase;
+
+		//	SCP-893 se automatiza el numerar por variable global
+if g_visar_al_facturar<>"0" then
+	if t_tramite="VV" or  t_tramite="IP" or  t_tramite=""  or g_visar_al_facturar="1" then
+
+		if f_es_vacio(archivo_fase) then
+			c_evento.evento = 'NUMERO_SAL'
+			f_control_eventos(c_evento)
+			n_salida = f_numera_salida(c_evento.param1)	 
+			if g_colegio<> 'COAATGC' then
+				update fases set archivo = :n_salida where id_fase = :id_fase;
+			else //Gran Canaria utilizar$$HEX2$$e1002000$$ENDHEX$$el mismo numero de salida para todas las fases de un mismo expediente
+				select expedientes.archivo, expedientes.id_expedi into :archivo_exp, :id_expedi from expedientes, fases
+				where expedientes.id_expedi = fases.id_expedi
+				and fases.id_fase = :id_fase;
+				update expedientes set archivo = :n_salida where id_expedi = :id_expedi;						
+			end if
+				archivo_fase = n_salida
+		end if
+		
+		select param1 into :estado from t_control_eventos where evento="ABONAR_TOTAL" and control="CAMBIO_ESTADO";
+		//updateamos estado$$HEX1$$e700$$ENDHEX$$
+		if not f_es_vacio(estado) then
+			UPDATE fases set estado = :estado where id_fase = :id_fase;
+			INSERT INTO fases_estados (id_fase,cod_estado,fecha,usuario) VALUES (:id_fase,:estado,:fecha_hoy,:g_usuario)  ;
+		end if
+		//le ponemos fecha de visado si est$$HEX2$$e1002000$$ENDHEX$$a nulo
+		update fases set f_visado = :fecha_hoy where f_visado is null and id_fase =:id_fase;
+	
+			
+				
+		
+			// Confirmamos el grabado
+		commit;	
+
+
+		
+
+			// Si est$$HEX2$$e1002000$$ENDHEX$$la ventana de fases abierta, hacemos el refrescado
+			g_fases_consulta.id_fase = id_fase
+			if isvalid(g_dw1) then g_dw1.dynamic Trigger Event csd_retrieve()
+			// Provisional (para que muestre el n$$HEX2$$ba002000$$ENDHEX$$salida)
+			if isvalid(g_dw1) then g_dw1.dynamic Trigger Event csd_retrieve_exp()
+
+
+		return 1
+	
+end if
+
+end if
+return -1
+end function
+

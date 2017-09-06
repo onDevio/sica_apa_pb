@@ -1,0 +1,86 @@
+HA$PBExportHeader$f_calcular_cip_contrato_dw.srf
+global type f_calcular_cip_contrato_dw from function_object
+end type
+
+forward prototypes
+global subroutine f_calcular_cip_contrato_dw (u_dw dw_estadistica, u_dw dw_1)
+global function double f_calcular_cip_contrato_dw (u_dw dw_fases_estadistica, u_dw dw_1, double porcentaje, string as_id_col)
+end prototypes
+
+global subroutine f_calcular_cip_contrato_dw (u_dw dw_estadistica, u_dw dw_1);//
+end subroutine
+
+global function double f_calcular_cip_contrato_dw (u_dw dw_fases_estadistica, u_dw dw_1, double porcentaje, string as_id_col);// TERRES CALCULA EL MINIMO DESPUES DEL PORCENTAJE DE PARTICIPACI$$HEX1$$d300$$ENDHEX$$N
+// ESTO PROVOCA QUE NO SE PUEDAN OBTENER LAS CANTIDADES PROPORCIONALMENTE SINO
+// QUE SE TIENEN QUE CALCULAR PARA CADA COLEGIADO INDEPENDIENTEMENTE
+string ctrl_calidad_interno, fase, ls_funcionario
+double cip = 0, dv = 0, musaat = 0, cip_incrementar = 0, dv_incrementar = 0,cip_parcial = 0
+st_cip_datos st_cip_datos
+st_csi_articulos_servicios st_csi_articulos_servicios
+st_dv_datos st_dv_datos
+st_musaat_datos st_musaat_datos
+double i,j
+int fila_insertada
+string id_col, id_asociado
+int ret
+
+
+
+// CIP
+st_cip_datos.tipo_act = dw_1.getitemstring(1, 'fase')
+st_cip_datos.tipo_obra = dw_1.getitemstring(1, 'tipo_trabajo')
+st_cip_datos.destino = dw_1.getitemstring(1, 'trabajo')
+st_cip_datos.superficie = dw_fases_estadistica.getitemnumber(1, 'superficie')
+st_cip_datos.pem = dw_fases_estadistica.getitemnumber(1, 'pem')
+st_cip_datos.t_terreno = dw_fases_estadistica.GetItemString(1,'t_terreno')
+st_cip_datos.volumen = dw_fases_estadistica.GetItemNumber(1,'volumen')
+st_cip_datos.altura = dw_fases_estadistica.GetItemNumber(1,'altura')
+st_cip_datos.colindantes = dw_fases_estadistica.GetItemString(1,'colindantes')
+st_cip_datos.tipo_gestion = dw_1.GetItemString(1,'tipo_gestion')	
+st_cip_datos.fecha = dw_1.GetItemdatetime(1,'f_entrada')
+st_cip_datos.long_per = dw_fases_estadistica.getitemnumber(1, 'longitud_per')	
+st_cip_datos.vol_tierras = dw_fases_estadistica.getitemnumber(1, 'volumen_tierras')	
+st_cip_datos.valor_terreno = dw_fases_estadistica.getitemnumber(1, 'valor_terreno')	
+st_cip_datos.valor_tasacion = dw_fases_estadistica.getitemnumber(1, 'valor_tasacion')
+st_cip_datos.valoracion_estim = dw_fases_estadistica.getitemnumber(1, 'valoracion_estim')
+st_cip_datos.estructura = dw_fases_estadistica.GetItemString(1,'estructura')
+st_cip_datos.t_medicion = dw_fases_estadistica.GetItemString(1,'t_medicion')
+st_cip_datos.replan_deslin = dw_fases_estadistica.GetItemString(1,'replan_deslin')
+st_cip_datos.visared = dw_1.GetItemString(1,'e_mail') // modificado Ricardo 2004-12-30
+st_cip_datos.vol_edif = dw_fases_estadistica.GetItemnumber(1,'volumen')
+st_cip_datos.tipo_registro = dw_1.GetItemString(1,'tipo_registro')
+st_cip_datos.id_fase = dw_1.getitemstring(1, 'id_fase')
+st_cip_datos.destino_i = dw_1.getitemstring(1, 'destino_int')
+st_cip_datos.sup_viviendas = dw_fases_estadistica.getitemnumber(1, 'sup_viv')
+st_cip_datos.sup_otros = dw_fases_estadistica.getitemnumber(1, 'sup_garage')+dw_fases_estadistica.getitemnumber(1, 'sup_otros')
+st_cip_datos.num_viv = dw_fases_estadistica.getitemnumber(1, 'num_viv')
+if lower(dw_fases_estadistica.describe("tipo_reforma.name"))	= 'tipo_reforma' then st_cip_datos.tipo_reforma = dw_fases_estadistica.getitemString(1, 'tipo_reforma')
+
+
+
+
+//CGN-505. Alexis. 13/05/2010.  Se modifica la sentencia por que no recog$$HEX1$$ed00$$ENDHEX$$a corretamente los datos 
+//select f.id_expedi,e.administracion into :st_cip_datos.id_expedi,:st_cip_datos.admon from fases f,expedientes e where f.id_fase=:st_cip_datos.id_fase;
+select f.id_expedi,e.administracion into :st_cip_datos.id_expedi,:st_cip_datos.admon from fases f,expedientes e where f.id_fase=:st_cip_datos.id_fase
+and e.id_expedi = f.id_expedi;
+//st_cip_datos.admon = dw_fases_datos_exp.getitemstring(1, 'administracion')
+//st_cip_datos.id_expedi = dw_fases_datos_exp.getitemstring(1, 'id_expedi')
+
+// Se recoge el dato de si el colegiado es funcionario para que cobre uniacmente el m$$HEX1$$ed00$$ENDHEX$$nimo.
+select f.facturado into :ls_funcionario from fases_colegiados f where f.id_fase=:st_cip_datos.id_fase and f.id_col = :as_id_col;
+
+st_cip_datos.funcionario = ls_funcionario
+// Fin de los cambios.
+
+st_cip_datos.porcentaje = porcentaje
+
+f_calcular_cip(st_cip_datos)
+cip = st_cip_datos.cip
+if isnull(cip) then cip = 0
+
+return cip
+
+
+
+end function
+

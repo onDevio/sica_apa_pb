@@ -1,0 +1,16 @@
+HA$PBExportHeader$f_calcula_letra_nif.srf
+global type f_calcula_letra_nif from function_object
+end type
+
+forward prototypes
+global function string f_calcula_letra_nif (string num_dni)
+end prototypes
+
+global function string f_calcula_letra_nif (string num_dni);string dig
+
+ dig=MidA("TRWAGMYFPDXBNJZSQVHLCKET",Mod(double(num_dni),23)+1,1)
+
+
+return dig
+end function
+

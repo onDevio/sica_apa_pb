@@ -1,0 +1,48 @@
+HA$PBExportHeader$f_rellenar_hoja_ayto.srf
+global type f_rellenar_hoja_ayto from function_object
+end type
+
+forward prototypes
+global subroutine f_rellenar_hoja_ayto (string id_fase, string tipo_carta, integer copias)
+end prototypes
+
+global subroutine f_rellenar_hoja_ayto (string id_fase, string tipo_carta, integer copias);CHOOSE CASE g_colegio
+	CASE 'COAATB'
+		f_rellenar_hoja_ayto_bi(id_fase, tipo_carta, copias)
+	CASE 'COAATMU'
+		f_rellenar_hoja_ayto_bi(id_fase, tipo_carta, copias)
+	CASE 'COAATBU'
+		f_rellenar_hoja_ayto_bu(id_fase, tipo_carta, copias)
+	CASE 'COAATGUI'
+		f_rellenar_hoja_ayto_gui(id_fase, tipo_carta, copias)
+	CASE 'COAATGC'
+		f_rellenar_hoja_ayto_bi(id_fase, tipo_carta, copias)
+	CASE 'COAATLR'
+		f_rellenar_hoja_ayto_lr(id_fase, tipo_carta, copias)
+	CASE 'COAATCU'
+		f_rellenar_hoja_ayto_cu(id_fase, tipo_carta, copias)
+		//Andr$$HEX1$$e900$$ENDHEX$$s 28/07/2005: Cambiamos 'AMBAS' a 'ALCALDE'
+	CASE 'COAATTFE'
+//		f_rellenar_hoja_ayto_tfe(id_fase, 'ALCALDE', copias)
+		f_rellenar_hoja_ayto_tfe(id_fase, tipo_carta, copias)
+	CASE 'COAATZ'
+		f_rellenar_hoja_ayto_bi(id_fase, tipo_carta, copias)
+	CASE 'COAATAVI'
+		///*** SCP-718. CAV-155. Alexis. 25/11/2010. Se cambia y se hace el tratamiento en la funci$$HEX1$$f300$$ENDHEX$$n particular para $$HEX1$$c100$$ENDHEX$$vila ***///
+		//f_rellenar_hoja_ayto_avi(id_fase, 'ALCALDE', copias)
+		f_rellenar_hoja_ayto_avi(id_fase, tipo_carta, copias)
+	CASE 'COAATNA'
+		f_rellenar_hoja_ayto_na(id_fase, tipo_carta, copias)
+	CASE 'COAATCC'
+		f_rellenar_hoja_ayto_cc(id_fase, tipo_carta, copias)
+	CASE 'COAATMCA'
+		f_rellenar_hoja_ayto_mca(id_fase, tipo_carta, copias)
+//		MessageBox(g_titulo, 'Falta que se agregue la opci$$HEX1$$f300$$ENDHEX$$n de funci$$HEX1$$f300$$ENDHEX$$n en f_rellenar_hoja_ayto')
+	CASE 'COAATGU'
+		f_rellenar_hoja_ayto_gu(id_fase, tipo_carta, copias)
+	CASE ELSE
+		MessageBox(g_titulo, 'Opci$$HEX1$$f300$$ENDHEX$$n no disponible')
+END CHOOSE
+
+end subroutine
+

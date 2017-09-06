@@ -1,0 +1,18 @@
+HA$PBExportHeader$f_curso.srf
+global type f_curso from function_object
+end type
+
+forward prototypes
+global function string f_curso (string id_curso)
+end prototypes
+
+global function string f_curso (string id_curso);string curso
+
+SELECT nombre
+INTO :curso
+FROM formacion_cursos
+WHERE id_curso=:id_curso;
+
+return curso
+end function
+

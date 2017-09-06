@@ -1,0 +1,12 @@
+HA$PBExportHeader$p_ws_sepa_proxy.srj
+$PBExportComments$Generated Web Service Proxy Project
+GeneratorID:{1B1DCEE2-E514-11D1-B30A-006008925BD4}GENBC00000000
+
+WSDLLOCATION:http://192.168.6.37:8088/ws/sepa.wsdl	
+COMPONENT:0
+PACKAGE:5	WebService.SepaPortService	WebService.adeudosRequest	WebService.adeudosResponse	WebService.transferenciasRequest	WebService.transferenciasResponse
+COMMENT:Web Service Proxy Generator
+DEPLOYMENT:c:\proyectos\sicap\sepa\sepa.pbl	0	0
+PROJECT:p_ws_sepa_proxy
+PREFIX:
+ASSEMBLY:1	1	SEPA.dll

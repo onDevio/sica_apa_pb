@@ -1,0 +1,22 @@
+HA$PBExportHeader$f_dame_bic_banco_empresa.srf
+global type f_dame_bic_banco_empresa from function_object
+end type
+
+forward prototypes
+global function string f_dame_bic_banco_empresa (string as_cod_banco, string as_cod_empresa)
+end prototypes
+
+global function string f_dame_bic_banco_empresa (string as_cod_banco, string as_cod_empresa);string ls_bic  
+
+SELECT bic  
+INTO :ls_bic  
+FROM csi_bancos  
+WHERE csi_bancos.codigo = :as_cod_banco
+and csi_bancos.empresa = :as_cod_empresa ;
+
+
+if f_es_vacio(ls_bic) then ls_bic = ''
+
+return ls_bic
+end function
+

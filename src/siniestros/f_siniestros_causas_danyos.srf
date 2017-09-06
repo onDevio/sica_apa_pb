@@ -1,0 +1,31 @@
+HA$PBExportHeader$f_siniestros_causas_danyos.srf
+global type f_siniestros_causas_danyos from function_object
+end type
+
+forward prototypes
+global function string f_siniestros_causas_danyos (string id_sini)
+end prototypes
+
+global function string f_siniestros_causas_danyos (string id_sini);string causas_danyos= '', edp, dc, ee, o, od, ece, me, mu
+
+SELECT cd_error_dis_proy, cd_defectos_cimentacion, cd_excavacion_excesiva, cd_otras, cd_otras_des, cd_error_calculo_estructural, cd_mala_ejecucion,   
+		cd_mal_uso  
+INTO :edp,   :dc,   :ee,   :o,   :od,   :ece,   :me,   :mu  
+FROM fases_siniestros  
+WHERE id_siniestro = :id_sini   ;
+
+
+if edp = 'S' then causas_danyos += "Error en dise$$HEX1$$f100$$ENDHEX$$o y proyecto, "
+if dc = 'S' then causas_danyos += "Defectos en la cimentaci$$HEX1$$f300$$ENDHEX$$n, "
+if ee = 'S' then causas_danyos += "Excavaci$$HEX1$$f300$$ENDHEX$$n excesiva, "
+if o = 'S' then causas_danyos += od + ", "
+if ece = 'S' then causas_danyos += "Error en c$$HEX1$$e100$$ENDHEX$$lculo estructural, "
+if me = 'S' then causas_danyos += "Mala ejecuci$$HEX1$$f300$$ENDHEX$$n, "
+if mu = 'S' then causas_danyos += "Mal uso, "
+
+causas_danyos = LeftA(causas_danyos, LenA(causas_danyos)-2)
+
+return causas_danyos
+
+end function
+

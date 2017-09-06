@@ -1,0 +1,5 @@
+HA$PBExportHeader$st_anyadir_asistente.srs
+global type st_anyadir_asistente from structure
+	string		asistentes[]
+end type
+

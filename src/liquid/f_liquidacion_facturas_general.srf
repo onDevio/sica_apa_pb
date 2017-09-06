@@ -1,0 +1,13 @@
+HA$PBExportHeader$f_liquidacion_facturas_general.srf
+$PBExportComments$No se usa (SCP-2425)
+global type f_liquidacion_facturas_general from function_object
+end type
+
+forward prototypes
+global function integer f_liquidacion_facturas_general (ref st_liquidacion liq)
+end prototypes
+
+global function integer f_liquidacion_facturas_general (ref st_liquidacion liq);//DEPPRECATED
+return 1
+end function
+

@@ -1,0 +1,167 @@
+HA$PBExportHeader$f_rellena_txt_plantillas_bak.srf
+global type f_rellena_txt_plantillas_bak from function_object
+end type
+
+forward prototypes
+global function integer f_rellena_txt_plantillas_bak (datawindow ds_datos, datetime f_ini, datetime f_fin, string carta, n_csd_impresion_formato uo_impresion)
+end prototypes
+
+global function integer f_rellena_txt_plantillas_bak (datawindow ds_datos, datetime f_ini, datetime f_fin, string carta, n_csd_impresion_formato uo_impresion);string id_colegiado, nombre, domicilio, poblacion, numero, id_col_ant, cliente, n_visado, tipo_act, emplazam, emp_pobla, datos_obra
+string Newline="~n", Tab="~t", retcar="~r", linea, NombreFichero, directorio
+long i, j
+integer fichero, insertados=0
+n_cst_filesrvwin32 cambia_directorio
+n_csd_plantillas uo_plantillas
+
+cambia_directorio = create n_cst_filesrvwin32
+directorio = cambia_directorio.of_getcurrentdirectory()
+NombreFichero = g_directorio_rtf+'cartas_control.txt'
+
+// Creamos el objeto de plantillas y rellenamos sus parametros
+uo_plantillas=create n_csd_plantillas
+uo_plantillas.mdb='cartas_control.txt'
+uo_plantillas.ruta_mdb=nombrefichero
+uo_plantillas.ruta = g_directorio_temporal
+
+choose case carta
+	case '1'
+		uo_plantillas.ruta_plantilla = g_directorio_rtf+'CARTSSR.doc'
+	case '21'
+		uo_plantillas.ruta_plantilla = g_directorio_rtf+'CARSS04.doc'
+	case '22'
+		uo_plantillas.ruta_plantilla = g_directorio_rtf+'CARSS05.doc'
+	case '31'
+		uo_plantillas.ruta_plantilla = g_directorio_rtf+'CARSS01.doc'
+	case '32'	
+		uo_plantillas.ruta_plantilla = g_directorio_rtf+'CARSS02.doc'
+	case '33'	
+		uo_plantillas.ruta_plantilla = g_directorio_rtf+'CARSS03.doc'
+end choose
+//fichero = FileOpen(NombreFichero,LineMode!,Write!,LockWrite!,Replace!)
+
+if fichero = -1 then 
+	cambia_directorio.of_changedirectory(directorio)
+	destroy cambia_directorio
+	Messagebox(g_titulo,'Ha habido un error accediendo al fichero.',StopSign!)
+	return 0
+end if
+
+// Insertamos la primera fila con los nombres de los campos de combinaci$$HEX1$$f300$$ENDHEX$$n
+//FileWrite(fichero, "nombre"+Tab+"domicilio"+Tab+"poblacion"+Tab+"cliente"+Tab+"numero"+Tab+"t_act"+Tab+"emplazamiento"+Tab+"emp_pobla"+Tab+"obra")
+
+
+CHOOSE CASE LeftA(carta,1)
+	CASE '1'
+		datastore ds_datos_obra
+		ds_datos_obra = create datastore
+		ds_datos_obra.dataobject = "ds_obras_carta_src"
+		ds_datos_obra.settransobject(sqlca)
+		
+		For i = 1 to ds_datos.RowCount()
+
+			id_colegiado = ds_datos.GetItemString(i, 'id_colegiado')				
+			nombre = f_colegiado_nombre_apellido(id_colegiado)
+			domicilio = f_domicilio_activo(id_colegiado)
+			poblacion = f_poblacion_activa(id_colegiado)
+			numero = f_colegiado_n_col(id_colegiado)
+						
+			ds_datos_obra.retrieve(id_colegiado, f_ini, f_fin)
+			//	messagebox('', ds_datos_obra.rowcount())
+								
+			if id_colegiado <> id_col_ant  then
+				fichero = FileOpen(NombreFichero,LineMode!,Write!,LockWrite!,Replace!)
+				// Insertamos la primera fila con los nombres de los campos de combinaci$$HEX1$$f300$$ENDHEX$$n
+				FileWrite(fichero, "nombre"+Tab+"domicilio"+Tab+"poblacion"+Tab+"cliente"+Tab+"numero"+Tab+"t_act"+Tab+"emplazamiento"+Tab+"emp_pobla"+Tab+"obra")
+
+				for j=1 to ds_datos_obra.rowcount()
+					datos_obra += ds_datos_obra.GetItemString(j, 'datos_obra')
+					if j<> ds_datos_obra.rowcount() then datos_obra += retcar + retcar
+				next
+				linea = nombre + Tab + domicilio + Tab + poblacion + Tab + "" + Tab + numero + Tab + "" + Tab + "" + Tab + "" + Tab + datos_obra
+				FileWrite(fichero,linea)
+				insertados = 1
+				datos_obra = ''
+				FileClose(fichero)
+				if uo_impresion.pdf='S' then uo_plantillas.pdf = true
+				uo_plantillas.f_combinar_plantilla_txt()	
+			end if
+		
+			id_col_ant = id_colegiado
+		Next		
+		destroy ds_datos_obra
+		
+	CASE '2'
+		CHOOSE CASE RightA(carta,1)
+			CASE '1'
+				ds_datos.setfilter("carta = '1'")
+				ds_datos.filter()
+			CASE '2'
+				ds_datos.setfilter("carta = '2'")
+				ds_datos.filter()
+		END CHOOSE
+		
+		For i = 1 to ds_datos.rowcount()
+			id_colegiado = ds_datos.GetItemString(i, 'id_colegiado')
+					
+			nombre = f_colegiado_nombre_apellido(id_colegiado)
+			domicilio = f_domicilio_activo(id_colegiado)
+			poblacion = f_poblacion_activa(id_colegiado)
+//			numero = f_colegiado_n_col(id_colegiado)
+			
+			cliente = ds_datos.GetItemString(i, 'cliente')
+			n_visado = ds_datos.GetItemString(i, 'n_visado')
+			if isnull(n_visado) then n_visado = space(10)
+			tipo_act = f_dame_desc_tipo_actuacion(ds_datos.GetItemString(i, 'fase'))
+			emplazam = ds_datos.GetItemString(i, 'emplazam')
+			emp_pobla = ds_datos.GetItemString(i, 'emp_pobla')
+			
+			linea = nombre + Tab + domicilio + Tab + poblacion + Tab + cliente + Tab + n_visado + Tab + tipo_act + Tab + emplazam + Tab + emp_pobla + Tab + ""
+			FileWrite(fichero,linea)
+			insertados = 1
+		Next				
+		
+		
+	CASE '3'
+		CHOOSE CASE RightA(carta,1)
+			CASE '1'
+				ds_datos.setfilter("carta = '1'")
+				ds_datos.filter()
+			CASE '2'
+				ds_datos.setfilter("carta = '2'")
+				ds_datos.filter()
+			CASE '3'
+				ds_datos.setfilter("carta = '3'")
+				ds_datos.filter()
+		END CHOOSE
+		
+		For i = 1 to ds_datos.rowcount()
+			id_colegiado = ds_datos.GetItemString(i, 'id_colegiado')
+					
+			nombre = f_colegiado_nombre_apellido(id_colegiado)
+			domicilio = f_domicilio_activo(id_colegiado)
+			poblacion = f_poblacion_activa(id_colegiado)
+//			numero = f_colegiado_n_col(id_colegiado)
+			
+			cliente = ds_datos.GetItemString(i, 'cliente')
+			n_visado = ds_datos.GetItemString(i, 'n_visado')
+			if isnull(n_visado) then n_visado = space(10)
+			tipo_act = f_dame_desc_tipo_actuacion(ds_datos.GetItemString(i, 'fase'))
+			emplazam = ds_datos.GetItemString(i, 'emplazam')
+			emp_pobla = ds_datos.GetItemString(i, 'emp_pobla')
+			
+			linea = nombre + Tab + domicilio + Tab + poblacion + Tab + cliente + Tab + n_visado + Tab + tipo_act + Tab + emplazam + Tab + emp_pobla + Tab + ""
+			FileWrite(fichero,linea)
+			insertados = 1
+		Next		
+END CHOOSE
+
+//FileClose(fichero)
+
+// Cambiamos al directorio raiz de la aplicacion, como corresponde estar para que todas las imagenes sigan funcionando
+cambia_directorio.of_changedirectory(directorio)
+destroy cambia_directorio
+
+// Devuelve 1 si hay datos para combinar
+return insertados
+end function
+

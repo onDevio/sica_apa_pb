@@ -1,0 +1,21 @@
+HA$PBExportHeader$f_musaat_dame_col_doble_cond.srf
+global type f_musaat_dame_col_doble_cond from function_object
+end type
+
+forward prototypes
+global function string f_musaat_dame_col_doble_cond (string id_col)
+end prototypes
+
+global function string f_musaat_dame_col_doble_cond (string id_col);string doble_condicion
+
+
+select doble_condicion
+into :doble_condicion
+from fases_colegiados
+where fases_colegiados.id_col = :id_col;
+
+if isnull(doble_condicion) then doble_condicion = 'N'
+
+return doble_condicion
+end function
+

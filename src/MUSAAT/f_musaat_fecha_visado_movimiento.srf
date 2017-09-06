@@ -1,0 +1,30 @@
+HA$PBExportHeader$f_musaat_fecha_visado_movimiento.srf
+global type f_musaat_fecha_visado_movimiento from function_object
+end type
+
+forward prototypes
+global function datetime f_musaat_fecha_visado_movimiento (string id_fase)
+end prototypes
+
+global function datetime f_musaat_fecha_visado_movimiento (string id_fase);// Funci$$HEX1$$f300$$ENDHEX$$n que devuelve la fecha de visado que se comunica a Musaat en el movimiento
+datetime f_visado
+
+CHOOSE CASE g_colegio
+	CASE 'COAATB', 'COAATMU', 'COAATBU', 'COAATGUI', 'COAATLR', 'COAATCU', 'COAATTFE', 'COAATZ','COAATMCA'
+		f_visado = f_fases_f_visado(id_fase)
+	CASE 'COAATGC' // En regularizaciones y devoluciones, la fecha est$$HEX2$$e1002000$$ENDHEX$$en una intervenci$$HEX1$$f300$$ENDHEX$$n con el mismo tipo de actuaci$$HEX1$$f300$$ENDHEX$$n del expediente.  
+		f_visado = f_fases_f_visado_gc(id_fase, f_fases_id_expedi(id_fase), f_dame_fase(id_fase))
+	CASE 'COAATGU', 'COAATLE', 'COAATAVI', 'COAATA', 'COAATNA', 'COAATTGN', 'COAATCC', 'COAATTEB', 'COAATTER', 'COAATLL'
+		f_visado = f_fases_f_abono(id_fase)
+	CASE ELSE
+		f_visado = f_fases_f_abono(id_fase)
+END CHOOSE
+
+		if isnull(f_visado) or f_visado = datetime(date('01/01/1900'), time('00:00:00')) then
+			f_visado = f_fases_f_registro(id_fase)
+		end if
+
+return f_visado
+
+end function
+

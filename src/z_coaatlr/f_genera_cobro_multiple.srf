@@ -1,0 +1,47 @@
+HA$PBExportHeader$f_genera_cobro_multiple.srf
+global type f_genera_cobro_multiple from function_object
+end type
+
+forward prototypes
+global function string f_genera_cobro_multiple (string id_cobro_multiple)
+end prototypes
+
+global function string f_genera_cobro_multiple (string id_cobro_multiple);//Genera el cobro multiple a partir de 
+// el importe y el pagador
+
+datastore ds_cobro_multiple, ds_nuevo_cobro
+double ld_importe
+int ll, ll_ret
+st_generar_facturas_minutas lst_cobros
+
+ds_cobro_multiple = create datastore
+ds_cobro_multiple.dataobject = 'ds_cobros_multiples'
+ds_cobro_multiple.settransobject(SQLCA)
+ll_ret = ds_cobro_multiple.retrieve(id_cobro_multiple)
+
+ds_nuevo_cobro = create datastore
+ds_nuevo_cobro.dataobject = 'ds_cobros_multiples'
+ds_nuevo_cobro.settransobject(SQLCA)
+
+ll = ds_cobro_multiple.RowsCopy(1,   ds_cobro_multiple.RowCount(), Primary!, ds_nuevo_cobro, 1, Primary!)
+
+ld_importe = ds_nuevo_cobro.getitemdecimal(1, 'importe') * (-1)
+id_cobro_multiple = f_siguiente_numero('ID_COBRO_MULTIPLE',10)
+ds_nuevo_cobro.setitem(1, 'importe', ld_importe)
+ds_nuevo_cobro.setitem(1, 'fecha', datetime(today()))
+ds_nuevo_cobro.setitem(1, 'id_cobro_multiple', id_cobro_multiple )
+ds_nuevo_cobro.setitem(1, 'lista_fact', '' )
+ds_nuevo_cobro.update()
+commit;
+
+
+destroy ds_nuevo_cobro
+destroy ds_cobro_multiple
+
+
+
+return id_cobro_multiple
+
+
+end function
+

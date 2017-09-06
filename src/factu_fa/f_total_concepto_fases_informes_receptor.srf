@@ -1,0 +1,28 @@
+HA$PBExportHeader$f_total_concepto_fases_informes_receptor.srf
+global type f_total_concepto_fases_informes_receptor from function_object
+end type
+
+forward prototypes
+global function double f_total_concepto_fases_informes_receptor (string id_fase, string tipo_informe, string tipo_persona)
+end prototypes
+
+global function double f_total_concepto_fases_informes_receptor (string id_fase, string tipo_informe, string tipo_persona);double cuantia_colegiado,cuantia_cliente  
+
+
+  SELECT fases_informes.cuantia_cliente,   
+         fases_informes.cuantia_colegiado   
+           
+    INTO :cuantia_cliente,   
+         :cuantia_colegiado   
+          
+    FROM fases_informes  
+   WHERE ( fases_informes.id_fase = :id_fase ) AND  
+         ( fases_informes.tipo_informe = :tipo_informe )   ;
+		
+	if tipo_persona='C' then
+		return cuantia_colegiado
+	else
+		return cuantia_cliente
+	end if
+end function
+

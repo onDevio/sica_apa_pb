@@ -1,0 +1,36 @@
+HA$PBExportHeader$f_regsoc_razon.srf
+global type f_regsoc_razon from function_object
+end type
+
+forward prototypes
+global function string f_regsoc_razon (string id_regsoc)
+end prototypes
+
+global function string f_regsoc_razon (string id_regsoc);/// Segun variables globales obtenemos apellidos de colegiado
+
+datastore lds_dinamico
+lds_dinamico = create datastore
+string colegiado,apellidos,tabla,campo1,campo2,sql_nueva,ls_syntax,ls_error
+ //CARGAMOS LOS DATOS
+			select texto into :tabla from var_globales where nombre='regsoc_colegiado_tabla';
+			select texto into :campo1 from var_globales where nombre='regsoc_colegiado_campo1';
+			select texto into :campo2 from var_globales where nombre='regsoc_colegiado_campo3';
+			
+			select id_colegiado_sociedad into :colegiado from regsoc where id_regsoc=:colegiado;
+			
+			sql_nueva="SELECT DISTINCT " + tabla + "." + campo1 + ", " + tabla + "." + campo2 + " FROM " + tabla + " WHERE " + campo1 + " = '" + colegiado +"'"
+ 
+			ls_syntax = sqlca.SyntaxFromSQL(sql_nueva, "Style(Type= Grid )",ls_error)
+        
+			lds_dinamico.create(ls_syntax,ls_error)
+			lds_dinamico.SetTransObject(SQLCA)
+			lds_dinamico.retrieve()
+		   if lds_dinamico.rowcount()>0 then
+						apellidos=lds_dinamico.getitemstring(1,2)
+			end if
+			
+destroy lds_dinamico		
+return apellidos
+			
+end function
+

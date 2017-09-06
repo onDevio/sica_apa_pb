@@ -1,0 +1,25 @@
+HA$PBExportHeader$f_direccion_abogado.srf
+global type f_direccion_abogado from function_object
+end type
+
+forward prototypes
+global function string f_direccion_abogado ()
+end prototypes
+
+global function string f_direccion_abogado ();string tipo_via_cli, nombre_via_cli, cod_prov_cli, cp_cli, direccion, descripcion_via
+
+SELECT clientes.tipo_via, clientes.nombre_via, clientes.cod_prov, clientes.cp  
+INTO :tipo_via_cli, :nombre_via_cli, :cod_prov_cli, :cp_cli  
+FROM clientes  
+WHERE clientes.id_cliente = :g_abogado_colegio  ;
+
+select descripcion into :descripcion_via from tipos_via where cod_tipo_via = :tipo_via_cli;
+
+if f_es_vacio(nombre_via_cli) then nombre_via_cli = ''
+if f_es_vacio(descripcion_via) then descripcion_via = ''
+direccion = descripcion_via + ' ' + nombre_via_cli
+
+return direccion
+
+end function
+

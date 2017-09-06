@@ -1,0 +1,13 @@
+HA$PBExportHeader$f_ayuda.srf
+$PBExportComments$Muestra un t$$HEX1$$f300$$ENDHEX$$pico de Ayuda: f_ayuda(topico)
+global type f_ayuda from function_object
+end type
+
+forward prototypes
+global function integer f_ayuda (integer topico)
+end prototypes
+
+global function integer f_ayuda (integer topico);return showhelp(gnv_app.of_GetHelpFile( ),topic!,topico) 
+
+end function
+

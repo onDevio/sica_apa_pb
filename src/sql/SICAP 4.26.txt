@@ -1,0 +1,21 @@
+//TODOS
+// Se agrega fecha de entrada  incidencia CGN-287
+// Se visualiza el cambio en la ventana de w_garantias_liquidaciones
+alter table premaat_liquidaciones add f_entrada datetime null;
+
+// TODOS
+insert into listados values ('Listado Facturas Impagadas','d_facturas_listado_impagadas','w_facturacion_emitida_listados','00','S'); 
+insert into listados values ('Listado Declaración 347 por Colegiado','d_colegiados_listado_importe_facturado_347','w_facturacion_emitida_listados', '00', 'S'); 
+insert into listados values ('Listado Liquidaciones General','d_garantias_liquidaciones_list_general','w_garantias_liquidaciones_listados','00','S') ; 
+
+// TODOS
+update csi_articulos_servicios set exp = 'N' where exp = 'F' ;
+update csi_articulos_servicios set general = 'N' where general = 'F' ;
+update csi_articulos_servicios set activo = 'N' where activo = 'F' ;
+update csi_articulos_servicios set es_informe = 'N' where es_informe = 'F' ;
+update csi_articulos_servicios set honorario = 'N' where honorario = 'F' ;
+update csi_articulos_servicios set en_ficha_colegiado = 'N' where en_ficha_colegiado = 'F' ;
+update csi_articulos_servicios set suplido = 'N' where suplido = 'F' ;
+update csi_articulos_servicios set ing_gas = 'N' where ing_gas = 'F' ;
+update csi_articulos_servicios set incluir_347 = 'N' where incluir_347 = 'F' ;
+update csi_articulos_servicios set tiene_irpf = 'N' where tiene_irpf = 'F' ;

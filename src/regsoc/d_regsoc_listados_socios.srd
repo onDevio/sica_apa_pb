@@ -1,0 +1,39 @@
+HA$PBExportHeader$d_regsoc_listados_socios.srd
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=476 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=84 color="536870912" )
+detail(height=100 color="536870912" )
+table(column=(type=char(10) updatewhereclause=yes name=regsoc_num_reg_colegio dbname="regsoc.num_reg_colegio" )
+ column=(type=char(10) updatewhereclause=yes name=regsoc_num_reg_mercantil dbname="regsoc.num_reg_mercantil" )
+ column=(type=char(255) updatewhereclause=yes name=regsoc_razon_social dbname="regsoc.razon_social" )
+ column=(type=char(255) updatewhereclause=yes name=regsoc_socio_nombre dbname="regsoc_socio.nombre" )
+ column=(type=char(255) updatewhereclause=yes name=regsoc_socio_apellidos dbname="regsoc_socio.apellidos" )
+ column=(type=char(20) updatewhereclause=yes name=regsoc_id_regsoc dbname="regsoc.id_regsoc" )
+ retrieve="  SELECT DISTINCT regsoc.num_reg_colegio,   
+         regsoc.num_reg_mercantil,   
+         regsoc.razon_social,   
+         regsoc_socio.nombre,   
+         regsoc_socio.apellidos,   
+         regsoc.id_regsoc  
+    FROM regsoc_socio,   
+         regsoc  
+   WHERE ( regsoc.id_regsoc = regsoc_socio.id_regsoc )    
+"  sort="regsoc_num_reg_colegio A " )
+group(level=1 header.height=204 trailer.height=0 by=("regsoc_id_regsoc" ) header.color="536870912" trailer.color="536870912" )
+text(band=header alignment="0" text="Listado de socios" border="0" color="0" x="562" y="36" height="120" width="1179"  name=t_titulo  font.face="Arial" font.height="-18" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="2" background.color="1090519039" )
+text(band=header alignment="2" text="Num Reg Colegio" border="0" color="0" x="18" y="392" height="56" width="526"  name=regsoc_num_reg_colegio_t  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Num Reg Mercantil" border="0" color="0" x="576" y="392" height="56" width="526"  name=regsoc_num_reg_mercantil_t  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=header.1 id=1 alignment="0" tabsequence=32766 border="0" color="0" x="18" y="12" height="64" width="526" format="[general]"  name=regsoc_num_reg_colegio edit.limit=10 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=header.1 id=2 alignment="0" tabsequence=32766 border="0" color="0" x="576" y="12" height="64" width="526" format="[general]"  name=regsoc_num_reg_mercantil edit.limit=10 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header.1 alignment="0" text="Socios" border="0" color="0" x="23" y="120" height="56" width="3209"  name=t_1  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="0" expression="regsoc_socio_nombre + ' ' + regsoc_socio_apellidos "border="0" color="0" x="23" y="12" height="64" width="3214" format="[GENERAL]"  name=compute_1  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=footer alignment="0" text="Fecha:" border="0" color="0" x="9" y="8" height="56" width="201"  name=t_2  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+compute(band=footer alignment="0" expression="datetime(today(),now())"border="0" color="0" x="219" y="8" height="56" width="805" format="[SHORTDATE] [TIME]"  name=compute_2  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+compute(band=footer alignment="1" expression="'P$$HEX1$$e100$$ENDHEX$$gina: ' + page() + ' de ' + pageCount()"border="0" color="0" x="2487" y="8" height="56" width="690" format="[GENERAL]"  name=compute_3  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Razon Social" border="0" color="0" x="1138" y="392" height="56" width="2117"  name=regsoc_razon_social_t  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=header x1="5" y1="468" x2="3264" y2="468"  name=l_1 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="1090519039" )
+column(band=header.1 id=3 alignment="0" tabsequence=32766 border="0" color="0" x="1138" y="12" height="64" width="2117" format="[general]"  name=regsoc_razon_social edit.limit=255 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

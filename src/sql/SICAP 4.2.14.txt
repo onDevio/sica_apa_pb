@@ -1,0 +1,25 @@
+declare @colegio varchar(10)
+select @colegio = texto from var_globales where nombre = 'COLEGIO'
+
+-- SCP 259
+ALTER TABLE fases_renuncias ADD usuario char(10) null;
+ALTER TABLE fases_renuncias ADD f_modificacion datetime null; 
+
+--TODOS
+  INSERT INTO csi_param_sigescon  
+( nombre, valor_texto,  descripcion )  
+  VALUES ( 'g_aplica_tipo_inter_concepto','N', 'Indica si se incluye en el concepto de expediente el tipo de intervención' )  ;
+go
+
+--Colegios con problemas en el estadísticas pres_segridad
+insert into t_control_eventos (control, evento, activo, param1, id_control)
+values ('CAMBIAR_DW','FASES_ESTADISTICA','S','d_fases_expedientes_estadistica','CAMBIAR_DW');
+
+
+-- SCP 262
+INSERT INTO menu ( codigo, descripcion,  objeto, visible, enabled, ventana, activo )  
+  VALUES ('0000000205','Municipios','m_file.m_open.m_general.m_municipios0', '1', '1',  'w_municipios', 'S' )
+
+-- SCP 269
+alter table registro_series add empresa char(2) null;
+update registro_series set empresa = '01';

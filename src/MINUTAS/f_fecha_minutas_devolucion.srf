@@ -1,0 +1,85 @@
+HA$PBExportHeader$f_fecha_minutas_devolucion.srf
+$PBExportComments$Dada una fecha, nos da el n$$HEX2$$ba002000$$ENDHEX$$de d$$HEX1$$ed00$$ENDHEX$$as del mes
+global type f_fecha_minutas_devolucion from function_object
+end type
+
+forward prototypes
+global function datetime f_es_bisiesto (datetime f_desde)
+global function boolean f_fecha_minutas_devolucion (integer anyo)
+global function date f_fecha_minutas_devolucion (date f_aux)
+end prototypes
+
+global function datetime f_es_bisiesto (datetime f_desde);// Funci$$HEX1$$f300$$ENDHEX$$n que, dada una fecha, devuelve el datetime correspondiente al $$HEX1$$fa00$$ENDHEX$$ltimo d$$HEX1$$ed00$$ENDHEX$$a de dicho mes y a$$HEX1$$f100$$ENDHEX$$o
+datetime f_hasta
+integer mes, anyo, j, mismo_mes
+
+ mes =  Month (Date(f_desde))
+ anyo = Year( Date(f_desde))
+
+j = f_numero_dias_mes ( f_desde)
+ f_hasta = Datetime( Date(string(j) + '/' + string(mes) + '/' + string(anyo)))
+
+return f_hasta
+end function
+
+global function boolean f_fecha_minutas_devolucion (integer anyo);// Funci$$HEX1$$f300$$ENDHEX$$n que, dado un a$$HEX1$$f100$$ENDHEX$$o, devuelve si es o no bisiesto
+
+if ((mod(anyo,4)=0 and mod(anyo,100)<>0) or mod(anyo,400)=0) then
+  return true
+else  
+   return false
+end if
+end function
+
+global function date f_fecha_minutas_devolucion (date f_aux);// Funci$$HEX1$$f300$$ENDHEX$$n que suma 4 a$$HEX1$$f100$$ENDHEX$$os y un mes a la fecha de entrada para las devoluciones.
+date fecha
+date f_visado
+integer mes
+string f_1
+
+f_visado = f_aux
+
+//f_1=string(day(f_visado))+"/"+f_completar_con_caracteres(string(month(f_visado)+1),2,'I','0')+"/"+string(year(f_visado)+4)
+//f_2
+//f_3
+//fecha = date(f_1)
+
+if(month(f_visado)=12)then
+	fecha = date(f_completar_con_caracteres(string(day(f_visado)),2,'I','0')+"/01/"+string(year(f_visado)+5))
+end if
+
+if (month(f_visado)=01 and day(f_visado)=29)then
+	if not(f_es_bisiesto(year(f_visado)+4))then
+		fecha = date(string('01/03/'+string(year(f_visado)+4)))
+	end if
+end if
+
+if (month(f_visado)=01 and day(f_visado)=30)then
+	if (f_es_bisiesto(year(f_visado)+4))then
+		fecha = date(string('01/03/'+string(year(f_visado)+4)))
+	else
+		fecha = date(string('02/03/'+string(year(f_visado)+4)))
+	end if
+end if
+
+if (month(f_visado)=01 and day(f_visado)=31)then
+	if (f_es_bisiesto(year(f_visado)+4))then
+		fecha = date(string('02/03/'+string(year(f_visado)+4)))
+	else 
+		fecha = date(string('03/03/'+string(year(f_visado)+4)))
+	end if
+end if
+
+if (day(f_visado)=31 and (month(f_visado)=03 or month(f_visado)=05 or month(f_visado)=08 or month(f_visado)=10))then
+	mes = month(f_visado)+2
+	fecha = date(string('01/'+f_completar_con_caracteres(string(mes),2,'I','0')+'/'+string(year(f_visado)+4)))
+end if
+
+///*Introducido por Alexis con motivo de la incidencia CGU-355. Para recoger el resto de casos y que no devuelva la fecha 01/01/2009**/
+if( string(fecha,'dd/mm/yyyy') = '01/01/1900') and ((string(f_visado,'dd/mm/yyyy') <> '01/01/1900') or not isnull(f_visado)) then
+	fecha = date(string(day(f_visado)) +'/'+ string(month(f_visado))+'/'+string(year(f_visado)+4))
+end if	
+
+return fecha
+end function
+

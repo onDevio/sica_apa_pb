@@ -1,0 +1,19 @@
+HA$PBExportHeader$f_fases_id_expedi.srf
+global type f_fases_id_expedi from function_object
+end type
+
+forward prototypes
+global function string f_fases_id_expedi (string id_fase)
+end prototypes
+
+global function string f_fases_id_expedi (string id_fase);string exp
+
+SELECT fases.id_expedi  
+INTO :exp  
+FROM fases  
+WHERE fases.id_fase = :id_fase   ;
+
+return exp
+
+end function
+

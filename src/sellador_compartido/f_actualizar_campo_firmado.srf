@@ -1,0 +1,23 @@
+HA$PBExportHeader$f_actualizar_campo_firmado.srf
+global type f_actualizar_campo_firmado from function_object
+end type
+
+forward prototypes
+global function integer f_actualizar_campo_firmado (string id_factura, string firmado)
+end prototypes
+
+global function integer f_actualizar_campo_firmado (string id_factura, string firmado);string existe_id
+
+select id_factura into :existe_id from csi_facturas_emitidas where id_factura = :id_factura;
+
+if not isnull(existe_id) or existe_id <> '' then 
+	update csi_facturas_emitidas set firmado = :firmado where id_factura = :id_factura;
+	return 1
+end if
+
+
+return -1
+
+
+end function
+

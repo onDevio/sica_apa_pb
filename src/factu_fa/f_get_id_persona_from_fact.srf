@@ -1,0 +1,15 @@
+HA$PBExportHeader$f_get_id_persona_from_fact.srf
+global type f_get_id_persona_from_fact from function_object
+end type
+
+forward prototypes
+global function string f_get_id_persona_from_fact (string as_id_factura)
+end prototypes
+
+global function string f_get_id_persona_from_fact (string as_id_factura);string ls_id_persona
+
+select id_persona into : ls_id_persona from csi_facturas_emitidas where id_factura = :as_id_factura;
+
+return ls_id_persona
+end function
+

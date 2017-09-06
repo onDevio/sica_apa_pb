@@ -1,0 +1,59 @@
+HA$PBExportHeader$f_cambiar_vector_rutas.srf
+global type f_cambiar_vector_rutas from function_object
+end type
+
+forward prototypes
+global function integer f_cambiar_vector_rutas (ref string vector_rutas[5, 2])
+end prototypes
+
+global function integer f_cambiar_vector_rutas (ref string vector_rutas[5, 2]);integer i,posicion
+string ruta, coletilla, ruta_2
+integer aa
+n_cst_filesrvwin32 renombrar
+ 
+renombrar = create n_cst_filesrvwin32
+
+for i = 1 to 5 
+	ruta = vector_rutas[i,1]	
+	coletilla = vector_rutas[i,2]
+	if not f_es_vacio(coletilla) and coletilla <> "N" then 
+		choose case coletilla
+			case '1_1'
+				coletilla = "_1_1_Proyecto"
+			case '1_2'
+				coletilla = "_1_2_ResumenPresup"
+			case '1_3'
+				coletilla = "_1_3_ActaAprob"
+			case '1_4'
+				coletilla = "_1_4_CFO"
+			case '3_1'
+				coletilla = "_2_1_Proyecto"
+			case '3_2'
+				coletilla = "_2_2_ActaAprob"
+			case '3_3'
+				coletilla = "_2_3_CertifObra"
+			case '3_4'
+				coletilla = "_2_4_CFO"
+			case '4_1'
+				coletilla = "_3_1_CFO"
+			case '4_2'
+				coletilla = "_3_2_ActaAprob"
+			case '4_3'
+				coletilla = "_3_3_AnexoProy"
+			case '4_4'
+				coletilla = "_3_0_Minuta"
+				
+		end choose 
+		posicion = pos(ruta,".")
+		ruta_2 = replace(ruta, posicion, 10,"")
+//		renombrar.of_filerename(ruta,ruta_2+coletilla+".pdf")
+//		filecopy(ruta, ruta_2 + coletilla +".pdf", true)
+		renombrar.of_filecopy(ruta,ruta_2+coletilla+".pdf")
+		vector_rutas[i,1] = ruta_2 + coletilla + ".pdf"
+//		filedelete(ruta)
+	end if
+next
+
+return 1
+end function
+

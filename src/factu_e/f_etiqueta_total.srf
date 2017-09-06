@@ -1,0 +1,101 @@
+HA$PBExportHeader$f_etiqueta_total.srf
+global type f_etiqueta_total from function_object
+end type
+
+forward prototypes
+global function string f_etiqueta_total (string n_fact, string id_fact)
+end prototypes
+
+global function string f_etiqueta_total (string n_fact, string id_fact);string ls_proforma
+string etiqueta
+
+select proforma into :ls_proforma from csi_facturas_emitidas where id_factura= :id_fact;
+
+choose case g_colegio
+		
+	case 'COAATA','COAATGU','COAATZA','COAATAVI','COAATLR','COAATTER','COAATMCA','COAATCC'
+		if ls_proforma='S' then 
+			return 'TOTAL PROFORMA'
+		elseif (left(n_fact ,4)='ADES') or  (left(n_fact ,6)='PREMAA') or (left(n_fact ,2)='MU') or (left(n_fact,2)='PC') or (left(n_fact,2)='PF') or (left(n_fact,2)='MT') then
+			return 'TOTAL RECIBO'
+		else
+			return 'TOTAL FACTURA'
+		end if
+	case 'COAATB'
+		if ls_proforma='S' then 
+			return 'TOTAL PROFORMA'
+		elseif (left(n_fact ,3)='PRE') or (left(n_fact ,2)='MUS') or (left(n_fact,2)='PC') or (left(n_fact,2)='PF') or (left(n_fact,2)='MT') then
+			return 'TOTAL RECIBO'
+		else
+			return  'TOTAL FACTURA'
+		end if
+		
+	case 'COAATBU','COAATCU','COAATGC','COAATMU'
+		if ls_proforma='S' then 
+			return 'TOTAL PROFORMA'
+		else
+			return 'TOTAL FACTURA'
+		end if
+
+	case 'COAATGUI'
+		if ls_proforma='S' then 
+			return 'TOTAL PROFORMA'
+		else
+			return 'TOTAL FACTURA / FAKTURA GUZTIRA'
+		end if
+
+	case 'COAATLE'
+		if ls_proforma='S' then 
+			return 'TOTAL PROFORMA'
+		elseif (left(n_fact ,4)='ADES') or  (left(n_fact ,6)='PREMAA') or (left(n_fact ,2)='MU') or ( left(n_fact,1)='R' and left(n_fact,6)<>'RECTIF' ) or (left(n_fact,2)='PC') or (left(n_fact,2)='PF') or (left(n_fact,2)='MT') then
+			return 'TOTAL RECIBO'
+		else
+			return 'TOTAL FACTURA'
+		end if
+		
+//	case 'COAATLL'
+//		if ls_proforma='S' then 
+//			return 'N$$HEX2$$ba002000$$ENDHEX$$PROFORMA'
+//		elseif (left(n_fact ,4)='ADES') then
+//			return 'N$$HEX2$$ba002000$$ENDHEX$$RECIBO'
+//		else
+//			return 'N$$HEX2$$ba002000$$ENDHEX$$FACTURA'
+//		end if
+		
+	case 'COAATNA'
+		if ls_proforma='S' then 
+			return 'TOTAL PROFORMA'
+		elseif (left(n_fact ,4)='ADES') or  (left(n_fact ,6)='PREMAA') or (left(n_fact ,2)='MU') or (left(n_fact ,2)='R-') or (left(n_fact,2)='PC') or (left(n_fact,2)='PF') or (left(n_fact,2)='MT') then
+			return 'TOTAL RECIBO'
+		else
+			return 'TOTAL FACTURA'
+		end if
+
+	case 'COAATTG', 'COAATTEB'
+		if ls_proforma='S' then 
+			return 'TOTAL PROFORMA'
+		else
+			return 'TOTAL REBUT'
+		end if
+		
+	case 'COAATTFE'
+		if ls_proforma='S' then 
+			return 'Total de la proforma'
+		elseif (left(n_fact ,7)='PREMAAT') or (left(n_fact,2)='PC') or (left(n_fact,2)='PF') or (left(n_fact,2)='MT') then
+			return 'Total del recibo'
+		else
+			return  'Total de la factura'
+		end if
+	case else
+		
+		if ls_proforma='S' then 
+			return 'TOTAL PROFORMA'
+		else
+			return  'TOTAL FACTURA'
+		end if
+end choose
+
+
+return etiqueta
+end function
+

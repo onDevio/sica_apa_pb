@@ -1,0 +1,23 @@
+HA$PBExportHeader$st_conta.srs
+global type st_conta from structure
+	string		concepto_rv
+	string		cuenta_clientes_general
+	string		concepto_exp
+	string		ret_vol
+	string		garantia_cuenta
+	string		garantia_codigo_articulo
+	string		enlace_facturas
+	string		crear_cuentas_clientes_terceros
+	string		concepto_n_visado
+	string		concepto_fact_general
+	string		concepto_irpf
+	string		aglutina_importe_cobro_cuenta
+	string		aglutina_importe_garantia
+	string		id_factura[]
+	string		n_asiento[]
+	string		total_cobromult[]
+	string		total_fact[]
+	integer		row
+	string		apunte_autoliquidacion
+end type
+

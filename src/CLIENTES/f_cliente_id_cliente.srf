@@ -1,0 +1,18 @@
+HA$PBExportHeader$f_cliente_id_cliente.srf
+global type f_cliente_id_cliente from function_object
+end type
+
+forward prototypes
+global function string f_cliente_id_cliente (string nif)
+end prototypes
+
+global function string f_cliente_id_cliente (string nif);string id_cliente
+  
+SELECT clientes.id_cliente  
+INTO :id_cliente  
+FROM clientes  
+WHERE clientes.nif = :nif   ;
+
+return id_cliente
+end function
+

@@ -1,0 +1,22 @@
+HA$PBExportHeader$f_minutas_id_col.srf
+global type f_minutas_id_col from function_object
+end type
+
+forward prototypes
+global function string f_minutas_id_col (string id_minuta)
+end prototypes
+
+global function string f_minutas_id_col (string id_minuta);string id_col
+
+  SELECT fases_minutas.id_colegiado
+    INTO :id_col  
+    FROM fases_minutas  
+   WHERE fases_minutas.id_minuta = :id_minuta   ;
+	
+if f_es_vacio(id_col) then id_col = ''
+
+return id_col
+	
+
+end function
+

@@ -1,0 +1,37 @@
+HA$PBExportHeader$f_generar_recibo_retencion_gu.srf
+global type f_generar_recibo_retencion_gu from function_object
+end type
+
+forward prototypes
+global subroutine f_generar_recibo_retencion_gu (st_recibo_retencion datos_retencion)
+end prototypes
+
+global subroutine f_generar_recibo_retencion_gu (st_recibo_retencion datos_retencion);//i3464
+//Genera el recibo de retenci$$HEX1$$f300$$ENDHEX$$n para Guadalajara
+
+datastore ds_recibo_retencion
+ds_recibo_retencion=create datastore
+ds_recibo_retencion.dataobject='d_recibo_retencion_gu'
+
+ds_recibo_retencion.insertrow(0)
+
+ds_recibo_retencion.setitem(1,'nombre_entidad',datos_retencion.nombre_entidad)
+ds_recibo_retencion.setitem(1,'domicilio_entidad',datos_retencion.domicilio_entidad)
+ds_recibo_retencion.setitem(1,'poblacion_entidad',datos_retencion.poblacion_entidad)
+ds_recibo_retencion.setitem(1,'cif_entidad',datos_retencion.cif_entidad)
+ds_recibo_retencion.setitem(1,'nombre_profesional',datos_retencion.nombre_profesional)
+ds_recibo_retencion.setitem(1,'domicilio_profesional',datos_retencion.domicilio_profesional)
+ds_recibo_retencion.setitem(1,'poblacion_profesional',datos_retencion.poblacion_profesional)
+ds_recibo_retencion.setitem(1,'cif_profesional',datos_retencion.cif_profesional)
+ds_recibo_retencion.setitem(1,'objeto_trabajo',datos_retencion.objeto_trabajo)
+ds_recibo_retencion.setitem(1,'emplazamiento_trabajo',datos_retencion.emplazamiento_trabajo)
+ds_recibo_retencion.setitem(1,'importe_honorarios',datos_retencion.importe_honorarios)
+ds_recibo_retencion.setitem(1,'importe_retencion',datos_retencion.importe_retencion)
+ds_recibo_retencion.setitem(1,'porcentaje_retencion',datos_retencion.porcentaje_retencion)
+ds_recibo_retencion.setitem(1,'actividad_profesional',datos_retencion.actividad_profesional)
+
+ds_recibo_retencion.print()
+ds_recibo_retencion.print()
+destroy ds_recibo_retencion
+end subroutine
+

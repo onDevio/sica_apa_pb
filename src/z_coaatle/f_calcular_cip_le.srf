@@ -1,0 +1,138 @@
+HA$PBExportHeader$f_calcular_cip_le.srf
+$PBExportComments$Calcula el total de cip para Le$$HEX1$$f300$$ENDHEX$$n
+global type f_calcular_cip_le from function_object
+end type
+
+forward prototypes
+global function integer f_calcular_cip_le (ref st_cip_datos st_cip_datos)
+end prototypes
+
+global function integer f_calcular_cip_le (ref st_cip_datos st_cip_datos);String TipoAct, TipoObra, AplicadoMinimo='N', administracion, formula, desarrollo, mensaje='', id_fase, facturado, tabla
+double Sup, Pres, minimo, minimo_formula, Volumen, cip, pto_calculo, coef_c, coef_g, coef_k, porcentaje
+
+TipoAct = st_cip_datos.tipo_act
+TipoObra = st_cip_datos.tipo_obra
+administracion = st_cip_datos.admon
+Volumen = st_cip_datos.volumen
+sup = st_cip_datos.superficie
+Pres = st_cip_datos.pem
+id_fase = st_cip_datos.id_fase
+porcentaje = st_cip_datos.porcentaje
+
+pto_calculo = pres
+
+if isnull(pto_calculo) then pto_calculo = 0
+if isnull(sup) then sup = 0
+sup = long(sup)
+if isnull(volumen) then volumen = 0
+
+// Si es funcionario y la obra es oficial no paga
+if administracion = 'S' then
+	select facturado into :facturado from fases_colegiados where id_fase = :id_fase ;
+	if facturado = 'S' then
+		cip = 0
+		return 1
+	end if
+end if
+
+// Entramos en la tabla C
+SELECT coef, tabla
+INTO :coef_c, :tabla
+FROM musaat_coef_c
+WHERE (tipoact = :TipoAct OR tipoact = '*' ) AND (tipoobra = :TipoObra OR tipoobra = '*') AND (desde_sup < :sup) AND (hasta_sup >=:sup) ;
+
+if TipoObra = '83' then tabla = 'D'
+//if left(TipoObra,1) = '9' then tabla = 'E'
+
+// Verificar que se ha encontrado la entrada
+if LeftA(tabla,1)<>'A' AND LeftA(tabla,1)<>'B' AND LeftA(tabla,1)<>'C' AND LeftA(tabla,1)<>'D' AND LeftA(tabla,1)<>'E'/* AND LeftA(tabla,1)<>'F' */then
+	mensaje = 'No est$$HEX2$$e1002000$$ENDHEX$$la entrada en la tabla C, es decir, ~n~rfalta el tipo de actuaci$$HEX1$$f300$$ENDHEX$$n, el tipo de obra, o la superficie.'
+end if
+
+// M$$HEX1$$ed00$$ENDHEX$$nimos
+SELECT minimo
+INTO :minimo
+FROM musaat_tarifas
+WHERE tarifa = :tabla ;
+
+// Coeficiente G
+coef_g = g_dip_coef_g
+if isnull(coef_g) or coef_g = 0 then mensaje = 'No se encuentra el valor del coeficiente G'
+
+
+// Ya no necesitamos distinguir subtipos dentro de la tabla
+tabla = LeftA(tabla, 1)
+
+CHOOSE CASE tabla
+	CASE 'A'
+		// Entramos por metros cuadrados
+		SELECT coef
+		INTO :coef_k
+		FROM musaat_coef_k
+		WHERE desde < :sup  AND hasta >= :sup AND tabla = :tabla ;
+		if sqlca.sqlcode <> 0 then	mensaje = 'No se encuentra la entrada en la tabla A'
+		// Modificado David 24/01/2006 - Excepci$$HEX1$$f300$$ENDHEX$$n para los tipos de obra 31, 32 y 33 en los que no se indica superficie
+		if sup = 0 and LeftA(TipoObra,1) = '3' then coef_k = 0.095
+		cip = max( (pto_calculo * coef_k * coef_c * coef_g  / 100) , ( minimo * coef_g ) )	
+		if cip = minimo * coef_g then aplicadominimo = 'S'
+		
+	CASE 'B', 'C'
+		// Entramos por presupuesto
+		SELECT coef
+		INTO :coef_k
+		FROM musaat_coef_k
+		WHERE desde < :pto_calculo  AND hasta >= :pto_calculo AND tabla = :tabla ;
+		if sqlca.sqlcode <> 0 then	mensaje = 'No se encuentra la entrada en la tabla '+ tabla
+		cip = max( (pto_calculo * coef_k * coef_c * coef_g  / 100) , ( minimo * coef_g ) )		
+		if cip = minimo * coef_g then aplicadominimo = 'S'
+		
+	CASE 'D'
+		cip = minimo * coef_g
+
+	CASE 'E'
+		double base
+		SELECT musaat_tarifa_e.importe_base  
+		INTO :base  
+		FROM musaat_tarifa_e  
+		WHERE ( musaat_tarifa_e.volumen_desde < :volumen ) AND  
+		( musaat_tarifa_e.volumen_hasta >= :volumen )   ;
+		
+		if sqlca.sqlcode <> 0 then	mensaje = 'No se encuentra la entrada en la tabla E'
+		cip = base * coef_g
+		
+	CASE else
+		mensaje = 'No existe esta combinaci$$HEX1$$f300$$ENDHEX$$n'
+END CHOOSE
+
+// Aplicamos el porcentaje del colegiado ( sino meter 100 )
+cip = cip * (porcentaje/100)
+
+// La F$$HEX1$$f300$$ENDHEX$$rmula y Desarrollo aplicados
+choose case tabla
+	case 'A', 'B', 'C'
+		formula = '( PEM x Coef. K x Coef. C x  Coef. G / 100 ) x % Participaci$$HEX1$$f300$$ENDHEX$$n'
+		desarrollo = '( ' + string(pto_calculo, '###,###,##0.00') + ' x ' + string(coef_k) + ' x ' + string(coef_c) + &
+		' x ' + string(coef_g) + ' / 100 ) x ' + string(porcentaje/100, '##0.00')
+	case 'D'
+		formula = string(minimo) + ' x Coef. G x % Participaci$$HEX1$$f300$$ENDHEX$$n'
+		desarrollo = string(minimo) + ' x ' + string(coef_g) + ' x ' + string(porcentaje/100, '##0.00')
+	case 'E'
+		formula = string(base) + ' x  Coef. G x % Participaci$$HEX1$$f300$$ENDHEX$$n'
+		desarrollo = string(base) + ' x ' + string(coef_g) + ' x ' + string(porcentaje/100, '##0.00')
+end choose
+
+if aplicadominimo = 'S' then desarrollo = string(minimo) + ' x Coef. G x % Participaci$$HEX1$$f300$$ENDHEX$$n (m$$HEX1$$ed00$$ENDHEX$$nimo)'
+
+If mensaje <> '' Then MessageBox(g_titulo,mensaje,StopSign!,OK!,1)
+
+st_cip_datos.cip = f_redondea(cip)
+st_cip_datos.aplicar_fijo = aplicadominimo
+st_cip_datos.importe_minimo = minimo
+st_cip_datos.tarifa = tabla
+st_cip_datos.formula = formula
+st_cip_datos.desarrollo = desarrollo
+
+return 1
+
+end function
+

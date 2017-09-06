@@ -1,0 +1,118 @@
+HA$PBExportHeader$f_musaat_src.srf
+$PBExportComments$Dado un id_musaat obtiene sus datos del seguro de responsabilidad civil
+global type f_musaat_src from function_object
+end type
+
+forward prototypes
+global subroutine f_musaat_src (string id_musaat, ref string src_n_poliza, ref string src_t_poliza, ref string src_estado, ref string src_importe, ref string src_coef_cm, ref string src_forma_pago, ref string src_boni, ref string src_bonimp, ref string src_franqui, ref string src_alta, ref string src_f_alta, ref string src_f_baja, ref string src_cober, ref string src_cober_f_alta, ref string src_cober_f_baja, ref string src_cia, ref string src_cia_desc_larga)
+end prototypes
+
+global subroutine f_musaat_src (string id_musaat, ref string src_n_poliza, ref string src_t_poliza, ref string src_estado, ref string src_importe, ref string src_coef_cm, ref string src_forma_pago, ref string src_boni, ref string src_bonimp, ref string src_franqui, ref string src_alta, ref string src_f_alta, ref string src_f_baja, ref string src_cober, ref string src_cober_f_alta, ref string src_cober_f_baja, ref string src_cia, ref string src_cia_desc_larga);//Esta funci$$HEX1$$f300$$ENDHEX$$n establece los par$$HEX1$$e100$$ENDHEX$$metros que se le pasan por referencia con el valor
+//correspondiente al colegiado indicado por ID_MUSAAT
+
+string src_t_poliza_cod, src_estado_cod, src_forma_pago_cod, src_cober_cod, src_cia_cod, ls_id_col
+double src_cober_aux
+
+datastore ds_src, ds_src_otras_cia
+
+ds_src = create datastore
+ds_src.dataobject ='d_musaat_src'
+ds_src.SetTransObject(SQLCA)
+
+ds_src_otras_cia = create datastore
+ds_src_otras_cia.dataobject ='d_otros_src_colegiados'
+ds_src_otras_cia.SetTransObject(SQLCA)
+
+ds_src.Retrieve(id_musaat)
+
+
+if ds_src.rowcount() > 0 then
+	src_alta = ds_src.getitemstring(1, 'src_alta')
+	If src_alta = 'S' then
+		src_cia_cod = ds_src.getitemstring(1, 'src_cia')
+		select nom_s into :src_cia from musaat_cias_aseguradoras where cod_s = :src_cia_cod;
+		src_n_poliza = ds_src.getitemstring(1, 'src_n_poliza')
+		src_t_poliza_cod = ds_src.getitemstring(1, 'src_t_poliza')
+		select descripcion into :src_t_poliza from musaat_src_t_poliza where codigo = :src_t_poliza_cod;
+		src_estado_cod = ds_src.getitemstring(1, 'src_estado')
+		select descripcion into :src_estado from musaat_src_estado where codigo = :src_estado_cod;
+		src_importe = string(ds_src.getitemnumber(1, 'src_importe'))
+		src_coef_cm = string(ds_src.getitemnumber(1, 'src_coef_cm'))
+		//src_forma_pago_cod = ds_src.getitemstring(1, 'src_forma_pago')
+		//select descripcion into :src_forma_pago from csi_formas_de_pago where tipo_pago = :src_forma_pago_cod;
+		//src_boni = string(ds_src.getitemnumber(1, 'src_boni'))
+		//src_bonimp = string(ds_src.getitemnumber(1, 'src_bonimp'))
+		//src_franqui = string(ds_src.getitemnumber(1, 'src_franqui'))
+		src_f_alta = string(ds_src.getitemdatetime(1, 'src_f_alta'),"dd/mm/yyyy")
+		src_f_baja = string(ds_src.getitemdatetime(1, 'src_f_baja'),"dd/mm/yyyy")
+		src_cober_cod = ds_src.getitemstring(1, 'src_cober')
+		select prima into :src_cober_aux from musaat_cober_src where codigo = :src_cober_cod;
+		src_cober = string(src_cober_aux)
+		src_cober_f_alta = string(ds_src.getitemdatetime(1, 'src_cober_f_alta'),"dd/mm/yyyy")
+		src_cober_f_baja = string(ds_src.getitemdatetime(1, 'src_cober_f_baja'),"dd/mm/yyyy")
+	else 
+		
+		select id_col into :ls_id_col from musaat where id_musaat = :id_musaat;
+		
+		ds_src_otras_cia.Retrieve(ls_id_col)
+		if ds_src_otras_cia.rowcount() > 0 then
+			src_alta = ds_src_otras_cia.getitemstring(1, 'alta');
+			If src_alta = 'S' then
+				src_cia_cod = ds_src_otras_cia.getitemstring(1, 'src_cia')
+				select nom_s into :src_cia from musaat_cias_aseguradoras where cod_s = :src_cia_cod;
+				src_n_poliza = ds_src_otras_cia.getitemstring(1, 'numero_poliza')
+				src_f_alta = string(ds_src_otras_cia.getitemdatetime(1, 'f_alta'),"dd/mm/yyyy")
+				src_f_baja = string(ds_src_otras_cia.getitemdatetime(1, 'f_baja'),"dd/mm/yyyy")
+//				src_cober_aux = ds_src_otras_cia.getitemstring(1, 'src_cober')
+//				src_cober = string(src_cober_aux)
+				src_cober = ds_src_otras_cia.getitemstring(1, 'src_cober')
+			end if	
+		end if	
+		
+	End If
+end if
+//If (ds_src.rowcount() < 1 or src_alta = 'N') then
+//	src_alta = ds_src.getitemstring(1, 'src_alta')
+////	id_col 
+//	if (src_alta = 'S') then 
+//		src_cia_cod = ds_src_otras_cia.getitemstring(1, 'src_cia')
+//	  	select nom_s into :src_cia from musaat_cias_aseguradoras where cod_s = :src_cia_cod;
+//	  	src_n_poliza = ds_src_otras_cia.getitemstring(1, 'numero_poliza')
+//		src_f_alta = string(ds_src_otras_cia.getitemdatetime(1, 'f_alta'),"dd/mm/yyyy")
+//		src_f_baja = string(ds_src_otras_cia.getitemdatetime(1, 'f_baja'),"dd/mm/yyyy")
+//		src_cober_aux = ds_src.getitemnumber(1, 'src_cober')
+//		src_cober = string(src_cober_aux)
+//	End If
+//End If
+		
+if f_es_vacio(src_cia) then src_cia = ''
+if f_es_vacio(src_n_poliza) then src_n_poliza = ''
+if f_es_vacio(src_t_poliza) then src_t_poliza = ''
+if f_es_vacio(src_estado) then src_estado = ''
+if f_es_vacio(src_importe) then src_importe = ''
+if f_es_vacio(src_coef_cm) then src_coef_cm = ''
+if f_es_vacio(src_forma_pago) then src_forma_pago = ''
+if f_es_vacio(src_boni) then src_boni = ''
+if f_es_vacio(src_bonimp) then src_bonimp = ''
+if f_es_vacio(src_franqui) then src_franqui = ''
+if f_es_vacio(src_alta) then 
+	src_alta = ''
+else
+	if src_alta = 'S' then src_alta = 'S$$HEX1$$ed00$$ENDHEX$$'
+	if src_alta = 'N' then src_alta = 'No'
+end if	
+if f_es_vacio(src_f_alta) then src_f_alta = ''
+if f_es_vacio(src_f_baja) then src_f_baja = ''
+if f_es_vacio(src_cober) then src_cober = ''
+if f_es_vacio(src_cober_f_alta) then src_cober_f_alta = ''
+if f_es_vacio(src_cober_f_baja) then src_cober_f_baja = ''
+
+////Si est$$HEX2$$e1002000$$ENDHEX$$dado de alta en MUSAAT, la compa$$HEX2$$f100ed00$$ENDHEX$$a ha de ser MUSAAT
+//if src_alta = 'S' then src_cia = 'M.U.S.A.A.T'
+src_cia = f_musaat_descripcion_companyia(src_cia_cod)
+src_cia_desc_larga =  f_src_descripcion_cia_plantillas(src_cia_cod)
+
+destroy ds_src
+destroy ds_src_otras_cia
+end subroutine
+

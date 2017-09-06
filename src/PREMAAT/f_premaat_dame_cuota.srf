@@ -1,0 +1,46 @@
+HA$PBExportHeader$f_premaat_dame_cuota.srf
+global type f_premaat_dame_cuota from function_object
+end type
+
+forward prototypes
+global function double f_premaat_dame_cuota (string grupo, datetime f_nacimiento, string sexo, string modulo_ahorro)
+end prototypes
+
+global function double f_premaat_dame_cuota (string grupo, datetime f_nacimiento, string sexo, string modulo_ahorro);string sl_anyo_naci
+double dl_basico, dl_hombre_2000, dl_mujer_2000, dl_ahorro_2000, dl_comple1
+
+sl_anyo_naci = string(year(date(f_nacimiento)))
+
+SELECT basico, hombre_2000, mujer_2000, ahorro_2000, comple_1  
+INTO :dl_basico, :dl_hombre_2000, :dl_mujer_2000, :dl_ahorro_2000, :dl_comple1  
+FROM premaat_tablas  
+WHERE anyo = :sl_anyo_naci   ;
+
+if sqlca.sqlcode <> 0 then return 0
+
+if isnull(dl_basico) then dl_basico = 0
+if isnull(dl_hombre_2000) then dl_hombre_2000 = 0
+if isnull(dl_mujer_2000) then dl_mujer_2000 = 0
+if isnull(dl_ahorro_2000) then dl_ahorro_2000 = 0
+if isnull(dl_comple1) then dl_comple1 = 0
+
+choose case grupo
+	case 'A'
+		return dl_basico
+	case 'C'
+		if sexo = 'M' then 
+			if modulo_ahorro = 'S' then return dl_hombre_2000 + dl_ahorro_2000
+			return dl_hombre_2000
+		end if
+		if sexo = 'F' then 
+			if modulo_ahorro = 'S' then return dl_mujer_2000 + dl_ahorro_2000		
+			return dl_mujer_2000
+		end if
+	case 'C1'
+		return dl_comple1
+end choose
+
+return 0
+
+end function
+

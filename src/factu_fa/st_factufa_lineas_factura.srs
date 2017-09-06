@@ -1,0 +1,32 @@
+HA$PBExportHeader$st_factufa_lineas_factura.srs
+global type st_factufa_lineas_factura from structure
+	string		id_articulo
+	double		importe_individual
+	string		t_iva
+	double		importe_iva
+	double		total_linea
+	string		texto_adicional
+	string		tipo
+	string		id
+	string		id_cliente
+	double		irpf
+	string		facturar
+	string		liquidar
+	string		id_minuta
+	double		tipo_irpf
+	string		nombre_cliente
+	string		pagado
+	string		formapago
+	string		banco
+	string		asemas
+	double		importe_facturar
+	double		cuantia_informe_inicial
+	string		tipo_musaat
+	double		porcentaje
+	double		pem
+	double		porc_participacion
+	double		prima_total
+	string		cod_empresa
+	string		aplica_porc_part
+end type
+

@@ -1,0 +1,17 @@
+HA$PBExportHeader$f_minutas_id_fase.srf
+global type f_minutas_id_fase from function_object
+end type
+
+forward prototypes
+global function string f_minutas_id_fase (string id_minuta)
+end prototypes
+
+global function string f_minutas_id_fase (string id_minuta);string retorno
+
+select id_fase into :retorno
+from fases_minutas
+where id_minuta = :id_minuta;
+
+return retorno
+end function
+

@@ -1,0 +1,7 @@
+HA$PBExportHeader$st_login.srs
+global type st_login from structure
+	string		login
+	string		password
+	string		recordar
+end type
+

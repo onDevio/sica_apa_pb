@@ -1,0 +1,62 @@
+HA$PBExportHeader$d_revision_hono_lista.srd
+release 7;
+datawindow(units=0 timer_interval=0 color=81324524 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=72 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=char(14) updatewhereclause=yes name=fases_n_expedi dbname="fases.n_expedi" )
+ column=(type=char(255) updatewhereclause=yes name=fases_titulo dbname="fases.titulo" )
+ column=(type=datetime updatewhereclause=yes name=fases_f_entrada dbname="fases.f_entrada" )
+ column=(type=char(15) updatewhereclause=yes name=csi_facturas_emitidas_n_fact dbname="csi_facturas_emitidas.n_fact" )
+ column=(type=char(40) updatewhereclause=yes name=csi_lineas_fact_emitidas_descripcion dbname="csi_lineas_fact_emitidas.descripcion" )
+ column=(type=number updatewhereclause=yes name=csi_lineas_fact_emitidas_precio dbname="csi_lineas_fact_emitidas.precio" )
+ column=(type=number updatewhereclause=yes name=csi_lineas_fact_emitidas_unidades dbname="csi_lineas_fact_emitidas.unidades" )
+ column=(type=number updatewhereclause=yes name=csi_lineas_fact_emitidas_subtotal dbname="csi_lineas_fact_emitidas.subtotal" )
+ column=(type=char(10) updatewhereclause=yes name=csi_lineas_fact_emitidas_articulo dbname="csi_lineas_fact_emitidas.articulo" )
+ column=(type=number updatewhereclause=yes name=csi_lineas_fact_emitidas_total dbname="csi_lineas_fact_emitidas.total" )
+ column=(type=number update=yes updatewhereclause=yes name=fases_honorarios_iva dbname="fases.honorarios_iva" )
+ column=(type=number updatewhereclause=yes name=fases_honorarios dbname="fases.honorarios" )
+ column=(type=char(1) updatewhereclause=yes name=marcado dbname="marcado" values="	S/	N" )
+ column=(type=char(10) updatewhereclause=yes key=yes name=fases_id_fase dbname="fases.id_fase" )
+ retrieve="  SELECT fases.n_expedi,   
+         fases.titulo,   
+         fases.f_entrada,   
+         csi_facturas_emitidas.n_fact,   
+         csi_lineas_fact_emitidas.descripcion,   
+         csi_lineas_fact_emitidas.precio,   
+         csi_lineas_fact_emitidas.unidades,   
+         csi_lineas_fact_emitidas.subtotal,   
+         csi_lineas_fact_emitidas.articulo,   
+         csi_lineas_fact_emitidas.total,   
+         fases.honorarios_iva,   
+         fases.honorarios,   
+         convert(char(1),'') as marcado,   
+         fases.id_fase  
+    FROM csi_facturas_emitidas,   
+         csi_lineas_fact_emitidas,   
+         fases,   
+         fases_minutas,   
+         expedientes  
+   WHERE ( fases.id_fase = fases_minutas.id_fase ) and  
+         ( csi_facturas_emitidas.id_factura = csi_lineas_fact_emitidas.id_factura ) and  
+         ( fases_minutas.id_fase = csi_facturas_emitidas.id_minuta ) and  
+         ( fases.id_expedi = expedientes.id_expedi )    
+" update="fases" updatewhere=0 updatekeyinplace=yes )
+text(band=header alignment="2" text="Expediente" border="6" color="0" x="96" y="4" height="64" width="338"  name=fases_n_expedi_t  font.face="Microsoft Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="V" border="6" color="0" x="18" y="4" height="64" width="64"  name=t_marcado  font.face="Microsoft Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="F. Entrada" border="6" color="0" x="448" y="4" height="64" width="283"  name=fases_f_entrada_t  font.face="Microsoft Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="N$$HEX2$$ba002000$$ENDHEX$$Factura" border="6" color="0" x="745" y="4" height="64" width="439"  name=csi_facturas_emitidas_n_fact_t  font.face="Microsoft Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Rev. Hono." border="6" color="0" x="1198" y="4" height="64" width="329"  name=fases_honorarios_iva_t  font.face="Microsoft Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Honorarios" border="6" color="0" x="1541" y="4" height="64" width="329"  name=fases_honorarios_t  font.face="Microsoft Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Total" border="6" color="0" x="1883" y="4" height="64" width="329"  name=csi_lineas_fact_emitidas_total_t  font.face="Microsoft Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="5" color="0" x="96" y="4" height="60" width="338" format="[general]"  name=fases_n_expedi edit.limit=14 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Microsoft Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+column(band=detail id=13 alignment="0" tabsequence=10 border="0" color="0" x="18" y="4" height="64" width="55" format="[general]"  name=marcado checkbox.text="" checkbox.on="S" checkbox.off="N" checkbox.scale=no checkbox.threed=yes  font.face="Microsoft Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="5" color="0" x="448" y="4" height="60" width="283" format="dd/mm/yyyy"  name=fases_f_entrada edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Microsoft Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="5" color="0" x="745" y="4" height="60" width="439" format="[general]"  name=csi_facturas_emitidas_n_fact edit.limit=15 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Microsoft Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+column(band=detail id=11 alignment="1" tabsequence=32766 border="5" color="0" x="1198" y="4" height="60" width="329" format="[general]"  name=fases_honorarios_iva edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+column(band=detail id=12 alignment="1" tabsequence=32766 border="5" color="0" x="1541" y="4" height="60" width="329" format="[general]"  name=fases_honorarios edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+column(band=detail id=10 alignment="1" tabsequence=32766 border="5" color="0" x="1883" y="4" height="60" width="329" format="[general]"  name=csi_lineas_fact_emitidas_total edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Microsoft Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+column(band=detail id=14 alignment="0" tabsequence=32766 border="0" color="0" x="2245" y="4" height="60" width="123" format="[general]"  name=fases_id_fase visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Microsoft Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

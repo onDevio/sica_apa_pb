@@ -1,0 +1,53 @@
+HA$PBExportHeader$f_getitemany.srf
+$PBExportComments$objetos b$$HEX1$$e100$$ENDHEX$$sicos
+global type f_getitemany from function_object
+end type
+
+forward prototypes
+global function any f_getitemany (datawindow adw_requestor, long al_row, string as_column, dwbuffer adw_buffer, boolean ab_orig_value)
+end prototypes
+
+global function any f_getitemany (datawindow adw_requestor, long al_row, string as_column, dwbuffer adw_buffer, boolean ab_orig_value);//////////////////////////////////////////////////////////////////////////////
+//	Public Function:  f_GetItemAny 
+//	Arguments:   	adw_requestor		: The datawindow from which to get a column's data value.
+//						al_row			   : The row reference
+//   					as_column    		: The column name reference
+//   					adw_buffer   		: The dw buffer from which to get the column's data value.
+//   					ab_orig_value		: When True, returns the original values that were 
+//							  					  retrieved from the database.
+//	Returns:			Any - The column value cast to an any datatype
+//	Description:	Returns a column's value cast to an any datatype
+//////////////////////////////////////////////////////////////////////////////
+
+any 		la_value
+
+/*  Determine the datatype of the column and then call the appropriate 
+	 GetItemxxx function and cast the returned value */
+CHOOSE CASE Lower ( LeftA ( adw_requestor.Describe ( as_column + ".ColType" ) , 5 ) )
+
+		CASE "char(", "char"		//  CHARACTER DATATYPE
+			la_value = adw_requestor.GetItemString ( al_row, as_column, adw_buffer, ab_orig_value ) 
+	
+		CASE "date"					//  DATE DATATYPE
+			la_value = adw_requestor.GetItemDate ( al_row, as_column, adw_buffer, ab_orig_value ) 
+
+		CASE "datet"				//  DATETIME DATATYPE
+			la_value = adw_requestor.GetItemDateTime ( al_row, as_column, adw_buffer, ab_orig_value ) 
+
+		CASE "decim"				//  DECIMAL DATATYPE
+			la_value = adw_requestor.GetItemDecimal ( al_row, as_column, adw_buffer, ab_orig_value ) 
+	
+		CASE "numbe", "long", "ulong", "real", "int"				//  NUMBER DATATYPE	
+			la_value = adw_requestor.GetItemNumber ( al_row, as_column, adw_buffer, ab_orig_value ) 
+	
+		CASE "time", "times"		//  TIME DATATYPE
+			la_value = adw_requestor.GetItemTime ( al_row, as_column, adw_buffer, ab_orig_value ) 
+
+		CASE ELSE 	
+			SetNull ( la_value ) 
+
+END CHOOSE
+
+Return la_value
+end function
+

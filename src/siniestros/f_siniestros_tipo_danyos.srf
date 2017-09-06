@@ -1,0 +1,37 @@
+HA$PBExportHeader$f_siniestros_tipo_danyos.srf
+global type f_siniestros_tipo_danyos from function_object
+end type
+
+forward prototypes
+global function string f_siniestros_tipo_danyos (string id_sini)
+end prototypes
+
+global function string f_siniestros_tipo_danyos (string id_sini);string tipo_danyos= '', al, dt, dpao, h, di, o, od, fs, dc, dcao, rf, de, da, ds  
+
+SELECT td_accidente_laboral, td_desprendimiento_tierras, td_danyos_per_ajena_obras, td_humedades, td_danyos_instalaciones, td_otros, td_otros_des,   
+		td_fallos_suelo, td_danyos_colindantes, td_danyos_cosas_ajenas_obra, td_revestimientos_fachada, td_danyos_estructurales, td_danyos_alicatados,   
+		td_danyos_solados  
+INTO :al, :dt, :dpao,   :h,   :di,   :o,   :od,   :fs,   :dc,   :dcao,   :rf,   :de,   :da,   :ds  
+FROM fases_siniestros  
+WHERE id_siniestro = :id_sini  ;
+
+if al = 'S' then tipo_danyos += "Accidente Laboral, "
+if dt = 'S' then tipo_danyos += "Desprendimiento de tierras, "
+if dpao = 'S' then tipo_danyos += "Da$$HEX1$$f100$$ENDHEX$$os persona ajena obra, "
+if h = 'S' then tipo_danyos += "Humedades, "
+if di = 'S' then tipo_danyos += "Da$$HEX1$$f100$$ENDHEX$$os por instalaciones, "
+if o = 'S' then tipo_danyos += od + ", "
+if fs = 'S' then tipo_danyos += "Fallos del suelo, "
+if dc = 'S' then tipo_danyos += "Da$$HEX1$$f100$$ENDHEX$$os a colindantes, "
+if dcao = 'S' then tipo_danyos += "Da$$HEX1$$f100$$ENDHEX$$os cosas ajenas obra, "
+if rf = 'S' then tipo_danyos += "Revistimientos fachada, "
+if de = 'S' then tipo_danyos += "Da$$HEX1$$f100$$ENDHEX$$os estructurales, "
+if da = 'S' then tipo_danyos += "Da$$HEX1$$f100$$ENDHEX$$os alicatados, "
+if ds = 'S' then tipo_danyos += "Da$$HEX1$$f100$$ENDHEX$$os solados, "
+
+tipo_danyos = LeftA(tipo_danyos, LenA(tipo_danyos)-2)
+
+return tipo_danyos
+
+end function
+

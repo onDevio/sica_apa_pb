@@ -1,0 +1,11 @@
+HA$PBExportHeader$f_devuelve_cif_colegio.srf
+global type f_devuelve_cif_colegio from function_object
+end type
+
+forward prototypes
+global function string f_devuelve_cif_colegio ()
+end prototypes
+
+global function string f_devuelve_cif_colegio ();return g_col_nif
+end function
+

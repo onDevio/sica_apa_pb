@@ -1,0 +1,29 @@
+HA$PBExportHeader$f_reemplazar_cadena.srf
+global type f_reemplazar_cadena from function_object
+end type
+
+forward prototypes
+global function string f_reemplazar_cadena (ref string cadena, string origen, string fin)
+end prototypes
+
+global function string f_reemplazar_cadena (ref string cadena, string origen, string fin);//Reemplaza en una cadena dada un fragmento origen, por otro final
+//Par$$HEX1$$e100$$ENDHEX$$metros:
+//		cadena: cadena original en la cual se va a reemplazar la cadena origen
+//		origen: ocurrencias que van a ser sustituidas
+//		fin	: caracter por el que se va a sustituir cada ocurrencia de "origen"
+
+long pos=1
+string retorno 
+
+retorno = cadena
+
+pos = PosA(retorno, origen, pos)
+
+DO WHILE pos > 0
+		retorno = ReplaceA(retorno, pos,LenA(origen),fin)
+		pos = PosA(retorno, origen,pos+LenA(fin))
+LOOP
+
+return retorno
+end function
+

@@ -1,0 +1,19 @@
+HA$PBExportHeader$f_dame_desc_tipo_actuacion.srf
+global type f_dame_desc_tipo_actuacion from function_object
+end type
+
+forward prototypes
+global function string f_dame_desc_tipo_actuacion (string tipo_act)
+end prototypes
+
+global function string f_dame_desc_tipo_actuacion (string tipo_act);string descripcion = ''
+  SELECT t_fases.d_t_descripcion  
+    INTO :descripcion  
+    FROM t_fases  
+   WHERE t_fases.c_t_fase = :tipo_act   ;
+
+if f_es_vacio(descripcion) then descripcion = ''
+
+return descripcion
+end function
+

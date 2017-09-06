@@ -1,0 +1,29 @@
+HA$PBExportHeader$f_total_cobrado_musaat_cliente_fact_exp.srf
+global type f_total_cobrado_musaat_cliente_fact_exp from function_object
+end type
+
+forward prototypes
+global function double f_total_cobrado_musaat_cliente_fact_exp (string id_exp, string id_cli, string tipo_act)
+end prototypes
+
+global function double f_total_cobrado_musaat_cliente_fact_exp (string id_exp, string id_cli, string tipo_act);double musaat_cobrado = 0
+
+SELECT sum ( csi_lineas_fact_emitidas.subtotal )  
+INTO :musaat_cobrado  
+FROM csi_facturas_emitidas, csi_lineas_fact_emitidas, fases_minutas, csi_articulos_servicios, fases  
+WHERE ( csi_lineas_fact_emitidas.id_factura = csi_facturas_emitidas.id_factura ) and  
+		( csi_facturas_emitidas.id_fase = fases_minutas.id_minuta ) and  
+		( csi_lineas_fact_emitidas.articulo = csi_articulos_servicios.codigo ) and  
+		( fases.id_fase = fases_minutas.id_fase ) and
+		( ( fases.id_expedi = :id_exp ) and		
+		( csi_articulos_servicios.familia = '01' ) AND  
+		( csi_facturas_emitidas.id_persona = :id_cli ) AND  
+		( fases.fase = :tipo_act ) )   ;
+
+
+if isnull(musaat_cobrado) then musaat_cobrado = 0
+
+return musaat_cobrado
+
+end function
+

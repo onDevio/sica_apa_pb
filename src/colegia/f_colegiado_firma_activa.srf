@@ -1,0 +1,29 @@
+HA$PBExportHeader$f_colegiado_firma_activa.srf
+global type f_colegiado_firma_activa from function_object
+end type
+
+forward prototypes
+global function string f_colegiado_firma_activa (string id_col)
+end prototypes
+
+global function string f_colegiado_firma_activa (string id_col);string activa
+
+  SELECT fotos_firmas_colegiados.activa  
+    INTO :activa  
+    FROM fotos_firmas_colegiados,   
+         firmas_colegiados,   
+         colegiados  
+   WHERE ( fotos_firmas_colegiados.id_colegiado = firmas_colegiados.id_colegiado ) and  
+         ( firmas_colegiados.id_colegiado = colegiados.id_colegiado ) and  
+         ( ( fotos_firmas_colegiados.id_colegiado = :id_col )   
+         )   ;
+
+	if activa='S' then 
+		return 'SI'
+	else 
+		return 'NO'
+	end if
+	
+
+end function
+

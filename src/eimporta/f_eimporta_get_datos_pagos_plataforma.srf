@@ -1,0 +1,116 @@
+HA$PBExportHeader$f_eimporta_get_datos_pagos_plataforma.srf
+global type f_eimporta_get_datos_pagos_plataforma from function_object
+end type
+
+forward prototypes
+global subroutine f_eimporta_get_datos_pagos_plataforma (string fichero, ref st_visared_importacion as_st_visared_importacion)
+end prototypes
+
+global subroutine f_eimporta_get_datos_pagos_plataforma (string fichero, ref st_visared_importacion as_st_visared_importacion);as_st_visared_importacion.ds_fases_pagos_plataforma = create datastore
+as_st_visared_importacion.ds_fases_pagos_plataforma.dataobject = 'd_fases_pagos_plataforma'
+
+string ls_pasarela, ls_banco, ls_terminal, ls_codigo_comercio, ls_nombre_comercio, ls_banco_defecto, ls_codigo_banco
+string ls_numero_pedido, ls_divisa_nombre, ls_divisa_iso, ls_divisa_codigo, ls_tipo_transaccion, numero_colegiado
+double ld_importe, ld_importe_pago, ld_base_imponible, ld_porcentaje
+string ls_codigo_autorizacion, ls_pago_seguro, ls_estado, ls_detalles_codigo, ls_detalles_titulo, ls_detalles_descripcion, ls_fecha
+string ls_forma_pago, ls_forma_pago_plataforma, total_pagos, ls_fecha_orden_pago, ls_codigo_tipo_iva_efactura, ls_t_iva
+int i, li_fila
+
+ls_banco_defecto = f_var_global('g_banco_defecto_plataforma')
+
+total_pagos=ProfileString(fichero,"PAGOS","total","*")
+
+for i=1 to integer(total_pagos)
+
+	ls_pasarela =  ProfileString(fichero,"TPV TRANSACCION","pasarela_"+string(i),"")
+	ls_banco = trim(ProfileString(fichero,"TPV TRANSACCION","banco_"+string(i),""))
+	ls_terminal = ProfileString(fichero,"TPV TRANSACCION","terminal_"+string(i),"")
+	ls_codigo_comercio = ProfileString(fichero,"TPV TRANSACCION","codigo_comercio_"+string(i),"")
+	ls_nombre_comercio = ProfileString(fichero,"TPV TRANSACCION","nombre_comercio_"+string(i),"")
+	
+	ls_numero_pedido =  ProfileString(fichero,"TPV TRANSACCION","numero_pedido_"+string(i),"")
+	ls_divisa_nombre =  ProfileString(fichero,"TPV TRANSACCION","divisa_nombre_"+string(i),"") 
+	ls_divisa_iso =  ProfileString(fichero,"TPV TRANSACCION","divisa_iso_"+string(i),"")
+	ls_divisa_codigo =  ProfileString(fichero,"TPV TRANSACCION","divisa_codigo_"+string(i),"")
+	ls_tipo_transaccion =  ProfileString(fichero,"TPV TRANSACCION","tipo_transaccion_"+string(i),"")
+	ld_importe =  double(ProfileString(fichero,"TPV TRANSACCION","importe_con_iva_"+string(i),""))
+
+	
+	ls_codigo_autorizacion =  ProfileString(fichero,"TPV TRANSACCION","codigo_autorizacion_"+string(i),"")
+	ls_pago_seguro =  ProfileString(fichero,"TPV TRANSACCION","pago_seguro_"+string(i),"")
+	ls_estado =  ProfileString(fichero,"TPV TRANSACCION","estado_"+string(i),"")
+	ls_detalles_codigo =  ProfileString(fichero,"TPV TRANSACCION","detalles_codigo_"+string(i),"")
+	ls_detalles_titulo =  ProfileString(fichero,"TPV TRANSACCION","detalles_titulo_"+string(i),"")
+	ls_detalles_descripcion =  ProfileString(fichero,"TPV TRANSACCION","detalles_descripcion_"+string(i),"")
+	ls_fecha =  ProfileString(fichero,"TPV TRANSACCION","fecha_"+string(i),"")
+	
+	//numero_colegiado =  ProfileString(fichero,"PAGOS","numero_colegiado_"+string(i),"")
+	ls_forma_pago_plataforma =  ProfileString(fichero,"PAGOS","tipo_pago_"+string(i),"")
+	ld_importe_pago =  double(ProfileString(fichero,"PAGOS","importe_con_iva_"+string(i),""))
+	ld_base_imponible = double(ProfileString(fichero,"PAGOS","importe_"+string(i),""))
+	ld_porcentaje = double(ProfileString(fichero,"PAGOS","iva_"+string(i),"")) *100
+	ls_codigo_tipo_iva_efactura = ProfileString(fichero,"PAGOS","tipo_transaccion_"+string(i),"")
+	ls_fecha_orden_pago =  ProfileString(fichero,"PAGOS","fecha_orden_"+string(i),"")
+	
+	//forma_pago=TPV,TRANSFERENCIA,DOMICILIACION
+	choose case ls_forma_pago_plataforma 
+		case 'TPV' 
+			ls_forma_pago = 'PV'
+			ls_banco = ls_banco_defecto
+
+		case 'TRANSFERENCIA'
+			ls_forma_pago = 'TR'
+			ls_codigo_banco = f_dame_codigo_banco(ls_banco)
+			if f_es_vacio(ls_codigo_banco) then ls_codigo_banco = ls_banco_defecto
+			ls_banco = ls_banco_defecto
+			
+		case 'DOMICILIACION'
+			ls_forma_pago = 'DB'
+	end choose
+	
+	// Si no tenemos forma de pago en la operaci$$HEX1$$f300$$ENDHEX$$n consideramos que no se ha recogido datos 
+	if f_es_vacio(ls_forma_pago) then return
+	
+	li_fila = as_st_visared_importacion.ds_fases_pagos_plataforma.InsertRow(0)
+	
+	as_st_visared_importacion.ds_fases_pagos_plataforma.setitem(li_fila, 'forma_pago_plataforma', ls_forma_pago )
+	//as_st_visared_importacion.ds_fases_pagos_plataforma.setitem(li_fila, 'n_colegiado', numero_colegiado )
+	as_st_visared_importacion.ds_fases_pagos_plataforma.setitem(li_fila, 'importe_pago', ld_importe_pago )
+	as_st_visared_importacion.ds_fases_pagos_plataforma.setitem(li_fila, 'base_imponible', ld_base_imponible )
+	ls_t_iva = f_get_t_iva(ld_porcentaje, ls_codigo_tipo_iva_efactura)
+	as_st_visared_importacion.ds_fases_pagos_plataforma.setitem(li_fila, 't_iva',ls_t_iva)
+	as_st_visared_importacion.ds_fases_pagos_plataforma.setitem(li_fila, 'importe_iva',  f_aplica_t_iva(ld_base_imponible, ls_t_iva))
+	
+	as_st_visared_importacion.ds_fases_pagos_plataforma.setitem(li_fila, 'pasarela', ls_pasarela )
+	as_st_visared_importacion.ds_fases_pagos_plataforma.setitem(li_fila, 'banco', ls_banco )
+	as_st_visared_importacion.ds_fases_pagos_plataforma.setitem(li_fila, 'terminal', ls_terminal )
+	as_st_visared_importacion.ds_fases_pagos_plataforma.setitem(li_fila, 'codigo_comercio', ls_codigo_comercio )
+	as_st_visared_importacion.ds_fases_pagos_plataforma.setitem(li_fila, 'nombre_comercio', ls_nombre_comercio )
+	
+	as_st_visared_importacion.ds_fases_pagos_plataforma.setitem(li_fila, 'numero_pedido', ls_numero_pedido )
+	as_st_visared_importacion.ds_fases_pagos_plataforma.setitem(li_fila, 'divisa_nombre', ls_divisa_nombre )
+	as_st_visared_importacion.ds_fases_pagos_plataforma.setitem(li_fila, 'divisa_iso', ls_divisa_iso )
+	as_st_visared_importacion.ds_fases_pagos_plataforma.setitem(li_fila, 'divisa_codigo', ls_divisa_codigo )
+	as_st_visared_importacion.ds_fases_pagos_plataforma.setitem(li_fila, 'tipo_transaccion', ls_tipo_transaccion )
+	as_st_visared_importacion.ds_fases_pagos_plataforma.setitem(li_fila, 'nombre_comercio', ls_tipo_transaccion )
+	
+	as_st_visared_importacion.ds_fases_pagos_plataforma.setitem(li_fila, 'importe_tpv', ld_importe )	
+	
+	as_st_visared_importacion.ds_fases_pagos_plataforma.setitem(li_fila, 'codigo_autorizacion', ls_codigo_autorizacion )
+	as_st_visared_importacion.ds_fases_pagos_plataforma.setitem(li_fila, 'pago_seguro', ls_pago_seguro )
+	as_st_visared_importacion.ds_fases_pagos_plataforma.setitem(li_fila, 'estado', ls_estado )
+	as_st_visared_importacion.ds_fases_pagos_plataforma.setitem(li_fila, 'detalles_codigo', ls_detalles_codigo )
+	as_st_visared_importacion.ds_fases_pagos_plataforma.setitem(li_fila, 'detalles_titulo', ls_detalles_titulo )
+	as_st_visared_importacion.ds_fases_pagos_plataforma.setitem(li_fila, 'detalles_descripcion', ls_detalles_descripcion )
+	
+	as_st_visared_importacion.ds_fases_pagos_plataforma.setitem(li_fila, 'fecha', DateTime(Date(ls_fecha), Time(ls_fecha)))
+	as_st_visared_importacion.ds_fases_pagos_plataforma.setitem(li_fila, 'fecha_importacion', DateTime(today(), now()))
+	as_st_visared_importacion.ds_fases_pagos_plataforma.setitem(li_fila, 'fecha_orden', DateTime(Date(ls_fecha_orden_pago), Time(ls_fecha_orden_pago)))	
+
+next
+
+return
+
+
+end subroutine
+

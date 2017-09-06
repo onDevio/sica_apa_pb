@@ -1,0 +1,35 @@
+HA$PBExportHeader$lastpos.srf
+global type lastpos from function_object
+end type
+
+forward prototypes
+global function long lastpos (string cadena1, string cadena2)
+end prototypes
+
+global function long lastpos (string cadena1, string cadena2);//LastPos
+
+// Encuentra la ultima posicion de una cadena dentro de otra cadena
+// Devuelve: i     La posicion de la cadena
+//           0     Si no se encuentra
+//           NULL  Si la cadena origen o destino son vacias
+// Reescrita simulando la funci$$HEX1$$f300$$ENDHEX$$n LastPos de PowerBuilder 8 para permitir la compatibilidad del objeto n_smtp
+
+
+long i
+string subcad
+
+SetNull(i)
+if IsNull(cadena1) or IsNull(cadena2) then return i
+
+for i=LenA(cadena1) to 0 step -1 //Len(cadena1) - searchlength step -1
+	subcad=MidA(cadena1,i)
+	if PosA(subcad,cadena2)<>0 then
+		exit
+	end if
+next
+
+return i
+
+
+end function
+

@@ -1,0 +1,46 @@
+HA$PBExportHeader$d_cobros_no_relacionados_busqueda.srd
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=64 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=64 color="536870912" )
+table(column=(type=char(10) updatewhereclause=yes name=csi_cobros_id_pago dbname="csi_cobros.id_pago" )
+ column=(type=char(10) updatewhereclause=yes name=fases_minutas_n_aviso dbname="fases_minutas.n_aviso" )
+ column=(type=char(11) updatewhereclause=yes name=fases_n_registro dbname="fases.n_registro" )
+ column=(type=char(14) updatewhereclause=yes name=fases_n_expedi dbname="fases.n_expedi" )
+ column=(type=char(1) updatewhereclause=yes name=csi_cobros_contabilizado dbname="csi_cobros.contabilizado" values="	S/	N" )
+ column=(type=char(1) updatewhereclause=yes name=csi_facturas_emitidas_contabilizada dbname="csi_facturas_emitidas.contabilizada" values="	S/	N" )
+ retrieve="  SELECT csi_cobros.id_pago,   
+         fases_minutas.n_aviso,   
+         fases.n_registro,   
+         fases.n_expedi,   
+         csi_cobros.contabilizado,   
+         csi_facturas_emitidas.contabilizada  
+    FROM csi_cobros,   
+         csi_facturas_emitidas,   
+         fases_minutas,   
+         fases,
+			colegiados,
+			clientes
+   WHERE ( csi_cobros.id_factura = csi_facturas_emitidas.id_factura ) and  
+         ( fases_minutas.id_minuta = csi_facturas_emitidas.id_fase ) and  
+         ( fases_minutas.id_fase = fases.id_fase ) and  
+			( fases_minutas.id_colegiado = colegiados.id_colegiado ) and  
+         ( fases_minutas.id_cliente = clientes.id_cliente ) and         
+			(csi_cobros.id_cobro_multiple = '' OR  
+         csi_cobros.id_cobro_multiple is null) AND  
+         csi_cobros.forma_pago = 'CM'  
+" )
+text(band=header alignment="2" text="N$$HEX2$$ba002000$$ENDHEX$$Aviso" border="6" color="0" x="32" y="4" height="52" width="279"  name=fases_minutas_n_aviso_t  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="80269524" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="32" y="4" height="56" width="279" format="[general]"  name=fases_minutas_n_aviso edit.limit=10 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="N$$HEX2$$ba002000$$ENDHEX$$Registro" border="6" color="0" x="325" y="4" height="52" width="402"  name=fases_n_registro_t  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="80269524" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="325" y="4" height="56" width="402" format="[general]"  name=fases_n_registro edit.limit=11 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="N$$HEX2$$ba002000$$ENDHEX$$Expedi" border="6" color="0" x="741" y="4" height="52" width="411"  name=fases_n_expedi_t  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="80269524" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="741" y="4" height="56" width="411" format="[general]"  name=fases_n_expedi edit.limit=14 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Contabilizado Cobro" border="6" color="0" x="1166" y="4" height="52" width="430"  name=csi_cobros_contabilizado_t  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="80269524" )
+column(band=detail id=5 alignment="2" tabsequence=32766 border="0" color="0" x="1166" y="4" height="56" width="430" format="[general]"  name=csi_cobros_contabilizado checkbox.text="" checkbox.on="S" checkbox.off="N" checkbox.scale=no checkbox.threed=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Contabilizada Factura" border="6" color="0" x="1609" y="4" height="52" width="475"  name=csi_facturas_emitidas_contabilizada_t  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="80269524" )
+column(band=detail id=6 alignment="2" tabsequence=32766 border="0" color="0" x="1609" y="4" height="56" width="475" format="[general]"  name=csi_facturas_emitidas_contabilizada checkbox.text="" checkbox.on="S" checkbox.off="N" checkbox.scale=no checkbox.threed=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

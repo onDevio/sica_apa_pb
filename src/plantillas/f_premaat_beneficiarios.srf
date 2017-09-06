@@ -1,0 +1,97 @@
+HA$PBExportHeader$f_premaat_beneficiarios.srf
+$PBExportComments$Dado un colegiado devuelve los datos de sus beneficiarios de premaat
+global type f_premaat_beneficiarios from function_object
+end type
+
+forward prototypes
+global function string f_premaat_beneficiarios (string id_col)
+end prototypes
+
+global function string f_premaat_beneficiarios (string id_col);//Esta funci$$HEX1$$f300$$ENDHEX$$n devuelve los datos de los conceptos domiciliables
+//que le corresponden al colegiado indicado por ID_COL
+
+string alta,f_alta,id_heredero,nif,n_mutualista,importe_cobrar,tipo_mutualista_cod,tipo_mutualista
+string situacion_cod,situacion,tipo_prestacion_cod,tipo_prestacion,parentesco_cod,parentesco
+string forma_pago_cod,forma_pago,retorno,n_cliente,telefono,apellidos,nombre,tipo_via_cod
+string tipo_via,nombre_via,cp,cod_pob,poblacion
+long i
+datastore ds_beneficiarios
+datastore ds_datos_ben
+
+retorno = ''
+ds_beneficiarios = create datastore
+ds_beneficiarios.dataobject ='d_premaat_beneficiarios'
+ds_beneficiarios.SetTransObject(SQLCA)
+
+ds_datos_ben = create datastore
+ds_datos_ben.dataobject ='d_premaat_datos_ben'
+ds_datos_ben.SetTransObject(SQLCA)
+
+ds_beneficiarios.Retrieve(id_col)
+
+FOR i=1 TO ds_beneficiarios.rowcount()
+	alta = ds_beneficiarios.getitemstring(i, 'alta')
+	f_alta = string(ds_beneficiarios.getitemdatetime(i, 'f_alta'))
+	id_heredero = ds_beneficiarios.getitemstring(i, 'id_heredero')
+	nif = f_dame_nif(id_heredero)
+	n_mutualista = ds_beneficiarios.getitemstring(i, 'n_mutualista')
+	importe_cobrar = string(ds_beneficiarios.getitemnumber(i, 'importe_cobrar'))
+	tipo_mutualista_cod = ds_beneficiarios.getitemstring(i, 'tipo_mutualista')
+	select descripcion into :tipo_mutualista from premaat_tipo_mut where codigo = :tipo_mutualista_cod;
+	situacion_cod = ds_beneficiarios.getitemstring(i, 'situacion')
+	select descripcion into :situacion from premaat_situacion where codigo = :situacion_cod;
+	tipo_prestacion_cod = ds_beneficiarios.getitemstring(i, 'tipo_prestacion')
+	select descripcion into :tipo_prestacion from premaat_tipo_pres where codigo = :tipo_prestacion_cod;
+	parentesco_cod = ds_beneficiarios.getitemstring(i, 'parentesco')
+	select descripcion into :parentesco from premaat_parentesco where codigo = :parentesco_cod;
+	forma_pago_cod = ds_beneficiarios.getitemstring(i, 'forma_pago')
+	select descripcion into :forma_pago from csi_formas_de_pago where tipo_pago = :forma_pago_cod;
+	
+	if f_es_vacio(alta) then alta = ''
+	if f_es_vacio(f_alta) then f_alta = ''
+	if f_es_vacio(nif) then nif = ''
+	if f_es_vacio(n_mutualista) then n_mutualista = ''
+	if f_es_vacio(importe_cobrar) then importe_cobrar = ''
+	if f_es_vacio(tipo_mutualista) then tipo_mutualista = ''
+	if f_es_vacio(situacion) then situacion = ''
+	if f_es_vacio(tipo_prestacion) then tipo_prestacion = ''
+	if f_es_vacio(parentesco) then parentesco = ''
+	if f_es_vacio(forma_pago) then forma_pago = ''
+	
+	if not f_es_vacio(id_heredero) then
+		ds_datos_ben.Retrieve(id_heredero)	
+		n_cliente = ds_datos_ben.getitemstring(i, 'n_cliente')
+		//nif_datos_ben = ds_datos_ben.getitemstring(i, 'nif') //No lo cojo porque ya lo tengo
+		telefono = ds_datos_ben.getitemstring(i, 'telefono')
+		apellidos = ds_datos_ben.getitemstring(i, 'apellidos')
+		nombre = ds_datos_ben.getitemstring(i, 'nombre')
+		tipo_via_cod = ds_datos_ben.getitemstring(i, 'tipo_via')
+		select descripcion into :tipo_via from tipos_via where cod_tipo_via = :tipo_via_cod;
+		nombre_via = ds_datos_ben.getitemstring(i, 'nombre_via')
+		cp = ds_datos_ben.getitemstring(i, 'cp')
+		cod_pob = ds_datos_ben.getitemstring(i, 'cod_pob')
+		poblacion = f_poblacion_descripcion(cod_pob)
+		
+		if f_es_vacio(n_cliente) then n_cliente = ''
+		if f_es_vacio(telefono) then telefono = ''
+		if f_es_vacio(apellidos) then apellidos = ''
+		if f_es_vacio(nombre) then nombre = ''
+		if f_es_vacio(tipo_via) then tipo_via = ''
+		if f_es_vacio(nombre_via) then nombre_via = ''
+		if f_es_vacio(cp) then cp = ''
+		if f_es_vacio(poblacion) then poblacion = ''
+		
+		retorno = retorno + 'Alta: ' + alta + '~t' + 'Fecha Alta: ' + f_alta + '~t' + 'NIF: ' + nif + '~t' + 'N$$HEX2$$ba002000$$ENDHEX$$Mutualista: ' + n_mutualista + '~t' + 'Imp. a Cobrar: ' + importe_cobrar + '~t' + 'Tipo de Mutualista: ' + tipo_mutualista + '~t' + 'Situacion: ' + situacion + '~t' + 'Tipo Prestacion: ' + tipo_prestacion + '~t' + 'Parentesco: ' + parentesco + '~t' + 'Forma de Cobro: ' + forma_pago + cr + 'DATOS BENEFICIARIO: ' + 'N$$HEX2$$ba002000$$ENDHEX$$Tercero: ' + n_cliente + '~t' + 'NIF: ' + nif + '~t' + 'Telefono: ' + telefono + '~t' + 'Apellidos: ' + apellidos + '~t' + 'Nombre: ' + nombre + '~t' + 'Tipo Via: ' + tipo_via + '~t' + 'Nombre Via: ' + nombre_via + '~t' + 'CP: ' + cp + '~t' + 'Poblacion: ' + poblacion + cr + cr
+	else
+		retorno = retorno + 'Alta: ' + alta + '~t' + 'Fecha Alta: ' + f_alta + '~t' + 'NIF: ' + nif + '~t' + 'N$$HEX2$$ba002000$$ENDHEX$$Mutualista: ' + n_mutualista + '~t' + 'Imp. a Cobrar: ' + importe_cobrar + '~t' + 'Tipo de Mutualista: ' + tipo_mutualista + '~t' + 'Situacion: ' + situacion + '~t' + 'Tipo Prestacion: ' + tipo_prestacion + '~t' + 'Parentesco: ' + parentesco + '~t' + 'Forma de Cobro: ' + forma_pago + cr
+	end if
+	
+NEXT
+
+
+destroy ds_beneficiarios
+destroy ds_datos_ben
+
+return retorno
+end function
+

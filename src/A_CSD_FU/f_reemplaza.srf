@@ -1,0 +1,43 @@
+HA$PBExportHeader$f_reemplaza.srf
+$PBExportComments$Sustituye en f(MODO) las ocurrencias de "vieja" por "nueva" dentro de "principal"
+global type f_reemplaza from function_object
+end type
+
+forward prototypes
+global function string f_reemplaza (string principal, string vieja, string nueva, string modo)
+end prototypes
+
+global function string f_reemplaza (string principal, string vieja, string nueva, string modo);//Esta funci$$HEX1$$f300$$ENDHEX$$n sustituye todas las ocurrencias de "vieja" por "nueva" dentro de "principal"
+//	MODO => 'PRIMERA'   Si s$$HEX1$$f300$$ENDHEX$$lo queremos reemplazar la PRIMERA ocurrencia
+//				  'TODAS'   Si queremos reemplazar TODAS las ocurrencias
+// Ver f_reemplaza
+
+long j, lprincipal, lvieja, i = 1
+string cadena
+
+cadena = principal
+lprincipal = len(cadena)
+lvieja = len(vieja)
+
+if lprincipal = 0 or lvieja = 0 then return cadena
+
+string aux1, aux2
+
+DO WHILE i > 0
+	i = pos(cadena, vieja, i)
+	if i > 0 then
+		aux1 = left(cadena,i - 1)
+		aux2 = right(cadena,lprincipal - i - lvieja + 1)
+		cadena = left(cadena,i - 1) + nueva + right(cadena,lprincipal - i - lvieja + 1)
+		lprincipal = len(cadena)
+		// Al colocar la nueva cadena hay que descontarla de la b$$HEX1$$fa00$$ENDHEX$$squeda
+		i = i + len(nueva) - 1
+	// Si s$$HEX1$$f300$$ENDHEX$$lo queremos reemplazar la PRIMERA ocurrencia, salimos...
+		if modo = 'PRIMERA' THEN EXIT
+	end if
+LOOP
+
+return cadena
+
+end function
+

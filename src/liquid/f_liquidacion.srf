@@ -1,0 +1,205 @@
+HA$PBExportHeader$f_liquidacion.srf
+global type f_liquidacion from function_object
+end type
+
+forward prototypes
+global function integer f_liquidacion (ref st_liquidacion liq)
+end prototypes
+
+global function integer f_liquidacion (ref st_liquidacion liq);double total_favor,total_contra, total_garantia, total_src
+datetime f_nula, f_entrada
+setnull(f_nula)
+string id_fase, modificacion
+long    ll_fila
+
+id_fase = f_minutas_id_fase(liq.id_fase)
+
+//Esta funci$$HEX1$$f300$$ENDHEX$$n inserta los datos de una liquidaci$$HEX1$$f300$$ENDHEX$$n a partir de los datos de la estructura
+// En aparejadores el id_fase es en realidad el id_minuta
+if (not (f_es_vacio(liq.id_fase))) and (isnull(liq.importe) or (liq.importe = 0)) then
+	//Hay que calcular la liquidaci$$HEX1$$f300$$ENDHEX$$n procedente de la fase.
+	//Calcular el importe suma, resta y neto a partir de las facturas que no sean de forma de pago, otras entidades!
+	select sum(total) into :total_favor from csi_facturas_emitidas where id_fase=:liq.id_fase and tipo_factura= :g_colegiado_cliente and emisor=:liq.id_col and formadepago <> :g_formas_pago.otras_entidades; // Modificado Ricardo 2005-03-02
+	select sum(total) into :total_contra from csi_facturas_emitidas where id_fase=:liq.id_fase and tipo_factura= :g_colegio_colegiado and id_persona=:liq.id_col;
+	if isnull(total_favor) then total_favor = 0
+	if isnull(total_contra) then total_contra = 0
+	
+	if g_colegio = 'COAATLE' then
+		select sum(total) into :total_contra from csi_facturas_emitidas where id_fase=:liq.id_fase and tipo_factura= :g_colegio_colegiado and id_persona=:liq.id_col and n_fact not like 'MU%' ;
+		if isnull(total_contra) then total_contra = 0
+	end if
+	
+// Modificado Paco 31/10/2005. Este p$$HEX1$$e100$$ENDHEX$$rrafo ya no se usa
+//	if g_colegio = 'COAATZ' or g_colegio = 'COAATGU' then
+//		select sum(total) into :total_src from csi_facturas_emitidas where id_fase=:liq.id_fase and tipo_factura= :g_musaat_colegiado and id_persona=:liq.id_col;
+//		if isnull(total_src) then total_src = 0
+//		total_contra += total_src
+//	end if	
+	
+	liq.importe = f_redondea(total_favor - total_contra)
+	
+	// Cuando los gastos superan los honorarios, al importe de la liquidaci$$HEX1$$f300$$ENDHEX$$n no se le restan los gastos
+	if g_colegio = 'COAATZ' and total_favor < total_contra then liq.importe = total_favor
+	if g_colegio = 'COAATLR' and total_favor < total_contra then liq.importe = total_favor
+	if g_colegio = 'COAATGU' and total_favor < total_contra then liq.importe = total_favor
+	if g_colegio = 'COAATLE' and total_favor < total_contra then liq.importe = total_favor
+	if g_colegio = 'COAATAVI' and total_favor < total_contra then liq.importe = total_favor
+	if g_colegio = 'COAATNA' and total_favor < total_contra then liq.importe = total_favor
+	if g_colegio = 'COAATTER' and total_favor < total_contra then liq.importe = total_favor
+end if
+
+if f_es_vacio(liq.tipo) then liq.tipo = '0' // Por defecto tipo 0
+
+// Ver la garantia : siempre que no se trate de una devoluci$$HEX1$$f300$$ENDHEX$$n
+if liq.tipo <> '1' then	
+	select sum(csi_lineas_fact_emitidas.subtotal) 
+	into :total_garantia 
+	from csi_facturas_emitidas, csi_lineas_fact_emitidas
+	where csi_facturas_emitidas.id_factura = csi_lineas_fact_emitidas.id_factura
+	and csi_facturas_emitidas.id_fase=:liq.id_fase 
+	and csi_facturas_emitidas.tipo_factura= :g_colegiado_cliente 
+	and csi_facturas_emitidas.emisor=:liq.id_col 
+	and csi_lineas_fact_emitidas.articulo = :g_codigos_conceptos.dev_garantia;
+	
+	if isnull(total_garantia) then total_garantia = 0
+	
+	choose case g_forma_devolucion_garantia
+		case 'LI'
+			// Con esto debe sumar la garantia  a la liquidacion	
+			liq.importe += f_redondea(((-1) * total_garantia))
+		case else
+			// Sino No hacemos NADA
+	end choose
+end if
+
+// David - No tener en cuenta la comisi$$HEX1$$f300$$ENDHEX$$n de la tarjeta
+double total_ct
+if liq.tipo <> '1' then	
+	select sum(csi_lineas_fact_emitidas.total)
+	into :total_ct
+	from csi_facturas_emitidas, csi_lineas_fact_emitidas
+	where csi_facturas_emitidas.id_factura = csi_lineas_fact_emitidas.id_factura
+	and csi_facturas_emitidas.id_fase=:liq.id_fase 
+	and csi_facturas_emitidas.tipo_factura= :g_colegiado_cliente 
+	and csi_facturas_emitidas.emisor=:liq.id_col 
+	and csi_lineas_fact_emitidas.articulo = :g_codigos_conceptos.comision_tarjeta;
+	
+	if isnull(total_ct) then total_ct = 0
+	
+	// Con esto debe sumar la garantia  a la liquidacion	
+	liq.importe += f_redondea(((-1) * total_ct))
+end if
+
+//EL BANCO Y LA FORMA DE PAGO SE OBTIENEN DE LA TABLA 'CONCEPTOS_REMESABLES' -->SI CAMBIA EL CRITERIO SE CAMBIAR$$HEX2$$c1002000$$ENDHEX$$AQU$$HEX1$$cd00$$ENDHEX$$..
+if liq.importe >=0 then 
+	if /*f_es_vacio(liq.banco) or*/ f_es_vacio(liq.forma_pago) then
+		select forma_de_pago into :liq.forma_pago from conceptos_remesables where id_colegiado=:liq.id_col;
+	end if
+end if
+// El banco se pone cuando pague
+liq.banco = ''
+//if f_es_vacio(liq.banco) then liq.banco = ''
+if f_es_vacio(liq.forma_pago) then liq.forma_pago = g_formas_pago.transferencia
+
+//El estado siempre ser$$HEX2$$e1002000$$ENDHEX$$pendiente ('P')
+liq.estado = 'P'
+// Si el importe es menor que 0 no insertamos la liquidaci$$HEX1$$f300$$ENDHEX$$n anulada
+if liq.importe <0 then liq.estado = 'A' 
+// Contabilizada = 'N', si es devoluci$$HEX1$$f300$$ENDHEX$$n se deja como contabilizada
+//if liq.tipo = '1' then liq.contabilizada = 'S' else liq.contabilizada = 'N'
+//concepto : expediente + registro
+CHOOSE CASE g_colegio
+	CASE 'COAATZ', 'COAATGU', 'COAATLE', 'COAATA', 'COAATNA', 'COAATTER'
+		if f_es_vacio(liq.concepto) then
+			liq.concepto = 'V$$HEX1$$ba00$$ENDHEX$$: ' + f_fases_n_salida(id_fase)
+//		else
+//			liq.concepto += 'V$$HEX1$$ba00$$ENDHEX$$: ' + f_fases_n_salida(id_fase)
+		end if
+	CASE ELSE
+		if f_es_vacio(liq.concepto) then
+			liq.concepto = 'EXP: ' + f_dame_exp(id_fase) + ' REG: ' + f_dame_n_reg(id_fase)
+//		else
+//			liq.concepto += 'EXP: ' + f_dame_exp(id_fase) + ' REG: ' + f_dame_n_reg(id_fase)	
+		end if
+END CHOOSE
+// Fecha entrada
+if not isnull(liq.f_entrada) then
+	f_entrada = liq.f_entrada
+else
+//	setnull(f_entrada)
+	f_entrada = datetime(today(), now())
+end if
+//El ilq.id_liquidacion hay que calcularlo con f_siguiente_numero. Se coloca en la estructura
+//y lo puede utilizar el llamante para lo que quiera.
+
+
+// Si la liquidacion es de importe 0, no se generar$$HEX2$$e1002000$$ENDHEX$$la liquidacion
+if liq.importe = 0 then return 0 // MODIFICADO RICARDO 2005-02-01
+
+
+// Modificado ricardo 2005-03-02
+if f_es_vacio(liq.contabilizada) then liq.contabilizada = 'N'
+// Modificado ricardo 2005-03-02
+
+// Modificado David 5/1/2006 - En ocasiones (extorno) le pasaremos los importes de suma y resta
+if liq.importe_suma > 0 and total_favor = 0 then total_favor = liq.importe_suma
+if liq.importe_resta > 0 and total_contra = 0 then total_contra = liq.importe_resta
+
+// En caso de liquidaciones por cuenta personal se generan como liquidadas
+if liq.forma_pago = g_formas_pago.cuenta_personal then
+	liq.estado = 'L'
+	f_nula = f_entrada
+	liq.banco = '572000002'
+end if
+
+
+//COntabilizada = 'S' o 'N' lo pondr$$HEX2$$e1002000$$ENDHEX$$el llamante.
+Datastore ds_liq
+ds_liq = create datastore
+ds_liq.dataobject = 'd_liquidacion_lista'
+ds_liq.SetTransObject(SQLCA)
+ds_liq.InsertRow(0)
+ds_liq.SetItem(1,'id_liquidacion',f_siguiente_numero('LIQUIDACIONES',10))
+ds_liq.SetItem(1,'id_fase',liq.id_fase)
+ds_liq.SetItem(1,'f_liquidacion',f_nula)
+ds_liq.SetItem(1,'id_colegiado',liq.id_col)
+ds_liq.SetItem(1,'id_minuta',liq.id_minuta)
+ds_liq.SetItem(1,'estado',liq.estado)
+ds_liq.SetItem(1,'contabilizada',liq.contabilizada)
+ds_liq.SetItem(1,'forma_pago',liq.forma_pago)
+ds_liq.SetItem(1,'banco',liq.banco)
+ds_liq.SetItem(1,'importe_suma',f_redondea(total_favor))
+ds_liq.SetItem(1,'importe_resta',f_redondea(total_contra))
+ds_liq.SetItem(1,'importe',(liq.importe))
+ds_liq.SetItem(1,'tipo',liq.tipo)
+ds_liq.SetItem(1,'concepto',liq.concepto)
+ds_liq.SetItem(1,'cod_delegacion',g_cod_delegacion)
+ds_liq.SetItem(1,'f_entrada',f_entrada)
+///*** SCP-1060. Alexis. 02/03/2011. Se a$$HEX1$$f100$$ENDHEX$$adi$$HEX2$$f3002000$$ENDHEX$$la empresa a las liquidaciones. Se crean liquidaciones $$HEX1$$fa00$$ENDHEX$$nicamente de la empresa activa ***///
+ds_liq.SetItem(1,'fases_liquidaciones_empresa', g_empresa)
+ds_liq.Update()
+
+///INCLUYE INFORMACI$$HEX1$$d300$$ENDHEX$$N EN EL HISTORICO CON LA LIQUIDICACI$$HEX1$$d300$$ENDHEX$$N GENERADA PARA EL AVISO
+Datastore ds_historico
+ds_historico = create datastore
+ds_historico.dataobject = 'd_historico'
+ds_historico.SetTransObject(SQLCA)
+
+ll_fila = ds_historico.InsertRow(0)
+
+modificacion = "CREA LIQUIDACION " + ' ' +"n$$HEX1$$b000$$ENDHEX$$= " + ds_liq.getitemstring(1, "id_liquidacion") + '; ' + "importe= " + string(ds_liq.getitemnumber(1, "importe"))	
+
+ds_historico.setitem(ll_fila, 'id_modificacion', f_siguiente_numero('MODIFICACIONES', 10))
+ds_historico.setitem(ll_fila, 'id_colegiado',id_fase )
+ds_historico.setitem(ll_fila, 'tipo_modulo', '03')
+ds_historico.setitem(ll_fila, 'modificacion', modificacion)
+ds_historico.setitem(ll_fila,'fecha',datetime(today(),now()))
+ds_historico.setitem(ll_fila,'usuario',g_usuario)
+
+ds_historico.update() 
+
+destroy ds_liq
+destroy ds_historico
+return 1
+end function
+

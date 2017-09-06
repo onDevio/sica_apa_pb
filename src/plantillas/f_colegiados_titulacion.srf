@@ -1,0 +1,57 @@
+HA$PBExportHeader$f_colegiados_titulacion.srf
+$PBExportComments$Dado un colegiado obtiene los datos de su titulacion
+global type f_colegiados_titulacion from function_object
+end type
+
+forward prototypes
+global subroutine f_colegiados_titulacion (string id_col, ref string titul_tipo, ref string titul_observaciones, ref string titul_pais, ref string titul_circunst_hab, ref string titul_convalid_documento, ref string titul_convalid_fecha, ref string titul_convalid_denomin, ref string titul_permiso_tipo, ref string titul_permiso_ambito, ref string titul_permiso_regimen, ref string titul_permiso_caducidad)
+end prototypes
+
+global subroutine f_colegiados_titulacion (string id_col, ref string titul_tipo, ref string titul_observaciones, ref string titul_pais, ref string titul_circunst_hab, ref string titul_convalid_documento, ref string titul_convalid_fecha, ref string titul_convalid_denomin, ref string titul_permiso_tipo, ref string titul_permiso_ambito, ref string titul_permiso_regimen, ref string titul_permiso_caducidad);//Esta funci$$HEX1$$f300$$ENDHEX$$n establece los par$$HEX1$$e100$$ENDHEX$$metros que se le pasan por referencia con el valor
+//correspondiente al colegiado indicado por ID_COL
+
+string pais
+datetime titul_convalid_fecha_aux, titul_permiso_caducidad_aux
+
+datastore ds_tit
+
+ds_tit = create datastore
+ds_tit.dataobject ='d_colegiados_titulacion'
+ds_tit.SetTransObject(SQLCA)
+
+ds_tit.Retrieve(id_col)
+
+if ds_tit.rowcount() > 0 then
+	titul_tipo = ds_tit.getitemstring(1, 'cons_tipo_titulacion')
+	titul_observaciones = ds_tit.getitemstring(1, 'cons_observaciones')
+	
+	pais = ds_tit.getitemstring(1, 'cons_pais_titulo')
+	select nombre into :titul_pais from paises where cod_pais = :pais;
+	
+//	titul_circunst_hab = ds_tit.getitemstring(1, 'cons_circunst_habilitacion')
+	titul_convalid_documento = ds_tit.getitemstring(1, 'cons_documento_titulo')
+	titul_convalid_fecha_aux = ds_tit.getitemdatetime(1, 'cons_fecha_documento')
+	titul_convalid_fecha = string(titul_convalid_fecha_aux,"dd/mm/yyyy")
+	titul_convalid_denomin = ds_tit.getitemstring(1, 'cons_denominacion_titulo')
+	titul_permiso_tipo = ds_tit.getitemstring(1, 'cons_tipo_permiso')
+	titul_permiso_ambito = ds_tit.getitemstring(1, 'cons_ambito_permiso')
+	titul_permiso_regimen = ds_tit.getitemstring(1, 'cons_regimen_laboral')
+	titul_permiso_caducidad_aux = ds_tit.getitemdatetime(1, 'cons_fecha_caducidad')
+	titul_permiso_caducidad = string(titul_permiso_caducidad_aux)
+end if
+
+if f_es_vacio(titul_tipo) then titul_tipo = ''
+if f_es_vacio(titul_observaciones) then titul_observaciones = ''
+if f_es_vacio(titul_pais) then titul_pais = ''
+if f_es_vacio(titul_circunst_hab) then titul_circunst_hab = ''
+if f_es_vacio(titul_convalid_documento) then titul_convalid_documento = ''
+if f_es_vacio(titul_convalid_fecha) then titul_convalid_fecha = ''
+if f_es_vacio(titul_convalid_denomin) then titul_convalid_denomin = ''
+if f_es_vacio(titul_permiso_tipo) then titul_permiso_tipo = ''
+if f_es_vacio(titul_permiso_ambito) then titul_permiso_ambito = ''
+if f_es_vacio(titul_permiso_regimen) then titul_permiso_regimen = ''
+if f_es_vacio(titul_permiso_caducidad) then titul_permiso_caducidad = ''
+
+destroy ds_tit
+end subroutine
+

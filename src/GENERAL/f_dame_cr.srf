@@ -1,0 +1,11 @@
+HA$PBExportHeader$f_dame_cr.srf
+global type f_dame_cr from function_object
+end type
+
+forward prototypes
+global function string f_dame_cr ()
+end prototypes
+
+global function string f_dame_cr ();return cr 
+end function
+

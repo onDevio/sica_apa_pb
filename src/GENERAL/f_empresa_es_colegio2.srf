@@ -1,0 +1,20 @@
+HA$PBExportHeader$f_empresa_es_colegio2.srf
+global type f_empresa_es_colegio2 from function_object
+end type
+
+forward prototypes
+global function string f_empresa_es_colegio2 (string as_id_empresa)
+end prototypes
+
+global function string f_empresa_es_colegio2 (string as_id_empresa);string ls_result
+
+select es_colegio into :ls_result from csi_empresas where codigo = :as_id_empresa;
+
+if f_es_vacio(ls_result) then
+	return 'N'
+	
+else
+	return ls_result
+end if	
+end function
+

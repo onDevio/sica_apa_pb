@@ -1,0 +1,14 @@
+HA$PBExportHeader$f_poblacion_descripcion.srf
+global type f_poblacion_descripcion from function_object
+end type
+
+forward prototypes
+global function string f_poblacion_descripcion (string cod_pob)
+end prototypes
+
+global function string f_poblacion_descripcion (string cod_pob);
+string descrip
+select descripcion into :descrip from poblaciones where cod_pob = :cod_pob;
+return descrip
+end function
+

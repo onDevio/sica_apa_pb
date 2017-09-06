@@ -1,0 +1,162 @@
+HA$PBExportHeader$f_calcular_dv_lr.srf
+$PBExportComments$Calcula el total de dv para la Rioja
+global type f_calcular_dv_lr from function_object
+end type
+
+forward prototypes
+global function integer f_calcular_dv_lr (ref st_dv_datos st_dv_datos)
+end prototypes
+
+global function integer f_calcular_dv_lr (ref st_dv_datos st_dv_datos);// Entrada
+string tipo_act, tipo_obra, anyo, mes = '00'
+double pem, Ca, Cp, F,dto_visared
+// Salida
+double dv, coef_c, coef_k
+// F$$HEX1$$f300$$ENDHEX$$rmula
+// 	DV = ( 15 + sqrt ( 0.15 * PEM * Coef C * Coef K ) ) * Ca * Cp
+// Retorno
+// 0 : $$HEX1$$e900$$ENDHEX$$xito
+// -1 :error
+
+//Ca = g_ca
+//Cp = g_cp
+if isnull(st_dv_datos.fecha) then
+	anyo = g_ejercicio
+else
+	anyo = string(year(date(st_dv_datos.fecha)))
+	mes = string(month(date(st_dv_datos.fecha)))
+	mes = RightA('00' + mes, 2)
+end if
+
+tipo_act = st_dv_datos.tipoact
+tipo_obra = st_dv_datos.tipoobra
+//Luis CRI-220
+pem = round(st_dv_datos.pem,0)
+
+if f_es_vacio(tipo_act) or f_es_vacio(tipo_obra) or isnull(st_dv_datos.pem) then
+	return -1
+end if
+
+// Coeficiente K
+SELECT desc_gui_tipo_act.coef_k  
+INTO :coef_k  
+FROM desc_gui_tipo_act  
+WHERE ( :tipo_act like desc_gui_tipo_act.tipo_actuacion OR
+		desc_gui_tipo_act.tipo_actuacion = '%'  ) AND  
+      ( :tipo_obra like desc_gui_tipo_act.tipo_obra OR
+		desc_gui_tipo_act.tipo_obra = '%' ) AND  
+      ( desc_gui_tipo_act.anyo = :anyo )   ;
+
+if sqlca.sqlcode <> 0 then
+	SELECT desc_gui_tipo_act.coef_k  
+	INTO :coef_k  
+	FROM desc_gui_tipo_act  
+	WHERE ( :tipo_act like desc_gui_tipo_act.tipo_actuacion OR
+		desc_gui_tipo_act.tipo_actuacion = '%'  ) AND  
+		( :tipo_obra like desc_gui_tipo_act.tipo_obra OR
+		desc_gui_tipo_act.tipo_obra = '%' ) AND  
+		( desc_gui_tipo_act.anyo like '*' )   ;
+	
+	if sqlca.sqlcode <> 0 then
+		st_dv_datos.dv = 0
+		return -1
+	end if
+end if
+
+// Coeficiente C
+SELECT desc_gui_pem.coef_c  
+INTO :coef_c  
+FROM desc_gui_pem  
+WHERE ( desc_gui_pem.pem_desde <= :pem ) AND  
+      ( desc_gui_pem.pem_hasta >= :pem ) AND  
+      ( desc_gui_pem.anyo like :anyo )  ;
+
+if sqlca.sqlcode <> 0 then
+		SELECT desc_gui_pem.coef_c  
+		INTO :coef_c  
+		FROM desc_gui_pem  
+		WHERE ( desc_gui_pem.pem_desde <= :pem ) AND  
+		( desc_gui_pem.pem_hasta >= :pem ) AND  
+		( desc_gui_pem.anyo like '*' )  ;
+		
+	if sqlca.sqlcode <> 0 then		
+		st_dv_datos.dv = 0
+		return -1
+	end if
+end if
+
+// Coeficientes Ca y Cp
+  SELECT desc_gui_coefs.coef_a,   
+         desc_gui_coefs.coef_p_dv  
+    INTO :Ca,   
+         :Cp  
+    FROM desc_gui_coefs  
+   WHERE ( desc_gui_coefs.desde_fecha < :st_dv_datos.fecha ) AND  
+         ( desc_gui_coefs.hasta_fecha > :st_dv_datos.fecha )   ;
+
+	if sqlca.sqlcode <> 0 then	
+		return -1
+	end if
+
+// RICARDO 03-12-23
+// NUEVO PARA LA RIOJA
+
+// Coeficiente F
+SELECT desc_lr_coef_f.coef_F  
+INTO :f  
+FROM desc_lr_coef_f
+WHERE ( :tipo_act like desc_lr_coef_f.tipo_actuacion OR
+		desc_lr_coef_f.tipo_actuacion = '%'  ) AND  
+      ( :tipo_obra like desc_lr_coef_f.tipo_obra OR
+		desc_lr_coef_f.tipo_obra = '%' ) AND  
+      ( desc_lr_coef_f.anyo = :anyo )   ;
+
+if sqlca.sqlcode <> 0 then
+	
+	SELECT desc_lr_coef_f.coef_F  
+	INTO :f  
+	FROM desc_lr_coef_f
+	WHERE ( :tipo_act like desc_lr_coef_f.tipo_actuacion OR
+		desc_lr_coef_f.tipo_actuacion = '%'  ) AND  
+		( :tipo_obra like desc_lr_coef_f.tipo_obra OR
+		desc_lr_coef_f.tipo_obra = '%' ) AND  
+		( desc_lr_coef_f.anyo = '*' )   ;
+	
+	if sqlca.sqlcode <> 0 then
+		st_dv_datos.dv = 0
+		return -1
+	end if
+end if
+
+// FIN RICARDO 03-12-23
+
+
+//choose case anyo
+//	case '2000'
+//		//dv = ( 21 + sqrt ( 15 * pem * coef_c * coef_k ) ) * Ca * Cp	
+//		dv = ( 21 + sqrt ( 0.09 * pem * coef_c * coef_k ) ) * Ca * Cp 		
+//	case '2001'
+////		if mes > '01' then Ca = 1.09 else Ca = 1.05
+////		dv = ( 15 + sqrt ( 25 * pem * coef_c * coef_k ) ) * Ca * Cp			
+//		dv = ( 15 + sqrt ( 0.15 * pem * coef_c * coef_k ) ) * Ca * Cp
+//	case else
+////		if mes > '01' then Ca = 1.13 else Ca = 1.09
+		dv = ( F + sqrt ( 0.36 * pem * coef_c * coef_k ) ) * Ca * Cp		
+//end choose
+//
+
+// MODIFICADO RICARDO 2004-12-30
+if st_dv_datos.visared = 'V' then
+	dto_visared = 	f_descuento_visared_lr(g_codigos_conceptos.dv)
+	dv = dv * (1 - dto_visared)
+end if
+// FIN MODIFICADO RICARDO 2004-12-30
+
+
+
+st_dv_datos.dv = f_redondea(dv)
+
+return 0
+
+end function
+

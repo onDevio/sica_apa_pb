@@ -1,0 +1,33 @@
+HA$PBExportHeader$f_colegiado_apellidos.srf
+global type f_colegiado_apellidos from function_object
+end type
+
+forward prototypes
+global function string f_colegiado_apellidos (string id_col)
+end prototypes
+
+global function string f_colegiado_apellidos (string id_col);//f_colegiado_apellidos (id_col : string)
+//Esta funcion devuelve el apellido y nombre de un colegiado
+//
+string datos_colegiado = ''
+string n_col, apell, nomb
+
+select n_colegiado, apellidos, nombre 
+into :n_col, :apell, :nomb 
+from colegiados 
+where id_colegiado=:id_col;
+
+if f_es_vacio(nomb) then 
+	nomb=''
+else
+	nomb = ', ' + nomb
+end if
+
+datos_colegiado = apell
+
+//messagebox ('',datos_colegiado)
+
+return datos_colegiado
+
+end function
+

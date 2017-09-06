@@ -1,0 +1,56 @@
+HA$PBExportHeader$d_sellador_integridad_doc_visared.srd
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+header(height=68 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=64 color="536870912" )
+table(column=(type=char(100) update=yes updatewhereclause=yes name=nombre_fichero dbname="fases_documentos_visared.nombre_fichero" )
+ column=(type=char(255) update=yes updatewhereclause=yes name=ruta_fichero dbname="fases_documentos_visared.ruta_fichero" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=sellado dbname="fases_documentos_visared.sellado" )
+ column=(type=char(20) update=yes updatewhereclause=yes name=tamano dbname="fases_documentos_visared.tamano" )
+ column=(type=char(10) update=yes updatewhereclause=yes key=yes name=id_fichero dbname="fases_documentos_visared.id_fichero" )
+ column=(type=char(1) updatewhereclause=yes name=incidencia dbname="incidencia" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=id_fase dbname="fases_documentos_visared.id_fase" )
+ column=(type=char(255) update=yes updatewhereclause=yes name=info_adicional dbname="fases_documentos_visared.info_adicional" )
+ column=(type=datetime update=yes updatewhereclause=yes name=fecha dbname="fases_documentos_visared.fecha" )
+ column=(type=datetime update=yes updatewhereclause=yes name=fecha_sellado dbname="fases_documentos_visared.fecha_sellado" )
+ column=(type=char(20) update=yes updatewhereclause=yes name=n_documento dbname="fases_documentos_visared.n_documento" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=visualizar_web dbname="fases_documentos_visared.visualizar_web" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=firmado dbname="fases_documentos_visared.firmado" )
+ column=(type=char(2) update=yes updatewhereclause=yes name=certificado_confianza dbname="fases_documentos_visared.certificado_confianza" )
+ column=(type=char(255) updatewhereclause=yes name=nombre_fichero_largo dbname="nombre_fichero_largo" )
+ column=(type=char(1) updatewhereclause=yes name=columna_blanco dbname="columna_blanco" )
+ column=(type=char(1) updatewhereclause=yes name=accion dbname="accion" )
+ retrieve="  SELECT fases_documentos_visared.nombre_fichero,   
+         fases_documentos_visared.ruta_fichero,   
+         fases_documentos_visared.sellado,   
+         fases_documentos_visared.tamano,   
+         fases_documentos_visared.id_fichero,   
+         convert(char(1),'N') as incidencia,   
+         fases_documentos_visared.id_fase,   
+         fases_documentos_visared.info_adicional,   
+         fases_documentos_visared.fecha,   
+         fases_documentos_visared.fecha_sellado,   
+         fases_documentos_visared.n_documento,   
+         fases_documentos_visared.visualizar_web,   
+         fases_documentos_visared.firmado,   
+         fases_documentos_visared.certificado_confianza,
+			convert(char(255),fases_documentos_visared.nombre_fichero) as nombre_fichero_largo,
+			convert(char(1),'') as columna_blanco,
+			convert(char(1),'') as accion
+    FROM fases_documentos_visared  
+   WHERE fases_documentos_visared.id_fase = :id_fase    
+" update="fases_documentos_visared" updatewhere=0 updatekeyinplace=no arguments=(("id_fase", string))  sort="nombre_fichero A " )
+text(band=header alignment="2" text="Nombre Fichero" border="6" color="0" x="110" y="8" height="56" width="919"  name=nombre_fichero_t  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="81324524" )
+text(band=header alignment="2" text="Tamano" border="6" color="0" x="1038" y="8" height="56" width="247"  name=tamano_t  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="81324524" )
+text(band=header alignment="0" text="" border="6" color="0" x="9" y="8" height="56" width="91"  name=t_3  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="81324524" )
+bitmap(band=detail filename="C:\Sica\Imagenes\blanco.gif" x="0" y="0" height="68" width="101" border="0"  name=p_1 )
+column(band=detail id=16 alignment="0" tabsequence=32766 border="0" color="0" x="9" y="4" height="52" width="91" format="[general]"  name=columna_blanco visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+bitmap(band=detail filename="Imagenes\v.gif" x="23" y="4" height="52" width="69" border="0"  name=p_v visible="1~tif(accion='V',1,0)" )
+bitmap(band=detail filename="Imagenes\x.gif" x="18" y="8" height="52" width="69" border="0"  name=p_x visible="1~tif(accion='X',1,0)" )
+bitmap(band=detail filename="imagenes\flecha.gif" x="18" y="0" height="64" width="73" border="0"  name=p_flecha visible="1~tif(accion='F',1,0)" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="110" y="4" height="56" width="919" format="[general]"  name=nombre_fichero edit.limit=100 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="1038" y="4" height="56" width="247" format="[general]"  name=tamano  tag=" " edit.limit=20 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

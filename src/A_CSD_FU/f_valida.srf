@@ -1,0 +1,100 @@
+HA$PBExportHeader$f_valida.srf
+global type f_valida from function_object
+end type
+
+forward prototypes
+global function string f_valida (ref u_dw dw, string campo, string opcion, string mensaje)
+end prototypes
+
+global function string f_valida (ref u_dw dw, string campo, string opcion, string mensaje);//Esta funci$$HEX1$$f300$$ENDHEX$$n valida el valor del campo en en todas las filas de la datawindow especificada
+//Las opciones de validaci$$HEX1$$f300$$ENDHEX$$n son:
+//'NONULO' (para todos)
+//'NOVACIO' (para strings)
+//'NOCERO' (para num$$HEX1$$e900$$ENDHEX$$ricos)
+
+//Devuelve el mensaje a mostrar:
+//Mensaje = '' si pasa el test de validaci$$HEX1$$f300$$ENDHEX$$n
+
+string tipo, retorno, l_mensaje
+long i
+boolean hay_error, indicar_fila=true
+//Las variables locales para leer los valores de los campos:
+double vdouble
+string vstring
+datetime vdatetime
+
+retorno = ''
+
+//Lo primero, averiguamos el tipo del campo:
+tipo=dw.Describe(campo+".ColType")
+CHOOSE CASE upper(LeftA(tipo ,2))
+	CASE 'CH' 
+		tipo = 'STRING'
+	CASE 'DA' 
+		tipo = 'DATE'		
+	CASE ELSE
+		tipo = 'NUMBER'		
+END CHOOSE
+
+//Detectamos las posibles incompatibilidades:
+if tipo <> 'NUMBER' and opcion = 'NOCERO' then retorno = retorno + 'ERROR PROGRAMA: comparamos no-num$$HEX1$$e900$$ENDHEX$$rico con cero' + cr
+if tipo <> 'STRING' and opcion = 'NOVACIO' then retorno = retorno + 'ERROR PROGRAMA: comparamos no-car$$HEX1$$e100$$ENDHEX$$cter con cadena vac$$HEX1$$ed00$$ENDHEX$$a' + cr
+if tipo <> 'NUMBER' and opcion = 'MENORCERO' then retorno = retorno + 'ERROR PROGRAMA: comparamos no-num$$HEX1$$e900$$ENDHEX$$rico con mayor cien' + cr
+if tipo <> 'NUMBER' and opcion = 'MAYORCIEN' then retorno = retorno + 'ERROR PROGRAMA: comparamos no-num$$HEX1$$e900$$ENDHEX$$rico con cero' + cr
+
+//Si el programador no ha indicado ning$$HEX1$$fa00$$ENDHEX$$n mensaje pondremos mensajes por defecto:
+if isnull(mensaje) or mensaje='' then
+	CHOOSE CASE opcion
+		CASE 'NOCERO'
+			l_mensaje = 'El campo '+campo+' no puede ser cero'
+		CASE ELSE
+			l_mensaje = 'Debe especificar un valor en el campo '+campo
+	END CHOOSE
+else
+	l_mensaje = mensaje
+end if
+
+//Si en la dw solo hay una fila, en el mensaje de error no indicaremos el n$$HEX1$$fa00$$ENDHEX$$mero de fila:
+if dw.RowCount() <= 1 then indicar_fila = false
+
+//Ahora  a validar:
+FOR i = 1 TO dw.RowCount()
+	hay_error = false
+	CHOOSE CASE tipo
+		CASE 'DATE'
+			vdatetime = dw.GetItemDateTime(i,campo)
+			if isnull(vdatetime) then
+				retorno = retorno + cr + l_mensaje
+				hay_error = true
+			end if
+		CASE 'NUMBER'
+			vdouble = dw.GetItemNumber(i,campo)
+//			if isnull(vdouble) or vdouble = 0 and opcion = 'NOCERO' then
+//				retorno = retorno + cr + l_mensaje
+//				hay_error = true
+//			end if
+			if not isnull(vdouble) then
+			if vdouble<=0 and opcion = 'MAYORCERO' then
+				retorno = retorno + cr + l_mensaje
+				hay_error = true
+			end if
+		end if
+			if not isnull(vdouble) and vdouble > 100 and opcion = 'MENORCIEN' then
+				retorno = retorno + cr + l_mensaje
+				hay_error = true
+			end if
+			
+		CASE 'STRING'
+			// Quitamos los espacios en blanco
+			vstring = TRIM(dw.GetItemString(i,campo))
+			if isnull(vstring) or vstring = '' and opcion = 'NOVACIO' then
+				retorno = retorno + cr + l_mensaje
+				hay_error = true
+			end if			
+	END CHOOSE
+	if hay_error and indicar_fila then retorno = retorno + ' (fila '+string(i)+')'
+NEXT
+
+return retorno
+end function
+

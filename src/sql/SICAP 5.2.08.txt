@@ -1,0 +1,21 @@
+create table dbo.csi_bancos2 (codigo char(10) not null, nombre char(40) null, cuenta_contable char(10) not null, entidad char(4) null, sucursal char(4) null, cod_seg char(2) null, cuenta_banco char(10) null, cod_presentador char(12) null, empresa char(2) not null, cuenta_efecto char(10) null, domicilio char(30) null, localidad char(30) null, cp char(5) null, pais char(15) null, cif char(15) null, sufijo_csb19 char(12) null, telefono char(30) null, fax char(30) null, observaciones varchar(255) null, contacto varchar(100) null, cuenta_efecto_cobros char(10) null, limite_concedido double precision null) ;
+alter table dbo.csi_bancos2 add constraint csi_bancos_copy_2x primary key nonclustered (codigo) ;
+
+insert into csi_bancos2 select * from csi_bancos;
+drop table csi_bancos;
+
+create table dbo.csi_bancos (codigo char(10) not null, nombre char(40) null, cuenta_contable char(10) not null, entidad char(4) null, sucursal char(4) null, cod_seg char(2) null, cuenta_banco char(10) null, cod_presentador char(12) null, empresa char(2) not null, cuenta_efecto char(10) null, domicilio char(30) null, localidad char(30) null, cp char(5) null, pais char(15) null, cif char(15) null, sufijo_csb19 char(12) null, telefono char(30) null, fax char(30) null, observaciones varchar(255) null, contacto varchar(100) null, cuenta_efecto_cobros char(10) null, limite_concedido double precision null) ;
+alter table dbo.csi_bancos add constraint csi_bancos_copy_x primary key nonclustered (codigo, empresa) ;
+
+insert into csi_bancos select * from csi_bancos2;
+drop table csi_bancos2;
+
+
+//SCP-1175.
+update t_control_eventos set activo = 'N' where evento = 'CONTA_CFACTC';
+
+//Se actualiza la fecha de versión
+update var_globales set texto='20110321', descripcion = 'versión v5.2.08' where nombre='g_version_minima';
+
+///*** SCP-1219. Alexis. Se produce un problema con la introducción automática de conceptos domiciliables, por lo que se desactiva el evento momentaneamente. ***///
+Update t_control_eventos set activo = 'N' where control = 'CONCEPTO_DOMIC';

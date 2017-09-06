@@ -1,0 +1,11 @@
+HA$PBExportHeader$f_g_codigo_libro_ordenes.srf
+global type f_g_codigo_libro_ordenes from function_object
+end type
+
+forward prototypes
+global function string f_g_codigo_libro_ordenes ()
+end prototypes
+
+global function string f_g_codigo_libro_ordenes ();return g_codigo_libro_ordenes
+end function
+

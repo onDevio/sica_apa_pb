@@ -1,0 +1,22 @@
+HA$PBExportHeader$f_coleg_desc_concep_fact.srf
+global type f_coleg_desc_concep_fact from function_object
+end type
+
+forward prototypes
+global function string f_coleg_desc_concep_fact (string codigo)
+end prototypes
+
+global function string f_coleg_desc_concep_fact (string codigo);//Devuelve la descripcion del concepto facturable
+
+string descripcion
+
+select descripcion
+into :descripcion
+from csi_articulos_servicios
+where codigo = :codigo;
+
+if f_es_vacio(descripcion) then descripcion = ''
+
+return descripcion
+end function
+

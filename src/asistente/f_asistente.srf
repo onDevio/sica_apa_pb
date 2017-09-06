@@ -1,0 +1,22 @@
+HA$PBExportHeader$f_asistente.srf
+global type f_asistente from function_object
+end type
+
+forward prototypes
+global function integer f_asistente (u_dw dw, string campo)
+end prototypes
+
+global function integer f_asistente (u_dw dw, string campo);//Si no est$$HEX2$$e1002000$$ENDHEX$$abierta la ventana del asistente nos largamos
+if not isvalid(w_asistente) then return 1
+
+//Si esta abierta:
+//Asignam 	os el valor correspondiente a las variables globales
+g_asistente.dw = dw.Dataobject
+g_asistente.campo = campo
+
+//Disparamos el evento "activate" de w_asistente
+w_asistente.PostEvent(Activate!)
+
+return 1
+end function
+

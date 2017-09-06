@@ -1,0 +1,18 @@
+HA$PBExportHeader$f_f_venc_forma_de_pago.srf
+global type f_f_venc_forma_de_pago from function_object
+end type
+
+forward prototypes
+global function datetime f_f_venc_forma_de_pago (string tipo_pago, datetime fecha)
+end prototypes
+
+global function datetime f_f_venc_forma_de_pago (string tipo_pago, datetime fecha);int num_dias
+datetime f_vencimiento
+//devuelve la f_vencimiento para una forma de pago dada la fecha inicial
+
+	num_dias = f_dame_campos_integer_formadepago ( 'num_dias', tipo_pago )
+	f_vencimiento = DateTime ( relativeDate(Date(fecha), num_dias)) 
+	
+return f_vencimiento
+end function
+

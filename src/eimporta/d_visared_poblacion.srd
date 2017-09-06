@@ -1,0 +1,18 @@
+HA$PBExportHeader$d_visared_poblacion.srd
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=416 color="536870912" )
+table(column=(type=char(5) updatewhereclause=yes name=provincia dbname="poblaciones.provincia" )
+ column=(type=char(60) updatewhereclause=yes name=descripcion dbname="poblaciones.descripcion" )
+ column=(type=char(6) updatewhereclause=yes name=cod_pos dbname="poblaciones.cod_pos" )
+ retrieve="PBSELECT( VERSION(400) TABLE(NAME=~"poblaciones~" ) COLUMN(NAME=~"poblaciones.provincia~") COLUMN(NAME=~"poblaciones.descripcion~") COLUMN(NAME=~"poblaciones.cod_pos~")) " )
+text(band=detail alignment="1" text="Provincia:" border="0" color="0" x="37" y="4" height="64" width="329"  name=provincia_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="384" y="4" height="76" width="165" format="[general]"  name=provincia edit.limit=5 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Descripcion:" border="0" color="0" x="55" y="104" height="64" width="329"  name=descripcion_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="402" y="104" height="76" width="1673" format="[general]"  name=descripcion edit.limit=60 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Cod Pos:" border="0" color="0" x="599" y="16" height="64" width="329"  name=cod_pos_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="946" y="16" height="76" width="192" format="[general]"  name=cod_pos edit.limit=6 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

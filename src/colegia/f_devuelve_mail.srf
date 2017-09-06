@@ -1,0 +1,21 @@
+HA$PBExportHeader$f_devuelve_mail.srf
+global type f_devuelve_mail from function_object
+end type
+
+forward prototypes
+global function string f_devuelve_mail (string id_col)
+end prototypes
+
+global function string f_devuelve_mail (string id_col);string email
+
+  SELECT colegiados.email  
+    INTO :email  
+    FROM colegiados  
+   WHERE colegiados.id_colegiado = :id_col;
+
+	return email
+
+
+
+end function
+

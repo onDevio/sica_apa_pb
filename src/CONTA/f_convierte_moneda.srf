@@ -1,0 +1,19 @@
+HA$PBExportHeader$f_convierte_moneda.srf
+global type f_convierte_moneda from function_object
+end type
+
+forward prototypes
+global function double f_convierte_moneda (double cant, string moneda)
+end prototypes
+
+global function double f_convierte_moneda (double cant, string moneda);double total
+CHOOSE CASE moneda
+	CASE 'E'
+		total = round(cant/f_euro_cambio('E','P'),0)
+	CASE 'P'
+		total = round(cant/f_euro_cambio('P','E'),2)
+end choose
+
+return total
+end function
+

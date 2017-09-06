@@ -1,0 +1,315 @@
+HA$PBExportHeader$f_rellenar_hoja_ayto_gui.srf
+global type f_rellenar_hoja_ayto_gui from function_object
+end type
+
+forward prototypes
+global subroutine f_rellenar_hoja_ayto_gui (string id_fase, string tipo_carta, integer copias)
+end prototypes
+
+global subroutine f_rellenar_hoja_ayto_gui (string id_fase, string tipo_carta, integer copias);// FUNCION QUE SE UTILIZARA PARA RELLENAR TODOS LOS DATOS NECESARIOS PARA OBTENER LAS CARTAS DEL AYUNTAMIENTO
+string nucol, ls_nombre, colegiado, sl_total_colegiados, id_cliente, sl_total_clientes, cliente, n_c, nom_aut, obser, sl_tipo_act, sl_des_tipo_act
+string sl_tipo_obra, sl_des_tipo_obra, sl_uso_obra, sl_des_uso_obra, t_via, nomvia, numero, sl_num_contrato, sl_f_visado, cp, pobla, des_via, empl
+string ls_fecha, sl_colegio, n_registro, id_col, autor, n_expedi, descripcion, id_fases_col, ls_col_soc, tipo_trabajo, trabajo, fase, observaciones
+string tipo_via_emplazamiento, emplazamiento, n_calle, poblacion, visared, sociedad, id_sociedad, id_col_soc
+datetime ldtt_hoy, fec, f_visado
+date ldt_hoy
+long i, cuantos, viviendas, cols, k
+decimal dl_sup_otros, dl_sup_garaje, dl_sup_viviendas
+
+
+// Recuperamos los datos del contrato
+SELECT n_registro, n_expedi, descripcion, f_visado, tipo_trabajo, trabajo, observaciones, fase, tipo_via_emplazamiento, 
+		emplazamiento, n_calle, poblacion, e_mail
+INTO :n_registro, :n_expedi, :descripcion, :f_visado, :tipo_trabajo, :trabajo, :observaciones, :fase,
+	  :tipo_via_emplazamiento, :emplazamiento, :n_calle, :poblacion, :visared
+FROM fases  
+WHERE fases.id_fase = :id_fase   ;
+
+
+datastore ds_imprime_hoja
+ds_imprime_hoja = create datastore
+CHOOSE CASE fase
+	CASE '11','13','14','01','03','04','05','31','32','51','53'
+		ds_imprime_hoja.dataobject = 'dw_alcalde_gui'
+	CASE ELSE
+		return
+END CHOOSE
+ds_imprime_hoja.settransobject(sqlca)
+ds_imprime_hoja.insertrow(0)
+
+sl_colegio= g_nombre_colegio_carta
+
+// Creamos un datastore para recuperar los clientes del contrato
+datastore ds_fases_promotores
+ds_fases_promotores = create datastore
+ds_fases_promotores.dataobject = 'd_fases_promotores'
+ds_fases_promotores.SetTransObject(SQLCA)
+ds_fases_promotores.retrieve(id_fase)
+
+cuantos = ds_fases_promotores.rowcount()
+for i = 1 to cuantos
+	// Vamos a meter 3 clientes por hoja, si hay m$$HEX1$$e100$$ENDHEX$$s insertamos linea
+	if i > 3 and mod ( i,  3 ) = 1 then
+		ds_imprime_hoja.setitem(ds_imprime_hoja.rowcount(),"cliente",sl_total_clientes)
+		ds_imprime_hoja.insertrow(0)
+	end if
+	
+	id_cliente = ds_fases_promotores.getitemstring(i,"id_cliente")
+	nucol = f_dame_nif(id_cliente)
+	ls_nombre = f_dame_cliente(id_cliente)
+	n_c = nucol + ' ' + ls_nombre
+	if not isNull(n_c) then
+		n_c = n_c + space(70 - LenA(n_c))
+		if LenA(n_c) > 35 then n_c = MidA(n_c,1,70)
+	else
+		n_c = space(50)
+	end if	   
+	cliente = ls_nombre + cr + f_dame_domicilio (id_cliente) + cr + f_retorna_poblacion (id_cliente)	
+	if mod(i,3)  = 1 then
+		sl_total_clientes = cliente
+	else
+		sl_total_clientes = sl_total_clientes + "~n~r" + cliente
+	end if
+next
+ds_imprime_hoja.setitem(ds_imprime_hoja.rowcount(),"cliente",sl_total_clientes)
+
+
+// Creamos un datastore para recuperar los colegiados del contrato
+datastore ds_fases_colegiados
+ds_fases_colegiados = create datastore
+ds_fases_colegiados.dataobject = 'd_fases_colegiados'
+ds_fases_colegiados.setFilter("renunciado<>'S'")
+ds_fases_colegiados.Settransobject(SQLCA)
+ds_fases_colegiados.retrieve(id_fase)
+
+cuantos = ds_fases_colegiados.rowcount()
+for i = 1 to cuantos
+	id_col = ds_fases_colegiados.getitemstring(i,"id_col")
+	nucol = f_colegiado_n_col(id_col)
+	ls_nombre = f_colegiado_apellido(id_col)
+
+	n_c = nucol + ' ' + ls_nombre
+	if not isNull(n_c) then
+		n_c = n_c + space(50 - LenA(n_c))
+		if LenA(n_c) > 50 then n_c = MidA(n_c,1,50)
+	else
+		n_c = space(50)
+	end if
+	colegiado = n_c
+
+	autor = ds_fases_colegiados.getitemstring(i,"tipo_a")
+	if autor = 'S' then
+		nom_aut = ls_nombre + cr
+	else
+		nom_aut = ''
+	end if
+	colegiado = ls_nombre
+
+	// CGI-66
+//	for i = 1 to cuantos
+//		id_col = ds_fases_colegiados.getitemstring(i,"id_col")
+//		nucol = f_colegiado_n_col(id_col)
+		id_fases_col = ds_fases_colegiados.getitemstring(i, 'id_fases_colegiados')
+		if LeftA(nucol, 1) = 'S' then 
+			datastore ds_cols_soc
+			ds_cols_soc = create datastore
+			ds_cols_soc.dataobject = 'ds_fases_colegiados_asociados'
+			ds_cols_soc.settransobject(sqlca)
+			ds_cols_soc.retrieve(id_fases_col)
+			ls_col_soc=''
+			for cols = 1 to ds_cols_soc.rowcount()
+				id_col_soc = ds_fases_colegiados.getitemstring(i,"id_col")
+				id_col = ds_cols_soc.getitemstring(cols,"id_col_per")
+//				//ls_col_soc += 'D./D$$HEX1$$aa00$$ENDHEX$$.  ' + f_colegiado_apellido( id_col ) + '   ( ' + ls_nombre + ' ) ' + cr
+//				//Cambio hecho por Luis 02/02/2009 para incidencia CGI-38
+//				select id_col_soc into :id_sociedad from sociedades where id_col_per = :id_col and id_col_soc = :id_col_soc;
+//				sociedad = f_colegiado_apellido(id_sociedad)
+//				ls_col_soc += 'D./D$$HEX1$$aa00$$ENDHEX$$.  ' + f_colegiado_apellido( id_col ) + '   ( ' + sociedad + ' ) ' + cr
+				ls_col_soc += '( ' + 'D./D$$HEX1$$aa00$$ENDHEX$$. ' + f_colegiado_apellido( id_col ) +  ' ) ' + cr
+				//fin cambio Luis
+			next
+//			for k=1 to ds_imprime_hoja.rowcount()
+//				ds_imprime_hoja.setitem(k,"colegiados_soc", ls_col_soc)
+//			next
+			destroy ds_cols_soc
+			sl_total_colegiados = sl_total_colegiados + cr + colegiado + ' ' + ls_col_soc
+		else
+			if i = 1 then  // Mejorar
+				sl_total_colegiados =  'D./D$$HEX1$$aa00$$ENDHEX$$. '  + colegiado
+		//			sl_total_autores = nom_aut
+			else
+				sl_total_colegiados = sl_total_colegiados + cr + cr+  'D./D$$HEX1$$aa00$$ENDHEX$$. '  + colegiado
+		//			sl_total_autores = sl_total_autores + nom_aut
+			end if
+		end if
+//	next
+next
+
+
+//for i = 1 to cuantos
+//	id_col = ds_fases_colegiados.getitemstring(i,"id_col")
+//	nucol = f_colegiado_n_col(id_col)
+//	id_fases_col = ds_fases_colegiados.getitemstring(i, 'id_fases_colegiados')
+//	if LeftA(nucol, 1) = 'S' then 
+//		datastore ds_cols_soc
+//		ds_cols_soc = create datastore
+//		ds_cols_soc.dataobject = 'ds_fases_colegiados_asociados'
+//		ds_cols_soc.settransobject(sqlca)
+//		ds_cols_soc.retrieve(id_fases_col)
+//		
+//		for cols = 1 to ds_cols_soc.rowcount()
+//			id_col_soc = ds_fases_colegiados.getitemstring(i,"id_col")
+//			id_col = ds_cols_soc.getitemstring(cols,"id_col_per")
+//			//ls_col_soc += 'D./D$$HEX1$$aa00$$ENDHEX$$.  ' + f_colegiado_apellido( id_col ) + '   ( ' + ls_nombre + ' ) ' + cr
+//			//Cambio hecho por Luis 02/02/2009 para incidencia CGI-38
+//			select id_col_soc into :id_sociedad from sociedades where id_col_per = :id_col and id_col_soc = :id_col_soc;
+//			sociedad = f_colegiado_apellido(id_sociedad)
+//			ls_col_soc += 'D./D$$HEX1$$aa00$$ENDHEX$$.  ' + f_colegiado_apellido( id_col ) + '   ( ' + sociedad + ' ) ' + cr
+//			//fin cambio Luis
+//		next
+//		for k=1 to ds_imprime_hoja.rowcount()
+//			ds_imprime_hoja.setitem(k,"colegiados_soc", ls_col_soc)
+//		next
+//		destroy ds_cols_soc
+//	end if
+//next
+//
+
+sl_tipo_obra = tipo_trabajo
+obser = observaciones
+
+if isnull(obser) then obser=''
+sl_des_tipo_obra = f_dame_desc_tipo_obra(sl_tipo_obra)
+if isnull(sl_des_tipo_obra) then sl_des_tipo_obra=''
+
+sl_uso_obra = trabajo
+sl_des_uso_obra = f_dame_desc_destino_obra(sl_uso_obra)
+
+if isnull(sl_des_uso_obra) then sl_des_uso_obra=''
+
+sl_tipo_act = fase
+sl_des_tipo_act = f_dame_desc_tipo_actuacion(sl_tipo_act)
+
+if isnull(sl_des_tipo_act) then sl_des_tipo_act=''
+
+
+sl_num_contrato = n_expedi
+sl_des_uso_obra = n_registro
+if isnull(sl_num_contrato) then sl_num_contrato=''
+
+sl_f_visado=string( f_visado,"dd/mm/yyyy")
+if isnull(sl_f_visado) then sl_f_visado=''
+
+t_via = tipo_via_emplazamiento
+nomvia = emplazamiento
+numero = n_calle
+cp = poblacion
+pobla = f_poblacion_descripcion(cp)
+des_via = f_dame_desc_tipo_via(t_via)
+
+if isnull(des_via) then des_via = " "
+if isnull(nomvia) then nomvia = " "
+if isnull(numero) then numero = " "
+if isnull(cp) then cp = " "
+if isnull(pobla) then pobla = " "
+
+
+ldtt_hoy =datetime(today(),now())
+ldt_hoy  = today()
+//ls_fecha = Upper( g_col_ciudad + ', ' + string(day(ldt_hoy)) + ' de ' + lower(f_obtener_mes (ldtt_hoy)) + ' de ' + string(year(ldt_hoy)))
+obser = descripcion + ' / ' + sl_des_tipo_act
+empl = trim(des_via) + " " + trim(nomvia) + " " + trim(numero) + cr + trim(pobla)
+ls_fecha = Upper(g_col_ciudad) + '    a/n    ' + string(day(date(f_visado))) + '    de/ko(e)  ' + f_obtener_mes(f_visado) + '    de/aren ' + string(year(date(f_visado))) + ' (e)an'
+//pobla = sl_total_autores
+
+// Rellenamos todas las hojas ya que puede haber varias
+for k = 1 to ds_imprime_hoja.rowcount()
+	ds_imprime_hoja.setitem(k,"colegiado",sl_total_colegiados)
+	ds_imprime_hoja.setitem(k,"tipo_obra",sl_des_tipo_obra)
+	ds_imprime_hoja.setitem(k,"uso_obra",sl_des_uso_obra)
+	ds_imprime_hoja.setitem(k,"tipo_actuacion",sl_des_tipo_act)
+	ds_imprime_hoja.setitem(k,"n_contrato",sl_num_contrato)
+	ds_imprime_hoja.setitem(k,"fecha_visado",sl_f_visado)
+	ds_imprime_hoja.setitem(k,"emplazamiento",empl)  
+	ds_imprime_hoja.setitem(k,"descripcion",obser)
+	ds_imprime_hoja.setitem(k,"alcalde",pobla)
+	ds_imprime_hoja.setitem(k,"fecha",ls_fecha)
+next
+
+//// Eligen impresora y n$$HEX2$$ba002000$$ENDHEX$$de copias
+//string  sl_copias
+//
+//PrintSetup()
+//
+//openwithparm(w_n_copias, 'OFICIO')
+//
+//sl_copias  = Message.StringParm
+//
+//for i=1 to long(sl_copias)
+//	ds_imprime_hoja.print()
+//next
+
+
+// David 03/05/2006 - Utilizamos la ventana de impresi$$HEX1$$f300$$ENDHEX$$n de facturas
+string valretorno, ruta
+n_csd_impresion_formato impr
+impr = create n_csd_impresion_formato
+
+impr.papel = 'S'
+impr.dw = ds_imprime_hoja
+ruta = n_registro
+ruta = string(year(today()))+'\'+ruta
+
+st_w_factu_e_imprimir l_st_w_factu
+l_st_w_factu.varias_facturas=false
+l_st_w_factu.impresion_formato=impr
+l_st_w_factu.impresion_formato.nombre='Oficio_' + n_registro
+l_st_w_factu.impresion_formato.ruta_relativa=ruta
+
+openwithparm(w_factu_e_imprimir,l_st_w_factu)
+
+valretorno=message.stringparm
+if valretorno <> 'CANCELAR' then
+	//Imprimimos tantas copias como 'originales' y 'copias' nos indiquen
+	impr.copias=impr.copias+long(valretorno)
+	impr.f_impresion()
+	
+	if impr.pdf = 'S' and visared = 'V' then
+		//Insertamos el pdf en la tabla fases_documentos_visared  para que se puedan ver desde el sellador..
+		string nombre_fich, ruta_fich
+		int existe, fila
+		nombre_fich = 'Oficio_' + n_registro +'.pdf'
+		ruta_fich = ruta+'\' 
+		
+		SELECT count(id_fichero)  
+		INTO :existe  
+		FROM fases_documentos_visared  
+		WHERE id_fase = :id_fase AND nombre_fichero = :nombre_fich AND ruta_fichero = :ruta_fich ;
+		
+		if existe = 0 then
+			datastore ds_documentos_visared
+			ds_documentos_visared 	= create datastore
+			ds_documentos_visared.dataobject = 'd_sellador_documentos'
+			ds_documentos_visared.SetTransObject(SQLCA)
+			
+			fila = ds_documentos_visared.InsertRow(0)
+			ds_documentos_visared.setitem(fila, 'id_fichero', f_siguiente_numero('FASES_DOCU_VISARED', 10))
+			//		ds_documentos_visared.setitem(fila, 'id_fase', id_fase)
+			ds_documentos_visared.setitem(fila, 'id_fase', id_fase)
+			ds_documentos_visared.setitem(fila, 'nombre_fichero','Oficio_'+n_registro+'.pdf')
+			ds_documentos_visared.setitem(fila, 'ruta_fichero',ruta+'\')
+			ds_documentos_visared.setitem(fila, 'sellado', 'N')
+			ds_documentos_visared.setitem(fila, 'fecha', today())
+			ds_documentos_visared.setitem(fila, 'visualizar_web', 'S')	
+			ds_documentos_visared.update()
+		end if
+	end if
+end if
+destroy impr
+
+destroy ds_fases_colegiados
+destroy ds_fases_promotores
+destroy ds_imprime_hoja
+destroy ds_documentos_visared
+end subroutine
+

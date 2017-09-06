@@ -1,0 +1,13 @@
+HA$PBExportHeader$f_busqueda_cobros_no_relacionados.srf
+global type f_busqueda_cobros_no_relacionados from function_object
+end type
+
+forward prototypes
+global function string f_busqueda_cobros_no_relacionados ()
+end prototypes
+
+global function string f_busqueda_cobros_no_relacionados ();open(w_busqueda_cobros_no_relacionados)
+return Message.StringParm
+
+end function
+

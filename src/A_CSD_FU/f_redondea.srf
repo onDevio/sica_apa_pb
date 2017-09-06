@@ -1,0 +1,27 @@
+HA$PBExportHeader$f_redondea.srf
+$PBExportComments$Redondea con distinta precisi$$HEX1$$f300$$ENDHEX$$n en funci$$HEX1$$f300$$ENDHEX$$n de la  Moneda del Ejercicio
+global type f_redondea from function_object
+end type
+
+forward prototypes
+global function double f_redondea (double valor)
+end prototypes
+
+global function double f_redondea (double valor);int dr
+
+// Si trabajamos con PESETAS redondeamos la cantidad obtenida a 0 decimales
+if moneda_ejercicio <> 'E' then 
+	dr= 0
+// EUROS redondeamos la cantidad obtenida a 2 decimales
+else 
+	dr= 2
+end if
+
+// Verificamos el valor y lo redondeamos
+if IsNull (valor) then valor = 0
+valor = round(valor, dr)
+
+return valor
+
+end function
+

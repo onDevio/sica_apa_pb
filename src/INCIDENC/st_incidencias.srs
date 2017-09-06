@@ -1,0 +1,6 @@
+HA$PBExportHeader$st_incidencias.srs
+global type st_incidencias from structure
+	string		tipo
+	string		id
+end type
+

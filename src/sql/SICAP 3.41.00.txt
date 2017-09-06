@@ -1,0 +1,57 @@
+// V. 3.4.1.
+
+// Añadir este permiso para los usuarios que corresponda
+INSERT INTO t_aplicacion  
+( cod_aplicacion,   nombre )  
+VALUES ( 'ZGZ0000026',  'MODIF.. DE TIPO Y F. RECLAMACIÓN EN CONTRATOS' )  ;
+
+// Debido a un error en el dw de expedientes en fases
+update expedientes set cerrado = 'N' where cerrado = '%' ;
+
+// Configuración por var_globales de los dw de listados de liquidaciones
+// TODOS
+INSERT INTO var_globales  
+(nombre, texto, descripcion, modificable)
+VALUES 
+('g_listado_liquid_otros_pagos', 'd_garantias_listado_banco', 
+'DW del listado de liquidaciones de otros pagos', 'N' )  ;       
+
+// COAATLE
+update var_globales set texto = 'd_garantias_listado_banco_le' where nombre = 'g_listado_liquid_otros_pagos'  ;
+// COAATZ
+update var_globales set texto = 'd_garantias_listado_banco_za' where nombre = 'g_listado_liquid_otros_pagos'  ;
+// COAATGU
+update var_globales set texto = 'd_garantias_listado_banco_gu' where nombre = 'g_listado_liquid_otros_pagos'  ;
+// COAATGC
+update var_globales set texto = 'd_garantias_listado_banco_gc' where nombre = 'g_listado_liquid_otros_pagos'  ;
+
+// TODOS
+INSERT INTO var_globales  
+(nombre, texto, descripcion, modificable)
+VALUES 
+('g_listado_liquid_honos', 'd_liquidacion_listado_banco', 
+'DW del listado de liquidaciones de honorarios', 'N' )  ;
+
+// COAATLE
+update var_globales set texto = 'd_liquidacion_listado_banco_le' where nombre = 'g_listado_liquid_honos' ;
+// COAATZ
+update var_globales set texto = 'd_liquidacion_listado_banco_za' where nombre = 'g_listado_liquid_honos' ;
+// COAATGU
+update var_globales set texto = 'd_liquidacion_listado_banco_gu' where nombre = 'g_listado_liquid_honos' ;
+// COAATGC
+update var_globales set texto = 'd_liquidacion_listado_banco_gc' where nombre = 'g_listado_liquid_honos' ;
+
+// INC. 6728
+// COAATGC
+INSERT INTO t_control_eventos  ( control, evento, activo, id_control )  
+VALUES ( 'OBSERVACIONES', 'INSERTAR_FINAL', 'S', 'GCFOOBS001' )  ;
+
+// INC. 6714
+// TODOS
+INSERT INTO listados  
+( descripcion,   dw,   ventana,   orden,   activo )  
+VALUES ( "Listado Contratos sin Movimientos Musaat",   "d_fases_listado_sin_movim_musaat",   "w_fases_listados",  "00" ,  "S" )  ;
+
+INSERT INTO listados  
+( descripcion,   dw,   ventana,   orden,   activo )  
+VALUES ( "Listado Domiciliaciones",   "d_colegiados_listado_domiciliaciones",   "w_colegiados_listados",  "00" ,  "S" )  ;

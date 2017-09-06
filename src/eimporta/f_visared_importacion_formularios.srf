@@ -1,0 +1,201 @@
+HA$PBExportHeader$f_visared_importacion_formularios.srf
+global type f_visared_importacion_formularios from function_object
+end type
+
+forward prototypes
+global function st_visared_importacion f_visared_importacion_formularios (string fichero)
+end prototypes
+
+global function st_visared_importacion f_visared_importacion_formularios (string fichero);string titulo,tipo_actuacion,tipo_obra,observaciones,colindantes,n_expedi,n_registro,fase
+string id_fase,nif,id_cliente,cp,n_col,id_col,asemas,id_expedi
+string nompro,dompro,cppro,telefono,fax,cod_pob,cod_prov,cod_pais,poblacion,nombre_arq
+int Num_Promotores,Num_Colegiados,fila,i
+double porcen_a,porcen_d
+
+st_visared_incidencias incidencias
+st_visared_importacion st_fase
+
+setpointer(Hourglass!)
+
+//Creamos todos los datastore
+st_fase.ds_detalle_fase = create datastore
+st_fase.ds_detalle_fase.dataobject = 'd_fases_detalle'
+
+st_fase.ds_clientes = create datastore
+st_fase.ds_clientes.dataobject = 'd_fases_promotores'
+
+st_fase.ds_colegiados = create datastore
+st_fase.ds_colegiados.dataobject = 'd_fases_colegiados'
+
+st_fase.ds_estadisticas = create datastore
+st_fase.ds_estadisticas.dataobject = 'd_fases_estadistica'
+
+st_fase.ds_usos = create datastore
+st_fase.ds_usos.dataobject = 'd_fases_usos'
+
+st_fase.ds_honorarios = create datastore
+st_fase.ds_honorarios.dataobject = 'd_fases_honorarios'
+
+st_fase.ds_informes = create datastore
+st_fase.ds_informes.dataobject = 'd_fases_informes'
+
+st_fase.ds_incidencias = create datastore
+st_fase.ds_incidencias.dataobject = 'd_visared_incidencias'
+
+st_fase.ds_clientes_nuevos = create datastore
+st_fase.ds_clientes_nuevos.dataobject = 'd_clientes_detalle'
+
+
+n_registro = ProfileString(fichero,"Expediente","n_expediente_colegial","")
+
+n_expedi = LeftA(n_registro,8)
+fase = ProfileString(fichero,"Expediente","tipo_fase_bd","")
+st_fase.ds_detalle_fase.InsertRow(0)
+st_fase.ds_detalle_fase.SetItem(1, "n_expedi_visared",n_expedi)
+st_fase.ds_detalle_fase.SetItem(1, "n_registro_visared",n_registro)
+st_fase.ds_detalle_fase.SetItem(1, "fase",fase)
+st_fase.ds_detalle_fase.SetItem(1, "titulo", f_convierte_retornos_carro(ProfileString(fichero,"EXPEDIENTE","trabajo","")))
+st_fase.ds_detalle_fase.SetItem(1, "tipo_gestion", 'P')
+st_fase.ds_detalle_fase.SetItem(1, "tipo_trabajo", f_convierte_retornos_carro(ProfileString(fichero,"EXPEDIENTE","tipo_trabajo_bd","")))
+st_fase.ds_detalle_fase.SetItem(1, "tipo_via_emplazamiento", f_convierte_retornos_carro(ProfileString(fichero,"EXPEDIENTE","tipo_via_bd","")))
+st_fase.ds_detalle_fase.SetItem(1, "trabajo", f_convierte_retornos_carro(ProfileString(fichero,"EXPEDIENTE","trabajo_bd","")))
+st_fase.ds_detalle_fase.SetItem(1, "emplazamiento", f_convierte_retornos_carro(ProfileString(fichero,"EXPEDIENTE","situacion","")))
+cp = ProfileString(fichero,"Expediente","CPTrabajo","")
+select cod_pob into :cp from poblaciones where cod_pos = :cp;
+st_fase.ds_detalle_fase.SetItem(1, "poblacion",cp)
+
+//Vamos a rellenar ahora los CLIENTES 
+Num_Promotores=ProfileInt(fichero,"Clientes","NumPromotores",0)
+
+//Si no existe ningun promotor inserto uno nuevo
+IF Num_Promotores = 0  THEN
+	fila = st_fase.ds_clientes.InsertRow(0)
+	nif = ProfileString(fichero,"CLIENTE","NumIdentificacion","")
+	select id_cliente into :id_cliente from clientes where nif = :nif;
+	st_fase.ds_clientes.SetItem(fila, "id_cliente", id_cliente)
+	st_fase.ds_clientes.SetItem(fila, "nif",nif)
+	st_fase.ds_clientes.SetItem(fila, "promotor",'S')
+	st_fase.ds_clientes.SetItem(fila, "pagador",'S')
+	st_fase.ds_clientes.SetItem(fila, "nif",nif)
+	st_fase.ds_clientes.SetItem(fila, "porcen",100)
+	st_fase.ds_clientes.SetItem(fila, "porcen_promotor",100)
+	st_fase.ds_clientes.SetItem(fila, "facturado",'N')
+	
+ELSE
+ //Sino Inserto todos los que haya	
+   FOR i=1 TO Num_promotores
+		id_cliente = ''
+		cod_pais = ''
+		cod_pob =''
+		cod_prov=''
+       IF ProfileString(fichero,"Cliente_"+String(i),"Cliente","") <> "" THEN 
+	    //Inserto una fila y me situo el la fila que acabo de insertar
+      	fila = st_fase.ds_clientes.InsertRow(0) 
+			nif = ProfileString(fichero,"CLIENTE_"+String(i),"NumIdentificacion","")
+			nompro = ProfileString(fichero,"CLIENTE_"+String(i),"Cliente","")
+			dompro = ProfileString(fichero,"CLIENTE_"+String(i),"Domicilio","")
+			cppro = ProfileString(fichero,"CLIENTE_"+String(i),"CP","")
+			telefono = ProfileString(fichero,"CLIENTE_"+String(i),"telefono1","")
+			fax = ProfileString(fichero,"CLIENTE_"+String(i),"fax","")
+			poblacion = ProfileString(fichero,"CLIENTE_"+String(i),"Poblacion","")
+			
+			select cod_pob,provincia into :cod_pob,:cod_prov from poblaciones where cod_pos = :cppro;
+			select cod_pais into :cod_pais from provincias where cod_provincia = :cod_prov;
+			select id_cliente into :id_cliente from clientes where nif = :nif;			
+			
+			if f_es_vacio(cod_pob) then
+				incidencias.incidencia = ' La poblaci$$HEX1$$f300$$ENDHEX$$n del cliente '+string(i)+' NO existe en la Base de Datos Colegial'
+				incidencias.solucion = 'Debe especificar una nueva poblaci$$HEX1$$f300$$ENDHEX$$n, o incorporarla en la ficha de SICA'
+				incidencias.campo_anomalo = 'C$$HEX1$$f300$$ENDHEX$$digo Poblaci$$HEX1$$f300$$ENDHEX$$n'
+				incidencias.valor_codigo = cppro
+				incidencias.valor_descripcion =poblacion
+				incidencias.evento_asociado = ''
+				incidencias.nivel_incidencia = 'M'
+				f_visared_incidencias(st_fase.ds_incidencias,incidencias)				
+			end if	
+			if f_es_vacio(id_cliente) then
+				incidencias.incidencia = ' El cliente' + string(i) + ' especificado NO existe en la Base de Datos Colegial'
+				incidencias.solucion = 'El Promotor debe ser dado de alta. Pulse el bot$$HEX1$$f300$$ENDHEX$$n "Subsanar" para ello '
+				incidencias.campo_anomalo = 'Cliente 1'
+				incidencias.valor_codigo = nif
+				incidencias.valor_descripcion = ''
+				incidencias.evento_asociado = 'csd_cliente_nuevo'
+				incidencias.nivel_incidencia = 'G'
+				f_visared_incidencias(st_fase.ds_incidencias,incidencias)		
+				st_fase.ds_clientes_nuevos.InsertRow(0)
+				st_fase.ds_clientes_nuevos.SetItem(st_fase.ds_clientes_nuevos.rowcount(),'n_cliente',nif)
+				st_fase.ds_clientes_nuevos.SetItem(st_fase.ds_clientes_nuevos.rowcount(),'apellidos','')
+				st_fase.ds_clientes_nuevos.SetItem(st_fase.ds_clientes_nuevos.rowcount(),'nombre',nompro)
+				st_fase.ds_clientes_nuevos.SetItem(st_fase.ds_clientes_nuevos.rowcount(),'nif',nif)
+				st_fase.ds_clientes_nuevos.SetItem(st_fase.ds_clientes_nuevos.rowcount(),'tipo_persona','')
+				st_fase.ds_clientes_nuevos.SetItem(st_fase.ds_clientes_nuevos.rowcount(),'tipo_via','ZZ')
+				st_fase.ds_clientes_nuevos.SetItem(st_fase.ds_clientes_nuevos.rowcount(),'nombre_via',dompro)
+				st_fase.ds_clientes_nuevos.SetItem(st_fase.ds_clientes_nuevos.rowcount(),'cod_pob',cod_pob)
+				st_fase.ds_clientes_nuevos.SetItem(st_fase.ds_clientes_nuevos.rowcount(),'cod_prov',cod_prov)
+				st_fase.ds_clientes_nuevos.SetItem(st_fase.ds_clientes_nuevos.rowcount(),'cp',cppro)
+				st_fase.ds_clientes_nuevos.SetItem(st_fase.ds_clientes_nuevos.rowcount(),'pais',cod_pais)
+				st_fase.ds_clientes_nuevos.SetItem(st_fase.ds_clientes_nuevos.rowcount(),'telefono',telefono)
+				st_fase.ds_clientes_nuevos.SetItem(st_fase.ds_clientes_nuevos.rowcount(),'fax',fax)
+				
+			end if				
+			st_fase.ds_clientes.SetItem(fila, "id_cliente", id_cliente)
+			st_fase.ds_clientes.SetItem(fila, "nif",nif)
+			st_fase.ds_clientes.SetItem(fila, "promotor",'S')
+			st_fase.ds_clientes.SetItem(fila, "pagador",'S')
+			st_fase.ds_clientes.SetItem(fila, "nif",nif)
+			st_fase.ds_clientes.SetItem(fila, "porcen",100)
+			st_fase.ds_clientes.SetItem(fila, "porcen_promotor",100)
+			st_fase.ds_clientes.SetItem(fila, "facturado",'N')
+       END IF 		  
+   NEXT	
+END IF	
+
+
+//Obtengo el numero de COLEGIADOS
+ Num_Colegiados = ProfileInt(fichero,"Arquitectos","NumArquitectos",0)
+ 
+FOR i=1 TO Num_Colegiados
+	id_col = ''
+	nombre_arq = ProfileString(fichero,"Arquitecto_"+String(i),"NombreArquitecto_"+String(i),"")
+	 IF nombre_arq <> "" THEN 
+		//Inserto una fila y me situo el la fila que acabo de insertar
+		n_col = ProfileString(fichero,"Arquitecto_"+String(i),"NumColegiado_"+String(i),"")
+		select id_colegiado into :id_col from colegiados where n_colegiado = :n_col;
+		if id_col = '' then 
+			incidencias.incidencia = ' El n$$HEX1$$fa00$$ENDHEX$$mero de Colegiado '+string(i)+' NO existe'
+			incidencias.solucion = 'NO se incorporar$$HEX1$$e100$$ENDHEX$$n los datos del arquitecto'
+			incidencias.campo_anomalo = 'N$$HEX2$$ba002000$$ENDHEX$$Colegiado '+string(i)
+			incidencias.valor_codigo = n_col
+			incidencias.valor_descripcion =nombre_arq
+			incidencias.evento_asociado = ''
+			incidencias.nivel_incidencia = 'G'
+			f_visared_incidencias(st_fase.ds_incidencias,incidencias)				
+		end if		
+		fila = st_fase.ds_colegiados.InsertRow(0) 
+		st_fase.ds_colegiados.SetItem(fila,'n_col',n_col)
+		st_fase.ds_colegiados.SetItem(fila,'id_col',id_col)
+		porcen_a = Dec(ProfileString(fichero,"Arquitecto_"+String(i),"PorcentajeProyectoArquitecto_"+String(i),"0"))
+		porcen_d = Dec(ProfileString(fichero,"Arquitecto_"+String(i),"PorcentajeDireccionArquitecto_"+String(i),"0"))
+		st_fase.ds_colegiados.SetItem(fila, "porcen_a",porcen_a)
+		st_fase.ds_colegiados.SetItem(fila, "porcen_d",porcen_d)		
+		st_fase.ds_colegiados.SetItem(fila, "porcen_gastos",porcen_a)		
+		if porcen_a > 0 then 
+			st_fase.ds_colegiados.SetItem(fila, "tipo_a",'S')		
+		else
+			st_fase.ds_colegiados.SetItem(fila, "tipo_a",'N')		
+		end if 
+		
+		if porcen_d > 0 then 
+			st_fase.ds_colegiados.SetItem(fila, "tipo_d",'S')		
+		else
+			st_fase.ds_colegiados.SetItem(fila, "tipo_d",'N')		
+		end if 
+		select asemas into :asemas from colegiados where id_colegiado = :id_col;
+		st_fase.ds_colegiados.SetItem(fila,"asemas",asemas)		
+	 END IF 		  
+NEXT	
+
+SetPointer(Arrow!)
+return st_fase
+end function
+

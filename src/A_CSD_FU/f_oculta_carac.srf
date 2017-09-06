@@ -1,0 +1,35 @@
+HA$PBExportHeader$f_oculta_carac.srf
+global type f_oculta_carac from function_object
+end type
+
+forward prototypes
+global function integer f_oculta_carac (string id_carac, string campo)
+end prototypes
+
+global function integer f_oculta_carac (string id_carac, string campo);////Oculta el campo 'campo' segun la configuraci$$HEX1$$f300$$ENDHEX$$n de la caracteristica 'id_carac'
+//
+//String num,sn,fecha,texto
+//int retorno
+//
+//retorno = 0
+//
+//SELECT numero,sn,texto,fecha
+//	INTO :num,:sn,:texto,:fecha
+//	FROM otras_carac_capa
+//	WHERE id_carac = :id_carac;
+//	
+//CHOOSE CASE campo
+//	CASE 'numero'
+//		IF num='S' THEN retorno = 1
+//	CASE 'fecha'
+//		IF fecha='S' THEN retorno = 1
+//	CASE 'sn'
+//		IF sn='S' THEN retorno = 1
+//	CASE 'texto'
+//		IF texto='S' THEN retorno = 1
+//END CHOOSE
+//
+//return retorno
+return 0
+end function
+

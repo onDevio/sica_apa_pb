@@ -1,0 +1,39 @@
+HA$PBExportHeader$f_colegiados_agrupaciones_ampliado.srf
+$PBExportComments$Como f_colegiados_agrupaciones pero devolviendo las fechas de inicio y fin
+global type f_colegiados_agrupaciones_ampliado from function_object
+end type
+
+forward prototypes
+global function string f_colegiados_agrupaciones_ampliado (string id_col)
+end prototypes
+
+global function string f_colegiados_agrupaciones_ampliado (string id_col);datastore ds_agrupaciones
+long i
+string retorno, cod_agrup, desc_agrup, f_inicio, f_fin
+
+retorno=''
+
+ds_agrupaciones = create datastore
+ds_agrupaciones.dataobject = 'd_colegiados_agrupaciones'
+ds_agrupaciones.SetTransObject(SQLCA)
+
+ds_agrupaciones.Retrieve(id_col)
+for i= 1 to ds_agrupaciones.rowcount()
+	cod_agrup = ds_agrupaciones.GetItemString(i,'agrupacion')
+	select descripcion into :desc_agrup from t_agrupaciones where cod_agrupacion = :cod_agrup;
+	f_inicio = string(date(ds_agrupaciones.GetItemDatetime(i,'f_inicio')))
+	f_fin = string(date(ds_agrupaciones.GetItemDatetime(i,'f_fin')))
+	
+	if f_es_vacio(desc_agrup) then desc_agrup = ''
+	if f_es_vacio(f_inicio) then f_inicio = ''
+	if f_es_vacio(f_fin) then f_fin = ''
+	
+	retorno = retorno + desc_agrup + ' de ' + f_inicio + ' a ' + f_fin + cr
+
+next
+
+destroy ds_agrupaciones
+
+return retorno
+end function
+

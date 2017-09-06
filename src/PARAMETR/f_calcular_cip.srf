@@ -1,0 +1,61 @@
+HA$PBExportHeader$f_calcular_cip.srf
+$PBExportComments$Calcula el total de cip
+global type f_calcular_cip from function_object
+end type
+
+forward prototypes
+global function integer f_calcular_cip (ref st_cip_datos st_cip_datos)
+end prototypes
+
+global function integer f_calcular_cip (ref st_cip_datos st_cip_datos);double retorno = 0
+
+choose case upper(g_colegio)
+	case 'COAATB'
+		retorno = f_calcular_cip_bizkaia(st_cip_datos)
+	case 'COAATMU'
+		retorno = f_calcular_cip_murcia(st_cip_datos)	
+	case 'COAATBU'
+		retorno = f_calcular_cip_burgos(st_cip_datos)
+	case 'COAATGUI'
+		retorno = f_calcular_cip_guipuz(st_cip_datos)
+	case 'COAATGC'
+		retorno = f_calcular_cip_gc(st_cip_datos)		
+	case 'COAATLR'
+		retorno = f_calcular_cip_lr(st_cip_datos)
+	case 'COAATCU'
+		retorno = f_calcular_cip_cu(st_cip_datos)		
+	case 'COAATTFE'
+		retorno = f_calcular_cip_tfe(st_cip_datos)
+	case 'COAATZ'
+		retorno = f_calcular_cip_za(st_cip_datos)
+	case 'COAATLE'
+		retorno = f_calcular_cip_le(st_cip_datos)
+	case 'COAATAVI'
+		retorno = f_calcular_cip_avi(st_cip_datos)
+	case 'COAATA'
+		retorno = f_calcular_cip_al(st_cip_datos)
+	case 'COAATNA'
+		retorno = f_calcular_cip_na(st_cip_datos)
+	case 'COAATTGN'
+		retorno = f_calcular_cip_tg(st_cip_datos)
+	case 'COAATCC'
+		retorno = f_calcular_cip_cc(st_cip_datos)		
+	case 'COAATTEB'
+		retorno = f_calcular_cip_teb(st_cip_datos)
+	case 'COAATTER'
+		retorno = f_calcular_cip_ter(st_cip_datos)
+	case 'COAATMCA','COAATLL'   // CALCULO DE GASTOS GENERICO
+		retorno = f_calcular_cip_mca(st_cip_datos)		
+	
+	case else
+		retorno = f_calcular_cip_murcia(st_cip_datos)	
+end choose
+
+if not f_es_vacio (st_cip_datos.mensaje) then
+	messagebox(g_titulo, st_cip_datos.mensaje)
+	return -1
+end if
+
+return retorno
+end function
+

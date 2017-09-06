@@ -1,0 +1,13 @@
+HA$PBExportHeader$st_mail.srs
+global type st_mail from structure
+	string		direccion
+	string		asunto
+	string		mensaje
+	string		dw_adjuntos
+	string		id_fase
+	string		adjuntos[]
+	string		permitir_adjuntar_manualmente
+	string		cc
+	string		cco
+end type
+

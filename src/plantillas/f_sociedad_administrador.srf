@@ -1,0 +1,39 @@
+HA$PBExportHeader$f_sociedad_administrador.srf
+$PBExportComments$no hace nada, $$HEX1$$bf00$$ENDHEX$$eliminar?
+global type f_sociedad_administrador from function_object
+end type
+
+forward prototypes
+global function string f_sociedad_administrador (string id_soc)
+end prototypes
+
+global function string f_sociedad_administrador (string id_soc);//Devuelve en una cadena separada por comas los colegiados que pertenecen a la sociedad 
+int i
+string retorno='',id_col,adm
+
+//datastore ds_sociedades
+//
+//ds_sociedades = create datastore
+//ds_sociedades.dataobject ='d_colegiados_personas'
+//ds_sociedades.SetTransObject(SQLCA)
+//
+//ds_sociedades.Retrieve(id_soc)
+//
+//for i = 1 to ds_sociedades.rowcount()
+//	id_col = ds_sociedades.GetItemString(i,'id_col_per')
+//	adm = ds_sociedades.GetItemString(i,'administrador')
+//	if adm <> 'S' then continue
+//	select n_colegiado into :id_col from colegiados where id_colegiado = :id_col;
+//	if f_es_vacio(id_soc) then continue
+//	if f_es_vacio(retorno) then
+//		retorno = id_col
+//	else
+//		retorno = retorno+','+id_col
+//	end if
+//next
+//
+//destroy ds_sociedades
+
+return retorno
+end function
+

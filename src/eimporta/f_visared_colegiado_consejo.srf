@@ -1,0 +1,21 @@
+HA$PBExportHeader$f_visared_colegiado_consejo.srf
+global type f_visared_colegiado_consejo from function_object
+end type
+
+forward prototypes
+global function string f_visared_colegiado_consejo (string n_colegiado)
+end prototypes
+
+global function string f_visared_colegiado_consejo (string n_colegiado);//f_colegiado_apellido (id_col : string)
+//Esta funcion devuelve el apellido y nombre de un colegiado
+//
+string retorno
+
+select  n_consejo into :retorno from colegiados where n_colegiado=:n_colegiado;
+
+if f_es_vacio(retorno) then retorno = ''
+
+return retorno
+
+end function
+

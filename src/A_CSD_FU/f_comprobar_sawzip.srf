@@ -1,0 +1,42 @@
+HA$PBExportHeader$f_comprobar_sawzip.srf
+global type f_comprobar_sawzip from function_object
+end type
+
+forward prototypes
+global function integer f_comprobar_sawzip (ref n_oo_captura_errores zip)
+end prototypes
+
+global function integer f_comprobar_sawzip (ref n_oo_captura_errores zip);//n_oo_captura_errores zip
+integer retorno1,retorno
+n_runandwait runandwait
+string mensaje
+
+
+//zip = create n_oo_captura_errores
+
+
+
+retorno1 = zip.ConnectToNewObject("SAWZip.Archive")
+if retorno1 < 0 then
+	mensaje = "No se puede acceder a la librer$$HEX1$$ed00$$ENDHEX$$a de manipulaci$$HEX1$$f300$$ENDHEX$$n de zips (SAWZip). $$HEX1$$bf00$$ENDHEX$$Desea reinstalar la librer$$HEX1$$ed00$$ENDHEX$$a?"
+	if g_usar_idioma ="S" then
+		mensaje = g_idioma.of_getmsg( "general.instalar_sawzip",mensaje)
+	end if
+	if Messagebox(g_titulo, mensaje,Question!,YesNo!)=1 then
+		runandwait = create n_runandwait
+		runandwait.of_SetPriority(runandwait.HIGH_PRIORITY_CLASS)
+		runandwait.of_SetCurrentDirectory(g_dir_aplicacion)
+		runandwait.of_SetWindow("hide")
+		retorno = runandwait.of_runandwait("C:\windows\system32\regsvr32.exe "+g_dir_aplicacion+"sawzip.dll")
+		zip.ConnectToNewObject("SAWZip.Archive")
+		return 0
+	else
+		return -1
+	end if
+else
+	return retorno1
+end if	
+
+
+end function
+

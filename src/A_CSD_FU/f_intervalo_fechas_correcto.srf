@@ -1,0 +1,13 @@
+HA$PBExportHeader$f_intervalo_fechas_correcto.srf
+global type f_intervalo_fechas_correcto from function_object
+end type
+
+forward prototypes
+global function boolean f_intervalo_fechas_correcto (datetime fecha_d, datetime fecha_h)
+end prototypes
+
+global function boolean f_intervalo_fechas_correcto (datetime fecha_d, datetime fecha_h);//
+if fecha_d>fecha_h then return false
+return true
+end function
+

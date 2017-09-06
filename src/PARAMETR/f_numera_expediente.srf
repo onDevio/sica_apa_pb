@@ -1,0 +1,76 @@
+HA$PBExportHeader$f_numera_expediente.srf
+global type f_numera_expediente from function_object
+end type
+
+forward prototypes
+global function string f_numera_expediente (string formato)
+end prototypes
+
+global function string f_numera_expediente (string formato);double i, aes, enes, des
+string cont, numero, anyo, deleg
+
+// MODIFCIADO RICARDO 2005-05-11
+// FORMATO : Contiene el formato a seguir... Se marcan con 'a' el a$$HEX1$$f100$$ENDHEX$$o y la numeracion con 'n'
+//		Ej: aaaa-nnnnn -> 4 para el a$$HEX1$$f100$$ENDHEX$$o, 5 para el numero, con un guion
+
+cont = formato
+
+if PosA(formato, 'n')>0 then
+	// la numeracion
+	// Contamos las enes que hay
+	for i=1 to LenA(formato)
+		if MidA(formato, i, 1) = 'n' then enes++
+	next
+	
+	CHOOSE CASE g_colegio
+		CASE 'COAATCC'
+			// Cada sede tendr$$HEX1$$e100$$ENDHEX$$n su propio contador y se determina por el codigo del centro en el que est$$HEX1$$e100$$ENDHEX$$
+			string contador
+			contador = 'NUM_EXP_'+f_devuelve_centro(g_cod_delegacion)
+			numero = f_siguiente_numero(contador,enes)
+		CASE ELSE
+		// Construimos el a$$HEX1$$f100$$ENDHEX$$o como quieren
+		numero = f_siguiente_numero('NUM_EXP',enes)
+	END CHOOSE
+	
+	// Y lo reemplazamos en el formato
+	cont = ReplaceA(cont,PosA(formato, 'n'),enes,numero)
+end if
+
+if PosA(formato, 'a')>0 then
+	// Lleva el a$$HEX1$$f100$$ENDHEX$$o
+	// Contamos las aes que hay
+	for i=1 to LenA(formato)
+		if MidA(formato, i, 1) = 'a' then aes++
+	next
+	// Construimos el a$$HEX1$$f100$$ENDHEX$$o como quieren
+	anyo = RightA(string(year(today())),aes)
+	// Y lo reemplazamos en el formato
+	cont = ReplaceA(cont,PosA(formato, 'a'),aes,anyo)
+end if
+
+if PosA(formato, 'd')>0 then
+	// Lleva la delegaci$$HEX1$$f300$$ENDHEX$$n
+	// Contamos las des que hay
+	for i=1 to LenA(formato)
+		if MidA(formato, i, 1) = 'd' then des++
+	next
+	// Construimos la delegaci$$HEX1$$f300$$ENDHEX$$n como quieren
+	deleg = f_delegacion_siglas(g_cod_delegacion)
+	if isnull(deleg) then deleg = ''
+	// Y lo reemplazamos en el formato
+	cont = ReplaceA(cont,PosA(formato, 'd'),des,deleg)
+end if
+
+// CODIGO ANTIGUO
+//valor 1  : 5 o 6
+//valor 2  : longitud del a$$HEX1$$f100$$ENDHEX$$o  2 $$HEX2$$f3002000$$ENDHEX$$4 
+
+//cont = f_siguiente_numero('NUM_EXP', valor1)
+////if valor1 <= 5 then
+//if valor2 > 0 then cont = right(string(year(today())),valor2) + '-'+cont
+////end if
+
+return cont
+end function
+

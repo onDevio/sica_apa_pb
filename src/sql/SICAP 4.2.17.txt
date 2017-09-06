@@ -1,0 +1,71 @@
+declare @colegio varchar(10)
+select @colegio = texto from var_globales where nombre = 'COLEGIO'
+
+
+--ALEXIS CZA-121
+If @colegio = 'COAATZ' 
+begin
+insert into var_globales (nombre, texto, descripcion, modificable)
+values('g_conta.aglutina_importe_cobro_cuenta','S','Comprobación para aglutinar al total de los apuntes el importe de un pago a cuenta','N')
+end
+go
+
+--ICTL-277. Caso general para todos
+alter table csi_facturas_emitidas add email_emisor char(255) null;
+
+
+--CBI-153. Falta contador en todos los colegios
+INSERT INTO contadores(contador, valor, descripcion, orden, modificable) VALUES ('ID_COL_AUTORIZADO',0,'Contador para las autorizaciones de los colegiados', '', 'S');
+
+---TODOS LOS COLEGIOS
+--- SCP 306
+create table dbo.colegiado_titulaciones (id_titulacion char(10) not null, id_colegiado char(10) not null, cod_titulacion char(3) null, cod_escuela char(10) null, anyo_terminacion char(4) null) ;
+alter table dbo.colegiado_titulaciones add constraint id_titulacion primary key nonclustered (id_titulacion, id_colegiado) ;
+INSERT INTO contadores  
+( contador, valor, descripcion, modificable )  
+VALUES ( 'ID_TITULACION', 0, 'Identificadr para las titulaciones habilitantes del colegiado', 'N' )  ;
+
+--- TODOS LOS COLEGIOS
+--- ICTL-255
+alter table fases_renuncias add n_renuncia char(10) null;
+INSERT INTO contadores  
+( contador, valor, descripcion, modificable )  
+VALUES ( 'NUM_RENUNCIA', 0, 'Identificador de Renuncias para el año', 'N' )  ;
+INSERT INTO t_control_eventos  ( control, evento, activo, id_control )  
+VALUES ( 'NUMERO_RENUNCIA', 'NUMERO_RENUNCIA', 'S', 'NUM_RENUN' )  ;
+
+
+ -- TODOS
+ -- SCP-306 Se comprueba los avisos pendientes de musaat
+ INSERT INTO var_globales( nombre,  sn,  descripcion,  modificable )  
+  VALUES ( 'g_musaat_verifica_prima_aviso', 'S','Activa que se compruebe cuando se consulta un aviso pendiente, si hay modificaciones en la prima','S' )  ;
+
+--Todos
+update var_globales set texto='20100222' where nombre='g_version_minima';
+
+--TODOS LOS COLEGIOS
+-- SCP-308
+create table dbo.colegiado_inhabilitacion (id_inhabilitacion char(10) not null, id_colegiado char(10) not null, cod_origen char(3) null, cod_tipo char(10) null, fecha_inicio datetime null, fecha_fin datetime null, descripcion char(255) null ) ;
+alter table dbo.colegiado_inhabilitacion add constraint id_inhabilitacion primary key nonclustered (id_inhabilitacion, id_colegiado) ;
+INSERT INTO contadores  
+( contador, valor, descripcion, modificable )  
+VALUES ( 'ID_INHABILITACION, 0, 'Identificador de inhabilitaciones del colegiado, 'N' )  ;
+create table dbo.origen_inhabilitacion (codigo char(2) not null, descripcion char(150) null ) ;
+alter table dbo.origen_inhabilitacion add constraint pk_origen_inhabilitacion primary key nonclustered (codigo);
+create table dbo.tipo_inhabilitacion (codigo char(2) not null, descripcion char(150) null ) ;
+alter table dbo.tipo_inhabilitacion add constraint pk_tipo_inhabilitacion primary key nonclustered (codigo);
+INSERT INTO menu ( codigo, descripcion,  objeto, visible, enabled, ventana, activo )  
+  VALUES ('0000000208','Tipos Inhabilitaciones','m_aplic_frame.m_file.m_new.m_altadefichas.m_tiposinhabilitacion', '1', '1',  'w_tipo_inhabilitaciones', 'S' )
+INSERT INTO menu ( codigo, descripcion,  objeto, visible, enabled, ventana, activo )  
+  VALUES ('0000000209','Origenes de Inhabilitaciones','m_aplic_frame.m_file.m_new.m_altadefichas.m_origenesdeinhabilitacion', '1', '1',  'w_mant_origen_inhabilitacion', 'S' )
+
+
+--TODOS LOS COLEGIOS
+-- SCP-317
+create table dbo.colegiado_cesion_datos
+ ( id_colegiado char(10) not null, c_telefono_prof char(1) null, c_telefono_part char(1) null, c_movil_1 char(1) null, c_movil_2 char(1) null, c_fax char(1) null, c_email char(1) null, c_url char(1) null ) ;
+alter table dbo.colegiado_cesion_datos add constraint id_cesion_datos primary key nonclustered ( id_colegiado) ;
+Alter table colegiados add email_profesional char(100) null;
+
+
+go

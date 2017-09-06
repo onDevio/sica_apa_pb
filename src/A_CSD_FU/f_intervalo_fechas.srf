@@ -1,0 +1,38 @@
+HA$PBExportHeader$f_intervalo_fechas.srf
+global type f_intervalo_fechas from function_object
+end type
+
+forward prototypes
+global function string f_intervalo_fechas (u_dw dw, string f_desde, string f_hasta)
+end prototypes
+
+global function string f_intervalo_fechas (u_dw dw, string f_desde, string f_hasta);//   COMPORTAMIENTO: Comprueba que el intervalo de dos fechas es correcto ->   fecha_desde <=  fecha_hasta.
+//   PAR$$HEX1$$c100$$ENDHEX$$METROS:    dw  ->  datawindows sobre el que haremos la comprobaci$$HEX1$$f300$$ENDHEX$$n.
+//							 f_desde, 
+//							 f_hasta     nombre de las columnas que almacenan las fechas.
+//    DEVUELVE :	      Mensaje de error o cadena vac$$HEX1$$ed00$$ENDHEX$$a.
+
+
+// Obtenemos las fechas desde y hasta del datawindows especificado, en los campos especificado.
+datetime f_desde_l, f_hasta_l
+long fila
+string mensaje=""
+
+// Recorremos las filas del datawindows comprobando que el intervalo de fechas sea correcto.
+FOR fila=1 TO dw.RowCount()
+	f_desde_l = dw.GetItemDateTime(fila,f_desde) 
+	f_hasta_l = dw.GetItemDateTime(fila,f_hasta) 
+
+	IF  f_desde_l > f_hasta_l THEN
+		IF mensaje="" THEN
+	 		mensaje = "El intervalo de fechas introducido es incorrecto en la(s) fila(s) " + string(fila) 
+		ELSE
+			mensaje = mensaje + ", "+string(fila)
+		END IF
+	END IF
+NEXT
+
+Return mensaje
+
+end function
+

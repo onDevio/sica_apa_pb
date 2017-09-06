@@ -1,0 +1,22 @@
+HA$PBExportHeader$f_minutas_porc_musaat_ultima_certif.srf
+global type f_minutas_porc_musaat_ultima_certif from function_object
+end type
+
+forward prototypes
+global function double f_minutas_porc_musaat_ultima_certif (string id_fase, string id_col)
+end prototypes
+
+global function double f_minutas_porc_musaat_ultima_certif (string id_fase, string id_col);double retorno
+
+SELECT 100 - sum (porc_musaat)
+INTO :retorno
+FROM fases_minutas
+WHERE ( fases_minutas.id_fase = :id_fase ) AND 
+		( fases_minutas.pendiente = 'N' ) AND  
+		( fases_minutas.anulada = 'N' )   AND
+		( fases_minutas.id_colegiado = :id_col ) ;
+
+return retorno
+
+end function
+

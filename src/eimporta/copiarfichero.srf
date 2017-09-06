@@ -1,0 +1,56 @@
+HA$PBExportHeader$copiarfichero.srf
+global type copiarfichero from function_object
+end type
+
+forward prototypes
+global function int copiarfichero (string origen, string destino)
+end prototypes
+
+global function int copiarfichero (string origen, string destino);// Copia el fichero origen, cuyo nombre es pasado como primer 
+//par$$HEX1$$e100$$ENDHEX$$metro y con el path completo, al fichero destino, pasado
+// como segundo par$$HEX1$$e100$$ENDHEX$$metro y tambi$$HEX1$$e900$$ENDHEX$$n con el path completo.
+
+
+int	fnum, loops, i, fnum1
+
+long	flen, bytes_read, new_pos, escritos
+blob	b, tot_b
+
+
+IF fileexists(destino) THEN
+	filedelete(destino)
+END IF
+flen = FileLength(origen)
+fnum = FileOpen(origen,streammode!,read!,shared!)
+fnum1 = FileOpen(destino,streammode!,write!,LockReadWrite!,append!)
+
+
+IF flen > 32000 THEN
+	IF Mod(flen, 32000) = 0 THEN
+
+		loops = flen/32000
+	ELSE
+
+		loops = (flen/32000) + 1
+
+	END IF
+ELSE
+	loops = 1
+END IF
+
+FOR i = 1 to loops
+	bytes_read = FileRead(fnum, b)
+	b= blobmid(b,1,32000)
+	tot_b = tot_b + b
+	new_pos = new_pos + 32000
+	FileSeek(fnum,new_pos, FromBeginning!)
+	escritos = filewrite(fnum1,b)
+NEXT
+
+FileClose(fnum)
+FileClose(fnum1)
+
+return(1)
+
+end function
+

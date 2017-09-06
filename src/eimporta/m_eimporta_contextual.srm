@@ -1,0 +1,47 @@
+HA$PBExportHeader$m_eimporta_contextual.srm
+forward
+global type m_eimporta_contextual from menu
+end type
+type m_borrar from menu within m_eimporta_contextual
+end type
+global type m_eimporta_contextual from menu
+m_borrar m_borrar
+end type
+end forward
+
+global type m_eimporta_contextual from menu
+m_borrar m_borrar
+end type
+global m_eimporta_contextual m_eimporta_contextual
+
+type variables
+u_lv ilv_padre
+end variables
+
+on m_eimporta_contextual.create
+m_eimporta_contextual=this
+call super::create
+this.m_borrar=create m_borrar
+this.Item[UpperBound(this.Item)+1]=this.m_borrar
+end on
+
+on m_eimporta_contextual.destroy
+call super::destroy
+destroy(this.m_borrar)
+end on
+
+type m_borrar from menu within m_eimporta_contextual
+end type
+
+on m_borrar.create
+call super::create
+this.text = "Borrar"
+end on
+
+on m_borrar.destroy
+call super::destroy
+end on
+
+event clicked;ilv_padre.dynamic event csd_borrar()
+end event
+

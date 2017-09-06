@@ -1,0 +1,43 @@
+HA$PBExportHeader$f_premaat_num_colegiados_grupo.srf
+global type f_premaat_num_colegiados_grupo from function_object
+end type
+
+forward prototypes
+global function double f_premaat_num_colegiados_grupo (string alta, string act_pas, string grupo)
+end prototypes
+
+global function double f_premaat_num_colegiados_grupo (string alta, string act_pas, string grupo);double retorno
+
+CHOOSE CASE grupo
+	CASE 'A', 'C'
+		SELECT count ( id_premaat )  
+		INTO :retorno  
+		FROM premaat  
+		WHERE ( premaat.tipo_mutualista = :act_pas ) AND  
+				( premaat.alta = :alta )   AND
+				( premaat.grupo = :grupo) ;
+		
+	CASE 'C1'
+		SELECT count ( id_premaat )  
+		INTO :retorno  
+		FROM premaat  
+		WHERE ( premaat.tipo_mutualista = :act_pas ) AND  
+				( premaat.alta = :alta )   AND
+				( premaat.grupo_comple1 = 'S') ;
+				
+	CASE 'C2'
+		SELECT count ( id_premaat )  
+		INTO :retorno  
+		FROM premaat  
+		WHERE ( premaat.tipo_mutualista = :act_pas ) AND  
+				( premaat.alta = :alta )   AND
+				( premaat.grupo_comple2 = 'S') ;
+				
+END CHOOSE
+
+if isnull (retorno) then retorno = 0
+
+return retorno
+
+end function
+

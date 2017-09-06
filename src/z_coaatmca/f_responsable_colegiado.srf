@@ -1,0 +1,20 @@
+HA$PBExportHeader$f_responsable_colegiado.srf
+global type f_responsable_colegiado from function_object
+end type
+
+forward prototypes
+global function string f_responsable_colegiado (string id, string cod)
+end prototypes
+
+global function string f_responsable_colegiado (string id, string cod);string texto
+
+SELECT otros_datos_colegiado.texto  
+INTO :texto  
+FROM otros_datos_colegiado  
+WHERE ( otros_datos_colegiado.id_colegiado = :id ) AND  
+( otros_datos_colegiado.cod_caracteristica = :cod )  ;//USING SQLCA ;
+
+return texto
+
+end function
+

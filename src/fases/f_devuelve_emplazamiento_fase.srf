@@ -1,0 +1,47 @@
+HA$PBExportHeader$f_devuelve_emplazamiento_fase.srf
+global type f_devuelve_emplazamiento_fase from function_object
+end type
+
+forward prototypes
+global function string f_devuelve_emplazamiento_fase (string id_fase)
+end prototypes
+
+global function string f_devuelve_emplazamiento_fase (string id_fase);
+string cod_tipo_via, direccion, cod_poblacion, descripcion_via, cod_pos , poblacion , cod_provincia, provincia 
+
+select fases.tipo_via_emplazamiento, fases. emplazamiento, fases.poblacion
+into :cod_tipo_via, :direccion, :cod_poblacion 
+from fases
+where fases.id_fase = : id_fase;
+
+if not f_es_vacio(cod_tipo_via) then
+      select tipos_via.descripcion
+      into :descripcion_via
+      from tipos_via
+      where tipos_via.cod_tipo_via = :cod_tipo_via;
+end if
+
+if not f_es_vacio(cod_poblacion) then
+      select poblaciones.cod_pos, poblaciones.descripcion, poblaciones.provincia
+      into :cod_pos, : poblacion, : cod_provincia
+      from poblaciones
+      where poblaciones.cod_pob = :cod_poblacion;
+end if
+
+if not  f_es_vacio(cod_provincia) then
+	select provincias.nombre
+	into :provincia
+	from provincias
+	where provincias.cod_provincia = :cod_provincia;
+end if
+
+if f_es_vacio(descripcion_via) then descripcion_via = ''
+if f_es_vacio(direccion) then direccion = ''
+if f_es_vacio(cod_pos) then cod_pos = ''
+if f_es_vacio(poblacion) then poblacion = ''
+if f_es_vacio(provincia) then provincia = ''
+
+return descripcion_via + ' ' + direccion + ', ' + cod_pos + ' ' + poblacion+' '+ provincia
+
+end function
+

@@ -1,0 +1,21 @@
+
+
+//anyadir un nuevo parametro a BD.
+insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+select serie, empresa, anyo, '%', 'N_emisor2', 'AGENCIA DE SEGUROS EXCLUSIVA DE MUSAAT, MUTUA DE SEGUROS A PRIMA FIJA, CON NUMERO DE REGISTRO:' 
+from csi_series where empresa='sr';
+
+//Solo Guipuzkoa. SCP-1285
+INSERT INTO csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) VALUES('PROFOR','01','2011','ES','cuenta_pago',"Para su comodidad le rogamos efectúe el pago de la presente Proforma en cualquiera de las cuentas bancarias de KUTXA Nº 2101 0007 99 00000 14944 o CAJA LABORAL Nº 3035 0128 52 12800 00126.");
+INSERT INTO csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) VALUES('PROFOR','01','2011','VA','cuenta_pago',"Erosoagoa izan dakizun, arren eskatzen dizugu Proforma honen ordainketa egitea, KUTXA Nº 2101 0007 99 00000 14944 edo EUSKADIKO KUTXAKO Nº 3035 0128 52 12800 00126 edozein sukurtsaletan.");
+INSERT INTO csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) VALUES('PROFOR','01','2011','ES','pago_oficinas',"Igualmente el pago podrá realizarse en las mismas oficinas colegiales en horario de lunes a viernes de 8 a 14 horas, de lunes a jueves de 15:30 a 18 horas, mediante cheque conformado");
+INSERT INTO csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) VALUES('PROFOR','01','2011','VA','pago_oficinas',"Nahi izanez gero, Elkargoko bulegoetan ere egin daiteke ordainketa, astelehenetik ostiralera, 8:00etatik 14:00ak arte, astelehenetik ostegunera, 15:30etatik 18:00ak arte, txeke adostu baten bidez");
+INSERT INTO csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) VALUES('PROFOR','02','2011','ES','cuenta_pago',"Para su comodidad le rogamos efectúe el pago de la presente Proforma en cualquiera de las cuentas bancarias de KUTXA Nº 2101 0007 99 00000 14944 o CAJA LABORAL Nº 3035 0128 52 12800 00126.");
+INSERT INTO csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) VALUES('PROFOR','02','2011','VA','cuenta_pago',"Erosoagoa izan dakizun, arren eskatzen dizugu Proforma honen ordainketa egitea, KUTXA Nº 2101 0007 99 00000 14944 edo EUSKADIKO KUTXAKO Nº 3035 0128 52 12800 00126 edozein sukurtsaletan.");
+INSERT INTO csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) VALUES('PROFOR','02','2011','ES','pago_oficinas',"Igualmente el pago podrá realizarse en las mismas oficinas colegiales en horario de lunes a viernes de 8 a 14 horas, de lunes a jueves de 15:30 a 18 horas, mediante cheque conformado");
+INSERT INTO csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) VALUES('PROFOR','02','2011','VA','pago_oficinas',"Nahi izanez gero, Elkargoko bulegoetan ere egin daiteke ordainketa, astelehenetik ostiralera, 8:00etatik 14:00ak arte, astelehenetik ostegunera, 15:30etatik 18:00ak arte, txeke adostu baten bidez");
+
+
+//SCP-1295 TODOS
+alter table tarifas_informes_x_tramite add aplica_parti char(1) default 'S' null; // Indica si el artículo para el tipo de tramite aplica el porcentaje de participación.
+update tarifas_informes_x_tramite set aplica_parti = 'S';

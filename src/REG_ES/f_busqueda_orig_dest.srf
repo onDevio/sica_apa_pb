@@ -1,0 +1,13 @@
+HA$PBExportHeader$f_busqueda_orig_dest.srf
+global type f_busqueda_orig_dest from function_object
+end type
+
+forward prototypes
+global function string f_busqueda_orig_dest (string tipo)
+end prototypes
+
+global function string f_busqueda_orig_dest (string tipo);OpenWithParm(w_busqueda_orig_dest,tipo)
+return Message.StringParm
+
+end function
+

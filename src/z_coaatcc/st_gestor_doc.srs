@@ -1,0 +1,9 @@
+HA$PBExportHeader$st_gestor_doc.srs
+global type st_gestor_doc from structure
+	string		tarifa
+	string		modulo
+	string		encargo
+	string		id_fase
+	string		legalizacion
+end type
+

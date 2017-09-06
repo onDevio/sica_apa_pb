@@ -1,0 +1,38 @@
+declare @colegio varchar(10)
+select @colegio = texto from var_globales where nombre = 'COLEGIO'
+
+//SCP-493
+if @colegio=COAATA
+begin
+insert into descuentos_visared (tipo_actuacion, tipo_obra, descuento) values( '*', '*', 20)
+end
+//Fin SCP-493
+
+//SCP-519
+if @colegio=COAATTGN
+begin
+update csi_series set dataobject='d_csi_factura_tg_arres' where serie='ARRES'
+end
+//FIN SCP-519
+
+
+
+
+
+//SCP-438
+if @colegio='COAATCU'
+begin
+insert into listados (descripcion, dw, ventana, orden, activo) values('Listado de descuentos por intervención profesional', 'd_fases_informes_descuentos_act', 'w_fases_listados', '16', 'S');
+insert into listados (descripcion, dw, ventana, orden, activo) values('Listado de descuentos por intervención profesional agrupado', 'd_fases_informes_descuentos_act_a', 'w_fases_listados', '16', 'S');
+end
+//fin SCP-438
+
+//TODOS LOS COLEGIOS
+//SCP-462
+alter table fases_colegiados add proy char(1) default 'N' null;
+
+//SCP-524
+update var_globales set sn='N' where nombre='g_imprime_resumen_sin_email';
+
+go
+

@@ -1,0 +1,11 @@
+HA$PBExportHeader$f_gerente.srf
+global type f_gerente from function_object
+end type
+
+forward prototypes
+global function string f_gerente ()
+end prototypes
+
+global function string f_gerente ();return g_gerente
+end function
+

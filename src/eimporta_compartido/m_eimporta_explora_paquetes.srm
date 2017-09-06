@@ -1,0 +1,478 @@
+HA$PBExportHeader$m_eimporta_explora_paquetes.srm
+forward
+global type m_eimporta_explora_paquetes from menu
+end type
+type m_abrir from menu within m_eimporta_explora_paquetes
+end type
+type m_renombrar from menu within m_eimporta_explora_paquetes
+end type
+type m_enviara from menu within m_eimporta_explora_paquetes
+end type
+type m_comunicacionalcolegiado from menu within m_enviara
+end type
+type m_0 from menu within m_enviara
+end type
+type m_bandejadeentrada from menu within m_enviara
+end type
+type m_elementosprocesados from menu within m_enviara
+end type
+type m_aotracarpeta from menu within m_enviara
+end type
+type m_enviara from menu within m_eimporta_explora_paquetes
+m_comunicacionalcolegiado m_comunicacionalcolegiado
+m_0 m_0
+m_bandejadeentrada m_bandejadeentrada
+m_elementosprocesados m_elementosprocesados
+m_aotracarpeta m_aotracarpeta
+end type
+type m_eliminar from menu within m_eimporta_explora_paquetes
+end type
+type m_- from menu within m_eimporta_explora_paquetes
+end type
+type m_observaciones from menu within m_eimporta_explora_paquetes
+end type
+type m_desbloquearpaquete from menu within m_eimporta_explora_paquetes
+end type
+global type m_eimporta_explora_paquetes from menu
+m_abrir m_abrir
+m_renombrar m_renombrar
+m_enviara m_enviara
+m_eliminar m_eliminar
+m_- m_-
+m_observaciones m_observaciones
+m_desbloquearpaquete m_desbloquearpaquete
+end type
+end forward
+
+global type m_eimporta_explora_paquetes from menu
+m_abrir m_abrir
+m_renombrar m_renombrar
+m_enviara m_enviara
+m_eliminar m_eliminar
+m_- m_-
+m_observaciones m_observaciones
+m_desbloquearpaquete m_desbloquearpaquete
+end type
+global m_eimporta_explora_paquetes m_eimporta_explora_paquetes
+
+type variables
+u_dw idw_padre
+
+end variables
+
+on m_eimporta_explora_paquetes.create
+m_eimporta_explora_paquetes=this
+call super::create
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+this.m_abrir=create m_abrir
+this.m_renombrar=create m_renombrar
+this.m_enviara=create m_enviara
+this.m_eliminar=create m_eliminar
+this.m_-=create m_-
+this.m_observaciones=create m_observaciones
+this.m_desbloquearpaquete=create m_desbloquearpaquete
+this.Item[UpperBound(this.Item)+1]=this.m_abrir
+this.Item[UpperBound(this.Item)+1]=this.m_renombrar
+this.Item[UpperBound(this.Item)+1]=this.m_enviara
+this.Item[UpperBound(this.Item)+1]=this.m_eliminar
+this.Item[UpperBound(this.Item)+1]=this.m_-
+this.Item[UpperBound(this.Item)+1]=this.m_observaciones
+this.Item[UpperBound(this.Item)+1]=this.m_desbloquearpaquete
+end on
+
+on m_eimporta_explora_paquetes.destroy
+call super::destroy
+destroy(this.m_abrir)
+destroy(this.m_renombrar)
+destroy(this.m_enviara)
+destroy(this.m_eliminar)
+destroy(this.m_-)
+destroy(this.m_observaciones)
+destroy(this.m_desbloquearpaquete)
+end on
+
+type m_abrir from menu within m_eimporta_explora_paquetes
+end type
+
+on m_abrir.create
+call super::create
+this.text = "Abrir"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_abrir.destroy
+call super::destroy
+end on
+
+event clicked;idw_padre.dynamic event csd_abrir()
+end event
+
+type m_renombrar from menu within m_eimporta_explora_paquetes
+end type
+
+event clicked;idw_padre.dynamic event csd_renombrar()
+end event
+
+on m_renombrar.create
+call super::create
+this.text = "Renombrar"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_renombrar.destroy
+call super::destroy
+end on
+
+type m_enviara from menu within m_eimporta_explora_paquetes
+m_comunicacionalcolegiado m_comunicacionalcolegiado
+m_0 m_0
+m_bandejadeentrada m_bandejadeentrada
+m_elementosprocesados m_elementosprocesados
+m_aotracarpeta m_aotracarpeta
+end type
+
+on m_enviara.create
+call super::create
+this.text = "Enviar"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+this.m_comunicacionalcolegiado=create m_comunicacionalcolegiado
+this.m_0=create m_0
+this.m_bandejadeentrada=create m_bandejadeentrada
+this.m_elementosprocesados=create m_elementosprocesados
+this.m_aotracarpeta=create m_aotracarpeta
+this.Item[UpperBound(this.Item)+1]=this.m_comunicacionalcolegiado
+this.Item[UpperBound(this.Item)+1]=this.m_0
+this.Item[UpperBound(this.Item)+1]=this.m_bandejadeentrada
+this.Item[UpperBound(this.Item)+1]=this.m_elementosprocesados
+this.Item[UpperBound(this.Item)+1]=this.m_aotracarpeta
+end on
+
+on m_enviara.destroy
+call super::destroy
+destroy(this.m_comunicacionalcolegiado)
+destroy(this.m_0)
+destroy(this.m_bandejadeentrada)
+destroy(this.m_elementosprocesados)
+destroy(this.m_aotracarpeta)
+end on
+
+type m_comunicacionalcolegiado from menu within m_enviara
+end type
+
+on m_comunicacionalcolegiado.create
+call super::create
+this.text = "Comunicacion al colegiado"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_comunicacionalcolegiado.destroy
+call super::destroy
+end on
+
+event clicked;idw_padre.dynamic event csd_enviar(3)
+end event
+
+type m_0 from menu within m_enviara
+end type
+
+on m_0.create
+call super::create
+this.text = "-"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_0.destroy
+call super::destroy
+end on
+
+type m_bandejadeentrada from menu within m_enviara
+end type
+
+on m_bandejadeentrada.create
+call super::create
+this.text = "A la bandeja de entrada"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_bandejadeentrada.destroy
+call super::destroy
+end on
+
+event clicked;idw_padre.dynamic event csd_enviar(1)
+end event
+
+type m_elementosprocesados from menu within m_enviara
+end type
+
+on m_elementosprocesados.create
+call super::create
+this.text = "A elementos procesados"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_elementosprocesados.destroy
+call super::destroy
+end on
+
+event clicked;idw_padre.dynamic event csd_enviar(2)
+end event
+
+type m_aotracarpeta from menu within m_enviara
+end type
+
+event clicked;idw_padre.dynamic event csd_enviar(4)
+end event
+
+on m_aotracarpeta.create
+call super::create
+this.text = "A otra carpeta"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_aotracarpeta.destroy
+call super::destroy
+end on
+
+type m_eliminar from menu within m_eimporta_explora_paquetes
+end type
+
+on m_eliminar.create
+call super::create
+this.text = "Eliminar"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_eliminar.destroy
+call super::destroy
+end on
+
+event clicked;idw_padre.dynamic event csd_eliminar()
+end event
+
+type m_- from menu within m_eimporta_explora_paquetes
+end type
+
+on m_-.create
+call super::create
+this.text = "-"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_-.destroy
+call super::destroy
+end on
+
+type m_observaciones from menu within m_eimporta_explora_paquetes
+end type
+
+on m_observaciones.create
+call super::create
+this.text = "Observaciones"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_observaciones.destroy
+call super::destroy
+end on
+
+event clicked;idw_padre.dynamic event csd_observaciones()
+end event
+
+type m_desbloquearpaquete from menu within m_eimporta_explora_paquetes
+end type
+
+event clicked;idw_padre.dynamic event csd_desbloquear()
+end event
+
+on m_desbloquearpaquete.create
+call super::create
+this.text = "Desbloquear Paquete"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_desbloquearpaquete.destroy
+call super::destroy
+end on
+

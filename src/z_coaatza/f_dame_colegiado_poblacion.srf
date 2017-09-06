@@ -1,0 +1,18 @@
+HA$PBExportHeader$f_dame_colegiado_poblacion.srf
+global type f_dame_colegiado_poblacion from function_object
+end type
+
+forward prototypes
+global function string f_dame_colegiado_poblacion (string id_colegiado)
+end prototypes
+
+global function string f_dame_colegiado_poblacion (string id_colegiado);
+string poblacion=''
+
+SELECT p.descripcion into :poblacion
+FROM poblaciones p, domicilios d 
+WHERE d.cod_pob = p.cod_pob AND d.id_colegiado = :id_colegiado AND d.comercial='S';
+
+return poblacion
+end function
+

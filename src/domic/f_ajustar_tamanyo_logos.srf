@@ -1,0 +1,30 @@
+HA$PBExportHeader$f_ajustar_tamanyo_logos.srf
+global type f_ajustar_tamanyo_logos from function_object
+end type
+
+forward prototypes
+global function st_datos_logos_empresa f_ajustar_tamanyo_logos (integer ai_max_anchura, integer ai_max_altura, ref st_datos_logos_empresa ast_datos_logo)
+end prototypes
+
+global function st_datos_logos_empresa f_ajustar_tamanyo_logos (integer ai_max_anchura, integer ai_max_altura, ref st_datos_logos_empresa ast_datos_logo); double ldb_diferencia_altura, ldb_diferencia_anchura
+ 
+ ldb_diferencia_altura = ai_max_altura / ast_datos_logo.altura
+ ldb_diferencia_anchura = ai_max_anchura / ast_datos_logo.anchura
+ 
+ // Si la diferencia de alguno de los dos par$$HEX1$$e100$$ENDHEX$$metros es menos de 1, deberemos ajustar, pues no se dispone de espacio suficiente.
+if ((ldb_diferencia_altura < 1) or (ldb_diferencia_anchura < 1)) then
+	// Se debera ajusta por la diferencia que sea menor
+	if (ldb_diferencia_altura <= ldb_diferencia_anchura) then
+		 ast_datos_logo.anchura=ast_datos_logo.anchura * ldb_diferencia_altura
+		 ast_datos_logo.altura=ast_datos_logo.altura * ldb_diferencia_altura
+	else
+		 ast_datos_logo.anchura=ast_datos_logo.anchura * ldb_diferencia_anchura
+		 ast_datos_logo.altura=ast_datos_logo.altura * ldb_diferencia_anchura		
+	end if	
+		
+end if	
+
+ 
+ return ast_datos_logo
+end function
+

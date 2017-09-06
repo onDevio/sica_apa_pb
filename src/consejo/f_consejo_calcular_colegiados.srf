@@ -1,0 +1,83 @@
+HA$PBExportHeader$f_consejo_calcular_colegiados.srf
+global type f_consejo_calcular_colegiados from function_object
+end type
+
+forward prototypes
+global function integer f_consejo_calcular_colegiados (datetime f_hasta)
+end prototypes
+
+global function integer f_consejo_calcular_colegiados (datetime f_hasta);// Funcion para calcular el numero de colegiados existentes hasta el mes
+// que pasamos como argumento
+
+string colegiado, alta,baja, reside
+datetime fecha
+int i
+int retorno = 0
+string colegiado_ant, accion_ant,n_col
+boolean entra
+string sfecha
+long num_col
+datetime f_inicio
+datastore colegiados
+
+colegiados = create datastore
+colegiados.dataobject = 'ds_consejo_estadillo_totales'
+colegiados.settransobject(sqlca)
+select numero,texto into :num_col,:sfecha from var_globales where nombre='g_consejo_colegiados_existentes';
+
+f_inicio=datetime(date(sfecha))
+
+
+//Obtenemos todos los colegiados
+colegiados.Retrieve(f_hasta)
+
+for i=1 to colegiados.rowcount() 
+	
+	colegiado = colegiados.getitemstring(i,'altas_bajas_situaciones_id_colegiado')
+	fecha = colegiados.getitemdatetime(i,'altas_bajas_situaciones_fecha')
+	reside = colegiados.getitemstring(i,'colegiados_c_geografico')
+	alta = colegiados.getitemstring(i,'altas_bajas_situaciones_alta')
+	baja = colegiados.getitemstring(i,'altas_bajas_situaciones_baja')
+
+
+	if num_col<>0 and Not(IsNull(num_col)) then
+		if fecha <= f_inicio then
+			continue		
+		end if
+	end if
+
+	select n_colegiado into :n_col from colegiados where id_colegiado = :colegiado;
+	
+	//CAL-220
+	if(g_colegio = 'COAATA' and n_col >= '05000')then
+		entra = false
+	else 
+		entra = true
+	end if
+
+	//Comprobamos si es alta o baja
+	if(entra)then	
+		if (alta = 'S') then
+			if (colegiado_ant <> colegiado or accion_ant = 'baja') then retorno = retorno + 1
+			accion_ant = 'alta'
+		end if
+		
+		if (baja = 'S') then
+			if (colegiado_ant <> colegiado or accion_ant = 'alta') then retorno = retorno - 1
+			accion_ant = 'baja'
+		end if
+		colegiado_ant = colegiado
+	end if
+next
+
+destroy colegiados
+
+if num_col<>0 and Not(IsNull(num_col)) then
+	retorno=retorno+num_col
+end if
+
+// se devuelve el valor calculado
+return retorno
+
+end function
+

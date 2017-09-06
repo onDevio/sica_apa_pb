@@ -1,0 +1,7 @@
+HA$PBExportHeader$st_saldo_cuenta_bancaria_colegiado.srs
+global type st_saldo_cuenta_bancaria_colegiado from structure
+	string		id_colegiado
+	datetime		f_desde
+	datetime		f_hasta
+end type
+

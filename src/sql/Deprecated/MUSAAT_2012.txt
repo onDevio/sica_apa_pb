@@ -1,0 +1,81 @@
+--Script de actualización de las tarifas de MUSAAT 2012
+--Se agrega nuevo mínimo para la tabla D, con la creación de una nueva tarifa F
+insert musaat_tarifas (tarifa, minimo, f_desde, f_hasta) values ('F', 8, '19000101', '20500101')
+
+--Se actualiza la variable global que se tenia para el recargo de la poliza plus
+update var_globales set numero= 1 where nombre = 'g_musaat_coef_poliza_plus'
+
+-- Se actualiza coeficiente CA para los tipoa actuacion 1.4, 1.7 y tipo de obra = 11
+update musaat_coef_c set coef =1.08 where tabla = 'A' and tipoact in ('14', '17') and tipoobra = '11'
+
+-- Se agrega nuevo tipo de actuación 
+insert t_fases (c_t_fase, d_t_descripcion, grupo) values('77', 'INSPECCIONES TÉCNICAS DE EDIFICIOS (ITE)', '4')
+
+-- Se añade a la tabla musaat_coef_c los tipos de actuacion 76 y 79 utilizado para Cédulas de habitabilidad y 77 para inspecciones técnicas
+insert musaat_coef_c  values ('76', '*', 0, 'F', -1, 9999999, '19000101', '20500101')
+insert musaat_coef_c  values ('79', '*', 0, 'F', -1, 9999999, '19000101', '20500101')
+insert musaat_coef_c  values ('77', '*', 0, 'F', -1, 9999999, '19000101', '20500101')
+
+--Modificación en la tabla del coeficiente G 
+update musaat_coef_g set coef = 1.757 , coef_plus = 2.197 where musaat_coef_g.cobertura = 120000 
+update musaat_coef_g set coef = 1.938, coef_plus = 2.423 where musaat_coef_g.cobertura = 150000 
+update musaat_coef_g set coef = 2.095 , coef_plus = 2.619 where musaat_coef_g.cobertura = 200000 
+update musaat_coef_g set coef = 2.156, coef_plus = 2.695 where musaat_coef_g.cobertura = 250000 
+update musaat_coef_g set coef = 2.228, coef_plus = 2.785 where musaat_coef_g.cobertura = 300000 
+update musaat_coef_g set coef = 2.408, coef_plus = 3.010 where musaat_coef_g.cobertura = 450000 
+update musaat_coef_g set coef = 2.591, coef_plus = 3.239 where musaat_coef_g.cobertura = 600000 
+update musaat_coef_g set coef = 2.954, coef_plus = 2.693 where musaat_coef_g.cobertura = 900000 
+
+--Actualiza la el coef de zona de todos los colegios
+--Descuentos
+update colegios set musaat_coef_malus = 0.85 where cod_colegio in('01','43') 
+update colegios set musaat_coef_malus = 0.88 where cod_colegio  = '16'
+update colegios set musaat_coef_malus = 0.90 where cod_colegio  = '19'
+update colegios set musaat_coef_malus = 0.91 where cod_colegio = '20'
+update colegios set musaat_coef_malus = 0.92 where cod_colegio in('37','41')
+update colegios set musaat_coef_malus = 0.93 where cod_colegio in('21','22','40', '55', '47')
+update colegios set musaat_coef_malus = 0.95 where cod_colegio ='02'
+update colegios set musaat_coef_malus = 0.97 where cod_colegio in('96','56')
+update colegios set musaat_coef_malus = 0.98 where cod_colegio ='46'
+--recargos
+update colegios set musaat_coef_malus = 1.02 where cod_colegio in('07', '25', '10', '15', '30, '34', '13,'42','44',49','45')
+update colegios set musaat_coef_malus = 1.03 where cod_colegio in('04','06','14','23','26','32', '35', '52')
+update colegios set musaat_coef_malus = 1.04 where cod_colegio ='17'
+update colegios set musaat_coef_malus = 1.06 where cod_colegio in ('08','31','37', '38')
+update colegios set musaat_coef_malus = 1.07 where cod_colegio ='50'
+update colegios set musaat_coef_malus = 1.08 where cod_colegio in ('48','05')
+update colegios set musaat_coef_malus = 1.10 where cod_colegio  in('03','12', '18','33', '39')
+--No aplica ni recargo, ni descuentos
+update colegios set musaat_coef_malus = 1 where cod_colegio in('09','11','24','27','28','29')
+
+declare @colegio varchar(10)
+select @colegio = texto from var_globales where nombre = 'COLEGIO'
+
+--Recargos
+if @colegio = 'COAATCC' or @colegio = 'COAATTGN' or @colegio = 'COAATTFE' then
+  update var_globales set numero = 1.02 where nombre = 'g_col_coef_musaat'
+
+if @colegio = 'COAATAV' or @colegio = 'COAATLR' or @colegio = 'COAATMU' or @colegio = 'COAATZA'then
+   update var_globales set numero = 1.03 where nombre = 'g_col_coef_musaat'
+
+if @colegio = 'COAATBI' then
+  update var_globales set numero = 1.07 where nombre = 'g_col_coef_musaat'
+
+if @colegio = 'COAATA' or @colegio = 'COAATMA' then
+  update var_globales set numero = 1.10 where nombre = 'g_col_coef_musaat'
+
+--Descuentos
+if @colegio = 'COAATGUA'then 
+update var_globales set numero = 0.90 where nombre = 'g_col_coef_musaat'
+
+if @colegio = 'COAATGUI'then 
+update var_globales set numero = 0.91 where nombre = 'g_col_coef_musaat'
+
+if @colegio = 'COAATNA'  then 
+update var_globales set numero = 0.92 where nombre = 'g_col_coef_musaat'
+
+if @colegio = 'COAATTEB'  then 
+update var_globales set numero = 0.93 where nombre = 'g_col_coef_musaat'
+
+if @colegio = 'COAATTE'  then 
+update var_globales set numero = 0.98 where nombre = 'g_col_coef_musaat'

@@ -1,0 +1,22 @@
+HA$PBExportHeader$f_cuentas_titulo.srf
+global type f_cuentas_titulo from function_object
+end type
+
+forward prototypes
+global function string f_cuentas_titulo (string cuenta)
+end prototypes
+
+global function string f_cuentas_titulo (string cuenta);string titulo= ''
+
+select titulo
+into :titulo
+from cuentas
+where cuenta=:cuenta using bd_ejercicio;
+
+//15/04/05 Se evita que devuelva nulos
+if f_es_vacio(titulo) then titulo = ''
+
+return titulo
+
+end function
+

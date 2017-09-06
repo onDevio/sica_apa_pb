@@ -1,0 +1,26 @@
+HA$PBExportHeader$f_musaat_devuelve_emplazamiento_fase.srf
+global type f_musaat_devuelve_emplazamiento_fase from function_object
+end type
+
+forward prototypes
+global function string f_musaat_devuelve_emplazamiento_fase (string id_fase)
+end prototypes
+
+global function string f_musaat_devuelve_emplazamiento_fase (string id_fase);string emplaza, tipo_via, n_calle
+string emplaza_total = ''
+  SELECT fases.tipo_via_emplazamiento,   
+         fases.emplazamiento,   
+         fases.n_calle  
+    INTO :tipo_via,   
+         :emplaza,   
+         :n_calle  
+    FROM fases  
+   WHERE fases.id_fase = :id_fase   ;
+
+if not(f_es_vacio(tipo_via) ) then emplaza_total += tipo_via
+if not(f_es_vacio(emplaza) ) then emplaza_total += ' ' + emplaza
+if not(f_es_vacio(n_calle) ) then emplaza_total += ', ' + n_calle
+
+return emplaza_total
+end function
+

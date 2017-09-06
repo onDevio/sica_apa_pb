@@ -1,0 +1,67 @@
+HA$PBExportHeader$d_libro_iva_factu_e_exentas.srd
+release 10.5;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 0 print.margin.right = 0 print.margin.top = 97 print.margin.bottom = 97 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes print.preview.outline=yes hidegrayline=no )
+header(height=584 color="536870912" )
+summary(height=208 color="536870912" )
+footer(height=112 color="536870912" )
+detail(height=68 color="536870912" height.autosize=yes )
+table(column=(type=char(15) updatewhereclause=yes name=csi_facturas_emitidas_n_fact dbname="csi_facturas_emitidas.n_fact" dbalias=".n_fact" )
+ column=(type=datetime updatewhereclause=yes name=csi_facturas_emitidas_fecha dbname="csi_facturas_emitidas.fecha" dbalias=".fecha" )
+ column=(type=char(15) updatewhereclause=yes name=csi_facturas_emitidas_nif dbname="csi_facturas_emitidas.nif" dbalias=".nif" )
+ column=(type=char(40) updatewhereclause=yes name=csi_facturas_emitidas_nombre dbname="csi_facturas_emitidas.nombre" dbalias=".nombre" )
+ column=(type=number updatewhereclause=yes name=total dbname="csi_facturas_emitidas.total" dbalias=".total" )
+ column=(type=number updatewhereclause=yes name=iva dbname="csi_facturas_emitidas.iva" dbalias=".iva" )
+ retrieve="  SELECT csi_facturas_emitidas.n_fact,   
+         csi_facturas_emitidas.fecha,   
+         csi_facturas_emitidas.nif,   
+         csi_facturas_emitidas.nombre,   
+         csi_facturas_emitidas.total,   
+         csi_facturas_emitidas.iva  
+    FROM csi_facturas_emitidas  
+   WHERE ( csi_facturas_emitidas.fecha <= :fecha_fin ) AND  
+         ( csi_facturas_emitidas.fecha >= :fecha_ini ) AND  
+         ( csi_facturas_emitidas.tipo_factura <> '04' ) AND  
+         ( csi_facturas_emitidas.centro like :centro ) AND  
+         ( csi_facturas_emitidas.iva = 0 ) AND  
+         ( csi_facturas_emitidas.solo_pagos = 'N' ) AND  
+         ( csi_facturas_emitidas.empresa = :empresa )  AND
+		( csi_facturas_emitidas.proforma = 'N')   
+" arguments=(("fecha_ini", datetime),("fecha_fin", datetime),("centro", string),("empresa", string))  sort="csi_facturas_emitidas_n_fact A " )
+compute(band=header alignment="0" expression="date(fecha_fin)"border="0" color="0" x="1330" y="300" height="56" width="375" format="[general]" html.valueishtml="0"  name=compute_1 visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=header alignment="0" expression="date(fecha_ini )"border="0" color="0" x="722" y="300" height="56" width="361" format="[general]" html.valueishtml="0"  name=compute_2 visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Desde :" border="0" color="0" x="521" y="300" height="56" width="187" html.valueishtml="0"  name=t_3 visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Hasta :" border="0" color="0" x="1147" y="300" height="56" width="165" html.valueishtml="0"  name=t_4 visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Libro de IVA de Facturas Emitidas Exentas" border="0" color="0" x="498" y="100" height="120" width="2738" html.valueishtml="0"  name=st_titulo_listado visible="1"  font.face="Arial" font.height="-18" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="Libro de IVA" border="0" color="16777215" x="133" y="160" height="56" width="334" html.valueishtml="0"  name=t_2 visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15780518" )
+compute(band=header alignment="2" expression="f_poner_logo_listados_superior (   )"border="0" color="16777215" x="133" y="88" height="64" width="334" format="[GENERAL]" html.valueishtml="0"  name=compute_8 visible="1"  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15780518" )
+text(band=header alignment="2" text="Registro" border="4" color="0" x="23" y="516" height="56" width="256" html.valueishtml="0"  name=t_9 visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="N$$HEX2$$ba002000$$ENDHEX$$Factura" border="4" color="0" x="297" y="516" height="56" width="448" html.valueishtml="0"  name=csi_facturas_emitidas_n_fact_t visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Fecha" border="4" color="0" x="763" y="516" height="56" width="274" html.valueishtml="0"  name=t_5 visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="NIF Receptor" border="4" color="0" x="1056" y="516" height="56" width="338" html.valueishtml="0"  name=t_6 visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Nombre Receptor" border="4" color="0" x="1413" y="516" height="56" width="987" html.valueishtml="0"  name=t_10 visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Importe Fact." border="4" color="0" x="2418" y="516" height="56" width="347" html.valueishtml="0"  name=csi_lineas_fact_emitidas_base_imp_t visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Importe IVA" border="4" color="0" x="2784" y="516" height="56" width="357" html.valueishtml="0"  name=csi_lineas_fact_emitidas_iva_t visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="297" y="4" height="56" width="448" format="[general]" html.valueishtml="0"  name=csi_lineas_fact_emitidas_n_fact visible="1" edit.limit=10 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="2" tabsequence=32766 border="0" color="0" x="763" y="4" height="56" width="274" format="dd/mm/yyyy" html.valueishtml="0"  name=csi_facturas_emitidas_fecha visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="1056" y="4" height="56" width="338" format="[general]" html.valueishtml="0"  name=csi_facturas_emitidas_nif visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="2" expression="getrow()"border="0" color="0" x="23" y="4" height="56" width="256" format="[GENERAL]" html.valueishtml="0"  name=compute_7 visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="1413" y="4" height="56" width="987" format="[general]" html.valueishtml="0"  name=csi_facturas_emitidas_nombre visible="1" height.autosize=yes edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="1" tabsequence=32766 border="0" color="0" x="2784" y="4" height="56" width="357" format="#,##0.00" html.valueishtml="0"  name=iva visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="1" tabsequence=32766 border="0" color="0" x="2418" y="4" height="56" width="347" format="#,##0.00" html.valueishtml="0"  name=total visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=summary x1="2341" y1="32" x2="3191" y2="32"  name=l_1 visible="1" pen.style="0" pen.width="5" pen.color="0"  background.mode="1" background.color="536870912" )
+text(band=summary alignment="2" text="Totales de Base Imponible e IVA.................." border="0" color="0" x="1312" y="88" height="56" width="1061" html.valueishtml="0"  name=t_8 visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="0" expression="sum(total for all)"border="0" color="0" x="2418" y="88" height="56" width="347" format="#,##0.00" html.valueishtml="0"  name=compute_9 visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="0" expression="sum(iva for all)"border="0" color="0" x="2784" y="88" height="56" width="357" format="#,##0.00" html.valueishtml="0"  name=compute_10 visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=footer alignment="0" expression="today()"border="0" color="0" x="23" y="40" height="64" width="247" format="[general]" html.valueishtml="0"  name=compute_5 visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=footer alignment="1" expression="'P$$HEX1$$e100$$ENDHEX$$gina ' + page() + ' de ' + pageCount()"border="0" color="0" x="2537" y="48" height="56" width="704" format="[general]" html.valueishtml="0"  name=compute_6 visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="0" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" pagingmethod=0 generatedddwframes="1" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()
+ 

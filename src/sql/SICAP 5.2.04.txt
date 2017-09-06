@@ -1,0 +1,36 @@
+// ****** SENTENCIAS PARA LA VERSIÓN V5.2.04. No integra sentencias de branches ****** 
+
+declare @colegio varchar(10)
+select @colegio = texto from var_globales where nombre = 'COLEGIO'
+
+if @colegio= 'COAATA'
+begin
+insert into var_globales (nombre,texto,descripcion) values ('g_codigo_concepto_redap','REDAP','Código del concepto o artículo que se cobra con los descuentos de contratos de tipo tramite = REDAP')
+insert into var_globales (nombre,numero,descripcion) values ('g_minimo_cip_REDAP', 18.102 ,'Mínimo para para cálculo de CIP de contratos cuyo tipo trámite es REDAP, No visared')
+end 
+go
+
+//SCP-933 - Listado proformas
+INSERT INTO listados (descripcion,dw,ventana,orden,activo) values ('Listado de Proformas','d_listado_proformas','w_facturacion_emitida_listados','00','S');
+
+//Sentencias que tenia por ahi perdidas de la version 5.2.01
+	//VRED-54 - Debido a los nuevos tipos de envios puestos en Visared, se añaden los mismos a SICAP para evitar conflictos.
+	INSERT INTO tipos_envio_visared (id_tipo_envio, codigo, comentario_visared, comentario_frontend) VALUES ('6','NU_VI','NUEVO VISADO TRABAJO','');
+	INSERT INTO tipos_envio_visared (id_tipo_envio, codigo, comentario_visared, comentario_frontend) VALUES ('7','MUSAA','MUSAAT','');
+
+//TODOS
+//SCP-941 Diario de Facturación y liquidación desglosado
+INSERT INTO listados(descripcion, dw, ventana, orden, activo ) values('Diario de Facturación y Liquidaciones desglosado', 'd_listado_fact_l_g_c_composite_des','w_facturacion_emitida_listados','02','S');
+
+
+//SCP-1060. Alexis. Todos
+alter table fases_liquidaciones add empresa char(5) null;
+
+update fases_liquidaciones set empresa = '01' where  f_entrada > '20080101';
+update fases_liquidaciones set empresa = '01' where  f_entrada <= '20080101' and f_entrada > '20040101';
+update fases_liquidaciones set empresa = '01' where  f_entrada <= '20040101' and f_entrada > '19990101';
+update fases_liquidaciones set empresa = '01' where  f_entrada <= '19990101' and f_entrada > '19940101';
+update fases_liquidaciones set empresa = '01' where  f_entrada <= '19940101';
+
+//\/\/\/ CAMBIAR BD SI FUESE NECESARIO \/\/\/\///
+dump tran sica with truncate_only;

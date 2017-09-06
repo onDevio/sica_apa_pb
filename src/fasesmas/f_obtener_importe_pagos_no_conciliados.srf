@@ -1,0 +1,35 @@
+HA$PBExportHeader$f_obtener_importe_pagos_no_conciliados.srf
+global type f_obtener_importe_pagos_no_conciliados from function_object
+end type
+
+forward prototypes
+global function double f_obtener_importe_pagos_no_conciliados (string as_id_fase, string as_id_colegiado)
+end prototypes
+
+global function double f_obtener_importe_pagos_no_conciliados (string as_id_fase, string as_id_colegiado);///*********************************************************************************************************************************
+///***                       Funci$$HEX1$$f300$$ENDHEX$$n para obtener la cantidad pendiente de conciliar correspondiente a los pagos realizados desde la plataforma de visados.                     *************
+///*** Par$$HEX1$$e100$$ENDHEX$$metros:                                                                                                                                                                                                                 ************
+///*** as_id_fase - Identificador de la fase es cuesti$$HEX1$$f300$$ENDHEX$$n                                                                                                                                                               ************  
+///*** as_id_colegiado - Identificador del colegiado que ha realizado el pago. Se puede recibir '%' para recoger los pagos de todos los colegiados.                           ************
+///*********************************************************************************************************************************
+///*** Retorno double con el valor de la cantidad pendiente a conciliar.                                                                                                                                     *************
+///*********************************************************************************************************************************
+
+double ldb_total_sin_conciliar
+string ls_n_colegiado
+
+if not f_es_vacio(as_id_colegiado) and as_id_colegiado <> '%' then 
+	ls_n_colegiado = f_colegiado_n_col(as_id_colegiado)
+else
+	ls_n_colegiado = '%'
+end if 	
+
+select sum(importe_pago) into :ldb_total_sin_conciliar
+from fases_pagos_plataforma
+where id_fase =:as_id_fase
+and n_colegiado like :ls_n_colegiado
+and conciliado = 'N';
+
+return ldb_total_sin_conciliar
+end function
+

@@ -1,0 +1,8 @@
+Save Format v3.0(19990112)
+@begin Libraries
+ "a_csd_fu\\a_csd_fu.pbl" "";
+@end;
+@begin Objects
+ "a_csd_fu\\soapexception.sru" "a_csd_fu\\a_csd_fu.pbl";
+ "a_csd_fu\\soapconnection.sru" "a_csd_fu\\a_csd_fu.pbl";
+@end;

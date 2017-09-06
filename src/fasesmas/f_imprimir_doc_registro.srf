@@ -1,0 +1,20 @@
+HA$PBExportHeader$f_imprimir_doc_registro.srf
+global type f_imprimir_doc_registro from function_object
+end type
+
+forward prototypes
+global function string f_imprimir_doc_registro ()
+end prototypes
+
+global function string f_imprimir_doc_registro ();
+string ls_imprimir_doc_registro
+
+select sn into :ls_imprimir_doc_registro
+from var_globales 
+where nombre = 'g_imprimir_registro_docs_fase' using sqlca;
+
+if f_es_vacio(ls_imprimir_doc_registro) then ls_imprimir_doc_registro = 'N'
+
+return ls_imprimir_doc_registro
+end function
+

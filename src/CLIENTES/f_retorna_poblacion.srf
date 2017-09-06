@@ -1,0 +1,24 @@
+HA$PBExportHeader$f_retorna_poblacion.srf
+global type f_retorna_poblacion from function_object
+end type
+
+forward prototypes
+global function string f_retorna_poblacion (string id_cliente)
+end prototypes
+
+global function string f_retorna_poblacion (string id_cliente);// f_cliente(nif) return string
+
+string datos_cliente = ''
+string poblacion, provincia, cp
+
+select cod_pob,cod_prov, cp into :poblacion, :provincia, :cp from clientes where id_cliente=:id_cliente;
+
+datos_cliente = f_obtener_poblacion_activa(poblacion,provincia,cp)
+
+//messagebox ('',datos_colegiado)
+
+return datos_cliente
+
+
+end function
+

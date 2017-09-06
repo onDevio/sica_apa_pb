@@ -1,0 +1,25 @@
+HA$PBExportHeader$f_devuelve_id_fase_por_num.srf
+global type f_devuelve_id_fase_por_num from function_object
+end type
+
+forward prototypes
+global function string f_devuelve_id_fase_por_num (string num_fase)
+end prototypes
+
+global function string f_devuelve_id_fase_por_num (string num_fase);string id_registro
+
+	SELECT fases.id_fase  
+    INTO :id_registro  
+    FROM fases  
+   WHERE fases.n_registro = :num_fase   
+           ;
+
+	if f_es_vacio(id_registro)	then  
+
+		return "-1" 
+	else 
+		return id_registro 
+	end if
+
+end function
+

@@ -1,0 +1,26 @@
+HA$PBExportHeader$f_devuelve_nom_promotor.srf
+global type f_devuelve_nom_promotor from function_object
+end type
+
+forward prototypes
+global function string f_devuelve_nom_promotor (string id_fase)
+end prototypes
+
+global function string f_devuelve_nom_promotor (string id_fase);
+
+string nom_promotor,id_cli
+
+
+  SELECT fases_clientes.id_cliente  
+  into :id_cli
+    FROM fases_clientes  
+   WHERE fases_clientes.id_fase = :id_fase and promotor = 'S' ;
+
+	
+nom_promotor=  f_dame_cliente(id_cli) 
+
+if isnull(nom_promotor)  then nom_promotor= ''
+
+return nom_promotor
+end function
+

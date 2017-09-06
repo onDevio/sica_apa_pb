@@ -1,0 +1,11 @@
+HA$PBExportHeader$st_visared_incidencias.srs
+global type st_visared_incidencias from structure
+	string		incidencia
+	string		solucion
+	string		campo_anomalo
+	string		valor_codigo
+	string		evento_asociado
+	string		nivel_incidencia
+	string		valor_descripcion
+end type
+

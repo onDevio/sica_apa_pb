@@ -1,0 +1,13 @@
+HA$PBExportHeader$f_n_fact_automatico.srf
+global type f_n_fact_automatico from function_object
+end type
+
+forward prototypes
+global subroutine f_n_fact_automatico (string valor)
+end prototypes
+
+global subroutine f_n_fact_automatico (string valor);// Esta funci$$HEX1$$f300$$ENDHEX$$n est$$HEX2$$e1002000$$ENDHEX$$pensada para ser lanzada con "post" para cambiar el valor al final de todos los procesos.
+
+g_n_fact_automatico=valor
+end subroutine
+

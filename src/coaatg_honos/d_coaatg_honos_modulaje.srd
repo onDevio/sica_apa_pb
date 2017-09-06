@@ -1,0 +1,17 @@
+HA$PBExportHeader$d_coaatg_honos_modulaje.srd
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=72 color="536870912" )
+table(column=(type=char(10) update=yes updatewhereclause=yes key=yes name=id dbname="modulajes.id" )
+ column=(type=char(255) update=yes updatewhereclause=yes name=descripcion dbname="modulajes.descripcion" )
+ column=(type=long update=yes updatewhereclause=yes name=nivel dbname="modulajes.nivel" )
+ column=(type=char(255) update=yes updatewhereclause=yes name=modulaje dbname="modulajes.modulaje" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=id_tabla dbname="modulajes.id_tabla" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=orden dbname="modulajes.orden" )
+ retrieve="PBSELECT( VERSION(400) TABLE(NAME=~"modulajes~" ) COLUMN(NAME=~"modulajes.id~") COLUMN(NAME=~"modulajes.descripcion~") COLUMN(NAME=~"modulajes.nivel~") COLUMN(NAME=~"modulajes.modulaje~") COLUMN(NAME=~"modulajes.id_tabla~") COLUMN(NAME=~"modulajes.orden~")WHERE(    EXP1 =~"modulajes.id_tabla~"   OP =~"=~"    EXP2 =~":id_tabla~" ) ) ARG(NAME = ~"id_tabla~" TYPE = string) " update="modulajes" updatewhere=1 updatekeyinplace=no arguments=(("id_tabla", string))  sort="orden A " )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="18~tif(nivel = 2, 40,20)" y="8" height="60" width="1591" format="[general]"  name=descripcion edit.limit=255 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400~tif(nivel=2, 400 ,800)"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="1627~tif(nivel= 2, 1647, 1627)" y="8" height="60" width="530" format="[general]"  name=modulaje edit.limit=255 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400~tif(nivel=2, 400 ,800)"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

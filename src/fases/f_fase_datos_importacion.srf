@@ -1,0 +1,12 @@
+HA$PBExportHeader$f_fase_datos_importacion.srf
+global type f_fase_datos_importacion from function_object
+end type
+
+forward prototypes
+global function st_fases_importacion_fase f_fase_datos_importacion (st_fases_otras_fases st_otras_fases)
+end prototypes
+
+global function st_fases_importacion_fase f_fase_datos_importacion (st_fases_otras_fases st_otras_fases);OpenWithParm(w_fases_otras_fases,st_otras_fases)
+return Message.PowerObjectParm
+end function
+

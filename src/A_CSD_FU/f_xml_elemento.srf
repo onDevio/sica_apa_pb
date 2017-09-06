@@ -1,0 +1,40 @@
+HA$PBExportHeader$f_xml_elemento.srf
+global type f_xml_elemento from function_object
+end type
+
+forward prototypes
+global function string f_xml_elemento (string fichero, string elemento)
+end prototypes
+
+global function string f_xml_elemento (string fichero, string elemento);//Funci$$HEX1$$f300$$ENDHEX$$n que devuelve el valor de un elemento dentro de un fichero XML
+//Par$$HEX1$$e100$$ENDHEX$$metros:
+//		fichero	:fichero con extensi$$HEX1$$f300$$ENDHEX$$n *.xml
+//		elemento	:elemento del cual se quiere obtener su valor, el formato deber$$HEX2$$e1002000$$ENDHEX$$ser <elemento>
+int filenumber,posicion,pos_o,pos_f,leido
+string texto_linea,retorno
+boolean encontrado = false
+
+retorno = ''
+filenumber = FileOpen(fichero)
+
+leido = FileRead(filenumber,texto_linea)
+texto_linea = trim(texto_linea) //Suprimimos espacios en blanco del texto
+
+do while leido>0 and not encontrado
+posicion = PosA(upper(texto_linea),upper(elemento),1)
+if posicion>0 then
+	pos_o = LenA(elemento)+1
+	pos_f = PosA(texto_linea,'</',1)
+	if pos_f<=0 then pos_f=LenA(texto_linea)+1
+	retorno = MidA(texto_linea,pos_o,pos_f - pos_o)
+	encontrado= true
+end if
+leido = FileRead(filenumber,texto_linea)
+texto_linea = trim(texto_linea) //Suprimimos espacios en blanco del texto
+loop
+
+FileClose(filenumber)
+
+return retorno
+end function
+

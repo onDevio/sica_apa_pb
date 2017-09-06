@@ -1,0 +1,20 @@
+HA$PBExportHeader$f_devuelve_desc_concepto.srf
+global type f_devuelve_desc_concepto from function_object
+end type
+
+forward prototypes
+global function string f_devuelve_desc_concepto (string cod_concepto)
+end prototypes
+
+global function string f_devuelve_desc_concepto (string cod_concepto);string desc_concepto = ''
+  SELECT csi_articulos_servicios.descripcion  
+    INTO :desc_concepto  
+    FROM csi_articulos_servicios  
+  HAVING ( csi_articulos_servicios.codigo = :cod_concepto )   ;
+
+
+if f_es_vacio(desc_concepto) then desc_concepto= ''
+
+return desc_concepto
+end function
+

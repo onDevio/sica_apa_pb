@@ -1,0 +1,152 @@
+HA$PBExportHeader$f_calcular_cip_guipuz.srf
+$PBExportComments$Calcula el total de cip para guipuzkoa
+global type f_calcular_cip_guipuz from function_object
+end type
+
+forward prototypes
+global function integer f_calcular_cip_guipuz (ref st_cip_datos st_cip_datos)
+end prototypes
+
+global function integer f_calcular_cip_guipuz (ref st_cip_datos st_cip_datos);// Entrada
+string tipo_act, tipo_obra, anyo, mes = '00'
+double pem, Ca, Cp
+// Salida
+double cip, coef_c, coef_k
+// F$$HEX1$$f300$$ENDHEX$$rmula
+// 				 PEM * Coef C * Coef K 
+// CIP = ( 12 + --------------------- ) * Ca * Cp 
+// 							1000
+// Retorno
+// 0 : $$HEX1$$e900$$ENDHEX$$xito
+// -1 :error
+
+//Ca = g_ca
+//Cp = g_cp
+if isnull(st_cip_datos.fecha) then
+	anyo = g_ejercicio
+else
+	anyo = string(year(date(st_cip_datos.fecha)) )
+	mes = string(month(date(st_cip_datos.fecha)) )
+	mes = RightA('00' + mes, 2)
+end if
+tipo_act = st_cip_datos.tipo_act
+tipo_obra = st_cip_datos.tipo_obra
+pem = st_cip_datos.pem
+
+if f_es_vacio(tipo_act) or f_es_vacio(tipo_obra) or isnull(st_cip_datos.pem) then
+	return -1
+end if
+
+// Coeficiente K
+SELECT desc_gui_tipo_act.coef_k  
+INTO :coef_k  
+FROM desc_gui_tipo_act  
+WHERE ( :tipo_act like desc_gui_tipo_act.tipo_actuacion OR
+		desc_gui_tipo_act.tipo_actuacion = '%'  ) AND  
+      ( :tipo_obra like desc_gui_tipo_act.tipo_obra OR
+		desc_gui_tipo_act.tipo_obra = '%' ) AND  
+      ( desc_gui_tipo_act.anyo = :anyo )   ;
+
+if sqlca.sqlcode <> 0 then
+		SELECT desc_gui_tipo_act.coef_k  
+		INTO :coef_k  
+		FROM desc_gui_tipo_act  
+		WHERE ( :tipo_act like desc_gui_tipo_act.tipo_actuacion OR
+		desc_gui_tipo_act.tipo_actuacion = '%'  ) AND  
+		( :tipo_obra like desc_gui_tipo_act.tipo_obra OR
+		desc_gui_tipo_act.tipo_obra = '%' ) AND  
+		( desc_gui_tipo_act.anyo like '*' )   ;	
+	if sqlca.sqlcode <> 0 then		
+		st_cip_datos.mensaje = 'DIC : No se encuentra esta combinaci$$HEX1$$f300$$ENDHEX$$n en la tabla para el coeficiente K'
+		return -1
+	end if
+end if
+
+
+
+// Coeficientes Ca y Cp
+  SELECT desc_gui_coefs.coef_a,   
+         desc_gui_coefs.coef_p  
+    INTO :Ca,   
+         :Cp  
+    FROM desc_gui_coefs  
+   WHERE ( desc_gui_coefs.desde_fecha <= :st_cip_datos.fecha ) AND  
+         ( desc_gui_coefs.hasta_fecha > :st_cip_datos.fecha )   ;
+
+	if sqlca.sqlcode <> 0 then	
+		st_cip_datos.mensaje = 'DIC : No se encuentra esta combinaci$$HEX1$$f300$$ENDHEX$$n en la tabla para los coeficientes Ca y Cp'
+		return -1
+	end if
+
+double base_tabla
+if anyo >= '2004' then 
+	base_tabla = pem / Ca
+else
+	base_tabla = pem 
+end if
+
+// Coeficiente C
+SELECT desc_gui_pem.coef_c  
+INTO :coef_c  
+FROM desc_gui_pem  
+WHERE ( desc_gui_pem.pem_desde <= :base_tabla ) AND  
+      ( desc_gui_pem.pem_hasta >= :base_tabla ) AND  
+      ( desc_gui_pem.anyo like :anyo )  ;
+
+if sqlca.sqlcode <> 0 then
+	SELECT desc_gui_pem.coef_c  
+	INTO :coef_c  
+	FROM desc_gui_pem  
+	WHERE ( desc_gui_pem.pem_desde <= :base_tabla ) AND  
+	( desc_gui_pem.pem_hasta >= :base_tabla ) AND  
+	( desc_gui_pem.anyo like '*' )  ;	
+	
+	if sqlca.sqlcode <> 0 then	
+		st_cip_datos.mensaje = 'DIC : No se encuentra esta combinaci$$HEX1$$f300$$ENDHEX$$n en la tabla para el coeficiente C'
+		return -1
+	end if
+end if
+
+
+choose case anyo
+	case '1900' TO '2003'
+		cip = ( ( ( pem * coef_c * coef_k) / 1000 ) + 12 ) * Ca * Cp
+	case '2004'
+		cip = ( ( ( 12 * Ca) + ( pem * coef_c * coef_k/ 1000 )  ) ) * Cp
+	case '2005', '2006'
+		cip = ( ( ( 12 * Ca) + ( pem * coef_c * coef_k/ 1000 )  ) ) * Cp
+		choose case st_cip_datos.tipo_act
+			case '01','02'
+				if st_cip_datos.pem <= 61000 then cip = 6 * Ca
+			case '03'
+				if st_cip_datos.pem <= 61000 then cip = 12 * Ca
+			case '04','05'
+				if st_cip_datos.pem <= 61000 then cip = 18 * Ca
+			case '71','72','73','74','75'
+				cip = 6 * Ca
+			case else
+				cip = ( ( ( 12 * Ca) + ( pem * coef_c * coef_k/ 1000 )  ) ) * Cp
+		end choose
+	case '2007' TO '2050'
+		cip = ( ( ( 12 * Ca) + ( pem * coef_c * coef_k/ 1000 )  ) ) * Cp
+		choose case st_cip_datos.tipo_act
+			case '01','02'
+				if st_cip_datos.pem <= 68000 then cip = 6 * Ca
+			case '03'
+				if st_cip_datos.pem <= 68000 then cip = 12 * Ca
+			case '04','05'
+				if st_cip_datos.pem <= 68000 then cip = 18 * Ca
+			case '71','72','73','74','75'
+				cip = 6 * Ca
+			case else
+				cip = ( ( ( 12 * Ca) + ( pem * coef_c * coef_k/ 1000 )  ) ) * Cp
+		end choose		
+end choose
+		
+
+st_cip_datos.cip = f_redondea(cip)
+
+return 0
+
+end function
+

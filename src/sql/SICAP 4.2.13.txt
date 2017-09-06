@@ -1,0 +1,226 @@
+declare @colegio varchar(10)
+select @colegio = texto from var_globales where nombre = 'COLEGIO'
+
+// TODOS
+alter table t_documentos add colegiados char(1)  default 'S' null
+update t_documentos set colegiados=expedi
+
+
+-- MALLORCA
+if @colegio = 'COAATNA'
+begin
+-- COAM 85
+INSERT INTO menu ( codigo, descripcion,  objeto, visible, enabled, ventana, activo )  
+  VALUES ('0000000204','Generar Facturas Pendientes','m_file.m_new.m_avisosdefactura.m_generarfacturaspendientes', '1', '1',  'w_minutas_genera_factura', 'S' )
+
+--- COAM 80
+INSERT INTO listados ( descripcion, dw, ventana, orden,  activo )  
+  VALUES ( 'Listado de situación económica colegial Det.', 'd_colegiado_listado_sit_detallado',   'w_facturacion_emitida_listados',  '00',   'S' )
+
+INSERT INTO listados ( descripcion, dw, ventana, orden,  activo )  
+  VALUES ( 'Listado de situación económica colegial', 'd_colegiado_listado_sit_resumen',   'w_facturacion_emitida_listados',  '00',   'S' )
+
+INSERT INTO consultas ( id_consulta,  ventana, descripcion, fecha, usuario )  
+  VALUES ( '0000010011', 'w_minutas_genera_factura',  'INICIO', null, '0000000001' ) 
+
+INSERT INTO consultas_datos ( id_consulta_datos,  datawindow, columna,  valor_double,  valor_string,  valor_datetime,  fila,  id_consulta )  
+  VALUES ( 'X000010313', 'dw_1',  3, null,  '12', null,   1,     '0000010011' )  ;
+
+
+create table dbo.t_laboratorio (codigo char(10) not null, descripcion char(50) null) ;
+alter table dbo.t_laboratorio add constraint pk_laboratorio primary key nonclustered (codigo) ;
+
+alter table coaatmca_fases_estadistica add cod_lab char(2) null;
+
+--- COAM 79
+INSERT INTO listados ( descripcion, dw, ventana, orden,  activo )  
+ VALUES ( 'Resumen de colegiados.', 'd_colegiado_listado_resumen_col',   'w_colegiados_listado',  '00',   'S' );
+
+--- COAM-127
+UPDATE listados SET Dw='d_fases_listado_general_mca' WHERE Ventana='w_fases_listados' AND Descripcion='Listado General';
+
+
+-- COAM 129
+INSERT INTO listados ( descripcion, dw, ventana, orden,  activo )  
+  VALUES ('Listado de obras por laboratorio.', 'd_final_obra_listado_laboratorio_mca',   'w_final_obra_listados',  '00',   'S' )
+
+
+-- Se agrega columna de porcentaje en la pestaña de avisos.
+  INSERT INTO t_control_eventos  
+         ( control,   evento,   activo,   param1,   param2,   id_control )  
+  VALUES ( 'VISIBLE_OBJETO',   'FASES_MINUTAS',   'S',   't_porc_cip', '1',   'FM00001' )  ;
+
+  INSERT INTO t_control_eventos  
+         ( control,   evento,   activo,   param1,   param2,   id_control )  
+  VALUES ( 'VISIBLE_OBJETO',   'FASES_MINUTAS',   'S',   'porc_cip', '1',   'FM00002' )  ;
+
+-- COAM 142
+INSERT INTO listados ( descripcion, dw, ventana, orden,  activo )  
+VALUES ( 'Listado de Visados con Visado Anterior Relacionado', 'd_fases_listado_visado_relacionado_mca',   'w_fases_listados',  '00',   'S' );
+
+
+--COAM 146
+ INSERT INTO listados ( descripcion, dw, ventana, orden,  activo )  
+VALUES ( 'Listado de visados remotos – documentación pendientes', 'd_fases_listado_visado_remoto_doc_pte',   'w_fases_listados',  '00',   'S' );
+
+-- COAM 148
+INSERT INTO listados ( descripcion, dw, ventana, orden,  activo )  
+VALUES ( 'Listado de altas y bajas de colegiados', 'd_colegiado_listado_altabaja_mca',   'w_colegiado_listados',  '00',   'S' );
+
+-- COAM 149
+INSERT INTO listados ( descripcion, dw, ventana, orden,  activo )  
+VALUES ( 'Listado de visados por fecha estadístico', 'd_fases_estadistica_listado_x_fecha_mca',   'w_fases_estadisticas',  '00',   'S' );
+
+-- COAM 163
+INSERT INTO listados ( descripcion, dw, ventana, orden,  activo )  
+VALUES ( 'Resumen de trabajos de colegiados acreditados', 'd_colegiados_listados_resumen_trabajo_mca',   'w_acreditaciones_listados',  '00',   'S' );
+
+-- COAM 165
+INSERT INTO listados ( descripcion, dw, ventana, orden,  activo )  
+VALUES ( 'Listado Reclamación de datos', 'd_colegiados_listados_reclamacion_datos_mca',   'w_colegiados_listados',  '00',   'S' );
+
+
+//todos
+  INSERT INTO incidencias_familias  
+         ( codigo,   
+           descripcion )  
+  VALUES ( 'EXP',   
+           'EXPEDIENTE' )  ;
+
+  INSERT INTO incidencias_expedientes  
+         ( codigo,   
+           descripcion,   
+           tipo_familia,   
+           aviso )  
+  VALUES ( '2',   
+           'ANEXOS',   
+           'EXP',   
+           'S' )  ;
+
+
+INSERT INTO otros_conceptos ( codigo, tipo, modulo, descripcion ) 
+VALUES ( 'OR', 'S', 'C', 'Reclamante' );
+INSERT INTO otros_conceptos ( codigo, tipo, modulo, descripcion ) 
+VALUES ( 'EX','S','C','Expediente' );
+INSERT INTO otros_conceptos ( codigo, tipo, modulo, descripcion ) 
+VALUES ( 'RE','S','C','Responsable' );
+INSERT INTO otros_conceptos ( codigo, tipo, modulo, descripcion ) 
+VALUES ( 'CA','s','C','Cargo' );
+
+end 
+
+
+-- GRAN CANARIA
+if @colegio = 'COAATGC'
+begin
+-- CGC-105
+INSERT INTO listados(descripcion, dw, ventana, orden, activo) VALUES ('Listado de Obras Pendientes', 'd_fases_listado_obras_pendientes_gc', 'w_fases_listados', '00', 'S');
+end
+
+
+
+-- LA RIOJA
+
+if @colegio = 'COAATLR'
+begin
+
+-- CRI-170
+INSERT INTO listados(Descripcion, Dw, Ventana, Orden, Activo) VALUES ('Minutas Impagadas con más de 180 días', 'd_fases_listado_impagadas_180_dias', 'w_fases_listados', '00', 'S');
+
+end
+
+-- Tarragona
+if @colegio = 'COAATTGN'
+begin
+
+-- CGN-481
+insert into messages_ca 
+values('clientes.lista_personal', 'Llista Personal', 'clientes', 'lista_personal')
+
+end
+
+//Todos
+alter table fases_finales add f_visado datetime null, f_retirado datetime null
+//TODOS
+alter table clientes add autoriza_datos char(1) default 'N' null
+clientes set autoriza_datos = 'N' where autoriza_datos is null 
+
+--- SCP-252
+alter table registro add empresa char(2) null;
+update registro set empresa = '01';
+
+//TODOS
+alter table musaat_cober_src add cod_s nvarchar(2) null;
+
+
+
+-- TODOS
+-- Se agrega campo en fases_documentos_visared fecha de entrega de documentos
+alter table fases_documentos_visared add f_entrega datetime null;
+
+-- TODOS
+-- Se modifica el tamaño del campo n_arqui de domiciliaciones
+create table dbo.domiciliaciones_2 (id_domiciliacion char(10) not null, fecha datetime null, 
+remesado char(1) null, id_col char(10) null, importe double precision null, banco_dom char(23) null,
+ referencia char(10) null, cancelada char(1) null, tipo char(1) null, documento char(12) null, 
+cod_devol char(6) null, ref_interna char(10) null, concepto char(40) null, n_arqui char(15) null, 
+cod_banco char(10) null, tipo_persona char(1) null, forma_pago char(2) null) ;
+
+alter table dbo.domiciliaciones_2 add constraint domiciliaciones_x primary key nonclustered (id_domiciliacion) ;
+create nonclustered index id_col on dbo.domiciliaciones_2 (id_col ) ;
+create nonclustered index ref_interna on dbo.domiciliaciones_2 (ref_interna ) ;
+
+insert into domiciliaciones_2 select * from domiciliaciones ;
+
+drop table domiciliaciones;
+
+create table dbo.domiciliaciones (id_domiciliacion char(10) not null, fecha datetime null, 
+remesado char(1) null, id_col char(10) null, importe double precision null, banco_dom char(23) null,
+ referencia char(10) null, cancelada char(1) null, tipo char(1) null, documento char(12) null, 
+cod_devol char(6) null, ref_interna char(10) null, concepto char(40) null, n_arqui char(15) null, 
+cod_banco char(10) null, tipo_persona char(1) null, forma_pago char(2) null) ;
+
+alter table dbo.domiciliaciones add constraint domiciliaciones_x primary key nonclustered (id_domiciliacion) ;
+create nonclustered index id_col on dbo.domiciliaciones (id_col ) ;
+create nonclustered index ref_interna on dbo.domiciliaciones (ref_interna ) ;
+
+insert into domiciliaciones select * from domiciliaciones_2 ;
+
+drop table domiciliaciones_2; 
+
+--TODOS
+alter table csi_cobros add empresa char(2) null;
+
+update csi_cobros set empresa = '01';
+
+alter table csi_cobros_multiples add empresa char(2) null;
+
+update csi_cobros_multiples set empresa = '01';
+
+alter table domiciliaciones add empresa char(2) null;
+
+update domiciliaciones set empresa = '01';
+
+
+
+
+-- Todos
+--Se agrega referencia de la pasarela de pago a las remesas
+alter table remesas add referencia_tpv char(40) null;
+
+-- todos 
+alter table fases add f_mantenimiento datetime null;
+
+--todos
+alter table fases_renuncias add porc_obra_ejecutada double precision null,  porc_participacion_sobre_ejec double precision null, 
+porc_obra_pendiente double precision null, porc_renuncia_sobre_pendiente double precision null, porc_participacion_sobre_pte double precision null, 
+porc_final_sobre_total_obra double precision null;
+
+
+-- Todos
+  INSERT INTO var_globales( nombre,  sn,   descripcion,  modificable )
+  VALUES ( 'g_aplica_pem_seguridad','N','Indica que se aplica el presupuesto de seguridad para algunas intervenciones','S' );
+
+go
+
+

@@ -1,0 +1,79 @@
+HA$PBExportHeader$f_rellena_lineas_sello.srf
+global type f_rellena_lineas_sello from function_object
+end type
+
+forward prototypes
+global function st_sello f_rellena_lineas_sello (u_dw dw_2, st_sello sello)
+end prototypes
+
+global function st_sello f_rellena_lineas_sello (u_dw dw_2, st_sello sello);//////////////////////////////////////
+//////////////////////////////////////
+//Esta funcion divide las lineas de texto 
+//cuando se llega a una marca especial 
+//definida por ### en la base de datos
+//////////////////////////////////////
+//////////////////////////////////////
+
+int i,j,k,tammax,tamtexto,num,contador,l,fin,diftam
+string color,activo,texto,textoaux,resto,codigo
+
+contador=1
+//Rellenamos las lineas de texto
+for i=1 to dw_2.rowcount()
+	activo = dw_2.getitemstring(i,'activo')
+	if activo ='N' then continue
+	color=dw_2.getitemstring(i,'color')
+	codigo=dw_2.getitemstring(i,'codigo')
+	//texto = dw_2.getitemstring(i,'texto')
+	textoaux = dw_2.getitemstring(i,'texto')
+	fin=0
+	do while fin=0 
+		tamtexto=LenA(textoaux)
+		tammax=PosA(textoaux,"#")-1
+		diftam=tamtexto - tammax
+		//num=int(tamtexto/tammax)
+		if tammax<>-1 then
+			//messagebox(g_titulo,"El texto "+string(i) + " no cabe en una linea y se va a dividir.")
+			texto=MidA(textoaux,0,tammax)
+			resto=MidA(textoaux,tammax+4,diftam)
+			textoaux=resto
+		else
+			fin=1
+			texto=MidA(textoaux,0,tamtexto)
+		end if
+	choose case contador
+		case 1
+			sello.texto1 = texto
+			sello.color1=color
+			sello.codigo1=codigo
+			contador++
+		case 2
+			sello.texto2 = texto
+			sello.color2=color
+			sello.codigo2=codigo
+			contador++
+		case 3
+			sello.texto3 = texto
+			sello.color3=color
+			sello.codigo3=codigo
+			contador++
+		case 4
+			sello.texto4 = texto
+			sello.color4=color
+			sello.codigo4=codigo
+			contador++
+		case 5
+			sello.texto5 = texto
+			sello.color5=color
+			sello.codigo5=codigo
+			contador++
+	end choose
+	loop
+next
+
+
+
+
+return sello
+end function
+

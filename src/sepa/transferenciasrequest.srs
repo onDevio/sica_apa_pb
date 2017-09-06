@@ -1,0 +1,6 @@
+HA$PBExportHeader$transferenciasrequest.srs
+$PBExportComments$Proxy imported from Web service using Web Service Proxy Generator.
+global type transferenciasRequest from structure
+    string inputText
+end type
+

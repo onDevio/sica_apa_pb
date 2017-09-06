@@ -1,0 +1,32 @@
+HA$PBExportHeader$f_dame_campos_string_formadepago.srf
+global type f_dame_campos_string_formadepago from function_object
+end type
+
+forward prototypes
+global function string f_dame_campos_string_formadepago (string campo, string tipo_pago)
+end prototypes
+
+global function string f_dame_campos_string_formadepago (string campo, string tipo_pago);string contado, cuenta
+
+// Funci$$HEX1$$f300$$ENDHEX$$n para obtener datos de texto de la tabla de Formas de Pago
+
+SELECT contado, cuenta
+INTO :contado, :cuenta
+FROM csi_formas_de_pago
+WHERE tipo_pago = :tipo_pago;
+
+
+CHOOSE CASE campo
+		
+	CASE 'contado'
+		If f_es_vacio(contado) then contado = ''
+		return contado		
+	CASE 'cuenta'
+		If f_es_vacio(cuenta) then cuenta = ''
+		return cuenta
+	CASE ELSE
+		return ''
+		
+END CHOOSE
+end function
+

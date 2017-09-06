@@ -1,0 +1,56 @@
+HA$PBExportHeader$f_reg_es_filtrar_serie.srf
+global type f_reg_es_filtrar_serie from function_object
+end type
+
+forward prototypes
+global subroutine f_reg_es_filtrar_serie (u_dw dw_1, string es)
+end prototypes
+
+global subroutine f_reg_es_filtrar_serie (u_dw dw_1, string es);string filtro
+string codigos,cod_aplic
+string sql_nuevo,sql
+datawindowchild dwc_serie
+
+dw_1.GetChild('serie',dwc_serie)
+
+if es="%" then
+	filtro="(cod_delegacion = '"+g_cod_delegacion+"' or cod_delegacion = '%') and empresa ='"+g_empresa+"'"
+else
+	//filtro="(cod_delegacion = '"+g_cod_delegacion+"' or cod_delegacion = '%') and tipo='"+es+"'"
+	filtro="(cod_delegacion = '"+g_cod_delegacion+"' or cod_delegacion = '%') and empresa = '"+g_empresa+"' and tipo='"+es+"'"
+end if
+
+	dwc_serie.SetTransObject(SQLCA)
+	
+// SI NO ES SUPERUSUARIO FILTRAMOS LAS SERIES POR PERMISOS
+// LOS PERMISOS DE SERIES (EL COD_APLICACION) DEBEN EMPEZAR POR 'REG'
+if f_es_superusuario()='-1' then
+	sql = dwc_serie.describe("datawindow.table.select")
+	sql_nuevo=sql
+	
+	 DECLARE permisos CURSOR FOR  
+	  SELECT t_permisos.cod_aplicacion FROM t_permisos WHERE t_permisos.cod_usuario=:g_usuario and t_permisos.cod_aplicacion like 'REG%';
+		
+	open permisos;
+	fetch permisos into :cod_aplic;
+	do while SQLCA.sqlcode=0
+		codigos+="'"+cod_aplic+"',"
+		fetch permisos into :cod_aplic;	
+	loop
+	if len(codigos)>0 then 
+		codigos=left(codigos,len(codigos) - 1)
+	else
+		codigos="''"
+	end if
+	
+	sql_nuevo+= " WHERE registro_series.cod_aplicacion='%' or registro_series.cod_aplicacion in ("+codigos+") and registro_series.empresa='"+g_empresa+"'"
+
+	dwc_serie.modify("datawindow.table.select= ~"" + sql_nuevo + "~"")
+	dwc_serie.retrieve()
+	dwc_serie.modify("datawindow.table.select= ~"" + sql + "~"")
+	Close permisos;
+end if
+dwc_serie.SetFilter(filtro)
+dwc_serie.Filter()
+end subroutine
+

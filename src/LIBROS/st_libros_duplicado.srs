@@ -1,0 +1,21 @@
+HA$PBExportHeader$st_libros_duplicado.srs
+global type st_libros_duplicado from structure
+	string		n_registro
+	string		f_entrada
+	string		titulo
+	string		autor
+	string		cdu
+	string		materias
+	string		isbn
+	string		edicion
+	long		anyo
+	string		editorial
+	string		resumen
+	string		prestado
+	string		coleccion
+	string		tipo_libro
+	string		prestable
+	string		numero
+	string		ubicacion
+end type
+

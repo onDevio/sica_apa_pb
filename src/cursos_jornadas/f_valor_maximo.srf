@@ -1,0 +1,17 @@
+HA$PBExportHeader$f_valor_maximo.srf
+global type f_valor_maximo from function_object
+end type
+
+forward prototypes
+global function integer f_valor_maximo (string id_pregunta)
+end prototypes
+
+global function integer f_valor_maximo (string id_pregunta);integer max
+
+SELECT max(valor_respuesta)
+INTO :max
+FROM formacion_mant_test;
+
+return max
+end function
+

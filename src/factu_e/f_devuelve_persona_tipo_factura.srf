@@ -1,0 +1,28 @@
+HA$PBExportHeader$f_devuelve_persona_tipo_factura.srf
+global type f_devuelve_persona_tipo_factura from function_object
+end type
+
+forward prototypes
+global function string f_devuelve_persona_tipo_factura (string tipo_factura)
+end prototypes
+
+global function string f_devuelve_persona_tipo_factura (string tipo_factura);string etiqueta
+
+// Devuelve la etiqueta correspondiente al n$$HEX1$$fa00$$ENDHEX$$mero colegiado/cliente en func. del tipo de la 
+//		factura
+
+CHOOSE CASE tipo_factura
+	CASE g_colegio_cliente, g_colegio_general, g_colegiado_cliente
+		etiqueta = 'N$$HEX2$$ba002000$$ENDHEX$$Cliente:'		
+	CASE g_colegio_colegiado
+		etiqueta = 'N$$HEX2$$ba002000$$ENDHEX$$Colegiado:'			
+	case else
+		etiqueta = 'N$$HEX2$$ba002000$$ENDHEX$$Colegiado:'					
+END CHOOSE
+
+if f_es_vacio(etiqueta) then etiqueta = ''
+
+return etiqueta
+
+end function
+

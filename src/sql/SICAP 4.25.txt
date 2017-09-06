@@ -1,0 +1,16 @@
+// TERUEL
+create table dbo.coaatter_deduc_fija (tarifa char(4) not null, contenido char(4) not null, desde double precision not null, hasta double precision not null, importe double precision not null) ;
+alter table dbo.coaatter_deduc_fija add constraint cip_tablas_x primary key nonclustered (tarifa, contenido,desde, hasta ) ;
+
+// TODOS
+insert into listados values ('Listado Liquidaciones General','d_garantias_liquidaciones_list_general','w_garantias_liquidaciones_listados','00','S') ;
+
+// COAATGC
+update listados set dw='d_fases_listado_por_colegiado_certif_gc' where dw='d_fases_listado_por_colegiado_certif' and descripcion='Listados para certificados'; 
+
+
+// GRAN CANARIA
+insert into listados values ('Listado Facturas Impagadas','d_facturas_listado_impagadas','w_facturacion_emitida_listados','00','S'); 
+
+
+

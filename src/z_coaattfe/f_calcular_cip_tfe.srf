@@ -1,0 +1,63 @@
+HA$PBExportHeader$f_calcular_cip_tfe.srf
+global type f_calcular_cip_tfe from function_object
+end type
+
+forward prototypes
+global function integer f_calcular_cip_tfe (ref st_cip_datos st_cip_datos)
+end prototypes
+
+global function integer f_calcular_cip_tfe (ref st_cip_datos st_cip_datos);double valor_a,valor_b,valor_c,valor_d, superficie, valor_fa, cip, minimo
+string tipo, ambito, ambito_s
+datetime f_entrada
+
+	valor_fa = st_cip_datos.coef_fa
+	valor_a = st_cip_datos.coef_a
+	valor_b = st_cip_datos.coef_b
+	valor_c = st_cip_datos.coef_c
+	valor_d = st_cip_datos.coef_d
+	superficie = st_cip_datos.superficie
+	tipo = st_cip_datos.tipo
+	ambito = st_cip_datos.ambito
+	ambito_s = st_cip_datos.ambito_s
+	f_entrada  = st_cip_datos.fecha
+	
+	select minimo into :minimo from cip_tfe_minimos where f_desde <= :f_entrada and f_hasta >= :f_entrada;
+
+if isnull(valor_a) then valor_a = 0
+if isnull(valor_b) then valor_b = 0
+if isnull(valor_c) then valor_c = 0
+if isnull(valor_d) then valor_d = 0
+if isnull(valor_fa) then valor_fa = 0
+if isnull(superficie) then superficie = 0
+if isnull(tipo) then tipo = ''
+if isnull(ambito) then ambito = ''
+if isnull(ambito_s) then ambito_s = ''
+if isnull(minimo) then minimo = 0
+	
+if tipo <> '6'  then
+	cip = valor_a * valor_b * valor_c * valor_d * superficie * valor_fa
+else
+	choose case ambito
+		case '61'
+			cip = 13 * valor_fa
+		case '62'
+			cip = 25 * valor_fa
+		case '63'
+			cip = valor_a * valor_b * valor_c * valor_d * superficie * valor_fa			
+		case '64' // 65% sobre colabora. Libro EDIF CIP
+			cip = valor_a * valor_b * valor_c * valor_d * superficie * valor_fa * 0.65
+		case '65' // 30% de la CIP del trabajo asociado
+			
+	end choose
+
+end if
+
+if (ambito <> '61') then
+	cip = max(cip, minimo)
+end if
+
+st_cip_datos.cip = f_redondea(cip)
+
+return 0
+end function
+

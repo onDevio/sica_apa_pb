@@ -1,0 +1,17 @@
+HA$PBExportHeader$f_t_asiento_liquidacion.srf
+global type f_t_asiento_liquidacion from function_object
+end type
+
+forward prototypes
+global function string f_t_asiento_liquidacion ()
+end prototypes
+
+global function string f_t_asiento_liquidacion ();// 19/04/05
+// Tipo de asiento diferenciado al generar liquidaciones para evitar se muestren apuntes de Liquidaciones 
+// desde Tab de Apuntes de Fact.Emits.
+// Lo ponemos por c$$HEX1$$f300$$ENDHEX$$digo en vez de por vble.global porque para el t_asiento hay pocos valores contemplados
+// En caso de querer poner otros valores diferentes para el t_asiento evaluar las 2 posibilidades
+
+return 'LI'
+end function
+

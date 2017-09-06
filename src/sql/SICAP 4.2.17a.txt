@@ -1,0 +1,32 @@
+
+-- Se agrega Titulaciones habilitante
+  INSERT INTO titulaciones  ( codigo,   descripcion )  
+  VALUES ( 'AP',   'APAREJADOR' )  ;
+  INSERT INTO titulaciones  ( codigo,   descripcion )  
+  VALUES ( 'AA',   'ARQUITECTO TÉCNICO' )  ;
+ 	INSERT INTO titulaciones  ( codigo,   descripcion )  
+  VALUES ( 'IE',   'INGENIERO DE LA EDIFICACION' )  ;
+  INSERT INTO titulaciones  ( codigo,   descripcion )  
+  VALUES ( 'EU',   'TÍTULO EUROPEO RECONOCIDO' )  ;
+
+-- Origenes de inhabilitacion
+  INSERT INTO origen_inhabilitacion  ( codigo,   descripcion )  
+  VALUES ( 'CO',   'COLEGIAL' )  ;
+  INSERT INTO origen_inhabilitacion  ( codigo,   descripcion )  
+  VALUES ( 'JU',   'JUDICIAL' )  ;
+
+-- Tipos de inhabilitación
+  INSERT INTO tipo_inhabilitacion  ( codigo,   descripcion )  
+  VALUES ( 'TO',   'TOTAL' )  ;
+  INSERT INTO tipo_inhabilitacion  ( codigo,   descripcion )  
+  VALUES ( 'PA',   'PARCIAL' )  ;
+
+-- Equivalencias
+INSERT INTO equivalencias  ( grupo,   nombre_anterior, descripcion, nombre_nuevo )  
+values('VU_TITULACION_HAB', 'AP', 'APAREJADOR', 'AP');
+INSERT INTO equivalencias  ( grupo,   nombre_anterior, descripcion, nombre_nuevo )  
+values('VU_TITULACION_HAB', 'AA', 'ARQUITECTO TÉCNICO', 'AA');
+INSERT INTO equivalencias  ( grupo,   nombre_anterior, descripcion, nombre_nuevo )  
+values('VU_TITULACION_HAB', 'IE', 'INGENIERO DE LA EDIFICACION', 'IE');
+INSERT INTO equivalencias  ( grupo,   nombre_anterior, descripcion, nombre_nuevo )  
+values('VU_TITULACION_HAB', 'EU', 'TÍTULO EUROPEO RECONOCIDO', 'EU');

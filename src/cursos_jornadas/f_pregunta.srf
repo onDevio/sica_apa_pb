@@ -1,0 +1,18 @@
+HA$PBExportHeader$f_pregunta.srf
+global type f_pregunta from function_object
+end type
+
+forward prototypes
+global function string f_pregunta (string id_pregunta)
+end prototypes
+
+global function string f_pregunta (string id_pregunta);string preg
+
+SELECT pregunta
+INTO :preg
+FROM formacion_encuesta
+WHERE id_pregunta=:id_pregunta;
+
+return preg
+end function
+

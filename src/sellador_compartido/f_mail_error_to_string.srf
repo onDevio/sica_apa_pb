@@ -1,0 +1,67 @@
+HA$PBExportHeader$f_mail_error_to_string.srf
+$PBExportComments$Convert Mail Return Code (enumerated) to a string
+global type f_mail_error_to_string from function_object
+end type
+
+forward prototypes
+global function string f_mail_error_to_string (mailreturncode a_mailreturncode, string a_message, boolean a_display)
+end prototypes
+
+global function string f_mail_error_to_string (mailreturncode a_mailreturncode, string a_message, boolean a_display);// Function  f_mail_error_to_string ( a_MailReturnCode, a_Display)
+// where:	a_MailReturnCode	MailReturnCode value
+//			a_Message			Error message to prepend to return string
+//			a_Display			Boolean (TRUE=display error messagebox)
+
+string	s
+
+choose case a_MailReturnCode
+	case mailReturnAccessDenied!
+		s = 'Acceso Denegado'
+	case mailReturnAttachmentNotFound!
+		s = 'Fichero no encontrado'
+	case mailReturnAttachmentOpenFailure!
+		s = 'Fallo al abrir el fichero adjunto'
+	case mailReturnAttachmentWriteFailure!
+		s = 'Fallo en la escritura del fichero adjunto'
+	case mailReturnDiskFull!
+		s = 'Disco lleno'
+	case mailReturnFailure!
+		s = 'Fallo'
+	case mailReturnInsufficientMemory!
+		s = 'Memoria Insuficiente'
+	case mailReturnInvalidMessage!
+		s = 'Mensaje no v$$HEX1$$e100$$ENDHEX$$lido'
+	case mailReturnLoginFailure!
+		s = 'Fallo en la identificaci$$HEX1$$f300$$ENDHEX$$n'
+	case mailReturnMessageInUse!
+		s = 'Mensaje en Uso'
+	case mailReturnNoMessages!
+		s = 'No hay Mensajes'
+	case mailReturnSuccess!
+		s = '$$HEX1$$c900$$ENDHEX$$xito'
+	case mailReturnTextTooLarge!
+		s = 'Texto demasiado largo'
+	case mailReturnTooManyFiles!
+		s = 'Demasiados ficheros'
+	case mailReturnTooManyRecipients!
+		s = 'Demasiados destinatarios'
+	case mailReturnTooManySessions!
+		s = 'Demasiadas sesiones'
+	case mailReturnUnknownRecipient!
+		s = 'Destinatario desconocido'
+	case mailReturnUserAbort!
+		s = 'Cancelaci$$HEX1$$f300$$ENDHEX$$n de usuario'
+
+	case else
+		s = 'Otro'
+end choose
+
+if a_Display then MessageBox ( 'C$$HEX1$$f300$$ENDHEX$$digo de retorno', a_Message + ' ' + s, Exclamation!)
+
+return s
+
+
+
+
+end function
+

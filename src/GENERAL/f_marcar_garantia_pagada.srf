@@ -1,0 +1,24 @@
+HA$PBExportHeader$f_marcar_garantia_pagada.srf
+global type f_marcar_garantia_pagada from function_object
+end type
+
+forward prototypes
+global subroutine f_marcar_garantia_pagada (string id_fase, string id_col, string nif_cli)
+end prototypes
+
+global subroutine f_marcar_garantia_pagada (string id_fase, string id_col, string nif_cli);double base_garantia
+datetime fecha_salida
+fecha_salida = datetime(today(), now())
+
+  update fases_garantias
+    set f_out = :fecha_salida,
+		  destinatario = 'CL' 
+    FROM fases_garantias  
+   WHERE ( fases_garantias.id_fase = :id_fase ) AND  
+         ( fases_garantias.id_colegiado = :id_col ) AND  
+         ( fases_garantias.id_cliente = :nif_cli ) AND  
+         ( fases_garantias.f_out is null )   ;
+
+
+end subroutine
+

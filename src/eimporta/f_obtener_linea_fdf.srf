@@ -1,0 +1,59 @@
+HA$PBExportHeader$f_obtener_linea_fdf.srf
+global type f_obtener_linea_fdf from function_object
+end type
+
+forward prototypes
+global function string f_obtener_linea_fdf (string nombre_fichero_fdf)
+end prototypes
+
+global function string f_obtener_linea_fdf (string nombre_fichero_fdf);//A esta funcion le pasaremos el nombre de un fichero extension .fdf y lo que har$$HEX2$$e1002000$$ENDHEX$$ser$$HEX2$$e1002000$$ENDHEX$$recuparar la linea de informacion
+//que emplearemos para generar un ini
+
+int fd,b,i, posicion
+string fdf_final
+
+fd = FileOpen(nombre_fichero_fdf,TextMode!,Read! ,Shared!)
+
+blob linea,linea2
+string texto,aux
+
+b = FileReadEx(fd,linea)
+//MessageBox('',string(len(linea)))
+
+texto = ""
+//	texto = string(linea,EncodingANSI!)
+FOR i = 1 to b
+	linea2 = BlobMid(linea,i,1)
+	aux = string(linea2,EncodingANSI!)
+	texto = texto + aux
+Next
+//Ahora debemos de reemplazar los caracteres raros si los hubiese $$HEX2$$fe00ff00$$ENDHEX$$
+//posicion = Lastpos(texto,'$$HEX2$$fe00ff00$$ENDHEX$$')
+//do while posicion <> 0
+//	replace(texto,posicion - 2, 2,'  ')
+//	posicion = Lastpos(texto,'$$HEX2$$fe00ff00$$ENDHEX$$')	
+//loop
+
+//MessageBox('',len(texto))
+//mle_1.text = texto
+//fich = fileopen(nombre_fichero_fdf,textMode!,Read!,Shared! )
+//do while filereadex(fich,fdf)<> -100 
+//	fdf_final = fdf_final + fdf
+//loop
+//fich = fileopen(nombre_fichero_fdf,TextMode!,Read!,Shared! )
+//do while filereadex(fich,prueba) <> -100 
+//	fdf_final = fdf_final + string(prueba)
+//loop
+//for i = 1 to 100
+//	
+//	 filereadex(fich,fdf) 
+//	fdf_final = fdf_final + fdf $$HEX2$$fe00ff00$$ENDHEX$$
+//next
+if fdf_final = "" then
+	fdf_final = texto
+end if
+fileclose(fd)
+return fdf_final
+
+end function
+

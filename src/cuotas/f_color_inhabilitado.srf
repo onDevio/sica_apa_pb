@@ -1,0 +1,17 @@
+HA$PBExportHeader$f_color_inhabilitado.srf
+global type f_color_inhabilitado from function_object
+end type
+
+forward prototypes
+global function long f_color_inhabilitado ()
+end prototypes
+
+global function long f_color_inhabilitado ();// Simplemente devolvemos el color de fondo que debe tener un campo computado
+
+//n_cst_color lnv_color // Contiene constantes sobre colores
+//return lnv_color.BUTTONFACE
+return rgb(245,241,240)
+
+
+end function
+

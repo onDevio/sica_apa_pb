@@ -1,0 +1,8 @@
+HA$PBExportHeader$st_zurich.srs
+global type st_zurich from structure
+	long		mes
+	long		anyo
+	string		src_cia
+	datetime		f_creacion
+end type
+

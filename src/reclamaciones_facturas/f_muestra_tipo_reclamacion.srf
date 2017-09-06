@@ -1,0 +1,30 @@
+HA$PBExportHeader$f_muestra_tipo_reclamacion.srf
+global type f_muestra_tipo_reclamacion from function_object
+end type
+
+forward prototypes
+global function integer f_muestra_tipo_reclamacion (string tipo_reclamacion)
+end prototypes
+
+global function integer f_muestra_tipo_reclamacion (string tipo_reclamacion);string agrupar
+//Para el tipo de notificaci$$HEX1$$f300$$ENDHEX$$n individual no se mostrar$$HEX1$$e100$$ENDHEX$$n las de tipo agrupado en el desplegable
+if g_tipo_notificacion='I' then
+	select agrupar into :agrupar from csi_fact_reclamaciones_tipos where tipo_reclamacion = :tipo_reclamacion;
+	if agrupar='N' then 
+		return 1
+	else 
+		return 0
+	end if
+	//Para el tipo agrupado no se mostrar$$HEX1$$e100$$ENDHEX$$n las cartas individuales
+elseif g_tipo_notificacion='A' then
+	select agrupar into :agrupar from csi_fact_reclamaciones_tipos where tipo_reclamacion = :tipo_reclamacion;
+	if agrupar='S' then 
+		return 1
+	else 
+		return 0
+	end if
+else 
+	return 1
+end if
+end function
+

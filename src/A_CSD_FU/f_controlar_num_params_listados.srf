@@ -1,0 +1,35 @@
+HA$PBExportHeader$f_controlar_num_params_listados.srf
+global type f_controlar_num_params_listados from function_object
+end type
+
+forward prototypes
+global subroutine f_controlar_num_params ()
+global subroutine f_controlar_num_params_listados ()
+end prototypes
+
+global subroutine f_controlar_num_params ();//Esta funci$$HEX1$$f300$$ENDHEX$$n indicar$$HEX2$$e1002000$$ENDHEX$$que no se van a visualizar el resto de params. 
+// $$HEX1$$bf00$$ENDHEX$$Cu$$HEX1$$e100$$ENDHEX$$ndo? A partir del 6 no caben, por lo que utilizaremos la l$$HEX1$$ed00$$ENDHEX$$nea 6 para indicar que hay 
+// m$$HEX1$$e100$$ENDHEX$$s params.
+
+g_num_params_listados++
+
+if g_num_params_listados = 6 then 
+	
+			g_etiquetas_listados += ' Hay m$$HEX1$$e100$$ENDHEX$$s par$$HEX1$$e100$$ENDHEX$$metros ~n'
+			g_parametros_listados += '...' + '~n'
+end if
+end subroutine
+
+global subroutine f_controlar_num_params_listados ();//Esta funci$$HEX1$$f300$$ENDHEX$$n indicar$$HEX2$$e1002000$$ENDHEX$$que no se van a visualizar el resto de params. 
+// $$HEX1$$bf00$$ENDHEX$$Cu$$HEX1$$e100$$ENDHEX$$ndo? A partir del 6 no caben, por lo que utilizaremos la l$$HEX1$$ed00$$ENDHEX$$nea 6 para indicar que hay 
+// m$$HEX1$$e100$$ENDHEX$$s params.
+
+g_num_params_listados++
+
+if g_num_params_listados = 5 then 
+	
+			g_etiquetas_listados += '~n Hay m$$HEX1$$e100$$ENDHEX$$s par$$HEX1$$e100$$ENDHEX$$metros '
+			g_parametros_listados += '~n ...' 
+end if
+end subroutine
+

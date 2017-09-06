@@ -1,0 +1,40 @@
+HA$PBExportHeader$d_inggas_colegiados.srd
+$PBExportComments$antigua versi$$HEX1$$f300$$ENDHEX$$n del certificado de ing-gas por cabecera
+release 10.5;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes print.preview.outline=yes hidegrayline=no )
+header(height=136 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=72 color="536870912" )
+table(column=(type=char(15) updatewhereclause=yes name=id_factura dbname="csi_facturas_emitidas.id_factura" dbalias=".id_factura" )
+ column=(type=char(15) updatewhereclause=yes name=emisor dbname="csi_facturas_emitidas.emisor" dbalias=".emisor" )
+ column=(type=number updatewhereclause=yes name=importe_reten dbname="csi_facturas_emitidas.importe_reten" dbalias=".importe_reten" )
+ column=(type=number updatewhereclause=yes name=irpf_colegio dbname="csi_facturas_emitidas.irpf_colegio" dbalias=".irpf_colegio" )
+ column=(type=char(15) updatewhereclause=yes name=colegiados_n_colegiado dbname="colegiados.n_colegiado" dbalias=".n_colegiado" )
+ column=(type=number updatewhereclause=yes name=base_imp dbname="csi_facturas_emitidas.base_imp" dbalias=".base_imp" )
+ column=(type=char(2) updatewhereclause=yes name=csi_facturas_emitidas_empresa dbname="csi_facturas_emitidas.empresa" dbalias=".empresa" )
+ retrieve="PBSELECT( VERSION(400) TABLE(NAME=~"colegiados~" )  TABLE(NAME=~"csi_facturas_emitidas~" ) COLUMN(NAME=~"csi_facturas_emitidas.id_factura~") COLUMN(NAME=~"csi_facturas_emitidas.emisor~") COLUMN(NAME=~"csi_facturas_emitidas.importe_reten~") COLUMN(NAME=~"csi_facturas_emitidas.irpf_colegio~") COLUMN(NAME=~"colegiados.n_colegiado~") COLUMN(NAME=~"csi_facturas_emitidas.base_imp~") COLUMN(NAME=~"csi_facturas_emitidas.empresa~")    JOIN (LEFT=~"colegiados.id_colegiado~"    OP =~"=~"RIGHT=~"csi_facturas_emitidas.emisor~" )WHERE(    EXP1 =~"csi_facturas_emitidas.fecha~"   OP =~">=~"    EXP2 =~":f_desde~"    LOGIC =~"And~" ) WHERE(    EXP1 =~"csi_facturas_emitidas.fecha~"   OP =~"<=~"    EXP2 =~":f_hasta~"    LOGIC =~"And~" ) WHERE(    EXP1 =~"colegiados.n_colegiado~"   OP =~">=~"    EXP2 =~":n_col_desde~"    LOGIC =~"And~" ) WHERE(    EXP1 =~"colegiados.n_colegiado~"   OP =~"<=~"    EXP2 =~":n_col_hasta~"    LOGIC =~"And~" ) WHERE(    EXP1 =~"csi_facturas_emitidas.tipo_factura~"   OP =~"=~"    EXP2 =~"'04'~" ) ) ARG(NAME = ~"f_desde~" TYPE = datetime)  ARG(NAME = ~"f_hasta~" TYPE = datetime)  ARG(NAME = ~"n_col_desde~" TYPE = string)  ARG(NAME = ~"n_col_hasta~" TYPE = string) " filter=" csi_facturas_emitidas_empresa = f_devuelve_empresa()"arguments=(("f_desde", datetime),("f_hasta", datetime),("n_col_desde", string),("n_col_hasta", string))  sort="colegiados_n_colegiado A id_factura A " )
+text(band=header alignment="2" text="Csi Facturas Emitidas
+Id Factura" border="0" color="0" x="5" y="4" height="128" width="590" html.valueishtml="0"  name=csi_facturas_emitidas_id_factura_t visible="1"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Csi Facturas Emitidas
+Emisor" border="0" color="0" x="599" y="4" height="128" width="590" html.valueishtml="0"  name=csi_facturas_emitidas_emisor_t visible="1"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Csi Facturas Emitidas
+Importe Reten" border="0" color="0" x="1193" y="4" height="128" width="590" html.valueishtml="0"  name=csi_facturas_emitidas_importe_reten_t visible="1"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Csi Facturas Emitidas
+Irpf Colegio" border="0" color="0" x="1792" y="4" height="128" width="590" html.valueishtml="0"  name=csi_facturas_emitidas_irpf_colegio_t visible="1"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="5" y="4" height="52" width="407" format="[general]" html.valueishtml="0"  name=id_factura  tag=" " visible="1" edit.limit=15 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="599" y="4" height="52" width="407" format="[general]" html.valueishtml="0"  name=emisor  tag=" " visible="1" edit.limit=15 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="1" tabsequence=32766 border="0" color="0" x="1193" y="4" height="52" width="343" format="#,##0.00" html.valueishtml="0"  name=importe_reten  tag=" " visible="1" edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="1" tabsequence=32766 border="0" color="0" x="1792" y="4" height="52" width="343" format="#,##0.00" html.valueishtml="0"  name=irpf_colegio  tag=" " visible="1" edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="0" color="0" x="2386" y="4" height="52" width="992" format="#,##0.00" html.valueishtml="0"  name=base_imp visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" pagingmethod=0 generatedddwframes="1" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()
+ 

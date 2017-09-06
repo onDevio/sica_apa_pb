@@ -1,0 +1,104 @@
+HA$PBExportHeader$f_descripcion_parametro.srf
+global type f_descripcion_parametro from function_object
+end type
+
+forward prototypes
+global function string f_descripcion_parametro (string parametro, string dato, string operador)
+end prototypes
+
+global function string f_descripcion_parametro (string parametro, string dato, string operador);string descripcion,interno
+
+if lower(operador) = 'like' then 
+	if MidA(dato, 1, 1) = '%' then dato = MidA (dato, 2, LenA(dato) -1)
+	if MidA(dato, LenA(dato) , 1 ) = '%' then dato = MidA(dato, 1, LenA(dato) -1 )
+end if
+
+interno = f_campos_et_e_s('interno')
+
+CHOOSE CASE lower(parametro)
+	// Casos para listado de REGISTROS E/S
+	CASE 'fecha desde','fecha hasta','fecha vencimiento desde','fecha vencimiento hasta', 'fecha escrito desde','fecha escrito hasta'
+		descripcion = string(dato,"@@@@/@@/@@")
+		
+	CASE 'oficial','marcado','cumplimentado'
+		if dato = 'S' then
+			descripcion = 'SI'
+		else
+			descripcion = 'NO'
+		end if
+		
+	CASE lower(interno)
+		if dato = 'S' then
+			descripcion = 'SI'
+		else
+			descripcion = 'NO'
+		end if
+		
+	// Casos para listado de COLEGIADOS
+	CASE 'tipo persona'
+		if dato = 'S' then
+			descripcion = 'SI'
+		else 
+			descripcion = 'NO'
+		end if
+		
+	CASE 'situaci$$HEX1$$f300$$ENDHEX$$n'
+		SELECT t_situaciones_profesionales.descripcion  
+    	INTO :descripcion  
+   	FROM t_situaciones_profesionales  
+	   WHERE t_situaciones_profesionales.cod_situacion_profesional = :dato   ;
+		
+	CASE 'c. geografico'
+  		SELECT c_geograficos.descripcion  
+  		INTO :descripcion  
+	   FROM c_geograficos  
+  		WHERE c_geograficos.c_geografico = :dato   ;
+		  
+	CASE 'c_territorial'
+		SELECT demarcaciones.descripcion  
+  		INTO :descripcion  
+      FROM demarcaciones  
+  		WHERE demarcaciones.cod_demarcacion = :dato   ;
+
+	CASE 'delegaci$$HEX1$$f300$$ENDHEX$$n'
+		SELECT delegaciones.descripcion  
+  		INTO :descripcion  
+  		FROM delegaciones  
+  		WHERE delegaciones.cod_delegacion = :dato   ;
+
+	CASE 'lista colegiados'
+		SELECT listas_colegiados.nombre_lista  
+  		INTO :descripcion  
+  		FROM listas_colegiados  
+  		WHERE listas_colegiados.id_lista = :dato   ;
+
+	// Fechas
+ 	CASE 'colegiado desde', 'colegiado hasta', 'titulacion desde', 'titulaci$$HEX1$$f300$$ENDHEX$$n hasta', 'nacimiento desde', 'nacimiento hasta', &
+			'alta desde', 'alta hasta', 'baja desde', 'baja hasta', 'fecha desde', 'fecha hasta', 'f. pago desde', 'f. pago hasta', &
+			'f. conta desde', 'f. conta hasta'
+		descripcion = string(dato,"@@@@/@@/@@")
+
+	//Caso para listado de Facturas Emitidas
+	CASE 'pagado', 'reimpresa', 'emitida', 'contabilizada'
+		if dato = 'S' then
+			descripcion = 'SI'
+		else 
+			descripcion = 'NO'
+		end if
+
+	CASE 'forma de pago'
+		descripcion = f_dame_formapago(dato)
+		
+	CASE 'tipo factura'
+		descripcion = f_dame_tipo_factura(dato)
+
+	CASE ELSE
+		descripcion = dato
+
+END CHOOSE	
+
+if isnull(descripcion) then descripcion = ""
+return descripcion
+
+end function
+

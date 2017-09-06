@@ -1,0 +1,9 @@
+// V. 4.2.4
+
+// Para Cuenca
+insert into listados values ('Listado Obras Promotores Juridica','d_fases_listado_obras_promotor_jur','w_fases_listados','00','S') ;
+
+// Caceres
+
+insert into listados values ('Listado Visados Por Mes','d_listado_fases_mesuales_cc','w_fases_listados','00','S');
+

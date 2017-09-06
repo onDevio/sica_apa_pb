@@ -1,0 +1,46 @@
+HA$PBExportHeader$f_comprobar_tarifa_direcciones.srf
+global type f_comprobar_tarifa_direcciones from function_object
+end type
+
+forward prototypes
+global function integer f_comprobar_tarifa_direcciones (string id_fase)
+end prototypes
+
+global function integer f_comprobar_tarifa_direcciones (string id_fase);string tipo_intervencion, num_exp, id_fase_otras_intervenciones, id_col
+int numerable
+
+//obtener el id del colegiado de la fase
+select id_col into :id_col from fases_colegiados where id_fase = :id_fase;
+
+//obtenemos el numero de expediente de la fase
+num_exp = f_dame_exp(id_fase)
+
+//comprobacion de que el id fase no sea nulo ni vacio
+if isnull(id_fase) or id_fase ='' then
+	return 0
+end if	
+
+//Comprobar si el tipo de intervenci$$HEX1$$f300$$ENDHEX$$n de la fase es 13 o 16. En caso contrario, decolver 0.
+
+select fase into :tipo_intervencion from fases where id_fase = :id_fase;
+if tipo_intervencion  = '13' or tipo_intervencion  = '16' then 
+	
+	//Comprobar si en el expediente al que pertenece el contrato hay otras intervenciones del tipo 12 o 15. En caso contrario, devolver 0.
+	numerable = 0
+	select count(*) into :numerable  from fases where (n_expedi = :num_exp and id_fase <> :id_fase and (fase = '12' or fase = '15'));
+	if numerable = 0 then  	return 0
+	
+	//Comprobar que el colegiado/s est$$HEX2$$e1002000$$ENDHEX$$como autor en el expediente con tipo de intervenci$$HEX1$$f300$$ENDHEX$$n 12 o 15. En caso contrario, devolver 0
+	numerable = 0	
+	select count(*) into :numerable from fases f, fases_colegiados fc where (f.id_fase = fc.id_fase) and (f.n_expedi = :num_exp and f.id_fase <> :id_fase and (f.fase = '12' or f.fase = '15') and (fc.id_col = :id_col and fc.tipo_a = 'S'));
+	if numerable = 0 then  	return 0
+	
+	
+	//Devolver el valor del campo n$$HEX1$$fa00$$ENDHEX$$mero de la variable global 'g_tarifa_Navarra_direccion_despues_de_contrato'. utilizar la funci$$HEX1$$f300$$ENDHEX$$n "f_var_global_numero". 
+	return  f_var_global_numero('g_tarifa_Navarra_direccion_despues_de_contrato')
+else
+	return 0
+end if
+
+end function
+

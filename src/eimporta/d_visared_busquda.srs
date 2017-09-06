@@ -1,0 +1,11 @@
+HA$PBExportHeader$d_visared_busquda.srs
+global type d_visared_busquda from structure
+	string		N_expediente
+	string		Fase
+	string		Registro
+	string		Nif_cliente
+	string		N_colegiado
+	string		nombre_promotor
+	string		nombre_colegiado
+end type
+

@@ -1,0 +1,8 @@
+HA$PBExportHeader$st_mensajes_consulta.srs
+global type st_mensajes_consulta from structure
+	string		id_mensaje
+	string		destino
+	string		codigo_origen
+	string		asunto
+end type
+

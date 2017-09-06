@@ -1,0 +1,23 @@
+HA$PBExportHeader$f_dame_municipio_poblacion.srf
+global type f_dame_municipio_poblacion from function_object
+end type
+
+forward prototypes
+global function string f_dame_municipio_poblacion (string cod_pob)
+end prototypes
+
+global function string f_dame_municipio_poblacion (string cod_pob);// devuelve el municipio a partir de un codigo de poblacion
+
+string municipio
+
+SELECT m.descripcion  
+    INTO :municipio
+    FROM poblaciones p,municipios m
+   WHERE p.cod_pob = :cod_pob and p.provincia=m.provincia and p.pob_mopu=m.cod_muni; 
+         
+IF f_es_vacio (municipio) then municipio = ''
+			
+				
+return municipio
+end function
+

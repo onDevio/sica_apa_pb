@@ -1,0 +1,30 @@
+HA$PBExportHeader$f_nombre_empre_col.srf
+global type f_nombre_empre_col from function_object
+end type
+
+forward prototypes
+global function string f_nombre_empre_col (string id_col, string id_fase)
+end prototypes
+
+global function string f_nombre_empre_col (string id_col, string id_fase);string nombre_empresa, apellidos, nombre
+
+//SELECT clientes.apellidos, clientes.nombre
+//INTO :apellidos, :nombre
+//FROM clientes, colegiados 
+//WHERE colegiados.id_empresa = clientes.id_cliente and	 colegiados.id_colegiado = :id_col  ;  		
+
+
+// Ahora la empresa se guarda en fases_colegiados
+SELECT clientes.apellidos, clientes.nombre
+INTO :apellidos, :nombre
+FROM clientes, fases_colegiados
+WHERE fases_colegiados.id_empresa = clientes.id_cliente and fases_colegiados.id_col = :id_col  and fases_colegiados.id_fase = :id_fase;  		
+
+if f_es_vacio(apellidos) then apellidos = ''
+if f_es_vacio(nombre) then nombre_empresa = apellidos else nombre_empresa = apellidos + ', ' +nombre
+
+if f_es_vacio(nombre_empresa) then nombre_empresa = ''
+return nombre_empresa
+
+end function
+

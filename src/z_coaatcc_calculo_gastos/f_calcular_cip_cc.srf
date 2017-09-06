@@ -1,0 +1,29 @@
+HA$PBExportHeader$f_calcular_cip_cc.srf
+$PBExportComments$Calcula el total de cip para $$HEX1$$c100$$ENDHEX$$vila
+global type f_calcular_cip_cc from function_object
+end type
+
+forward prototypes
+global function integer f_calcular_cip_cc (ref st_cip_datos st_cip_datos)
+end prototypes
+
+global function integer f_calcular_cip_cc (ref st_cip_datos st_cip_datos);// Id$$HEX1$$e900$$ENDHEX$$ntica a la funci$$HEX1$$f300$$ENDHEX$$n de Cuenca aunque s$$HEX1$$f300$$ENDHEX$$lo ser$$HEX1$$ed00$$ENDHEX$$a necesario un porcentaje
+double Honorarios	= 0
+double porc_aplicado
+
+Honorarios = st_cip_datos.hon_teor
+
+if st_cip_datos.admon = 'S' then 
+	porc_aplicado = g_porc_cip_admon
+//elseif st_cip_datos.tipo_gestion = 'P' then
+//	porc_aplicado = g_porc_cip_sgc
+else
+	porc_aplicado = g_porc_cip_defecto	
+end if
+
+st_cip_datos.cip = f_redondea(st_cip_datos.hon_teor * porc_aplicado /100)
+
+return 1
+
+end function
+

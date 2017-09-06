@@ -1,0 +1,17 @@
+HA$PBExportHeader$f_obtener_serie_factura.srf
+global type f_obtener_serie_factura from function_object
+end type
+
+forward prototypes
+global function string f_obtener_serie_factura (string id_factura)
+end prototypes
+
+global function string f_obtener_serie_factura (string id_factura);string n_fact,serie
+
+select n_fact into :n_fact from csi_facturas_emitidas where id_factura=:id_factura;
+
+serie=mid(n_fact,1,pos(n_fact,'-')-1)
+
+return serie
+end function
+

@@ -1,0 +1,21 @@
+HA$PBExportHeader$f_musaat_nummut.srf
+global type f_musaat_nummut from function_object
+end type
+
+forward prototypes
+global function string f_musaat_nummut (string id_col)
+end prototypes
+
+global function string f_musaat_nummut (string id_col);string num_mut
+
+  SELECT musaat.n_mutualista  
+    INTO :num_mut  
+    FROM musaat  
+   WHERE musaat.id_col = :id_col   ;
+	
+if f_es_vacio(num_mut) then num_mut = ''
+
+return num_mut
+
+end function
+

@@ -1,0 +1,22 @@
+HA$PBExportHeader$f_fases_n_salida_expediente.srf
+global type f_fases_n_salida_expediente from function_object
+end type
+
+forward prototypes
+global function string f_fases_n_salida_expediente (string id_fase)
+end prototypes
+
+global function string f_fases_n_salida_expediente (string id_fase);string n_sal
+
+SELECT expedientes.archivo 
+INTO :n_sal 
+FROM expedientes, fases
+WHERE expedientes.id_expedi = fases.id_expedi AND
+		fases.id_fase = :id_fase ;
+	
+if f_es_vacio(n_sal) then n_sal = ''
+
+return n_sal
+
+end function
+

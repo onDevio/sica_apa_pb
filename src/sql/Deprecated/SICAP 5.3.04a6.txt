@@ -1,0 +1,20 @@
+
+//SOLO ZARAGOZA
+insert into csi_param_facturas(serie, empresa, anyo, idioma, campo, texto) values ('MT', '03', '2011', '%' , 'Pie_pagina_za' , 'Inscrita en el Reg. Merc. de Zaragoza, Tomo 3802, Folio 85, Hoja Z-50698, Inscripción 1ª - C.I.F. B99287260');
+insert into csi_param_facturas(serie, empresa, anyo, idioma, campo, texto) values ('MUOR', '03', '2011', '%' , 'Pie_pagina_za' , 'Inscrita en el Reg. Merc. de Zaragoza, Tomo 3802, Folio 85, Hoja Z-50698, Inscripción 1ª - C.I.F. B99287260');
+insert into csi_param_facturas(serie, empresa, anyo, idioma, campo, texto) values ('MUPF', '03', '2011', '%' , 'Pie_pagina_za' , 'Inscrita en el Reg. Merc. de Zaragoza, Tomo 3802, Folio 85, Hoja Z-50698, Inscripción 1ª - C.I.F. B99287260');
+insert into csi_param_facturas(serie, empresa, anyo, idioma, campo, texto) values ('PREM', '03', '2011', '%' , 'Pie_pagina_za' , 'Inscrita en el Reg. Merc. de Zaragoza, Tomo 3802, Folio 85, Hoja Z-50698, Inscripción 1ª - C.I.F. B99287260');
+insert into csi_param_facturas(serie, empresa, anyo, idioma, campo, texto) values ('PROFOR', '03', '2011', '%' , 'Pie_pagina_za' , 'Inscrita en el Reg. Merc. de Zaragoza, Tomo 3802, Folio 85, Hoja Z-50698, Inscripción 1ª - C.I.F. B99287260');
+insert into csi_param_facturas(serie, empresa, anyo, idioma, campo, texto) values ('SRECTIF', '03', '2011', '%' , 'Pie_pagina_za' , 'Inscrita en el Reg. Merc. de Zaragoza, Tomo 3802, Folio 85, Hoja Z-50698, Inscripción 1ª - C.I.F. B99287260');
+insert into csi_param_facturas(serie, empresa, anyo, idioma, campo, texto) values ('SVAR', '03', '2011', '%' , 'Pie_pagina_za' , 'Inscrita en el Reg. Merc. de Zaragoza, Tomo 3802, Folio 85, Hoja Z-50698, Inscripción 1ª - C.I.F. B99287260');
+insert into csi_param_facturas(serie, empresa, anyo, idioma, campo, texto) values ('MUPC', '03', '2011', '%' , 'Pie_pagina_za' , 'Inscrita en el Reg. Merc. de Zaragoza, Tomo 3802, Folio 85, Hoja Z-50698, Inscripción 1ª - C.I.F. B99287260');
+insert into csi_param_facturas(serie, empresa, anyo, idioma, campo, texto) values ('MT', '03', '2011', '%' , 'exento_iva' , 'ACTIVIDAD EXENTA DE IVA');
+insert into csi_param_facturas(serie, empresa, anyo, idioma, campo, texto) values ('MUOR', '03', '2011', '%' , 'exento_iva' , 'ACTIVIDAD EXENTA DE IVA');
+insert into csi_param_facturas(serie, empresa, anyo, idioma, campo, texto) values ('MUPF', '03', '2011', '%' , 'exento_iva' , 'ACTIVIDAD EXENTA DE IVA');
+insert into csi_param_facturas(serie, empresa, anyo, idioma, campo, texto) values ('PREM', '03', '2011', '%' , 'exento_iva' , 'ACTIVIDAD EXENTA DE IVA');
+insert into csi_param_facturas(serie, empresa, anyo, idioma, campo, texto) values ('PROFOR', '03', '2011', '%' , 'exento_iva' , 'ACTIVIDAD EXENTA DE IVA');
+insert into csi_param_facturas(serie, empresa, anyo, idioma, campo, texto) values ('SRECTIF', '03', '2011', '%' , 'exento_iva' , 'ACTIVIDAD EXENTA DE IVA');
+insert into csi_param_facturas(serie, empresa, anyo, idioma, campo, texto) values ('SVAR', '03', '2011', '%' , 'exento_iva' , 'ACTIVIDAD EXENTA DE IVA');
+insert into csi_param_facturas(serie, empresa, anyo, idioma, campo, texto) values ('MUPC', '03', '2011', '%' , 'exento_iva' , 'ACTIVIDAD EXENTA DE IVA');
+//Se actualiza la fecha de versión
+update var_globales set texto='20110916', descripcion = 'versión v5.03.04a6' where nombre='g_version_minima';    

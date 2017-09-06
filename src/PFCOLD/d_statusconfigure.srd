@@ -1,0 +1,19 @@
+HA$PBExportHeader$d_statusconfigure.srd
+$PBExportComments$PFC: Used by pfc_w_configurestatus
+release 5;
+datawindow(units=0 timer_interval=0 color=77956459 processing=0 print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 97 print.margin.bottom = 97 print.paper.source = 0 print.paper.size = 0 print.prompt=no )
+header(height=81 color="536870912" )
+summary(height=1 color="-1" )
+footer(height=1 color="-1" )
+detail(height=81 color="-1" )
+table(column=(type=char(1) updatewhereclause=yes name=action dbname="action" )
+ column=(type=char(16) updatewhereclause=yes name=name dbname="Name" )
+ column=(type=number updatewhereclause=yes name=enabled dbname="Enabled" values="	1/	0" )
+ column=(type=number updatewhereclause=yes name=threshold dbname="Threshold" validation="(match(action,'[GU]') and (long(gettext()) <= 100) and (long(gettext()) >= 1)) or (action = 'M' and long(gettext())>= 1 ) or (action = 'T')" validationmsg="if(match(action,'[GU]'),'Resources must be between 1 and 100','Memory must be more than 0 ')" )
+ )
+text(band=header alignment="2" text="Enabled"border="6" color="33554432" x="476" y="16" height="53" width="238"  name=enabled_t  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="77956459" )
+text(band=header alignment="2" text="Threshold"border="6" color="33554432" x="732" y="16" height="53" width="321"  name=threshold_t  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="77956459" )
+text(band=header alignment="2" text="Name"border="6" color="33554432" x="19" y="16" height="53" width="439"  name=name_t  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="77956459" )
+column(band=detail id=3 alignment="1" tabsequence=10 border="0" color="33554432" x="558" y="4" height="65" width="65" format="[general]"  name=enabled checkbox.text="" checkbox.on="1" checkbox.off="0" checkbox.scale=no checkbox.threed=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="77956459" )
+column(band=detail id=2 alignment="2" tabsequence=32766 border="0" color="33554432~tif(enabled=1,0,8421504)" x="23" y="4" height="65" width="439" format="[general]"  name=name edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="77956459" )
+column(band=detail id=4 alignment="1" tabsequence=20 border="5" color="33554432~tif(enabled=1,0,8421504)" x="732" y="4" height="65" width="321" format="[general]" protect="0~tif(enabled=1,0,1)"  name=threshold visible="1~tif(threshold>=1,1,0)" editmask.required=yes editmask.mask="##,###,###" editmask.spinrange="5~~10000000" editmask.focusrectangle=no  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )

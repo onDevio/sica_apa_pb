@@ -1,0 +1,5 @@
+HA$PBExportHeader$st_as_juridica_consulta.srs
+global type st_as_juridica_consulta from structure
+	string		id_asesoria
+end type
+

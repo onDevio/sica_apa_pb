@@ -1,0 +1,5 @@
+HA$PBExportHeader$st_array_bd_pk_2.srs
+global type st_array_bd_pk_2 from structure
+	st_buscar_duplicados_pk_2		vector[]
+end type
+

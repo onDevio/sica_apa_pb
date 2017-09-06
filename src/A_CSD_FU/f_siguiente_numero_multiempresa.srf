@@ -1,0 +1,48 @@
+HA$PBExportHeader$f_siguiente_numero_multiempresa.srf
+global type f_siguiente_numero_multiempresa from function_object
+end type
+
+forward prototypes
+global function string f_siguiente_numero_multiempresa (string contador, integer longitud)
+end prototypes
+
+global function string f_siguiente_numero_multiempresa (string contador, integer longitud);// ================================================================================
+// Se crea funci$$HEX1$$f300$$ENDHEX$$n para compatibilidad con multiples empresas
+// ================================================================================
+double i
+string mensaje
+// Conectamos y desconectamos el objeto transaccion...
+
+SQLCA.AUTOCOMMIT = FALSE;
+execute immediate 'BEGIN transaction' USING SQLCA;
+
+
+// Hacemos primero el update porque bloquea la tabla y no permite acceder a ella desde otra transacci$$HEX1$$f300$$ENDHEX$$n
+UPDATE contadores SET valor=valor+1 WHERE contador = :contador  and empresa = :g_empresa USING SQLCA;
+
+IF SQLCA.sqlcode <> 0 then 
+	mensaje = 'Ha ocurrido un error con el contador: '+contador+ cr +SQLCA.sqlerrtext
+	if g_usar_idioma = "S" Then
+		mensaje = 'Ha ocurrido un error con el contador: %s'+ cr + '%s'
+		string params[]
+		params[1] = contador
+		params[2] = SQLCA.SqlErrText
+		mensaje = g_idioma.of_getmsg( "general.error_contador", params,mensaje)
+	end if
+	Messagebox(g_titulo,'Ha ocurrido un error con el contador: '+contador+ cr +SQLCA.sqlerrtext)
+end if
+
+SELECT valor INTO :i FROM contadores WHERE contador = :contador and empresa = :g_empresa USING SQLCA;
+
+execute immediate 'COMMIT transaction' USING SQLCA;
+
+COMMIT using SQLCA;
+
+SQLCA.AUTOCOMMIT = TRUE;
+
+return RightA('0000000000000000000000'+string(i),longitud)
+
+
+
+end function
+

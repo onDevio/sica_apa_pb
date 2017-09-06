@@ -1,0 +1,22 @@
+HA$PBExportHeader$f_formula_contenido.srf
+$PBExportComments$objetos b$$HEX1$$e100$$ENDHEX$$sicos
+global type f_formula_contenido from function_object
+end type
+
+forward prototypes
+global function string f_formula_contenido (string id_formula)
+end prototypes
+
+global function string f_formula_contenido (string id_formula);string formula
+string colegio
+
+colegio = f_colegio()
+
+select formula into :formula from formulas where id_formula = :id_formula and
+	// La ordenaci$$HEX1$$f300$$ENDHEX$$n por colegio descendente hace que se devuelvan antes las filas que tengan un c$$HEX1$$f300$$ENDHEX$$digo de colegio que las que no
+	(colegio = :colegio or colegio = '' or colegio is null) order by colegio desc ;
+
+return formula
+
+end function
+

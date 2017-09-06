@@ -1,0 +1,8 @@
+HA$PBExportHeader$st_fases_datos_informes.srs
+global type st_fases_datos_informes from structure
+	string		tipo_informe
+	double		cuantia_cliente
+	double		cuantia_colegiado
+	double		t_iva
+end type
+

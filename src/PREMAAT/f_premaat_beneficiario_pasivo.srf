@@ -1,0 +1,23 @@
+HA$PBExportHeader$f_premaat_beneficiario_pasivo.srf
+global type f_premaat_beneficiario_pasivo from function_object
+end type
+
+forward prototypes
+global function boolean f_premaat_beneficiario_pasivo (string id_ben)
+end prototypes
+
+global function boolean f_premaat_beneficiario_pasivo (string id_ben);boolean retorno = false
+string tipo
+
+SELECT premaat_beneficiarios.tipo_mutualista  
+INTO :tipo  
+FROM premaat_beneficiarios  
+WHERE premaat_beneficiarios.id_heredero = :id_ben   ;
+
+if tipo = '02' then retorno = true
+
+return retorno
+
+
+end function
+

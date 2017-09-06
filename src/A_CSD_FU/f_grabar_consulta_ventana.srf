@@ -1,0 +1,52 @@
+HA$PBExportHeader$f_grabar_consulta_ventana.srf
+global type f_grabar_consulta_ventana from function_object
+end type
+
+forward prototypes
+global subroutine f_grabar_consulta_ventana (window ventana, string nombre_consulta)
+end prototypes
+
+global subroutine f_grabar_consulta_ventana (window ventana, string nombre_consulta);long i,j,k
+string id_consulta, nombre_ventana
+tab tab_actual
+userobject tabpage_actual
+datawindow dw_actual
+
+
+nombre_ventana = ventana.classname()
+
+//La lista ya existe la sobrescribimos
+select id_consulta into :id_consulta from consultas where descripcion=:nombre_consulta and ventana = :nombre_ventana;
+if not f_es_vacio(id_consulta) then
+	delete from consultas where id_consulta = :id_consulta;
+	delete from consultas_datos where id_consulta = :id_consulta;
+end if
+	
+	
+//Guardamos los dw
+
+//Recorremos todos los objetos de la ventana
+for i = 1 to UpperBound(ventana.control[])
+	//Si es DW guardamos todos los datos de ese DW
+	if TypeOf(ventana.control[i])= Datawindow! then
+		dw_actual = ventana.control[i]
+		f_grabar_consulta_un_dw(dw_actual,nombre_ventana,nombre_consulta)
+	//Si es TAB buscamos el dw dentro de ese tab
+	elseif TypeOf(ventana.control[i])= Tab! then
+		tab_actual = ventana.control[i]
+		//Recorremos todos los tabpages del TAB
+		for j= 1 to UpperBound(tab_actual.control[])
+			tabpage_actual = tab_actual.control[j]
+			//En cada tabpage buscamos los DW que posee...
+			for k=1 to UpperBound(tabpage_actual.control[])
+				if TypeOf(tabpage_actual.control[k])=Datawindow! then
+					dw_actual = tabpage_actual.control[k]
+					f_grabar_consulta_un_dw(dw_actual,nombre_ventana,nombre_consulta)
+				end if
+			next
+		next
+	end if
+next
+
+end subroutine
+

@@ -1,0 +1,178 @@
+declare @colegio varchar(10)
+select @colegio = texto from var_globales where nombre = 'COLEGIO'
+
+-- TODOS
+print 'TODOS'
+insert into t_aplicacion (cod_aplicacion,nombre) values ('REG_ES_MOD','REGISTRO ENTRADA SALIDA: Modificacion n_registro')
+print 'TODOS: Pasarela de Pago'
+alter table domiciliaciones add forma_pago char(2) null
+print 'TODOS'
+ALTER TABLE  plantillas_campos_extra DROP CONSTRAINT fk_plantill_reference_plantill
+ALTER TABLE  plantillas_campos DROP CONSTRAINT plantillas_campos_x
+CREATE UNIQUE INDEX plantillas_campos_x ON plantillas_campos (modulo, campo_formulario) 
+print 'Campos de Mantenimiento'
+alter table fases add mantenimiento char(1) null
+update fases set mantenimiento= 'N'
+alter table fases add f_mantenimiento datetime null
+
+-- TODOS MENOS MALLORCA
+If @colegio <> 'COAATMCA' 
+begin
+print 'TODOS MENOS MALLORCA: Invisible campo web en CFOs'
+insert into t_control_eventos (control,evento,activo,param1,param2,id_control) values ('VISIBLE_OBJETO','FASES_FINALES','S','web_t','0','FFIN1')
+insert into t_control_eventos (control,evento,activo,param1,param2,id_control) values ('VISIBLE_OBJETO','FASES_FINALES','S','web','0','FFIN2')
+end
+
+-- GUIPUZCOA
+if @colegio = 'COAATG'
+begin
+print 'Plantilla Reg.Soc'
+insert into plantillas (codigo,descripcion,ruta,modulo,individual) values ('REGSOC1','Certificado Acreditacion de Registro de Sociedad Profesional','Certificado Acreditacion Registro Soc Prof.doc','REGSOC','S')
+insert into plantillas_campos (modulo,campo_formulario,campo_interno) values ('REGSOC1','campo1','Colegio Acred.')
+insert into plantillas_campos (modulo,campo_formulario,campo_interno) values ('REGSOC1','campo2','Trabajo Prof.')
+insert into plantillas_campos (modulo,campo_formulario,campo_interno) values ('REGSOC1','campo3','Emplazamiento')
+insert into plantillas_campos (modulo,campo_formulario,campo_interno) values ('REGSOC1','campo4','Propietario')
+end
+
+-- ALICANTE
+if @colegio = 'COAATA'
+begin
+insert into t_control_eventos (control,evento,activo,id_control) values ('INCIDENCIAS_COL','GRABAR_FASE','S','INCCOL1')
+insert into t_control_eventos (control,evento,activo,id_control) values ('INCIDENCIAS_CLI','GRABAR_FASE','S','INCCLI1')
+end
+
+
+-- BURGOS
+if @colegio = 'COAATBU'
+begin
+print 'Campos plantilla REGSOC'
+insert into plantillas_campos values ('REGSOC2','campo1','Colegio Acred.')
+insert into plantillas_campos values ('REGSOC2','campo2','Destino Acred.')
+end
+
+-- MALLORCA
+if @colegio = 'COAATMCA'
+begin
+create table dbo.coaatmca_coef_b (codigo char(10) not null, tipo_act char(3) null, tarifa char(1) null, coef_b char(50) null, f_validez_desde datetime null, f_validez_hasta datetime null)
+alter table dbo.coaatmca_coef_b add constraint pk_coef_b primary key nonclustered (codigo)
+create table dbo.coaatmca_coef_c (codigo char(10) not null, rango_inf double precision not null, rango_sup double precision not null, coef_c char(50) not null, tarifa char(1) not null, f_validez_desde datetime not null, f_validez_hasta datetime not null)
+alter table dbo.coaatmca_coef_c add constraint pk_coef_c primary key nonclustered (codigo)
+create table dbo.coaatmca_coeficientes (codigo char(30) not null, f_validez_desde datetime not null, f_validez_hasta datetime not null, valor_double double precision null)
+alter table dbo.coaatmca_coeficientes add constraint pk_cod primary key nonclustered (codigo, f_validez_desde, f_validez_hasta)
+create table dbo.coaatmca_dv (id char(10) not null, tipo_intervencion char(3) null, pem_desde double precision null, pem_hasta double precision null, cuota char(100) null, f_validez_desde datetime not null, f_validez_hasta datetime not null)
+alter table dbo.coaatmca_dv add constraint pk_dv primary key nonclustered (id)
+create table dbo.coaatmca_fases_estadisticas (id_fases_estadisticas char(10) not null, id_fase char(10) not null, sup_parcela double precision null, cc_hormigon char(1) null, cc_hormigon_tipo char(1) null, cc_acero char(1) null, cc_acero_tipo char(1) null, cc_forjados char(1) null, cc_muro_carga char(1) null, cc_cubiertas char(1) null, tipologia char(1) null)
+alter table dbo.coaatmca_fases_estadisticas add constraint pk_fases_estad primary key clustered (id_fases_estadisticas) 
+create table dbo.coaatmca_tipologia_edif (codigo char(2) not null, descripcion char(255) null, valor double precision null) 
+alter table dbo.coaatmca_tipologia_edif add constraint pk_tipologia primary key nonclustered (codigo) 
+
+
+-- LISTADO DE INFORME DE RENUNCIAS
+insert into listados (descripcion,dw,ventana,activo) values ('Informe de Renuncias Mensual','d_listado_informe_renuncias_mca','w_fases_listados','S')
+-- PESTANYA DE ESTADISTICAS
+insert into t_control_eventos (control,evento,activo,id_control) values ('ENLAZA_DW','FASES_ESTAD_OTROS','S','MCA_ESTAD1')
+insert into t_control_eventos (control,evento,activo,param1,id_control) values ('CAMBIAR_DW','FASES_ESTAD_OTROS','S','d_fases_expedientes_estadistica_cc_mca','MCA_ESTAD2')
+-- CAMPO mantenimiento
+insert into t_control_eventos (control,evento,activo,param1,param2,id_control) values ('VISIBLE_OBJETO','ABRIR_FASE','S','mantenimiento','1','MCA_MANT1')
+-- ESTABLECER EL NÚMERO DE VISADO
+insert into t_control_eventos (control,evento,activo,id_control) values ('COMPROBAR_NVISADO','VISAR','S','nvisado1')
+end
+
+--Todos (COAM-32)
+print 'Agrega campo Web en fases_finales'
+alter table fases_finales add web char(1) default 'N' null
+update fases_finales set web='N'
+insert into t_control_eventos (control,evento,activo,param1,param2,id_control) values ('VISIBLE_OBJETO','FASES_FINALES','S','web_t','0','FFIN1')
+insert into t_control_eventos (control,evento,activo,param1,param2,id_control) values ('VISIBLE_OBJETO','FASES_FINALES','S','web','0','FFIN2')
+
+print 'Agrega campo Web en fases_renuncias'
+alter table fases_renuncias add web char(1) default 'N' null
+update fases_renuncias set web='N'
+
+-- TODOS (ICC-172)
+print 'TODOS'
+insert into t_aplicacion (cod_aplicacion,nombre) values ('FACT_E_MOD','FACTURACION EMITIDA: Modificacion Nº Factura')
+insert into t_aplicacion (cod_aplicacion,nombre) values ('NAVISO_MOD','FASES: Modificacion Nº Aviso')
+
+-- CONTADORES
+insert into contadores (contador,valor,descripcion) values ('FASES_ESTAD_OTROS',0,'Contador DW Otras estadisticas')
+
+-- TODOS (COAM-40) Preferencia de Idioma
+print 'Se agrega tabla csd_seg_tipo_idioma'
+create table dbo.csd_seg_tipo_idioma (cod_tipo_idioma varchar(2) not null, descripcion varchar(100) null) ;
+alter table dbo.csd_seg_tipo_idioma add constraint pk_csd_seg_tipo_idioma primary key nonclustered (cod_tipo_idioma) ;
+
+print 'Se agrega campo en t_usuario'
+alter table t_usuario add cod_tipo_idioma varchar(2)  null
+
+print 'Se agrega entrada en el menu'
+INSERT INTO menu ( codigo, descripcion,  objeto, visible, enabled, ventana, activo )  
+VALUES ( '0000000200', 'Tipo de Idioma', 'm_aplic_frame.m_file.m_open.m_general.m_tipoidioma', '1', '1', 'w_mant_csi_seg_tipo_idioma', 'S' )
+
+print 'Se agrega variable global idioma por defecto'
+INSERT INTO var_globales  ( nombre,   texto, descripcion, modificable )
+VALUES ( 'g_idioma_defecto','es', 'Contiene el idioma por defecto','N' )
+
+
+
+-- TODOS (CGU-248) Cambio del tamaño del campo nombre de la tabla csi_empresas
+
+select * into #aux from csi_empresas
+
+drop table csi_empresas
+go
+CREATE TABLE csi_empresas (
+	codigo char(5) NOT NULL,
+	nombre char(150) NULL,
+	nif char(15) NULL,
+	direccion char(60) NULL,
+	poblacion char(30) NULL,
+	codigo_postal char(5) NULL,
+	provincia char(2) NULL,
+	telefono char(20) NULL,
+	fax char(20) NULL,
+	inscripcion char(100) NULL,
+	cuenta_bancaria char(20) NULL,
+	numeracion float NULL,
+	facturacion char(1) NULL,
+	nombre_corto char(30) NULL,
+	prefijo_factura char(2) NULL,
+	logo char(60) NULL,
+	centro char(3) NULL,
+	proyecto char(5) NULL,
+	es_colegio char(1) NULL,
+	etiqueta_superior_listados char(15) NULL,
+	pendiente_devengar_fe char(1) NULL,
+	pendiente_devengar_fr char(1) NULL,
+	coste char(1) NULL,
+	direccion_corta char(36) NULL,
+	imagen_fondo char(100) NULL)
+
+ALTER TABLE csi_empresas
+ADD CONSTRAINT empresas_x PRIMARY KEY (codigo)
+
+insert into csi_empresas (codigo,	nombre, nif,	direccion, poblacion,
+	codigo_postal, provincia, telefono, fax, inscripcion, cuenta_bancaria, numeracion,
+	facturacion, nombre_corto, prefijo_factura, logo, centro, proyecto, es_colegio, etiqueta_superior_listados,
+	pendiente_devengar_fe, pendiente_devengar_fr, coste, direccion_corta, imagen_fondo) 
+select * from #aux
+
+drop table #aux
+
+
+--TODOS(scp-193) Modificaciones de Musaat
+
+ UPDATE musaat_coef_g   SET coef = 1.583   WHERE musaat_coef_g.cobertura = 120000
+ UPDATE musaat_coef_g   SET coef = 1.747   WHERE musaat_coef_g.cobertura = 150000
+ UPDATE musaat_coef_g   SET coef = 1.888   WHERE musaat_coef_g.cobertura = 210000
+ UPDATE musaat_coef_g   SET coef = 1.943   WHERE musaat_coef_g.cobertura = 270000
+ UPDATE musaat_coef_g   SET coef = 2.008   WHERE musaat_coef_g.cobertura = 330000
+ UPDATE musaat_coef_g   SET coef = 2.171   WHERE musaat_coef_g.cobertura = 480000
+ UPDATE musaat_coef_g   SET coef = 2.336   WHERE musaat_coef_g.cobertura = 630000
+ UPDATE musaat_coef_g   SET coef = 2.662   WHERE musaat_coef_g.cobertura = 930000
+ UPDATE musaat_coef_g   SET coef = 2.946   WHERE musaat_coef_g.cobertura = 1230000
+ 
+ INSERT INTO var_globales  ( nombre,  numero,  descripcion, modificable )  
+ VALUES ( 'g_aplica_musaat_dcto', 100,  'Tiene el valor que se va a descontar a la formula de musaat', 'S' )  
+
+go

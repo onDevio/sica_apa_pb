@@ -1,0 +1,28 @@
+HA$PBExportHeader$f_cobros_reemplaza_cadena.srf
+global type f_cobros_reemplaza_cadena from function_object
+end type
+
+forward prototypes
+global function string f_cobros_reemplaza_cadena (string principal, string vieja, string nueva)
+end prototypes
+
+global function string f_cobros_reemplaza_cadena (string principal, string vieja, string nueva);//Esta funci$$HEX1$$f300$$ENDHEX$$n sustituye todas las ocurrencias de "vieja" por "nueva" dentro de "principal"
+
+integer j, lprincipal, lvieja, i = 1
+
+lprincipal = LenA(principal)
+lvieja = LenA(vieja)
+
+if lprincipal = 0 or lvieja = 0 then return principal
+
+DO WHILE i > 0
+	i = PosA(principal, vieja, i)
+	if i > 0 then
+		principal = LeftA(principal,i - 1) + nueva + RightA(principal,lprincipal - i - lvieja + 1)
+		lprincipal = LenA(principal)
+	end if
+LOOP
+return principal
+
+end function
+

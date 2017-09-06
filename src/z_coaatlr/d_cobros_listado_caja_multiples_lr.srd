@@ -1,0 +1,129 @@
+HA$PBExportHeader$d_cobros_listado_caja_multiples_lr.srd
+$PBExportComments$ES para sacar el cuadro resumen de los cobros multiples
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=144 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=0 color="536870912" )
+table(column=(type=char(10) updatewhereclause=yes name=csi_cobros_centro dbname="csi_cobros.centro" )
+ column=(type=char(14) updatewhereclause=yes name=expedientes_n_expedi dbname="expedientes.n_expedi" )
+ column=(type=char(3) updatewhereclause=yes name=fases_fase dbname="fases.fase" )
+ column=(type=char(10) updatewhereclause=yes name=fases_id_fase dbname="fases.id_fase" )
+ column=(type=char(40) updatewhereclause=yes name=csi_facturas_emitidas_nombre dbname="csi_facturas_emitidas.nombre" )
+ column=(type=datetime updatewhereclause=yes name=csi_facturas_emitidas_fecha dbname="csi_facturas_emitidas.fecha" )
+ column=(type=char(15) updatewhereclause=yes name=csi_facturas_emitidas_n_col dbname="csi_facturas_emitidas.n_col" )
+ column=(type=char(2) updatewhereclause=yes name=csi_facturas_emitidas_tipo_factura dbname="csi_facturas_emitidas.tipo_factura" )
+ column=(type=char(60) updatewhereclause=yes name=tipos_facturas_descripcion dbname="tipos_facturas.descripcion" )
+ column=(type=number updatewhereclause=yes name=csi_cobros_importe dbname="csi_cobros.importe" )
+ column=(type=char(15) updatewhereclause=yes name=csi_facturas_emitidas_id_factura dbname="csi_facturas_emitidas.id_factura" )
+ column=(type=char(2) updatewhereclause=yes name=csi_cobros_forma_pago dbname="csi_cobros.forma_pago" )
+ column=(type=char(60) updatewhereclause=yes name=csi_formas_de_pago_descripcion dbname="csi_formas_de_pago.descripcion" )
+ column=(type=char(1) updatewhereclause=yes name=csi_formas_de_pago_tipo dbname="csi_formas_de_pago.tipo" )
+ column=(type=char(10) updatewhereclause=yes name=csi_cobros_banco dbname="csi_cobros.banco" )
+ column=(type=char(10) updatewhereclause=yes name=csi_cobros_cuenta dbname="csi_cobros.cuenta" )
+ column=(type=char(1) updatewhereclause=yes name=csi_formas_de_pago_hay_ingreso dbname="csi_formas_de_pago.hay_ingreso" )
+ column=(type=char(40) updatewhereclause=yes name=csi_centros_descripcion dbname="csi_centros.descripcion" )
+ column=(type=char(11) updatewhereclause=yes name=fases_n_registro dbname="fases.n_registro" )
+ column=(type=char(15) updatewhereclause=yes name=csi_facturas_emitidas_n_fact dbname="csi_facturas_emitidas.n_fact" )
+ column=(type=char(10) updatewhereclause=yes name=csi_cobros_id_cobro_multiple dbname="csi_cobros.id_cobro_multiple" )
+ column=(type=char(2) updatewhereclause=yes name=csi_cobros_multiples_forma_pago dbname="csi_cobros_multiples.forma_pago" )
+ column=(type=char(60) updatewhereclause=yes name=csi_fp_multiple_descripcion dbname="csi_formas_de_pago.csi_fp_multiple_descripcion" )
+ column=(type=char(1) updatewhereclause=yes name=csi_formas_de_pago_csi_fp_multiple_tipo dbname="csi_formas_de_pago.csi_fp_multiple_tipo" )
+ column=(type=char(10) updatewhereclause=yes name=csi_cobros_multiples_banco dbname="csi_cobros_multiples.csi_cobros_multiples_banco" )
+ column=(type=number updatewhereclause=yes name=csi_cobros_multiples_importe dbname="csi_cobros_multiples.csi_cobros_multiples_importe" )
+ column=(type=char(100) updatewhereclause=yes name=csi_cobros_multiples_pagador dbname="csi_cobros_multiples.pagador" )
+ column=(type=char(15) updatewhereclause=yes name=csi_cobros_multiples_expediente dbname="csi_cobros_multiples.expediente" )
+ column=(type=char(10) updatewhereclause=yes name=fases_minutas_n_aviso dbname="fases_minutas.n_aviso" )
+ column=(type=char(10) updatewhereclause=yes name=csi_cobros_id_pago dbname="csi_cobros.id_pago" )
+ retrieve="  SELECT csi_cobros.centro,   
+         expedientes.n_expedi,   
+         fases.fase,   
+         fases.id_fase,   
+         csi_facturas_emitidas.nombre,   
+         csi_facturas_emitidas.fecha,   
+         csi_facturas_emitidas.n_col,   
+         csi_facturas_emitidas.tipo_factura,   
+			tipos_facturas.descripcion,
+         csi_cobros.importe,   
+         csi_facturas_emitidas.id_factura,   
+         csi_cobros.forma_pago,   
+         csi_formas_de_pago_simple.descripcion,   
+         csi_formas_de_pago_simple.tipo,   
+         csi_cobros.banco,   
+         csi_cobros.cuenta,   
+         csi_formas_de_pago_simple.hay_ingreso,   
+         csi_centros.descripcion,   
+         fases.n_registro,   
+         csi_facturas_emitidas.n_fact,
+			csi_cobros.id_cobro_multiple,
+			csi_cobros_multiples.forma_pago,
+         csi_formas_de_pago_multiple.descripcion as csi_fp_multiple_descripcion,   
+         csi_formas_de_pago_multiple.tipo as csi_fp_multiple_tipo,   
+			csi_cobros_multiples.banco as csi_cobros_multiples_banco,
+			csi_cobros_multiples.importe as csi_cobros_multiples_importe,
+			csi_cobros_multiples.pagador,
+			csi_cobros_multiples.expediente,
+			fases_minutas.n_aviso,
+			csi_cobros.id_pago
+    FROM csi_cobros_multiples,
+			csi_cobros,   
+         csi_facturas_emitidas,   
+         expedientes,   
+         fases,   
+         csi_formas_de_pago csi_formas_de_pago_simple,   
+         csi_centros,   
+         fases_minutas,
+			tipos_facturas,
+         csi_formas_de_pago csi_formas_de_pago_multiple  
+   WHERE ( csi_cobros_multiples.id_cobro_multiple = csi_cobros.id_cobro_multiple ) and
+			( csi_cobros.id_factura = csi_facturas_emitidas.id_factura ) and  
+         ( csi_cobros.forma_pago = csi_formas_de_pago_simple.tipo_pago ) and  
+         ( csi_cobros.centro = csi_centros.centro ) and  
+         ( fases_minutas.id_fase = fases.id_fase ) and  
+         ( fases.id_expedi = expedientes.id_expedi ) and  
+         ( csi_facturas_emitidas.id_fase = fases_minutas.id_minuta ) and
+			( csi_facturas_emitidas.tipo_factura = tipos_facturas.codigo) and
+         ( csi_cobros_multiples.forma_pago = csi_formas_de_pago_multiple.tipo_pago )
+
+
+
+"  sort="csi_cobros_id_cobro_multiple A csi_cobros_centro A csi_cobros_banco A fases_id_fase A " )
+group(level=1 header.height=168 trailer.height=148 by=("csi_cobros_id_cobro_multiple" ) header.color="536870912" trailer.color="536870912" )
+group(level=2 header.height=0 trailer.height=0 by=("csi_cobros_centro" ) header.color="536870912" trailer.color="536870912" )
+group(level=3 header.height=0 trailer.height=0 by=("csi_cobros_banco" ) header.color="536870912" trailer.color="536870912" )
+group(level=4 header.height=0 trailer.height=0 by=("fases_id_fase" ) header.color="536870912" trailer.color="536870912" )
+text(band=header alignment="0" text="Resumen de Cobros M$$HEX1$$fa00$$ENDHEX$$ltiples" border="0" color="0" x="137" y="12" height="92" width="2921"  name=st_titulo_listado  font.face="Arial" font.height="-14" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="1" background.color="536870912" )
+column(band=header.1 id=21 alignment="0" tabsequence=32766 border="0" color="0" x="347" y="32" height="56" width="334" format="[general]"  name=csi_cobros_id_cobro_multiple edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+text(band=header.1 alignment="1" text="Banco:" border="0" color="0" x="727" y="32" height="56" width="169"  name=t_1  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=header.1 id=25 alignment="0" tabsequence=32766 border="0" color="0" x="910" y="32" height="56" width="357" format="[general]"  name=csi_cobros_multiples_banco dddw.name=d_dddw_csi_bancos dddw.displaycolumn=nombre dddw.datacolumn=codigo dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+text(band=header.1 alignment="1" text="Forma Pago:" border="0" color="0" x="1307" y="32" height="56" width="315"  name=csi_fp_multiple_descripcion_t  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header.1 alignment="1" text="Importe:" border="0" color="0" x="2464" y="32" height="56" width="238"  name=csi_cobros_multiples_importe_t  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header.1 alignment="2" text="Cliente" border="4" color="0" x="1006" y="248" height="56" width="809"  name=csi_facturas_emitidas_nombre_t visible="1~t0"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header.1 alignment="2" text="Expediente" border="4" color="0" x="325" y="248" height="56" width="357"  name=expedientes_n_expedi_t visible="1~t0"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header.1 alignment="2" text="Fecha" border="4" color="0" x="55" y="248" height="56" width="256"  name=csi_facturas_emitidas_fecha_t visible="1~t0"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header.1 alignment="2" text="Forma de pago" border="4" color="0" x="1829" y="248" height="56" width="443"  name=t_3 visible="1~t0"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header.1 alignment="2" text="Banco / Cuenta" border="4" color="0" x="2286" y="248" height="56" width="421"  name=t_4 visible="1~t0"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header.1 alignment="2" text="N$$HEX2$$ba002000$$ENDHEX$$Aviso" border="4" color="0" x="695" y="248" height="56" width="297"  name=t_2 visible="1~t0"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header.1 alignment="2" text="Importe" border="4" color="0" x="2715" y="248" height="56" width="352"  name=csi_cobros_importe_t visible="1~t0"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=header.1 id=23 alignment="0" tabsequence=32766 border="0" color="0" x="1637" y="32" height="56" width="786" format="[general]"  name=csi_fp_multiple_descripcion edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+text(band=header.1 alignment="1" text="Pagador:" border="0" color="0" x="37" y="104" height="56" width="293"  name=csi_cobros_multiples_pagador_t  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=header.1 id=27 alignment="0" tabsequence=32766 border="0" color="0" x="347" y="104" height="56" width="1623" format="[general]"  name=csi_cobros_multiples_pagador edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+text(band=header.1 alignment="1" text="Expediente:" border="0" color="0" x="2190" y="104" height="56" width="256"  name=csi_cobros_multiples_expediente_t  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header.1 alignment="1" text="Cobro m$$HEX1$$fa00$$ENDHEX$$ltiple:" border="0" color="0" x="9" y="32" height="56" width="320"  name=csi_cobros_id_cobro_multiple_t  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=header.1 id=26 alignment="1" tabsequence=32766 border="0" color="0" x="2715" y="32" height="56" width="352" format="#,##0.00"  name=csi_cobros_multiples_importe edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+column(band=header.1 id=28 alignment="0" tabsequence=32766 border="0" color="0" x="2459" y="104" height="56" width="608" format="[general]"  name=csi_cobros_multiples_expediente edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+column(band=header.2 id=18 alignment="0" tabsequence=32766 border="0" color="0" x="119" y="16" height="64" width="1083" format="[general]"  name=csi_centros_descripcion edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="0" color="0" x="55" y="4" height="52" width="256" format="dd/mm/yyyy"  name=csi_facturas_emitidas_fecha edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+column(band=detail id=13 alignment="0" tabsequence=32766 border="0" color="0" x="1829" y="4" height="52" width="443" format="[general]"  name=csi_formas_de_pago_descripcion height.autosize=yes edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+column(band=detail id=15 alignment="0" tabsequence=32766 border="0" color="0" x="2286" y="4" height="52" width="421" format="[general]"  name=csi_cobros_banco edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+column(band=detail id=16 alignment="0" tabsequence=32766 border="0" color="0" x="2286" y="68" height="52" width="421" format="[general]"  name=csi_cobros_cuenta edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="32768" x="325" y="4" height="52" width="357" format="[general]"  name=expedientes_n_expedi edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+column(band=detail id=29 alignment="0" tabsequence=32766 border="0" color="0" x="695" y="4" height="52" width="297" format="[general]"  name=fases_minutas_n_aviso edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="997" y="4" height="56" width="818" format="[general]"  name=csi_facturas_emitidas_nombre height.autosize=yes edit.limit=40 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=10 alignment="1" tabsequence=32766 border="0" color="0" x="2720" y="4" height="52" width="352" format="#,##0.00"  name=csi_cobros_importe edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+column(band=detail id=30 alignment="0" tabsequence=32766 border="0" color="0" x="3072" y="0" height="52" width="233" format="[general]"  name=csi_cobros_id_pago edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+compute(band=trailer.1 alignment="0" expression="'N$$HEX2$$ba002000$$ENDHEX$$cobros incluidos en el cobro multiple: '+count(   csi_cobros_id_pago   for group 1 )"border="0" color="0" x="55" y="8" height="56" width="1015" format="[GENERAL]"  name=compute_1  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+line(band=trailer.1 x1="27" y1="80" x2="3067" y2="80"  name=l_1 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="1090519039" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

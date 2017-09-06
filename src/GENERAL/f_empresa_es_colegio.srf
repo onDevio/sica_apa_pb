@@ -1,0 +1,18 @@
+HA$PBExportHeader$f_empresa_es_colegio.srf
+global type f_empresa_es_colegio from function_object
+end type
+
+forward prototypes
+global function string f_empresa_es_colegio ()
+end prototypes
+
+global function string f_empresa_es_colegio ();
+///*** SCP-873. Alexis. 26/01/2011. ***///
+
+if f_es_vacio(g_es_colegio) then
+	return 'S'
+else
+	return g_es_colegio
+end if 
+end function
+

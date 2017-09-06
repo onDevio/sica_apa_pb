@@ -1,0 +1,32 @@
+HA$PBExportHeader$f_eimporta_redondear_colegiados.srf
+global type f_eimporta_redondear_colegiados from function_object
+end type
+
+forward prototypes
+global function string f_eimporta_redondear_colegiados (string n_colegiado)
+end prototypes
+
+global function string f_eimporta_redondear_colegiados (string n_colegiado);long n_ceros
+string n_col,n_col_sin_prefijo
+//g_prefijo_sociedades
+//g_cifras_n_colegiado
+n_col=n_colegiado
+
+if not(IsNull(g_cifras_n_colegiado)) and g_cifras_n_colegiado<>0 then
+	if not(f_es_vacio(g_prefijo_sociedades)) then
+		if Pos(n_colegiado,g_prefijo_sociedades)=1 then
+			n_col_sin_prefijo=mid(n_colegiado,1+len(g_prefijo_sociedades))
+			n_ceros=g_cifras_n_colegiado - (len(g_prefijo_sociedades)+len(n_col_sin_prefijo))		
+			n_col=g_prefijo_sociedades + Fill('0',n_ceros) + n_col_sin_prefijo
+		else
+			n_col= right('0000000000000'+n_colegiado,g_cifras_n_colegiado)	
+		end if
+	else
+		n_col= right('0000000000000'+n_colegiado,g_cifras_n_colegiado)	
+	end if
+end if
+
+
+return n_col
+end function
+

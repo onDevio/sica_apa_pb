@@ -1,0 +1,21 @@
+HA$PBExportHeader$f_email_cargar_ds_direcciones.srf
+global type f_email_cargar_ds_direcciones from function_object
+end type
+
+forward prototypes
+global subroutine f_email_cargar_ds_direcciones (u_dw dw_destinatarios, ref datastore ds_direcciones)
+end prototypes
+
+global subroutine f_email_cargar_ds_direcciones (u_dw dw_destinatarios, ref datastore ds_direcciones);// Hace un volcado del datawindow de destinatarios al datastore que se devolver$$HEX2$$e1002000$$ENDHEX$$para la ventana de envio
+
+long i,fila
+
+ds_direcciones.reset()
+
+for i=1 to dw_destinatarios.rowcount()
+	fila=ds_direcciones.insertrow(0)
+	ds_direcciones.SetItem(fila,'nombre',dw_destinatarios.GetItemString(i,'nombre'))	
+	ds_direcciones.SetItem(fila,'direccion',dw_destinatarios.GetItemString(i,'direccion'))	
+next
+end subroutine
+

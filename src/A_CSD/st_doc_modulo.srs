@@ -1,0 +1,22 @@
+HA$PBExportHeader$st_doc_modulo.srs
+global type st_doc_modulo from structure
+	string		id_documento
+	string		id_tipo_modulo
+	string		id_modulo
+	string		id_tipo_modulo_grupo
+	string		id_modulo_grupo
+	datetime		f_activacion
+	datetime		f_caducidad
+	string		version
+	string		anyo
+	string		nombre_fichero
+	string		descripcion
+	string		autor
+	string		visible_web
+	string		cod_tipo_documento_archivo
+	string		cod_tipo_documento_celda
+	string		cod_tipo_documento
+	string		ubicacion
+	double		tamanyo
+end type
+

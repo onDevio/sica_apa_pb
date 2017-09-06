@@ -1,0 +1,64 @@
+HA$PBExportHeader$d_morosidad_detalle.srd
+release 10.5;
+datawindow(units=0 timer_interval=0 color=1073741824 processing=0 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes print.preview.outline=yes hidegrayline=no )
+header(height=72 color="536870912" )
+summary(height=136 color="536870912" )
+footer(height=104 color="536870912" )
+detail(height=0 color="536870912" )
+table(column=(type=char(15) updatewhereclause=yes name=n_fact dbname="csi_facturas_emitidas.n_fact" )
+ column=(type=datetime updatewhereclause=yes name=csi_facturas_emitidas_fecha dbname="csi_facturas_emitidas.fecha" )
+ column=(type=char(15) updatewhereclause=yes name=csi_facturas_emitidas_n_col dbname="csi_facturas_emitidas.n_col" )
+ column=(type=char(1) updatewhereclause=yes name=pagado dbname="csi_facturas_emitidas.pagado" values="PAGADO	S/PENDIENTE	N/" )
+ column=(type=number updatewhereclause=yes name=total dbname="csi_facturas_emitidas.total" )
+ column=(type=datetime updatewhereclause=yes name=f_pago dbname="csi_facturas_emitidas.f_pago" )
+ column=(type=char(10) updatewhereclause=yes name=csi_lineas_fact_emitidas_articulo dbname="csi_lineas_fact_emitidas.articulo" )
+ column=(type=number updatewhereclause=yes name=total_linea dbname="csi_lineas_fact_emitidas.total" )
+ column=(type=char(1) updatewhereclause=yes name=anulada dbname="csi_facturas_emitidas.anulada" )
+ retrieve="  SELECT  csi_facturas_emitidas.n_fact,   
+         csi_facturas_emitidas.fecha,   
+         csi_facturas_emitidas.n_col,   
+         csi_facturas_emitidas.pagado,   
+         csi_facturas_emitidas.total,   
+         csi_facturas_emitidas.f_pago,   
+         csi_lineas_fact_emitidas.articulo,
+         csi_lineas_fact_emitidas.total,
+		csi_facturas_emitidas.anulada
+    FROM csi_facturas_emitidas,   
+         csi_lineas_fact_emitidas  
+   WHERE ( csi_facturas_emitidas.id_factura = csi_lineas_fact_emitidas.id_factura )    
+"  sort="csi_facturas_emitidas_fecha A n_fact A " )
+group(level=1 header.height=76 trailer.height=0 by=("n_fact" ) header.color="536870912" trailer.color="536870912" )
+text(band=header alignment="2" text="N$$HEX2$$ba002000$$ENDHEX$$Fact/Rec." border="6" color="33554432" x="18" y="8" height="56" width="480" html.valueishtml="0"  name=n_fact_t visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="67108864" )
+text(band=header alignment="2" text="Fecha Fact." border="6" color="33554432" x="521" y="8" height="56" width="352" html.valueishtml="0"  name=csi_facturas_emitidas_fecha_t visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="67108864" )
+text(band=header alignment="2" text="F Pago" border="6" color="33554432" x="887" y="12" height="52" width="370" html.valueishtml="0"  name=f_pago_t visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="67108864" )
+text(band=header alignment="2" text="Total Conceptos" border="6" color="33554432" x="1266" y="12" height="52" width="375" html.valueishtml="0"  name=compute_1_t visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="67108864" )
+text(band=header alignment="2" text="Estado" border="6" color="33554432" x="2043" y="12" height="52" width="379" html.valueishtml="0"  name=estado_t visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="67108864" )
+text(band=header alignment="2" text="Total Factura" border="6" color="33554432" x="1659" y="12" height="52" width="375" html.valueishtml="0"  name=t_4 visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="67108864" )
+column(band=header.1 id=1 alignment="0" tabsequence=32766 border="0" color="33554432" x="23" y="8" height="56" width="480" format="[general]" html.valueishtml="0"  name=n_fact visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+column(band=header.1 id=2 alignment="0" tabsequence=32766 border="0" color="33554432" x="517" y="12" height="52" width="357" format="dd/mm/yyyy" html.valueishtml="0"  name=csi_facturas_emitidas_fecha visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+column(band=header.1 id=6 alignment="0" tabsequence=32766 border="0" color="33554432" x="901" y="12" height="52" width="347" format="dd/mm/yyyy" html.valueishtml="0"  name=f_pago visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+compute(band=header.1 alignment="1" expression="sum (round(total_linea,2) for group 1)"border="0" color="33554432" x="1275" y="12" height="52" width="366" format="#,##0.00" html.valueishtml="0"  name=compute_1 visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+column(band=header.1 id=5 alignment="1" tabsequence=32766 border="0" color="33554432" x="1664" y="12" height="52" width="366" format="#,##0.00" html.valueishtml="0"  name=total visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+compute(band=header.1 alignment="0" expression="if (anulada='S','ANULADO',if(pagado='S','PAGADO','PENDIENTE'))"border="0" color="33554432" x="2048" y="12" height="52" width="379" format="[GENERAL]" html.valueishtml="0"  name=estado visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="0" color="33554432" x="1221" y="12" height="52" width="498" format="[general]" html.valueishtml="0"  name=total_linea visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+compute(band=detail alignment="0" expression="if(pagado='S',round(total_linea,2),0)"border="0" color="33554432" x="1810" y="8" height="52" width="183" format="[GENERAL]" html.valueishtml="0"  name=cobrado visible="0"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+compute(band=detail alignment="0" expression="if(pagado='N' and anulada='N',round(total_linea,2),0)"border="0" color="33554432" x="2048" y="24" height="52" width="183" format="[GENERAL]" html.valueishtml="0"  name=pendiente visible="0"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="33554432" x="2423" y="0" height="52" width="229" format="[general]" html.valueishtml="0"  name=csi_lineas_fact_emitidas_articulo visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+line(band=summary x1="1262" y1="4" x2="1650" y2="4"  name=l_1 visible="1" pen.style="0" pen.width="5" pen.color="33554432"  background.mode="2" background.color="1073741824" )
+text(band=summary alignment="0" text="Total:" border="0" color="33554432" x="1006" y="28" height="52" width="247" html.valueishtml="0"  name=t_3 visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+compute(band=summary alignment="1" expression="sum (round(total_linea,2) for all)"border="0" color="33554432" x="1285" y="32" height="52" width="366" format="#,##0.00" html.valueishtml="0"  name=compute_4 visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+text(band=footer alignment="0" text="Deuda:" border="0" color="33554432" x="384" y="16" height="52" width="215" html.valueishtml="0"  name=t_1 visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=footer alignment="0" text="Pagado:" border="0" color="33554432" x="1001" y="12" height="52" width="247" html.valueishtml="0"  name=t_2 visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+compute(band=footer alignment="0" expression="sum (round(cobrado,2) for all)"border="0" color="33554432" x="1289" y="20" height="52" width="366" format="#,##0.00" html.valueishtml="0"  name=compute_5 visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+compute(band=footer alignment="0" expression="sum (round(pendiente,2) for all)"border="0" color="33554432" x="617" y="20" height="52" width="366" format="#,##0.00" html.valueishtml="0"  name=compute_2 visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" pagingmethod=0 generatedddwframes="1" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()
+ 

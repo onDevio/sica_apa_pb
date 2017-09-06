@@ -1,0 +1,24 @@
+HA$PBExportHeader$f_coeficientes_listas_descripcion.srf
+$PBExportComments$objetos b$$HEX1$$e100$$ENDHEX$$sicos
+global type f_coeficientes_listas_descripcion from function_object
+end type
+
+forward prototypes
+global function string f_coeficientes_listas_descripcion (string variable)
+end prototypes
+
+global function string f_coeficientes_listas_descripcion (string variable);string descripcion
+string colegio
+
+colegio = f_colegio()
+  
+  SELECT coeficientes_listas.descripcion_valor  
+    INTO :descripcion  
+    FROM coeficientes_listas  
+   WHERE coeficientes_listas.valor = :variable and 
+         (colegio = :colegio or colegio = '' or colegio is null) order by colegio desc ;
+			// Ser$$HEX1$$ed00$$ENDHEX$$a conveniente tener en cuenta tambi$$HEX1$$e900$$ENDHEX$$n la fecha
+
+return descripcion
+end function
+

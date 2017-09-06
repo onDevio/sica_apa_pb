@@ -1,0 +1,19 @@
+HA$PBExportHeader$f_descuento_visared_al.srf
+global type f_descuento_visared_al from function_object
+end type
+
+forward prototypes
+global function double f_descuento_visared_al (string t_act, string t_obra)
+end prototypes
+
+global function double f_descuento_visared_al (string t_act, string t_obra);double retorno
+
+SELECT descuento 
+INTO :retorno
+FROM descuentos_visared 
+WHERE (( :t_act like tipo_actuacion ) or (tipo_actuacion='*')) AND ( ( tipo_obra = :t_obra ) or ( tipo_obra = '*' )  );
+
+return retorno
+
+end function
+

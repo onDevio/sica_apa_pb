@@ -1,0 +1,65 @@
+HA$PBExportHeader$f_devuelve_cta_presup_enlace.srf
+global type f_devuelve_cta_presup_enlace from function_object
+end type
+
+forward prototypes
+global function string f_devuelve_cta_presup_enlace (string cuenta, string centro, string proyecto, integer porcent)
+end prototypes
+
+global function string f_devuelve_cta_presup_enlace (string cuenta, string centro, string proyecto, integer porcent);//Funcion que devuelve el valor de cuenta_presup de la tabla enlace_presupuestario 
+string cuenta_presup
+
+//1$$HEX2$$ba002000$$ENDHEX$$intento: cuenta, centro,proyecto esten en una entrada de tabla enlace_presupuestario
+	SELECT cuenta_presupuestaria
+	INTO :cuenta_presup
+	FROM enlace_presupuestario
+	WHERE cuenta=:cuenta and centro=:centro and proyecto=:proyecto
+	USING bd_ejercicio;
+	
+	IF not f_es_vacio(cuenta_presup) then
+		return cuenta_presup
+	ELSE
+		//2$$HEX2$$ba002000$$ENDHEX$$intento:cuenta y centro coincidan. proyecto='*'
+		SELECT cuenta_presupuestaria
+		INTO :cuenta_presup
+		FROM enlace_presupuestario
+		WHERE cuenta=:cuenta and centro=:centro and proyecto='*'
+		USING bd_ejercicio;
+	
+		IF not f_es_vacio(cuenta_presup) then
+			return cuenta_presup
+		ELSE
+	
+			//3$$HEX2$$ba002000$$ENDHEX$$intento:cuenta y proyecto coincidan, centro='*'
+			SELECT cuenta_presupuestaria
+			INTO :cuenta_presup
+			FROM enlace_presupuestario
+			WHERE cuenta=:cuenta and centro='*' and proyecto= :proyecto
+			USING bd_ejercicio;
+		
+			IF not f_es_vacio(cuenta_presup) then
+				return cuenta_presup
+			ELSE
+				//4$$HEX2$$ba002000$$ENDHEX$$intento:cuenta, y centro='*' y proyecto = '*'
+					SELECT cuenta_presupuestaria
+					INTO :cuenta_presup
+					FROM enlace_presupuestario
+					WHERE cuenta=:cuenta and centro='*' and proyecto='*'
+					USING bd_ejercicio;
+		
+					IF not f_es_vacio(cuenta_presup) then
+						return cuenta_presup
+					ELSE 
+						//Otro caso
+							return ''
+					END IF  // 4
+					
+				END IF // 3
+				
+			END IF // 2
+
+	END IF // 1
+	
+	return ''
+end function
+

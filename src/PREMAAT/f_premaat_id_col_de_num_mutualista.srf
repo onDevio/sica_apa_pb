@@ -1,0 +1,19 @@
+HA$PBExportHeader$f_premaat_id_col_de_num_mutualista.srf
+global type f_premaat_id_col_de_num_mutualista from function_object
+end type
+
+forward prototypes
+global function string f_premaat_id_col_de_num_mutualista (string n_mut)
+end prototypes
+
+global function string f_premaat_id_col_de_num_mutualista (string n_mut);string id_colegiado
+
+SELECT id_col  
+INTO :id_colegiado  
+FROM premaat  
+WHERE n_mutualista = :n_mut   ;
+
+return id_colegiado
+
+end function
+

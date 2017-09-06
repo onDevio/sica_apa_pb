@@ -1,0 +1,15 @@
+HA$PBExportHeader$d_dddw_formulas.srd
+$PBExportComments$objetos b$$HEX1$$e100$$ENDHEX$$sicos
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=72 color="536870912" )
+table(column=(type=char(10) update=yes updatewhereclause=yes key=yes name=id_formula dbname="formulas.id_formula" )
+ column=(type=char(255) update=yes updatewhereclause=yes name=formula dbname="formulas.formula" )
+ column=(type=char(32767) updatewhereclause=no name=descripcion dbname="formulas.Descripcion" )
+ column=(type=char(10) updatewhereclause=yes name=colegio dbname="formulas.colegio" )
+ retrieve="PBSELECT( VERSION(400) TABLE(NAME=~"formulas~" ) COLUMN(NAME=~"formulas.id_formula~") COLUMN(NAME=~"formulas.formula~") COLUMN(NAME=~"formulas.Descripcion~") COLUMN(NAME=~"formulas.colegio~")) " update="formulas" updatewhere=1 updatekeyinplace=no filter="colegio = f_colegio() or colegio = '' or isNull(colegio)" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="9" y="4" height="64" width="2857" format="[general]"  name=descripcion edit.limit=0 edit.case=any edit.autoselect=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

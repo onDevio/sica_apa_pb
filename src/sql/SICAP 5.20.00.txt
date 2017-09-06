@@ -1,0 +1,85 @@
+declare @colegio varchar(10)
+select @colegio = texto from var_globales where nombre = 'COLEGIO'
+
+if @colegio = 'COAATTER'
+begin
+UPDATE t_control_eventos SET activo = 'N' WHERE evento='VISAR' AND control='ALTA_MUSAAT'
+end
+
+if @colegio = 'COAATGU'
+begin
+UPDATE t_control_eventos SET activo = 'S' WHERE id_control='53'
+end
+
+if @colegio = 'COAATTFE'
+begin
+alter table musaat_tarifa_e add f_desde datetime null
+alter table musaat_tarifa_e add f_hasta datetime null
+end 
+
+//SCP-757 Se actualiza el campo 'facturado' puesto que antes guardaba un 0 en vez de una N
+UPDATE fases_informes  SET facturado = 'N' where facturado = '0' ;
+
+//Se actualiza la fecha de versión (PONER FECHA CUANDO SE COMPILE)
+update var_globales set texto='20101228', descripcion = 'versión v5.2.00' where nombre='g_version_minima';
+
+//TODOS.
+update t_tramite set id_tramite='VV' where id_tramite='Visado vol';
+insert into var_globales (nombre,texto,descripcion) values ('g_tramite_defecto','REDAP','Codigo del tramite por defecto (t_tramite)');
+
+
+create table dbo.tarifas_coeficientes (id varchar(10) not null, variable varchar(100) null, igual_a varchar(50) null, porcentaje double precision null, valor_fijo double precision not null, colegio varchar(10) null) ;
+alter table dbo.tarifas_coeficientes add constraint pk_t_coef primary key nonclustered (id) ;
+
+
+create table dbo.tarifas_importes (id varchar(10) not null, id_tarifa varchar(10) null, id_informe varchar(10) null, precio_base double precision null, coef_modificador double precision null) ;
+alter table dbo.tarifas_importes add constraint pk_id_tarifa_informe primary key nonclustered (id) ;
+
+
+create table dbo.tarifas_informes_x_tramite (id varchar(10) not null, tipo_tramite varchar(10) null, visared varchar(1) null, id_informe varchar(10) null, colegio varchar(10) null) ;
+alter table dbo.tarifas_informes_x_tramite add constraint pk primary key nonclustered (id) ;
+
+
+create table dbo.tarifas_tipo_act (id_tarifa varchar(10) not null, tipo_act varchar(3) null, sup_desde double precision null, sup_hasta double precision null, pem_desde double precision null, pem_hasta double precision null, colegio varchar(10) null) ;
+alter table dbo.tarifas_tipo_act add constraint pk_tarifa primary key nonclustered (id_tarifa) ;
+
+
+alter table dbo.colegios add cod_sica char(15) null;
+
+create table dbo.tarifas_superficie (id varchar(10) not null, sup_desde double precision null, sup_hasta double precision null, coeficiente double precision null, colegio varchar(10) null) ;
+alter table dbo.tarifas_superficie add constraint pk_sup primary key nonclustered (id) ;
+
+create table dbo.tarifas_tipo_obra (id varchar(10) not null, tipo_obra varchar(3) null, coeficiente double precision null, colegio varchar(10) null) ;
+alter table dbo.tarifas_tipo_obra add constraint pk_tipo_obra primary key nonclustered (id) ;
+
+
+//SCP-778. Corrección del código de Terres del Ebre. Musaat confirma que es el 55. 
+update colegios set cod_colegio = '55' where cod_colegio = '53';
+
+update colegios set cod_sica= 'COAATA' where cod_colegio='03';
+update colegios set cod_sica= 'COAATAVI' where cod_colegio='06';
+update colegios set cod_sica= 'COAATBU' where cod_colegio='09';
+update colegios set cod_sica= 'COAATCC' where cod_colegio='10';
+update colegios set cod_sica= 'COAATCU' where cod_colegio='16';
+update colegios set cod_sica= 'COAATGC' where cod_colegio='27';
+update colegios set cod_sica= 'COAATGU' where cod_colegio='19';
+update colegios set cod_sica= 'COAATGUI' where cod_colegio='20';
+update colegios set cod_sica= 'COAATLR' where cod_colegio='26';
+update colegios set cod_sica= 'COAATLE' where cod_colegio='28';
+update colegios set cod_sica= 'COAATLL' where cod_colegio='29';
+update colegios set cod_sica= 'COAATMCA' where cod_colegio='33';
+update colegios set cod_sica= 'COAATMU' where cod_colegio='35';
+update colegios set cod_sica= 'COAATN' where cod_colegio='36';
+update colegios set cod_sica= 'COAATTGN' where cod_colegio='44';
+update colegios set cod_sica= 'COAATTFE' where cod_colegio='45';
+update colegios set cod_sica= 'COAATTEB' where cod_colegio='55';
+update colegios set cod_sica= 'COAATTER' where cod_colegio='46';
+update colegios set cod_sica= 'COAATB' where cod_colegio='50';
+update colegios set cod_sica= 'COAATZ' where cod_colegio='52';
+
+insert into contadores (contador,valor,descripcion) values ('ID_TARIFA',10000,'Contador de Tarifas');
+insert into contadores (contador,valor,descripcion) values ('ID_TARIFA_IMPORTE',10000,'Contador de Valores para las tarifas');
+
+// SCP-592  Todos
+// Se agrega nuevo campo en la tabla para guardar la prima completa de musaat 
+alter table musaat_params_linea_fe add prima_total double precision null;

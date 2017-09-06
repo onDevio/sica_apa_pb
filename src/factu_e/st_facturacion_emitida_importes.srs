@@ -1,0 +1,11 @@
+HA$PBExportHeader$st_facturacion_emitida_importes.srs
+global type st_facturacion_emitida_importes from structure
+	string		id_factura
+	double		base_imp
+	double		iva
+	double		descuento
+	double		subtotal
+	double		total
+	double		importe_reten
+end type
+

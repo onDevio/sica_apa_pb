@@ -1,0 +1,732 @@
+HA$PBExportHeader$f_visared_importacion_hr.srf
+global type f_visared_importacion_hr from function_object
+end type
+
+forward prototypes
+global function st_visared_importacion f_visared_importacion_hr (string fichero)
+end prototypes
+
+global function st_visared_importacion f_visared_importacion_hr (string fichero);//Paso el fichero donde est$$HEX1$$e100$$ENDHEX$$n los datos de la rese$$HEX1$$f100$$ENDHEX$$a
+
+string nombre,expedi, nifpro,fase, numregistro,verexp,lafase,elexpedi='', cpobemp,ot
+string partefichero, ape1,ape2,nombrea,despob
+string ficherovisanet,idfase,id_cliente
+integer retorno, sihay, existepob, posi, cargo_fichero
+string ls_inifile,cadena
+string idcoled,arqfilas
+double numarqs,id_nombre_fichero
+int pos,conceptos_domiciliables = 0
+string partepath,fichero_txt
+
+st_clientes clientes
+st_visared_incidencias incidencias
+st_visared_importacion st_fase
+
+//Creamos todos los datastore
+st_fase.ds_detalle_fase = create datastore
+st_fase.ds_detalle_fase.dataobject = 'd_fases_detalle'
+
+st_fase.ds_clientes = create datastore
+st_fase.ds_clientes.dataobject = 'd_fases_promotores'
+
+st_fase.ds_colegiados = create datastore
+st_fase.ds_colegiados.dataobject = 'd_fases_colegiados'
+
+st_fase.ds_estadisticas = create datastore
+st_fase.ds_estadisticas.dataobject = 'd_fases_estadistica'
+
+st_fase.ds_usos = create datastore
+st_fase.ds_usos.dataobject = 'd_fases_usos'
+
+st_fase.ds_honorarios = create datastore
+st_fase.ds_honorarios.dataobject = 'd_fases_honorarios'
+
+st_fase.ds_informes = create datastore
+st_fase.ds_informes.dataobject = 'd_fases_informes'
+
+st_fase.ds_incidencias = create datastore
+st_fase.ds_incidencias.dataobject = 'd_visared_incidencias'
+
+st_fase.ds_clientes_nuevos = create datastore
+st_fase.ds_clientes_nuevos.dataobject = 'd_clientes_detalle'
+
+
+cargo_fichero = 1
+
+
+st_fase.ds_detalle_fase.InsertRow(0)
+numregistro = st_fase.ds_detalle_fase.GetItemString(1,'n_registro') //Ya preasignado
+
+//Cambio la extension del fichero. Paso a txt para poder importar los datos.
+//Buscar posicion del . 
+
+//Cambio la extension del fichero. Paso a txt para poder importar los datos.
+//Buscar posicion del . 
+
+posi = PosA(fichero,'.',1)
+partepath = MidA(fichero,1,posi - 1)
+f_copiarfichero(fichero,partepath+'.txt')
+
+fichero_txt = partepath+'.txt'
+datastore ds_resenya
+ds_resenya= create datastore	
+ds_resenya.dataobject = 'd_visanet_fichero'
+ds_resenya.SetTransObject(SQLCA)
+ds_resenya.Reset()
+ds_resenya.ImportFile(fichero_txt)
+
+
+
+if ds_resenya.rowcount()=0 then
+	MessageBox(g_titulo,'Ha habido problemas al exportar el fichero. Consulte con el Departamento de Inform$$HEX1$$e100$$ENDHEX$$tica')
+	st_fase.opcion_importacion = '-1'
+	return st_fase
+end if
+
+//PROCESO DATOS
+//N$$HEX1$$fa00$$ENDHEX$$mero de expediente ya asignado
+//expedi = dw_fases_datos_exp.GetItemString(1,'n_expedi')
+idfase = st_fase.ds_detalle_fase.GetItemString(1,'id_fase')
+fase = ds_resenya.GetItemString(1,'fase')
+verexp = expedi + '-' + fase
+	
+//Compruebo si la fase ya existe
+select count(*) into :sihay from fases,expedientes where expedientes.n_expedi = :expedi and fases.fase = :fase and fases.id_expedi = expedientes.id_expedi;
+
+
+if sihay > 0  AND not f_es_vacio(expedi) then 
+	incidencias.incidencia = '' 
+	incidencias.solucion = 'Revisar la fase, ya existe dentro del expediente.'
+	incidencias.campo_anomalo = 'fase'
+	incidencias.valor_codigo = fase
+	incidencias.valor_descripcion =''
+	incidencias.evento_asociado = ''
+	incidencias.nivel_incidencia = 'L'
+	f_visared_incidencias(st_fase.ds_incidencias,incidencias)	
+end if
+
+st_fase.ds_detalle_fase.SetItem(st_fase.ds_detalle_fase.GetRow(),'n_expedi',expedi)
+st_fase.ds_detalle_fase.SetItem(st_fase.ds_detalle_fase.GetRow(),'fase',fase)
+string desc_fase
+select d_t_descripcion into :desc_fase from t_fases where c_t_fase = :fase;
+st_fase.ds_detalle_fase.SetItem(st_fase.ds_detalle_fase.GetRow(),'titulo',desc_fase)
+	
+//PROMOTOR 1
+//Borro la fila insertada por defecto desde el programa sica para facilitar
+st_fase.ds_clientes.deleterow(1)
+string nompro,apepro,tvdompro,nvdompro,nudompro,cppro,tperpro,datospro,importar
+nifpro = ds_resenya.GetItemString(1,'nif_pro')
+nompro = ds_resenya.GetItemString(1,'nom_pro')
+nompro = upper(nompro)
+apepro = ds_resenya.GetItemString(1,'ape_pro1')
+apepro = upper(apepro)
+tvdompro = ds_resenya.GetItemString(1,'tv_dom_pro')
+nvdompro = ds_resenya.GetItemString(1,'nv_dom_pro')
+nvdompro = upper(nvdompro)
+nudompro = ds_resenya.GetItemString(1,'nu_dom_pro')
+cppro = ds_resenya.GetItemString(1,'cp_pro')
+cppro = anyadir_ceros(cppro,6)
+tperpro = ds_resenya.GetItemString(1,'t_per_pro')
+if isnull(tperpro) or tperpro = '' then tperpro = '01'
+importar = 'S'
+setnull(id_cliente)
+if not isnull(nifpro) and nifpro <> '' then 
+	st_fase.ds_clientes.InsertRow(0)
+	st_fase.ds_clientes.SetItem(st_fase.ds_clientes.RowCount(),'id_fase',idfase)
+	select id_cliente into :id_cliente from clientes where nif = :nifpro;
+	if isnull(id_cliente) then 
+		//Crear nuevo cliente
+		//Revisar si la poblaci$$HEX1$$f300$$ENDHEX$$n del cliente existe y si no es as$$HEX2$$ed002000$$ENDHEX$$no se crea
+		if isnull(cppro) then 
+			incidencias.incidencia = 'No se ha cumplimentado la poblaci$$HEX1$$f300$$ENDHEX$$n del cliente.'
+			incidencias.solucion = 'No se importar$$HEX1$$e100$$ENDHEX$$n los datos del cliente'
+			incidencias.campo_anomalo = 'Poblaci$$HEX1$$f300$$ENDHEX$$n Cliente'
+			incidencias.valor_codigo = ''
+			incidencias.valor_descripcion =''
+			incidencias.evento_asociado = ''
+			incidencias.nivel_incidencia = 'M'
+			f_visared_incidencias(st_fase.ds_incidencias,incidencias)	
+			importar = 'N'
+		end if	
+		select count(*) into :existepob from poblaciones where cod_pob = :cppro;
+		if existepob = 0 then
+			incidencias.incidencia = ' La poblaci$$HEX1$$f300$$ENDHEX$$n del cliente 1 NO existe en la Base de Datos Colegial'
+			incidencias.solucion = 'Debe especificar una nueva poblaci$$HEX1$$f300$$ENDHEX$$n, o incorporarla en la ficha de SICA'
+			incidencias.campo_anomalo = 'C$$HEX1$$f300$$ENDHEX$$digo Poblaci$$HEX1$$f300$$ENDHEX$$n'
+			incidencias.valor_codigo = cppro
+			incidencias.valor_descripcion =''
+			incidencias.evento_asociado = ''
+			incidencias.nivel_incidencia = 'M'
+			f_visared_incidencias(st_fase.ds_incidencias,incidencias)				
+			importar = 'N'
+		end if	
+			incidencias.incidencia = ' El cliente 1 especificado NO existe en la Base de Datos Colegial'
+			incidencias.solucion = 'El Promotor debe ser dado de alta. Pulse el bot$$HEX1$$f300$$ENDHEX$$n "Subsanar" para ello '
+			incidencias.campo_anomalo = 'Cliente 1'
+			incidencias.valor_codigo = nifpro
+			incidencias.valor_descripcion = ''
+			incidencias.evento_asociado = 'csd_cliente_nuevo'
+			incidencias.nivel_incidencia = 'G'
+			f_visared_incidencias(st_fase.ds_incidencias,incidencias)		
+			st_fase.ds_clientes_nuevos.InsertRow(0)
+			st_fase.ds_clientes_nuevos.SetItem(st_fase.ds_clientes_nuevos.rowcount(),'n_cliente',nifpro)
+			st_fase.ds_clientes_nuevos.SetItem(st_fase.ds_clientes_nuevos.rowcount(),'apellidos',apepro)
+			st_fase.ds_clientes_nuevos.SetItem(st_fase.ds_clientes_nuevos.rowcount(),'nombre',nompro)
+			st_fase.ds_clientes_nuevos.SetItem(st_fase.ds_clientes_nuevos.rowcount(),'nif',nifpro)
+			st_fase.ds_clientes_nuevos.SetItem(st_fase.ds_clientes_nuevos.rowcount(),'tipo_persona',tperpro)
+			st_fase.ds_clientes_nuevos.SetItem(st_fase.ds_clientes_nuevos.rowcount(),'tipo_via',tvdompro)
+			st_fase.ds_clientes_nuevos.SetItem(st_fase.ds_clientes_nuevos.rowcount(),'nombre_via',nvdompro)
+			st_fase.ds_clientes_nuevos.SetItem(st_fase.ds_clientes_nuevos.rowcount(),'cod_pob',cppro)
+//			insert into clientes values (:id_cliente,:id_cliente,:apepro,:nompro,:nifpro,:tperpro,'','','','',:tvdompro,:nvdompro,:cppro,'','','','','','','','','','','','','');
+//		end if
+	end if
+	if not isnull(id_cliente) and importar = 'S' then
+		st_fase.ds_clientes.SetItem(st_fase.ds_clientes.RowCount(),'nif',nifpro)
+		st_fase.ds_clientes.SetItem(st_fase.ds_clientes.RowCount(),'id_cliente',id_cliente)
+		st_fase.ds_clientes.SetItem(st_fase.ds_clientes.RowCount(),'promotor','S')
+		st_fase.ds_clientes.SetItem(st_fase.ds_clientes.RowCount(),'facturado','N')
+		st_fase.ds_clientes.SetItem(st_fase.ds_clientes.RowCount(),'contratista','N')
+		st_fase.ds_clientes.SetItem(st_fase.ds_clientes.RowCount(),'porcen',100)
+		st_fase.ds_clientes.SetItem(st_fase.ds_clientes.RowCount(),'pagador','N')
+	end if	
+end if
+
+
+//PROMOTOR 2
+string nifpro2,nompro2,apepro2,tvdompro2,nvdompro2,nudompro2,cppro2,tperpro2,datospro2
+nifpro2 = ds_resenya.GetItemString(1,132)
+if not isnull(nifpro2) and nifpro2 <> '' then
+	nompro2 = ds_resenya.GetItemString(1,126)
+	nompro2 = upper(nompro2)
+	apepro2 = ds_resenya.GetItemString(1,125)
+	apepro2 = upper(apepro2)
+	tvdompro2 = ds_resenya.GetItemString(1,128)
+	nvdompro2 = ds_resenya.GetItemString(1,129)
+	nvdompro2 = upper(nvdompro2)
+	nudompro2 = ds_resenya.GetItemString(1,130)
+	cppro2 = ds_resenya.GetItemString(1,131)
+	cppro2 = anyadir_ceros(cppro2,6)
+	tperpro2 = ds_resenya.GetItemString(1,127)
+	if isnull(tperpro2) or tperpro2 = '' then tperpro2 = '01'
+	setnull(id_cliente)
+	st_fase.ds_clientes.InsertRow(0)
+	st_fase.ds_clientes.SetItem(st_fase.ds_clientes.RowCount(),'id_fase',idfase)
+	select id_cliente into :id_cliente from clientes where nif = :nifpro2;
+	if isnull(id_cliente) then 
+		//Crear nuevo cliente
+		//Revisar si la poblaci$$HEX1$$f300$$ENDHEX$$n del cliente existe y si no es as$$HEX2$$ed002000$$ENDHEX$$no se crea
+		select count(*) into :existepob from poblaciones where cod_pob = :cppro2;
+		if existepob = 0 then
+			incidencias.incidencia = ' La poblaci$$HEX1$$f300$$ENDHEX$$n del cliente 2 NO existe en la Base de Datos Colegial'
+			incidencias.solucion = 'Debe especificar una nueva poblaci$$HEX1$$f300$$ENDHEX$$n, o incorporarla en la ficha de SICA'
+			incidencias.campo_anomalo = 'C$$HEX1$$f300$$ENDHEX$$digo Poblaci$$HEX1$$f300$$ENDHEX$$n'
+			incidencias.valor_codigo = cppro2
+			incidencias.valor_descripcion =''
+			incidencias.evento_asociado = ''
+			incidencias.nivel_incidencia = 'M'
+			f_visared_incidencias(st_fase.ds_incidencias,incidencias)				
+			importar = 'N'
+		else
+			incidencias.incidencia = ' El cliente 2 especificado NO existe en la Base de Datos Colegial'
+			incidencias.solucion = 'El Promotor debe ser dado de alta. Pulse el bot$$HEX1$$f300$$ENDHEX$$n "Subsanar" para ello '
+			incidencias.campo_anomalo = 'Cliente 2'
+			incidencias.valor_codigo = nifpro2
+			incidencias.valor_descripcion = ''
+			incidencias.evento_asociado = 'csd_cliente_nuevo'
+			incidencias.nivel_incidencia = 'M'
+			f_visared_incidencias(st_fase.ds_incidencias,incidencias)		
+			st_fase.ds_clientes_nuevos.InsertRow(0)
+			st_fase.ds_clientes_nuevos.SetItem(st_fase.ds_clientes_nuevos.rowcount(),'n_cliente',nifpro2)
+			st_fase.ds_clientes_nuevos.SetItem(st_fase.ds_clientes_nuevos.rowcount(),'apellidos',apepro2)
+			st_fase.ds_clientes_nuevos.SetItem(st_fase.ds_clientes_nuevos.rowcount(),'nombre',nompro2)
+			st_fase.ds_clientes_nuevos.SetItem(st_fase.ds_clientes_nuevos.rowcount(),'nif',nifpro2)
+			st_fase.ds_clientes_nuevos.SetItem(st_fase.ds_clientes_nuevos.rowcount(),'tipo_persona',tperpro2)
+			st_fase.ds_clientes_nuevos.SetItem(st_fase.ds_clientes_nuevos.rowcount(),'tipo_via',tvdompro2)
+			st_fase.ds_clientes_nuevos.SetItem(st_fase.ds_clientes_nuevos.rowcount(),'nombre_via',nvdompro2)
+			st_fase.ds_clientes_nuevos.SetItem(st_fase.ds_clientes_nuevos.rowcount(),'cod_pob',cppro2)
+		//	id_cliente=f_siguiente_numero('CLIENTES',10)
+		//	insert into clientes values (:id_cliente,:id_cliente,:apepro2,:nompro2,:nifpro2,:tperpro2,'','','','',:tvdompro2,:nvdompro2,:cppro2,'','','','','','','','','','','','','');
+		end if
+	end if
+	if not isnull(id_cliente) then
+		st_fase.ds_clientes.SetItem(st_fase.ds_clientes.RowCount(),'nif',nifpro2)
+		st_fase.ds_clientes.SetItem(st_fase.ds_clientes.RowCount(),'id_cliente',id_cliente)
+		st_fase.ds_clientes.SetItem(st_fase.ds_clientes.RowCount(),'promotor','S')
+		st_fase.ds_clientes.SetItem(st_fase.ds_clientes.RowCount(),'facturado','N')
+		st_fase.ds_clientes.SetItem(st_fase.ds_clientes.RowCount(),'contratista','N')
+		st_fase.ds_clientes.SetItem(st_fase.ds_clientes.RowCount(),'porcen',100)
+		st_fase.ds_clientes.SetItem(st_fase.ds_clientes.RowCount(),'pagador','N')
+	end if	
+end if	
+
+//PAGADOR
+string nifpag,apepag,nompag,tvpag,nvpag,nupag,tperpag,cppag
+int repe
+nifpag = ds_resenya.GetItemString(1,'nif_pag')
+apepag = ds_resenya.GetItemString(1,'ape_pag1')
+nompag = ds_resenya.GetItemString(1,'nom_pag')
+tvpag = ds_resenya.GetItemString(1,'tv_dom_pag')
+nvpag = ds_resenya.GetItemString(1,'nv_dom_pag')
+nupag = ds_resenya.GetItemString(1,'nu_dom_pag')
+tperpag = ds_resenya.GetItemString(1,'t_per_pag')
+cppag = ds_resenya.GetItemString(1,'cp_pag')
+
+string nifprofila
+if (not isnull(nifpag) and nifpag <> '') then
+	//Compruebo si el pagador coincide con alguno de los promotores
+	int compag,filacoincide=0
+	for compag = 1 to st_fase.ds_clientes.Rowcount()
+		nifprofila = st_fase.ds_clientes.GetItemString(compag,'nif')
+		if nifprofila = nifpag then filacoincide = compag
+	next	
+	if filacoincide > 0 then //El pagador es uno de los promotores
+		st_fase.ds_clientes.SetItem(filacoincide,'pagador','S')
+	else	
+		//Se a$$HEX1$$f100$$ENDHEX$$ade un promotor nuevo s$$HEX1$$f300$$ENDHEX$$lo como pagador
+		st_fase.ds_clientes.InsertRow(0)
+		st_fase.ds_clientes.SetItem(st_fase.ds_clientes.RowCount(),'id_fase',idfase)
+		select id_cliente into :id_cliente from clientes where nif = :nifpag;
+		if isnull(id_cliente) then 
+			//Revisar si la poblaci$$HEX1$$f300$$ENDHEX$$n del cliente existe y si no es as$$HEX2$$ed002000$$ENDHEX$$no se crea
+			select count(*) into :existepob from poblaciones where cod_pob = :cppag;
+			if existepob = 0 then
+				incidencias.incidencia = ' La poblaci$$HEX1$$f300$$ENDHEX$$n del pagador NO existe en la Base de Datos Colegial'
+				incidencias.solucion = 'Debe especificar una nueva poblaci$$HEX1$$f300$$ENDHEX$$n, o incorporarla en la ficha de SICA'
+				incidencias.campo_anomalo = 'Poblaci$$HEX1$$f300$$ENDHEX$$n del Pagador'
+				incidencias.valor_codigo = cppag
+				incidencias.valor_descripcion =''
+				incidencias.evento_asociado = ''
+				incidencias.nivel_incidencia = 'M'
+				f_visared_incidencias(st_fase.ds_incidencias,incidencias)				
+				importar = 'N'
+			else	
+				//Crear nuevo cliente
+				incidencias.incidencia = ' El cliente / Promotor especificado NO existe en la Base de Datos Colegial'
+				incidencias.solucion = 'El Promotor debe ser dado de alta. Pulse el bot$$HEX1$$f300$$ENDHEX$$n "Subsanar" para ello '
+				incidencias.campo_anomalo = 'Cliente Pagador'
+				incidencias.valor_codigo = nifpag
+				incidencias.valor_descripcion =''
+				incidencias.evento_asociado = 'csd_cliente_nuevo'
+				incidencias.nivel_incidencia = 'M'
+				f_visared_incidencias(st_fase.ds_incidencias,incidencias)				
+				st_fase.ds_clientes_nuevos.InsertRow(0)
+				st_fase.ds_clientes_nuevos.SetItem(st_fase.ds_clientes_nuevos.rowcount(),'n_cliente',nifpag)
+				st_fase.ds_clientes_nuevos.SetItem(st_fase.ds_clientes_nuevos.rowcount(),'apellidos',apepag)
+				st_fase.ds_clientes_nuevos.SetItem(st_fase.ds_clientes_nuevos.rowcount(),'nombre',nompag)
+				st_fase.ds_clientes_nuevos.SetItem(st_fase.ds_clientes_nuevos.rowcount(),'nif',nifpag)
+				st_fase.ds_clientes_nuevos.SetItem(st_fase.ds_clientes_nuevos.rowcount(),'tipo_persona',tperpag)
+				st_fase.ds_clientes_nuevos.SetItem(st_fase.ds_clientes_nuevos.rowcount(),'tipo_via',tvpag)
+				st_fase.ds_clientes_nuevos.SetItem(st_fase.ds_clientes_nuevos.rowcount(),'nombre_via',nvpag)
+				st_fase.ds_clientes_nuevos.SetItem(st_fase.ds_clientes_nuevos.rowcount(),'cod_pob',cppag)
+//				id_cliente=f_siguiente_numero('CLIENTES',10)
+//				insert into clientes values (:id_cliente,:id_cliente,:apepag,:nompag,:nifpag,:tperpag,'','','','',:tvpag,:nvpag,:cppag,'','','','','','','','','','','','','');
+			end if
+		end if
+		if not isnull(id_cliente) then
+			st_fase.ds_clientes.SetItem(st_fase.ds_clientes.RowCount(),'nif',nifpag)
+			st_fase.ds_clientes.SetItem(st_fase.ds_clientes.RowCount(),'id_cliente',id_cliente)
+			st_fase.ds_clientes.SetItem(st_fase.ds_clientes.RowCount(),'promotor','N')
+			st_fase.ds_clientes.SetItem(st_fase.ds_clientes.RowCount(),'facturado','N')
+			st_fase.ds_clientes.SetItem(st_fase.ds_clientes.RowCount(),'contratista','N')
+			st_fase.ds_clientes.SetItem(st_fase.ds_clientes.RowCount(),'porcen',100)
+			st_fase.ds_clientes.SetItem(st_fase.ds_clientes.RowCount(),'pagador','S')
+		end if	
+	end if	
+else
+	int npro
+	//Como no hay pagador consideramos los promotores como pagadores
+	for npro=1 to st_fase.ds_clientes.RowCount()
+		st_fase.ds_clientes.SetItem(npro,'pagador','S')
+	next	
+end if
+
+
+
+//ARQUITECTOS AUTORES
+//Borro la fila insertada por defecto desde el programa sica para facilitar
+st_fase.ds_colegiados.deleterow(1)
+
+string narq1,narq2,narq3,narq4,sarq1,sarq2,sarq3,sarq4
+double tarq1,tarq2,tarq3,tarq4
+narq1 = ds_resenya.GetItemString(1,'n_arq_aut1')
+narq1 = anyadircerosn_arqui(narq1)
+tarq1 = ds_resenya.GetItemNumber(1,'t_arq_aut1')
+narq2 = ds_resenya.GetItemString(1,'n_arq_aut2')
+narq2 = anyadircerosn_arqui(narq2)
+tarq2 = ds_resenya.GetItemNumber(1,'t_arq_aut2')
+narq3 = ds_resenya.GetItemString(1,'n_arq_aut3')
+narq3 = anyadircerosn_arqui(narq3)
+tarq3 = ds_resenya.GetItemNumber(1,'t_arq_aut3')
+narq4 = ds_resenya.GetItemString(1,'n_arq_aut4')
+narq4 = anyadircerosn_arqui(narq4)
+tarq4 = ds_resenya.GetItemNumber(1,'t_arq_aut4')
+
+string idcol1 
+setnull(idcol1)
+if not isnull(narq1) and narq1 <> '' then
+	st_fase.ds_colegiados.InsertRow(0)
+	st_fase.ds_colegiados.SetItem(st_fase.ds_colegiados.RowCount(),'id_fase',idfase)
+	select id_colegiado into :idcol1 from colegiados where n_colegiado = :narq1;
+	if isnull(idcol1) then 
+		incidencias.incidencia = ' El n$$HEX1$$fa00$$ENDHEX$$mero de Colegiado 1 NO existe'
+		incidencias.solucion = 'NO se incorporar$$HEX1$$e100$$ENDHEX$$n los datos del arquitecto'
+		incidencias.campo_anomalo = 'N$$HEX2$$ba002000$$ENDHEX$$Colegiado 1'
+		incidencias.valor_codigo = narq1
+		incidencias.valor_descripcion =''
+		incidencias.evento_asociado = ''
+		incidencias.nivel_incidencia = 'G'
+		f_visared_incidencias(st_fase.ds_incidencias,incidencias)				
+		importar = 'N'
+	else
+		if not f_colegiados_fases_domiciliadas(idcol1) then
+			incidencias.incidencia = ' El Colegiado '+ narq1+' NO tiene domiciliado el cargo de Expedientes'
+			incidencias.solucion = 'Debe revisar los Datos de Pago de Expedientes del colegiado'
+			incidencias.campo_anomalo = 'N$$HEX2$$ba002000$$ENDHEX$$Colegiado 1'
+			incidencias.valor_codigo = narq1
+			incidencias.valor_descripcion =''
+			incidencias.evento_asociado = ''
+			incidencias.nivel_incidencia = 'M'
+			f_visared_incidencias(st_fase.ds_incidencias,incidencias)	
+		end if
+		st_fase.ds_colegiados.SetItem(st_fase.ds_colegiados.RowCount(),'id_col',idcol1)
+		st_fase.ds_colegiados.SetItem(st_fase.ds_colegiados.RowCount(),'n_col',narq1)
+		st_fase.ds_colegiados.SetItem(st_fase.ds_colegiados.RowCount(),'porcen_a',tarq1)
+		st_fase.ds_colegiados.SetItem(st_fase.ds_colegiados.RowCount(),'porcen_gastos',tarq1)
+		st_fase.ds_colegiados.SetItem(st_fase.ds_colegiados.RowCount(),'tipo_a','S')
+		st_fase.ds_colegiados.SetItem(st_fase.ds_colegiados.RowCount(),'tipo_d','N')
+		st_fase.ds_colegiados.SetItem(st_fase.ds_colegiados.RowCount(),'empresa','N')
+		st_fase.ds_colegiados.SetItem(st_fase.ds_colegiados.RowCount(),'facturado','N')	
+		st_fase.ds_colegiados.SetItem(st_fase.ds_colegiados.RowCount(),'asemas','N')
+	end if
+end if
+string idcol2
+setnull(idcol2)
+if not isnull(narq2) and narq2 <> '' then
+	st_fase.ds_colegiados.InsertRow(0)
+	st_fase.ds_colegiados.SetItem(st_fase.ds_colegiados.RowCount(),'id_fase',idfase)
+	select id_colegiado into :idcol2 from colegiados where n_colegiado = :narq2;
+	if isnull(idcol2) then 
+			incidencias.incidencia = ' El n$$HEX1$$fa00$$ENDHEX$$mero de Colegiado 2 NO existe'
+			incidencias.solucion = 'NO se incorporar$$HEX1$$e100$$ENDHEX$$n los datos del arquitecto'
+			incidencias.campo_anomalo = 'N$$HEX2$$ba002000$$ENDHEX$$Colegiado 2'
+			incidencias.valor_codigo = narq2
+			incidencias.valor_descripcion =''
+			incidencias.evento_asociado = ''
+			incidencias.nivel_incidencia = 'G'
+			f_visared_incidencias(st_fase.ds_incidencias,incidencias)				
+			importar = 'N'
+	else
+		if not f_colegiados_fases_domiciliadas(idcol2) then
+			incidencias.incidencia = ' El Colegiado '+ narq2+' NO tiene domiciliado el cargo de Expedientes'
+			incidencias.solucion = 'Debe revisar los Datos de Pago de Expedientes del colegiado'
+			incidencias.campo_anomalo = 'N$$HEX2$$ba002000$$ENDHEX$$Colegiado 2'
+			incidencias.valor_codigo = narq2
+			incidencias.valor_descripcion =''
+			incidencias.evento_asociado = ''
+			incidencias.nivel_incidencia = 'M'
+			f_visared_incidencias(st_fase.ds_incidencias,incidencias)	
+		end if
+		st_fase.ds_colegiados.SetItem(st_fase.ds_colegiados.RowCount(),'id_col',idcol2)
+		st_fase.ds_colegiados.SetItem(st_fase.ds_colegiados.RowCount(),'n_col',narq2)
+		st_fase.ds_colegiados.SetItem(st_fase.ds_colegiados.RowCount(),'porcen_a',tarq2)
+		st_fase.ds_colegiados.SetItem(st_fase.ds_colegiados.RowCount(),'porcen_gastos',tarq1)
+		st_fase.ds_colegiados.SetItem(st_fase.ds_colegiados.RowCount(),'tipo_a','S')
+		st_fase.ds_colegiados.SetItem(st_fase.ds_colegiados.RowCount(),'tipo_d','N')
+		st_fase.ds_colegiados.SetItem(st_fase.ds_colegiados.RowCount(),'empresa','N')
+		st_fase.ds_colegiados.SetItem(st_fase.ds_colegiados.RowCount(),'facturado','N')	
+		st_fase.ds_colegiados.SetItem(st_fase.ds_colegiados.RowCount(),'asemas','N')
+	end if
+end if
+string idcol3
+setnull(idcol3)
+if not isnull(narq3) and narq3 <> '' then
+	st_fase.ds_colegiados.InsertRow(0)
+	st_fase.ds_colegiados.SetItem(st_fase.ds_colegiados.RowCount(),'id_fase',idfase)
+	select id_colegiado into :idcol3 from colegiados where n_colegiado = :narq3;
+	if isnull(idcol3) then 
+			incidencias.incidencia = ' El N$$HEX2$$ba002000$$ENDHEX$$de Colegiado 3 NO existe'
+			incidencias.solucion = 'NO se incorporar$$HEX1$$e100$$ENDHEX$$n los datos del arquitecto'
+			incidencias.campo_anomalo = 'N$$HEX2$$ba002000$$ENDHEX$$Colegiado 3'
+			incidencias.valor_codigo = narq3
+			incidencias.valor_descripcion =''
+			incidencias.evento_asociado = ''
+			incidencias.nivel_incidencia = 'G'
+			f_visared_incidencias(st_fase.ds_incidencias,incidencias)				
+			importar = 'N'
+	else
+		if not f_colegiados_fases_domiciliadas(idcol3) then
+			incidencias.incidencia = ' El Colegiado '+ narq3 +' NO tiene domiciliado el cargo de Expedientes'
+			incidencias.solucion = 'Debe revisar los Datos de Pago de Expedientes del colegiado'
+			incidencias.campo_anomalo = 'N$$HEX2$$ba002000$$ENDHEX$$Colegiado 3'
+			incidencias.valor_codigo = narq3
+			incidencias.valor_descripcion =''
+			incidencias.evento_asociado = ''
+			incidencias.nivel_incidencia = 'M'
+			f_visared_incidencias(st_fase.ds_incidencias,incidencias)	
+		end if
+		st_fase.ds_colegiados.SetItem(st_fase.ds_colegiados.RowCount(),'id_col',idcol3)
+		st_fase.ds_colegiados.SetItem(st_fase.ds_colegiados.RowCount(),'n_col',narq3)
+		st_fase.ds_colegiados.SetItem(st_fase.ds_colegiados.RowCount(),'porcen_a',tarq3)
+		st_fase.ds_colegiados.SetItem(st_fase.ds_colegiados.RowCount(),'porcen_gastos',tarq1)
+		st_fase.ds_colegiados.SetItem(st_fase.ds_colegiados.RowCount(),'tipo_a','S')
+		st_fase.ds_colegiados.SetItem(st_fase.ds_colegiados.RowCount(),'tipo_d','N')
+		st_fase.ds_colegiados.SetItem(st_fase.ds_colegiados.RowCount(),'empresa','N')
+		st_fase.ds_colegiados.SetItem(st_fase.ds_colegiados.RowCount(),'facturado','N')	
+		st_fase.ds_colegiados.SetItem(st_fase.ds_colegiados.RowCount(),'asemas','N')
+	end if
+end if
+string idcol4
+setnull(idcol4)
+if not isnull(narq4) and narq4 <> '' then
+	st_fase.ds_colegiados.InsertRow(0)
+	st_fase.ds_colegiados.SetItem(st_fase.ds_colegiados.RowCount(),'id_fase',idfase)
+	select id_colegiado into :idcol4 from colegiados where n_colegiado = :narq4;
+	if isnull(idcol1) then 
+		incidencias.incidencia = ' El n$$HEX1$$fa00$$ENDHEX$$mero de Colegiado 4 NO existe'
+		incidencias.solucion = 'NO se incorporar$$HEX1$$e100$$ENDHEX$$n los datos del arquitecto'
+		incidencias.campo_anomalo = 'N$$HEX2$$ba002000$$ENDHEX$$Colegiado 4'
+		incidencias.valor_codigo = narq4
+		incidencias.valor_descripcion =''
+		incidencias.evento_asociado = ''
+		incidencias.nivel_incidencia = 'G'
+		f_visared_incidencias(st_fase.ds_incidencias,incidencias)				
+		importar = 'N'
+	else
+		if not f_colegiados_fases_domiciliadas(idcol4) then
+			incidencias.incidencia = ' El Colegiado '+ narq4 +' NO tiene domiciliado el cargo de Expedientes'
+			incidencias.solucion = 'Debe revisar los Datos de Pago de Expedientes del colegiado'
+			incidencias.campo_anomalo = 'N$$HEX2$$ba002000$$ENDHEX$$Colegiado 4'
+			incidencias.valor_codigo = narq4
+			incidencias.valor_descripcion =''
+			incidencias.evento_asociado = ''
+			incidencias.nivel_incidencia = 'M'
+			f_visared_incidencias(st_fase.ds_incidencias,incidencias)	
+		end if
+		st_fase.ds_colegiados.SetItem(st_fase.ds_colegiados.RowCount(),'id_col',idcol4)
+		st_fase.ds_colegiados.SetItem(st_fase.ds_colegiados.RowCount(),'n_col',narq4)
+		st_fase.ds_colegiados.SetItem(st_fase.ds_colegiados.RowCount(),'porcen_a',tarq4)
+		st_fase.ds_colegiados.SetItem(st_fase.ds_colegiados.RowCount(),'porcen_gastos',tarq1)
+		st_fase.ds_colegiados.SetItem(st_fase.ds_colegiados.RowCount(),'tipo_a','S')
+		st_fase.ds_colegiados.SetItem(st_fase.ds_colegiados.RowCount(),'tipo_d','N')
+		st_fase.ds_colegiados.SetItem(st_fase.ds_colegiados.RowCount(),'empresa','N')
+		st_fase.ds_colegiados.SetItem(st_fase.ds_colegiados.RowCount(),'facturado','N')	
+		st_fase.ds_colegiados.SetItem(st_fase.ds_colegiados.RowCount(),'asemas','N')
+	end if
+end if
+	
+//OTROS DATOS
+//L$$HEX1$$ed00$$ENDHEX$$nea borrada x Ra$$HEX1$$fa00$$ENDHEX$$l
+// dw_fases_datos_exp.SetItem(1,'f_contrato',ds_resenya.GetItemDatetime(1,'f_contrato'))
+st_fase.ds_detalle_fase.SetItem(1,'descripcion',ds_resenya.GetITemString(1,'descripcion'))
+st_fase.ds_detalle_fase.SetItem(1,'tipo_trabajo',ds_resenya.GetITemString(1,'c_trabajo'))
+st_fase.ds_detalle_fase.SetItem(1,'trabajo',ds_resenya.GetITemString(1,'t_trabajo'))
+
+//N$$HEX1$$fa00$$ENDHEX$$mero de Viviendas - Estad$$HEX1$$ed00$$ENDHEX$$stica
+st_fase.ds_estadisticas.InsertRow(0)
+st_fase.ds_estadisticas.SetITem(1,'id_fase',idfase)
+st_fase.ds_estadisticas.SetItem(1,'n_vpo',ds_resenya.GetITemNumber(1,'n_vpo'))
+st_fase.ds_estadisticas.SetItem(1,'n_vl',ds_resenya.GetITemNumber(1,'n_vl'))
+st_fase.ds_estadisticas.SetItem(1,'n_naves',ds_resenya.GetITemNumber(1,'n_nv'))
+st_fase.ds_estadisticas.SetItem(1,'n_alm',ds_resenya.GetITemNumber(1,'n_alm'))
+st_fase.ds_estadisticas.PostEvent('csd_calcular_presupuesto')
+st_fase.ds_estadisticas.PostEvent('csd_calcular_superficie')
+	
+//Emplazamiento. Controlo si esta vacio.
+//messagebox('',ds_resenya.GetITemString(1,'tv_empla'))
+if ds_resenya.GetITemString(1,'tv_empla')='' or isnull(ds_resenya.GetITemString(1,'tv_empla')) then
+	st_fase.ds_detalle_fase.SetItem(1,'tipo_via_emplazamiento','ZZ')
+else
+	st_fase.ds_detalle_fase.SetItem(1,'tipo_via_emplazamiento',ds_resenya.GetITemString(1,'tv_empla'))
+end if
+if ds_resenya.GetITemString(1,'nv_empla')='' or isnull(ds_resenya.GetITemString(1,'nv_empla')) then
+	st_fase.ds_detalle_fase.SetItem(1,'emplazamiento',' ')
+else
+	st_fase.ds_detalle_fase.SetItem(1, 'emplazamiento',upper(ds_resenya.GetITemString(1,'nv_empla')))
+end if
+if ds_resenya.GetITemString(1,'cod_pob')='' or isnull(ds_resenya.GetITemString(1,'cod_pob')) then
+	st_fase.ds_detalle_fase.SetItem(1,'poblacion','000000')
+else
+	//Validar poblacion exista
+	st_fase.ds_detalle_fase.SetItem(1,'poblacion',ds_resenya.GetITemString(1,'cod_pob'))
+	cpobemp = ds_resenya.GetITemString(1,'cod_pob')
+	select count(*) into :existepob from poblaciones where cod_pob = :cpobemp;
+	if existepob = 0 then 
+			incidencias.incidencia = ' La poblaci$$HEX1$$f300$$ENDHEX$$n del emplazamiento NO existe'
+			incidencias.solucion = 'Deber$$HEX2$$e1002000$$ENDHEX$$incluir la poblaci$$HEX1$$f300$$ENDHEX$$n en la ficha de la fase'
+			incidencias.campo_anomalo = 'Poblaci$$HEX1$$f300$$ENDHEX$$n Fase'
+			incidencias.valor_codigo = cpobemp
+			incidencias.valor_descripcion =''
+			incidencias.evento_asociado = ''
+			incidencias.nivel_incidencia = 'M'
+			f_visared_incidencias(st_fase.ds_incidencias,incidencias)				
+			importar = 'N'
+	end if
+end if
+//Fin
+st_fase.ds_detalle_fase.SetItem(1,'n_calle',ds_resenya.GetITemString(1,'nu_empla'))
+//Referencia Catastral
+
+//L$$HEX1$$ed00$$ENDHEX$$nea Borrada x Ra$$HEX1$$fa00$$ENDHEX$$l
+//dw_fases_datos_exp.SetItem(1,'r_catastral',ds_resenya.GetITemString(1,136))
+st_fase.ds_detalle_fase.SetItem(1,'autorizo',ds_resenya.GetITemString(1,'tipo_apor'))
+st_fase.ds_detalle_fase.SetItem(1,'tipo_gestion',ds_resenya.GetITemString(1,'cobro'))
+st_fase.ds_detalle_fase.setitem(1,'e_mail','S')
+
+
+//DATOS IMPORTES
+//Presupuesto
+string ct1,ct2,ct3,ct4,ct5,ct6
+ct1 = ds_resenya.GetItemString(1,'cod_tra1')
+ct2 = ds_resenya.GetItemString(1,'cod_tra2')
+ct3 = ds_resenya.GetItemString(1,'cod_tra3')
+ct4 = ds_resenya.GetItemString(1,'cod_tra4')
+ct5 = ds_resenya.GetItemString(1,'cod_tra5')
+ct6 = ds_resenya.GetItemString(1,'cod_tra6')
+
+ds_resenya.GetItemNumber(1,'sup1')
+ds_resenya.GetItemNumber(1,'precio1')
+ds_resenya.GetItemNumber(1,'presu1')
+ds_resenya.GetItemNumber(1,'tasa1')
+ds_resenya.GetItemNumber(1,'aport1')
+ds_resenya.GetItemNumber(1,107) //t_fase1
+//Fila 1
+if not isnull(ct1) and ct1<>'' then
+	if (ds_resenya.GetItemNumber(1,'sup1') > 0) or (ds_resenya.GetItemNumber(1,'precio1') > 0) or &
+		(ds_resenya.GetItemNumber(1,'presu1') > 0) or (ds_resenya.GetItemNumber(1,'tasa1') > 0) or &
+		(ds_resenya.GetItemNumber(1,'aport1') > 0) or (ds_resenya.GetItemNumber(1,107) > 0) then
+			st_fase.ds_usos.InsertRow(0)
+			st_fase.ds_usos.SetItem(st_fase.ds_usos.RowCount(),'id_fase',idfase)
+			st_fase.ds_usos.SetItem(st_fase.ds_usos.RowCount(),'id_uso', f_siguiente_numero('FASES_USOS',10))
+			st_fase.ds_usos.SetItem(st_fase.ds_usos.RowCount(),'superficie',ds_resenya.GetItemNumber(1,'sup1'))
+			st_fase.ds_usos.SetItem(st_fase.ds_usos.RowCount(),'precio_m2',ds_resenya.GetItemNumber(1,'precio1'))
+			st_fase.ds_usos.SetItem(st_fase.ds_usos.RowCount(),'base_aplicacion',ds_resenya.GetItemNumber(1,'presu1'))
+			st_fase.ds_usos.SetItem(st_fase.ds_usos.RowCount(),'trabajo',ct1)
+			st_fase.ds_usos.SetItem(st_fase.ds_usos.RowCount(),'tasa_m2',ds_resenya.GetItemNumber(1,'tasa1'))
+			st_fase.ds_usos.SetItem(st_fase.ds_usos.RowCount(),'t_fase',ds_resenya.GetItemNumber(1,107))
+			st_fase.ds_usos.SetItem(st_fase.ds_usos.RowCount(),'aportacion',ds_resenya.GetItemNumber(1,'aport1'))
+	end if
+end if
+//Fila 2
+if not isnull(ct2) or ct2<>'' then
+	if (ds_resenya.GetItemNumber(1,'sup2') > 0) or (ds_resenya.GetItemNumber(1,'precio2') > 0) or &
+		(ds_resenya.GetItemNumber(1,'presu2') > 0) or (ds_resenya.GetItemNumber(1,'tasa2') > 0) or &
+		(ds_resenya.GetItemNumber(1,'aport2') > 0) or (ds_resenya.GetItemNumber(1,108) > 0) then
+			st_fase.ds_usos.InsertRow(0)
+			st_fase.ds_usos.SetItem(st_fase.ds_usos.RowCount(),'id_fase',idfase)
+			st_fase.ds_usos.SetItem(st_fase.ds_usos.RowCount(),'id_uso', f_siguiente_numero('FASES_USOS',10))
+			st_fase.ds_usos.SetItem(st_fase.ds_usos.RowCount(),'superficie',ds_resenya.GetItemNumber(1,'sup2'))
+			st_fase.ds_usos.SetItem(st_fase.ds_usos.RowCount(),'precio_m2',ds_resenya.GetItemNumber(1,'precio2'))
+			st_fase.ds_usos.SetItem(st_fase.ds_usos.RowCount(),'base_aplicacion',ds_resenya.GetItemNumber(1,'presu2'))
+			st_fase.ds_usos.SetItem(st_fase.ds_usos.RowCount(),'trabajo',ct2)
+			st_fase.ds_usos.SetItem(st_fase.ds_usos.RowCount(),'tasa_m2',ds_resenya.GetItemNumber(1,'tasa2'))
+			st_fase.ds_usos.SetItem(st_fase.ds_usos.RowCount(),'t_fase',ds_resenya.GetItemNumber(1,108))
+			st_fase.ds_usos.SetItem(st_fase.ds_usos.RowCount(),'aportacion',ds_resenya.GetItemNumber(1,'aport2'))
+
+	end if	
+end if
+//Fila 3
+if not isnull(ct3) or ct3<>'' then
+	if (ds_resenya.GetItemNumber(1,'sup3') > 0) or (ds_resenya.GetItemNumber(1,'precio3') > 0) or &
+		(ds_resenya.GetItemNumber(1,'presu3') > 0) or (ds_resenya.GetItemNumber(1,'tasa3') > 0) or &
+		(ds_resenya.GetItemNumber(1,'aport3') > 0) or (ds_resenya.GetItemNumber(1,109) > 0) then
+			st_fase.ds_usos.InsertRow(0)
+			st_fase.ds_usos.SetItem(st_fase.ds_usos.RowCount(),'id_fase',idfase)
+			st_fase.ds_usos.SetItem(st_fase.ds_usos.RowCount(),'id_uso', f_siguiente_numero('FASES_USOS',10))
+			st_fase.ds_usos.SetItem(st_fase.ds_usos.RowCount(),'superficie',ds_resenya.GetItemNumber(1,'sup3'))
+			st_fase.ds_usos.SetItem(st_fase.ds_usos.RowCount(),'precio_m2',ds_resenya.GetItemNumber(1,'precio3'))
+			st_fase.ds_usos.SetItem(st_fase.ds_usos.RowCount(),'base_aplicacion',ds_resenya.GetItemNumber(1,'presu3'))
+			st_fase.ds_usos.SetItem(st_fase.ds_usos.RowCount(),'trabajo',ct3)
+			st_fase.ds_usos.SetItem(st_fase.ds_usos.RowCount(),'tasa_m2',ds_resenya.GetItemNumber(1,'tasa3'))
+			st_fase.ds_usos.SetItem(st_fase.ds_usos.RowCount(),'t_fase',ds_resenya.GetItemNumber(1,109))
+			st_fase.ds_usos.SetItem(st_fase.ds_usos.RowCount(),'aportacion',ds_resenya.GetItemNumber(1,'aport3'))
+
+	end if	
+end if
+//Fila 4
+if not isnull(ct4) or ct4<>'' then
+	if (ds_resenya.GetItemNumber(1,'sup4') > 0) or (ds_resenya.GetItemNumber(1,'precio4') > 0) or &
+		(ds_resenya.GetItemNumber(1,'presu4') > 0) or (ds_resenya.GetItemNumber(1,'tasa4') > 0) or &
+		(ds_resenya.GetItemNumber(1,'aport4') > 0) or (ds_resenya.GetItemNumber(1,110) > 0) then
+			st_fase.ds_usos.InsertRow(0)
+			st_fase.ds_usos.SetItem(st_fase.ds_usos.RowCount(),'id_fase',idfase)
+			st_fase.ds_usos.SetItem(st_fase.ds_usos.RowCount(),'id_uso', f_siguiente_numero('FASES_USOS',10))
+			st_fase.ds_usos.SetItem(st_fase.ds_usos.RowCount(),'superficie',ds_resenya.GetItemNumber(1,'sup4'))
+			st_fase.ds_usos.SetItem(st_fase.ds_usos.RowCount(),'precio_m2',ds_resenya.GetItemNumber(1,'precio4'))
+			st_fase.ds_usos.SetItem(st_fase.ds_usos.RowCount(),'base_aplicacion',ds_resenya.GetItemNumber(1,'presu4'))
+			st_fase.ds_usos.SetItem(st_fase.ds_usos.RowCount(),'trabajo',ct4)
+			st_fase.ds_usos.SetItem(st_fase.ds_usos.RowCount(),'tasa_m2',ds_resenya.GetItemNumber(1,'tasa4'))
+			st_fase.ds_usos.SetItem(st_fase.ds_usos.RowCount(),'t_fase',ds_resenya.GetItemNumber(1,110))
+			st_fase.ds_usos.SetItem(st_fase.ds_usos.RowCount(),'aportacion',ds_resenya.GetItemNumber(1,'aport4'))
+
+	end if	
+end if
+//Fila 5
+if not isnull(ct5) or ct5<>'' then
+	if (ds_resenya.GetItemNumber(1,'sup5') > 0) or (ds_resenya.GetItemNumber(1,'precio5') > 0) or &
+		(ds_resenya.GetItemNumber(1,'presu5') > 0) or (ds_resenya.GetItemNumber(1,'tasa5') > 0) or &
+		(ds_resenya.GetItemNumber(1,'aport5') > 0) or (ds_resenya.GetItemNumber(1,111) > 0) then
+			st_fase.ds_usos.InsertRow(0)
+			st_fase.ds_usos.SetItem(st_fase.ds_usos.RowCount(),'id_fase',idfase)
+			st_fase.ds_usos.SetItem(st_fase.ds_usos.RowCount(),'id_uso', f_siguiente_numero('FASES_USOS',10))
+			st_fase.ds_usos.SetItem(st_fase.ds_usos.RowCount(),'superficie',ds_resenya.GetItemNumber(1,'sup5'))
+			st_fase.ds_usos.SetItem(st_fase.ds_usos.RowCount(),'precio_m2',ds_resenya.GetItemNumber(1,'precio5'))
+			st_fase.ds_usos.SetItem(st_fase.ds_usos.RowCount(),'base_aplicacion',ds_resenya.GetItemNumber(1,'presu5'))
+			st_fase.ds_usos.SetItem(st_fase.ds_usos.RowCount(),'trabajo',ct5)
+			st_fase.ds_usos.SetItem(st_fase.ds_usos.RowCount(),'tasa_m2',ds_resenya.GetItemNumber(1,'tasa5'))
+			st_fase.ds_usos.SetItem(st_fase.ds_usos.RowCount(),'t_fase',ds_resenya.GetItemNumber(1,111))
+			st_fase.ds_usos.SetItem(st_fase.ds_usos.RowCount(),'aportacion',ds_resenya.GetItemNumber(1,'aport5'))
+	end if	
+end if
+//Fila 6
+if not isnull(ct6) or ct6<>'' then
+	if (ds_resenya.GetItemNumber(1,'sup6') > 0) or (ds_resenya.GetItemNumber(1,'precio6') > 0) or &
+		(ds_resenya.GetItemNumber(1,'presu6') > 0) or (ds_resenya.GetItemNumber(1,'tasa6') > 0) or &
+		(ds_resenya.GetItemNumber(1,'aport6') > 0) or (ds_resenya.GetItemNumber(1,112) > 0) then
+			st_fase.ds_usos.InsertRow(0)
+			st_fase.ds_usos.SetItem(st_fase.ds_usos.RowCount(),'id_fase',idfase)
+			st_fase.ds_usos.SetItem(st_fase.ds_usos.RowCount(),'id_uso', f_siguiente_numero('FASES_USOS',10))
+			st_fase.ds_usos.SetItem(st_fase.ds_usos.RowCount(),'superficie',ds_resenya.GetItemNumber(1,'sup6'))
+			st_fase.ds_usos.SetItem(st_fase.ds_usos.RowCount(),'precio_m2',ds_resenya.GetItemNumber(1,'precio6'))
+			st_fase.ds_usos.SetItem(st_fase.ds_usos.RowCount(),'base_aplicacion',ds_resenya.GetItemNumber(1,'presu6'))
+			st_fase.ds_usos.SetItem(st_fase.ds_usos.RowCount(),'trabajo',ct6)
+			st_fase.ds_usos.SetItem(st_fase.ds_usos.RowCount(),'tasa_m2',ds_resenya.GetItemNumber(1,'tasa6'))
+			st_fase.ds_usos.SetItem(st_fase.ds_usos.RowCount(),'t_fase',ds_resenya.GetItemNumber(1,112))
+			st_fase.ds_usos.SetItem(st_fase.ds_usos.RowCount(),'aportacion',ds_resenya.GetItemNumber(1,'aport6'))
+
+	end if	
+end if
+
+//Honorarios
+double honor,ivahonor
+honor = ds_resenya.GetITemNumber(1,'honor')
+if honor > 0 then
+		st_fase.ds_honorarios.InsertRow(0)
+		st_fase.ds_honorarios.SetItem(st_fase.ds_honorarios.RowCount(),'id_honorarios',f_siguiente_numero('FASES-HONORARIOS',10))
+		st_fase.ds_honorarios.setitem(st_fase.ds_honorarios.RowCount(),'id_fase',idfase)
+		st_fase.ds_honorarios.SetItem(st_fase.ds_honorarios.RowCount(),'t_iva',st_fase.ds_detalle_fase.getitemstring(1,'t_iva'))
+		st_fase.ds_honorarios.SetItem(st_fase.ds_honorarios.RowCount(),'cod_hono','HO')
+		st_fase.ds_honorarios.SetItem(st_fase.ds_honorarios.RowCount(),'honorarios',honor)
+		ivahonor = honor * 16 / 100
+		st_fase.ds_honorarios.SetItem(st_fase.ds_honorarios.RowCount(),'honorariosiva',ivahonor)
+		
+end if
+
+//Informes
+f_informes_hr(ds_resenya,st_fase.ds_informes,idfase)
+
+
+string las_obs_escritas,las_obs
+las_obs_escritas = ds_resenya.GetItemString(1,'obs')
+st_fase.ds_detalle_fase.SetItem(1,'observaciones',las_obs)
+
+double copias
+copias = ds_resenya.GetItemNumber(1,133)
+st_fase.ds_detalle_fase.setItem(1,'n_copias',string(copias))
+
+destroy ds_resenya
+return st_fase
+
+
+
+end function
+

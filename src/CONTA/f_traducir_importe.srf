@@ -1,0 +1,85 @@
+HA$PBExportHeader$f_traducir_importe.srf
+$PBExportComments$Funcion utilizada por el dw_1 para generar el total en la otra moneda
+global type f_traducir_importe from function_object
+end type
+
+forward prototypes
+global function integer f_traducir_importe (datawindow dw, dwobject dwo, integer fila)
+end prototypes
+
+global function integer f_traducir_importe (datawindow dw, dwobject dwo, integer fila);// Funci$$HEX1$$f300$$ENDHEX$$n a la que se le pasa un datawindow, un campo y una fila y actualiza el valor del 
+// importe que haya all$$HEX1$$ed00$$ENDHEX$$. 
+//
+//			Se supone que el valor actual de la moneda es al tipo de moneda que hay que convertir
+//			el importe indicado
+//
+//			Si fila <0 entonces suponemos que se pretende actualizar todo el datawindow
+// 
+//			Retorna 
+//					1 si todo es correcto
+//				  -1 si se ha producido un error
+
+string moneda_destino, moneda_origen, tipo, campo
+long fila_dw
+double importe
+
+// cogemos el nombre del campo
+campo = dwo.name
+
+moneda_destino  = f_moneda_por_defecto()
+moneda_origen = 'P'
+IF moneda_destino = 'P' THEN moneda_origen = 'E' 
+
+//Lo primero, averiguamos el tipo del campo:
+tipo=dw.Describe(campo+".ColType")
+CHOOSE CASE upper(LeftA(tipo ,2))
+	CASE 'CH', 'DA' 
+		// Si no es de tipo numerico nos quejamos
+		return -1
+END CHOOSE
+
+dw.accepttext()
+
+If fila < 0 THEN
+	// Se debe actualizar todo el datawindow
+	FOR fila_dw = 1 To dw.RowCount()
+		// Cogemos el importe
+		importe = dw.GetItemNumber(fila_dw, campo)
+		
+		// Cambiamos de moneda
+		importe = importe / f_euro_cambio(moneda_origen, moneda_destino)
+		
+		// Colocamos el valor
+		dw.SetItem(fila_dw, campo, importe)
+	
+		// Lanzamos el evento del item changed
+		dw.event itemchanged(fila_dw, dwo, string(dw.GetItemNumber(long(fila_dw), campo)))
+		
+	NEXT
+ELSE
+	// Si la fila est$$HEX2$$e1002000$$ENDHEX$$fuera
+	If fila>dw.RowCount() or fila<1 then return -1
+
+	// En otro caso procesamos el valor
+	// Si no tiene taborder no lo tocamos
+	If dw.Describe(campo+".TabSequence") = '0' THEN return -1
+
+	// Cogemos el importe
+	importe = dw.GetItemNumber(fila, campo)
+	
+	// Cambiamos de moneda
+//	importe = importe / f_euro_cambio(moneda_origen, moneda_destino)
+	OpenWithParm(w_a_pesetas, importe)
+	importe = Message.DoubleParm
+	if importe = -1 then return -1
+	// Colocamos el valor
+	dw.SetItem(fila, campo, importe)
+
+	// Lanzamos el itemchanged
+	dw.event itemchanged(fila, dwo, string(dw.GetItemNumber(long(fila), campo)))
+
+END IF
+
+return 1
+end function
+

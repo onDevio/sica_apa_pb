@@ -1,0 +1,19 @@
+HA$PBExportHeader$st_cuenta.srs
+global type st_cuenta from structure
+	string		cuenta
+	string		titulo
+	string		resumen
+	string		final
+	string		empresa
+	double		debe
+	double		haber
+	double		saldo
+	double		presupuesto
+	string		id_col
+	double		s1
+	double		s2
+	double		s3
+	double		ica
+	double		otros
+end type
+

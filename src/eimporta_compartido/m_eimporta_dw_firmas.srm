@@ -1,0 +1,110 @@
+HA$PBExportHeader$m_eimporta_dw_firmas.srm
+forward
+global type m_eimporta_dw_firmas from menu
+end type
+type m_revisardocumento from menu within m_eimporta_dw_firmas
+end type
+type m_revisartodos from menu within m_eimporta_dw_firmas
+end type
+type m_- from menu within m_eimporta_dw_firmas
+end type
+type m_abrir from menu within m_eimporta_dw_firmas
+end type
+global type m_eimporta_dw_firmas from menu
+m_revisardocumento m_revisardocumento
+m_revisartodos m_revisartodos
+m_- m_-
+m_abrir m_abrir
+end type
+end forward
+
+global type m_eimporta_dw_firmas from menu
+m_revisardocumento m_revisardocumento
+m_revisartodos m_revisartodos
+m_- m_-
+m_abrir m_abrir
+end type
+global m_eimporta_dw_firmas m_eimporta_dw_firmas
+
+type variables
+u_dw idw_padre
+end variables
+
+on m_eimporta_dw_firmas.create
+m_eimporta_dw_firmas=this
+call super::create
+this.m_revisardocumento=create m_revisardocumento
+this.m_revisartodos=create m_revisartodos
+this.m_-=create m_-
+this.m_abrir=create m_abrir
+this.Item[UpperBound(this.Item)+1]=this.m_revisardocumento
+this.Item[UpperBound(this.Item)+1]=this.m_revisartodos
+this.Item[UpperBound(this.Item)+1]=this.m_-
+this.Item[UpperBound(this.Item)+1]=this.m_abrir
+end on
+
+on m_eimporta_dw_firmas.destroy
+call super::destroy
+destroy(this.m_revisardocumento)
+destroy(this.m_revisartodos)
+destroy(this.m_-)
+destroy(this.m_abrir)
+end on
+
+type m_revisardocumento from menu within m_eimporta_dw_firmas
+end type
+
+event clicked;idw_padre.dynamic event csd_revisar_fichero()
+end event
+
+on m_revisardocumento.create
+call super::create
+this.text = "Validar Documento"
+end on
+
+on m_revisardocumento.destroy
+call super::destroy
+end on
+
+type m_revisartodos from menu within m_eimporta_dw_firmas
+end type
+
+event clicked;idw_padre.dynamic event csd_revisar_todos()
+end event
+
+on m_revisartodos.create
+call super::create
+this.text = "Validar Todos"
+end on
+
+on m_revisartodos.destroy
+call super::destroy
+end on
+
+type m_- from menu within m_eimporta_dw_firmas
+end type
+
+on m_-.create
+call super::create
+this.text = "-"
+end on
+
+on m_-.destroy
+call super::destroy
+end on
+
+type m_abrir from menu within m_eimporta_dw_firmas
+end type
+
+event clicked;idw_padre.dynamic event csd_abrir()
+end event
+
+on m_abrir.create
+call super::create
+this.text = "Abrir"
+end on
+
+on m_abrir.destroy
+call super::destroy
+end on
+

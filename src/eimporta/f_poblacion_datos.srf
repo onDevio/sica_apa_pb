@@ -1,0 +1,30 @@
+HA$PBExportHeader$f_poblacion_datos.srf
+global type f_poblacion_datos from function_object
+end type
+
+forward prototypes
+global function st_poblacion_datos f_poblacion_datos (string cod_postal, string descripcion)
+end prototypes
+
+global function st_poblacion_datos f_poblacion_datos (string cod_postal, string descripcion);integer contador,contador2
+st_poblacion_datos st
+string cod_provincia
+
+st.cod_pos = cod_postal
+st.desc_poblacion = descripcion
+
+select count(*) into :contador from poblaciones where cod_pos = :cod_postal using SQLCA; 
+
+if contador = 1 then
+	select cod_pob, descripcion, provincia  into :st.cod_pob, :st.desc_poblacion, :cod_provincia  from poblaciones where cod_pos = :cod_postal using SQLCA; 
+	select nombre into :st.desc_provincia from provincias where cod_provincia = :cod_provincia using SQLCA;
+elseif contador > 1 then
+	select count(*) into :contador2 from poblaciones where cod_pos = :cod_postal and descripcion = :descripcion using SQLCA; 
+	if contador2 = 1 then
+		select cod_pob, descripcion, provincia  into :st.cod_pob, :st.desc_poblacion, :cod_provincia  from poblaciones where cod_pos = :cod_postal and descripcion = :descripcion using SQLCA; 	
+	end if
+end if
+
+return st
+end function
+

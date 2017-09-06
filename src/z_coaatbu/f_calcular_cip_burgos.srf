@@ -1,0 +1,227 @@
+HA$PBExportHeader$f_calcular_cip_burgos.srf
+$PBExportComments$Calcula el total de cip para burgos
+global type f_calcular_cip_burgos from function_object
+end type
+
+forward prototypes
+global function integer f_calcular_cip_burgos (ref st_cip_datos st_cip_datos)
+end prototypes
+
+global function integer f_calcular_cip_burgos (ref st_cip_datos st_cip_datos);String TipoAct		// Tipo de actuacion del contrato
+String TipoActAnt	
+String TipoObra
+double FA 		// Factor de actualizaci$$HEX1$$f300$$ENDHEX$$n
+double Coef	// Coeficiente de c$$HEX1$$e100$$ENDHEX$$lculo de honorarios
+double Sup	// Superficie total construida de la obra
+double Pres	// Presupuesto del contrato
+double BaseCuadro	// Base de tarificacion(Presupuesto contrato)/FA (Factor act.)/1000
+double base_minimo, minimo	// Honorarios Minimos
+double coef_aux	// Coeficiente F aplicado
+string tarifa
+double Honorarios	= 0 // Honorarios calculados del contrato
+double Volumen	// Variable para recojer el volumen para demoliciones.
+String AplicadoMinimo = "N"
+String  administracion
+double Ca
+double altura
+string colindantes
+double a
+string tipologia_edif
+double coef_t
+
+FA = g_fa
+Ca = g_ca
+TipoAct = st_cip_datos.tipo_act
+TipoObra = st_cip_datos.tipo_obra
+administracion = st_cip_datos.admon
+Volumen = st_cip_datos.volumen
+sup = st_cip_datos.superficie
+Pres = st_cip_datos.pem
+colindantes = st_cip_datos.colindantes
+altura = st_cip_datos.altura
+tipologia_edif = st_cip_datos.tipologia_edif
+
+
+BaseCuadro = (Pres / Ca)
+if (BaseCuadro = 0) or (Isnull(BaseCuadro) )  then BaseCuadro = 1
+IF Pres = 0 then pres = 1
+
+SELECT coef_aux, tarifa, minimo INTO :coef_aux, :tarifa, :minimo FROM cip_tarifa WHERE ( tipo_actuacion = :TipoAct ) AND ( ( tipo_obra = :TipoObra ) or ( tipo_obra = '*' )  );
+If SQLCA.SQLCode <> 0 Then
+	MessageBox(g_titulo,'Esta combinaci$$HEX1$$f300$$ENDHEX$$n de tipo de intervenci$$HEX1$$f300$$ENDHEX$$n y tipo de obra no tiene Honorarios Orientativos',StopSign!,OK!,1)
+	return -1
+End if
+
+double porc_aplicado
+if st_cip_datos.admon = 'S' then 
+	porc_aplicado = g_porc_cip_admon
+elseif st_cip_datos.tipo_gestion = 'P' then
+	porc_aplicado = g_porc_cip_sgc
+else
+	porc_aplicado = g_porc_cip_defecto	
+end if
+
+base_minimo = minimo
+minimo = minimo * Ca	// Honorarios M$$HEX1$$ed00$$ENDHEX$$nimos
+Choose Case Tarifa
+	CASE 'A'
+		SELECT coef INTO :Coef FROM cip_tablas WHERE desde < :Pres AND hasta >= :Pres AND tarifa = :Tarifa;
+		Honorarios = (Pres * Coef * coef_aux) / 100
+		st_cip_datos.formula = 'DIP = ( P.E.M. * C * K / 100 ) * %DIP'
+		st_cip_datos.desarrollo = 'DIP = ( ' + string(Pres) + ' * ' + string(Coef) + ' * ' + string(coef_aux) + ' / 100 ) * ' + string(porc_aplicado) + '%'
+		If Honorarios < Minimo Then 
+			Honorarios = Minimo
+			AplicadoMinimo = "S"
+		End if				
+
+	CASE 'B'	// Seguridad de Derribos
+		if altura <= 12 then
+			a=0.12
+		else
+			a=0.18
+		end if
+		if  colindantes='02' OR colindantes='03' then
+			coef = 1
+		elseif colindantes='01' and  ( TipoObra='91' or TipoObra='93') then
+			coef = 0.8
+		else
+			SELECT coef INTO :Coef FROM cip_tablas WHERE desde < :Volumen AND hasta >= :Volumen AND tarifa = :Tarifa;
+		end if
+
+		Honorarios = 1.9 * Volumen * a * Coef * coef_aux * Ca
+		st_cip_datos.formula = 'DIP = 1,9 * V * a * t * K * Ca * %DIP'
+		st_cip_datos.desarrollo = 'DIP = 1,9 * ' + string(Volumen) + ' * ' + string(a) + ' * ' + string(Coef) + ' * ' + string(coef_aux) + ' * ' + string(Ca) + ' * ' + string(porc_aplicado) + '%'
+		If Honorarios < Minimo Then 
+			Honorarios = Minimo
+			AplicadoMinimo = "S"
+		End if		
+	CASE 'C'
+		SELECT coef INTO :Coef FROM cip_tablas WHERE desde < :Sup AND hasta >= :Sup AND tarifa = :Tarifa;
+		Honorarios = (Pres * Coef * coef_aux) / 100
+		st_cip_datos.formula = 'DIP = ( P.E.M. * C * K / 100 ) * %DIP'
+		st_cip_datos.desarrollo = 'DIP = ( ' + string(Pres) + ' * ' + string(Coef) + ' * ' + string(coef_aux) + ' / 100 ) * ' + string(porc_aplicado) + '%'
+		If Honorarios < Minimo Then 
+			Honorarios = Minimo
+			AplicadoMinimo = "S"
+		End if				
+	CASE 'D'
+		SELECT coef INTO :Coef  FROM cip_tablas WHERE desde < :Sup AND hasta >= :Sup AND tarifa = :Tarifa;		
+		Honorarios = (Pres * Coef * coef_aux) / 100
+		st_cip_datos.formula = 'DIP = ( P.E.M. * C * K / 100 ) * %DIP'
+		st_cip_datos.desarrollo = 'DIP = ( ' + string(Pres) + ' * ' + string(Coef) + ' * ' + string(coef_aux) + ' / 100 ) * ' + string(porc_aplicado) + '%'
+		If Honorarios < Minimo Then 
+			Honorarios = Minimo
+			AplicadoMinimo = "S"
+		End if
+	CASE 'E'
+		SELECT coef INTO :Coef FROM cip_tablas WHERE desde < :Sup AND hasta >= :Sup AND tarifa = :Tarifa;
+		Honorarios = (Pres * Coef * coef_aux) / 100
+		st_cip_datos.formula = 'DIP = ( P.E.M. * C * K / 100 ) * %DIP'
+		st_cip_datos.desarrollo = 'DIP = ( ' + string(Pres) + ' * ' + string(Coef) + ' * ' + string(coef_aux) + ' / 100 ) * ' + string(porc_aplicado) + '%'
+		If Honorarios < Minimo Then 
+			Honorarios = Minimo
+			AplicadoMinimo = "S"
+		End if
+	CASE 'F'
+		SELECT coef INTO :Coef  FROM cip_tablas WHERE desde < :BaseCuadro AND hasta >= :BaseCuadro AND tarifa = :Tarifa;									
+		Honorarios = (Pres * Coef * coef_aux) / 100
+		st_cip_datos.formula = 'DIP = ( P.E.M. * C * K / 100 ) * %DIP'
+		st_cip_datos.desarrollo = 'DIP = ( ' + string(Pres) + ' * ' + string(Coef) + ' * ' + string(coef_aux) + ' / 100 ) * ' + string(porc_aplicado) + '%'
+		If Honorarios < Minimo Then 
+			Honorarios = Minimo
+			AplicadoMinimo = "S"
+		End if
+	CASE 'G'
+		if altura <= 12 then
+			a=0.81
+		else
+			a=1.22
+		end if
+		if  colindantes='02' OR colindantes='03' then
+			coef = 1
+		elseif colindantes='01' and  ( TipoObra='91' or TipoObra='93') then
+			coef = 0.8
+		else
+			SELECT coef INTO :Coef FROM cip_tablas WHERE desde < :Volumen AND hasta >= :Volumen AND tarifa = :Tarifa;
+		end if
+		Honorarios = Volumen * a * Coef * coef_aux * Ca 
+		st_cip_datos.formula = 'DIP = V * a * t * K * Ca * %DIP'
+		st_cip_datos.desarrollo = 'DIP = ' + string(Volumen) + ' * ' + string(a) + ' * ' + string(Coef) + ' * ' + string(coef_aux) + ' * ' + string(Ca) + ' * ' + string(porc_aplicado) + '%'
+		If Honorarios < Minimo Then 
+			Honorarios = Minimo
+			AplicadoMinimo = "S"
+		End if		
+	CASE 'H'
+		SELECT coef INTO :Coef  FROM cip_tablas WHERE desde < :BaseCuadro AND hasta >= :BaseCuadro AND tarifa = :Tarifa;			
+		Honorarios = (Pres * Coef * coef_aux) / 100
+		st_cip_datos.formula = 'DIP = ( P.E.M. * C * K / 100 ) * %DIP'
+		st_cip_datos.desarrollo = 'DIP = ( ' + string(Pres) + ' * ' + string(Coef) + ' * ' + string(coef_aux) + ' / 100 ) * ' + string(porc_aplicado) + '%'
+		If Honorarios < Minimo Then 
+			Honorarios = Minimo
+			AplicadoMinimo = "S"
+		End if		
+	CASE 'I'
+		SELECT coef INTO :Coef  FROM cip_tablas WHERE desde < :Sup AND hasta >= :Sup AND tarifa = :Tarifa;			
+		choose case upper(tipologia_edif)
+			case 'S'
+				coef_t = 2
+			case 'C'
+				coef_t = 1.25				
+			case 'O'
+				coef_t = 1.15				
+			case 'V'
+				coef_t = 1.1				
+			case 'VC'
+				coef_t = 0.6				
+			case 'I'
+				coef_t = 0.3				
+			case else
+				coef_t = 0				
+		end choose
+		Honorarios = (Sup * Coef * coef_t * coef_aux * Ca)
+		st_cip_datos.formula = 'DIP = ( S * P * T * 2,44 * Ca ) * %DIP'
+		st_cip_datos.desarrollo = 'DIP = ' + string(Sup) + ' * ' + string(Coef) + ' * ' + string(coef_t) + ' * '+ string(coef_aux)  + ' * ' + string(porc_aplicado) + '%'
+		If Honorarios < Minimo Then 
+			Honorarios = Minimo
+			AplicadoMinimo = "S"
+		End if				
+		
+	CASE 'I2', 'I3', 'I4'
+		SELECT coef INTO :Coef FROM cip_tablas WHERE desde < :Sup AND hasta >= :Sup AND tarifa = :Tarifa;
+		Honorarios = (Pres * Coef) / 100		
+		st_cip_datos.formula = 'DIP = ( P.E.M. * C / 100 ) * %DIP'
+		st_cip_datos.desarrollo = 'DIP = ( ' + string(Pres) + ' * ' + string(Coef) + ' / 100 ) * ' + string(porc_aplicado) + '%'
+		If Honorarios < Minimo Then 
+			Honorarios = Minimo
+			AplicadoMinimo = "S"
+		End if		
+
+		
+	CASE 'J'
+		Honorarios = 0
+		SELECT minimo INTO :Minimo FROM cip_tarifa WHERE ( tipo_actuacion = :TipoAct ) ;
+		Honorarios = Minimo * CA
+		st_cip_datos.formula = 'DIP = M$$HEX1$$ed00$$ENDHEX$$nimo * Ca * %DIP'
+		st_cip_datos.desarrollo = 'DIP = ' + string(Minimo) + ' * ' + string(Ca) + ' * ' + string(porc_aplicado) + '%'
+
+
+	END CHOOSE
+
+If Honorarios = 0 Then
+	MessageBox(g_titulo,'Esta Tarifa no Tiene Honorarios Te$$HEX1$$f300$$ENDHEX$$ricos',StopSign!,OK!,1)
+	return -1
+End if
+st_cip_datos.hon_teor =  f_redondea(honorarios)
+
+if AplicadoMinimo = "S" then
+	st_cip_datos.formula = 'DIP = Base M$$HEX1$$ed00$$ENDHEX$$nimo * Ca * %DIP'
+	st_cip_datos.desarrollo = 'DIP = ' + string(base_minimo) + ' * ' + string(Ca) + ' * ' + string(porc_aplicado) + '%'
+end if
+
+st_cip_datos.cip =  f_redondea(st_cip_datos.hon_teor * porc_aplicado /100)
+st_cip_datos.aplicar_fijo = aplicadominimo
+st_cip_datos.importe_minimo = minimo
+st_cip_datos.tarifa = tarifa
+return 1
+end function
+

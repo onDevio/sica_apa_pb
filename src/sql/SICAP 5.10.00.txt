@@ -1,0 +1,106 @@
+declare @colegio varchar(10)
+select @colegio = texto from var_globales where nombre = 'COLEGIO'
+
+
+//SCP-718. CAV-155. Sólo Ávila
+if @colegio= 'COAATAVI' 
+begin
+insert into t_control_eventos values('INSERTA_BOTON', 'ABRIR_FASE', 'S', 'Hoja Coor. SYS','csd_hoja_CSYS', 'HCSYS', '90', '', '')
+end
+
+If @colegio = 'COAATTEB' or @colegio = 'COAATTGN'
+begin
+update t_control_eventos set param2 = '3867', param3 = '184' where control = 'POSICION' AND id_control = 'TGNENCAR11'
+update t_control_eventos set param2 = '3867', param3 = '252' where control = 'POSICION' AND id_control = 'TGNENCAR14'
+update t_control_eventos set param3 = '184' where control = 'POSICION' AND id_control = 'TGNENCAR12'
+update t_control_eventos set param3 = '252' where control = 'POSICION' AND id_control = 'TGNENCAR13'
+end  
+
+
+//Caja
+
+if @colegio = 'COAATA' or @colegio = 'COAATAVI' or @colegio = 'COAATBU' or @colegio = 'COAATCC' or @colegio = 'COAATCU' or @colegio = 'COAATGUI' or @colegio = 'COAATGU' or @colegio = 'COAATLE' or @colegio = 'COAATLL' or @colegio = 'COAATTGN' or @colegio = 'COAATTEB' or @colegio = 'COAATTER' 
+begin
+   INSERT into t_control_eventos (control,evento,activo,param1,param2,id_control,orden,param3,mensaje) VALUES ('OPCIONES_CAJA','ABRIR_CAJA','S','3','','caja1','','','Avisos de Honorarios (F1)	1/Proformas - Fact. Pendientes (F3)	3/Factura Nueva (F2)	2/')
+end
+go
+
+if @colegio = 'COAATBI' 
+begin
+   UPDATE t_control_eventos SET mensaje = 'Avisos de Honorarios (F1)	1/Factura Nueva (F2)	2/Proformas - Fact. Pendientes (F3)	3/' WHERE control = 'OPCIONES_CAJA' and evento = 'ABRIR_CAJA'
+end
+go
+
+if @colegio = 'COAATGC' 
+begin
+   UPDATE t_control_eventos SET mensaje = 'Avisos de Honorarios (F1)	1/Factura Nueva (F2)	2/Proformas - Fact. Pendientes (F3)	3/' WHERE control = 'OPCIONES_CAJA' and evento = 'ABRIR_CAJA'
+end
+go
+
+if @colegio = 'COAATMCA' 
+begin
+   UPDATE t_control_eventos SET mensaje = 'Avisos de Honorarios (F1)	1/Factura Nueva (F2)	2/Proformas - Fact. Pendientes (F3)	3/Listado Cuadre (F7)	7/Pago Caja (F4)	4/' WHERE control = 'OPCIONES_CAJA' and evento = 'ABRIR_CAJA'
+end
+go
+
+if @colegio = 'COAATMU' 
+begin
+   UPDATE t_control_eventos SET mensaje = 'Avisos de Honorarios (F1)	1/Factura Nueva (F2)	2/Proformas - Fact. Pendientes (F3)	3/' WHERE control = 'OPCIONES_CAJA' and evento = 'ABRIR_CAJA'
+end
+go
+
+if @colegio = 'COAATNA' 
+begin
+   UPDATE t_control_eventos SET mensaje = 'Avisos de Honorarios (F1)	1/Factura Nueva (F2)	2/Proformas - Fact. Pendientes (F3)	3/Avisos Fraccionados (F8)	8/' WHERE control = 'OPCIONES_CAJA' and evento = 'ABRIR_CAJA'
+end
+go
+
+if @colegio = 'COAATLR' 
+begin
+   UPDATE t_control_eventos SET mensaje = 'Avisos de Honorarios (F1)	1/Factura Nueva (F2)	2/Proformas - Fact. Pendientes (F3)	3/' WHERE control = 'OPCIONES_CAJA' and evento = 'ABRIR_CAJA'
+end
+go
+
+if @colegio = 'COAATTFE' 
+begin
+   UPDATE t_control_eventos SET mensaje = 'Avisos de Honorarios (F1)	1/Salida Expedientes (F5)	5/Proformas - Fact. Pendientes (F3)	3/Factura Nueva (F2)	2/Carta Ayto. Vivienda (F6)	6/Listado Cuadre (F7)	7/Pago Caja (F4)	4/' WHERE control = 'OPCIONES_CAJA' and evento = 'ABRIR_CAJA'
+end
+go
+
+if @colegio = 'COAATZA' 
+begin
+   UPDATE t_control_eventos SET mensaje = 'Avisos de Honorarios (F1)	1/Proformas - Fact. Pendientes (F3)	3/' WHERE control = 'OPCIONES_CAJA' and evento = 'ABRIR_CAJA'
+end
+go
+
+
+
+//Todos
+
+//Caja
+INSERT into t_aplicacion (cod_aplicacion, nombre) VALUES ('0000000039','CAJA');
+
+//Añadidos los distintos tipos de tramite
+insert into t_tramite (id_tramite,nombre_tramite) values('REDAP','REDAP');
+insert into t_tramite (id_tramite,nombre_tramite) values('IP','IP');
+insert into t_tramite (id_tramite,nombre_tramite) values('MUSAAT','MUSAAT');
+insert into t_tramite (id_tramite,nombre_tramite) values('REDOC','REDOC');
+insert into t_tramite (id_tramite,nombre_tramite) values('Visado voluntario','Visado voluntario');
+update tipo_registro set descripcion='VISADO/TRAMITADO' where descripcion='VISADO';
+
+ UPDATE fases_informes  SET facturado = 'N' where facturado = null or facturado = '' ;
+
+alter table fases_documentos add id_articulo varchar(10) NULL;
+alter table fases_documentos add id_informe varchar(10) NULL;
+
+alter table t_documentos add facturable char(1) default 'N' null; 
+alter table t_documentos add t_articulo char(10) null; 
+
+update t_documentos set facturable = 'N';
+
+// Se evita que se acciones de forma automática la ventana de generación de avisos de factura con el cálculo de gastos. No tiene porque existir en todo los colegios
+update t_control_eventos set activo = 'N' where control = 'COBRAR_GASTOS';
+
+//Se actualiza la fecha de versión
+
+update var_globales set texto='20101201' where nombre='g_version_minima';

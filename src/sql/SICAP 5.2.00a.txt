@@ -1,0 +1,11 @@
+// CLE-184 - COBERTURA POLIZA GRATUITA PARA INACTIVOS
+insert into musaat_cober_src (codigo,prima,t_poliza,activo) values ('IN',50000,'02','S');
+
+//CGN-695. Detectados por Jaume dos colegios con el coeficiente de siniestralidad erróneo
+//Colegio de Valencia
+update colegios set musaat_coef_malus = 1.06 where cod_colegio = '48';
+//Colegio de Zamora
+update colegios set musaat_coef_malus = 0.98 where cod_colegio = '51';
+
+//Se actualiza la fecha de versión
+update var_globales set texto='20110111', descripcion = 'versión v5.2.00a' where nombre='g_version_minima';

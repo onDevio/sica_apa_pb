@@ -1,0 +1,21 @@
+HA$PBExportHeader$f_musaat_numpol.srf
+global type f_musaat_numpol from function_object
+end type
+
+forward prototypes
+global function string f_musaat_numpol (string id_col)
+end prototypes
+
+global function string f_musaat_numpol (string id_col);string num_pol
+
+  SELECT musaat.src_n_poliza  
+    INTO :num_pol  
+    FROM musaat  
+   WHERE musaat.id_col = :id_col   ;
+	
+if f_es_vacio(num_pol) then num_pol = ''
+
+return num_pol
+
+end function
+

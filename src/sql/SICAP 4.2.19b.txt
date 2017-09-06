@@ -1,0 +1,27 @@
+declare @colegio varchar(10)
+select @colegio = texto from var_globales where nombre = 'COLEGIO'
+// TODOS
+
+//Añadir campo del colegiado que hace el prestamo, que no existe y es requerido desde los inicios de SICAP... (detectado a traves de SCP-423)
+alter table prestamos ADD colegiado char(10);
+
+//FIN TODOS
+
+// ESPECIFICOS
+
+//COAATTFE
+if @colegio=COAATTFE
+begin
+
+//CTE-158
+
+UPDATE listados Set SET dw='d_fases_list_por_col_certif_exp'  WHERE dw='d_fases_listado_por_colegiado_certif'
+UPDATE listados Set SET dw='d_fases_listado_por_colegiado_exp'  WHERE dw='d_fases_listado_por_colegiado'
+
+//FIN CTE-158
+
+
+
+
+
+end

@@ -1,0 +1,21 @@
+HA$PBExportHeader$f_colegiado_src_cia.srf
+global type f_colegiado_src_cia from function_object
+end type
+
+forward prototypes
+global function string f_colegiado_src_cia (string id_col)
+end prototypes
+
+global function string f_colegiado_src_cia (string id_col);string tipo_alta
+
+tipo_alta = f_tipo_alta_src( id_col ) 
+CHOOSE CASE tipo_alta 
+	CASE 'S' 
+		return 'MU'
+	CASE  'O'
+		return f_companyia_otro_src(id_col)
+END CHOOSE
+
+return ''
+end function
+

@@ -1,0 +1,17 @@
+HA$PBExportHeader$pepcyl.srf
+global type pepcyl from function_object
+end type
+
+forward prototypes
+global function string pepcyl (u_dw dw, string texto)
+end prototypes
+
+global function string pepcyl (u_dw dw, string texto);string dato
+
+dato = dw.GetItemString(1,texto)
+if isnull(dato) then dato = ''
+dato = dato + '%'
+
+return dato
+end function
+

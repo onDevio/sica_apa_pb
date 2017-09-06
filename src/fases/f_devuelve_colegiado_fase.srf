@@ -1,0 +1,21 @@
+HA$PBExportHeader$f_devuelve_colegiado_fase.srf
+global type f_devuelve_colegiado_fase from function_object
+end type
+
+forward prototypes
+global function string f_devuelve_colegiado_fase (string id_fase)
+end prototypes
+
+global function string f_devuelve_colegiado_fase (string id_fase);// Devuelve 1 colegiado que pertenece a la fase (el primero)
+string nombre,id_col
+
+  SELECT fases_colegiados.id_col  
+    INTO :id_col  
+    FROM fases_colegiados  
+   WHERE fases_colegiados.id_fase = :id_fase   ;
+
+nombre = f_colegiado_apellido(id_col)
+
+return nombre
+end function
+

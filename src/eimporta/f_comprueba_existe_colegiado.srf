@@ -1,0 +1,38 @@
+HA$PBExportHeader$f_comprueba_existe_colegiado.srf
+global type f_comprueba_existe_colegiado from function_object
+end type
+
+forward prototypes
+global function string f_comprueba_existe_colegiado (string n_col, integer cantidad)
+end prototypes
+
+global function string f_comprueba_existe_colegiado (string n_col, integer cantidad);//Comprueba si el n_col existe y devuelve el id_col
+//Realiza una busqueda iterativa incrementando el numero de ceros a la izquierda hasta 
+//que encuentra uno igual, o sobrepasa un limite
+
+boolean encontrado
+int i
+string id_col
+
+encontrado = false
+i = LenA(n_col) + 1
+id_col = ''
+
+do while encontrado = false and i <= cantidad
+	if g_colegio = 'COAR' then
+		select id_colegiado into :id_col from colegiados where n_consejo = :n_col;
+	else
+		select id_colegiado into :id_col from colegiados where n_colegiado = :n_col;
+	end if
+
+	if f_es_vacio(id_col) then
+		n_col = f_completar_con_caracteres(n_col,i,'I','0')
+		i++
+	else
+		encontrado = true
+	end if		
+loop
+
+return id_col
+end function
+

@@ -1,0 +1,43 @@
+HA$PBExportHeader$f_saldo_cuenta_bancaria_col.srf
+global type f_saldo_cuenta_bancaria_col from function_object
+end type
+
+forward prototypes
+global function double f_saldo_cuenta_bancaria_col (string id_col, datetime f_desde, datetime f_hasta)
+end prototypes
+
+global function double f_saldo_cuenta_bancaria_col (string id_col, datetime f_desde, datetime f_hasta);// Funci$$HEX1$$f300$$ENDHEX$$n que devuelve el saldo de la cuenta personal bancaria del colegiado.
+// Se calcula de la misma forma que en la ventana utilizando los mismos dw.
+datastore ds_extracto, ds_facturas
+string cuenta, formapago, contab
+double extracto=0, facturas=0, saldo=0
+
+formapago = g_formas_pago.cuenta_personal
+cuenta = f_dame_cuenta_col(id_col, formapago)
+contab = 'N'
+
+// Extracto apuntes cuenta personal
+ds_extracto = create datastore
+ds_extracto.dataobject = 'd_saldo_cuenta_bancaria_col_extracto'
+ds_extracto.SetTransObject(bd_ejercicio)
+ds_extracto.retrieve(id_col, cuenta, f_desde, f_hasta)
+
+// Facturas no contabilizadas pagadas por cuenta personal
+ds_facturas = create datastore
+ds_facturas.dataobject = 'd_saldo_cuenta_bancaria_col_facturas'
+ds_facturas.SetTransObject(SQLCA)
+ds_facturas.retrieve(id_col, f_desde, f_hasta, formapago, contab)
+
+// Obtenemos los totales y el saldo final
+if ds_extracto.rowcount()> 0 then extracto = ds_extracto.getitemnumber(ds_extracto.rowcount(), 'compute_5')
+if ds_facturas.rowcount()> 0 then facturas = ds_facturas.getitemnumber(ds_facturas.rowcount(), 'compute_1')
+
+saldo = round(extracto + facturas, 2)
+
+destroy ds_extracto
+destroy ds_facturas
+
+return saldo
+
+end function
+

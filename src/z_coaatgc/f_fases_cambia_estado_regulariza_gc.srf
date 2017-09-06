@@ -1,0 +1,39 @@
+HA$PBExportHeader$f_fases_cambia_estado_regulariza_gc.srf
+global type f_fases_cambia_estado_regulariza_gc from function_object
+end type
+
+forward prototypes
+global subroutine f_fases_cambia_estado_regulariza_gc (string id_fase, string id_minuta)
+end prototypes
+
+global subroutine f_fases_cambia_estado_regulariza_gc (string id_fase, string id_minuta);// Funci$$HEX1$$f300$$ENDHEX$$n que cambia el estado del contrato a abonado y retirado cuando se esta regularizando
+// un contrato que no es primer visado
+datetime fecha_hoy
+string tipo_registro, tipo_minuta
+
+fecha_hoy = datetime(today(), now())
+
+select tipo_registro into :tipo_registro from fases where id_fase = :id_fase ;
+select tipo_minuta into :tipo_minuta from fases_minutas where id_minuta = :id_minuta ;
+
+if tipo_registro <> 'IP' and LeftA(tipo_minuta, 1) = '2' then
+	// Hacemos el cambio de estado en el contrato perminente
+	UPDATE fases set estado = :g_fases_estados.retirado, f_abono = :fecha_hoy where id_fase = :id_fase;
+	
+	// Verificamos que se haya realizado correctamente
+	IF SQLCA.sqlcode<>0 then
+		Messagebox(g_titulo, "Ha ocurrido un error al intentar actualizar el contrato.")
+	END IF
+	
+	// Colocamos en el hist$$HEX1$$f300$$ENDHEX$$rico de estados
+	INSERT INTO fases_estados (id_fase,cod_estado,fecha,usuario) VALUES (:id_fase,:g_fases_estados.retirado,:fecha_hoy,:g_usuario)  ;
+
+	commit;
+	
+	// Si est$$HEX2$$e1002000$$ENDHEX$$la ventana de fases abierta, hacemos el refrescado
+	g_fases_consulta.id_fase = id_fase
+	if isvalid(g_dw1) then g_dw1.dynamic Trigger Event csd_retrieve()
+end if
+
+end subroutine
+

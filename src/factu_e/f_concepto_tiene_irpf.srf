@@ -1,0 +1,20 @@
+HA$PBExportHeader$f_concepto_tiene_irpf.srf
+global type f_concepto_tiene_irpf from function_object
+end type
+
+forward prototypes
+global function string f_concepto_tiene_irpf (string concepto)
+end prototypes
+
+global function string f_concepto_tiene_irpf (string concepto);string retorno = 'N'
+  
+  SELECT csi_articulos_servicios.tiene_irpf  
+    INTO :retorno  
+    FROM csi_articulos_servicios  
+   WHERE csi_articulos_servicios.codigo = :concepto   ;
+
+return retorno
+
+
+end function
+

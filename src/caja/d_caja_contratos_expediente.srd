@@ -1,0 +1,82 @@
+HA$PBExportHeader$d_caja_contratos_expediente.srd
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=68 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=60 color="536870912"  height.autosize=yes)
+table(column=(type=char(10) updatewhereclause=yes name=id_fase dbname="fases.id_fase" )
+ column=(type=char(11) updatewhereclause=yes name=fases_n_registro dbname="fases.n_registro" )
+ column=(type=datetime updatewhereclause=yes name=fases_f_entrada dbname="fases.f_entrada" )
+ column=(type=char(2) updatewhereclause=yes name=fases_tipo_gestion dbname="fases.tipo_gestion" )
+ column=(type=datetime updatewhereclause=yes name=fases_f_visado dbname="fases.f_visado" )
+ column=(type=datetime updatewhereclause=yes name=fases_f_abono dbname="fases.f_abono" )
+ column=(type=char(10) updatewhereclause=yes name=fases_id_expedi dbname="fases.id_expedi" )
+ column=(type=char(3) updatewhereclause=yes name=fase dbname="fases.fase" )
+ column=(type=datetime updatewhereclause=yes name=expedientes_f_inicio dbname="expedientes.f_inicio" )
+ column=(type=char(2) updatewhereclause=yes name=estado dbname="fases.estado" )
+ column=(type=char(2) updatewhereclause=yes name=fases_tipo_via_emplazamiento dbname="fases.tipo_via_emplazamiento" )
+ column=(type=char(255) updatewhereclause=yes name=fases_emplazamiento dbname="fases.emplazamiento" )
+ column=(type=char(30) updatewhereclause=yes name=fases_n_calle dbname="fases.n_calle" )
+ column=(type=char(6) updatewhereclause=yes name=fases_poblacion dbname="fases.poblacion" )
+ column=(type=char(60) updatewhereclause=yes name=poblaciones_descripcion dbname="poblaciones.descripcion" )
+ column=(type=char(3) updatewhereclause=yes name=tipo_fase dbname="fases.tipo_fase" )
+ column=(type=char(14) updatewhereclause=yes name=expedientes_n_expedi dbname="expedientes.n_expedi" )
+ column=(type=char(30) updatewhereclause=yes name=descripcion dbname="compute_0018" )
+ column=(type=char(3) updatewhereclause=yes name=fases_tipo_trabajo dbname="fases.tipo_trabajo" )
+ column=(type=char(60) updatewhereclause=yes name=tipos_via_descripcion dbname="tipos_via.descripcion" )
+ column=(type=char(1) updatewhereclause=yes name=seleccionado dbname="seleccionado" values="	S/	N" )
+ retrieve="  SELECT DISTINCT fases.id_fase,   
+         fases.n_registro,   
+         fases.f_entrada,   
+         fases.tipo_gestion,   
+         fases.f_visado,   
+         fases.f_abono,   
+         fases.id_expedi,   
+         fases.fase,   
+         expedientes.f_inicio,   
+         fases.estado,   
+         fases.tipo_via_emplazamiento,   
+         fases.emplazamiento,   
+         fases.n_calle,   
+         fases.poblacion,   
+         poblaciones.descripcion,   
+         fases.tipo_fase,   
+         expedientes.n_expedi,   
+         convert(char,fases.descripcion),   
+         fases.tipo_trabajo,   
+         tipos_via.descripcion,   
+         'N' as seleccionado  
+    FROM fases,   
+         fases_clientes,   
+         fases_colegiados,   
+         expedientes,   
+         colegiados,   
+         clientes,   
+         poblaciones,   
+         tipos_via  
+   WHERE ( fases_colegiados.id_col = colegiados.id_colegiado ) and  
+         ( fases_clientes.id_cliente = clientes.id_cliente ) and  
+         ( fases.id_fase = fases_colegiados.id_fase ) and  
+         ( fases.id_fase = fases_clientes.id_fase ) and  
+         ( fases.id_expedi = expedientes.id_expedi ) and  
+         ( fases.poblacion = poblaciones.cod_pob ) and  
+         ( fases.tipo_via_emplazamiento = tipos_via.cod_tipo_via ) and
+				fases.id_expedi = :id_expediente   
+" arguments=(("id_expediente", string))  sort="fases_f_entrada D expedientes_n_expedi D fase A " )
+text(band=header alignment="2" text="Emplazamiento" border="6" color="0" x="1815" y="8" height="52" width="937"  name=compute_1_t  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="79416533" )
+text(band=header alignment="2" text="F. Entrada" border="6" color="0" x="827" y="8" height="52" width="283"  name=fases_f_entrada_t  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="79416533" )
+text(band=header alignment="2" text="Descripci$$HEX1$$f300$$ENDHEX$$n" border="6" color="0" x="1129" y="8" height="52" width="672"  name=descripcion_t  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="79416533" )
+text(band=header alignment="2" text="T.Act." border="6" color="0" x="137" y="8" height="52" width="151"  name=fase_t  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="79416533" )
+text(band=header alignment="2" text="Tipo" border="6" color="0" x="306" y="8" height="52" width="151"  name=fases_tipo_trabajo_t  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="79416533" )
+text(band=header alignment="2" text="N$$HEX2$$ba002000$$ENDHEX$$Registro" border="6" color="0" x="475" y="8" height="52" width="338"  name=fases_n_registro_t  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="79416533" )
+compute(band=detail alignment="0" expression="poblaciones_descripcion  + ' - ' +  if (f_es_vacio(tipos_via_descripcion),'',tipos_via_descripcion) + ' ' +  fases_emplazamiento + ', ' +  if (f_es_vacio(fases_n_calle), '',  fases_n_calle )"border="0" color="0" x="1815" y="4" height="52" width="937" format="[GENERAL]"  name=compute_1  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824"  height.autosize=yes)
+column(band=detail id=3 alignment="2" tabsequence=32766 border="0" color="0" x="827" y="4" height="52" width="283" format="dd/mm/yyyy"  name=fases_f_entrada edit.limit=0 edit.case=any edit.autoselect=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+column(band=detail id=18 alignment="0" tabsequence=32766 border="0" color="0" x="1129" y="4" height="52" width="672" format="[general]"  name=descripcion height.autosize=yes edit.limit=0 edit.case=any edit.autoselect=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=8 alignment="2" tabsequence=32766 border="0" color="0" x="137" y="4" height="52" width="155" format="[general]"  name=fase edit.limit=0 edit.case=any edit.autoselect=yes  font.face="MS Sans Serif" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+column(band=detail id=19 alignment="2" tabsequence=32766 border="0" color="0" x="306" y="4" height="52" width="155" format="[general]"  name=fases_tipo_trabajo edit.limit=0 edit.case=any edit.autoselect=yes  font.face="MS Sans Serif" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="475" y="4" height="52" width="338" format="[general]"  name=fases_n_registro edit.limit=0 edit.case=any edit.autoselect=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+column(band=detail id=21 alignment="0" tabsequence=10 border="0" color="0" x="23" y="4" height="52" width="64" format="[general]"  name=seleccionado checkbox.text="" checkbox.on="S" checkbox.off="N" checkbox.scale=no checkbox.threed=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+line(band=footer x1="119" y1="220" x2="256" y2="220"  name=l_1 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="1073741824" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

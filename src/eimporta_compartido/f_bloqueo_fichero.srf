@@ -1,0 +1,52 @@
+HA$PBExportHeader$f_bloqueo_fichero.srf
+global type f_bloqueo_fichero from function_object
+end type
+
+forward prototypes
+global subroutine f_bloqueo_fichero (string fichero, boolean protegido)
+end prototypes
+
+global subroutine f_bloqueo_fichero (string fichero, boolean protegido);long res,n_controles,al_valor=0,posicion
+string archivo
+
+if g_verificador_autonomo='S' then
+	posicion=lastpos(fichero,'\')
+	archivo=MidA(fichero,posicion+1)
+
+	if protegido=true then
+		update paquetes set bloqueado='S' where fichero=:archivo;
+	else
+		update paquetes set bloqueado='N' where fichero=:archivo;
+	end if
+	
+else
+	res=GetFileAttributesA(fichero)
+	if res= -1 then 
+		//messagebox("Error...","Al leer atributos.")
+		return
+	end if
+	
+	Checkbox as_Checkbox
+	Checkbox as_Checkboxa[]
+	
+	
+	FOR n_controles = 1 TO 14
+		as_Checkboxa[n_controles]=create Checkbox
+		as_Checkboxa[n_controles].checked = false
+		if Int(Mod(res / (2 ^ (n_controles - 1)), 2)) > 0 then
+			as_Checkboxa[n_controles].checked = true
+		end if	
+	next
+	
+	as_Checkboxa[1].checked=protegido //Check READONLY
+	
+	FOR n_controles = 1 TO 14
+		if as_Checkboxa[n_controles].checked = true then
+			al_valor=al_valor + (2^(n_controles -1 ))
+		end if
+	next
+	
+	SetFileAttributesA(fichero, al_valor )
+end if
+end subroutine
+

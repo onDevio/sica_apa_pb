@@ -1,0 +1,21 @@
+HA$PBExportHeader$f_ponente.srf
+global type f_ponente from function_object
+end type
+
+forward prototypes
+global function string f_ponente (string id_ponente)
+end prototypes
+
+global function string f_ponente (string id_ponente);string nombre,nom_ponente,ap_ponente
+
+SELECT nombre,apellidos
+INTO :nom_ponente,:ap_ponente
+FROM formacion_ponentes
+WHERE id_ponente=:id_ponente;
+
+nombre=string(ap_ponente+', '+nom_ponente)
+
+return nombre
+
+end function
+

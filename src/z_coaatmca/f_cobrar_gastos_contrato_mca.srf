@@ -1,0 +1,282 @@
+HA$PBExportHeader$f_cobrar_gastos_contrato_mca.srf
+global type f_cobrar_gastos_contrato_mca from function_object
+end type
+
+forward prototypes
+global subroutine f_cobrar_gastos_contrato_mca (st_cobrar_gastos_contrato st_datos)
+end prototypes
+
+global subroutine f_cobrar_gastos_contrato_mca (st_cobrar_gastos_contrato st_datos);string forma_pago, banco, id_col, pendiente='N', asunto, id_minuta, id_fase, n_aviso, pagador, t_iva, cip_sn='N', dv_sn='N', musaat_sn='N', t_iva_honos
+string t_iva_desplaza, t_iva_dv, t_iva_cip, facturado='S', concepto_honos, t_iva_impresos, libro_sn, concepto_otros
+double porc_iva, base_musaat, total_cliente, iva_cip=0, total_colegiado, porc_iva_honos, porc_iva_desplaza, porc_iva_dv, porc_iva_cip, irpf, total_aviso
+double iva_dv=0, porc_iva_impresos, base_impresos, iva_impresos=0,dv=0,tot_dv=0
+datetime fecha_pago, fecha
+boolean genera_movi=false, es_sociedad=false
+datawindow dw_vacio
+string paga_dv=''
+
+dw_vacio = create datawindow
+
+if st_datos.facturar then forma_pago 	= st_datos.dw_pago.getitemstring(1, 'forma_pago') 
+if st_datos.facturar then fecha_pago 	= st_datos.dw_pago.getitemdatetime(1, 'fecha_pago') else fecha_pago = datetime(today(), now())
+if st_datos.facturar then banco 			= st_datos.dw_pago.getitemstring(1, 'banco')
+asunto		= st_datos.dw_pago.getitemstring(1, 'asunto')
+id_col = st_datos.i_id_col
+
+if st_datos.musaat <> 0 then genera_movi = true else genera_movi = false
+if f_colegiado_tipopersona(id_col) = 'S' then
+	es_sociedad = true		
+end if		
+
+
+
+st_datos.st_proceso.text = 'Generando Aviso de Gastos ...'
+id_fase =  g_id_fase
+fecha = fecha_pago
+pagador = '1'
+t_iva = g_t_iva_defecto
+porc_iva =  f_dame_porcent_iva(g_t_iva_defecto)
+base_musaat = st_datos.musaat
+total_cliente = 0
+
+// En otros datos se guarda si es el cliente paga el CCV o el colegiado (paga_ccv='N' (DEFECTO) -> Paga el cliente, paga_ccv='S' -> paga el colegiado )
+select s_n into :paga_dv from otros_datos_colegiado where id_colegiado = :id_col and cod_caracteristica = 'PC';
+if f_es_vacio(paga_dv) or paga_dv='N' then 
+	paga_dv='P'
+else
+	paga_dv='C'
+end if
+
+double dv_total,dv_total_iva,dv1,iva_dv1
+select sum(cuantia_colegiado),sum(impuesto_colegiado) into :dv_total,:dv_total_iva from fases_informes where id_fase=:id_fase and tipo_informe=:g_codigos_conceptos.dv;
+				
+				
+SELECT colegiados.irpf INTO :irpf FROM colegiados WHERE colegiados.id_colegiado = :id_col   ;
+
+SELECT t_iva INTO :t_iva_honos FROM csi_articulos_servicios WHERE codigo = :g_codigos_conceptos.honorarios and colegio = :g_colegio;
+SELECT t_iva INTO :t_iva_desplaza FROM csi_articulos_servicios WHERE codigo = :g_codigos_conceptos.desplazamientos and colegio = :g_colegio;
+SELECT t_iva INTO :t_iva_cip FROM csi_articulos_servicios WHERE codigo = :g_codigos_conceptos.cip and colegio = :g_colegio;
+SELECT t_iva INTO :t_iva_dv FROM csi_articulos_servicios WHERE codigo = :g_codigos_conceptos.dv and colegio = :g_colegio;
+SELECT t_iva INTO :t_iva_impresos FROM csi_articulos_servicios WHERE codigo = :g_codigos_conceptos.impresos and colegio = :g_colegio;
+SELECT descripcion INTO :concepto_honos FROM csi_articulos_servicios WHERE codigo = :g_codigos_conceptos.honorarios and colegio = :g_colegio;
+
+porc_iva_honos = f_dame_porcent_iva(t_iva_honos)
+porc_iva_desplaza = f_dame_porcent_iva(t_iva_desplaza)
+porc_iva_dv = f_dame_porcent_iva(t_iva_dv)
+porc_iva_cip = f_dame_porcent_iva(t_iva_cip)
+porc_iva_impresos = f_dame_porcent_iva(t_iva_impresos)
+
+iva_cip = f_aplica_t_iva(st_datos.cip, t_iva_cip)
+iva_dv = f_aplica_t_iva(st_datos.dv, t_iva_dv)
+iva_impresos = f_aplica_t_iva(st_datos.libros, t_iva_impresos)
+
+
+if st_datos.dv <> 0 then
+	total_colegiado += st_datos.dv + iva_dv
+	dv_sn = 'S'
+end if
+if st_datos.musaat <> 0 then 
+	total_colegiado += st_datos.musaat
+	musaat_sn = 'S'
+end if
+if st_datos.cip <> 0 then 
+	total_colegiado += st_datos.cip + iva_cip 
+	cip_sn = 'S'
+end if
+if st_datos.libros <> 0 then 
+	libro_sn = 'S'
+	total_colegiado += st_datos.libros
+	total_aviso += st_datos.libros
+end if
+total_aviso = total_colegiado
+if not st_datos.facturar then 
+	pendiente = 'S'
+	facturado = 'N'
+	setnull(fecha_pago)
+	setnull(forma_pago)
+	setnull(banco)
+end if
+
+string id
+
+dv=st_datos.dv
+
+// SI EL DV LO PAGA EL CLIENTE 0910149
+if paga_dv='P' and dv_sn='S' then
+	select id_minuta,base_dv,iva_dv into :id,:dv1,:iva_dv1 from fases_minutas where id_fase=:id_fase and pendiente='S' and paga_dv='P' and anulada='N';
+	
+	// Si ya existe un aviso pendiente en el que pague el cliente, a$$HEX1$$f100$$ENDHEX$$adimos la cantidad
+	if not(f_es_vacio(id)) then
+		//Intentemos que el resultado de las sucesivas sumas coincida en decimales con el valor calculado en descuentos
+		if round(dv1+dv,1)=round(dv_total,1) then
+			update fases_minutas set base_dv=:dv_total,iva_dv=:dv_total_iva where id_minuta=:id;
+		else
+			update fases_minutas set base_dv=base_dv + :dv,iva_dv=iva_dv+ :iva_dv where id_minuta=:id;
+		end if
+	// Si no existe el aviso lo creamos a parte del resto		
+	else	
+		tot_dv=dv + iva_dv
+		id_minuta = f_siguiente_numero('FASES-MINUTAS',10)
+		n_aviso = f_numera_aviso(true)		
+		INSERT INTO fases_minutas  
+			( id_minuta, id_fase, id_colegiado, id_cliente, cantidad, pendiente, facturado, id_honorario,   
+			  f_facturado, id_factura, tipo_minuta, irpf, importe_irpf, n_aviso, fecha, fecha_pago,   
+			  tipo_gestion, pagador, reclamar, t_iva, porc_iva, forma_pago, aplica_honos, porc_honos,   
+			  concepto_honos, base_honos, iva_honos, aplica_desplaza, base_desplaza, iva_desplaza,   
+			  concepto_desplaza, aplica_dv, base_dv, iva_dv, aplica_cip, base_cip, iva_cip, aplica_musaat,   
+			  base_musaat, iva_musaat, aplica_retvol, porc_retvol, base_retvol, iva_retvol, total_cliente,   
+			  total_colegiado, t_iva_honos, t_iva_desplaza, t_iva_dv, t_iva_cip, porc_iva_honos,   
+			  porc_iva_desplaza, porc_iva_dv, porc_iva_cip, anulada, banco, irpf_cliente, observaciones,
+			  base_garantia, total_aviso, aplica_impresos, t_iva_impresos, porc_iva_impresos, base_impresos, 
+			  iva_impresos, paga_asalariado, paga_externo, paga_dv, n_contrato_ant, t_minuta, urgente,
+			  base_cip_suplida, t_iva_cip_suplida, porc_iva_cip_suplida, iva_cip_suplida, musaat_suplida, concepto_otros, porc_cip)  
+		VALUES 
+			( :id_minuta, :id_fase, :id_col, :st_datos.id_cliente, null, :pendiente, :facturado, null, 
+				null, null, :st_datos.tipo_minuta, :irpf, 0, :n_aviso, :fecha, :fecha_pago,   
+			  'S', :pagador, 'S', :t_iva, :porc_iva, :forma_pago, 'N', 0, 
+			  :concepto_honos, 0, 0, 'N',  0, 0,   
+			  null, :dv_sn, :dv, :iva_dv, 'N', 0, 0, 'N',   
+			  0, 0, 'N', 0, 0, 0, :tot_dv,   
+			  0, :t_iva_honos, :t_iva_desplaza, :t_iva_dv, :t_iva_cip, :porc_iva_honos,   
+			  :porc_iva_desplaza, :porc_iva_dv, :porc_iva_cip, 'N', :banco, 'N', null,
+			  0, :tot_dv, 'N', :t_iva_impresos, :porc_iva_impresos, 0,
+			  0, 'N', 'N', :paga_dv, :st_datos.n_contrato_ant, 'I', 'N',
+			  0, '00', 0, 0, 0, :concepto_otros, :st_datos.porc_cip)  ;		
+	
+		
+	end if
+	// Reiniciamos los valores para no volver a meterlo en otro aviso
+	dv=0
+	iva_dv=0
+	dv_sn='N'
+	st_datos.dv = 0	
+end if
+
+if(isnull(st_datos.cip))then
+	st_datos.cip = 0
+end if
+if(isnull(st_datos.libros))then
+	st_datos.libros = 0
+end if
+if(isnull(st_datos.dv))then
+	st_datos.dv = 0
+end if
+
+// Insertamos otro aviso con el cip y el mantenimiento, y el dv en caso de que lo pague el colegiado
+if  st_datos.cip <> 0 or st_datos.libros <> 0 or st_datos.dv <> 0 then
+	id_minuta = f_siguiente_numero('FASES-MINUTAS',10)
+	n_aviso = f_numera_aviso(true)
+	INSERT INTO fases_minutas  
+	( id_minuta, id_fase, id_colegiado, id_cliente, cantidad, pendiente, facturado, id_honorario,   
+	  f_facturado, id_factura, tipo_minuta, irpf, importe_irpf, n_aviso, fecha, fecha_pago,   
+	  tipo_gestion, pagador, reclamar, t_iva, porc_iva, forma_pago, aplica_honos, porc_honos,   
+	  concepto_honos, base_honos, iva_honos, aplica_desplaza, base_desplaza, iva_desplaza,   
+	  concepto_desplaza, aplica_dv, base_dv, iva_dv, aplica_cip, base_cip, iva_cip, aplica_musaat,   
+	  base_musaat, iva_musaat, aplica_retvol, porc_retvol, base_retvol, iva_retvol, total_cliente,   
+	  total_colegiado, t_iva_honos, t_iva_desplaza, t_iva_dv, t_iva_cip, porc_iva_honos,   
+	  porc_iva_desplaza, porc_iva_dv, porc_iva_cip, anulada, banco, irpf_cliente, observaciones,
+	  base_garantia, total_aviso, aplica_impresos, t_iva_impresos, porc_iva_impresos, base_impresos, 
+	  iva_impresos, paga_asalariado, paga_externo, paga_dv, n_contrato_ant, t_minuta, urgente,
+	  base_cip_suplida, t_iva_cip_suplida, porc_iva_cip_suplida, iva_cip_suplida, musaat_suplida, concepto_otros, porc_cip)  
+	VALUES 
+	( :id_minuta, :id_fase, :id_col, :st_datos.id_cliente, null, :pendiente, :facturado, null, 
+		null, null, :st_datos.tipo_minuta, :irpf, 0, :n_aviso, :fecha, :fecha_pago,   
+	  'S', :pagador, 'S', :t_iva, :porc_iva, :forma_pago, 'N', 0, 
+	  :concepto_honos, 0, 0, 'N',  0, 0,   
+	  null, :dv_sn, :dv, :iva_dv, :cip_sn, :st_datos.cip, :iva_cip, 'N',   
+	  0, 0, 'N', 0, 0, 0, :total_cliente,   
+	  :total_colegiado, :t_iva_honos, :t_iva_desplaza, :t_iva_dv, :t_iva_cip, :porc_iva_honos,   
+	  :porc_iva_desplaza, :porc_iva_dv, :porc_iva_cip, 'N', :banco, 'N', null,
+	  0, :total_aviso, :libro_sn, :t_iva_impresos, :porc_iva_impresos, :st_datos.libros,
+	  :iva_impresos, 'N', 'N', :paga_dv, :st_datos.n_contrato_ant, 'I', 'N',
+	  0, '00', 0, 0, 0, :concepto_otros, :st_datos.porc_cip)  ;
+	  
+end if
+
+// Insertamos otro aviso con el MUSAAT
+if st_datos.musaat <> 0 then
+	id_minuta = f_siguiente_numero('FASES-MINUTAS',10)
+	n_aviso = f_numera_aviso(true)
+	INSERT INTO fases_minutas  
+		( id_minuta, id_fase, id_colegiado, id_cliente, cantidad, pendiente, facturado, id_honorario,   
+		  f_facturado, id_factura, tipo_minuta, irpf, importe_irpf, n_aviso, fecha, fecha_pago,   
+		  tipo_gestion, pagador, reclamar, t_iva, porc_iva, forma_pago, aplica_honos, porc_honos,   
+		  concepto_honos, base_honos, iva_honos, aplica_desplaza, base_desplaza, iva_desplaza,   
+		  concepto_desplaza, aplica_dv, base_dv, iva_dv, aplica_cip, base_cip, iva_cip, aplica_musaat,   
+		  base_musaat, iva_musaat, aplica_retvol, porc_retvol, base_retvol, iva_retvol, total_cliente,   
+		  total_colegiado, t_iva_honos, t_iva_desplaza, t_iva_dv, t_iva_cip, porc_iva_honos,   
+		  porc_iva_desplaza, porc_iva_dv, porc_iva_cip, anulada, banco, irpf_cliente, observaciones,
+		  base_garantia, total_aviso, aplica_impresos, t_iva_impresos, porc_iva_impresos, base_impresos, 
+		  iva_impresos, paga_asalariado, paga_externo, paga_dv, n_contrato_ant, t_minuta, urgente,
+		  base_cip_suplida, t_iva_cip_suplida, porc_iva_cip_suplida, iva_cip_suplida, musaat_suplida, concepto_otros)  
+	VALUES 
+		( :id_minuta, :id_fase, :id_col, :st_datos.id_cliente, null, :pendiente, :facturado, null, 
+			null, null, :st_datos.tipo_minuta, :irpf, 0, :n_aviso, :fecha, :fecha_pago,   
+		  'S', :pagador, 'S', :t_iva, :porc_iva, :forma_pago, 'N', 0, 
+		  :concepto_honos, 0, 0, 'N',  0, 0,   
+		  null, 'N', 0, 0, 'N', 0, 0, :musaat_sn,   
+		  :base_musaat, 0, 'N', 0, 0, 0, :total_cliente,   
+		  :st_datos.musaat, :t_iva_honos, :t_iva_desplaza, :t_iva_dv, :t_iva_cip, 0,   
+		  0, 0, 0, 'N', :banco, 'N', null,
+		  0, :total_aviso, 'N', :t_iva_impresos, 0, 0,
+		  0, 'N', 'N', :paga_dv, :st_datos.n_contrato_ant, 'I', 'N',
+		  0, '00', 0, 0, 0, :concepto_otros)  ;
+	end if
+COMMIT;
+
+
+// Si no est$$HEX2$$e1002000$$ENDHEX$$marcado el check no se genera la factura
+if not st_datos.facturar then 
+	if isvalid(g_detalle_fases) then
+		g_detalle_fases.postevent('csd_refrescar_avisos')
+		g_detalle_fases.postevent('csd_refrescar_src')	
+	end if
+	st_datos.st_proceso.text = 'Proceso Finalizado ...'
+//	messagebox(g_titulo, 'Proceso Finalizado')
+	return
+end if
+
+// Generamos las facturas
+st_datos.st_proceso.text = 'Recuperando Datos ...'
+st_datos.dw_3.Retrieve(id_minuta)
+st_datos.st_proceso.text = 'Generando Facturas ...'
+// g_cobro_obligado : con esto no regulariza : puede dejar de usarse usando el tipo_movimiento_csd
+g_cobro_obligado = 'S'
+
+st_generar_facturas_minutas parametros_factura_minuta
+
+parametros_factura_minuta.dw_minuta 			= st_datos.dw_3
+parametros_factura_minuta.num_orig 				= st_datos.impr_copias
+parametros_factura_minuta.num_copias 			= st_datos.impr_orig
+parametros_factura_minuta.regulariza_musaat	= false
+parametros_factura_minuta.movimiento_musaat	= genera_movi
+parametros_factura_minuta.tipo_movimiento_csd= st_datos.tipo_minuta
+parametros_factura_minuta.tipo_prev				= ''
+parametros_factura_minuta.dw_factura			= dw_vacio
+
+// Por tratarse de una minuta SGC es sencillo determinar la serie. Basta mirar el total_colegiado
+if total_colegiado>0 then
+	parametros_factura_minuta.serie				= g_serie_fases
+else
+	parametros_factura_minuta.serie				= g_facturas_negativas_serie
+end if
+
+f_generar_facturas_minuta(parametros_factura_minuta)
+
+g_cobro_obligado = 'N'
+
+// Modificado David 22/02/2005
+// El contrato pasa a abonado y retirado cuando est$$HEX2$$e1002000$$ENDHEX$$toda la CIP pagada
+// LLamamos a la funcion que realiza el cambio de estado y dem$$HEX1$$e100$$ENDHEX$$s
+if f_fases_cambia_estado_fase_segun_pagado(id_fase, 'MINUTAS')='-1' then
+	Messagebox(g_titulo, "Error al actualizar el estado del contrato", stopsign!)
+end if
+
+if isvalid(g_detalle_fases) then
+	g_detalle_fases.postevent('csd_refrescar_avisos')
+	g_detalle_fases.postevent('csd_refrescar_src')	
+end if
+destroy (dw_vacio)
+
+end subroutine
+

@@ -1,0 +1,22 @@
+HA$PBExportHeader$f_devuelve_serie_abono.srf
+global type f_devuelve_serie_abono from function_object
+end type
+
+forward prototypes
+global function string f_devuelve_serie_abono (string id_factura)
+end prototypes
+
+global function string f_devuelve_serie_abono (string id_factura);string n_fact,serie,anyo, serie_negativa
+datetime fecha
+select n_fact,fecha into :n_fact,:fecha from csi_facturas_emitidas where id_factura=:id_factura;
+serie=left(n_fact, pos(n_fact,'-') - 1)
+
+anyo=string(year(date(fecha)))
+select serie_abono into :serie_negativa from csi_series where serie=:serie and anyo=:anyo and empresa=:g_empresa;
+
+if f_es_vacio(serie_negativa) then return g_facturas_negativas_serie
+ 
+return serie_negativa
+
+end function
+

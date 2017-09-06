@@ -1,0 +1,19 @@
+HA$PBExportHeader$f_asiste.srf
+global type f_asiste from function_object
+end type
+
+forward prototypes
+global function string f_asiste (string id_asist_fecha, string id_asistente)
+end prototypes
+
+global function string f_asiste (string id_asist_fecha, string id_asistente);string asis
+
+SELECT asiste
+INTO :asis
+FROM formacion_ctrl_asistencia
+WHERE (id_asistencia_fecha=:id_asist_fecha) AND
+		(id_asistente=:id_asistente);
+
+return asis
+end function
+

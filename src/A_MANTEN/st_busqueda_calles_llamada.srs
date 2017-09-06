@@ -1,0 +1,5 @@
+HA$PBExportHeader$st_busqueda_calles_llamada.srs
+global type st_busqueda_calles_llamada from structure
+	string		cod_provincia                          
+end type
+

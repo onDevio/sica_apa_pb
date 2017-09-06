@@ -1,0 +1,46 @@
+HA$PBExportHeader$f_eimporta_mover_paquete_importado.srf
+global type f_eimporta_mover_paquete_importado from function_object
+end type
+
+forward prototypes
+global subroutine f_eimporta_mover_paquete_importado (string paquete_importacion)
+end prototypes
+
+global subroutine f_eimporta_mover_paquete_importado (string paquete_importacion);/* Mueve un paquete de la bandeja de importaci$$HEX1$$f300$$ENDHEX$$n a la carpeta de importados */
+
+string nombre_paquete, fichero_dst, id_paquete
+long pos_barra, duplic
+
+
+pos_barra = PosA(reverse(paquete_importacion), '\')
+if pos_barra = 0 then
+	nombre_paquete = paquete_importacion
+else
+	nombre_paquete = RightA(paquete_importacion, pos_barra - 1)
+end if
+
+fichero_dst = g_directorio_importados + nombre_paquete
+
+// Se est$$HEX2$$e1002000$$ENDHEX$$importando un paquete que estaba en la carpeta de elementos procesados
+if fichero_dst = paquete_importacion then return
+
+// Si ya existe un paquete con el mismo nombre en la carpeta de elementos procesados (en princpio no deber$$HEX1$$ed00$$ENDHEX$$a,
+// porque podr$$HEX1$$ed00$$ENDHEX$$a significar que se est$$HEX2$$e1002000$$ENDHEX$$importando un mismo paquete dos veces), entonces renombramos el
+// paquete poniendo (2) ($$HEX2$$f3002000$$ENDHEX$$(3), etc.) en el nombre
+duplic = 1
+do while FileExists(fichero_dst)
+	duplic++
+	fichero_dst = g_directorio_importados + LeftA(nombre_paquete, LenA(nombre_paquete) - 4) + " (" + string(duplic) + ")" + RightA(nombre_paquete, 4)
+loop
+
+// Mover paquete al directorio de importados
+gnv_fichero.of_filerename(paquete_importacion, fichero_dst)
+
+//Si tenemos Verificador_Autonomo, cambiamos el estado del paquete en la BD.
+if g_verificador_autonomo = 'S' then
+	//select id into :id_paquete from paquetes where fichero=:nombre_paquete;
+	update paquetes set estado='P' where fichero=:nombre_paquete;
+end if
+
+end subroutine
+

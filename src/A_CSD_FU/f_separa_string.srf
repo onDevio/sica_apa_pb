@@ -1,0 +1,56 @@
+HA$PBExportHeader$f_separa_string.srf
+global type f_separa_string from function_object
+end type
+
+forward prototypes
+global function integer f_separa_string (string as_cadena, string as_caracter, ref string as_token[])
+end prototypes
+
+global function integer f_separa_string (string as_cadena, string as_caracter, ref string as_token[]);//////////////////////////////////////////////////////////////////////////
+//                                                                      //
+//	Creaci$$HEX1$$f300$$ENDHEX$$n: Eduardo Aguilar Hern$$HEX1$$e100$$ENDHEX$$ndez                                  //
+// Fecha   : 19/05/2004                                                 //
+//                                                                      //
+// Funci$$HEX1$$f300$$ENDHEX$$n que separa un string (as_cadena), por el substring 				//
+// as_caracter y devuelve los elementos en el vector as_token[].        //
+//                                                                      //
+// Devuelve:																				//
+// 	 El n$$HEX1$$fa00$$ENDHEX$$mero de elementos encontrados.										//
+//                                                                      //
+//////////////////////////////////////////////////////////////////////////
+
+integer i
+long ll_pos
+string ls_cadena_aux 
+
+if f_es_vacio(as_cadena) or f_es_vacio(as_caracter) then
+	i = 0
+else
+	
+	i = 1
+	ls_cadena_aux = as_cadena
+
+	do while (ls_cadena_aux <> "")
+	
+			ll_pos = pos(ls_cadena_aux, as_caracter )			
+			
+			if (ll_pos > 0 ) then
+			//Lo ha encontrado
+				as_token[i] = trim(mid( ls_cadena_aux, 0, ll_pos - 1))
+	
+				ls_cadena_aux = right(ls_cadena_aux, len(ls_cadena_aux) - ll_pos )
+			
+				i++
+			else
+				as_token[i] = trim(ls_cadena_aux)
+				i++ //Incrementamos para que el resultado final sea el correcto
+				ls_cadena_aux = ""				
+			end if
+
+	loop
+	i --
+end if
+
+return i
+end function
+

@@ -1,0 +1,50 @@
+HA$PBExportHeader$f_enviar_mensaje.srf
+$PBExportComments$Inserta en t_mensajes
+global type f_enviar_mensaje from function_object
+end type
+
+forward prototypes
+global subroutine f_enviar_mensaje ()
+end prototypes
+
+global subroutine f_enviar_mensaje ();string id_mensaje,destino,codigo_origen,s_o_c,asunto,mensaje
+datetime fecha
+
+id_mensaje=g_mensajes_insercion.id_mensaje
+destino=g_mensajes_insercion.destino
+s_o_c=g_mensajes_insercion.s_o_c
+asunto=g_mensajes_insercion.asunto
+fecha=g_mensajes_insercion.fecha
+codigo_origen=g_mensajes_insercion.codigo_origen
+mensaje=g_mensajes_insercion.mensaje
+
+INSERT INTO t_mensaje(id_mensaje,
+						    destino,
+						    mensaje,
+						    codigo_origen,
+						    s_o_c,
+						    fecha,
+						    asunto,
+						    leido,
+						    borrado_orig,
+							borrado_dst)
+			 VALUES (:id_mensaje,
+			 			:destino,
+						:mensaje,
+						:codigo_origen,
+						:s_o_c,
+						:fecha,
+						:asunto,
+						'N',
+						'N',
+						'N');
+			  
+if SQLCA.SQLCode = 0 then
+			sqlca.of_commit()
+		else
+			sqlca.of_rollback()
+			messagebox("Error","Error al intentar grabar, los datos no han sido almacenados",StopSign!)
+		end if
+
+end subroutine
+

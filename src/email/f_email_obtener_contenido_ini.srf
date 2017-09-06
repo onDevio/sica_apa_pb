@@ -1,0 +1,58 @@
+HA$PBExportHeader$f_email_obtener_contenido_ini.srf
+global type f_email_obtener_contenido_ini from function_object
+end type
+
+forward prototypes
+global function string f_email_obtener_contenido_ini (string archivo, string seccion)
+end prototypes
+
+global function string f_email_obtener_contenido_ini (string archivo, string seccion);/* Devuelve el contenido de un archivo de texto. Si el archivo esta dividido en secciones
+de tipo INI [nombre_seccion] y se especifica un nombre de secci$$HEX1$$f300$$ENDHEX$$n se devolver$$HEX2$$e1002000$$ENDHEX$$s$$HEX1$$f300$$ENDHEX$$lo el
+contenido de esa secci$$HEX1$$f300$$ENDHEX$$n.
+En caso de error devuelve nulo.
+*/
+
+string ruta
+integer file_num
+string linea
+boolean leer
+string texto
+
+
+ruta = g_directorio_rtf + archivo
+file_num = FileOpen(ruta, LineMode!, Read!)
+if file_num<0 then
+	messagebox(g_titulo,"No se pudo abrir el fichero ~"" + ruta + "~"")
+	setnull(texto)
+	return texto
+end if
+
+
+texto = ""
+
+if f_es_vacio(seccion) then
+	
+	do while FileRead(file_num,linea) >= 0
+		texto += linea + cr
+	loop
+	
+else
+	
+	leer = false
+	do while FileRead(file_num,linea) >= 0
+		if LeftA(trim(linea), 1) = "[" and RightA(trim(linea), 1) = "]" then
+			if leer then exit
+			leer = trim(linea) = "[" + seccion + "]"
+		elseif leer then
+			texto += linea + cr
+		end if
+	loop
+	
+end if
+
+FileClose(file_num)
+
+return texto
+
+end function
+

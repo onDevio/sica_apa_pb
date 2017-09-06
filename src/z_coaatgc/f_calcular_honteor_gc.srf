@@ -1,0 +1,585 @@
+HA$PBExportHeader$f_calcular_honteor_gc.srf
+$PBExportComments$Calcula el total de cip para gran canaria
+global type f_calcular_honteor_gc from function_object
+end type
+
+forward prototypes
+global function integer f_calcular_honteor_gc (ref st_cip_datos st_cip_datos)
+end prototypes
+
+global function integer f_calcular_honteor_gc (ref st_cip_datos st_cip_datos);String TipoAct		// Tipo de actuacion del contrato
+String TipoActAnt	
+String TipoObra
+double FA 		// Factor de actualizaci$$HEX1$$f300$$ENDHEX$$n
+double Coef	// Coeficiente de c$$HEX1$$e100$$ENDHEX$$lculo de honorarios
+double Sup	// Superficie total construida de la obra
+double Pres	// Presupuesto del contrato
+double BaseCuadro	// Base de tarificacion(Presupuesto contrato)/FA (Factor act.)/1000
+double minimo	// Honorarios Minimos
+double coef_aux	// Coeficiente F aplicado
+string tarifa
+double Honorarios	= 0 // Honorarios calculados del contrato
+double Volumen	// Variable para recojer el volumen para demoliciones.
+String AplicadoMinimo = "N"
+String  administracion
+double Ca
+double altura
+string colindantes
+double long_per
+double vol_tierras
+string estructura,t_terreno,t_medicion,replan_deslin
+double valor_terreno,valor_tasacion,valoracion_estim, t_te
+
+string formula_minimo, desarrollo_minimo, formula, desarrollo
+double vol_edif
+string mensaje=''
+
+FA = g_fa
+Ca = g_ca
+TipoAct = st_cip_datos.tipo_act
+TipoObra = st_cip_datos.tipo_obra
+administracion = st_cip_datos.admon
+Volumen = st_cip_datos.volumen
+sup = st_cip_datos.superficie
+Pres = st_cip_datos.pem
+colindantes = st_cip_datos.colindantes
+altura = st_cip_datos.altura
+long_per = st_cip_datos.long_per
+vol_tierras = st_cip_datos.vol_tierras
+
+estructura = st_cip_datos.estructura 
+t_terreno = st_cip_datos.t_terreno
+t_medicion = st_cip_datos.t_medicion
+replan_deslin = st_cip_datos.replan_deslin
+valor_terreno = st_cip_datos.valor_terreno
+valor_tasacion = st_cip_datos.valor_tasacion
+valoracion_estim = st_cip_datos.valoracion_estim
+
+vol_edif = st_cip_datos.vol_edif
+
+
+BaseCuadro = (Pres / FA)
+if (BaseCuadro = 0) or (Isnull(BaseCuadro) )  then BaseCuadro = 1
+IF Pres = 0 then pres = 1
+
+SELECT coef_aux, tarifa, minimo INTO :coef_aux, :tarifa, :minimo FROM hon_tarifa WHERE ( tipo_actuacion = :TipoAct ) AND ( ( tipo_obra = :TipoObra ) or ( tipo_obra = '*' )  );
+If SQLCA.SQLCode <> 0 Then
+	MessageBox(g_titulo,'Esta Tarifa no Tiene Honorarios Te$$HEX1$$f300$$ENDHEX$$ricos. Entrada tabla.',StopSign!,OK!,1)
+	return -1
+End if
+
+choose case t_terreno
+	case '1'
+		t_te = 0.8
+	case '2'
+		t_te = 1
+	case '3'
+		t_te = 1.25
+	case '4'
+		t_te = 1.6
+end choose
+
+// Excepciones
+if tipoact = '73' and tipoobra= 'C0' then 
+	tarifa='C0'
+	minimo= 19
+	coef_aux= 1
+end if
+
+// Desviamos la tarifa A163 a la A162 cuando se cumplan estos requisitos:
+if tarifa = 'A163' and estructura = 'N' and pres < 60101.21 and sup <= 500 then
+	tarifa= 'A162'
+end if
+
+
+formula_minimo = 'Honorarios = M$$HEX1$$ed00$$ENDHEX$$nimo * Fa'
+desarrollo_minimo = 'Honorarios = ' + string(minimo) + ' * ' + string(Fa)
+minimo = minimo * FA	// Honorarios M$$HEX1$$ed00$$ENDHEX$$nimos
+
+Choose Case Tarifa
+	CASE '1'
+		SELECT coef INTO :Coef FROM hon_tablas WHERE desde < :sup AND hasta >= :sup AND tarifa = :tarifa;		
+		Honorarios = (Pres * Coef * coef_aux) / 100
+		formula = 'Honorarios = (PEM * ' + 'Coef. C' + ' * ' + 'Coef. adicional' + ') / 100'
+		desarrollo = 'Honorarios = (' + string(Pres) + ' * ' + string(Coef) + ' * ' + string(coef_aux) + ') / 100'
+		If Honorarios < Minimo Then 
+			Honorarios = Minimo
+			AplicadoMinimo = "S"
+			formula =formula_minimo
+			desarrollo = desarrollo_minimo
+		End if
+	CASE '2'
+		SELECT coef INTO :Coef FROM hon_tablas WHERE desde < :BaseCuadro AND hasta >= :BaseCuadro AND tarifa = :Tarifa;
+		Honorarios = (Pres * Coef * coef_aux) / 100
+		formula = 'Honorarios = (PEM * ' + 'Coef. C' + ' * ' + 'Coef. adicional' + ') / 100'
+		desarrollo = 'Honorarios = (' + string(Pres) + ' * ' + string(Coef) + ' * ' + string(coef_aux) + ') / 100'
+		If Honorarios < Minimo Then 
+			Honorarios = Minimo
+			AplicadoMinimo = "S"
+			formula =formula_minimo
+			desarrollo = desarrollo_minimo
+		End if
+	CASE '31'
+		choose case t_medicion
+			case '1' // Terrenos
+				Honorarios = (48 * long_per * t_te * FA) / 166.386
+				formula = 'Honorarios = (48 * Longitud Perimetral * Tipo Terreno * Fa) / 166.386'
+				desarrollo = 'Honorarios = (48 * ' + string(long_per) + ' * ' + string(t_te) + ' * ' + string(FA) + ') / 166.386'
+				Minimo = 31 * Fa
+				formula_minimo = 'Honorarios = 31 * Fa'
+				desarrollo_minimo = 'Honorarios = 31 * ' + string(Fa)
+				if replan_deslin = 'R' then 
+					Honorarios = Honorarios * 0.66
+					formula += ' * 0.66'
+					desarrollo += ' * 0.66'
+					Minimo = 73 * Fa
+					formula_minimo = 'Honorarios = 73 * Fa'
+					desarrollo_minimo = 'Honorarios = 73 * ' + string(Fa)
+				end if
+			case '2' // Solares
+				Honorarios = (96 * long_per * t_te * FA) / 166.386
+				formula = 'Honorarios = (96 * Longitud Perimetral * Tipo Terreno * Fa) / 166.386'
+				desarrollo = 'Honorarios = (96 * ' + string(long_per) + ' * ' + string(t_te) + ' * ' + string(FA) + ') / 166.386'
+				Minimo = 46 * Fa		
+				formula_minimo = 'Honorarios = 46 * Fa'
+				desarrollo_minimo = 'Honorarios = 46 * ' + string(Fa)
+				if replan_deslin = 'R' then 
+					Honorarios = Honorarios * 0.66
+					formula += ' * 0.66'
+					desarrollo += ' * 0.66'
+					Minimo = 31 * Fa
+					formula_minimo = 'Honorarios = 31 * Fa'
+					desarrollo_minimo = 'Honorarios = 31 * ' + string(Fa)
+				end if
+			case '3' // Edificaciones
+				Honorarios = (144 * long_per * FA) / 166.386
+				formula = 'Honorarios = (144 * Longitud Perimetral * Fa) / 166.386'
+				desarrollo = 'Honorarios = (144 * ' + string(long_per) + ' * ' + string(FA) + ') / 166.386'
+				Minimo = 73 * Fa				
+				formula_minimo = 'Honorarios = 73 * Fa'
+				desarrollo_minimo = 'Honorarios = 73 * ' + string(Fa)		
+				if replan_deslin = 'R' then 
+					Honorarios = Honorarios * 0.66
+					formula += ' * 0.66'
+					desarrollo += ' * 0.66'
+					Minimo = 49 * Fa
+					formula_minimo = 'Honorarios = 49 * Fa'
+					desarrollo_minimo = 'Honorarios = 49 * ' + string(Fa)
+				end if
+		end choose
+		If Honorarios < Minimo Then 
+			Honorarios = Minimo
+			AplicadoMinimo = "S"
+			formula =formula_minimo
+			desarrollo = desarrollo_minimo
+		End if
+	CASE '32'
+		choose case t_medicion
+			case '1' // Terrenos
+				Tarifa = '321'
+				SELECT coef INTO :Coef FROM hon_tablas WHERE desde < :sup AND hasta >= :sup AND tarifa = :Tarifa;
+				Honorarios = sup * coef * t_te * Fa
+				formula = 'Honorarios =  Superficie * ' + string(coef) + ' * Tipo Terreno * Fa'
+				desarrollo = 'Honorarios = ' + string(sup) + ' * ' + string(coef) + ' * ' + string(t_te) + ' * ' + string(Fa)
+				Minimo = 109 * Fa
+				formula_minimo = 'Honorarios = 109 * Fa'
+				desarrollo_minimo = 'Honorarios = 109 * ' + string(Fa)
+			case '2' // Solares
+				Tarifa = '322'				
+				SELECT coef INTO :Coef FROM hon_tablas WHERE desde < :sup AND hasta >= :sup AND tarifa = :Tarifa;
+				Honorarios = (sup * coef * t_te * Fa) / 166.386
+				formula = 'Honorarios =  Superficie * ' + string(coef) + ' * Tipo Terreno * Fa / 166.386'
+				desarrollo = 'Honorarios = ' + string(sup) + ' * ' + string(coef) + ' * ' + string(t_te) + ' * ' + string(Fa) + ' / 166.386'
+				Minimo = 46 * Fa	
+				formula_minimo = 'Honorarios = 46 * Fa'
+				desarrollo_minimo = 'Honorarios = 46 * ' + string(Fa)			
+			case '3' // Edificaciones
+				Tarifa = '323'				
+				SELECT coef INTO :Coef FROM hon_tablas WHERE desde < :sup AND hasta >= :sup AND tarifa = :Tarifa;
+				Honorarios = (sup * coef * Fa) / 166.386
+				formula = 'Honorarios =  Superficie * ' + string(coef) + ' *  Fa'
+				desarrollo = 'Honorarios = ' + string(sup) + ' * ' + string(coef) + ' * ' + string(Fa)
+				Minimo = 73 * Fa			
+				formula_minimo = 'Honorarios = 73 * Fa'
+				desarrollo_minimo = 'Honorarios = 73 * ' + string(Fa)		
+		end choose
+		If Honorarios < Minimo Then 
+			Honorarios = Minimo
+			AplicadoMinimo = "S"
+			formula =formula_minimo
+			desarrollo = desarrollo_minimo
+		End if
+	CASE '33'
+		double tfa, T
+		tfa = valor_terreno / Fa
+		T = valor_terreno / 1000000
+		choose case t_medicion
+			case '1', '2' // Terrenos, Solares
+				Tarifa = '331'
+				SELECT coef INTO :Coef FROM hon_tablas WHERE desde < :tfa AND hasta >= :tfa AND tarifa = :Tarifa;				
+				choose case coef
+					case 1
+						Honorarios = 30.05 * Fa * 0.3
+						formula = 'Honorarios = 30.05 * Fa * 0.3'
+						desarrollo = 'Honorarios = 30.05 * ' + string(Fa) + ' * 0.3'
+					case 2
+						Honorarios = 1450 * T * (4.45 - sqrt(T/Fa)) * 0.3
+						formula = 'Honorarios = 1450 * T * (4.45 - sqrt(T/Fa)) * 0.3'
+						desarrollo = 'Honorarios = 1450 * ' + string(T) + ' * (4.45 - sqrt(' + string(T) + '/' + string(Fa) + ')) * 0.3'
+					case 3
+						Honorarios = 110 * T * (20 - sqrt(T/Fa)) * 0.3
+						formula = 'Honorarios = 110 * T * (20 - sqrt(T/Fa)) * 0.3'
+						desarrollo = 'Honorarios = 110 * ' + string(T) + ' * (20 - sqrt(' + string(T) + '/' + string(Fa) + ')) * 0.3'
+					case 4
+						Honorarios = 10 * T * (120 - sqrt(T/Fa)) * 0.3
+						formula = 'Honorarios = 10 * T * (120 - sqrt(T/Fa)) * 0.3'
+						desarrollo = 'Honorarios = 10 * ' + string(T) + ' * (120 - sqrt(' + string(T) + '/' + string(Fa) + ')) * 0.3'
+					case 5
+						Honorarios = 500 * T * 0.3
+						formula = 'Honorarios =  500 * T * 0.3'
+						desarrollo = 'Honorarios =  500 * ' + string(T) + ' * 0.3'
+				end choose
+			case '3' // Edificaciones
+				Tarifa = '332'
+				SELECT coef INTO :Coef FROM hon_tablas WHERE desde < :tfa AND hasta >= :tfa AND tarifa = :Tarifa;
+				choose case coef
+					case 1
+						Honorarios = 43.27 * Fa * 0.3
+						formula = 'Honorarios = 43.27 * Fa * 0.3'
+						desarrollo = 'Honorarios = 43.27 * ' + string(Fa) + ' * 0.3'
+					case 2
+						Honorarios = 1800 * T * (5 - sqrt(T/Fa)) * 0.3
+						formula = 'Honorarios = 1800 * T * (5 - sqrt(T/Fa)) * 0.3'
+						desarrollo = 'Honorarios = 1800 * ' + string(T) + ' * (5 - sqrt(' + string(T) + '/' + string(Fa) + ')) * 0.3'
+					case 3
+						Honorarios = 150 * T * (25 - sqrt(T/Fa)) * 0.3
+						formula = 'Honorarios = 150 * T * (25 - sqrt(T/Fa)) * 0.3'
+						desarrollo = 'Honorarios = 150 * ' + string(T) + ' * (25 - sqrt(' + string(T) + '/' + string(Fa) + ')) * 0.3'
+					case 4
+						Honorarios = 20 * T * (120 - sqrt(T/Fa)) * 0.3
+						formula = 'Honorarios = 20 * T * (120 - sqrt(T/Fa)) * 0.3'
+						desarrollo = 'Honorarios = 20 * ' + string(T) + ' * (120 - sqrt(' + string(T) + '/' + string(Fa) + ')) * 0.3'
+					case 5
+						Honorarios = 18 * T * (127 - sqrt(T/Fa)) * 0.3
+						formula = 'Honorarios = 18 * T * (127 - sqrt(T/Fa)) * 0.3'
+						desarrollo = 'Honorarios = 18 * ' + string(T) + ' * (127 - sqrt(' + string(T) + '/' + string(Fa) + ')) * 0.3'
+					case 6
+						Honorarios = 1000 * T * 0.3	
+						formula = 'Honorarios = 1000 * T * 0.3'
+		desarrollo = 'Honorarios = 1000 * ' + string(T) + ' * 0.3'
+				end choose
+		end choose
+		If Honorarios < Minimo Then 
+			Honorarios = Minimo
+			AplicadoMinimo = "S"
+			formula =formula_minimo
+			desarrollo = desarrollo_minimo
+		End if
+	CASE '42' // NO SE PUEDE DISTINGUIR TIPO DE INTERVENCI$$HEX1$$d300$$ENDHEX$$N: Los escribimos en la descripci$$HEX1$$f300$$ENDHEX$$n
+		Honorarios = Minimo
+		AplicadoMinimo = "S"
+		formula =formula_minimo + ' ;Dict$$HEX1$$e100$$ENDHEX$$menes con informe = 46xFa; Certificaciones con informe = 61xFa'
+		desarrollo = desarrollo_minimo
+	CASE '43' // NO EXISTE EL PARAMETRO EUROS
+		Honorarios = Minimo
+		AplicadoMinimo = "S"
+		formula =formula_minimo
+		desarrollo = desarrollo_minimo
+	CASE '53' // A CONVENIR CON EL CLIENTE
+		Honorarios = 0
+		formula = 'Honorarios = 0'
+		desarrollo = 'Honorarios = 0'
+	CASE '55' // OJO!!! EN EL LIBRO ES LA 56
+		SELECT coef INTO :Coef FROM hon_tablas WHERE desde < :BaseCuadro AND hasta >= :BaseCuadro AND tarifa = :Tarifa;
+		Honorarios = (0.06 * Pres * Coef * coef_aux * 30) / 100
+		formula = 'Honorarios = (0.06 * PEM * ' + string(Coef) + ' * ' + string(coef_aux) + ' * 30) / 100'
+		desarrollo = 'Honorarios = (0.06 * ' + string(pres) + ' * ' + string(Coef) + ' * ' + string(coef_aux) + ' * 30) / 100'
+		If Honorarios < Minimo Then 
+			Honorarios = Minimo
+			AplicadoMinimo = "S"
+			formula =formula_minimo
+			desarrollo = desarrollo_minimo
+		End if
+	CASE '56' // OJO!!! EN EL LIBRO ES LA 57
+		// A CONVENIR CON EL CLIENTE
+		Honorarios = 0
+		formula = 'Honorarios = 0'
+		desarrollo = 'Honorarios = 0'
+	CASE '57' // OJO!!! EN EL LIBRO ES LA 58
+		// A CONVENIR CON EL CLIENTE		
+		Honorarios = 0
+		formula = 'Honorarios = 0'
+		desarrollo = 'Honorarios = 0'
+	CASE '510' // OJO!!! EN EL LIBRO ES LA 511
+		Honorarios = 0.003 * Pres	
+		formula = 'Honorarios = 0'
+		desarrollo = 'Honorarios = 0'
+	CASE 'A11'
+		double a
+		if altura <= 12 then
+			a=0.12
+		else
+			a=0.18
+		end if
+		if  colindantes='02' OR colindantes='03' then
+			coef = 1
+		elseif colindantes='01' and  ( TipoObra='91' or TipoObra='93') then
+			coef = 0.8
+		else
+			SELECT coef INTO :Coef FROM hon_tablas WHERE desde < :Vol_edif AND hasta >= :Vol_edif AND tarifa = :Tarifa;
+		end if
+		Honorarios = (Vol_edif * a * Coef * Fa ) * coef_aux
+		formula = 'Honorarios = (Volumen * ' + 'a' + ' * ' + 't' + ' * ' + 'Fa' + ') * ' + string(coef_aux)
+		desarrollo = 'Honorarios = (' + string(vol_edif) + ' * ' + string(a) + ' * ' + string(Coef) + ' * ' + string(Fa) + ') * ' + string(coef_aux)
+		If Honorarios < Minimo Then 
+			Honorarios = Minimo
+			AplicadoMinimo = "S"
+			formula =formula_minimo
+			desarrollo = desarrollo_minimo
+		End if
+	CASE 'A12'
+		SELECT coef INTO :Coef FROM hon_tablas WHERE desde < :BaseCuadro AND hasta >= :BaseCuadro AND tarifa = :Tarifa;
+		Honorarios = (Pres * Coef * coef_aux) / 100
+		formula = 'Honorarios = (PEM * ' + 'Coef. C' + ' * ' + 'Coef. adicional' + ') / 100'
+		desarrollo = 'Honorarios = (' + string(pres) + ' * ' + string(Coef) + ' * ' + string(coef_aux) + ') / 100'
+		if tipoact = '12' or tipoact = '15' then 
+			Honorarios = Honorarios * 0.7
+			formula += ' * 0.7'
+			desarrollo += ' * 0.7'
+		end if
+		if tipoact = '13' or tipoact = '16' then
+			Honorarios = Honorarios * 0.3						
+			formula += ' * 0.3'
+			desarrollo += ' * 0.3'
+		end if
+		if tipoobra = '72' or tipoobra = '73' then //obras de reforma y ampliaci$$HEX1$$f300$$ENDHEX$$n
+			formula_minimo += ' * Coef. adicional'
+			desarrollo_minimo += ' * ' + string(coef_aux)		
+			minimo = minimo * coef_aux						
+		end if
+
+		If Honorarios < Minimo Then 
+			Honorarios = Minimo
+			AplicadoMinimo = "S"
+			formula =formula_minimo
+			desarrollo = desarrollo_minimo
+		End if
+	CASE 'A13'
+		SELECT coef INTO :Coef FROM hon_tablas WHERE desde < :BaseCuadro AND hasta >= :BaseCuadro AND tarifa = :Tarifa;
+		Honorarios = (Pres * Coef * coef_aux) / 100
+		formula = 'Honorarios = (PEM * ' + 'Coef. C'+ ' * ' + 'Coef. adicional' + ') / 100'
+		desarrollo = 'Honorarios = (' + string(pres) + ' * ' + string(Coef) + ' * ' + string(coef_aux) + ') / 100'
+		if tipoact = '12' or tipoact = '15' then 
+			Honorarios = Honorarios * 0.7
+			formula += ' * 0.7'
+			desarrollo += ' * 0.7'
+		end if
+		if tipoact = '13' or tipoact = '16' then 
+			Honorarios = Honorarios * 0.3											
+			formula += ' * 0.3'
+			desarrollo += ' * 0.3'
+		end if
+//		formula_minimo = 'Honorarios = M$$HEX1$$ed00$$ENDHEX$$nimo * ' + string(coef_aux)
+//		desarrollo_minimo = 'Honorarios = ' + string(Minimo) + ' * ' + string(coef_aux)				
+		minimo = minimo * coef_aux
+		If Honorarios < Minimo Then 
+			Honorarios = Minimo
+			AplicadoMinimo = "S"
+			formula =formula_minimo
+			desarrollo = desarrollo_minimo
+		End if
+	CASE 'A15'
+		SELECT coef INTO :Coef FROM hon_tablas WHERE desde < :BaseCuadro AND hasta >= :BaseCuadro AND tarifa = :Tarifa;
+		Honorarios = (Pres * Coef * coef_aux) / 100
+		formula = 'Honorarios = (PEM * ' + 'Coef C'+ ' * ' + 'Coef. adicional' + ') / 100'
+		desarrollo = 'Honorarios = (' + string(pres) + ' * ' + string(Coef) + ' * ' + string(coef_aux) + ') / 100'
+		if tipoact = '12' or tipoact = '15' then 
+			Honorarios = Honorarios * 0.7
+			formula += ' * 0.7'
+			desarrollo += ' * 0.7'
+		end if
+		if tipoact = '13' or tipoact = '16' then 
+			Honorarios = Honorarios * 0.3											
+			formula += ' * 0.3'
+			desarrollo += ' * 0.3'
+		end if				
+		If Honorarios < Minimo Then 
+			Honorarios = Minimo
+			AplicadoMinimo = "S"
+			formula =formula_minimo
+			desarrollo = desarrollo_minimo
+		End if		
+	CASE 'A162'
+		SELECT coef INTO :Coef FROM hon_tablas WHERE desde < :BaseCuadro AND hasta >= :BaseCuadro AND tarifa = :Tarifa;
+		Honorarios = (Pres * Coef * coef_aux) / 100
+		formula = 'Honorarios = (PEM * ' + 'Coef C'+ ' * ' + 'Coef. adicional' + ') / 100'
+		desarrollo = 'Honorarios = (' + string(pres) + ' * ' + string(Coef) + ' * ' + string(coef_aux) + ') / 100'	
+		If Honorarios < Minimo Then 
+			Honorarios = Minimo
+			AplicadoMinimo = "S"
+			formula =formula_minimo
+			desarrollo = desarrollo_minimo
+		End if				
+	CASE 'A163'	
+		SELECT coef INTO :Coef  FROM hon_tablas WHERE desde < :Sup AND hasta >= :Sup AND tarifa = :Tarifa;			
+		Honorarios = (Pres * Coef * coef_aux) / 100
+		formula = 'Honorarios = (PEM * ' + 'Coef. C'+ ' * ' + 'Coef. adicional' + ') / 100'
+		desarrollo = 'Honorarios = (' + string(pres) + ' * ' + string(Coef) + ' * ' + string(coef_aux) + ') / 100'
+		if tipoact = '12' or tipoact = '15' then 
+			Honorarios = Honorarios * 0.7
+			formula += ' * 0.7'
+			desarrollo += ' * 0.7'
+		end if
+		if tipoact = '13' or tipoact = '16' then 
+			Honorarios = Honorarios * 0.3											
+			formula += ' * 0.3'
+			desarrollo += ' * 0.3'
+		end if							
+		If Honorarios < Minimo Then 
+			Honorarios = Minimo
+			AplicadoMinimo = "S"
+			formula =formula_minimo
+			desarrollo = desarrollo_minimo
+		End if		
+	CASE 'A164'	
+		SELECT coef INTO :Coef FROM hon_tablas WHERE desde < :BaseCuadro AND hasta >= :BaseCuadro AND tarifa = :Tarifa;
+		Honorarios = (Pres * Coef * coef_aux) / 100			
+		formula = 'Honorarios = (PEM * ' + 'Coef. C'+ ' * ' + 'Coef. adicional' + ') / 100'
+		desarrollo = 'Honorarios = (' + string(pres) + ' * ' + string(Coef) + ' * ' + string(coef_aux) + ') / 100'
+		if tipoact = '12' or tipoact = '15' then 
+			Honorarios = Honorarios * 0.7
+			formula += ' * 0.7'
+			desarrollo += ' * 0.7'
+		end if
+		if tipoact = '14' or tipoact = '17' or tipoact = '13' or tipoact = '16' then
+			Honorarios = Honorarios * 0.3											
+			formula += ' * 0.3'
+			desarrollo += ' * 0.3'
+		end if
+		If Honorarios < Minimo Then 
+			Honorarios = Minimo
+			AplicadoMinimo = "S"
+			formula =formula_minimo
+			desarrollo = desarrollo_minimo
+		End if
+	CASE 'A22'
+		SELECT minimo INTO :minimo FROM hon_tarifa WHERE ( tipo_actuacion = :TipoAct ) AND ( ( tipo_obra = :TipoObra ) or ( tipo_obra = '*' )  );
+		minimo = minimo * Ca	// Honorarios M$$HEX1$$ed00$$ENDHEX$$nimos se calculan con Ca
+		SELECT coef INTO :Coef FROM hon_tablas WHERE desde < :Pres AND hasta >= :Pres AND tarifa = :Tarifa;
+		Honorarios = (Pres * Coef * coef_aux) / 100
+		formula = 'Honorarios = (PEM * ' + 'Coef. C'+ ' * ' + 'Coef. Adicional' + ') / 100'
+		desarrollo = 'Honorarios = (' + string(pres) + ' * ' + string(Coef) + ' * ' + string(coef_aux) + ') / 100'
+		If Honorarios < Minimo Then 
+			Honorarios = Minimo
+			AplicadoMinimo = "S"
+			formula = 'Honorarios = M$$HEX1$$ed00$$ENDHEX$$nimo * Ca'
+			desarrollo = 'Honorarios = ' + string(minimo) + ' * ' + string(Ca)
+		End if
+	CASE 'C0','C00'
+		Honorarios = minimo
+		formula =formula_minimo
+		desarrollo = desarrollo_minimo		
+	CASE 'C1'
+		Honorarios = long_per * 1.17 * Fa 
+		formula = 'Honorarios = Longitud Perimetral * 1.17 * Fa '
+		desarrollo = 'Honorarios = ' + string(long_per) + ' * 1.17 * ' + string(Fa)
+		If Honorarios < Minimo Then 
+			Honorarios = Minimo
+			AplicadoMinimo = "S"
+			formula =formula_minimo
+			desarrollo = desarrollo_minimo
+		End if
+	CASE 'C2'
+		Honorarios = minimo
+		formula =formula_minimo
+		desarrollo = desarrollo_minimo	
+	CASE 'C3'
+		Honorarios = pres * 0.10 
+		formula = 'Honorarios = PEM * 0.10 '
+
+		desarrollo = 'Honorarios = ' + string(pres) + ' * 0.10 '
+		If Honorarios < Minimo Then 
+			Honorarios = Minimo
+			AplicadoMinimo = "S"
+			formula =formula_minimo
+			desarrollo = desarrollo_minimo
+		End if
+	CASE 'C4'
+		if sup>25 or pres>(751.27*Fa) then
+			Honorarios = -1
+			formula = 'Se sobrepasan los valores m$$HEX1$$ed00$$ENDHEX$$nimos de Presupuesto y superficie'
+			desarrollo = 'Honorarios'
+		else
+			Honorarios = minimo
+			formula =formula_minimo
+			desarrollo = desarrollo_minimo
+		end if
+	CASE 'C5'
+		Honorarios = minimo
+		formula =formula_minimo			
+		desarrollo = desarrollo_minimo
+	CASE 'C6'
+		if sup>10 or pres>(602*Fa) then
+			Honorarios = 0
+			formula = 'Honorarios = 0'
+			desarrollo = 'Honorarios = 0'
+		else
+			Honorarios = minimo
+			formula =formula_minimo
+			desarrollo = desarrollo_minimo
+		end if
+	CASE 'C7'
+		Honorarios = vol_tierras * 0.30 * Fa
+		formula = 'Honorarios = Volumen Tierras * 0.30 * Fa'
+		desarrollo = 'Honorarios = ' + string(vol_tierras) + ' * 0.30 * ' + string(Fa) 
+		If Honorarios < Minimo Then
+			Honorarios = Minimo
+			AplicadoMinimo = "S"
+			formula =formula_minimo
+			desarrollo = desarrollo_minimo
+		End if
+	CASE 'C8'
+		Honorarios = ceiling(sup/25) * 120.20 // Ceiling para calcular el n$$HEX2$$ba002000$$ENDHEX$$de unidades de 25m
+		formula = 'Honorarios = (Superficie DIV 25) * 120.20'
+		desarrollo = 'Honorarios = ' + string(ceiling(sup/25)) + ' * 120.20'
+		If Honorarios < Minimo Then
+			Honorarios = Minimo
+			AplicadoMinimo = "S"
+			formula =formula_minimo
+			desarrollo = desarrollo_minimo
+		End if
+	CASE 'C9'
+		int numero_de_fracciones
+		numero_de_fracciones = ceiling(sup/25)
+		if numero_de_fracciones > 0 then	Honorarios =  120.20 + (numero_de_fracciones -1) * 60.10	
+		formula = 'Honorarios = 120.20 de la 1$$HEX2$$aa002000$$ENDHEX$$fracci$$HEX1$$f300$$ENDHEX$$n de 25m + 60.10 de las restantes fracciones'
+		if numero_de_fracciones > 0 then desarrollo = 'Honorarios = 120.20 + ' + string(ceiling(sup/25)-1) + ' * 60.10'
+		If Honorarios < Minimo Then
+			Honorarios = Minimo
+			AplicadoMinimo = "S"
+			formula =formula_minimo
+			desarrollo = desarrollo_minimo
+		End if	
+	CASE 'G'
+		Honorarios = minimo
+		formula =formula_minimo
+		desarrollo = desarrollo_minimo
+	CASE ELSE
+		mensaje = 'Esta combinaci$$HEX1$$f300$$ENDHEX$$n de tipo de intervenci$$HEX1$$f300$$ENDHEX$$n y tipo de obra no tiene Honorarios Orientativos'
+END CHOOSE
+	
+If mensaje <> '' Then
+	MessageBox(g_titulo,mensaje,StopSign!,OK!,1)
+	return -1
+End if
+st_cip_datos.hon_teor =  f_redondea(honorarios)
+//st_cip_datos.cip =  f_redondea(st_cip_datos.hon_teor * g_porc_cip_defecto /100)
+st_cip_datos.aplicar_fijo = aplicadominimo
+st_cip_datos.importe_minimo = minimo
+st_cip_datos.tarifa = tarifa
+st_cip_datos.formula = formula + ' = ' + string(f_redondea(honorarios))
+st_cip_datos.desarrollo = desarrollo + ' = ' + string(f_redondea(honorarios))
+return 1
+
+end function
+

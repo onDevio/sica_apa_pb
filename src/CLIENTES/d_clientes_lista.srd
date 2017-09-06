@@ -1,0 +1,52 @@
+HA$PBExportHeader$d_clientes_lista.srd
+$PBExportComments$DATAWINDOW TIPO DE MANTENIMIENTO
+release 10.5;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 97 print.margin.bottom = 97 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes print.preview.outline=yes hidegrayline=no )
+header(height=64 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=68 color="536870912" )
+table(column=(type=char(80) updatewhereclause=yes name=apellidos dbname="clientes.apellidos" dbalias=".apellidos" )
+ column=(type=char(50) updatewhereclause=yes name=nombre dbname="clientes.nombre" dbalias=".nombre" )
+ column=(type=char(15) updatewhereclause=yes name=nif dbname="clientes.nif" dbalias=".nif" )
+ column=(type=char(2) updatewhereclause=yes name=tipo_persona dbname="clientes.tipo_persona" dbalias=".tipo_persona" )
+ column=(type=char(15) updatewhereclause=yes name=n_cliente dbname="clientes.n_cliente" dbalias=".n_cliente" )
+ column=(type=char(100) updatewhereclause=yes name=nombre_via dbname="clientes.nombre_via" dbalias=".nombre_via" )
+ column=(type=char(6) updatewhereclause=yes name=cod_pob dbname="clientes.cod_pob" dbalias=".cod_pob" )
+ column=(type=char(60) updatewhereclause=yes name=poblaciones_descripcion dbname="poblaciones.descripcion" dbalias=".descripcion" )
+ column=(type=char(10) updatewhereclause=yes name=clientes_id_cliente dbname="clientes.id_cliente" dbalias=".id_cliente" )
+ column=(type=char(2) updatewhereclause=yes name=empresa dbname="clientes.empresa" dbalias=".empresa" )
+ retrieve="  SELECT clientes.apellidos,   
+         clientes.nombre,   
+         clientes.nif,   
+         clientes.tipo_persona,   
+         clientes.n_cliente,   
+         clientes.nombre_via,   
+         clientes.cod_pob,   
+         poblaciones.descripcion,   
+         clientes.id_cliente,
+		clientes.empresa  
+    FROM clientes,   
+         poblaciones  
+   WHERE ( clientes.cod_pob *= poblaciones.cod_pob)    
+"  sort="apellidos A nombre A " )
+text(band=header alignment="2" text="N$$HEX2$$ba002000$$ENDHEX$$Cliente" border="6" color="0" x="9" y="4" height="52" width="421" html.valueishtml="0"  name=n_cliente_t  tag="texto=clientes.n_cliente" visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="79416533" )
+text(band=header alignment="2" text="NIF" border="6" color="0" x="448" y="4" height="52" width="421" html.valueishtml="0"  name=nif_t  tag="texto=clientes.nif" visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="79416533" )
+text(band=header alignment="2" text="Nombre" border="6" color="0" x="2350" y="4" height="52" width="942" html.valueishtml="0"  name=nombre_t  tag="texto=clientes.nombre" visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="79416533" )
+text(band=header alignment="2" text="Apellidos/Sociedad" border="6" color="0" x="887" y="4" height="52" width="1445" html.valueishtml="0"  name=apellidos_t  tag="texto=clientes.apellidos_sociedad" visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="79416533" )
+compute(band=detail alignment="0" expression=" clientes_id_cliente "border="0" color="0" x="3314" y="0" height="76" width="256" format="[GENERAL]" html.valueishtml="0"  name=id_colegiado visible="1~t0"  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="9" y="4" height="56" width="421" format="[general]" html.valueishtml="0"  name=n_cliente visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="448" y="4" height="56" width="421" format="[general]" html.valueishtml="0"  name=nif visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="2350" y="4" height="56" width="942" format="[general]" html.valueishtml="0"  name=nombre visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="887" y="4" height="56" width="1445" format="[general]" html.valueishtml="0"  name=apellidos visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" pagingmethod=0 generatedddwframes="1" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()
+ 

@@ -1,0 +1,214 @@
+HA$PBExportHeader$d_reclamaciones_facturas_2a_recla.srd
+release 10.5;
+datawindow(units=3 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 635 print.margin.right = 635 print.margin.top = 635 print.margin.bottom = 635 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes print.preview.outline=yes hidegrayline=no )
+header(height=0 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=1322 color="536870912" )
+detail(height=25108 color="536870912" height.autosize=yes )
+table(column=(type=char(15) updatewhereclause=yes name=csi_facturas_emitidas_id_factura dbname="csi_facturas_emitidas.id_factura" )
+ column=(type=char(15) updatewhereclause=yes name=n_fact dbname="csi_facturas_emitidas.n_fact" )
+ column=(type=number updatewhereclause=yes name=importe_reten dbname="csi_facturas_emitidas.importe_reten" )
+ column=(type=datetime updatewhereclause=yes name=fecha dbname="csi_facturas_emitidas.fecha" )
+ column=(type=char(1) updatewhereclause=yes name=tipo_persona dbname="csi_facturas_emitidas.tipo_persona" )
+ column=(type=char(40) updatewhereclause=yes name=nombre dbname="csi_facturas_emitidas.nombre" )
+ column=(type=char(100) updatewhereclause=yes name=csi_facturas_emitidas_domicilio_largo dbname="csi_facturas_emitidas.domicilio_largo" )
+ column=(type=char(40) updatewhereclause=yes name=poblacion dbname="csi_facturas_emitidas.poblacion" )
+ column=(type=char(10) updatewhereclause=yes name=centro dbname="csi_facturas_emitidas.centro" )
+ column=(type=number updatewhereclause=yes name=total dbname="csi_facturas_emitidas.total" )
+ column=(type=char(1) updatewhereclause=yes name=proforma dbname="csi_facturas_emitidas.proforma" )
+ column=(type=char(2) updatewhereclause=yes name=csi_facturas_emitidas_formadepago dbname="csi_facturas_emitidas.formadepago" )
+ column=(type=char(10) updatewhereclause=yes name=csi_facturas_emitidas_banco dbname="csi_facturas_emitidas.banco" )
+ column=(type=datetime updatewhereclause=yes name=f_reclamacion dbname="csi_fact_reclamaciones.f_reclamacion" )
+ column=(type=char(11) updatewhereclause=yes name=n_registro dbname="n_registro" )
+ column=(type=char(255) updatewhereclause=yes name=descripcion dbname="descripcion" )
+ column=(type=char(255) updatewhereclause=yes name=emplazamiento dbname="emplazamiento" )
+ column=(type=char(50) updatewhereclause=yes name=clientes_nombre dbname="clientes_nombre" )
+ column=(type=char(80) updatewhereclause=yes name=apellidos dbname="apellidos" )
+ column=(type=char(3) updatewhereclause=yes name=tipo_trabajo dbname="tipo_trabajo" )
+ column=(type=char(3) updatewhereclause=yes name=fase dbname="fase" )
+ column=(type=char(60) updatewhereclause=yes name=d_t_descripcion dbname="d_t_descripcion" )
+ column=(type=char(15) updatewhereclause=yes name=nif dbname="nif" )
+ column=(type=char(60) updatewhereclause=yes name=d_t_trabajo dbname="d_t_trabajo" )
+ column=(type=char(10) updatewhereclause=yes name=id_fase dbname="id_fase" )
+ retrieve="  SELECT csi_facturas_emitidas.id_factura,
+	    csi_facturas_emitidas.n_fact,   
+         csi_facturas_emitidas.importe_reten,   
+         csi_facturas_emitidas.fecha,   
+         csi_facturas_emitidas.tipo_persona,   
+         csi_facturas_emitidas.nombre,   
+         csi_facturas_emitidas.domicilio_largo,   
+         csi_facturas_emitidas.poblacion,   
+         csi_facturas_emitidas.centro,   
+         csi_facturas_emitidas.total,   
+         csi_facturas_emitidas.proforma, 
+	    csi_facturas_emitidas.formadepago, 
+         csi_facturas_emitidas.banco,
+		csi_fact_reclamaciones.f_reclamacion,   
+         '' as n_registro,   
+         '' as descripcion,   
+         '' as emplazamiento,   
+         '' as clientes_nombre,   
+         '' as apellidos,   
+         '' as tipo_trabajo,
+		'' as fase,
+         '' as d_t_descripcion,
+         '' as nif,
+		'' as d_t_trabajo,
+		 '' as id_fase  
+    FROM csi_facturas_emitidas,
+			csi_fact_reclamaciones 
+   WHERE ( csi_facturas_emitidas.id_factura *= csi_fact_reclamaciones.id_factura) and 
+		( ( csi_facturas_emitidas.id_factura = :factura ) AND  
+         ( csi_facturas_emitidas.id_minuta is null or csi_facturas_emitidas.id_minuta = '') and ( csi_facturas_emitidas.id_fase is null or csi_facturas_emitidas.id_fase = '') )      
+   UNION   
+  SELECT csi_facturas_emitidas.id_factura,
+	    csi_facturas_emitidas.n_fact,   
+         csi_facturas_emitidas.importe_reten,   
+         csi_facturas_emitidas.fecha,   
+         csi_facturas_emitidas.tipo_persona,   
+         csi_facturas_emitidas.nombre,   
+         csi_facturas_emitidas.domicilio_largo,   
+         csi_facturas_emitidas.poblacion,   
+         csi_facturas_emitidas.centro,   
+         csi_facturas_emitidas.total,   
+         csi_facturas_emitidas.proforma, 
+	    csi_facturas_emitidas.formadepago, 
+         csi_facturas_emitidas.banco,
+		csi_fact_reclamaciones.f_reclamacion,   
+         fases.n_registro,   
+         convert (varchar(255),fases.descripcion),   
+         fases.emplazamiento,   
+         clientes.nombre as clientes_nombre, 
+         clientes.apellidos,   
+         fases.tipo_trabajo,
+		fases.fase,
+  		t_fases.d_t_descripcion,
+		clientes.nif,
+		tipos_trabajos.d_t_trabajo,
+		 fases.id_fase    
+    FROM csi_facturas_emitidas,
+		csi_fact_reclamaciones,   
+         fases,   
+         fases_clientes,   
+         clientes,   
+         t_fases,
+		tipos_trabajos  
+   WHERE ( csi_facturas_emitidas.id_factura *= csi_fact_reclamaciones.id_factura) and 
+		( csi_facturas_emitidas.id_minuta = fases.id_fase ) and  
+         ( fases.id_fase = fases_clientes.id_fase ) and  
+         ( fases_clientes.id_cliente = clientes.id_cliente ) and  
+         ( fases.fase = t_fases.c_t_fase ) and  
+         ( ( csi_facturas_emitidas.id_factura = :factura ) ) and
+		( fases.tipo_trabajo=tipos_trabajos.c_t_trabajo)  
+UNION   
+  SELECT csi_facturas_emitidas.id_factura,
+	    csi_facturas_emitidas.n_fact,   
+         csi_facturas_emitidas.importe_reten,   
+         csi_facturas_emitidas.fecha,   
+         csi_facturas_emitidas.tipo_persona,   
+         csi_facturas_emitidas.nombre,   
+         csi_facturas_emitidas.domicilio_largo,   
+         csi_facturas_emitidas.poblacion,   
+         csi_facturas_emitidas.centro,   
+         csi_facturas_emitidas.total,   
+         csi_facturas_emitidas.proforma, 
+	    csi_facturas_emitidas.formadepago, 
+         csi_facturas_emitidas.banco,
+		csi_fact_reclamaciones.f_reclamacion,   
+         fases.n_registro,   
+         convert (varchar(255),fases.descripcion),   
+         fases.emplazamiento,   
+         clientes.nombre as clientes_nombre, 
+         clientes.apellidos,   
+         fases.tipo_trabajo,
+		fases.fase,
+  		t_fases.d_t_descripcion,
+		clientes.nif,
+		tipos_trabajos.d_t_trabajo,
+		 fases.id_fase    
+    FROM csi_facturas_emitidas,
+		csi_fact_reclamaciones,   
+         fases, 
+	    fases_minutas,     
+         fases_clientes,   
+         clientes,   
+         t_fases,
+		tipos_trabajos  
+   WHERE ( csi_facturas_emitidas.id_factura *= csi_fact_reclamaciones.id_factura) and 
+		 (fases.id_fase = fases_minutas.id_fase) and
+		( fases_minutas.id_minuta = csi_facturas_emitidas.id_fase ) and   
+         ( fases.id_fase = fases_clientes.id_fase ) and  
+         ( fases_clientes.id_cliente = clientes.id_cliente ) and  
+         ( fases.fase = t_fases.c_t_fase ) and  
+         ( ( csi_facturas_emitidas.id_factura = :factura ) ) and
+		( fases.tipo_trabajo=tipos_trabajos.c_t_trabajo)
+" arguments=(("factura", string)) )
+bitmap(band=detail filename=".\imagenes\logocol.bmp" x="635" y="450" height="3598" width="18309" border="0"  name=p_logo_empresa visible="1" )
+bitmap(band=detail filename=".\imagenes\logogab.bmp" x="635" y="450" height="3598" width="3333" border="0"  name=p_logo visible="1~t0" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="0" color="0" x="8995" y="5371" height="502" width="8731" format="[general]" html.valueishtml="0"  name=nombre visible="1" height.autosize=yes edit.limit=0 edit.case=any edit.autoselect=yes edit.nilisnull=yes  font.face="Times New Roman" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="0" x="8995" y="6033" height="423" width="8731" format="[general]" html.valueishtml="0"  name=csi_facturas_emitidas_domicilio_largo visible="1"  slideup=allabove height.autosize=yes edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="0" color="0" x="8995" y="6668" height="502" width="8731" format="[general]" html.valueishtml="0"  name=poblacion visible="1"  slideup=allabove height.autosize=yes edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Times New Roman" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="1" expression="f_dame_ciudad()+~", ~"+ string(day(today()))+ ' de ' + f_mes() + ' de ' +string(year(today()))"border="0" color="0" x="6244" y="8335" height="476" width="10874" format="[GENERAL]" html.valueishtml="0"  name=compute_7 visible="1"  font.face="Times New Roman" font.height="-11" font.weight="400"  font.family="1" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+compute(band=detail alignment="0" expression="if (tipo_persona = 'C', 'Estimado compa$$HEX1$$f100$$ENDHEX$$ero:', 'Muy Sr. Nuestro:')"border="0" color="0" x="502" y="9261" height="476" width="18494" format="[GENERAL]" html.valueishtml="0"  name=compute_1 visible="1"  font.face="Times New Roman" font.height="-11" font.weight="400"  font.family="1" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039"  height.autosize=yes)
+text(band=detail alignment="0" text="Importe:" border="0" color="0" x="582" y="13282" height="449" width="1561" html.valueishtml="0"  name=t_5 visible="1"  font.face="Times New Roman" font.height="-11" font.weight="700"  font.family="1" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+text(band=detail alignment="0" text="Banco:" border="0" color="0" x="582" y="13838" height="396" width="1561" html.valueishtml="0"  name=t_18 visible="1"  font.face="Times New Roman" font.height="-11" font.weight="700"  font.family="1" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+text(band=detail alignment="0" text="Proforma:~tif(proforma='S','Proforma:','Factura:')" border="0" color="0" x="582" y="12753" height="396" width="1561" html.valueishtml="0"  name=t_3 visible="1"  font.face="Times New Roman" font.height="-11" font.weight="700"  font.family="1" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+compute(band=detail alignment="3" expression="if (tipo_persona = 'C', 'Lamentamos tener que recordarte que hasta la fecha continua pendiente de abono el importe a que asciende la factura/proforma detallada al pie del presente escrito, y que te fue reclamada el '+string(f_reclamacion, ~"dd/mm/yyyy~"), 'Lamentamos tener que recordarle que hasta la fecha continua pendiente de abono el importe a que asciende la factura/proforma detallada al pie del presente escrito, y que le fue reclamada el '+string(f_reclamacion, ~"dd/mm/yyyy~"))"border="0" color="0" x="502" y="9843" height="1137" width="18494" format="[GENERAL]" html.valueishtml="0"  name=compute_2 visible="1"  font.face="Times New Roman" font.height="-11" font.weight="400"  font.family="1" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039"  height.autosize=yes)
+compute(band=detail alignment="3" expression="if (tipo_persona = 'C','No dudamos que esta demora es debida a un error involuntario por tu parte, rog$$HEX1$$e100$$ENDHEX$$ndote te sirvas hacerla efectiva a la mayor brevedad posible.', 'No dudamos que esta demora es debida a un error involuntario por su parte, rog$$HEX1$$e100$$ENDHEX$$ndole se sirva hacerla efectiva a la mayor brevedad posible.')"border="0" color="0" x="502" y="11060" height="926" width="18494" format="[GENERAL]" html.valueishtml="0"  name=compute_4 visible="1"  font.face="Times New Roman" font.height="-11" font.weight="400"  font.family="1" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039"  height.autosize=yes)
+compute(band=detail alignment="0" expression="'Atentamente.'"border="0" color="0" x="502" y="12145" height="476" width="3069" format="[GENERAL]" html.valueishtml="0"  name=compute_3 visible="1"  font.face="Times New Roman" font.height="-11" font.weight="400"  font.family="1" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+column(band=detail id=11 alignment="0" tabsequence=32766 border="0" color="0" x="3810" y="12198" height="423" width="158" format="[general]" html.valueishtml="0"  name=proforma visible="0~t0" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="0" text="" border="2" color="0" x="423" y="12700" height="1613" width="18494" html.valueishtml="0"  name=t_9 visible="1"  font.face="Times New Roman" font.height="-11" font.weight="400"  font.family="1" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+column(band=detail id=12 alignment="0" tabsequence=32766 border="0" color="0" x="12991" y="13256" height="423" width="5873" format="[general]" html.valueishtml="0"  name=csi_facturas_emitidas_formadepago_1 visible="1" dddw.name=d_dddw_csi_formas_de_pago_cobro dddw.displaycolumn=descripcion dddw.datacolumn=tipo_pago dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any dddw.nilisnull=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="0" text="Forma de Pago:" border="0" color="0" x="10001" y="13256" height="449" width="2910" html.valueishtml="0"  name=t_20 visible="1"  font.face="Times New Roman" font.height="-11" font.weight="700"  font.family="1" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+column(band=detail id=10 alignment="0" tabsequence=32766 border="0" color="0" x="2328" y="13282" height="423" width="4418" format="#,##0.00" html.valueishtml="0"  name=total visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="0" expression="if(mid(f_dame_cuenta_banco_empresa ( csi_facturas_emitidas_banco,  f_obtener_empresa_factura(csi_facturas_emitidas_id_factura)) ,1,3)  = '  ' ,string (f_dame_cuenta_banco_pordefecto(f_obtener_empresa_factura(csi_facturas_emitidas_id_factura))),f_dame_cuenta_banco_empresa ( csi_facturas_emitidas_banco,  f_obtener_empresa_factura(csi_facturas_emitidas_id_factura)) )
+"border="0" color="0" x="12991" y="13812" height="396" width="5900" format="[GENERAL]" html.valueishtml="0"  name=compute_8 visible="1"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="0" text="Cuenta bancaria:" border="0" color="0" x="10001" y="13812" height="396" width="2910" html.valueishtml="0"  name=t_19 visible="1"  font.face="Times New Roman" font.height="-11" font.weight="700"  font.family="1" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+compute(band=detail alignment="0" expression="if(mid(trim(f_dame_desc_banco(csi_facturas_emitidas_banco,f_obtener_empresa_factura(csi_facturas_emitidas_id_factura))),1,3)=' ',string(f_dame_nombre_banco(csi_facturas_emitidas_banco)),string(f_dame_desc_banco ( csi_facturas_emitidas_banco ,f_obtener_empresa_factura(csi_facturas_emitidas_id_factura)) ))
+"border="0" color="0" x="2328" y="13812" height="423" width="7567" format="[GENERAL]" html.valueishtml="0"  name=compute_10 visible="1"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="2328" y="12753" height="396" width="4180" format="[general]" html.valueishtml="0"  name=n_fact visible="1" edit.limit=15 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="0" text="Fecha Proforma:~tif(proforma='S','Fecha Proforma:','Fecha Factura:')" border="0" color="0" x="10001" y="12753" height="396" width="2910" html.valueishtml="0"  name=t_4 visible="1"  font.face="Times New Roman" font.height="-11" font.weight="700"  font.family="1" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="12991" y="12753" height="396" width="2857" format="[shortdate] " html.valueishtml="0"  name=fecha visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="0" text="" border="2" color="0" x="423" y="14420" height="2460" width="18494" html.valueishtml="0"  name=t_21 visible="1~tif(f_empresa_es_colegio2( f_factura_dame_empresa( csi_facturas_emitidas_id_factura ) ) = 'S', 1, 0)"  font.face="Times New Roman" font.height="-11" font.weight="400"  font.family="1" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+text(band=detail alignment="0" text="~tf_etiqueta_cartas_reclamacion(f_obtener_empresa_factura( csi_facturas_emitidas_id_factura ),'P_bancos')" border="0" color="0" x="502" y="14473" height="370" width="18362" html.valueishtml="0"  name=t_22 visible="1~tif(f_empresa_es_colegio2( f_factura_dame_empresa( csi_facturas_emitidas_id_factura ) ) = 'S', 1, 0)"  font.face="Times New Roman" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039"  height.autosize=yes)
+text(band=detail alignment="0" text="~tf_etiqueta_cartas_reclamacion(f_obtener_empresa_factura( csi_facturas_emitidas_id_factura ),'banco1')" border="0" color="0" x="502" y="14923" height="449" width="18362" html.valueishtml="0"  name=t_23 visible="1~tif(f_empresa_es_colegio2( f_factura_dame_empresa( csi_facturas_emitidas_id_factura ) ) = 'S', 1, 0)"  font.face="Times New Roman" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039"  height.autosize=yes)
+text(band=detail alignment="0" text="~tf_etiqueta_cartas_reclamacion(f_obtener_empresa_factura( csi_facturas_emitidas_id_factura ),'banco2')" border="0" color="0" x="502" y="15452" height="423" width="18362" html.valueishtml="0"  name=t_25 visible="1~tif(f_empresa_es_colegio2( f_factura_dame_empresa( csi_facturas_emitidas_id_factura ) ) = 'S', 1, 0)"  font.face="Times New Roman" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039"  height.autosize=yes)
+text(band=detail alignment="0" text="~tf_etiqueta_cartas_reclamacion(f_obtener_empresa_factura( csi_facturas_emitidas_id_factura ),'horario_banco')" border="0" color="0" x="502" y="15955" height="423" width="18362" html.valueishtml="0"  name=t_24 visible="1~tif(f_empresa_es_colegio2( f_factura_dame_empresa( csi_facturas_emitidas_id_factura ) ) = 'S', 1, 0)"  font.face="Times New Roman" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039"  height.autosize=yes)
+report(band=detail dataobject="d_carta_rec_fact_lineas" x="423" y="16960" height="2143" width="18494" border="2"  height.autosize=yes criteria="" nest_arguments=((" csi_facturas_emitidas_id_factura ")) trail_footer = yes  name=dw_1 visible="1"  slideup=directlyabove )
+text(band=detail alignment="0" text="" border="2" color="0" x="423" y="19209" height="3757" width="18494" html.valueishtml="0"  name=t_2 visible="1~tif(f_es_vacio(n_registro),0,1)"  slideup=allabove  font.face="Times New Roman" font.height="-11" font.weight="400"  font.family="1" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+bitmap(band=detail filename=".\imagenes\sellorec.gif" x="6244" y="23072" height="1957" width="5450" border="0"  name=p_2 visible="1" )
+text(band=detail alignment="0" text="Datos identificativos de la obra:" border="4" color="0" x="582" y="19262" height="476" width="5450" html.valueishtml="0"  name=t_6 visible="1~tif(f_es_vacio(n_registro),0,1)"  slideup=allabove  font.face="Times New Roman" font.height="-11" font.weight="700"  font.family="1" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+text(band=detail alignment="0" text="N$$HEX2$$ba002000$$ENDHEX$$Expediente:" border="0" color="0" x="582" y="19871" height="423" width="3148" html.valueishtml="0"  name=t_1 visible="1~tif(f_es_vacio(n_registro),0,1)"  slideup=allabove  font.face="Times New Roman" font.height="-9" font.weight="700"  font.family="1" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+compute(band=detail alignment="0" expression=" f_dame_exp(id_fase )"border="0" color="0" x="3862" y="19871" height="423" width="2381" format="[GENERAL]" html.valueishtml="0"  name=compute_6 visible="1"  slideup=allabove  font.face="Times New Roman" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="0" text="N$$HEX2$$ba002000$$ENDHEX$$Registro:" border="0" color="0" x="10001" y="19871" height="423" width="2619" html.valueishtml="0"  name=t_17 visible="1~tif(f_es_vacio(n_registro),0,1)"  slideup=allabove  font.face="Times New Roman" font.height="-9" font.weight="700"  font.family="1" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+column(band=detail id=15 alignment="0" tabsequence=32766 border="0" color="0" x="12964" y="19871" height="423" width="1746" format="[general]" html.valueishtml="0"  name=n_registro visible="1~tif(f_es_vacio(n_registro),0,1)"  slideup=allabove edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="0" expression=" if(not f_es_vacio(clientes_nombre), clientes_nombre + ' ' + apellidos,  apellidos)"border="0" color="0" x="6879" y="20373" height="423" width="11641" format="[GENERAL]" html.valueishtml="0"  name=compute_9 visible="1"  slideup=allabove  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=23 alignment="0" tabsequence=32766 border="0" color="0" x="3862" y="20373" height="423" width="2381" format="[general]" html.valueishtml="0"  name=nif visible="1~tif(f_es_vacio(n_registro),0,1)"  slideup=allabove edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="0" text="Cliente:" border="0" color="0" x="582" y="20373" height="423" width="3148" html.valueishtml="0"  name=t_12 visible="1~tif(f_es_vacio(n_registro),0,1)"  slideup=allabove  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+column(band=detail id=22 alignment="0" tabsequence=32766 border="0" color="0" x="4550" y="20902" height="423" width="14261" format="[general]" html.valueishtml="0"  name=d_t_descripcion visible="1~tif(f_es_vacio(n_registro),0,1)"  slideup=allabove edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="-" border="0" color="0" x="4392" y="20902" height="423" width="158" html.valueishtml="0"  name=t_13 visible="1~tif(f_es_vacio(n_registro),0,1)"  slideup=allabove  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+column(band=detail id=21 alignment="0" tabsequence=32766 border="0" color="0" x="3862" y="20902" height="423" width="476" format="[general]" html.valueishtml="0"  name=fase visible="1~tif(f_es_vacio(n_registro),0,1)"  slideup=allabove edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="0" text="Tipo de Actuaci$$HEX1$$f300$$ENDHEX$$n:" border="0" color="0" x="582" y="20902" height="423" width="3148" html.valueishtml="0"  name=t_11 visible="1~tif(f_es_vacio(n_registro),0,1)"  slideup=allabove  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+column(band=detail id=24 alignment="0" tabsequence=32766 border="0" color="0" x="4550" y="21432" height="423" width="14261" format="[general]" html.valueishtml="0"  name=d_t_trabajo visible="1~tif(f_es_vacio(n_registro),0,1)"  slideup=allabove edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="-" border="0" color="0" x="4392" y="21432" height="423" width="158" html.valueishtml="0"  name=t_14 visible="1~tif(f_es_vacio(n_registro),0,1)"  slideup=allabove  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+column(band=detail id=20 alignment="0" tabsequence=32766 border="0" color="0" x="3862" y="21432" height="423" width="476" format="[general]" html.valueishtml="0"  name=tipo_trabajo visible="1~tif(f_es_vacio(n_registro),0,1)"  slideup=allabove edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="0" text="Tipo de Obra:" border="0" color="0" x="582" y="21432" height="423" width="3148" html.valueishtml="0"  name=t_15 visible="1~tif(f_es_vacio(n_registro),0,1)"  slideup=allabove  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+column(band=detail id=16 alignment="0" tabsequence=32766 border="0" color="0" x="3862" y="21961" height="423" width="14948" format="[general]" html.valueishtml="0"  name=descripcion visible="1~tif(f_es_vacio(n_registro),0,1)"  slideup=allabove height.autosize=yes edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="0" text="Descripci$$HEX1$$f300$$ENDHEX$$n:" border="0" color="0" x="582" y="21961" height="423" width="3148" html.valueishtml="0"  name=t_10 visible="1~tif(f_es_vacio(n_registro),0,1)"  slideup=allabove  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+compute(band=detail alignment="0" expression="f_devuelve_emplazamiento_fase( id_fase )"border="0" color="0" x="3836" y="22464" height="396" width="15001" format="[GENERAL]" html.valueishtml="0"  name=compute_11 visible="1"  slideup=allabove  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="0" text="Emplazamiento:" border="0" color="0" x="582" y="22464" height="423" width="3148" html.valueishtml="0"  name=t_7 visible="1~tif(f_es_vacio(n_registro),0,1)"  slideup=allabove  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+text(band=footer alignment="2" text="CIF: Q2675002F~t'CIF:' + f_devuelve_nif_empresa()" border="0" color="0" x="1005" y="476" height="370" width="17383" html.valueishtml="0"  name=t_16 visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" font.italic="1" background.mode="1" background.color="553648127" )
+text(band=footer alignment="2" text="~tf_direc_colegio_carta() + ' - ' + f_pobla_colegio_carta() + ', Tel: '+ f_devuelve_telefono_empresa() + '  Fax : ' + f_devuelve_fax_empresa()" border="0" color="0" x="1005" y="79" height="370" width="17383" html.valueishtml="0"  name=t_8 visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" font.italic="1" background.mode="1" background.color="553648127" )
+compute(band=footer alignment="0" expression="'internet:'+f_devuelve_web_empresa()"border="0" color="0" x="9974" y="873" height="370" width="8255" format="[GENERAL]" html.valueishtml="0"  name=compute_5 visible="1~tif(f_es_vacio(f_devuelve_web_empresa()),0,1)"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" font.italic="1" background.mode="2" background.color="1090519039" )
+compute(band=footer alignment="1" expression="'e-mail:' + f_devuelve_email_empresa()"border="0" color="0" x="846" y="873" height="370" width="8493" format="[GENERAL]" html.valueishtml="0"  name=compute_email visible="1~tif(f_es_vacio(f_devuelve_email_empresa()),0,1)"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" font.italic="1" background.mode="2" background.color="1090519039" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" pagingmethod=0 generatedddwframes="1" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()
+ 

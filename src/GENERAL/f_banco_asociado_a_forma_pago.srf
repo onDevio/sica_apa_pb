@@ -1,0 +1,19 @@
+HA$PBExportHeader$f_banco_asociado_a_forma_pago.srf
+global type f_banco_asociado_a_forma_pago from function_object
+end type
+
+forward prototypes
+global function string f_banco_asociado_a_forma_pago (string tipo_pago)
+end prototypes
+
+global function string f_banco_asociado_a_forma_pago (string tipo_pago);string banco
+
+SELECT csi_formas_de_pago.banco_asociado  
+INTO :banco  
+FROM csi_formas_de_pago  
+WHERE csi_formas_de_pago.tipo_pago = :tipo_pago ;
+
+return banco
+
+end function
+

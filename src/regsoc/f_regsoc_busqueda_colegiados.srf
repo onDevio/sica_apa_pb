@@ -1,0 +1,13 @@
+HA$PBExportHeader$f_regsoc_busqueda_colegiados.srf
+global type f_regsoc_busqueda_colegiados from function_object
+end type
+
+forward prototypes
+global function string f_regsoc_busqueda_colegiados ()
+end prototypes
+
+global function string f_regsoc_busqueda_colegiados ();open(w_regsoc_busqueda_colegiados)
+return Message.StringParm
+
+end function
+

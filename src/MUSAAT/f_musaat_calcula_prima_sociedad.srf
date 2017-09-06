@@ -1,0 +1,106 @@
+HA$PBExportHeader$f_musaat_calcula_prima_sociedad.srf
+global type f_musaat_calcula_prima_sociedad from function_object
+end type
+
+forward prototypes
+global function integer f_musaat_calcula_prima_sociedad (ref st_musaat_datos st_musaat_datos)
+end prototypes
+
+global function integer f_musaat_calcula_prima_sociedad (ref st_musaat_datos st_musaat_datos);// Entrada
+double pem, superficie, volumen, porcentaje
+string colindantes, tipo_act, tipo_obra, id_fase
+string id_col
+// Salida
+string tabla = ''
+double cobertura, coef_c = 0, coef_g = 0, coef_k = 0, coef_cm = 1, coef_colegio = 1, minimo, prima_comp
+datastore ds_colegiados_asociados
+string id_fases_colegiados, id_asociado
+int j
+double musaat = 0
+double porc_total = 1, porc_col , porc_col_real
+
+id_fase = st_musaat_datos.n_visado
+tipo_act = st_musaat_datos.tipo_act
+tipo_obra = st_musaat_datos.tipo_obra
+id_col = st_musaat_datos.id_col
+pem = st_musaat_datos.pem
+superficie = st_musaat_datos.superficie
+volumen = st_musaat_datos.volumen
+porcentaje = st_musaat_datos.porcentaje
+
+if st_musaat_datos.recuperar then
+	
+	SELECT sum(porcen_a)  
+	INTO :porc_total  
+	FROM fases_colegiados  
+	WHERE fases_colegiados.id_fase = :id_fase        ;
+	
+	SELECT fases_colegiados.porcen_a  
+	INTO :porc_col  
+	FROM fases_colegiados  
+	WHERE ( fases_colegiados.id_fase = :id_fase ) AND  
+			( fases_colegiados.id_col = :id_col )   ;
+
+	porc_col_real = (porc_col / porc_total) * 100
+	porcentaje = porc_col_real
+end if
+
+if isnull(pem) then pem = 0
+if isnull(superficie) then superficie = 0
+if isnull(volumen) then volumen = 0
+
+SELECT fases_colegiados.id_fases_colegiados  
+INTO :id_fases_colegiados  
+FROM fases_colegiados  
+WHERE ( fases_colegiados.id_fase = :id_fase ) AND  ( fases_colegiados.id_col = :id_col )   ;
+
+//if st_musaat_datos.recuperar = false then setnull(st_musaat_datos.n_visado)
+
+// Suma de la Musaat de todos los colegiados de la sociedad
+// Utilizamos datastores diferentes seg$$HEX1$$fa00$$ENDHEX$$n si venimos desde contratos o desde el c$$HEX1$$e100$$ENDHEX$$lculo de gastos
+if not f_es_vacio(id_fases_colegiados) then
+	ds_colegiados_asociados = create datastore
+	ds_colegiados_asociados.dataobject = 'ds_fases_colegiados_asociados'
+	ds_colegiados_asociados.settransobject(sqlca)
+	ds_colegiados_asociados.retrieve(id_fases_colegiados)
+	
+	for j = 1 to ds_colegiados_asociados.rowcount()
+		id_asociado = ds_colegiados_asociados.getitemstring(j, 'id_col_per')
+		
+		if (f_tiene_movi_musaat(id_fase,id_asociado, false) = false) then 
+			st_musaat_datos.id_sociedad = id_col
+			st_musaat_datos.porcentaje = porcentaje * ds_colegiados_asociados.getitemnumber(j, 'porcent') / 100
+			st_musaat_datos.id_col = id_asociado
+			st_musaat_datos.cobertura = 0
+			f_musaat_calcula_prima(st_musaat_datos)
+			musaat += st_musaat_datos.prima_comp
+		end if 	
+	next
+else
+	ds_colegiados_asociados = create datastore
+	ds_colegiados_asociados.dataobject = 'ds_colegiados_personas'
+	ds_colegiados_asociados.settransobject(sqlca)
+	ds_colegiados_asociados.retrieve(id_col)
+	
+	for j = 1 to ds_colegiados_asociados.rowcount()
+		id_asociado = ds_colegiados_asociados.getitemstring(j, 'id_col_per')
+		
+		if (f_tiene_movi_musaat(id_fase,id_asociado, false) = false) then 
+			st_musaat_datos.id_sociedad = id_col
+			st_musaat_datos.porcentaje = porcentaje * ds_colegiados_asociados.getitemnumber(j, 'porc_col_real') / 100
+			st_musaat_datos.id_col = id_asociado
+			st_musaat_datos.cobertura = 0	
+			f_musaat_calcula_prima(st_musaat_datos)
+			musaat += st_musaat_datos.prima_comp
+		end if	
+	next
+end if
+
+st_musaat_datos.prima_comp = musaat
+// Llamar a la funci$$HEX1$$f300$$ENDHEX$$n por cada asociado
+destroy ds_colegiados_asociados
+
+return 0
+
+end function
+

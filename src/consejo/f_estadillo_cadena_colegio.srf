@@ -1,0 +1,26 @@
+HA$PBExportHeader$f_estadillo_cadena_colegio.srf
+global type f_estadillo_cadena_colegio from function_object
+end type
+
+forward prototypes
+global function string f_estadillo_cadena_colegio ()
+end prototypes
+
+global function string f_estadillo_cadena_colegio ();string resultado, dir, cp, pob,tlf, fax, nombre
+
+//nombre= g_nombre_empresa
+
+select direccion, codigo_postal, poblacion, telefono, fax into :dir, :cp, :pob, :tlf, :fax from csi_empresas;
+if not (f_es_vacio(fax) or f_es_vacio(tlf)) then
+	resultado= dir + ". " + cp+ " " + pob + ". tel. " + tlf + ". fax. " + fax
+elseif f_es_vacio(fax) then
+	resultado= dir + ". " + cp+ " " + pob + ". tel. " + tlf
+elseif f_es_vacio(tlf) then
+	resultado= dir + ". " + cp+ " " + pob + ". fax. " + fax
+end if
+
+return resultado
+	
+
+end function
+

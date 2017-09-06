@@ -1,0 +1,7 @@
+HA$PBExportHeader$keyvalue.srs
+$PBExportComments$Proxy imported from Web service using Web Service Proxy Generator.
+global type KeyValue from structure
+    string key
+    string value
+end type
+

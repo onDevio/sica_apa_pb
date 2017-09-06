@@ -1,0 +1,20 @@
+HA$PBExportHeader$f_existe_concepto_domic_colegiado.srf
+global type f_existe_concepto_domic_colegiado from function_object
+end type
+
+forward prototypes
+global function boolean f_existe_concepto_domic_colegiado (string as_concepto, string as_id_colegiado, string as_cod_empresa)
+end prototypes
+
+global function boolean f_existe_concepto_domic_colegiado (string as_concepto, string as_id_colegiado, string as_cod_empresa);int cuantos
+
+select count(*) into :cuantos from conceptos_domiciliables 
+	where  id_colegiado = :as_id_colegiado 
+		and concepto = :as_concepto 
+		and empresa = :as_cod_empresa;
+			
+if cuantos >0 then return true
+
+return false
+end function
+

@@ -1,0 +1,18 @@
+HA$PBExportHeader$f_visared_descripcion_gasto.srf
+global type f_visared_descripcion_gasto from function_object
+end type
+
+forward prototypes
+global function string f_visared_descripcion_gasto (string codigo)
+end prototypes
+
+global function string f_visared_descripcion_gasto (string codigo);string retorno
+
+select descripcion into :retorno from csi_articulos_servicios where codigo = :codigo;
+
+if f_es_vacio(retorno) then retorno = 'DESCONOCIDO'
+
+return retorno
+
+end function
+

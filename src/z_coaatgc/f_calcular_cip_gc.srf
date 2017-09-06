@@ -1,0 +1,776 @@
+HA$PBExportHeader$f_calcular_cip_gc.srf
+$PBExportComments$Calcula el total de cip para gc
+global type f_calcular_cip_gc from function_object
+end type
+
+forward prototypes
+global function integer f_calcular_cip_gc (ref st_cip_datos st_cip_datos)
+end prototypes
+
+global function integer f_calcular_cip_gc (ref st_cip_datos st_cip_datos);String TipoAct		// Tipo de actuacion del contrato
+String TipoActAnt	
+String TipoObra
+double FA 		// Factor de actualizaci$$HEX1$$f300$$ENDHEX$$n
+double Coef	// Coeficiente de c$$HEX1$$e100$$ENDHEX$$lculo de honorarios
+double Sup	// Superficie total construida de la obra
+double Pres	// Presupuesto del contrato
+double BaseCuadro	// Base de tarificacion(Presupuesto contrato)/FA (Factor act.)/1000
+double minimo, minimo_formula	// Honorarios Minimos
+double coef_aux	// Coeficiente F aplicado
+string tarifa
+double Honorarios	= 0 // Honorarios calculados del contrato
+double Volumen	// Variable para recojer el volumen para demoliciones.
+String AplicadoMinimo = "N"
+String  administracion
+double Ca, cc
+double altura
+string colindantes
+double long_per
+double vol_tierras
+string estructura,t_terreno,t_medicion,replan_deslin
+double valor_terreno,valor_tasacion,valoracion_estim, t_te
+double vol_edif
+double cip
+string formula, desarrollo, formula_minimo, desarrollo_minimo
+string mensaje = '', tipo_registro, id_expedi, id_fase
+
+FA = g_fa
+Ca = g_ca
+CC = g_cc
+
+TipoAct = st_cip_datos.tipo_act
+TipoObra = st_cip_datos.tipo_obra
+administracion = st_cip_datos.admon
+Volumen = st_cip_datos.volumen
+vol_edif = st_cip_datos.vol_edif
+sup = st_cip_datos.superficie
+Pres = st_cip_datos.pem
+colindantes = st_cip_datos.colindantes
+altura = st_cip_datos.altura
+long_per = st_cip_datos.long_per
+vol_tierras = st_cip_datos.vol_tierras
+estructura = st_cip_datos.estructura 
+t_terreno = st_cip_datos.t_terreno
+t_medicion = st_cip_datos.t_medicion
+replan_deslin = st_cip_datos.replan_deslin
+valor_terreno = st_cip_datos.valor_terreno
+valor_tasacion = st_cip_datos.valor_tasacion
+valoracion_estim = st_cip_datos.valoracion_estim
+tipo_registro = st_cip_datos.tipo_registro
+id_expedi = st_cip_datos.id_expedi
+id_fase = st_cip_datos.id_fase
+
+if date(st_cip_datos.fecha) < date('31/03/2006') and tipo_registro = 'RS' then CC = g_cc_rs
+
+if f_es_vacio(estructura) then estructura = 'N'
+
+BaseCuadro = (Pres / FA)
+//if (BaseCuadro = 0) or (Isnull(BaseCuadro) )  then BaseCuadro = 1
+//IF Pres = 0 then pres = 1
+
+SELECT coef_aux, tarifa, minimo INTO :coef_aux, :tarifa, :minimo FROM cip_tarifa WHERE ( tipo_actuacion = :TipoAct ) AND ( ( tipo_obra = :TipoObra ) or ( tipo_obra = '*' )  );
+If SQLCA.SQLCode <> 0 Then
+	MessageBox(g_titulo,'Esta Tarifa no Tiene Cuota de Intervenci$$HEX1$$f300$$ENDHEX$$n Profesional. Entrada tabla.',StopSign!,OK!,1)
+	return -1
+End if
+
+formula_minimo = 'CIP = M$$HEX1$$ed00$$ENDHEX$$nimo'
+desarrollo_minimo = 'CIP = ' + string(Minimo)
+
+choose case t_terreno
+	case '1'
+		t_te = 0.8
+	case '2'
+		t_te = 1
+	case '3'
+		t_te = 1.25
+	case '4'
+		t_te = 1.6
+end choose
+
+// Excepciones
+if tipoact = '73' and tipoobra= 'C0' then tarifa='C0'
+
+
+Choose Case Tarifa
+	CASE '1'//***************OK
+		SELECT coef INTO :Coef  FROM cip_tablas WHERE desde < :Sup AND hasta >= :Sup AND tarifa = :Tarifa;			
+		cip = ((Pres * Coef * coef_aux * cc) / 10000)
+		formula = 'CIP = ((Pres * ' + 'Coef. C'+ ' * ' + 'Coef. adicional'+ ' * Cc) / 10000)'
+		desarrollo = 'CIP = ((' + string(Pres) + ' * ' + string(Coef) + ' * ' + string(coef_aux) + ' * ' + string(cc) + ') / 10000)'
+		
+		if left(tipoobra,1) = '1' then 
+			minimo_formula = (Pres*Coef/10000) + (18.78*cc)
+		else
+			minimo_formula = (Pres*Coef*12/100000) + (18.78*cc)
+		end if
+		
+		cip = max(cip, minimo_formula)
+		if cip = minimo_formula then
+			if left(tipoobra,1) = '1' then 
+				formula = 'CIP = (Pres * ' + 'Coef. C'+ ' /10000) + (18.78 * Cc)'
+				desarrollo = 'CIP = (' +string(Pres) + ' * ' + string(Coef) + '/10000) + (18.78*' + string(cc) + ')'
+			else
+				formula = 'CIP = (Pres * ' + 'Coef. C'+ ' * ' + '12/100000) + (18.78 * Cc)'
+				desarrollo = 'CIP = (' +string(Pres) + ' * ' + string(Coef) + ' *12/100000) + (18.78*' + string(cc) + ')'
+			end if
+		end if
+		if left(tipoobra,1) <> '1' then
+			if left(tipoobra,1) = '8' then
+				formula_minimo = 'CIP = M$$HEX1$$ed00$$ENDHEX$$nimo'
+				desarrollo_minimo = 'CIP = 24,04'
+				minimo = 24.04
+			else
+				formula_minimo = 'CIP = M$$HEX1$$ed00$$ENDHEX$$nimo * Cc * 1,20'
+				desarrollo_minimo = 'CIP = ' + string(Minimo) + ' * ' + string(cc) + ' * 1,20'
+				minimo = minimo * cc * 1.2
+			end if
+		else
+			formula_minimo = 'CIP = M$$HEX1$$ed00$$ENDHEX$$nimo'
+			desarrollo_minimo = 'CIP = ' + string(Minimo)
+		end if
+		if pres = 0 or sup = 0 then
+			mensaje= 'Debe introducir el presupuesto y la superficie'
+		end if		
+		If cip < Minimo Then 
+			cip = Minimo
+			AplicadoMinimo = "S"
+			formula = formula_minimo
+			desarrollo = desarrollo_minimo
+		End if
+
+	CASE '2'//***************OK
+		SELECT coef INTO :Coef FROM cip_tablas WHERE desde < :Pres AND hasta >= :Pres AND tarifa = :Tarifa;
+		cip = ((Pres * Coef * coef_aux * cc) / 10000)
+		formula = 'CIP = ((Pres * ' + 'Coef. C'+ ' * ' + 'Coef. adicional' + ' * Cc) / 10000)'
+		desarrollo = 'CIP = ((' + string(Pres) + ' * ' + string(Coef) + ' * ' + string(coef_aux) + ' * ' + string(cc) + ') / 10000)'
+		if left(tipoobra,2) = '71' then 
+			minimo_formula = (Pres*Coef/10000) + (18.78*cc)
+		else
+			minimo_formula = (Pres*Coef*12/100000) + (18.78*cc)
+		end if		
+		cip = max(cip, minimo_formula)
+		
+		if cip = minimo_formula then
+			if left(tipoobra,2) = '71' then 
+				formula = 'CIP = (Pres * ' + 'Coef. C'+ ' /10000) + (18.78 * Cc)'
+				desarrollo = 'CIP = (' +string(Pres) + ' * ' + string(Coef) + '/10000) + (18.78*' + string(cc) + ')'
+			else
+				formula = 'CIP = (Pres * ' + 'Coef. C'+ ' * ' + '12/100000) + (18.78 * Cc)'
+				desarrollo = 'CIP = (' +string(Pres) + ' * ' + string(Coef) + ' *12/100000) + (18.78*' + string(cc) + ')'
+			end if
+		end if
+
+		if left(tipoobra,2) = '71' then
+			formula_minimo = 'CIP = M$$HEX1$$ed00$$ENDHEX$$nimo * Cc'
+			desarrollo_minimo = 'CIP = ' + string(Minimo) + ' * ' + string(cc)
+			Minimo = Minimo * cc
+		else
+			formula_minimo = 'CIP = M$$HEX1$$ed00$$ENDHEX$$nimo * Cc * 1,20'
+			desarrollo_minimo = 'CIP = ' + string(Minimo) + ' * ' + string(cc) + ' * 1,20'
+			minimo = minimo * cc * 1.2
+		end if	
+
+		if pres = 0 then
+			mensaje= 'Debe introducir el presupuesto'
+		end if		
+		If cip < Minimo Then 
+			cip = Minimo
+			AplicadoMinimo = "S"
+			formula = formula_minimo	
+			desarrollo = desarrollo_minimo		
+		End if
+
+	CASE '31'
+		choose case t_medicion
+			case '1' // Terrenos
+				Tarifa = '311'
+				cip = 0.08 * long_per * t_te * cc
+				formula = 'CIP = 0.08 * Longitud * Tipo Terreno * Cc'
+				desarrollo = 'CIP = 0.08 * ' + string(long_per) + ' * ' + string(t_te) + ' * ' + string(cc)
+				if replan_deslin = 'R' then 
+					cip = cip * 0.66
+					formula += ' * 0.66'
+					desarrollo += ' * 0.66'
+				end if
+			case '2' // Solares
+				Tarifa = '312'
+				cip = 0.16 * long_per * t_te * cc
+				formula = 'CIP = 0.16 * Longitud * Tipo Terreno * Cc'				
+				desarrollo = 'CIP = 0.16 * ' + string(long_per) + ' * ' + string(t_te) + ' * ' + string(cc)
+				if replan_deslin = 'R' then cip = cip * 0.66
+				minimo_formula = (0.1 * long_per * t_te * cc) + 21.04
+				cip = max(cip, minimo_formula)
+				if cip = minimo_formula then
+					formula = 'CIP = (0.1 * Longitud * Tipo Terreno * Cc) + 21.04'
+					desarrollo = 'CIP = (0.1 * ' + string(long_per) + ' * ' + string(t_te) + ' * ' + string(cc) + ') + 21.04'
+				end if
+			case '3' // Edificaciones
+				Tarifa = '313'
+				cip = 0.23 * long_per * cc
+				formula = 'CIP = 0.23 * Longitud * Cc'
+				desarrollo = 'CIP = 0.23 * ' + string(long_per) + ' * ' + string(cc)
+				if replan_deslin = 'R' then 
+					cip = cip * 0.66
+					formula += ' * 0.66'
+					desarrollo += ' * 0.66'					
+				end if
+				//minimo_formula = (0.15 * long_per * cc) + 21.04
+				//cip = max(cip, minimo_formula)
+		end choose
+		if isnull(t_medicion) or isnull(t_te) or long_per = 0 or isnull(replan_deslin) then
+			mensaje= 'Debe introducir el tipo de medici$$HEX1$$f300$$ENDHEX$$n, el tipo de terreno, si es replanteo o deslinde, y la longitud del per$$HEX1$$ed00$$ENDHEX$$metro'
+		end if		
+		If cip < Minimo Then 
+			cip = Minimo
+			AplicadoMinimo = "S"
+			formula = formula_minimo 
+			desarrollo = desarrollo_minimo
+		End if
+		
+	CASE '32'
+		choose case t_medicion
+			case '1' // Terrenos
+				Tarifa = '321'
+				SELECT coef INTO :Coef FROM cip_tablas WHERE desde < :sup AND hasta >= :sup AND tarifa = :Tarifa;
+				cip = ((sup * coef * t_te) / 16638.6) * cc
+				formula = 'CIP = ((Superficie * ' + string(coef) + ' * ' + 'Tipo Terreno) / 16638.6) * ' + string(cc)
+				desarrollo = 'CIP = ((' + string(Sup) + ' * ' + string(coef) + ' * ' + string(t_te) + ') / 16638.6) * ' + string(cc)
+				minimo_formula = (sup * coef * 0.03 * cc) + 21.04
+				cip = max(cip, minimo_formula)
+				if (cip = minimo_formula) then
+					formula = 'CIP = (Superficie * ' + string(coef) + ' * 0.03 * ' + string(cc) + ') + 21.04'
+					desarrollo = 'CIP = (' + string(sup)+ ' * ' + string(coef) + ' * 0.03 * ' + string(cc) + ') + 21.04'
+				end if
+				Minimo = 31.37 * cc
+				formula_minimo = 'CIP = 31.37 * Cc'
+				desarrollo_minimo = 'CIP = 31.37 * ' + string(cc)				
+			case '2' // Solares
+				Tarifa = '322'
+				SELECT coef INTO :Coef FROM cip_tablas WHERE desde < :sup AND hasta >= :sup AND tarifa = :Tarifa;
+				cip = sup * coef * t_te * cc
+				formula = 'CIP = Superficie * ' + string(coef) + ' * Tipo Terreno * Cc'
+				desarrollo = 'CIP = ' + string(sup) + ' * ' + string(coef) + ' * ' + string(t_te) + ' * ' + string(cc)
+				minimo_formula = ((sup * coef * t_te) / 166.386) + 21.04
+				cip = max(cip, minimo_formula)
+				if (cip = minimo_formula) then
+					formula =  'CIP = ((Superficie * ' + string(coef) + ' * Tipo Terreno) / 166.386) + 21.04'
+					desarrollo = 'CIP = ((' + string(sup) + ' * ' + string(coef) + ' * ' + string(t_te) + ') / 166.386) + 21.04'
+				end if
+			case '3' // Edificaciones
+				Tarifa = '323'
+				SELECT coef INTO :Coef FROM cip_tablas WHERE desde < :sup AND hasta >= :sup AND tarifa = :Tarifa;
+				cip = (sup * coef * cc) / 166.386
+				formula = 'CIP = (Superficie * ' + string(coef) + ' * Cc) / 166.386'
+				desarrollo = 'CIP = (' + string(sup) + ' * ' + string(coef) + ' * ' + string(cc) + ') / 166.386'
+				minimo_formula = ((sup * coef ) / 166.386) + 21.04
+				cip = max(cip, minimo_formula)
+				if (cip = minimo_formula) then
+					formula =  'CIP = ((Superficie * ' + string(coef) + ' * Tipo Terreno) / 166.386) + 21.04'
+					desarrollo = 'CIP = ((' + string(sup) + ' * ' + string(coef) + ' * ' + string(t_te) + ') / 166.386) + 21.04'
+				end if
+		end choose
+		if isnull(t_medicion) or isnull(t_te) or sup=0 then
+			mensaje= 'Debe introducir el tipo de medici$$HEX1$$f300$$ENDHEX$$n, el tipo de terreno y la superficie'
+		end if				
+		If cip < Minimo Then 
+			cip = Minimo
+			AplicadoMinimo = "S"
+			formula = formula_minimo
+			desarrollo = desarrollo_minimo
+		End if		
+	CASE '33'
+		choose case t_medicion
+			case '1', '2' // Terrenos, Solares
+				SELECT coef INTO :Coef FROM cip_tablas WHERE desde < :valor_terreno AND hasta >= :valor_terreno AND tarifa = :Tarifa;
+				Tarifa = '331'
+				cip = ((valor_terreno * coef) / 10000) * cc
+				formula = 'CIP = ((Valor Terreno * ' + string(coef) + ') / 10000) * Cc'
+				desarrollo = 'CIP = ((' + string(valor_terreno) + ' * ' + string(coef) + ') / 10000) * ' + string(cc)
+			case '3' // Edificaciones
+				SELECT coef INTO :Coef FROM cip_tablas WHERE desde < :valor_terreno AND hasta >= :valor_terreno AND tarifa = :Tarifa;
+				Tarifa = '332'
+				coef = coef * 2
+				cip = ((valor_terreno * coef) / 10000) * cc
+				formula = 'CIP = ((Valor Terreno * ' + string(coef) + ') / 10000) * Cc'
+				desarrollo = 'CIP = ((' + string(valor_terreno) + ' * ' + string(coef) + ') / 10000) * ' + string(cc)
+		end choose
+		if isnull(t_medicion) or valor_terreno=0 then
+			mensaje= 'Debe introducir el tipo de medici$$HEX1$$f300$$ENDHEX$$n y el valor del terreno'
+		end if		
+		If cip < Minimo Then 
+			cip = Minimo
+			AplicadoMinimo = "S"
+			formula = formula_minimo
+			desarrollo = desarrollo_minimo
+		End if
+	CASE '42'
+		Honorarios = 0
+		SELECT minimo INTO :Minimo FROM cip_tarifa WHERE ( tipo_actuacion = :TipoAct ) ;
+		cip = Minimo
+		formula = 'CIP = M$$HEX1$$ed00$$ENDHEX$$nimo'
+		desarrollo = 'CIP = ' + string(minimo)
+	CASE '43'
+		SELECT coef INTO :Coef FROM cip_tablas WHERE desde < :BaseCuadro AND hasta >= :BaseCuadro AND tarifa = :Tarifa;
+		cip = (20.43 + (coef * pres)/100) * cc
+		formula = 'CIP = (20.43 + (' + string(coef) + ' * PEM) / 100) * Cc'
+		desarrollo = 'CIP = (20.43 + (' + string(coef) + ' * ' + string(pres) + ') / 100) * ' + string(cc)
+		if  pres = 0 then
+			mensaje= 'Debe introducir el presupuesto'
+		end if		
+		if cip < Minimo then
+			cip = Minimo
+			AplicadoMinimo = "S"
+			formula = formula_minimo
+			desarrollo = desarrollo_minimo
+		End if
+	CASE '53'
+		Honorarios = 0
+		SELECT minimo INTO :Minimo FROM cip_tarifa WHERE ( tipo_actuacion = :TipoAct ) ;
+		cip = Minimo
+		formula = 'CIP = M$$HEX1$$ed00$$ENDHEX$$nimo'
+		desarrollo = 'CIP = ' + string(minimo)
+	CASE '55'
+		SELECT coef INTO :Coef FROM cip_tablas WHERE desde < :Pres AND hasta >= :Pres AND tarifa = :Tarifa;
+		cip = (0.09 * Pres * coef * cc) / 100
+		formula = 'CIP = (0.09 * PEM * ' + string(coef) + ' * Cc) / 100'
+		desarrollo = 'CIP = (0.09 * ' + string(Pres) + ' * ' +string(coef) + ' * ' + string(cc) + ') / 100'
+		if  pres = 0 then
+			mensaje= 'Debe introducir el presupuesto'
+		end if			
+		if cip < Minimo then
+			cip = Minimo
+			AplicadoMinimo = "S"
+			formula = formula_minimo
+			desarrollo = desarrollo_minimo
+		End if
+	CASE '56'
+		Honorarios = 0
+		SELECT minimo INTO :Minimo FROM cip_tarifa WHERE ( tipo_actuacion = :TipoAct ) ;
+		cip = Minimo
+		formula= 'CIP = M$$HEX1$$ed00$$ENDHEX$$nimo'
+		desarrollo = 'CIP = ' + string(minimo)
+	CASE '57'
+		Honorarios = 0
+		SELECT minimo INTO :Minimo FROM cip_tarifa WHERE ( tipo_actuacion = :TipoAct ) ;
+		cip = Minimo
+		formula= 'CIP = M$$HEX1$$ed00$$ENDHEX$$nimo'
+		desarrollo = 'CIP = ' + string(minimo)		
+	CASE '510'
+		cip = 0.0005 * Pres * cc
+		formula = 'CIP = 0.0005 * PEM * Cc'
+		desarrollo = 'CIP = 0.0005 * ' + string(Pres) + ' * ' + string(cc)
+		if  pres = 0 then
+			mensaje= 'Debe introducir el presupuesto'
+		end if			
+		if cip < Minimo then
+			cip = Minimo
+			AplicadoMinimo = "S"
+			formula = formula_minimo
+			desarrollo = desarrollo_minimo
+		End if
+	CASE '762'
+//		elseif estructura = 'N' and pres < 60101.21 and sup <= 500 then
+		cip = 0.002 * pres * cc
+		formula = 'CIP = 0.002 * PEM * Cc'
+		desarrollo = 'CIP = 0.002 * ' + string(pres) + ' * ' + string(cc)
+		// if tipoact = '12' or tipoact = '15' then cip = cip * 0.7
+		// if tipoact = '11' or tipoact = '13' or tipoact = '16' then cip = cip * 0.3
+		Minimo = 24.04
+		formula_minimo = 'CIP = 24.04'
+		desarrollo_minimo = 'CIP = 24.04'		
+		if  pres = 0 then
+			mensaje= 'Debe introducir el presupuesto'
+		end if			
+		If cip < Minimo Then 
+			cip = Minimo
+			AplicadoMinimo = "S"
+			formula = formula_minimo
+			desarrollo = desarrollo_minimo
+		End if		
+	CASE 'A11'//***************OK
+		DOUBLE a	//Pts. m3 para las alturas
+		if altura <= 12 then
+			a=0.60
+		else
+			a=0.90
+		end if
+		if  colindantes='02' OR colindantes='03' then
+			coef = 1
+		elseif colindantes='01' and  ( TipoObra='91' or TipoObra='93') then
+			coef = 0.8
+		else
+			SELECT coef INTO :Coef FROM cip_tablas WHERE desde < :vol_edif AND hasta >= :vol_edif AND tarifa = :Tarifa;
+		end if
+		cip = (vol_edif * a * Coef * Fa * cc / 100) * coef_aux
+		formula = 'CIP = (Volumen * ' +'a'+ ' * ' + 't' + ' * Fa * Cc / 100) * ' + 'Coef. adicional'
+		desarrollo = 'CIP = (' + string(vol_edif) + ' * ' + string(a) + ' * ' + string(Coef) + ' * ' + string(Fa) + ' * ' + string(cc) + ' / 100) * ' + string(coef_aux)
+		minimo_formula = ((vol_edif * a * Coef * 0.05) + (13.15 * cc)) * Coef_aux
+		cip = max(cip, minimo_formula)
+		if (cip = minimo_formula) then
+			formula = 'CIP = ((Volumen * ' + 'a' + ' * ' + 't' + ' * 0.05) + (13.15 * Cc)) * ' + 'Coef. adicional'
+			desarrollo = 'CIP = ((' + string(vol_edif) + ' * ' + string(a) + ' * ' + string(Coef) + ' * 0.05) + (13.15 * ' + string(cc) + ')) * ' + string(Coef_aux)
+		end if
+		if  tipoact <> '12' and tipoact <> '15' then 
+			formula_minimo += ' * cc'
+			desarrollo_minimo += ' * ' + string(cc)
+			Minimo = Minimo*cc		
+		end if
+		if  altura = 0 or isnull(colindantes) or vol_edif=0 then
+			mensaje= 'Debe introducir la altura, los colindantes y el volumen del edificio'
+		end if			
+		If cip < Minimo Then 
+			cip = Minimo
+			AplicadoMinimo = "S"
+			formula = formula_minimo
+			desarrollo = desarrollo_minimo
+		End if		
+	CASE 'A12'//***************OK
+		SELECT coef INTO :Coef FROM cip_tablas WHERE desde < :Pres AND hasta >= :Pres AND tarifa = :Tarifa;
+		cip = ((Pres * Coef * coef_aux * cc) / 10000)
+		formula = 'CIP = ((PEM * ' + 'Coef. C' + ' * ' + 'Coef. adicional' + ' * Cc) / 10000)'
+		desarrollo = 'CIP = ((' + string(Pres) + ' * ' + string(Coef) + ' * ' + string(coef_aux) + ' * ' + string(cc) + ') / 10000)'
+ 		minimo_formula = (Pres * Coef * coef_aux / 10000) + (13.15 * cc)
+		cip = max(cip, minimo_formula)
+		if (cip = minimo_formula) then
+			formula = 'CIP = (PEM * Coef. C * Coef. adicional / 10000) + (13.15 * Cc)'
+			desarrollo = 'CIP = (' + string(Pres) + ' * ' + string(Coef) + ' * ' + string(coef_aux) + ' / 10000) + (13.15*' + string(cc) + ')'
+		end if		
+		if tipoact = '12' or tipoact = '15' then 
+			cip = cip * 0.7
+			formula += ' * 0.7'
+			desarrollo += ' * 0.7'
+		end if
+		if tipoact = '13' or tipoact = '16' then 
+			cip = cip * 0.3			
+			formula += ' * 0.3'
+			desarrollo += ' * 0.3'
+		end if
+//		if tipoobra = '71' then // Nueva planta
+			formula_minimo = 'CIP = M$$HEX1$$ed00$$ENDHEX$$nimo'
+			desarrollo_minimo = 'CIP = ' + string(Minimo)
+//		else // Reforma, ampliaci$$HEX1$$f300$$ENDHEX$$n
+//			formula_minimo = 'CIP = M$$HEX1$$ed00$$ENDHEX$$nimo * Coef. adicional'
+//			desarrollo_minimo = 'CIP = ' + string(Minimo) + ' * ' + string(coef_aux)
+//			minimo=minimo*coef_aux		
+//		end if
+		if  pres = 0 then
+			mensaje= 'Debe introducir el presupuesto'
+		end if			
+		
+		If cip < Minimo Then 
+			cip = Minimo
+			AplicadoMinimo = "S"
+			formula = formula_minimo
+			desarrollo = desarrollo_minimo
+		End if		
+	CASE 'A13'//***************OK
+		SELECT coef INTO :Coef FROM cip_tablas WHERE desde < :Pres AND hasta >= :Pres AND tarifa = :Tarifa;
+		cip = ((Pres * Coef * coef_aux * cc) / 10000)
+		formula = 'CIP = ((PEM * ' + 'Coef. C' + ' * ' + 'Coef. adicional' + ' * Cc) / 10000)'
+		desarrollo = 'CIP = ((' + string(Pres) + ' * ' + string(Coef) + ' * ' + string(coef_aux) + ' * ' + string(cc) + ') / 10000)'
+		minimo_formula = (Pres*Coef/10000) + (13.15*cc)
+		cip = max(cip, minimo_formula)
+		if (cip = minimo_formula) then
+			formula = 'CIP = (PEM * ' + 'Coef. C' + ' / 10000) + (13.15 * Cc)'
+			desarrollo = 'CIP = (' + string(Pres) + ' * ' + string(Coef) + ' / 10000) + (13.15 * ' + string(cc) + ')'
+		end if		
+		if tipoact = '12' or tipoact = '15' then 
+			cip = cip * 0.7
+			formula += ' * 0.7'
+			desarrollo += ' * 0.7'
+		end if
+		if tipoact = '13' or tipoact = '16' then 
+			cip = cip * 0.3		
+			formula += ' * 0.3'
+			desarrollo += ' * 0.3'
+		end if			
+		if tipoact <> '12' and tipoact <> '15' then 
+			formula_minimo = 'CIP = M$$HEX1$$ed00$$ENDHEX$$nimo * Cc * Coef. adicional'
+			desarrollo_minimo = 'CIP = ' + string(minimo) + ' * ' + string(cc) + ' * ' + string(coef_aux)			
+			Minimo = Minimo*cc*coef_aux
+			minimo = max(minimo, 24.04)			
+		else
+			formula_minimo = 'CIP = M$$HEX1$$ed00$$ENDHEX$$nimo * Coef. adicional'
+			desarrollo_minimo = 'CIP = ' + string(minimo) + ' * '  + string(coef_aux)						
+			Minimo = Minimo*coef_aux
+		end if
+		if  pres = 0 then
+			mensaje= 'Debe introducir el presupuesto'
+		end if	
+		If cip < Minimo Then 
+			cip = Minimo
+			AplicadoMinimo = "S"
+			formula = formula_minimo
+			desarrollo = desarrollo_minimo
+		End if
+	CASE 'A15'
+		SELECT coef INTO :Coef FROM cip_tablas WHERE desde < :Pres AND hasta >= :Pres AND tarifa = :Tarifa;
+		cip = ((Pres * Coef) / 10000) * cc
+		formula ='CIP = ((PEM * ' + 'Coef. C'+ ') / 10000) * Cc'
+		desarrollo = 'CIP = ((' + string(Pres) + ' * ' + string(Coef) + ') / 10000) * ' + string(cc)
+		minimo_formula = (Pres * Coef * 0.0001) + 13.15 * cc
+		cip = max(cip, minimo_formula)
+		if(cip = minimo_formula) then
+			formula = 'CIP = (PEM * ' + string(Coef) + ' * 0.0001) + 13.15 * Cc'
+			desarrollo = 'CIP = (' + string(Pres) +' * ' + string(Coef) + ' * 0.0001) + 13.15 * ' + string(cc)
+		end if
+		if tipoact = '12' or tipoact = '15' then 
+			cip = cip * 0.7
+			formula += ' * 0.7'
+			desarrollo += ' * 0.7'
+		end if
+		if tipoact = '13' or tipoact = '16' then 
+			cip = cip * 0.3	
+			formula += ' * 0.3'
+			desarrollo += ' * 0.3'
+		end if
+		
+		formula_minimo = 'CIP = M$$HEX1$$ed00$$ENDHEX$$nimo * Cc'
+		desarrollo_minimo = 'CIP = '+ string(minimo) + ' * ' + string(cc)
+		Minimo = Minimo * cc
+		if  pres = 0 then
+			mensaje= 'Debe introducir el presupuesto'
+		end if			
+		If cip < Minimo Then 
+			cip = Minimo
+			AplicadoMinimo = "S"
+			formula = formula_minimo
+			desarrollo = desarrollo_minimo
+		End if
+		
+
+	CASE 'A163'
+//		if estructura = 'N' and pres < 5409.11 then 
+//			tarifa = '761'
+//			cip = 24.04
+//			formula = 'CIP = 24.04'
+//			desarrollo = 'CIP = 24.04'
+//			AplicadoMinimo = "S"
+//		elseif estructura = 'N' and pres < 60101.21 and sup <= 500 then
+//			tarifa = '762'
+//			cip = 0.002 * pres * cc
+//			formula = 'CIP = 0.002 * PEM * Cc'
+//			desarrollo = 'CIP = 0.002 * ' + string(pres) + ' * ' + string(cc)
+//			// if tipoact = '12' or tipoact = '15' then cip = cip * 0.7
+//			// if tipoact = '11' or tipoact = '13' or tipoact = '16' then cip = cip * 0.3
+//			Minimo = 24.04
+//			formula_minimo = 'CIP = 24.04'
+//			desarrollo_minimo = 'CIP = 24.04'			
+//			If cip < Minimo Then 
+//				cip = Minimo
+//				AplicadoMinimo = "S"
+//				formula = formula_minimo
+//				desarrollo = desarrollo_minimo
+//			End if
+//		else
+			SELECT coef INTO :Coef  FROM cip_tablas WHERE desde < :Sup AND hasta >= :Sup AND tarifa = :Tarifa;						
+			cip = ((Pres * Coef * coef_aux) / 10000) * cc
+			formula = 'CIP = ((PEM * ' + 'Coef. C' + ' * ' + 'Coef. CC' + ') / 10000) * Cc'
+			desarrollo = 'CIP = ((' + string(pres) + ' * ' + string(Coef) + ' * ' + string(coef_aux) + ') / 10000) * ' + string(cc)
+			minimo_formula = (Pres * Coef * Coef_aux * 0.0001) + (13.15 ) * cc
+			cip = max(cip, minimo_formula)
+			if (cip = minimo_formula) then
+				formula = 'CIP = (PEM * ' + 'Coef. C'+ ' * ' + 'Coef. adicional' + ' * 0.0001) + (13.15 ) * Cc'
+				desarrollo = 'CIP = (' + string(Pres) + ' * ' + string(Coef) + ' * ' + string(Coef_aux) + ' * 0.0001) + (13.15 ) * ' + string(cc)
+			end if
+			if tipoact = '12' or tipoact = '15' then 
+				cip = cip * 0.3
+				formula += ' * 0.3'
+				desarrollo += ' * 0.3'
+			end if
+			if tipoact = '13' or tipoact = '16' then 
+				cip = cip * 0.7						
+				formula += ' * 0.7'
+				desarrollo += ' * 0.7'
+			end if
+			if tipoact <> '12' and tipoact <> '15' then 
+				formula_minimo = 'CIP = M$$HEX1$$ed00$$ENDHEX$$nimo * Cc'
+				desarrollo_minimo = 'CIP = ' + string(minimo) + ' * ' + string(cc)				
+				Minimo = Minimo * cc
+			else
+				formula_minimo = 'CIP = M$$HEX1$$ed00$$ENDHEX$$nimo'
+				desarrollo_minimo = 'CIP = ' + string(minimo)				
+			end if
+			If cip < Minimo Then
+				cip = Minimo
+				AplicadoMinimo = "S"
+				formula = formula_minimo
+				desarrollo = desarrollo_minimo
+			End if					
+//		end if
+		if isnull(estructura) or pres=0 or sup=0 then
+			mensaje= 'Debe introducir el presupuesto, la superfice y si afecta a estructura la reforma'
+		end if	
+	CASE 'A164'
+		SELECT coef INTO :Coef FROM cip_tablas WHERE desde < :Pres AND hasta >= :Pres AND tarifa = :Tarifa;
+		cip = ((Pres * Coef) / 10000) * cc
+		formula = 'CIP = ((PEM * ' + string(Coef) + ') / 10000) * Cc'
+		desarrollo = 'CIP = ((' + string(Pres) + ' * ' + string(Coef) + ') / 10000) * ' + string(cc)
+		if tipoact = '12' or tipoact = '15' then 
+			cip = cip * 0.7
+			formula += ' * 0.7'
+			desarrollo += ' * 0.7'
+		end if
+		if tipoact = '14' or tipoact = '17' or tipoact = '13' or tipoact = '16' then 
+			cip = cip * 0.3		
+			formula += ' * 0.3'
+			desarrollo += ' * 0.3'
+		end if
+		if tipoact <> '12' and tipoact <> '15' then 
+			formula_minimo = 'CIP = M$$HEX1$$ed00$$ENDHEX$$nimo * Cc'
+			desarrollo_minimo = 'CIP = ' + string(Minimo) + ' * ' + string(cc)
+			Minimo = Minimo * cc
+			minimo = max(minimo, 24.04)
+		else
+			formula_minimo = 'CIP = M$$HEX1$$ed00$$ENDHEX$$nimo'
+			desarrollo_minimo = 'CIP = ' + string(Minimo)
+		end if
+		if  pres = 0 then
+			mensaje= 'Debe introducir el presupuesto'
+		end if			
+		If cip < Minimo Then 
+			cip = Minimo
+			AplicadoMinimo = "S"
+			formula = formula_minimo
+			desarrollo = desarrollo_minimo 
+		End if
+	CASE 'A22' //***************OK
+		SELECT coef INTO :Coef FROM cip_tablas WHERE desde < :Pres AND hasta >= :Pres AND tarifa = :Tarifa;
+		cip = Pres * (Coef/100) * coef_aux * cc 
+		formula = 'CIP = PEM * (' + 'Coef. C' + '/ 100) * ' + 'Coef. CC' + ' * Cc'
+		desarrollo = 'CIP = ' + string(Pres) + ' * (' + string(Coef) + '/ 100) * ' + string(coef_aux) + ' * ' + string(cc)
+		if  pres = 0 then
+			mensaje= 'Debe introducir el presupuesto'
+		end if
+		if tipoact = '02' then
+			if f_es_vacio(id_fase) and f_es_vacio(id_expedi) then
+				if messagebox(g_titulo, "$$HEX1$$bf00$$ENDHEX$$Va acompa$$HEX1$$f100$$ENDHEX$$ado de proyecto?", question!, yesno!) = 1 then minimo = 10
+			else
+				if not f_fases_primera_actuacion(id_expedi, id_fase) then minimo = 10
+			end if
+		end if
+		If cip < Minimo Then 
+			cip = Minimo
+			AplicadoMinimo = "S"
+			formula = formula_minimo
+			desarrollo = desarrollo_minimo
+		End if				
+	CASE 'C1'//***************OK
+		cip = long_per * 0.34 * cc 
+		formula = 'CIP = Longitud Perimetral * 0.34 * Cc'
+		desarrollo = 'CIP = ' + string(long_per) + ' * 0.34 * ' + string(cc)
+		if  long_per = 0 then
+			mensaje= 'Debe introducir la longitud del per$$HEX1$$ed00$$ENDHEX$$metro'
+		end if			
+		If cip < Minimo Then 
+			cip= Minimo
+			AplicadoMinimo = "S"
+			formula = formula_minimo
+			desarrollo = desarrollo_minimo
+		End if
+	CASE 'C2'//***************OK
+		cip = minimo
+		formula = formula_minimo
+		desarrollo = desarrollo_minimo
+	CASE 'C3'//***************OK
+		cip = pres * 0.5 /100 * cc 
+		formula = 'CIP = PEM * 0.5 / 100 * Cc'
+		desarrollo = 'CIP = ' + string(pres) + ' * 0.5 / 100 * ' + string(cc)
+		if  pres = 0 then
+			mensaje= 'Debe introducir el presupuesto'
+		end if			
+		If cip < Minimo Then 
+			cip = Minimo
+			AplicadoMinimo = "S"
+			formula = formula_minimo
+			desarrollo = desarrollo_minimo
+		End if
+	CASE 'C4'//***************OK
+		cip = minimo
+		formula = formula_minimo
+		desarrollo = desarrollo_minimo
+	CASE 'C5'//***************OK
+		cip = minimo
+		formula = formula_minimo
+		desarrollo = desarrollo_minimo
+	CASE 'C6'//***************OK
+
+		cip = minimo
+		formula = formula_minimo
+		desarrollo = desarrollo_minimo
+	CASE 'C7'//***************OK
+		cip = vol_tierras * 0.03 * cc
+		formula = 'CIP = Volumen Tierras * 0.03 * Cc'
+		desarrollo = 'CIP = ' + string(vol_tierras) + ' * 0.03 * ' + string(cc)
+		if  vol_tierras = 0 then
+			mensaje= 'Debe introducir el volumen de tierras'
+		end if			
+		If cip < Minimo Then
+			cip = Minimo
+			AplicadoMinimo = "S"
+			formula = formula_minimo
+			desarrollo = desarrollo_minimo
+		End if
+	CASE 'C8'//***************OK
+		if sup <= 125  then
+			cip = (sup*0.15*cc) + 21.04
+			formula = 'CIP = (Superficie * 0.15 * Cc) + 21.04'
+			desarrollo = 'CIP = (' + string(sup) + ' * 0.15 * ' + string(cc) + ') + 21.04'
+		else
+			cip = sup*0.26*cc
+			formula = 'CIP = (Superficie * 0.26 * Cc)'
+			desarrollo = 'CIP = (' + string(sup) + ' * 0.26 * ' + string(cc) + ')'
+		end if
+		if  sup = 0 then
+			mensaje= 'Debe introducir la superficie'
+		end if			
+		If cip < Minimo Then
+			cip = Minimo
+			AplicadoMinimo = "S"
+			formula = formula_minimo
+			desarrollo = desarrollo_minimo
+		End if
+	CASE 'C9'//***************OK
+		if sup <= 225  then
+			cip = (sup*0.08+15.03) * cc
+			formula = 'CIP = (Superficie * 0.08 * 15.03) * Cc'
+			desarrollo = 'CIP = (' + string(sup) + ' * 0.15 * 15.03) +' + string(cc)
+		else
+			cip = (sup*0.13+3.19) * cc
+			formula = 'CIP = (Superficie * 0.13 * 3.19) * Cc'
+			desarrollo = 'CIP = (' + string(sup) + ' * 0.13 * 3.19) *' + string(cc)
+		end if
+		if  sup = 0 then
+			mensaje= 'Debe introducir la superficie'
+		end if			
+		If cip < Minimo Then
+			cip = Minimo
+			AplicadoMinimo = "S"
+			formula = formula_minimo
+			desarrollo = desarrollo_minimo	
+		End if
+	CASE 'C0','C00'//***************OK
+		cip = minimo
+		formula = formula_minimo
+		desarrollo = desarrollo_minimo
+	CASE ELSE
+		mensaje = 'Esta combinaci$$HEX1$$f300$$ENDHEX$$n de tipo de intervenci$$HEX1$$f300$$ENDHEX$$n y tipo de obra no tiene Cuota de Intervenci$$HEX1$$f300$$ENDHEX$$n Profesional'
+	END CHOOSE
+	
+
+If mensaje <> '' Then
+	MessageBox(g_titulo,mensaje,StopSign!,OK!,1)
+//	MessageBox(g_titulo,'Esta tarifa no tiene Cuota de Intervenci$$HEX1$$f300$$ENDHEX$$n Profesional o faltan par$$HEX1$$e100$$ENDHEX$$metros por introducir',StopSign!,OK!,1)
+//	return -1
+End if
+//st_cip_datos.hon_teor =  f_redondea(honorarios)
+st_cip_datos.cip =  f_redondea(cip )
+st_cip_datos.aplicar_fijo = aplicadominimo
+st_cip_datos.importe_minimo = minimo
+st_cip_datos.tarifa = tarifa
+st_cip_datos.formula = formula
+st_cip_datos.desarrollo = desarrollo
+return 1
+end function
+

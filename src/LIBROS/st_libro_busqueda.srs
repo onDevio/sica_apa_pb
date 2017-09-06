@@ -1,0 +1,18 @@
+HA$PBExportHeader$st_libro_busqueda.srs
+global type st_libro_busqueda from structure
+	string		n_registro
+	string		n_colegiado
+	string		titulo
+	string		autor
+	string		materias
+	string		isbn
+	datetime		f_prestamo_desde
+	datetime		f_devolucion_real_desde
+	radiobutton		prestado
+	datetime		f_prestamo_hasta
+	datetime		f_devolucion_real_hasta
+	string		id_libro
+	string		id_prestamo
+	string		opcion
+end type
+

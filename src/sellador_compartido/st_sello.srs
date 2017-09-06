@@ -1,0 +1,39 @@
+HA$PBExportHeader$st_sello.srs
+global type st_sello from structure
+	string		fichero
+	integer		postop
+	integer		posleft
+	string		id_fase
+	string		color
+	string		texto1
+	string		texto2
+	string		texto3
+	string		texto4
+	string		texto5
+	string		texto6
+	string		tipo
+	string		color1
+	string		color2
+	string		color3
+	string		color4
+	string		color5
+	string		color6
+	string		codigo1
+	string		codigo2
+	string		codigo3
+	string		codigo4
+	string		codigo5
+	string		error
+	string		posicion
+	decimal { 2 }		x
+	decimal { 2 }		y
+	decimal { 2 }		margen_v
+	decimal { 2 }		margen_h
+	string		fichero_salida
+	datawindow		dw_textos_sello
+	long		ancho
+	long		alto
+	long		rotacion
+	datetime		f_visado
+end type
+

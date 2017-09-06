@@ -1,0 +1,8 @@
+HA$PBExportHeader$st_caja_salidas.srs
+global type st_caja_salidas from structure
+	string		centro
+	datetime		fecha
+	string		id
+	string		listado
+end type
+

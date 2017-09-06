@@ -1,0 +1,18 @@
+HA$PBExportHeader$d_siniestros_fases_incidencias.srd
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=68 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=64 color="536870912" )
+table(column=(type=char(10) update=yes updatewhereclause=yes key=yes name=id_incidencia dbname="fases_siniestros_incidencias.id_incidencia" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=id_siniestro dbname="fases_siniestros_incidencias.id_siniestro" )
+ column=(type=datetime update=yes updatewhereclause=yes name=fecha_incidencia dbname="fases_siniestros_incidencias.fecha_incidencia" )
+ column=(type=char(32763) update=yes updatewhereclause=no name=descripcion dbname="fases_siniestros_incidencias.descripcion" )
+ retrieve="PBSELECT( VERSION(400) TABLE(NAME=~"fases_siniestros_incidencias~" ) COLUMN(NAME=~"fases_siniestros_incidencias.id_incidencia~") COLUMN(NAME=~"fases_siniestros_incidencias.id_siniestro~") COLUMN(NAME=~"fases_siniestros_incidencias.fecha_incidencia~") COLUMN(NAME=~"fases_siniestros_incidencias.descripcion~")WHERE(    EXP1 =~"fases_siniestros_incidencias.id_siniestro~"   OP =~"=~"    EXP2 =~":id_siniestro~" ) ) ARG(NAME = ~"id_siniestro~" TYPE = string) " update="fases_siniestros_incidencias" updatewhere=1 updatekeyinplace=no arguments=(("id_siniestro", string)) )
+text(band=header alignment="2" text="Fecha Incidencia" border="6" color="0" x="9" y="8" height="52" width="453"  name=fecha_incidencia_t  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="80269524" )
+text(band=header alignment="2" text="Descripci$$HEX1$$f300$$ENDHEX$$n Incidencia" border="6" color="0" x="480" y="8" height="52" width="2962"  name=descripcion_t  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="80269524" )
+column(band=detail id=3 alignment="0" tabsequence=30 border="5" color="0" x="9" y="4" height="56" width="453" format="dd/mm/yyyy"  name=fecha_incidencia  tag=" " edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no edit.nilisnull=yes edit.autohscroll=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=40 border="5" color="0" x="480" y="4" height="56" width="2962" format="[general]"  name=descripcion  tag=" " edit.limit=32000 edit.case=any edit.focusrectangle=no edit.autoselect=no edit.nilisnull=yes edit.autohscroll=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

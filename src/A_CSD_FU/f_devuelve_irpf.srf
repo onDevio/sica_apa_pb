@@ -1,0 +1,11 @@
+HA$PBExportHeader$f_devuelve_irpf.srf
+global type f_devuelve_irpf from function_object
+end type
+
+forward prototypes
+global function string f_devuelve_irpf ()
+end prototypes
+
+global function string f_devuelve_irpf ();return string(g_irpf_por_defecto)
+end function
+

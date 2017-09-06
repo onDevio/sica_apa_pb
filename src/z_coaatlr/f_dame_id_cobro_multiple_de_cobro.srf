@@ -1,0 +1,21 @@
+HA$PBExportHeader$f_dame_id_cobro_multiple_de_cobro.srf
+global type f_dame_id_cobro_multiple_de_cobro from function_object
+end type
+
+forward prototypes
+global function string f_dame_id_cobro_multiple_de_cobro (string id_cobro)
+end prototypes
+
+global function string f_dame_id_cobro_multiple_de_cobro (string id_cobro);// funcion que devuyelve el identificador del cobro multiple
+string id_cobro_multiple
+
+// cogemos el id del cobro multiple
+SELECT id_cobro_multiple into :id_cobro_multiple from csi_cobros where id_pago = :id_cobro;
+	
+//	evitamos el nulo
+if isnull(id_cobro_multiple) then id_cobro_multiple = ''
+
+
+return id_cobro_multiple
+end function
+

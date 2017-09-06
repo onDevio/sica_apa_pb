@@ -1,0 +1,26 @@
+HA$PBExportHeader$f_devuelve_dir_relativa.srf
+global type f_devuelve_dir_relativa from function_object
+end type
+
+forward prototypes
+global function string f_devuelve_dir_relativa (string direccion_absoluta)
+end prototypes
+
+global function string f_devuelve_dir_relativa (string direccion_absoluta);//Funcion que dada una direccion del tipo "C:\icav\fotos\logo.bmp"
+//devuelve la direccion relativa logo.bmp
+string direccion_relativa
+int pos_anterior_barra,pos_barra
+pos_anterior_barra = 0
+pos_barra = PosA(direccion_absoluta,'\',1)	
+DO UNTIL  pos_anterior_barra >= LenA(direccion_absoluta)
+	direccion_relativa = MidA(direccion_absoluta,pos_anterior_barra+1,(pos_barra - pos_anterior_barra)-1)
+	pos_anterior_barra = pos_barra
+	pos_barra = PosA(direccion_absoluta,'\',pos_anterior_barra + 1)
+	if pos_barra = 0 then
+		direccion_relativa = MidA(direccion_absoluta,pos_anterior_barra+1,LenA(direccion_absoluta))		
+		return direccion_relativa
+	end if
+LOOP
+return direccion_relativa
+end function
+

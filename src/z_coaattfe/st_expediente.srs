@@ -1,0 +1,25 @@
+HA$PBExportHeader$st_expediente.srs
+global type st_expediente from structure
+	string		id_fase
+	string		tipo_trabajo
+	string		trabajo
+	string		num_exp
+	string		tipo_actuacion
+	string		emplazamiento
+	string		descripcion
+	double		honorarios
+	double		cip
+	double		iva
+	string		n_visado
+	string		tipo_act
+	string		tipo_obra
+	double		pem
+	double		pto_contrato
+	string		administracion
+	double		superficie
+	double		volumen
+	string		observaciones
+	double		musaat_total
+	string		num_reg
+end type
+

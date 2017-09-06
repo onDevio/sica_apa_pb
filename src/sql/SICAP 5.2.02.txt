@@ -1,0 +1,13 @@
+// SCP-928. Para los colegios catalanes(que tienen la tabla messages_ca). Alexis.
+
+insert into messages_ca values('general.n_doc', 'Nº document', 'general', 'n_doc');
+insert into messages_ca values('liquidaciones.f_liquidacion', 'Data liquidació', 'liquidaciones', 'f_liquidacion');
+insert into messages_ca values('liquidaciones.n_liquidacion', 'Nº liquidació', 'liquidaciones', 'n_liquidacion');
+
+
+//Se actualiza la fecha de versión
+update var_globales set texto='20110201', descripcion = 'versión v5.2.02' where nombre='g_version_minima';
+
+
+//SCP-1014. Correción en el formato del nº de renuncia.
+UPDATE t_control_eventos SET param1='aa-nnnnnnn' WHERE control = 'NUMERO_RENUNCIA' and evento = 'NUMERO_RENUNCIA';

@@ -1,0 +1,206 @@
+HA$PBExportHeader$f_ps_sellar_coapagui_rotado_textos.srf
+global type f_ps_sellar_coapagui_rotado_textos from function_object
+end type
+
+forward prototypes
+global subroutine f_ps_sellar_coapagui_rotado_textos (st_sello sello)
+end prototypes
+
+global subroutine f_ps_sellar_coapagui_rotado_textos (st_sello sello);//Esta funcion tiene como entradas el nombre del fichero pdf, la posicion (top y left) 
+//desde donde se referencian todas las demas 
+string fichero_pdf, posicion, rotado
+n_escritor_pdf sellador
+string imagen = g_dir_aplicacion + "sello_logo.jpg"
+//double x_ini = 0.3, y_ini = 1.2
+double x_ini = 0.5, y_ini = 0
+double x, y
+integer r,g,b
+long alto_sello, ancho_sello
+double margen_v, margen_h
+
+sellador = create n_escritor_pdf
+
+// Color 
+r = 0
+g = 0
+b = 0
+
+//SE DESPLAZAN TODOS LOS inserta_xxx 9 cm en el eje vertical para que el ajuste se realice mediante las
+//opciones avanzadas en lugar de codigo fuente
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////// CAMPOS EXTERNOS ///////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////
+
+string fase_corta, n_expediente, n_registro, sl_f_entrada, sl_f_visado
+string num_doc, id_fase, nombre, nombre1, nombre2, nombre3, nombre4, id_col
+datetime f_visado,f_entrada
+integer i
+id_fase=sello.id_fase
+
+select fases.n_expedi into :n_expediente from fases where fases.id_fase= :id_fase;
+select fases.fase into :fase_corta from fases where fases.id_fase= :id_fase;
+n_expediente=n_expediente+"-"+fase_corta
+select fases.n_registro into :n_registro from fases where fases.id_fase= :id_fase;
+select fases.f_entrada into :f_entrada from fases where fases.id_fase= :id_fase;
+select fases.f_visado into :f_visado from fases where fases.id_fase= :id_fase;
+num_doc=f_ps_generar_sig_num_doc_visared(id_fase,n_registro)
+g_st_sellado_visared_consulta.n_documento=num_doc
+
+if f_es_vacio(n_expediente) then n_expediente = ''
+if f_es_vacio(n_registro) then n_registro = ''
+
+sl_f_entrada = string(f_entrada,"dd/mm/yy") 
+//sl_f_visado = string(f_visado,"dd/mm/yy") // LUIS 5/5/2005: Leire pidi$$HEX2$$f3002000$$ENDHEX$$que se sellara con la fecha del dia en vez de con la fecha de visado de la fase
+sl_f_visado = string(datetime(today()),"dd/mm/yy")
+if f_es_vacio(sl_f_entrada) then sl_f_entrada = '01/01/1990'
+if f_es_vacio(sl_f_visado) then sl_f_visado = '01/01/1990'
+if isnull(num_doc) then num_doc=''
+
+//para los nombres de los colegiados, recogemos el n_col, el
+datastore ds_nombre
+ds_nombre	= create datastore
+ds_nombre.dataObject = 'd_fases_colegiados'
+ds_nombre.SetTransObject(SQLCA)
+ds_nombre.retrieve(id_fase)
+for i=1 to ds_nombre.rowcount()
+	id_col=ds_nombre.getitemString(i,'id_col')
+	nombre=f_colegiado_ncol_nombre_apellido(id_col)
+	if isnull(nombre) then
+		nombre=""
+	else
+		if i=1 then
+			nombre1=nombre
+		elseif i=2 then
+			nombre2=nombre
+		elseif i=3 then
+			nombre3=nombre
+		elseif i=4 then
+			nombre4=nombre
+		end if
+	end if
+next 
+//////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////// INICIALIZACI$$HEX1$$d300$$ENDHEX$$N ////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////
+
+fichero_pdf = sello.fichero
+posicion = sello.posicion
+rotado = "S"
+// Posicion libre
+x = sello.x
+y = sello.y
+// Margenes
+margen_v = sello.margen_v
+margen_h = sello.margen_h
+sellador.i_fichero_pdf_salida = sello.fichero_salida
+
+if sellador.f_abrir_fichero_sello(fichero_pdf) > 0 then
+  
+ sellador.f_margenes("2",0,0,0,0)
+ 
+ // Tama$$HEX1$$f100$$ENDHEX$$o del sello
+// ancho_sello = 28
+// alto_sello = 1.4
+ ancho_sello = 9
+ alto_sello = 1.4
+ 
+sellador.f_calculo_coordenadas_iniciales(posicion,ancho_sello,alto_sello,margen_v,margen_h,x,y,rotado)
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////// TEXTOS ////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////
+    
+string  texto_colegio, texto_colegio_2, linea_visado, linea_visado_2, linea_visado_3, linea_visado_4
+
+////Texto colegio
+//texto_colegio = "GIPUZKOAKO  APAREJADORE  ETA  ARKITEKTO  TEKNIKOEN  ELKARGO  OFIZIALA"
+//texto_colegio_2 = "COLEGIO  OFICIAL  DE  APAREJADORES  Y  ARQUITECTOS  T$$HEX1$$c900$$ENDHEX$$CNICOS  DE  GIPUZKOA"
+//sellador.f_inserta_texto(x_ini+0.5,y_ini+10,90,texto_colegio,5,r,g,b,"Arial","Left")
+//sellador.f_inserta_texto(x_ini+0.8,y_ini+10,90,texto_colegio_2,5,r,g,b,"Arial","Left")
+
+//VISADO
+linea_visado = "visado - bisatua"
+//Se cambio n_registro por n_expediente por peticion de GUIPUZKOA
+//Lucas 16-11-2004
+//linea_visado_2 = string (n_registro) 
+linea_visado_2 = string (n_expediente)
+linea_visado_3 = string (sl_f_visado)
+linea_visado_4 = "p$$HEX1$$e100$$ENDHEX$$gs. %1g-%G orriald."
+sellador.f_inserta_texto(x_ini+0,y_ini+1,90,linea_visado,12,150,150,150,"Arial","Left")
+sellador.f_inserta_texto(x_ini+0,y_ini+4.25,90,linea_visado_2,7,r,g,b,"Arial","Left")
+sellador.f_inserta_texto(x_ini+0,y_ini+5.8,90,linea_visado_3,7,r,g,b,"Arial","Left")
+sellador.f_inserta_texto(x_ini+0,y_ini+7.05,90,linea_visado_4,7,r,g,b,"Arial","Left")
+
+//textos externos
+int k,tammax,tamtexto,l,fin,diftam
+string color,texto,textoaux,resto,codigo,activo
+real numlin
+numlin = 0
+for k=1 to sello.dw_textos_sello.rowcount() //este for recorre los textos
+	activo = sello.dw_textos_sello.getitemstring(k,'activo')
+	if activo ='N' then continue
+	color=sello.dw_textos_sello.getitemstring(k,'color')
+	codigo=sello.dw_textos_sello.getitemstring(k,'codigo')
+	textoaux = sello.dw_textos_sello.getitemstring(k,'texto')
+	fin=0
+	do while fin=0 //este while recorre las lineas de cada texto
+		tamtexto=LenA(textoaux)
+		tammax=PosA(textoaux,"#")-1
+		diftam=tamtexto - tammax
+		if tammax<>-1 then
+			//el texto se va a dividir
+			texto=MidA(textoaux,0,tammax)
+			resto=MidA(textoaux,tammax+4,diftam)
+			textoaux=resto
+		else
+			fin=1
+			texto=MidA(textoaux,0,tamtexto)
+		end if
+		sellador.f_inserta_texto(x_ini + 0 + numlin,y_ini + 9.5,90,texto,4,r,g,b,"Arialbl","Left")
+		numlin = numlin + 0.2
+	loop	
+next
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////// IM$$HEX1$$c100$$ENDHEX$$GENES //////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////
+
+//// linea larga
+//sellador.f_inserta_simbolo(x_ini+0.1,y_ini+1,90,1,8.4,150,150,150,"_","Arial","Left")
+//
+//// imagen del logo
+//sellador.f_inserta_imagen(x_ini+0.9,y_ini,90,"logo_coapagui.jpg",0.27,"Left")
+//
+//// imagen texto colegio
+//sellador.f_inserta_imagen(x_ini+0.9,y_ini+1,90,"cuadro_coapagui.jpg",0.33,"Left")
+//
+//////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////
+
+// Fin 
+sellador.f_estampa_sello_nt()
+
+end if
+//-----Fin sello
+
+
+
+end subroutine
+

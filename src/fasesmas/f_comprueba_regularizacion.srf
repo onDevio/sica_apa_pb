@@ -1,0 +1,26 @@
+HA$PBExportHeader$f_comprueba_regularizacion.srf
+global type f_comprueba_regularizacion from function_object
+end type
+
+forward prototypes
+global function boolean f_comprueba_regularizacion (string id_fase)
+end prototypes
+
+global function boolean f_comprueba_regularizacion (string id_fase);boolean op
+string id, col
+
+op=false
+setnull(id)
+
+SELECT musaat_movimientos.id_movimiento  
+INTO :id  
+FROM musaat_movimientos  
+WHERE musaat_movimientos.t_visado = '2'   and
+		musaat_movimientos.id_fase = :id_fase ;
+
+if not f_es_vacio(id) then op=true
+
+return op
+
+end function
+

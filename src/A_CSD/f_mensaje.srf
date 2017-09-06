@@ -1,0 +1,16 @@
+HA$PBExportHeader$f_mensaje.srf
+global type f_mensaje from function_object
+end type
+
+forward prototypes
+global subroutine f_mensaje (string titulo, string mensaje)
+end prototypes
+
+global subroutine f_mensaje (string titulo, string mensaje);st_ventana_mensaje datos
+
+datos.mensaje = mensaje
+datos.titulo_ventana = titulo
+
+OpenWithParm(w_mensaje,datos)
+end subroutine
+

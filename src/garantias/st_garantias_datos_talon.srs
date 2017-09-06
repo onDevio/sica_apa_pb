@@ -1,0 +1,10 @@
+HA$PBExportHeader$st_garantias_datos_talon.srs
+global type st_garantias_datos_talon from structure
+	string		n_talon_inicial
+	datetime		fecha_talon
+	string		banco
+	string		destinatario
+	datetime		f_vencimiento
+	string		texto_manual
+end type
+

@@ -1,0 +1,94 @@
+HA$PBExportHeader$f_control_eventos_parametriza_dw.srf
+global type f_control_eventos_parametriza_dw from function_object
+end type
+
+forward prototypes
+global function datawindow f_control_eventos_parametriza_dw (datawindow dw, string campo_modificado)
+end prototypes
+
+global function datawindow f_control_eventos_parametriza_dw (datawindow dw, string campo_modificado);//Par$$HEX1$$e100$$ENDHEX$$metros:
+//		dw  	: datawindow que queremos modificar
+//		
+int i
+string nombre_dw,campo1,valor1,campo2,valor2,operador,campo_dest,valor_dest
+string c1,c2,tipo1,tipo2,tipo_dest,op1,op2,propiedad
+boolean cond1,cond2,cond
+datastore parametriza_dw
+
+//Esta funci$$HEX1$$f300$$ENDHEX$$n modifica, oculta o deshabilita campos en el dw dependiendo de otros valores que tenga el dw en
+//el momento de ejecutar esta funci$$HEX1$$f300$$ENDHEX$$n.
+//Estos valores est$$HEX1$$e100$$ENDHEX$$n parametrizados en la tabla 'parametriza_dw'
+
+nombre_dw = dw.dataobject
+parametriza_dw = create datastore
+if campo_modificado='%' then
+	//Esta opci$$HEX1$$f300$$ENDHEX$$n es cuando la funci$$HEX1$$f300$$ENDHEX$$n se llama desde 1 evento 'retrieveend'
+	parametriza_dw.dataobject = 'd_control_eventos_parametriza_open'
+	parametriza_dw.SetTransObject(SQLCA)
+	parametriza_dw.Retrieve(nombre_dw)
+else
+	//Esta opci$$HEX1$$f300$$ENDHEX$$n se elige cuando la funci$$HEX1$$f300$$ENDHEX$$n se llama desde 1 'Itemchanged'
+	parametriza_dw.dataobject = 'd_control_eventos_parametriza_dw'
+	parametriza_dw.SetTransObject(SQLCA)
+	//Se recuperan solo las lineas en las que interviene el campo modificado
+	parametriza_dw.Retrieve(nombre_dw,campo_modificado)
+end if
+
+
+//Analizamos todas las reglas activas existentes para ese DW
+for i=1 to parametriza_dw.RowCount()
+	campo1 = parametriza_dw.GetItemString(i,'campo1')
+	campo2 = parametriza_dw.GetItemString(i,'campo2')
+	op1 	=	parametriza_dw.GetItemString(i,'op1')
+	op2 = parametriza_dw.GetItemString(i,'op2')
+	valor1 = parametriza_dw.GetItemString(i,'valor1')
+	valor2 = parametriza_dw.GetItemString(i,'valor2')
+	operador= parametriza_dw.GetItemString(i,'operador')
+	campo_dest = parametriza_dw.GetItemString(i,'campo_dest')
+	valor_dest= parametriza_dw.GetItemString(i,'valor_dest')
+	propiedad = parametriza_dw.GetItemString(i,'propiedad')
+	
+	//En c1 y c2 guardamos los valores que tiene el dw en esos campos
+	c1 = dw.GetItemString(dw.GetRow(),campo1)
+	if not(f_es_vacio(campo2)) then c2 = dw.GetItemString(dw.GetRow(),campo2)	
+	if f_es_vacio(c2) then c2=''
+	//Seg$$HEX1$$fa00$$ENDHEX$$n op1 -> '='   o    op1 ->'<>'
+	if op1='=' then
+		cond1= (valor1 = c1 )
+	else
+		cond1= (valor1 <> c1)
+	end if
+	if op2 ='=' then
+		cond2= (valor2 = c2 )
+	else
+		cond2= (valor2 <> c2)
+	end if
+		
+	//Si no hubiera nada en el 2$$HEX2$$ba002000$$ENDHEX$$campo solo tendr$$HEX1$$ed00$$ENDHEX$$amos en cuenta la primera condici$$HEX1$$f300$$ENDHEX$$n...
+	if f_es_vacio(campo2) or f_es_vacio(valor2) then cond2=true
+	
+	if f_es_vacio(operador) then operador = 'AND'
+	if operador = 'AND' or operador='and' then cond = cond1 and cond2
+	if operador = 'OR' or operador= 'or' then cond = cond1 or cond2
+	
+	if cond=false then continue
+	
+	//Si la propiedad es 'VALOR' significa que queremos modificar el valor del campo
+	//Sino es que queremos modificar una propiedad
+	string regla
+	if propiedad<>'VALOR' then	
+		regla=campo_dest+propiedad+"="+valor_dest
+		dw.Modify(regla)
+		
+	else
+		dw.SetItem(dw.GetRow(),campo_dest,valor_dest)
+	end if	
+
+	
+next
+destroy parametriza_dw
+return dw
+
+
+end function
+

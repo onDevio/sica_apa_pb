@@ -1,0 +1,37 @@
+HA$PBExportHeader$f_siguiente_fact_rect_id_col.srf
+$PBExportComments$Devuelve el siguiente n$$HEX1$$fa00$$ENDHEX$$mero de factura rectificativa para el colegiado dado el id_col. y actualiza el contador
+global type f_siguiente_fact_rect_id_col from function_object
+end type
+
+forward prototypes
+global function string f_siguiente_fact_rect_id_col (string id_col, integer longitud)
+end prototypes
+
+global function string f_siguiente_fact_rect_id_col (string id_col, integer longitud);//f_colegiado (id_col : string)
+//	Devuelve el siguiente n$$HEX1$$fa00$$ENDHEX$$mero de factura Rectificariva para el colegiado dado el id_col.
+// 	y actualiza el contador
+
+double i
+string num_fact
+
+execute immediate 'BEGIN transaction';
+select ultima_factura_rectif 
+into :i
+from colegiados 
+where id_colegiado=:id_col;
+
+
+
+if IsNull(i) then i=0 else i=i+1
+if g_n_fact_automatico='S' then
+	update colegiados
+	set ultima_factura_rectif=:i
+	where id_colegiado=:id_col;
+
+	execute immediate 'COMMIT transaction';
+	COMMIT;
+end if
+return RightA('0000000000000000000000'+string(i),longitud)
+
+end function
+

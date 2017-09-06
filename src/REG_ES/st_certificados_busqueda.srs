@@ -1,0 +1,7 @@
+HA$PBExportHeader$st_certificados_busqueda.srs
+global type st_certificados_busqueda from structure
+	string		tipo_persona
+	string		departamento
+	datetime		fecha
+end type
+

@@ -1,0 +1,16 @@
+HA$PBExportHeader$d_cursos_encuesta_profesores_murcia.srd
+release 7;
+datawindow(units=0 timer_interval=0 color=1090519039 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=88 color="536870912" )
+table(column=(type=char(50) updatewhereclause=yes name=clientes_nombre dbname="clientes.nombre" )
+ column=(type=char(80) updatewhereclause=yes name=clientes_apellidos dbname="clientes.apellidos" )
+ retrieve="PBSELECT( VERSION(400) TABLE(NAME=~"formacion_ponente_curso~" )  TABLE(NAME=~"clientes~" ) COLUMN(NAME=~"clientes.nombre~") COLUMN(NAME=~"clientes.apellidos~")    JOIN (LEFT=~"formacion_ponente_curso.id_ponente~"    OP =~"=~"RIGHT=~"clientes.id_cliente~" )WHERE(    EXP1 =~"formacion_ponente_curso.id_curso~"   OP =~"=~"    EXP2 =~":id_curso~" ) ) ARG(NAME = ~"id_curso~" TYPE = string) " arguments=(("id_curso", string)) )
+column(band=detail id=1 alignment="1" tabsequence=32766 border="0" color="0" x="1970" y="120" height="76" width="709" format="[general]"  name=clientes_nombre edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="1" tabsequence=32766 border="0" color="0" x="2258" y="228" height="76" width="837" format="[general]"  name=clientes_apellidos edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="1" expression=" clientes_nombre +' '+ clientes_apellidos "border="0" color="0" x="87" y="4" height="76" width="1394" format="[GENERAL]"  name=compute_1  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="$$HEX2$$26202620$$ENDHEX$$.$$HEX6$$262026202620262026202620$$ENDHEX$$.$$HEX4$$2620262026202620$$ENDHEX$$........... " border="0" color="0" x="1481" y="4" height="76" width="969"  name=puntos_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+text(band=detail alignment="0" text="1  2  3  4  5 " border="0" color="0" x="2418" y="4" height="76" width="343"  name=escala_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

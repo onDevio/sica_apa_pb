@@ -1,0 +1,57 @@
+HA$PBExportHeader$f_calcular_tarifa_manten_coaatmca.srf
+global type f_calcular_tarifa_manten_coaatmca from function_object
+end type
+
+forward prototypes
+global subroutine f_calcular_tarifa_manten_coaatmca (ref st_calculo_dip st_manten)
+end prototypes
+
+global subroutine f_calcular_tarifa_manten_coaatmca (ref st_calculo_dip st_manten);n_calculo_cuota uo_cuota
+double dip,minimo,coef_c,coef_b,cc,c_min
+string formula,desarrollo,coef_c_,admon
+double pem,sup,porc_admon
+datetime fecha
+
+pem=st_manten.pem
+sup=st_manten.superficie
+fecha=st_manten.fecha
+admon = st_manten.admon
+select valor_double into :cc from coaatmca_coeficientes where codigo='cc' and f_validez_desde<=:fecha and f_validez_hasta>=:fecha;
+select valor_double into :c_min from coaatmca_coeficientes where codigo='c_min' and f_validez_desde<=:fecha and f_validez_hasta>=:fecha;
+select valor_double into :porc_admon from coaatmca_coeficientes where codigo='porc_admon' and f_validez_desde<=:fecha and f_validez_hasta>=:fecha;
+
+minimo = c_min * cc
+	
+	
+	
+// Coef C
+select coef_c into :coef_c_ from coaatmca_coef_c where rango_inf<=:sup and rango_sup>=:sup and tarifa='A' ;		
+coef_c=uo_cuota.f_calcular_expresion(coef_c_)
+coef_b= 0.3
+formula = '( PEM x Coef C x Coef. B x Cc / 10.000 x 0,05) '
+desarrollo = '( ' + string(PEM, '###,###,##0.00') + ' x ' + string(coef_c) + ' x ' + string(coef_b) + ' x '+string(cc) &
++ ' / 10.000 ) x 0.05'
+dip = (PEM*coef_c*coef_b*cc/10000)*0.05
+formula = '( PEM x Coef C x Coef. B x Cc / 10.000 x 0,05) '
+desarrollo = '( ' + string(PEM, '###,###,##0.00') + ' x ' + string(coef_c) + ' x ' + string(coef_b) + ' x '+string(cc) &
+		+ ' / 10.000 ) x 0.05'
+
+if dip<minimo then 
+	formula = string(c_min)+" x Cc"
+	desarrollo = string(c_min)+" x "+string(cc,'###,###,##0.00')	
+	dip = minimo			
+end if
+
+if admon='S' then
+	formula += ' x Coef. Obra Oficial '
+	desarrollo += ' x ' +string(porc_admon)
+	dip = dip * porc_admon					
+end if	
+
+st_manten.cip=round(dip,2)
+st_manten.formula=formula
+st_manten.desarrollo=desarrollo
+
+
+end subroutine
+

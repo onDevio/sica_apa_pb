@@ -1,0 +1,79 @@
+HA$PBExportHeader$d_sellador_documentos_firmas_gen.srd
+release 10.5;
+datawindow(units=0 timer_interval=0 color=16777215 processing=1 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes print.preview.outline=yes hidegrayline=no grid.lines=0 grid.columnmove=no selected.mouse=no )
+header(height=68 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=72 color="536870912" height.autosize=yes )
+table(column=(type=char(10) update=yes updatewhereclause=yes key=yes name=id_fichero dbname="fases_documentos_visared.id_fichero" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=id_fase dbname="fases_documentos_visared.id_fase" )
+ column=(type=char(100) update=yes updatewhereclause=yes name=nombre_fichero dbname="fases_documentos_visared.nombre_fichero" )
+ column=(type=char(255) update=yes updatewhereclause=yes name=ruta_fichero dbname="fases_documentos_visared.ruta_fichero" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=sellado dbname="fases_documentos_visared.sellado" values="	S/	N" )
+ column=(type=char(255) update=yes updatewhereclause=yes name=info_adicional dbname="fases_documentos_visared.info_adicional" )
+ column=(type=datetime update=yes updatewhereclause=yes name=fecha dbname="fases_documentos_visared.fecha" )
+ column=(type=datetime update=yes updatewhereclause=yes name=fecha_sellado dbname="fases_documentos_visared.fecha_sellado" )
+ column=(type=char(20) update=yes updatewhereclause=yes name=n_documento dbname="fases_documentos_visared.n_documento" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=visualizar_web dbname="fases_documentos_visared.visualizar_web" values="	S/	N" )
+ column=(type=long updatewhereclause=yes name=volteo dbname="volteo" )
+ column=(type=char(1) updatewhereclause=yes name=borrar dbname="borrar" )
+ column=(type=char(20) update=yes updatewhereclause=yes name=tamano dbname="fases_documentos_visared.tamano" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=firmado dbname="fases_documentos_visared.firmado" initial="R" values="Firma V$$HEX1$$e100$$ENDHEX$$lida	V/Firma no V$$HEX1$$e100$$ENDHEX$$lida	F/No revisado	R/No firmado	N/Error Firma	E/" )
+ column=(type=char(2) update=yes updatewhereclause=yes name=certificado_confianza dbname="fases_documentos_visared.certificado_confianza" initial="NR" values="V$$HEX1$$e100$$ENDHEX$$lidos	CV/No V$$HEX1$$e100$$ENDHEX$$lidos	NV/No Revisados	NR/" )
+ column=(type=char(2) update=yes updatewhereclause=yes name=tipo_documento dbname="fases_documentos_visared.tipo_documento" )
+ column=(type=char(255) updatewhereclause=yes name=ruta_base dbname="ruta_base" )
+ column=(type=char(1) updatewhereclause=yes name=nuevo dbname="nuevo" )
+ column=(type=char(1) updatewhereclause=yes name=imagen dbname="imagen" )
+ retrieve="  SELECT fases_documentos_visared.id_fichero,   
+         fases_documentos_visared.id_fase,   
+         fases_documentos_visared.nombre_fichero,   
+         fases_documentos_visared.ruta_fichero,   
+         fases_documentos_visared.sellado,   
+         fases_documentos_visared.info_adicional,   
+         fases_documentos_visared.fecha,   
+         fases_documentos_visared.fecha_sellado,   
+         fases_documentos_visared.n_documento,   
+         fases_documentos_visared.visualizar_web,   
+         0 as volteo,   
+         'N' as borrar,   
+         fases_documentos_visared.tamano,   
+         fases_documentos_visared.firmado,   
+         fases_documentos_visared.certificado_confianza,   
+         fases_documentos_visared.tipo_documento,
+		 convert(char(255),'') as ruta_base,
+		 'N' as nuevo,
+		'' as imagen
+    FROM fases_documentos_visared  
+   WHERE fases_documentos_visared.id_fase like :id_fase    
+" update="fases_documentos_visared" updatewhere=0 updatekeyinplace=no arguments=(("id_fase", string))  sort="nombre_fichero A " )
+column(band=detail id=14 alignment="2" tabsequence=32766 border="0" color="0" x="1435" y="4" height="60" width="169" format="[general]" html.valueishtml="0"  name=firmado visible="1~t0" ddlb.limit=0 ddlb.allowedit=no ddlb.case=any  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+text(band=header alignment="2" text="Tama$$HEX1$$f100$$ENDHEX$$o" border="6" color="0" x="1966" y="4" height="56" width="242" html.valueishtml="0"  name=tamano_t visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="80269524" )
+text(band=header alignment="2" text="Fichero" border="6" color="0" x="9" y="8" height="52" width="1417" html.valueishtml="0"  name=nombre_fichero_t visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="79741120" )
+text(band=header alignment="2" text="Firma" border="6" color="0" x="1435" y="8" height="52" width="169" html.valueishtml="0"  name=firmado_t visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="80269524" )
+text(band=header alignment="2" text="Datos" border="6" color="0" x="1815" y="8" height="52" width="142" html.valueishtml="0"  name=t_2 visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="80269524" )
+text(band=header alignment="2" text="Cert." border="6" color="0" x="1614" y="4" height="56" width="192" html.valueishtml="0"  name=t_3 visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="80269524" )
+text(band=header alignment="0" text="" border="0" color="0" x="2217" y="4" height="76" width="160" html.valueishtml="0"  name=imagen_t visible="1"  font.face="Tahoma" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+column(band=detail id=15 alignment="0" tabsequence=32766 border="0" color="0" x="1614" y="4" height="56" width="192" format="[general]" html.valueishtml="0"  name=certificado_confianza visible="1~t0" ddlb.limit=0 ddlb.allowedit=no ddlb.case=any  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+bitmap(band=detail filename=".\imagenes\i.gif" x="1481" y="0" height="64" width="73" border="0"  name=p_3 visible="1~tif ( firmado = 'R',1,0)" )
+bitmap(band=detail filename=".\imagenes\x.gif" x="1669" y="4" height="64" width="73" border="0"  name=p_5 visible="1~tif ( certificado_confianza = 'NV',1,0)" )
+bitmap(band=detail filename=".\imagenes\i.gif" x="1669" y="0" height="64" width="73" border="0"  name=p_6 visible="1~tif( certificado_confianza  = 'NR',1,0)" )
+bitmap(band=detail filename=".\imagenes\v.gif" x="1669" y="4" height="64" width="73" border="0"  name=p_4 visible="1~tif ( certificado_confianza = 'CV',1,0)" )
+bitmap(band=detail filename=".\imagenes\v.gif" x="1486" y="4" height="64" width="73" border="0"  name=p_1 visible="1~tif ( firmado = 'V',1,0)" )
+bitmap(band=detail filename=".\imagenes\x.gif" x="1486" y="4" height="64" width="73" border="0"  name=p_2 visible="1~tif ( firmado = 'F' or  firmado = 'N' or firmado = 'E',1,0)" )
+compute(band=detail alignment="0" expression="''"border="0" color="0" x="1815" y="8" height="52" width="142" format="[GENERAL]" html.valueishtml="0"  name=compute_1 visible="1~t0"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+column(band=detail id=13 alignment="0" tabsequence=32766 border="0" color="0" x="1966" y="4" height="60" width="242" format="[general]" html.valueishtml="0"  name=tamano visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="9" y="4" height="60" width="1417" format="[general]" html.valueishtml="0"  name=nombre_fichero visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no edit.nilisnull=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+button(band=detail text="+" filename="" enabled=yes action="0" border="0" color="0" x="1842" y="0" height="68" width="87" vtextalign="0" htextalign="0"  name=b_firmas visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="67108864" )
+column(band=detail id=19 alignment="0" tabsequence=32766 border="0" color="0" x="2222" y="0" height="52" width="155" format="[general]" html.valueishtml="0"  name=imagen visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+bitmap(band=detail filename="imagenes\viewmag+.gif" x="2263" y="4" height="64" width="73" border="0"  name=p_previsualizar visible="1~tif(right(lower(nombre_fichero),4)='.pdf',1,0)" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" pagingmethod=0 generatedddwframes="1" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()
+ 

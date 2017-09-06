@@ -1,0 +1,13 @@
+HA$PBExportHeader$f_busqueda_terceros.srf
+global type f_busqueda_terceros from function_object
+end type
+
+forward prototypes
+global function string f_busqueda_terceros (string t_tercero)
+end prototypes
+
+global function string f_busqueda_terceros (string t_tercero);Openwithparm(w_busqueda_terceros, t_tercero)
+return Message.StringParm
+
+end function
+

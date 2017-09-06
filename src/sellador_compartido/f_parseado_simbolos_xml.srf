@@ -1,0 +1,44 @@
+HA$PBExportHeader$f_parseado_simbolos_xml.srf
+global type f_parseado_simbolos_xml from function_object
+end type
+
+forward prototypes
+global function string f_parseado_simbolos_xml (string cadena)
+end prototypes
+
+global function string f_parseado_simbolos_xml (string cadena);// S$$HEX1$$ed00$$ENDHEX$$mbolos reservados JAVA
+// <  &lt;  
+// &  &amp;  
+// >  &gt;  
+// "  &quot;  
+// '  &apos;  
+//
+
+long posicion,longitud
+string caracter
+
+for posicion=1 to LenA(cadena)
+	caracter=MidA(cadena,posicion,1)
+	choose case caracter
+		case '&'
+			cadena=ReplaceA(cadena,posicion,1,"&amp;")
+			posicion=posicion + 4
+		case '>'
+			cadena=ReplaceA(cadena,posicion,1,"&gt;")
+			posicion=posicion + 3			
+		case '<'	
+			cadena=ReplaceA(cadena,posicion,1,"&lt;")
+			posicion=posicion + 3			
+		case '"'	
+			cadena=ReplaceA(cadena,posicion,1,"&quot;")
+			posicion=posicion + 5			
+		case "'"	
+			cadena=ReplaceA(cadena,posicion,1,"&apos;")			
+			posicion=posicion + 5			
+	end choose
+	
+next
+
+return cadena
+end function
+

@@ -1,0 +1,296 @@
+HA$PBExportHeader$f_disco_biz_190.srf
+$PBExportComments$antigua versi$$HEX1$$f300$$ENDHEX$$n del certificado de ing-gas por cabecera
+global type f_disco_biz_190 from function_object
+end type
+
+forward prototypes
+global function datastore f_disco_biz_190 (datetime f_desde, datetime f_hasta, string n_col_desde, string n_col_hasta, window w_padre)
+end prototypes
+
+global function datastore f_disco_biz_190 (datetime f_desde, datetime f_hasta, string n_col_desde, string n_col_hasta, window w_padre);datastore ds_impreso, ds_inggas_colegiados
+string id_factura, id_col_act, id_col_ant
+double importe_reten, irpf_colegio
+double cont_col = 0, i
+double base_exenta = 0, base_sujeta = 0, base_imp = 0
+double col_importe_reten = 0, col_importe_irpf_colegio = 0, col_base_exenta = 0, col_base_sujeta = 0
+double fila_insertada
+double total_base_sujeta = 0, total_base_exenta = 0
+double total_reten_col = 0
+long posicion_progreso = 0
+
+ds_impreso = create datastore
+ds_impreso.dataobject = 'd_inggas_listado_disco190'
+ds_impreso.settransobject(sqlca)
+
+ds_inggas_colegiados = create datastore
+ds_inggas_colegiados.dataobject = 'd_inggas_colegiados'
+ds_inggas_colegiados.settransobject(sqlca)
+
+// Recorremos las facturas de honorarios
+ds_inggas_colegiados.retrieve(f_desde, f_hasta, n_col_desde, n_col_hasta)
+
+for i = 1 to ds_inggas_colegiados.rowcount()	
+	// Barra de prgreso en la ventana padre
+	posicion_progreso = ( i / ds_inggas_colegiados.rowcount() ) * 100
+	w_padre.dynamic event csd_avanza_progreso(posicion_progreso)
+	
+	id_factura = ds_inggas_colegiados.getitemstring(i, 'id_factura')
+	id_col_act = ds_inggas_colegiados.getitemstring(i, 'emisor')
+	importe_reten = ds_inggas_colegiados.getitemnumber(i, 'importe_reten')
+	if isnull(importe_reten) then importe_reten = 0
+	irpf_colegio = ds_inggas_colegiados.getitemnumber(i, 'irpf_colegio')
+	if isnull(irpf_colegio) then irpf_colegio = 0
+	base_imp = ds_inggas_colegiados.getitemnumber(i, 'base_imp')
+	if isnull(base_imp) then base_imp = 0	
+	
+	base_exenta = 0
+	base_sujeta = 0	
+	
+	// Si es la primera l$$HEX1$$ed00$$ENDHEX$$nea
+	if i = 1 then id_col_ant = id_col_act
+	
+	if id_col_act <> id_col_ant then
+
+		cont_col = cont_col + 1
+		fila_insertada = ds_impreso.insertrow(0)
+		ds_impreso.setitem(fila_insertada, 'id_col', id_col_ant)
+		col_base_sujeta = f_redondea(col_base_sujeta)
+		ds_impreso.setitem(fila_insertada, 'base_sujeta', col_base_sujeta)		
+		col_importe_irpf_colegio = f_redondea(col_importe_irpf_colegio)
+		ds_impreso.setitem(fila_insertada, 'irpf_colegio', col_importe_irpf_colegio)
+		col_base_exenta = f_redondea(col_base_exenta)
+		ds_impreso.setitem(fila_insertada, 'base_exenta', col_base_exenta)
+		col_importe_reten = f_redondea(col_importe_reten)
+		ds_impreso.setitem(fila_insertada, 'irpf_cliente', col_importe_reten)		
+		
+		ds_impreso.setitem(fila_insertada, 'f_desde', f_desde)	
+		ds_impreso.setitem(fila_insertada, 'f_hasta', f_hasta)	
+		
+		col_importe_reten = 0
+		col_importe_irpf_colegio = 0
+		col_base_exenta = 0
+		col_base_sujeta = 0
+		
+	end if
+		
+	// Retenci$$HEX1$$f300$$ENDHEX$$n de IRPF efectuada por el cliente
+	if importe_reten <> 0 then col_importe_reten = col_importe_reten + importe_reten
+		
+	
+	// Retenci$$HEX1$$f300$$ENDHEX$$n efectuada por el colegio
+	if irpf_colegio <> 0 then
+		col_importe_irpf_colegio = col_importe_irpf_colegio + irpf_colegio
+		total_reten_col = total_reten_col + irpf_colegio
+	end if
+	// Bases
+	if importe_reten = 0 then
+		base_exenta = 0
+		base_sujeta = base_imp
+	else
+		base_exenta = base_imp
+		base_sujeta = 0		
+	end if
+		
+	// Base imponible exenta ( Retenida por el cliente )
+//	select sum(csi_lineas_fact_emitidas.subtotal) 
+//	into :base_exenta 
+//	from csi_facturas_emitidas, csi_lineas_fact_emitidas, csi_articulos_servicios where
+//	csi_facturas_emitidas.id_factura = csi_lineas_fact_emitidas.id_factura and
+//	csi_facturas_emitidas.id_factura = :id_factura and
+//	csi_lineas_fact_emitidas.articulo = csi_articulos_servicios.codigo and
+//	csi_articulos_servicios.honorario = 'S' and
+//	csi_facturas_emitidas.importe_reten <> 0;
+	
+
+	if isnull(base_exenta) then base_exenta = 0
+	
+	col_base_exenta = col_base_exenta + base_exenta
+	total_base_exenta = total_base_exenta + base_exenta
+
+	
+	// Base imponible sujeta ( Retenida por el colegio )
+//	select sum(csi_lineas_fact_emitidas.subtotal) 
+//	into :base_sujeta 
+//	from csi_facturas_emitidas, csi_lineas_fact_emitidas, csi_articulos_servicios where
+//	csi_facturas_emitidas.id_factura = csi_lineas_fact_emitidas.id_factura and
+//	csi_facturas_emitidas.id_factura = :id_factura and
+//	csi_lineas_fact_emitidas.articulo = csi_articulos_servicios.codigo and
+//	csi_articulos_servicios.honorario = 'S' and
+//	csi_facturas_emitidas.importe_reten = 0;
+	
+	If isnull(base_sujeta) then base_sujeta = 0
+	
+	col_base_sujeta =  col_base_sujeta + base_sujeta
+	total_base_sujeta = total_base_sujeta + base_sujeta
+		
+	// Si es la $$HEX1$$fa00$$ENDHEX$$ltima l$$HEX1$$ed00$$ENDHEX$$nea
+	if i = ds_inggas_colegiados.rowcount() then
+		cont_col ++
+		fila_insertada = ds_impreso.insertrow(0)
+		ds_impreso.setitem(fila_insertada, 'id_col', id_col_act)
+		col_base_sujeta = f_redondea(col_base_sujeta)
+		ds_impreso.setitem(fila_insertada, 'base_sujeta', col_base_sujeta)		
+		col_importe_irpf_colegio = f_redondea(col_importe_irpf_colegio)
+		ds_impreso.setitem(fila_insertada, 'irpf_colegio', col_importe_irpf_colegio)
+		col_base_exenta = f_redondea(col_base_exenta)
+		ds_impreso.setitem(fila_insertada, 'base_exenta', col_base_exenta)
+		col_importe_reten = f_redondea(col_importe_reten)
+		ds_impreso.setitem(fila_insertada, 'irpf_cliente', col_importe_reten)				
+	end if
+	
+	id_col_ant = id_col_act
+next
+
+int codigo, FileNo
+string nombre_fich, ruta
+ruta = g_dir_aplicacion
+
+// MODIFICADO RICARDO 04-03-02
+n_cst_filesrvwin32 cambia_directorio
+string directorio
+cambia_directorio = create n_cst_filesrvwin32
+directorio = cambia_directorio.of_getcurrentdirectory()
+// FIN MODIFICADO RICARDO 04-03-02
+
+codigo = GetFileSaveName("Nombre del fichero para Hacienda",  &
+	+ nombre_fich, ruta, "*.TXT","Text Files (*.TXT),*.TXT" )
+	
+string anyo, nif_colegio, nombre_colegio, perceptores, telefono_colegio, gerente
+if codigo = 1 then
+	FileNo = FileOpen(ruta,LineMode!, Write!, LockWrite!, Replace!)
+
+	anyo = string(year(today()))
+	if LenA(anyo) <> 4 then messagebox('Error', 'Ha generado con la fecha de sistema mal, vu$$HEX1$$e900$$ENDHEX$$lvalo a generar.~r Recuerde que el formato de fecha debe tener 4 cifras para Hacienda')
+	nif_colegio = g_col_nif
+	nombre_colegio = g_colegio
+	nombre_colegio = LeftA(nombre_colegio, 40)
+	perceptores = string(cont_col)
+	
+	// Total de las bases
+	string sl_importe
+	sl_importe = string(round((total_base_sujeta + total_base_exenta) ,2), '############.00')
+	sl_importe = FillA('0',15 - LenA(sl_importe)) + sl_importe
+	sl_importe = MidA(sl_importe,1,12) + MidA(sl_importe,14,2)
+	
+	// Total_retenido por el colegio
+	string sl_importe_reten
+	sl_importe_reten = string(round(total_reten_col,2),'############.00')
+	sl_importe_reten = FillA('0',15 - LenA(sl_importe_reten)) + sl_importe_reten
+	sl_importe_reten = MidA(sl_importe_reten,1,12) + MidA(sl_importe_reten,14,2)
+	
+	telefono_colegio = g_col_telefono
+	gerente = g_gerente
+	
+	if f_es_vacio(anyo) then anyo = space(4)
+	if f_es_vacio(nif_colegio) then nif_colegio = space(9)
+	if f_es_vacio(nombre_colegio) then nombre_colegio = space(40)
+	if f_es_vacio(perceptores) then perceptores = FillA('0',9)
+	if f_es_vacio(sl_importe) then sl_importe = FillA('0',15)
+	if f_es_vacio(sl_importe_reten) then sl_importe_reten = FillA('0',15)
+	if f_es_vacio(telefono_colegio) then telefono_colegio = space(9)
+	if f_es_vacio(gerente) then gerente = space(40)
+
+	string cadena_1
+	cadena_1 = ''
+	cadena_1 = cadena_1 + "1"
+	cadena_1 = cadena_1 + "190"
+	cadena_1 = cadena_1 + anyo
+////	cadena_1 = cadena_1 + "48"
+	cadena_1 = cadena_1 + nif_colegio
+	cadena_1 = cadena_1 + nombre_colegio + FillA(' ', 40 - LenA(nombre_colegio))
+	cadena_1 = cadena_1 + 'D'
+	cadena_1 = cadena_1 + telefono_colegio + FillA(' ', 9 - LenA(telefono_colegio))
+	cadena_1 = cadena_1 + gerente + FillA(' ', 40 - LenA(gerente))
+	cadena_1 = cadena_1 + '0000000000000'
+	cadena_1 = cadena_1 + space(1) //decl comple.
+	cadena_1 = cadena_1 + space(1) //decl. substi.
+	cadena_1 = cadena_1 + FillA('0',13)
+	cadena_1 = cadena_1 + FillA('0', 9 - LenA(perceptores)) + perceptores
+	cadena_1 = cadena_1 + space(1) //signo
+	cadena_1 = cadena_1 + FillA('0', 15 - LenA(sl_importe)) + sl_importe
+	cadena_1 = cadena_1 +  FillA('0', 15 - LenA(sl_importe_reten)) + sl_importe_reten
+	cadena_1 = cadena_1 + FillA('0', 75)
+
+	FileWrite(FileNo, cadena_1)
+
+string sl_base_sujeta, sl_reten_col, nif, nombre_colegiado
+string cadena_2
+	for i = 1 to ds_impreso.rowcount()	
+		
+		sl_base_sujeta = string(ds_impreso.getitemnumber(i, 'base_sujeta'), '##########.00')
+		sl_base_sujeta = FillA('0',13 - LenA(sl_base_sujeta)) + sl_base_sujeta
+		sl_base_sujeta = MidA(sl_base_sujeta,1,10) + MidA(sl_base_sujeta,12,2)
+		
+		sl_reten_col = string(ds_impreso.getitemnumber(i, 'irpf_colegio'), '##########.00' )
+		sl_reten_col = FillA('0',13 - LenA(sl_reten_col)) + sl_reten_col
+		sl_reten_col = MidA(sl_reten_col,1,10) + MidA(sl_reten_col,12,2)
+		
+		nif = f_devuelve_nif(ds_impreso.getitemstring(i, 'id_col'))
+		nif = LeftA(nif, 9)		
+		nombre_colegiado = f_colegiado_apellido(ds_impreso.getitemstring(i, 'id_col'))
+		nombre_colegiado = LeftA(nombre_colegiado, 40)
+		
+		if isnull(sl_base_sujeta) then sl_base_sujeta = FillA('0',13)
+		if isnull(sl_reten_col) then sl_reten_col = FillA('0',13)
+		if isnull(nif) then nif = space(9)
+		if isnull(nombre_colegiado) then nombre_colegiado = space(40)
+		
+		cadena_2 = ''
+		cadena_2 = cadena_2 + "2"
+		cadena_2 = cadena_2 + "190"
+		cadena_2 = cadena_2 + anyo
+////		cadena_2 = cadena_2 + "48"
+		cadena_2 = cadena_2 + nif_colegio
+		cadena_2 = cadena_2 + nif + FillA(' ', 9 - LenA(nif)) 
+		cadena_2 = cadena_2 + space(9) //representante legal
+		cadena_2 = cadena_2 + nombre_colegiado + FillA(' ', 40 - LenA(nombre_colegiado))
+		cadena_2 = cadena_2 + '48'
+		cadena_2 = cadena_2 + 'G' //clave preceptor
+		cadena_2 = cadena_2 + '01'//subclave
+		cadena_2 = cadena_2 + space(1) //signo		
+		cadena_2 = cadena_2 + FillA('0', 13 - LenA(sl_base_sujeta)) + sl_base_sujeta
+		cadena_2 = cadena_2 + FillA('0', 13 - LenA(sl_reten_col)) + sl_reten_col
+		cadena_2 = cadena_2 + space(1)//signo
+		cadena_2 = cadena_2 + FillA('0',13)//valoracion
+		cadena_2 = cadena_2 + FillA('0',13)//ingresos a cta. efectuados
+		cadena_2 = cadena_2 + FillA('0',13)//ingresos a cta repercutidos
+		cadena_2 = cadena_2 + FillA('0',4)//ejercicio de devengo
+		cadena_2 = cadena_2 + FillA('0',1)//Ceuta o Melilla		
+		cadena_2 = cadena_2 + FillA('0',67)//DATOS ADICIONALES
+		cadena_2 = cadena_2 + FillA('0',31)
+////		cadena_2 = cadena_2 + porc_irpf + porc_irpf_dec
+		
+		FileWrite(FileNo, cadena_2)
+
+	NEXT
+
+	FileClose(FileNo)
+end if
+
+
+// MODIFICADO RICARDO 04-03-02
+// Cambiamos al directorio raiz de la aplicacion, como corresponde estar para que todas las imagenes sigan funcionando
+cambia_directorio.of_changedirectory(directorio)
+destroy cambia_directorio
+// FIN MODIFICADO RICARDO 04-03-02
+
+
+string modo_impresion = 'N'
+modo_impresion = w_padre.dynamic event csd_impresion()
+choose case modo_impresion
+	case 'C'
+		ds_impreso.setsort('n_col')
+		ds_impreso.sort()
+		ds_impreso.print()
+	case 'A'
+		ds_impreso.setsort('nombre')
+		ds_impreso.sort()		
+		ds_impreso.print()
+	case else
+end choose
+
+destroy ds_impreso
+destroy ds_inggas_colegiados
+return ds_impreso
+end function
+

@@ -1,0 +1,12 @@
+HA$PBExportHeader$f_color_gris_deshabilitado.srf
+global type f_color_gris_deshabilitado from function_object
+end type
+
+forward prototypes
+global function long f_color_gris_deshabilitado ()
+end prototypes
+
+global function long f_color_gris_deshabilitado ();
+return RGB(172,172,172)
+end function
+

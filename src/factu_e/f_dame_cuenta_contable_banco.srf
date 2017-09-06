@@ -1,0 +1,21 @@
+HA$PBExportHeader$f_dame_cuenta_contable_banco.srf
+global type f_dame_cuenta_contable_banco from function_object
+end type
+
+forward prototypes
+global function string f_dame_cuenta_contable_banco (string codigo)
+end prototypes
+
+global function string f_dame_cuenta_contable_banco (string codigo);string cuenta
+// da la cuenta contable asociada a un banco
+  
+  SELECT csi_bancos.cuenta_contable
+    INTO :cuenta  
+    FROM csi_bancos  
+   WHERE csi_bancos.codigo = :codigo  and empresa = :g_empresa;
+	
+	if f_es_vacio(cuenta) then cuenta = ''
+
+return cuenta
+end function
+

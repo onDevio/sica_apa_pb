@@ -1,0 +1,1030 @@
+HA$PBExportHeader$f_imprimir_factura_objeto_impr.srf
+global type f_imprimir_factura_objeto_impr from function_object
+end type
+
+forward prototypes
+global subroutine f_imprimir_factura_objeto_impr (st_imprimir_factura_obj_impr st_imp_fact)
+end prototypes
+
+global subroutine f_imprimir_factura_objeto_impr (st_imprimir_factura_obj_impr st_imp_fact);string id_fase, id_minuta, tipo_act, tipo_obra, uso_obra, descripcion_obra, id_col, observaciones, nombre_emisor, pobla_emisor, nif_emisor, n_col
+string lugar_fecha, nombre_receptor, nif_receptor, visado, descripcion, minuta, n_aviso, sl_formato_factura, descripcion_contrato, direccion_contrato
+string num_fra, direcc_receptor, poblac_receptor, cliente, forma_pago, banco_pago, ruta_factura, impresora2, n_fact, n_registro, colegiado, id_minuta_pdf
+string direc_emisor, n_expediente, centro, id_factura, id_persona, tipo, copia, id_cliente_pagador, fase, ruta_base, tipo_origen, email_emisor, tarifa, ls_select,paga_asalariado,paga_externo
+string formula,  ls_empresa_cliente,imprime_cta_banco_col, ls_empresa_factura
+st_datos_empresa_emisora lst_datos_empresa_emisora
+long i,j, indice_suplido = 0
+double irpf_total = 0
+int ret, fila, num_copias, param
+boolean facturadeexpediente, recibo
+datetime f_entrada, f_factura
+datawindow dw
+datastore ds_impresion_facturas, detalle_factura, lineas_factura, lineas_factura_suplidas, lineas_factura_no_suplidas, ds_documentos_visared
+n_csd_impresion_formato impresion_formato
+
+// variables para la l$$HEX1$$ed00$$ENDHEX$$nea resumen de los conceptos (COAATTFE)
+string nombre_col = '', sl_total_linea = '' , sl_totales = '',serie,ls_plantilla,tipo_dw,anyo
+double dl_total_linea
+
+
+impresion_formato = st_imp_fact.impresion_formato
+id_factura 			= st_imp_fact.id_factura
+impresion_formato.id_factura = id_factura 
+//id_persona 		= st_imp_fact.id_persona
+tipo 					= st_imp_fact.tipo
+copia					= st_imp_fact.copia
+num_copias			= impresion_formato.copias+impresion_formato.copias2
+dw						= st_imp_fact.dw
+recibo					= st_imp_fact.recibo
+
+
+tipo_origen = tipo
+
+select id_cliente_pagador into :id_cliente_pagador from csi_facturas_emitidas where id_factura = :id_factura;
+	
+// Si el n$$HEX1$$fa00$$ENDHEX$$mero de copias es 0 no se hace nada 
+if num_copias = 0 and copia <> 'X' then return
+
+// Datastore de la cabecera de la factura
+detalle_factura = create datastore
+detalle_factura.DataObject = 'd_facturacion_emitida_detalle'
+detalle_factura.SetTransObject(SQLCA)
+detalle_factura.Retrieve(id_factura)
+
+// Modificado por Eloy 2008-05-27
+serie=f_obtener_serie_factura(id_factura)
+anyo=f_obtener_anyo_factura(id_factura)
+
+///*** SCP-929. Alexis. 21/02/2011. Los datos relacionados con la empresa emisora, se obtendr$$HEX1$$e100$$ENDHEX$$n a partir de la empresa que emite la factura. ***///
+ls_empresa_factura = f_obtener_empresa_factura(id_factura)
+f_rellena_st_datos_empresa(lst_datos_empresa_emisora , ls_empresa_factura)
+
+//Modificaci$$HEX1$$f300$$ENDHEX$$n Yexaira 11/11/08
+f_dame_plantilla_serie_fact(serie,anyo,ls_plantilla , tipo_dw, ls_empresa_factura )
+
+if f_es_vacio(ls_plantilla) then
+	// Modificado Ricardo 2005-04-27
+	// Recuperamos el formato de la base de datos
+	CHOOSE CASE g_colegio
+		CASE 'COAATTFE'
+			if not recibo then
+				select plantilla into :sl_formato_factura from tipos_facturas where codigo = :tipo;
+				if SQLCA.sqlcode <> 0 or f_es_vacio(sl_formato_factura) then
+					messagebox(g_titulo, 'No se encuentra el formato de factura para el tipo de factura: ' + tipo)
+					return
+				end if
+			else
+				select plantilla_adicional into :sl_formato_factura from tipos_facturas where codigo = :tipo;
+				if SQLCA.sqlcode <> 0 or f_es_vacio(sl_formato_factura) then
+					messagebox(g_titulo, 'No se encuentra el formato del recibo' + tipo)
+					return
+				end if
+				// Enga$$HEX1$$f100$$ENDHEX$$amos a la funci$$HEX1$$f300$$ENDHEX$$n y hacemos creer que es un recibo de honorarios para que tome ese formato
+				if tipo <> g_colegio_cliente then tipo = g_colegiado_cliente		
+			end if
+		CASE ELSE
+			select plantilla into :sl_formato_factura from tipos_facturas where codigo = :tipo;
+			if SQLCA.sqlcode <> 0 or f_es_vacio(sl_formato_factura) then
+					messagebox(g_titulo, 'No se encuentra el formato de factura para el tipo de factura: ' + tipo)
+					return
+				end if
+		
+	END CHOOSE
+	// fin Modificado Ricardo 2005-04-27
+else
+	sl_formato_factura=ls_plantilla
+end if
+
+// datastore de impresi$$HEX1$$f300$$ENDHEX$$n.
+ds_impresion_facturas 	= create datastore
+ds_impresion_facturas.dataobject = sl_formato_factura
+ds_impresion_facturas.SetTransObject(SQLCA)
+
+
+if f_es_vacio(ls_plantilla) or (tipo_dw='E') then    
+// SI EL DATAWINDOW ES DE TIPO EXTERNAL
+	
+	// Datastore de l$$HEX1$$ed00$$ENDHEX$$neas de factura
+	lineas_factura = create datastore
+	lineas_factura.DataObject = 'd_lineas_fact_emitidas'
+	lineas_factura.SetTransObject(SQLCA)
+	// Datastore de l$$HEX1$$ed00$$ENDHEX$$neas de factura no suplidas
+	lineas_factura_no_suplidas = create datastore
+	lineas_factura_no_suplidas.DataObject = 'd_lineas_fact_emitidas_no_suplidas'
+	lineas_factura_no_suplidas.SetTransObject(SQLCA)
+	// Datastore de l$$HEX1$$ed00$$ENDHEX$$neas de factura suplidas
+	lineas_factura_suplidas = create datastore
+	lineas_factura_suplidas.DataObject = 'd_lineas_fact_emitidas_suplidas'
+	lineas_factura_suplidas.SetTransObject(SQLCA)
+	
+	// Parche de Bizkaia
+	if g_colegio = 'COAATB' and tipo = g_colegio_cliente then
+		if LeftA(detalle_factura.GetItemString(1,'n_fact'), 5) <> 'CLIEN' then 
+			tipo = g_colegio_colegiado
+			select plantilla into :sl_formato_factura from tipos_facturas where codigo = :tipo;
+			ds_impresion_facturas.dataobject = sl_formato_factura
+			ds_impresion_facturas.SetTransObject(SQLCA)
+		end if
+	end if
+	// Fin del parche de Bizkaia
+	
+	// Parches de Le$$HEX1$$f300$$ENDHEX$$n
+	if (g_colegio = 'COAATLE' or g_colegio = 'COAATAVI') and tipo = g_colegio_colegiado and LeftA(detalle_factura.GetItemString(1,'n_fact'), 1) = 'F' then
+		lineas_factura.Retrieve(id_factura)
+		lineas_factura_suplidas.Retrieve(id_factura, ls_empresa_factura)
+	// 1. Cambiamos el dw para las facturas de cuota cuolegial y premaat
+		int cuo, pre
+		cuo = lineas_factura.find ("articulo = '251'", 1, lineas_factura.rowcount())
+		pre =  lineas_factura_suplidas.find("articulo like '" + g_codigos_conceptos.premaat + "%'", 1, lineas_factura_suplidas.rowcount())
+		if cuo > 0 or pre > 0 then
+			select plantilla into :sl_formato_factura from tipos_facturas where codigo = '05';
+			ds_impresion_facturas.dataobject = sl_formato_factura
+			ds_impresion_facturas.SetTransObject(SQLCA)
+			// Ordenamos los conceptos suplidos (premaat)
+			lineas_factura_suplidas.setsort("csi_articulos_servicios_orden")
+			lineas_factura_suplidas.sort()
+		end if
+	end if
+	// 2. Cambiamos el dw para las facturas de s$$HEX1$$f300$$ENDHEX$$lo hucha
+	if g_colegio = 'COAATLE' and tipo = g_colegio_colegiado  and g_colegio <> 'COAATTGN' and g_colegio <> 'COAATTEB'  and g_colegio <> 'COAATLL' then
+		int hucha, src
+		lineas_factura.Retrieve(id_factura)
+		lineas_factura_suplidas.Retrieve(id_factura, ls_empresa_factura)	
+		hucha =  lineas_factura_suplidas.find("articulo = '" + g_codigos_conceptos.retvol + "'", 1, lineas_factura_suplidas.rowcount())
+		if hucha > 0 and lineas_factura_suplidas.rowcount() = lineas_factura.rowcount() then
+			select plantilla_adicional into :sl_formato_factura from tipos_facturas where codigo = :tipo;
+			ds_impresion_facturas.dataobject = sl_formato_factura
+			ds_impresion_facturas.SetTransObject(SQLCA)
+		end if
+	// 3. Cambiamos el dw para las facturas de s$$HEX1$$f300$$ENDHEX$$lo musaat
+		src =  lineas_factura_suplidas.find("articulo = '" + g_codigos_conceptos.musaat_variable + "'", 1, lineas_factura_suplidas.rowcount())
+		if src > 0 and lineas_factura_suplidas.rowcount() = lineas_factura.rowcount() then
+			select plantilla_adicional into :sl_formato_factura from tipos_facturas where codigo = :tipo;
+			ds_impresion_facturas.dataobject = sl_formato_factura
+			ds_impresion_facturas.SetTransObject(SQLCA)
+		end if	
+	end if
+	// Fin parche de Le$$HEX1$$f300$$ENDHEX$$n
+	
+	if tipo <> g_colegio_cliente then
+		// Recupero el id_minuta y el id_fase
+		id_minuta = detalle_factura.GetItemString(1,'id_fase')
+		irpf_total = detalle_factura.GetItemNumber(1,'importe_reten')
+		id_fase = f_minutas_id_fase(id_minuta)
+	
+		// Modificado David 02/02/2005 - Es una factura enganchada a un contrato directamente
+		if f_es_vacio(id_fase) then id_fase = detalle_factura.GetItemString(1,'id_minuta')
+			
+		// Recuperacion de datos a partir del n$$HEX1$$fa00$$ENDHEX$$mero de minuta o fase
+		tipo_act = f_dame_fase(id_fase)
+		tipo_obra = f_dame_tipo_obra(id_fase)
+		uso_obra = f_dame_uso_obra(id_fase)
+		descripcion_obra = f_dame_desc_tipo_actuacion(tipo_act) + ' / ' + f_dame_desc_tipo_obra(tipo_obra) + ' / ' + f_dame_desc_destino_obra(uso_obra)
+		// Modificado Paco 20/06/2005 [2887]
+		id_col = detalle_factura.getitemstring(1,'emisor')
+		if f_es_vacio(id_col) and tipo_origen = g_colegio_colegiado then id_col = detalle_factura.getitemstring(1,'id_persona')
+		if f_es_vacio(id_col) then id_col = f_minutas_id_col(id_minuta)
+		observaciones = detalle_factura.GetItemString(1,'observaciones_text') // Modificado Ricardo 2005-02-23
+		// Modificado Ricardo 04-02-10
+		centro = detalle_factura.GetItemString(1,'centro')
+		if not f_es_vacio(id_minuta) then
+			// ES una factura enganchada a una minuta
+			n_expediente = f_dame_exp(id_fase)
+		elseif not f_es_vacio(id_fase) then
+			n_expediente = f_dame_exp(id_fase)
+		elseif not f_es_vacio(detalle_factura.GetItemString(1,'id_fase')) then
+			// Es una factura enganchada a un contrato directamente
+			n_expediente = f_dame_exp(detalle_factura.GetItemString(1,'id_fase'))
+		else
+			n_expediente = ''
+		end if
+		// FIN Modificado Ricardo 04-02-10
+		
+		if tipo = g_colegiado_cliente then
+			// Descomentado por Ricardo!! 2005-05-09
+			// Si por algun motivo hay que comentarlo de nuevo, avisad. Al final se ha puesto un case por colegio!
+			CHOOSE CASE g_colegio
+				CASE 'COAATTFE'
+					if recibo then
+						nombre_emisor = lst_datos_empresa_emisora.nombre_empresa
+						direc_emisor  = lst_datos_empresa_emisora.direccion_empresa
+						pobla_emisor  = lst_datos_empresa_emisora.poblacion_empresa 
+						nif_emisor = lst_datos_empresa_emisora.nif_empresa
+					else
+						nombre_emisor = f_nombre_colegiado(id_col)
+						direc_emisor = f_domicilio_fiscal(id_col)
+						pobla_emisor = f_poblacion_fiscal(id_col)
+						nif_emisor = f_devuelve_nif(id_col)
+					end if
+				CASE ELSE
+						nombre_emisor = f_nombre_colegiado(id_col)
+						direc_emisor = f_domicilio_fiscal(id_col)
+						pobla_emisor = f_poblacion_fiscal(id_col)
+						nif_emisor = f_devuelve_nif(id_col)
+			END CHOOSE
+
+		else
+			///*** SCP-929. Alexis. 21/02/2011. Modificado para que cargue los datos de la emprea asociada a la factura ***///
+			nombre_emisor = lst_datos_empresa_emisora.nombre_empresa
+			direc_emisor  = lst_datos_empresa_emisora.direccion_empresa
+			pobla_emisor  = lst_datos_empresa_emisora.poblacion_empresa 
+			nif_emisor = lst_datos_empresa_emisora.nif_empresa
+			email_emisor = lst_datos_empresa_emisora.email_empresa
+		end if
+		
+		n_col = f_colegiado_n_col(id_col)
+		
+		// Cuando el receptor de la factura de gastos es el cliente no se guarda el n$$HEX2$$ba002000$$ENDHEX$$col en la factura
+		string nif, n_col_fact
+		select n_col, nif into :n_col_fact, :nif from csi_facturas_emitidas where tipo_factura = '02' and id_factura = :id_factura ;
+	
+		//*** Con la desparici$$HEX1$$f300$$ENDHEX$$n de minutas, se deja de guardar el colegiado apartir del cual viene el cobro. En la columna n_col de la fact. aparece el nif del cliente. 
+		If not f_es_vacio(id_minuta) then 
+			if not f_es_vacio(n_col_fact) and n_col_fact = nif then n_col = f_colegiado_n_col(f_minutas_id_col(id_minuta))
+		else
+			///*** SCP-900. Por el momento cogeremos el primero de los colegiados asociado al contrato. Alexis. 03/03/2011 ***///
+			if  f_es_vacio(n_col) then 
+				Select id_col into :id_col from fases_colegiados where id_fase = :id_fase;
+				n_col = f_colegiado_n_col(id_col)
+			end if
+		end if	
+	
+		if f_es_vacio(n_col) then n_col = detalle_factura.GetItemString(1,'n_col')
+		
+		lugar_fecha = g_col_ciudad + ' ' + string(date(detalle_factura.GetItemDatetime(1,'fecha') ))
+		descripcion_contrato = f_dame_descripcion_contrato(id_fase)
+		direccion_contrato =  f_dame_direccion_contrato(id_fase)
+		num_fra = detalle_factura.GetItemString(1,'n_fact')	
+		nombre_receptor = detalle_factura.GetItemString(1,'nombre')
+		direcc_receptor = detalle_factura.GetItemString(1,'domicilio_largo')
+		poblac_receptor = detalle_factura.GetItemString(1,'poblacion')
+		nif_receptor = detalle_factura.GetItemString(1,'nif')
+		nombre_col = f_nombre_colegiado(id_col)
+		// Modificado Ricardo 2005-05-09. Descomentadas las siguientes lineas... puestas con un case para TFE
+		CHOOSE CASE g_colegio
+			CASE 'COAATTFE'
+				if recibo and not(f_es_vacio(id_cliente_pagador)) then
+					nombre_receptor = detalle_factura.GetItemString(1,'nombre_pagador')
+					direcc_receptor = detalle_factura.GetItemString(1,'domicilio_pagador_largo')				
+					poblac_receptor = detalle_factura.GetItemString(1,'poblacion_pagador')
+					nif_receptor = detalle_factura.GetItemString(1,'nif_pagador')
+				end if	
+		END CHOOSE
+		// FIN Modificado Ricardo 2005-05-09
+		cliente  = f_fases_promotores_fase(id_fase)
+		
+		///***SCP-900. 03/03/2011. Para Bizcaia se quita n$$HEX2$$ba002000$$ENDHEX$$de aviso por n$$HEX2$$ba002000$$ENDHEX$$registro de salida
+		choose case g_colegio
+		case 'COAATB'
+			n_aviso = f_fases_n_salida (id_fase)
+		case else
+			n_aviso = f_minutas_n_aviso(id_minuta)
+		end choose
+		
+		forma_pago = detalle_factura.GetItemString(1,'formadepago')
+		banco_pago = detalle_factura.GetItemString(1,'banco')	
+				
+	end if
+	
+		if tipo = g_musaat_colegiado then
+			if g_colegio <> 'COAATMCA' then
+			// Emisor - Musaat
+			nombre_emisor = ''//'M.U.S.A.A.T.'
+			direc_emisor  = ''//'CALLE JAZM$$HEX1$$ed00$$ENDHEX$$N, 66'
+			pobla_emisor  = ''//'28033 MADRID'
+			nif_emisor    = ''//'G-28865855'
+		end if
+	end if
+	
+	
+	// Campo n_documento seg$$HEX1$$fa00$$ENDHEX$$n colegio, crearemos var global para eliminar esto
+	CHOOSE CASE f_colegio()
+		case 'COAATB'
+			visado = f_dame_fase(id_fase) + '-' + f_dame_exp(id_fase)
+		case else
+			visado = f_dame_n_reg(id_fase)
+	END CHOOSE
+	
+	CHOOSE CASE tipo
+		CASE g_colegiado_cliente
+			
+			lineas_factura.Retrieve(id_factura)
+			
+			double base_garantia_burgos = 0
+			CHOOSE CASE g_colegio 
+				CASE 'COAATBU'
+					// Ver si hay devoluci$$HEX1$$f300$$ENDHEX$$n de Garant$$HEX1$$ed00$$ENDHEX$$a para Burgos
+					for i = 1 to lineas_factura.rowcount()
+						if lineas_factura.GetItemString(i,'articulo') = g_codigos_conceptos.dev_garantia then
+							base_garantia_burgos += lineas_factura.GetItemNumber(i,'subtotal')
+						end if
+					next
+					// Borramos las lineas de garant$$HEX1$$ed00$$ENDHEX$$a del datastore
+					for i = lineas_factura.rowcount() to 1 step -1
+						if lineas_factura.GetItemString(i,'articulo') = g_codigos_conceptos.dev_garantia then lineas_factura.deleterow(i)
+					next
+				CASE 'COAATLR'
+					// MODIFICADO RICARDO 04-02-10
+					// Ver si hay devoluci$$HEX1$$f300$$ENDHEX$$n de Garant$$HEX1$$ed00$$ENDHEX$$a para LA RIOJA -> DE momento no se ha usado. He cortopegado el codigo de burgos!
+					for i = 1 to lineas_factura.rowcount()
+						if lineas_factura.GetItemString(i,'articulo') = g_codigos_conceptos.dev_garantia then
+							base_garantia_burgos += lineas_factura.GetItemNumber(i,'subtotal')
+						end if
+					next
+			END CHOOSE
+			
+			// Pasamos las l$$HEX1$$ed00$$ENDHEX$$neas de factura
+			FOR i = 1 To lineas_factura.RowCount()			
+				// Insertamos l$$HEX1$$ed00$$ENDHEX$$nea:
+				ds_impresion_facturas.InsertRow(0)
+				if(g_colegio = 'COAATCC')then
+					ds_impresion_facturas.SetItem(i, 'email_emisor', email_emisor)
+				end if
+				descripcion = lineas_factura.GetItemString(i,'descripcion_larga')
+				if f_es_vacio(descripcion) then descripcion = lineas_factura.GetItemString(i,'descripcion')		
+				ds_impresion_facturas.SetItem(i,'concepto_1',descripcion)
+				ds_impresion_facturas.SetItem(i,'bi_1',lineas_factura.GetItemNumber(i,'subtotal'))
+				ds_impresion_facturas.SetItem(i,'iva_1',lineas_factura.GetItemNumber(i,'subtotal_iva'))
+				// David 15/02/2007 Ponemos el tipo de iva en la factura 
+				if lower(ds_impresion_facturas.describe("t_iva.name")) = 't_iva' then 
+					ds_impresion_facturas.setitem(i, 't_iva', String(f_dame_porcent_iva(lineas_factura.GetItemstring(i,'t_iva'))))
+				end if
+			
+				// Modificado Ricardo 2005-01-18
+				if lineas_factura.getItemstring(i,'descripcion') = f_devuelve_desc_concepto( g_codigos_conceptos.dev_garantia ) then
+					// Si no ponemos los negativos no va bien
+					dl_total_linea = abs(lineas_factura.GetItemNumber(i,'subtotal')) + abs(lineas_factura.GetItemNumber(i,'subtotal_iva'))
+				else
+					dl_total_linea = max(lineas_factura.GetItemNumber(i,'subtotal'),0) + max(lineas_factura.GetItemNumber(i,'subtotal_iva'),0)
+				end if
+				// FIN Modificado Ricardo 2005-01-18
+				sl_total_linea = descripcion + ': ' + string(dl_total_linea, '#,##0.00')
+				sl_totales += sl_total_linea + '; '			
+			next
+			// L$$HEX1$$ed00$$ENDHEX$$nea resumen de los conceptos de la factura o 
+			
+			sl_totales = MidA(sl_totales,1, LenA(sl_totales) -2)
+			if irpf_total <> 0 then sl_totales += '; ' + 'I.R.P.F.: ' + string((-1)*irpf_total, '#,##0.00')
+			sl_totales += ' Euros.'		
+			// Comprobamos si hay lineas, sino creamos una para los conceptos no suplidos
+			if ds_impresion_facturas.rowcount() = 0 then ds_impresion_facturas.insertrow(0)
+			
+			// Situamos la garant$$HEX1$$ed00$$ENDHEX$$a y el IRPF en el summary
+			for i = 1 to ds_impresion_facturas.rowcount()
+				if base_garantia_burgos <> 0 then
+					ds_impresion_facturas.SetItem(i,'garantia',base_garantia_burgos)
+				end if
+				ds_impresion_facturas.SetItem(i,'irpf_total',irpf_total)
+			next  
+			
+			// Finalmente copiamos los datos de la cabecera y pie a todas las l$$HEX1$$ed00$$ENDHEX$$neas
+			for i = 1 to ds_impresion_facturas.rowcount()
+				ds_impresion_facturas.SetItem(i, 'tipo_obra', descripcion_obra )
+				if(g_colegio = 'COAATMCA')then
+					ds_impresion_facturas.Setitem(i, 'tipo_actuacion', tipo_act + ' - ' + f_dame_desc_tipo_actuacion(tipo_act) )
+				end if
+				ds_impresion_facturas.setitem(i, 'descripcion', descripcion_contrato)
+				ds_impresion_facturas.setitem(i, 'emplazamiento',direccion_contrato)
+				ds_impresion_facturas.SetItem(i, 'visado', visado)
+				ds_impresion_facturas.SetItem(i, 'lugar_fecha', lugar_fecha)
+				ds_impresion_facturas.SetItem(i, 'num_fra',num_fra)
+				ds_impresion_facturas.setitem(i, 'colegiado', n_col)			
+				ds_impresion_facturas.setitem(i, 'nombre_emisor', nombre_emisor)
+				ds_impresion_facturas.setitem(i, 'direcc_emisor', direc_emisor)
+				ds_impresion_facturas.setitem(i, 'poblac_emisor', pobla_emisor)
+				ds_impresion_facturas.SetItem(i, 'nif_emisor', nif_emisor)
+				ds_impresion_facturas.setitem(i, 'nombre_receptor', nombre_receptor)
+				ds_impresion_facturas.setitem(i, 'direcc_receptor', direcc_receptor)
+				ds_impresion_facturas.setitem(i, 'poblac_receptor', poblac_receptor)		
+				ds_impresion_facturas.setitem(i, 'nif_receptor', nif_receptor)
+				ds_impresion_facturas.Setitem(i, 'cliente' ,cliente)
+				
+				if g_colegio = 'COAATTGN'  or  g_colegio = 'COAATLL' then
+					string id_cliente,asalariado	
+					id_cliente = f_minutas_id_empresa(id_minuta,  f_colegiado_id_col(n_col))
+					ds_impresion_facturas.setitem(i, 'cliente',id_cliente)
+					asalariado =  f_minutas_paga_asalariado(id_minuta)
+					if ds_impresion_facturas.describe("asalariado.name") = 'asalariado' then ds_impresion_facturas.setitem(i, 'asalariado',asalariado)
+				end if
+
+				ds_impresion_facturas.setitem(i, 'n_aviso', n_aviso)
+				ds_impresion_facturas.setitem(i, 'observaciones', observaciones)
+				if(g_colegio = 'COAATCC')then
+						ds_impresion_facturas.SetItem(i, 'email_emisor', email_emisor)
+				end if
+				// Modificado Ricardo 02-04-10
+				CHOOSE CASE g_colegio
+					CASE 'COAATLR'
+						ds_impresion_facturas.setitem(i, 'centro', centro)
+						ds_impresion_facturas.setitem(i, 'n_expediente', n_expediente)
+					CASE 'COAATTFE'
+						ds_impresion_facturas.setitem(i, 'totales', sl_totales)
+						ds_impresion_facturas.setitem(i, 'nombre_col', nombre_col)
+					CASE 'COAATZ', 'COAATGU', 'COAATLE', 'COAATAVI', 'COAATA', 'COAATNA', 'COAATCC', 'COAATTER'
+						ds_impresion_facturas.setitem(i, 'forma_pago', forma_pago)
+					case 'COAATTGN', 'COAATTEB' , 'COAATMCA',  'COAATLL'
+						ds_impresion_facturas.setitem(i, 'forma_pago', forma_pago)
+						ds_impresion_facturas.Setitem(i, 'tipo_obra', tipo_obra + ' - ' +f_dame_desc_tipo_obra(tipo_obra) )
+						ds_impresion_facturas.Setitem(i, 'tipo_actuacion', tipo_act + ' - ' + f_dame_desc_tipo_actuacion(tipo_act) )
+						ds_impresion_facturas.setitem(i, 'promotor', f_fases_promotores_fase(id_fase))	
+				END CHOOSE
+				// FIN Modificado Ricardo 02-04-10
+			next
+			
+			if copia='S' then impresion_formato.duplicado='S'
+	
+			
+		CASE g_colegio_colegiado, g_musaat_colegiado
+			
+			lineas_factura_suplidas.Retrieve(id_factura, ls_empresa_factura)
+			lineas_factura_no_suplidas.Retrieve(id_factura, ls_empresa_factura)
+	
+			// Pasamos las l$$HEX1$$ed00$$ENDHEX$$neas de factura no suplidas
+			FOR i = 1 To lineas_factura_no_suplidas.RowCount()			
+				// Insertamos l$$HEX1$$ed00$$ENDHEX$$nea:
+				ds_impresion_facturas.InsertRow(0)
+				if(g_colegio = 'COAATCC')then
+					ds_impresion_facturas.SetItem(i, 'email_emisor', email_emisor)
+				end if
+				if (g_colegio = 'COAATTGN') or  (g_colegio = 'COAATLL') then
+					ds_impresion_facturas.setitem(i, 'n_expediente', n_expediente)
+				end if
+				
+				if(g_colegio = 'COAATBU' or g_colegio = 'COAATLR' )then
+					if lower(ds_impresion_facturas.describe("banco.name")) = 'banco' then 
+						ds_impresion_facturas.SetItem(i, 'banco', banco_pago)
+					end if	
+				end if
+
+				descripcion = lineas_factura_no_suplidas.GetItemString(i,'descripcion_larga')
+				if f_es_vacio(descripcion) then descripcion = lineas_factura_no_suplidas.GetItemString(i,'descripcion')		
+				ds_impresion_facturas.SetItem(i,'concepto_1',descripcion)
+				ds_impresion_facturas.SetItem(i,'bi_1',lineas_factura_no_suplidas.GetItemNumber(i,'subtotal'))
+				ds_impresion_facturas.SetItem(i,'iva_1',lineas_factura_no_suplidas.GetItemNumber(i,'subtotal_iva'))
+				
+				// Yexaira 09/09/08 Se incluye la formula del cip
+				// Eloy 02/02/10 Se hace generico, dependiendo de si existe el campo de formula. A$$HEX1$$f100$$ENDHEX$$adida restriccion de Mallorca para las facturas migradas.
+				if g_colegio='COAATMCA' and date(detalle_factura.GetItemDatetime(1,'fecha'))<date('1/11/2009') then
+					formula=detalle_factura.GetItemString(1,'obs')
+					if lineas_factura_no_suplidas.GetItemString(i,'articulo') = g_codigos_conceptos.cip then 
+						if (ds_impresion_facturas.describe("formula_cip.name")= "formula_cip")  then ds_impresion_facturas.SetItem(i,'formula_cip',formula) 
+					end if
+					 if lineas_factura_no_suplidas.GetItemString(i,'articulo') = g_codigos_conceptos.musaat_variable then
+						if (ds_impresion_facturas.describe("formula_musaat.name")= "formula_musaat")  then ds_impresion_facturas.SetItem(i,'formula_musaat',formula)
+					end if					
+							
+				else
+					if lineas_factura_no_suplidas.GetItemString(i,'articulo') = g_codigos_conceptos.cip then 
+						if (ds_impresion_facturas.describe("formula_cip.name")= "formula_cip")  then ds_impresion_facturas.SetItem(i,'formula_cip',f_devuelve_formula(id_fase, g_codigos_conceptos.cip)) 
+					end if
+					 if lineas_factura_no_suplidas.GetItemString(i,'articulo') = g_codigos_conceptos.musaat_variable then
+						if (ds_impresion_facturas.describe("formula_musaat.name")= "formula_musaat")  then ds_impresion_facturas.SetItem(i,'formula_musaat',f_devuelve_formula(id_fase, g_codigos_conceptos.musaat_variable))
+					end if
+				end if
+				if g_colegio = 'COAATTGN' and  g_colegio ='COAATLL' then ds_impresion_facturas.setitem(i, 'n_expediente', n_expediente)			
+				// David 15/02/2007 Ponemos el tipo de iva en la factura 
+				if lower(ds_impresion_facturas.describe("t_iva.name")) = 't_iva' then 
+					ds_impresion_facturas.SetItem(i,'t_iva', String(f_dame_porcent_iva(lineas_factura_no_suplidas.GetItemString(i,'t_iva'))))
+				end if
+				// David 11/05/2007 Ponemos las unidades de las lineas
+				if lower(ds_impresion_facturas.describe("unidades.name")) = 'unidades' then
+					ds_impresion_facturas.SetItem(i,'unidades', lineas_factura_no_suplidas.GetItemNumber(i,'unidades'))
+				end if			
+			next
+	
+			// Comprobamos si hay lineas, sino creamos una para los conceptos no suplidos
+			if ds_impresion_facturas.rowcount() = 0 then ds_impresion_facturas.insertrow(0)
+			
+			// Ordenamos los conceptos suplidos
+			lineas_factura_suplidas.setsort("csi_articulos_servicios_orden")
+			lineas_factura_suplidas.sort()		
+			
+			// Pasamos las lineas de factura suplidas
+			for i = 1 To lineas_factura_suplidas.RowCount()					
+				indice_suplido ++
+				descripcion = lineas_factura_suplidas.GetItemString(i,'descripcion_larga')
+				if f_es_vacio(descripcion) then descripcion = lineas_factura_suplidas.GetItemString(i,'descripcion')					
+				for j = 1 to ds_impresion_facturas.rowcount()
+					// Si es gasto suplido
+					// En Le$$HEX1$$f300$$ENDHEX$$n la retenci$$HEX1$$f300$$ENDHEX$$n la colocamos a la fuerza en la secci$$HEX1$$f300$$ENDHEX$$n correspondiente				
+					if (g_colegio = 'COAATLE' OR g_colegio = 'COAATA') and lineas_factura_suplidas.GetItemString(i,'articulo') = g_codigos_conceptos.retvol then
+						ds_impresion_facturas.SetItem(j,'texto_suplido_3',descripcion)
+						ds_impresion_facturas.SetItem(j,'suplido_3',lineas_factura_suplidas.GetItemNumber(i,'subtotal'))
+						
+					// Modificado Jesus 11/02/2010 ICTL-276 Se juntan los suplidos para la factura de COAATTEB
+					elseif g_colegio = 'COAATTEB' then
+						ds_impresion_facturas.SetItem(j,'texto_suplido_1',descripcion+cr)
+						if isNull(ds_impresion_facturas.GetitemNumber(j,'suplido_1')) then
+							ds_impresion_facturas.SetItem(j,'suplido_1',lineas_factura_suplidas.GetItemNumber(i,'subtotal'))
+						else
+							ds_impresion_facturas.SetItem(j,'suplido_1',ds_impresion_facturas.GetitemNumber(j,'suplido_1')+lineas_factura_suplidas.GetItemNumber(i,'subtotal'))
+						end if
+					//Fin modificacion
+					
+					else
+						if lower(ds_impresion_facturas.describe("texto_suplido_"+string(indice_suplido)+".name")) = 'texto_suplido_'+string(indice_suplido) then ds_impresion_facturas.SetItem(j,'texto_suplido_'+string(indice_suplido),descripcion)
+						if lower(ds_impresion_facturas.describe("suplido_"+ string(indice_suplido)+".name")) = 'suplido_'+ string(indice_suplido) then ds_impresion_facturas.SetItem(j,'suplido_'+ string(indice_suplido),lineas_factura_suplidas.GetItemNumber(i,'subtotal'))
+					end if
+					if g_colegio = 'COAATZ' or g_colegio = 'COAATGU' or g_colegio = 'COAATLR' or g_colegio = 'COAATLE' or g_colegio = 'COAATAVI' then
+						ds_impresion_facturas.SetItem(j,'n_recibo_mus', lineas_factura_suplidas.GetItemString(i,'id_recibo'))
+					end if
+					// Yexaira 09/09/08 Se incluye la formula del musaat
+					choose case g_colegio 
+						case 'COAATTGN', 'COAATTEB', 'COAATMCA',  'COAATLL'
+							 if lineas_factura_suplidas.GetItemString(i,'articulo') = g_codigos_conceptos.musaat_variable then
+								ds_impresion_facturas.SetItem(i,'formula_musaat',f_devuelve_formula(id_fase, g_codigos_conceptos.musaat_variable))
+							end if
+					end choose
+				next
+			next		
+			
+			// Finalmente copiamos los datos de la cabecera y pie a todas las l$$HEX1$$ed00$$ENDHEX$$neas
+			for i = 1 to ds_impresion_facturas.rowcount()
+				ds_impresion_facturas.SetItem(i, 'tipo_obra', descripcion_obra )
+				if(g_colegio = 'COAATMCA')then
+					ds_impresion_facturas.Setitem(i, 'tipo_actuacion', tipo_act + ' - ' + f_dame_desc_tipo_actuacion(tipo_act) )
+				end if
+				ds_impresion_facturas.setitem(i, 'descripcion', descripcion_contrato)
+				ds_impresion_facturas.setitem(i, 'emplazamiento',direccion_contrato)
+				ds_impresion_facturas.SetItem(i, 'visado', visado)
+				ds_impresion_facturas.SetItem(i, 'lugar_fecha', lugar_fecha)
+				ds_impresion_facturas.SetItem(i, 'num_fra',num_fra)
+				ds_impresion_facturas.setitem(i, 'colegiado', n_col)			
+				ds_impresion_facturas.setitem(i, 'nombre_emisor', nombre_emisor)
+				ds_impresion_facturas.setitem(i, 'direcc_emisor', direc_emisor)
+				ds_impresion_facturas.setitem(i, 'poblac_emisor', pobla_emisor)
+				ds_impresion_facturas.SetItem(i, 'nif_emisor', nif_emisor)
+				ds_impresion_facturas.setitem(i, 'nombre_receptor', nombre_receptor)
+				ds_impresion_facturas.setitem(i, 'direcc_receptor', direcc_receptor)
+				ds_impresion_facturas.setitem(i, 'poblac_receptor', poblac_receptor)		
+				ds_impresion_facturas.setitem(i, 'nif_receptor', nif_receptor)
+				ds_impresion_facturas.Setitem(i, 'cliente' ,cliente)
+				ds_impresion_facturas.setitem(i, 'n_aviso', n_aviso)
+				ds_impresion_facturas.setitem(i, 'observaciones', observaciones)		
+				ds_impresion_facturas.Setitem(i, 'id_factura' ,id_factura)
+				
+				IF f_existe_columna_en_ds (ds_impresion_facturas,'n_expediente')= 1 then ds_impresion_facturas.SetItem(i,'n_expediente',n_expediente)
+				
+				CHOOSE CASE g_colegio
+					CASE 'COAATTFE'
+						// Ricardo: A fecha de hoy 2005-05-12 cayetano pide nuevamente que no salga el cajetin
+						string cliente_pagador, s_pagador
+						cliente_pagador = detalle_factura.getitemstring(1,'id_cliente_pagador')
+
+					// Modificado David 24-08-04
+					// Se a$$HEX1$$f100$$ENDHEX$$aden los datos del cliente, empresa para la que trabaja el colegiado
+					CASE 'COAATGUI', 'COAATZ', 'COAATB', 'COAATGU', 'COAATLR', 'COAATLE', 'COAATAVI', 'COAATA', 'COAATNA', 'COAATTGN' ,'COAATCC', 'COAATTEB', 'COAATTER',  'COAATMCA', 'COAATLL'
+						//Realizamos este if ya que para la impresion de facturas/proformas de gastos, el id_minuta no tiene valor
+						string id_cli
+						if f_es_vacio(id_minuta) then
+							//Guardamos en variable para una comprobaci$$HEX1$$f300$$ENDHEX$$n posterior
+							paga_asalariado=st_imp_fact.paga_empresa
+							ds_impresion_facturas.setitem(i, 'paga_empresa',paga_asalariado)
+							id_cli=st_imp_fact.id_cliente_pagador
+						else
+							//Guardamos en variable para una comprobaci$$HEX1$$f300$$ENDHEX$$n posterior
+							paga_asalariado= f_minutas_paga_asalariado(id_minuta)
+							ds_impresion_facturas.setitem(i, 'paga_empresa',paga_asalariado)
+							id_cli = f_minutas_id_cli(id_minuta)
+						end if
+						
+						
+						ds_impresion_facturas.setitem(i, 'nombre_cliente', f_dame_cliente(id_cli))
+						ds_impresion_facturas.setitem(i, 'direcc_cliente', f_dame_domicilio(id_cli))
+						ds_impresion_facturas.setitem(i, 'poblac_cliente', f_retorna_poblacion(id_cli))
+						ds_impresion_facturas.setitem(i, 'nif_cliente', f_dame_nif(id_cli))					
+						// FIN Modificado David 24-08-04
+					
+						///*** SCP-477. Alexis. 09/08/2010. No se introduc$$HEX1$$ed00$$ENDHEX$$a los datos para que se le cobrase a la empresa en tipos de factura 02 y 03 ***///
+							if f_es_vacio(id_minuta) then
+								if ds_impresion_facturas.describe("id_cliente.name") = 'id_cliente' then ds_impresion_facturas.setitem(i, 'id_cliente',id_cli)
+								imprime_cta_banco_col=st_imp_fact.imprime_cta_banco_col
+								if ds_impresion_facturas.describe("asalariado.name") = 'asalariado' then ds_impresion_facturas.setitem(i, 'asalariado',imprime_cta_banco_col)
+							else
+								ls_empresa_cliente	 = f_minutas_id_empresa(id_minuta,  f_colegiado_id_col(n_col))
+								if ds_impresion_facturas.describe("id_cliente.name") = 'id_cliente' then ds_impresion_facturas.setitem(i, 'id_cliente',ls_empresa_cliente)
+								asalariado =  f_minutas_paga_asalariado(id_minuta)
+								if ds_impresion_facturas.describe("asalariado.name") = 'asalariado' then ds_impresion_facturas.setitem(i, 'asalariado',asalariado)
+							end if
+	
+						// Modifcado Paco 22/04/05
+						if g_colegio = 'COAATZ' or g_colegio = 'COAATB' or g_colegio = 'COAATGU' or g_colegio = 'COAATLE' or g_colegio = 'COAATAVI' or g_colegio = 'COAATA' or g_colegio = 'COAATNA' or g_colegio = 'COAATCC' or g_colegio = 'COAATTER' then
+							//Realizamos este if ya que para la impresion de facturas/proformas de gastos, el id_minuta no tiene valor
+							if f_es_vacio(id_minuta) then
+								paga_externo=st_imp_fact.paga_externo
+								ds_impresion_facturas.setitem(i, 'paga_externo',paga_externo)
+							else	
+								paga_externo= f_minutas_paga_externo(id_minuta)
+								ds_impresion_facturas.setitem(i, 'paga_externo',paga_externo)
+							end if
+							ds_impresion_facturas.setitem(i, 'forma_pago', forma_pago)
+						end if
+						
+						if(g_colegio = 'COAATTGN' or g_colegio = 'COAATTEB' or g_colegio = 'COAATMCA' or  g_colegio = 'COAATLL')then
+							if f_es_vacio(id_minuta) then
+								paga_externo=st_imp_fact.paga_externo
+								ds_impresion_facturas.setitem(i, 'paga_externo',paga_externo)
+							else	
+								paga_externo= f_minutas_paga_externo(id_minuta)
+								ds_impresion_facturas.setitem(i, 'paga_externo',paga_externo)
+							end if
+							ds_impresion_facturas.setitem(i, 'forma_pago', forma_pago)
+							 if paga_asalariado='S' or paga_externo='S' then
+								ds_impresion_facturas.setitem(i, 'paga_empresa','S')
+								if f_es_vacio(id_minuta) then
+									id_cli=st_imp_fact.id_cliente_pagador
+								else
+									id_cli = f_minutas_id_empresa(id_minuta,  f_colegiado_id_col(n_col))
+								end if
+								ds_impresion_facturas.setitem(i, 'nombre_cliente', f_dame_cliente(id_cli))
+								ds_impresion_facturas.setitem(i, 'direcc_cliente', f_dame_domicilio(id_cli))
+								ds_impresion_facturas.setitem(i, 'poblac_cliente', f_retorna_poblacion(id_cli))
+								ds_impresion_facturas.setitem(i, 'nif_cliente', f_dame_nif(id_cli))		
+							end if
+							ds_impresion_facturas.setitem(i, 'forma_pago', forma_pago)
+							ds_impresion_facturas.Setitem(i, 'tipo_obra', tipo_obra + ' - ' +f_dame_desc_tipo_obra(tipo_obra) )
+							ds_impresion_facturas.Setitem(i, 'tipo_actuacion', tipo_act + ' - ' + f_dame_desc_tipo_actuacion(tipo_act) )
+							ds_impresion_facturas.setitem(i, 'promotor', f_fases_promotores_fase(id_fase))		
+							ds_impresion_facturas.setitem(i, 'porc_obra', f_dame_porc_obra_colegiado(id_fase, f_colegiado_id_col(n_col)))	
+						end if
+						// Fin modifcado Paco 22/04/05
+						if g_colegio = 'COAATLR' then
+							ds_impresion_facturas.setitem(i, 'centro', centro)
+							ds_impresion_facturas.setitem(i, 'n_expediente', n_expediente)
+						end if
+					CASE 'COAATGC'
+						ds_impresion_facturas.setitem(i, 'n_salida', f_fases_n_salida_expediente(id_fase))
+						//Cambio Luis CGC-108
+						// CGC-141. Alexis. Se a$$HEX1$$f100$$ENDHEX$$ade clausula para que se active en caso de que se env$$HEX1$$ed00$$ENDHEX$$e por email.
+						if(tipo_origen = '03' or tipo_origen = '04') and st_imp_fact.impresion_formato.email = 'S' then
+							ds_impresion_facturas.object.copia.visible = false
+							ds_impresion_facturas.object.original.visible = true
+						end if
+						//fin cambio
+				END CHOOSE
+				
+
+			next
+	
+			// Si la factura no es de fases, no deben salir los datos ident. de la obra y en la cabecera ponemos s$$HEX1$$f300$$ENDHEX$$lo "FACTURA"
+			SELECT id_fase, id_minuta INTO :fase, :minuta FROM csi_facturas_emitidas WHERE csi_facturas_emitidas.id_factura = :id_factura   ;
+			if f_es_vacio(fase) then
+				// Ponemos los campos tipo_obra y emplazamiento a '' para que no se muestre el recuadro de datos de la obra
+				for i = 1 to ds_impresion_facturas.rowcount()
+					ds_impresion_facturas.SetItem(i, 'tipo_obra', '')
+					ds_impresion_facturas.setitem(i, 'emplazamiento', '')
+				next
+			end if
+			// Si la factura es de fases pero no tiene minuta(p.ej. facturas documentos) ponemos el n$$HEX2$$ba002000$$ENDHEX$$registro en la factura
+			if not f_es_vacio(minuta) then
+				for i = 1 to ds_impresion_facturas.rowcount()
+					ds_impresion_facturas.SetItem(i, 'visado', f_dame_n_reg(minuta))
+					// Modificacion Ricardo 05-11-03
+					// Tambien colocamos los valores de la obra, teniendo en cuenta que en minuta se almacena el id_fase!!!!!!
+					//SCP-827 Para algunos tipos de facturas no ser$$HEX2$$e1002000$$ENDHEX$$necesario poner toda la informaci$$HEX1$$f300$$ENDHEX$$n en el campo 'T.Obra'
+					if ds_impresion_facturas.describe("t_obra.name") = 't_obra' then
+						ds_impresion_facturas.SetItem(i, 'tipo_obra', tipo_obra + ' - ' +f_dame_desc_tipo_obra(tipo_obra))						
+					elseif ds_impresion_facturas.describe("tipo_obra.name") = 'tipo_obra' then
+						ds_impresion_facturas.SetItem(i, 'tipo_obra', f_dame_desc_tipo_actuacion(f_dame_fase(minuta)) + ' / ' + f_dame_desc_tipo_obra(f_dame_tipo_obra(minuta)) + ' / ' + f_dame_desc_destino_obra(f_dame_uso_obra(minuta)) )
+					end if
+					ds_impresion_facturas.setitem(i, 'descripcion', f_dame_descripcion_contrato(minuta))
+					ds_impresion_facturas.setitem(i, 'emplazamiento',f_dame_direccion_contrato(minuta))
+					// FIN Modificacion Ricardo 05-11-03
+				next
+			end if
+			
+			if copia='S' then impresion_formato.duplicado='S'
+		
+		CASE g_colegio_cliente	
+			
+			ds_impresion_facturas.retrieve(id_factura,'',f_devuelve_moneda_ejercicio(),copia)
+			if (ds_impresion_facturas.describe("nombre_empresa_t.name")= "nombre_empresa_t")  then ds_impresion_facturas.object.nombre_empresa_t.text = UPPER(g_nombre_empresa)
+			if (ds_impresion_facturas.describe("cif_empresa_t.name")= "cif_empresa_t")  then ds_impresion_facturas.object.cif_empresa_t.text = 'C.I.F.' + g_cif_empresa
+			if (ds_impresion_facturas.describe("direccion_empresa_t.name")= "direccion_empresa_t")  then  ds_impresion_facturas.object.direccion_empresa_t.text = g_direccion_empresa + ' ' + upper(g_col_ciudad)
+			if (ds_impresion_facturas.describe("emitida.name")= "emitida")  then  	ds_impresion_facturas.SetItem(ds_impresion_facturas.GetRow(),'emitida','S')
+			
+			if g_colegio = 'COAATNA' then
+				string id_colegiado, num_aviso, tipo_gestion
+				num_aviso = ds_impresion_facturas.GetItemString(1,'fases_minutas_n_aviso')
+				SELECT id_colegiado, tipo_gestion into :id_colegiado, :tipo_gestion FROM fases_minutas WHERE n_aviso = :num_aviso;
+				if NOT f_es_vacio(tipo_gestion) AND tipo_gestion='S' then
+					ds_impresion_facturas.SetItem(ds_impresion_facturas.GetRow(),'csi_facturas_emitidas_nombre', ds_impresion_facturas.GetItemString(ds_impresion_facturas.GetRow(),'csi_facturas_emitidas_nombre') + '~r~n(Trabajo suscrito por el colegiado n$$HEX2$$ba002000$$ENDHEX$$'+f_colegiado_n_col(id_colegiado)+' '+f_nombre_colegiado(id_colegiado)+')')
+				end if
+			end if
+			///*** SCP-929. Alexis. 21/02/2011. Modificado para que cargue los datos de la emprea asociada a la factura ***///
+				nombre_emisor = lst_datos_empresa_emisora.nombre_empresa
+				direc_emisor  = lst_datos_empresa_emisora.direccion_empresa
+				pobla_emisor  = lst_datos_empresa_emisora.poblacion_empresa 
+				nif_emisor = lst_datos_empresa_emisora.nif_empresa
+				email_emisor = lst_datos_empresa_emisora.email_empresa
+				for i = 1 to ds_impresion_facturas.rowcount()
+					if (ds_impresion_facturas.describe("nombre_emisor.name")= "nombre_emisor")  then ds_impresion_facturas.setitem(i, 'nombre_emisor', nombre_emisor)
+					if (ds_impresion_facturas.describe("direcc_emisor.name")= "direcc_emisor")  then ds_impresion_facturas.setitem(i, 'direcc_emisor', direc_emisor)
+					if (ds_impresion_facturas.describe("poblac_emisor.name")= "poblac_emisor")  then ds_impresion_facturas.setitem(i, 'poblac_emisor', pobla_emisor)
+					if (ds_impresion_facturas.describe("nif_emisor.name")= "nif_emisor")  then ds_impresion_facturas.SetItem(i, 'nif_emisor', nif_emisor)
+					if(g_colegio = 'COAATCC')then
+						if (ds_impresion_facturas.describe("email_emisor.name")= "email_emisor")  then ds_impresion_facturas.SetItem(i, 'email_emisor', email_emisor)
+					end if
+				next	
+			
+			if ds_impresion_facturas.RowCount()=0 then 
+				destroy ds_impresion_facturas
+				destroy detalle_factura
+				destroy lineas_factura
+				destroy lineas_factura_suplidas
+				destroy lineas_factura_no_suplidas
+				return
+			end if
+			if copia='S' then 
+				ds_impresion_facturas.SetItem(ds_impresion_facturas.GetRow(),'reimpresa','S')
+			end if
+			// Paco 30/8/2005: original/copia al pie de la factura
+			
+			if copia='S' then impresion_formato.duplicado='S'
+	END CHOOSE		
+	
+	if g_colegio = 'COAATBU' or g_colegio = 'COAATB' or g_colegio = 'COAATLE' or g_colegio = 'COAATAVI' or g_colegio = 'COAATA' or g_colegio = 'COAATNA' or g_colegio = 'COAATTGN' or g_colegio = 'COAATCC' or g_colegio = 'COAATTEB'  or  g_colegio = 'COAATLL' or g_colegio = 'COAATLR'  then 
+		if forma_pago <> 'AU' and forma_pago <> 'AL' and forma_pago <> 'CA' then
+			if (ds_impresion_facturas.describe("banco_pago.name")= "banco_pago")  then 
+				ds_impresion_facturas.setitem(ds_impresion_facturas.rowcount(), 'banco_pago', f_dame_desc_banco(banco_pago,ls_empresa_factura))
+				//	Modificado por Alexis para que muestre la cuenta bancaria para la transferencia. 10-07-2009
+				if g_colegio = 'COAATTEB' and forma_pago = 'TR' then
+					//Cambio Luis ICTL-208
+					if (ds_impresion_facturas.describe("csi_facturas_emitidas_banco.name")= "csi_facturas_emitidas_banco")  then 
+						ds_impresion_facturas.setitem(ds_impresion_facturas.rowcount(), 'csi_facturas_emitidas_banco', banco_pago)	
+					end if
+					//fin cambio	
+				end if
+			end if	
+			
+		end if
+	end if
+	//
+if (ds_impresion_facturas.describe("banco_pago_cod.name")= "banco_pago_cod")  then 
+			ds_impresion_facturas.setitem(ds_impresion_facturas.rowcount(), 'banco_pago_cod', banco_pago)
+end if
+else // SI EL DATAWINDOW ES DE TIPO RETRIEVE
+	ds_impresion_facturas.retrieve(id_factura)	
+	for i = 1 to ds_impresion_facturas.rowcount()
+		///*** SCP-929. Alexis. 21/02/2011. Modificado para que cargue los datos de la emprea asociada a la factura ***///	
+			if lower(ds_impresion_facturas.describe("nombre_emisor.name")) = 'nombre_emisor' then
+				if f_es_vacio(ds_impresion_facturas.getitemstring(i, 'nombre_emisor')) then 
+					 ds_impresion_facturas.setitem(i, 'nombre_emisor',lst_datos_empresa_emisora.nombre_empresa)
+				end if
+			end if
+			if lower(ds_impresion_facturas.describe("direcc_emisor.name")) = 'direcc_emisor' then
+				if f_es_vacio(ds_impresion_facturas.getitemstring(i, 'direcc_emisor')) then
+					ds_impresion_facturas.setitem(i, 'direcc_emisor', lst_datos_empresa_emisora.direccion_empresa)
+				end if
+			end if
+			if lower(ds_impresion_facturas.describe("poblac_emisor.name")) = 'poblac_emisor' then
+				if f_es_vacio(ds_impresion_facturas.getitemstring(i, 'poblac_emisor')) then 
+					ds_impresion_facturas.setitem(i, 'poblac_emisor', lst_datos_empresa_emisora.poblacion_empresa)
+				end if
+			end if
+			if lower(ds_impresion_facturas.describe("nif_emisor.name")) = 'nif_emisor' then 
+				if f_es_vacio(ds_impresion_facturas.getitemstring(i, 'nif_emisor')) then
+					ds_impresion_facturas.SetItem(i, 'nif_emisor', lst_datos_empresa_emisora.nif_empresa)
+				end if
+			end if
+				if lower(ds_impresion_facturas.describe("email_emisor.name")) = 'email_emisor' then 
+					ds_impresion_facturas.SetItem(i, 'email_emisor', lst_datos_empresa_emisora.email_empresa)
+				end if	
+	next	
+
+end if
+
+/////*** SCP-873. Alexis. 27/01/2011. Se modifica el logo para los colegios que se aplique multiempresa y disponga de datos en la tabla csi_empresas. ***///
+if g_activa_multiempresa = 'S' then
+	if not f_es_vacio(lst_datos_empresa_emisora.logo_empresa)then		
+		f_logo_empresa_ds(ls_empresa_factura, ds_impresion_facturas, '002')
+//		if lower(ds_impresion_facturas.describe("p_logo_empresa.name")) = 'p_logo_empresa' then 
+//				ds_impresion_facturas.Object.p_logo_empresa.Filename = ".\imagenes\" + lst_datos_empresa_emisora.logo_empresa 
+//		end if	
+	end if	
+end if	
+
+
+
+//Se configura para que salga 2 dw en una hoja
+// Creo dw dinamico para casos A5
+if ds_impresion_facturas.Describe("DataWindow.Print.Margin.Bottom")='14000' then
+	
+	// 02/02/2009   A$$HEX1$$f100$$ENDHEX$$adido por Eloy. En Caceres/Tarragona no se previsualizaba bien el composite.	
+	if copia = 'X' and IsValid(dw) then
+		integer res
+		res=ds_impresion_facturas.RowsCopy(1, ds_impresion_facturas.RowCount(), Primary!, dw, 1, Primary!)	
+		destroy ds_impresion_facturas
+		destroy detalle_factura
+		destroy lineas_factura
+		destroy lineas_factura_suplidas
+		destroy lineas_factura_no_suplidas
+		destroy ds_documentos_visared
+		return
+	end if
+
+	boolean lb_intro_logo_empresa
+	datastore ds
+	ds = CREATE datastore
+	ds.dataobject = 'ds_composite'
+	ds.settransobject(SQLCA)
+	
+	if lower(ds_impresion_facturas.describe("p_logo_empresa.name")) = 'p_logo_empresa' then
+		lb_intro_logo_empresa = true
+	else
+		lb_intro_logo_empresa = false
+	end if	
+	
+	ds.object.dw_1.dataobject = ds_impresion_facturas.dataobject
+	ds.object.dw_2.dataobject = ds_impresion_facturas.dataobject
+	
+	datawindowchild dwc, dwc2
+	
+	ds.GetChild("dw_1", dwc)
+	ds.GetChild("dw_2", dwc2)
+
+	ds_impresion_facturas.RowsCopy(1,  ds_impresion_facturas.RowCount(), Primary!, dwc, 1, Primary!)
+	ds_impresion_facturas.RowsCopy(1,  ds_impresion_facturas.RowCount(), Primary!, dwc2, 1, Primary!) 
+	
+	
+	if g_activa_multiempresa = 'S' and lb_intro_logo_empresa = true then
+		if not f_es_vacio(lst_datos_empresa_emisora.logo_empresa)then
+			
+			//ds.object.dw_1.object.p_logo_empresa.Filename = ".\imagenes\" + lst_datos_empresa_emisora.logo_empresa 
+			ds.object.dw_1.object.p_logo_empresa.Filename = ds_impresion_facturas.object.p_logo_empresa.Filename
+			//ds.object.dw_2.object.p_logo_empresa.Filename = ".\imagenes\" + lst_datos_empresa_emisora.logo_empresa 
+			ds.object.dw_2.object.p_logo_empresa.Filename = ds_impresion_facturas.object.p_logo_empresa.Filename
+		end if	
+	end if	
+	
+	ds_impresion_facturas = ds
+end if
+
+
+ds_impresion_facturas.groupcalc()
+string impresora, bandeja
+f_impresora_fact(tipo, impresora, bandeja)
+impresion_formato.impresora_bandeja = bandeja
+impresion_formato.impresora = impresora
+
+IF g_fact_ocultar_original_copia = 'S' THEN
+	if f_existe_columna_en_ds(ds_impresion_facturas,'original')=1 then ds_impresion_facturas.object.original.visible = FALSE
+	if f_existe_columna_en_ds(ds_impresion_facturas,'copia')=1 then ds_impresion_facturas.object.copia.visible = FALSE
+	if f_existe_columna_en_ds(ds_impresion_facturas,'t_9')=1 then ds_impresion_facturas.object.t_9.visible = FALSE
+END IF
+
+IF f_var_global_sn('g_fact_set_original_envio_correo') = 'S' THEN
+	if f_existe_columna_en_ds(ds_impresion_facturas,'original')=1 then ds_impresion_facturas.object.original.visible =TRUE
+	if f_existe_columna_en_ds(ds_impresion_facturas,'copia')=1 then ds_impresion_facturas.object.copia.visible = FALSE
+END IF
+
+if st_imp_fact.objeto_nuevo='S' then   // El objeto nuevo ya calcula las rutas con la nueva ventana. Damos compatibilidad a como se hacia antes
+	if copia <> 'S' then
+		impresion_formato.dw = ds_impresion_facturas
+		impresion_formato.f_impresion()
+	end if
+else	
+	if copia <> 'V' then
+		
+		if copia = 'X' then
+			If(g_colegio = 'COAATTGN') or  (g_colegio = 'COAATLL') then
+				dw.dataobject = ds_impresion_facturas.dataobject 
+			end if
+				ds_impresion_facturas.RowsCopy(1, ds_impresion_facturas.RowCount(), Primary!, dw, 1, Primary!)	
+		else //(COPIA=S)
+			if copia='S' then
+				impresion_formato.copias2=impresion_formato.copias
+				impresion_formato.copias=0
+			else
+				impresion_formato.copias2=0
+			
+			end if
+			//Aqu$$HEX2$$ed002000$$ENDHEX$$no imprimimos en pdf
+			string valorpdf
+			valorpdf=impresion_formato.pdf
+			impresion_formato.pdf='N'
+			impresion_formato.dw = ds_impresion_facturas
+			impresion_formato.f_impresion()
+			impresion_formato.pdf=valorpdf
+
+		end if
+	else
+		// Imprimimos por PDF
+		if	impresion_formato.pdf = 'S' then // INC. 6317 - Si no han marcado pdf no hacemos nada
+	 					
+				select id_fase,id_minuta,n_col,n_fact into :id_fase,:id_minuta_pdf,:colegiado,:n_fact from csi_facturas_emitidas where id_factura=:id_factura;
+				
+				if isnull(id_fase) then id_fase=''
+				if isnull(id_minuta_pdf) then id_minuta_pdf=''
+				if isnull(colegiado) then colegiado=''
+				
+				// Modificado David 14/02/2005
+				// En id_fase no se guarda el id_fase real y se graba mal en la tabla fases_documentos_visared
+						
+				string id_fase_real		
+				
+				if id_minuta_pdf <> '' then
+					facturadeexpediente=true
+					select n_registro, id_fase into :n_registro, :id_fase_real from fases where id_fase=:id_minuta_pdf;
+				end if
+				if id_fase_real= '' then id_fase_real= id_fase
+				///*** SCP-907. Alexis cambios para la impresi$$HEX1$$f300$$ENDHEX$$n con proformas. Si el id_fase es vac$$HEX1$$ed00$$ENDHEX$$o o es una proforma o     ***///
+				///*** tiene hist$$HEX1$$f300$$ENDHEX$$rico de proforma (es decir, era proforma), buscaremos por el id_minuta, que guarda el id_fase ***///
+				
+				if id_fase <> '' then
+					facturadeexpediente=true
+					
+					if f_es_factura_proforma(id_factura)='N' and not f_factura_tiene_hist_proforma(id_factura)  then
+						select fases.n_registro, fases.id_fase, fases.f_entrada into :n_registro, :id_fase_real, :f_entrada from fases, fases_minutas
+						where fases_minutas.id_minuta = :id_fase and	fases_minutas.id_fase = fases.id_fase;
+					else
+						select fases.n_registro, fases.id_fase, fases.f_entrada into :n_registro, :id_fase_real, :f_entrada from fases
+						where fases.id_fase = :id_fase_real;
+					end if	
+				else
+					select fases.n_registro, fases.id_fase, fases.f_entrada into :n_registro, :id_fase_real, :f_entrada from fases
+					where fases.id_fase = :id_fase_real;
+				end if
+
+				if facturadeexpediente then
+					
+					ruta_factura=n_registro
+					// INC. 5544
+					ruta_factura=string(year(date(f_entrada)))+'\'+ruta_factura
+					if year(today()) <> year(date(f_entrada)) then 
+						messagebox(g_titulo, 'Se ha generado el documento ' + n_fact +'.pdf en la carpeta ' + g_directorio_documentos_visared + ruta_factura)
+					end if
+					ruta_base = g_directorio_documentos_visared
+				else
+					select fecha into :f_factura from csi_facturas_emitidas where id_factura =:id_factura;
+					ruta_base = g_directorio_informes_economicos
+					ruta_factura=string(year(date(f_factura)))+'\'+colegiado+'\'+g_directorio_otras_facturas+'\'//colegiado+'\facturas'
+				end if
+			
+			
+				if copia <> 'S' then //para que solo haga la original
+					ds_documentos_visared 	= create datastore
+					ds_documentos_visared.dataobject = 'd_sellador_documentos'
+					ds_documentos_visared.SetTransObject(SQLCA)
+					
+					//Aqu$$HEX2$$ed002000$$ENDHEX$$no se ha de imprimir en papel
+					string valorpapel
+					valorpapel=impresion_formato.papel
+					impresion_formato.papel='N'
+					impresion_formato.ruta_base=ruta_base
+					impresion_formato.ruta_relativa=ruta_factura
+					impresion_formato.nombre=n_fact
+					impresion_formato.dw = ds_impresion_facturas
+					impresion_formato.f_impresion()
+					impresion_formato.papel=valorpapel
+			
+					// Modificado David 13/03/2006 - Si ya existe la entrada no la volvemos a insertar
+					string nombre_fich, ruta_fich
+					int existe
+					nombre_fich = n_fact+'.pdf'
+					ruta_fich = ruta_factura+'\' 
+					
+					SELECT count(id_fichero)  
+					INTO :existe  
+					FROM fases_documentos_visared  
+					WHERE id_fase = :id_fase_real AND nombre_fichero = :nombre_fich AND ruta_fichero = :ruta_fich ;
+					
+					//Insertamos el pdf en la tabla fases_documentos_visared  para que se puedan ver desde el sellador..																	
+					if existe = 0 then
+						
+						if impresion_formato.documento_sellado = 'S' then 							
+							nombre_fich = impresion_formato.nombre+g_valor_extension_docs_sellados
+
+							ds_documentos_visared.setitem(fila, 'sellado', 'S')		
+						else
+							ds_documentos_visared.setitem(fila, 'sellado', 'N')
+						end if
+							
+						fila = ds_documentos_visared.InsertRow(0)
+						ds_documentos_visared.setitem(fila, 'id_fichero', f_siguiente_numero('FASES_DOCU_VISARED', 10))
+						ds_documentos_visared.setitem(fila, 'id_fase', id_fase_real)
+						ds_documentos_visared.setitem(fila, 'nombre_fichero',n_fact+'.pdf')
+						ds_documentos_visared.setitem(fila, 'ruta_fichero',ruta_factura+'\')						
+						ds_documentos_visared.setitem(fila, 'fecha', today())
+						ds_documentos_visared.setitem(fila, 'visualizar_web', 'S')
+						
+						ds_documentos_visared.setitem (fila, 'id_factura', impresion_formato.id_factura)
+						
+						if g_colegio = 'COAATZ' then ds_documentos_visared.setitem(fila,'visualizar_web', 'N')
+						ds_documentos_visared.update()
+					end if
+					
+	
+			end if	
+		end if
+	end if
+end if
+
+destroy ds_impresion_facturas
+destroy detalle_factura
+destroy lineas_factura
+destroy lineas_factura_suplidas
+destroy lineas_factura_no_suplidas
+destroy ds_documentos_visared
+
+end subroutine
+

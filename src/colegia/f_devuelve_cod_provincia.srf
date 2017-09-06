@@ -1,0 +1,20 @@
+HA$PBExportHeader$f_devuelve_cod_provincia.srf
+global type f_devuelve_cod_provincia from function_object
+end type
+
+forward prototypes
+global function string f_devuelve_cod_provincia (string cod_pob)
+end prototypes
+
+global function string f_devuelve_cod_provincia (string cod_pob);string cod_prob
+  
+SELECT poblaciones.provincia  
+INTO :cod_prob  
+FROM poblaciones  
+WHERE poblaciones.cod_pob = :cod_pob   ;
+
+			
+return cod_prob
+
+end function
+

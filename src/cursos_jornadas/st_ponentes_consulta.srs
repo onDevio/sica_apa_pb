@@ -1,0 +1,8 @@
+HA$PBExportHeader$st_ponentes_consulta.srs
+global type st_ponentes_consulta from structure
+	string		id_ponente
+	string		nif
+	string		apellidos
+	string		nombre
+end type
+

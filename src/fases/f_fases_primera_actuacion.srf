@@ -1,0 +1,24 @@
+HA$PBExportHeader$f_fases_primera_actuacion.srf
+global type f_fases_primera_actuacion from function_object
+end type
+
+forward prototypes
+global function boolean f_fases_primera_actuacion (string id_expedi, string id_fase)
+end prototypes
+
+global function boolean f_fases_primera_actuacion (string id_expedi, string id_fase);boolean retorno = false
+long num
+ 
+SELECT count(*)
+INTO :num
+FROM fases  
+WHERE ( fases.id_expedi = :id_expedi ) AND  
+		( fases.tipo_gestion is not null ) AND  
+		( fases.id_fase <> :id_fase )  ;
+
+if num = 0 then retorno = true
+		
+return retorno
+
+end function
+

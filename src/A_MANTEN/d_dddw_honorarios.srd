@@ -1,0 +1,17 @@
+HA$PBExportHeader$d_dddw_honorarios.srd
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=64 color="536870912" )
+table(column=(type=char(10) updatewhereclause=yes key=yes name=codigo dbname="csi_articulos_servicios.codigo" )
+ column=(type=char(32763) updatewhereclause=yes name=descripcion dbname="csi_articulos_servicios.descripcion" )
+ column=(type=char(10) updatewhereclause=yes key=yes name=colegio dbname="csi_articulos_servicios.colegio" )
+ column=(type=char(2) updatewhereclause=yes name=empresa dbname="csi_articulos_servicios.empresa" )
+ retrieve="PBSELECT( VERSION(400) TABLE(NAME=~"csi_articulos_servicios~" ) COLUMN(NAME=~"csi_articulos_servicios.codigo~") COLUMN(NAME=~"csi_articulos_servicios.descripcion~") COLUMN(NAME=~"csi_articulos_servicios.colegio~") COLUMN(NAME=~"csi_articulos_servicios.empresa~")WHERE(    EXP1 =~"csi_articulos_servicios.activo~"   OP =~"=~"    EXP2 =~"'S'~"    LOGIC =~"and~" ) WHERE(    EXP1 =~"csi_articulos_servicios.honorario~"   OP =~"=~"    EXP2 =~"'S'~" ) ) " update="csi_articulos_servicios" updatewhere=0 updatekeyinplace=no filter="empresa = f_devuelve_empresa()" )
+text(band=header alignment="2" text="Cod Delegacion" border="0" color="0" x="5" y="4" height="64" width="416"  name=cod_delegacion_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Descripcion" border="0" color="0" x="425" y="4" height="64" width="1152"  name=descripcion_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="9" y="4" height="52" width="137" format="[general]"  name=codigo edit.limit=0 edit.case=any edit.autoselect=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="160" y="4" height="52" width="1102" format="[general]"  name=descripcion edit.limit=0 edit.case=any edit.autoselect=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

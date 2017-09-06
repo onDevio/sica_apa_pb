@@ -1,0 +1,16 @@
+HA$PBExportHeader$f_factura_observaciones_text.srf
+global type f_factura_observaciones_text from function_object
+end type
+
+forward prototypes
+global function string f_factura_observaciones_text (string id_factura)
+end prototypes
+
+global function string f_factura_observaciones_text (string id_factura);// Creada por Ricardo para devolver el texto que es un text y muchas veces no se puede poner en la select
+string texto
+
+select observaciones_text into :texto from csi_facturas_emitidas where id_factura = :id_factura;
+if isnull(texto) then texto = ''
+return texto
+end function
+

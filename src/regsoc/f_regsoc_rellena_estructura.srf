@@ -1,0 +1,136 @@
+HA$PBExportHeader$f_regsoc_rellena_estructura.srf
+$PBExportComments$Dado un colegiado inserta sus datos en una nueva fila del datastore que se le pasa
+global type f_regsoc_rellena_estructura from function_object
+end type
+
+forward prototypes
+global subroutine f_regsoc_rellena_estructura (string id_regsoc, ref datastore ds_sociedades, st_retorno_seleccion campos_extra)
+end prototypes
+
+global subroutine f_regsoc_rellena_estructura (string id_regsoc, ref datastore ds_sociedades, st_retorno_seleccion campos_extra);
+
+string nombre,f_registro,tomo,libro,folio,hoja,inscripcion,integrante1,integrante2,integrante3,integrante4,n_registro, id_soc, cif
+string domicilio,poblacion,banco,cod_banco,cuenta, telefono,fax,email,src_cia,n_col_soc, n_acreditado
+double src_cober,src_malus, src_malus_soc
+string path,src_alta,n_mutualista,src_n_poliza 
+string fecha,id_col,id_cli,tipo,nif,ncol,n_acred
+datastore ds_socios
+long fila,i
+
+ds_socios=create datastore
+ds_socios.dataobject='d_regsoc_socios_enlazado'
+ds_socios.SetTransObject(SQLCA)
+
+SetPointer(Hourglass!)
+path= Profilestring(gnv_app.of_getappinifile(),"Regsoc","path_plantillas","")
+select id_colegiado_sociedad, tomo, libro, folio, hoja_numero, inscripcion, const_fecha, num_reg_colegio, telefono,fax,mail
+into  :id_soc,:tomo,:libro,:folio,:hoja,:inscripcion,:fecha,:n_registro,:telefono,:fax,:email
+from regsoc
+where id_regsoc=:id_regsoc;
+
+select apellidos,nif,domicilio_activo_fiscal,poblacion_activa_fiscal,cuenta_domic,banco_domic,n_colegiado, n_acreditado
+into :nombre,:cif, :domicilio,:poblacion,:cuenta,:cod_banco,:n_col_soc,:n_acreditado
+from colegiados where id_colegiado=:id_soc;
+
+select descripcion into:banco from csi_bancos_maestro where id=:cod_banco;
+
+select a.nom_s,c.prima,m.src_alta,m.n_mutualista,m.src_n_poliza,m.src_coef_cm
+into :src_cia,:src_cober,:src_alta,:n_mutualista,:src_n_poliza,:src_malus_soc 
+from musaat m,musaat_cias_aseguradoras a,musaat_cober_src c
+where m.id_col=:id_soc and m.src_cober=c.codigo and m.src_cia=a.cod_s;
+
+
+//count = ds_sociedades.rowcount()
+fila  = ds_sociedades.InsertRow(0)
+date hoy
+hoy=today()
+fecha = string(day(hoy)) + ' de ' + lower(f_obtener_mes(datetime(hoy))) + ' de ' + string(year(hoy))
+
+//CABECERA
+if f_es_vacio(nombre) then nombre=''
+if f_es_vacio(tomo) then tomo = ''
+if f_es_vacio(libro) then libro = ''
+if f_es_vacio(folio) then folio = ''
+if f_es_vacio(hoja) then hoja = ''
+if f_es_vacio(inscripcion) then inscripcion = ''
+if f_es_vacio(n_registro) then n_registro = ''
+if f_es_vacio(cif) then cif=''
+if f_es_vacio(n_acreditado) then n_acreditado = ''
+
+ds_sociedades.SetItem(fila,'nombre',nombre)
+ds_sociedades.SetItem(fila,'cif',cif)
+ds_sociedades.SetItem(fila,'domicilio_activo_fiscal',domicilio)
+ds_sociedades.SetItem(fila,'poblacion_activa_fiscal',poblacion)
+ds_sociedades.SetItem(fila,'n_registro',n_registro)
+ds_sociedades.SetItem(fila,'tomo',tomo)
+ds_sociedades.SetItem(fila,'libro',libro)
+ds_sociedades.SetItem(fila,'folio',folio)
+ds_sociedades.SetItem(fila,'hoja',hoja)
+ds_sociedades.SetItem(fila,'inscripcion',inscripcion)
+ds_sociedades.SetItem(fila,'email',email)
+ds_sociedades.SetItem(fila,'telefono',telefono)
+ds_sociedades.SetItem(fila,'fax',fax)
+ds_sociedades.SetItem(fila,'cuenta',cuenta)
+ds_sociedades.SetItem(fila,'banco',banco)
+ds_sociedades.SetItem(fila,'src_cia',src_cia)
+ds_sociedades.SetItem(fila,'src_cober',string(src_cober,'#,##0'))
+ds_sociedades.SetItem(fila,'fecha',fecha)
+ds_sociedades.SetItem(fila,'n_col_soc',n_col_soc)
+ds_sociedades.SetItem(fila,'src_alta',src_alta)
+ds_sociedades.SetItem(fila,'n_mutualista',n_mutualista)
+ds_sociedades.SetItem(fila,'src_n_poliza',src_n_poliza)
+ds_sociedades.SetItem(fila,'src_malus_soc',string(src_malus_soc,'#,##0.00'))
+ds_sociedades.SetItem(fila,'n_acreditado',n_acreditado)
+
+//Campos extra
+ds_sociedades.SetItem(fila,'campo1',campos_extra.campo1)
+ds_sociedades.SetItem(fila,'campo2',campos_extra.campo2)
+ds_sociedades.SetItem(fila,'campo3',campos_extra.campo3)
+ds_sociedades.SetItem(fila,'campo4',campos_extra.campo4)
+ds_sociedades.SetItem(fila,'campo5',campos_extra.campo5)
+
+ds_socios.retrieve(id_soc)
+ds_socios.SetFilter("tipo='1'")
+ds_socios.Filter()
+string nom,app,integrantes
+
+integrantes=''
+
+for i=1 to ds_socios.rowcount()
+	if i>4 then exit
+	tipo=ds_socios.GetItemString(i,'tipo')
+	if tipo='1' then
+		id_col=ds_socios.GetItemString(i,'id_colegiado')
+		select nombre,apellidos,nif,n_colegiado,n_acreditado into :nom,:app,:nif,:ncol,:n_acred from colegiados where id_colegiado=:id_col;
+		
+		src_cia=''
+		src_cober=0
+		src_malus=0
+		select a.nom_s,c.prima,m.src_coef_cm into :src_cia,:src_cober,:src_malus
+		from musaat m,musaat_cias_aseguradoras a,musaat_cober_src c
+		where m.src_cia*=a.cod_s and m.id_col=:id_col and m.src_cober=c.codigo;
+		
+		ds_sociedades.SetItem(fila,'src_cia'+string(i),src_cia)
+		ds_sociedades.SetItem(fila,'src_cober'+string(i),string(src_cober,'#,##0'))
+		ds_sociedades.SetItem(fila,'src_malus'+string(i),string(src_malus,'#,##0.00'))
+		ds_sociedades.SetItem(fila,'ncol'+string(i),ncol)
+		ds_sociedades.SetItem(fila,'nacreditado'+string(i),n_acred)
+	else
+		id_cli=ds_socios.GetItemString(i,'id_cliente')
+		select nombre,apellidos,nif into :nom,:app,:nif from clientes where id_cliente=:id_cli;
+	end if
+	ds_sociedades.SetItem(fila,'integrante'+string(i),nom+' '+app)
+	integrantes+=nom+' '+app+', '
+	ds_sociedades.SetItem(fila,'nif'+string(i),nif)
+next
+
+integrantes=left(integrantes,len(integrantes) - 2)
+ds_sociedades.SetItem(fila,'integrantes',integrantes)
+
+// Guardamos los datos del datastore en un fichero de texto
+ds_sociedades.SaveAs(path+'plantillas.txt', text!, true)
+
+SetPointer(Arrow!)
+
+end subroutine
+

@@ -1,0 +1,6 @@
+HA$PBExportHeader$st_fases_busqueda.srs
+global type st_fases_busqueda from structure
+	string		id_fase
+	string		n_expediente
+end type
+

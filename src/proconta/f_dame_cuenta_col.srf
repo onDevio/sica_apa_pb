@@ -1,0 +1,150 @@
+HA$PBExportHeader$f_dame_cuenta_col.srf
+global type f_dame_cuenta_col from function_object
+end type
+
+forward prototypes
+global function string f_dame_cuenta_col (string id_col, string tipo)
+end prototypes
+
+global function string f_dame_cuenta_col (string id_col, string tipo);string cuenta, nom, apell, titulo, n_col, relleno, nif, cod_colegio=''
+string prefijo_busq, prefijo
+int digitos_relleno
+
+if tipo = 'P' then prefijo = g_prefijo_arqui						// Cuenta contable de Honorarios
+if tipo = 'G' then prefijo = g_prefijo_arqui_gasto 				// Cuenta contable de Gasto
+if tipo = 'R' then prefijo = g_prefijo_arqui_rf
+if tipo = 'I' then prefijo = g_prefijo_arqui_iva
+if tipo = 'A' then prefijo = g_prefijo_arqui_pendientes 		// Son las pendientes de abono, la cuenta
+if tipo = 'CP' then prefijo = g_prefijo_cuenta_bancaria_col 	// cuenta personal de pagos
+
+prefijo_busq = prefijo + '%'
+
+//Control de la variable g_num_digitos
+if isnull(g_num_digitos) or g_num_digitos > 10 or g_num_digitos < 6 then
+	select cuenta into :cuenta from cuentas where final = 'D' and cuenta like :prefijo_busq using bd_ejercicio;
+	g_num_digitos = LenA(cuenta)
+	Messagebox(g_titulo,"Atenci$$HEX1$$f300$$ENDHEX$$n la variable g_num_digitos no est$$HEX2$$e1002000$$ENDHEX$$asignada. Se utilizar$$HEX2$$e1002000$$ENDHEX$$el valor "+string(g_num_digitos))
+	setnull(cuenta)
+end if
+
+if not f_es_vacio(g_digito_cta_colegiado) and f_colegiado_tipopersona(id_col) <> 'S'then prefijo_busq = prefijo +g_digito_cta_colegiado
+if not f_es_vacio(g_digito_cta_sociedades_col) and  f_colegiado_tipopersona(id_col)= 'S' then prefijo_busq = prefijo +g_digito_cta_sociedades_col
+
+// Buscamos la cuenta
+SELECT cuenta INTO :cuenta from cuentas where cuenta like :prefijo_busq and id_col = :id_col Using bd_ejercicio;
+// si no existe la creamos
+if bd_ejercicio.SQLNrows = 0 then
+	titulo = f_colegiado_apellido(id_col)
+	n_col = f_colegiado_n_col(id_col)
+	
+	// Si esta activa la modalidad que indica si se incluye el colegio de procedencia del colegiado
+//	if g_digito_colegio_pro = 'S'  and right(n_col, 6) < '100000' then	
+	if g_digito_colegio_pro = 'S'   then	
+		cod_colegio = f_colegiado_cod_colegio(id_col)
+		
+		if len(n_col)<=6 then n_col = rightA('00000'+n_col,5)
+		if len(n_col)>= 9 then 	n_col = left(n_col,8)
+		if len(n_col)= 8  then
+			if right(n_col, 6) < '100000' then 
+				n_col = right(n_col,5)
+			else 
+				n_col = right(n_col,6)
+				cod_colegio= '8'
+			end if
+		end if
+		if len(n_col)= 7 then n_col = right(n_col,5)
+		
+		if  f_colegiado_tipopersona(id_col)= 'S' then
+				if LeftA(n_col,1) = 'S' and len(n_col)<= 5  then
+					n_col =  right(n_col, len(n_col)- 1)
+					n_col = rightA('00000'+n_col,5)
+				else
+					 n_col = right(n_col,5)
+				end if
+			
+			end if
+
+	end if
+	
+	
+// Devuelve la cuenta contable por defecto con los d$$HEX1$$ed00$$ENDHEX$$gitos necesarios
+// CAMBIO
+//	digitos_relleno = integer(g_num_digitos) - len(prefijo) - 5
+//	relleno = right('0000000000',digitos_relleno)
+	digitos_relleno = integer(g_num_digitos) -  LenA(prefijo) - LenA(n_col)
+	if digitos_relleno > 0 then relleno = RightA('0000000000',digitos_relleno)
+	if f_es_vacio(relleno) then relleno = ''
+// FIN CAMBIO
+
+	cuenta = prefijo + relleno + n_col
+
+if g_digito_colegio_pro = 'S' then 
+	cuenta = prefijo + cod_colegio + n_col
+else
+	//Yexaira -30/06/08 
+	// Se valida que el colegio no utilice digito que diferencie las cuentas de colegiados y sociedades
+	// Cta colegiado Ejemplo : 430900222; 430= prefijo; 9=digito; 00222= n_col
+	if not f_es_vacio(g_digito_cta_colegiado) and   f_colegiado_tipopersona(id_col) <> 'S'then cuenta = prefijo +g_digito_cta_colegiado+ relleno + right(n_col,len(n_col)-1)
+	if not f_es_vacio(g_digito_cta_sociedades_col) and    f_colegiado_tipopersona(id_col) = 'S' then cuenta = prefijo +g_digito_cta_sociedades_col+ relleno + right(n_col,len(n_col)-1)
+end if
+// David - 21/09/2005 Tener en cuenta este cambio si se actualiza la funci$$HEX1$$f300$$ENDHEX$$n
+//	if g_colegio = 'COAATGUI' and LeftA(n_col,1) = 'S' then
+//		cuenta = prefijo + '5' + relleno + right(n_col,len(n_col)-1)
+//	end if
+
+// CAMBIO
+//SI ES 7 DIGITOS HAY QUE HACER ESTA COSA TAN RARA:
+//	cuenta = left(prefijo,3) + right(n_col,4)
+if g_num_digitos = 7 then 	cuenta = LeftA(prefijo,3) + RightA(n_col,4)
+	//FIN CONTROL 7 DIGITOS			
+// FIN CAMBIO
+
+	// Comprobamos si la cuenta exist$$HEX1$$ed00$$ENDHEX$$a para evitar error de duplicado
+	SELECT cuenta INTO :cuenta from cuentas where cuenta like :cuenta USING bd_ejercicio;
+	if bd_ejercicio.SQLNrows = 0 then
+		if tipo = 'R' then titulo = 'Ret ' + titulo
+		if tipo = 'I' and g_colegio = 'COAC' then
+			titulo = 'IGIC ' + titulo
+		elseif tipo = 'I' then
+			titulo = 'IVA ' + titulo
+		end if
+		if tipo = 'A' then titulo = 'Cta Puente Hon.pdtes ' + titulo
+		// En el campo resumen de la cuenta contable ponemos el NIF del colegiado
+		nif = f_devuelve_nif(id_col)
+		
+		// Modificado Ricardo 2005-05-23
+		//insert into cuentas values (:cuenta,:titulo,:nif,'D','S',0,0,0,0,:id_col,0,0,0,0,0) USING bd_ejercicio;
+		//commit;
+		st_cuenta cuenta_struct
+		
+		cuenta_struct.cuenta 		= cuenta
+		cuenta_struct.titulo 		= titulo
+		cuenta_struct.resumen 		= nif
+		cuenta_struct.final 			= 'D'
+		cuenta_struct.empresa		= 'S'
+		cuenta_struct.debe			= 0
+		cuenta_struct.haber			= 0
+		cuenta_struct.saldo			= 0
+		cuenta_struct.presupuesto	= 0
+		cuenta_struct.id_col			= id_col
+		cuenta_struct.s1				= 0
+		cuenta_struct.s2				= 0
+		cuenta_struct.s3				= 0
+		cuenta_struct.ica				= 0
+		cuenta_struct.otros			= 0
+		if not f_es_vacio(f_cuenta_pgc_sincronizada(cuenta_struct, 'N')) then 
+			setnull(cuenta) //-> Con esto saca el mesaje de abajo
+			rollback using bd_ejercicio;
+		else
+			commit using bd_ejercicio;
+		end if
+		
+		// FIN Modificado Ricardo 2005-05-23
+	end if
+end if  
+
+if f_es_vacio(cuenta) then MessageBox(g_titulo, 'Ha habido problemas creando la cuenta contable del colegiado ' + n_col)
+		
+return cuenta 
+end function
+

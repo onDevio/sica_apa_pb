@@ -1,0 +1,25 @@
+HA$PBExportHeader$f_devuelve_emplazamiento.srf
+global type f_devuelve_emplazamiento from function_object
+end type
+
+forward prototypes
+global function string f_devuelve_emplazamiento (string id_exp)
+end prototypes
+
+global function string f_devuelve_emplazamiento (string id_exp);string emplazamiento,tipo
+
+  SELECT tipos_via.descripcion,   
+         expedientes.emplazamiento  
+    INTO :tipo,   
+         :emplazamiento  
+    FROM expedientes,   
+         tipos_via  
+   WHERE ( expedientes.id_expedi = :id_exp ) AND  
+         ( expedientes.tipo_via_emplazamiento = tipos_via.cod_tipo_via )   
+           ;
+
+emplazamiento = tipo + ' '+emplazamiento 
+
+return emplazamiento
+end function
+

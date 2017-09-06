@@ -1,0 +1,38 @@
+HA$PBExportHeader$f_puedo_entrar.srf
+global type f_puedo_entrar from function_object
+end type
+
+forward prototypes
+global function integer f_puedo_entrar (string usuario, string aplicacion)
+end prototypes
+
+global function integer f_puedo_entrar (string usuario, string aplicacion);char permiso=''
+long cuantos=0
+string mensaje
+
+//select count(*) into :cuantos from t_permisos where cod_usuario = :usuario and cod_aplicacion = 'E';
+
+if f_es_superusuario()<>'-1' then return 1
+
+// Comprobamos los permisos de usuario
+select permiso into :permiso from t_permisos where cod_usuario=:usuario and cod_aplicacion=:aplicacion;
+
+if isnull(permiso) or permiso='' then 
+	// Comprobamos los permisos de grupo
+	select count(*) into :cuantos from t_usuario_grupos,t_grupo_permisos where  t_usuario_grupos.cod_usuario=:usuario and 
+	 t_usuario_grupos.cod_grupo=t_grupo_permisos.cod_grupo and t_grupo_permisos.cod_aplicacion=:aplicacion;
+	if cuantos>0 then
+		return 1
+	else		
+		mensaje = "Acceso No Permitido"
+		if g_usar_idioma="S" then
+			mensaje = g_idioma.of_getmsg( "seguridad.fallo_acceso",mensaje)
+		end if
+		Messagebox(g_titulo,"Acceso No Permitido.", StopSign!)
+		return -1
+	end if
+else 
+	return 1
+end if
+end function
+

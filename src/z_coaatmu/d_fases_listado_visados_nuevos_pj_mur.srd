@@ -1,0 +1,48 @@
+HA$PBExportHeader$d_fases_listado_visados_nuevos_pj_mur.srd
+release 7;
+datawindow(units=0 timer_interval=0 color=1090519039 processing=0 HTMLDW=no print.documentname="" print.orientation = 1 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=600 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=76 color="536870912" )
+detail(height=88 color="536870912" )
+table(column=(type=datetime updatewhereclause=yes name=fases_f_visado dbname="fases.f_visado" )
+ column=(type=char(32767) updatewhereclause=no name=fases_descripcion dbname="fases.descripcion" )
+ column=(type=char(255) updatewhereclause=yes name=fases_emplazamiento dbname="fases.emplazamiento" )
+ column=(type=char(30) updatewhereclause=yes name=fases_n_calle dbname="fases.n_calle" )
+ column=(type=char(6) updatewhereclause=yes name=fases_poblacion dbname="fases.poblacion" )
+ column=(type=char(80) updatewhereclause=yes name=clientes_apellidos dbname="clientes.apellidos" )
+ retrieve="  SELECT fases.f_visado,   
+         fases.descripcion,   
+         fases.emplazamiento,
+			fases.n_calle,
+			fases.poblacion,   
+         clientes.apellidos  
+    FROM fases,   
+         fases_clientes,   
+         clientes  
+   WHERE ( fases.id_fase = fases_clientes.id_fase ) and  
+         ( fases_clientes.id_cliente = clientes.id_cliente ) and  
+		((fases.tipo_registro like 'IP%')AND
+		(fases.fase = '14') AND
+		(fases.tipo_trabajo='11')AND
+         ( substring(clientes.nif,1,1) in ('A','B','C','D','F','S','P','G','Q' ) )AND  
+         ( clientes.nif not like 'AUTO%' )) " )
+text(band=header alignment="2" text="Descripci$$HEX1$$f300$$ENDHEX$$n de la obra" border="4" color="33554432" x="18" y="536" height="56" width="1225"  name=t_1  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Emplazamiento de la obra" border="4" color="33554432" x="1257" y="536" height="56" width="1632"  name=t_2  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Fecha Visado" border="4" color="33554432" x="2903" y="536" height="56" width="411"  name=t_3  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Cliente" border="4" color="0" x="3328" y="536" height="56" width="1111"  name=t_4  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+compute(band=header alignment="2" expression="f_poner_logo_listados_superior (   )"border="0" color="16777215" x="23" y="8" height="72" width="443" format="[GENERAL]"  name=compute_4  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15780518" )
+compute(band=header alignment="2" expression="f_poner_logo_listados_inferior (   )"border="0" color="16777215" x="23" y="88" height="72" width="443" format="[GENERAL]"  name=compute_5  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15780518" )
+text(band=header alignment="0" text="Visados nuevos de los que son promotores personas jur$$HEX1$$ed00$$ENDHEX$$dicas" border="0" color="0" x="535" y="28" height="120" width="3941"  name=st_titulo_listado  font.face="Arial" font.height="-18" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="2" background.color="16777215" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="33554432" x="9" y="8" height="56" width="1225" format="[general]"  name=fases_descripcion edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="0" expression=" fases_emplazamiento +' '+ fases_n_calle +','+ fases_poblacion +' '+ f_poblacion_descripcion(fases_poblacion)"border="0" color="33554432" x="1253" y="8" height="56" width="1632" format="[GENERAL]"  name=compute_emplazamiento  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="2" tabsequence=32766 border="0" color="33554432" x="2903" y="8" height="56" width="411" format="[shortdate] "  name=fases_f_visado edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="33554432" x="4489" y="20" height="64" width="46" format="[general]"  name=fases_emplazamiento visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="33554432" x="4489" y="24" height="56" width="55" format="[general]"  name=fases_n_calle visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="33554432" x="4485" y="20" height="56" width="55" format="[general]"  name=fases_poblacion visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="0" color="33554432" x="3328" y="8" height="56" width="1111" format="[general]"  name=clientes_apellidos edit.limit=80 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=footer alignment="0" expression="'P$$HEX1$$e100$$ENDHEX$$gina ' + page() + ' de ' + pageCount()"border="0" color="0" x="23" y="8" height="60" width="562" format="[general]"  name=page_1  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+compute(band=footer alignment="1" expression="today()"border="0" color="0" x="4206" y="8" height="60" width="352" format="dd/mm/yyyy"  name=date_1  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+
+sparse(names="fases_descripcion	compute_emplazamiento	fases_f_visado")htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

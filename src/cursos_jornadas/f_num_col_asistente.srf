@@ -1,0 +1,22 @@
+HA$PBExportHeader$f_num_col_asistente.srf
+global type f_num_col_asistente from function_object
+end type
+
+forward prototypes
+global function string f_num_col_asistente (string id_asistente)
+end prototypes
+
+global function string f_num_col_asistente (string id_asistente);string num_col
+
+SELECT n_colegiado
+INTO :num_col
+FROM formacion_asistentes
+WHERE	id_asistente=:id_asistente;
+
+return num_col
+
+
+
+
+end function
+

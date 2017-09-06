@@ -1,0 +1,17 @@
+HA$PBExportHeader$f_clientes_irpf_cliente.srf
+$PBExportComments$Indica si el cliente correspondiente lleva o no irpf
+global type f_clientes_irpf_cliente from function_object
+end type
+
+forward prototypes
+global function string f_clientes_irpf_cliente (string id_cliente)
+end prototypes
+
+global function string f_clientes_irpf_cliente (string id_cliente);string irpf = ''
+
+select irpf into :irpf from clientes where id_cliente=:id_cliente;
+if f_es_vacio(irpf) then irpf = 'N'
+
+return irpf
+end function
+

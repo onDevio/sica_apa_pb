@@ -1,0 +1,80 @@
+HA$PBExportHeader$d_colegiados_listado_orientac_prof_gc.srd
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 1 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=576 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=116 color="536870912" )
+detail(height=64 color="536870912"  height.autosize=yes)
+table(column=(type=char(10) updatewhereclause=yes name=colegiados_id_colegiado dbname="colegiados.id_colegiado" )
+ column=(type=char(15) updatewhereclause=yes name=n_colegiado dbname="colegiados.n_colegiado" )
+ column=(type=char(50) updatewhereclause=yes name=nombre dbname="colegiados.nombre" )
+ column=(type=char(80) updatewhereclause=yes name=apellidos dbname="colegiados.apellidos" )
+ column=(type=char(60) updatewhereclause=yes name=t_orientaciones_profesionales_descripcion dbname="t_orientaciones_profesionales.descripcion" )
+ column=(type=char(100) updatewhereclause=yes name=domicilios_nom_via dbname="domicilios.nom_via" )
+ column=(type=char(6) updatewhereclause=yes name=domicilios_cp dbname="domicilios.cp" )
+ column=(type=char(60) updatewhereclause=yes name=poblaciones_descripcion dbname="poblaciones.descripcion" )
+ column=(type=char(50) updatewhereclause=yes name=provincias_nombre dbname="provincias.nombre" )
+ column=(type=char(30) updatewhereclause=yes name=colegiados_telefono_2 dbname="colegiados.telefono_2" )
+ retrieve="  SELECT colegiados.id_colegiado,   
+         colegiados.n_colegiado,   
+         colegiados.nombre,   
+         colegiados.apellidos,   
+         t_orientaciones_profesionales.descripcion,   
+         domicilios.nom_via,   
+         domicilios.cp,   
+         poblaciones.descripcion,   
+         provincias.nombre  ,
+			colegiados.telefono_2
+    FROM colegiados,   
+         orientaciones_profesionales,   
+         t_orientaciones_profesionales,   
+         domicilios,   
+         poblaciones,   
+         provincias  
+   WHERE ( colegiados.id_colegiado = orientaciones_profesionales.id_colegiado ) and  
+         ( orientaciones_profesionales.orientacion_profesional = t_orientaciones_profesionales.cod_orientacion_profesional ) and  
+         ( colegiados.id_colegiado = domicilios.id_colegiado ) and  
+         ( domicilios.cod_pob = poblaciones.cod_pob ) and  
+         ( poblaciones.provincia = provincias.cod_provincia ) and  
+         ( ( domicilios.profesional = 'S' ) )    
+
+UNION
+
+SELECT colegiados.id_colegiado,   
+         colegiados.n_colegiado,   
+         colegiados.nombre,   
+         colegiados.apellidos,   
+         t_orientaciones_profesionales.descripcion,   
+         convert(char(100), '') as 'domicilios.nom_via',   
+         convert(char(6), '') as 'domicilios.cp',   
+         convert(char(60), '') as 'poblaciones.descripcion',   
+         convert(char(50), '') as 'provincias.nombre'  ,
+			colegiados.telefono_2
+    FROM colegiados,   
+         orientaciones_profesionales,   
+         t_orientaciones_profesionales  
+   WHERE ( colegiados.id_colegiado = orientaciones_profesionales.id_colegiado ) and  
+         ( orientaciones_profesionales.orientacion_profesional = t_orientaciones_profesionales.cod_orientacion_profesional ) and  
+         ( colegiados.id_colegiado not in (select id_colegiado from domicilios where profesional = 'S' ) )"  sort="apellidos A nombre A t_orientaciones_profesionales_descripcion A colegiados_id_colegiado A " )
+group(level=1 header.height=108 trailer.height=4 by=("colegiados_id_colegiado" ) header.color="536870912" trailer.color="536870912" )
+text(band=header alignment="0" text="Listado de Orientaciones Profesionales" border="0" color="0" x="448" y="12" height="120" width="2862"  name=st_titulo_listado  font.face="Arial" font.height="-18" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="1" background.color="536870912" )
+compute(band=header alignment="2" expression="f_poner_logo_listados_inferior (   )"border="0" color="16777215" x="0" y="68" height="52" width="434" format="[general]"  name=compute_6  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15780518" )
+compute(band=header alignment="2" expression="f_poner_logo_listados_superior (   )"border="0" color="16777215" x="0" y="12" height="52" width="434" format="[general]"  name=compute_7  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15780518" )
+text(band=header alignment="0" text="" border="0" color="0" x="14" y="240" height="212" width="3301"  name=t_parametros  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+text(band=header alignment="2" text="Domicilio Profesional" border="4" color="0" x="1170" y="508" height="56" width="1221"  name=t_2  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Tel. Prof." border="4" color="0" x="2409" y="508" height="56" width="695"  name=t_1  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Orientaciones Profesionales" border="4" color="0" x="3122" y="508" height="56" width="1733"  name=t_5  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Colegiado" border="4" color="0" x="14" y="508" height="56" width="1138"  name=t_3  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=header.1 alignment="0" expression=" domicilios_nom_via + ' ' +  domicilios_cp  + ' ' +  poblaciones_descripcion "border="0" color="0" x="1170" y="4" height="100" width="1221" format="[GENERAL]"  name=compute_3  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=header.1 id=10 alignment="0" tabsequence=32766 border="0" color="0" x="2409" y="4" height="100" width="695" format="[general]"  name=colegiados_telefono_2 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=header.1 id=2 alignment="2" tabsequence=32766 border="0" color="0" x="14" y="4" height="56" width="192" format="[general]"  name=n_colegiado  tag=" " edit.limit=15 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=header.1 alignment="0" expression="if(isnull(  apellidos ) ,'',  apellidos  )+' '+
+if(isnull( nombre ) ,'',  nombre  )"border="0" color="0" x="224" y="4" height="100" width="928" format="[GENERAL]"  name=compute_1  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="3122" y="4" height="56" width="1733" format="[general]"  name=t_orientaciones_profesionales_descripcion height.autosize=yes edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=trailer.1 x1="59" y1="0" x2="4855" y2="0"  name=l_1 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="1090519039" )
+text(band=footer alignment="0" text="Fecha:" border="0" color="0" x="18" y="32" height="56" width="178"  name=t_7  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+compute(band=footer alignment="0" expression="datetime(today(),now())"border="0" color="0" x="206" y="32" height="56" width="544" format="dd/mm/yyyy     hh:mm:ss"  name=compute_8  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+compute(band=footer alignment="0" expression="'Registros : ' + count(   colegiados_id_colegiado for all distinct  colegiados_id_colegiado ) "border="0" color="0" x="1463" y="32" height="56" width="622" format="[GENERAL]"  name=compute_2  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+compute(band=footer alignment="1" expression="'P$$HEX1$$e100$$ENDHEX$$gina: ' + page() + ' de ' + pageCount()"border="0" color="0" x="4155" y="32" height="56" width="713" format="[general]"  name=page_1  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

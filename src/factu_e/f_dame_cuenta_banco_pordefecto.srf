@@ -1,0 +1,21 @@
+HA$PBExportHeader$f_dame_cuenta_banco_pordefecto.srf
+global type f_dame_cuenta_banco_pordefecto from function_object
+end type
+
+forward prototypes
+global function string f_dame_cuenta_banco_pordefecto (string codigo)
+end prototypes
+
+global function string f_dame_cuenta_banco_pordefecto (string codigo);string cuenta
+// da la cuenta bancaria por defecto de una empresa
+  
+SELECT csi_empresas.cuenta_bancaria
+INTO :cuenta  
+FROM csi_empresas
+WHERE csi_empresas.codigo = :codigo ;
+
+if f_es_vacio(cuenta) then cuenta = ''
+
+return cuenta
+end function
+

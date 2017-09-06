@@ -1,0 +1,5 @@
+HA$PBExportHeader$st_listas_consulta.srs
+global type st_listas_consulta from structure
+	string		id_lista
+end type
+

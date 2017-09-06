@@ -1,0 +1,73 @@
+HA$PBExportHeader$f_fases_cierre_expedientes_congest.srf
+global type f_fases_cierre_expedientes_congest from function_object
+end type
+
+forward prototypes
+global subroutine f_fases_cierre_expedientes ()
+global subroutine f_fases_cierre_expedientes_congest (string id_fase)
+end prototypes
+
+global subroutine f_fases_cierre_expedientes ();//
+end subroutine
+
+global subroutine f_fases_cierre_expedientes_congest (string id_fase);long num
+datetime fecha_hoy,f_tmp
+string id_expedi
+w_fases_detalle w_ventana_fases
+
+fecha_hoy=datetime(today(),now())
+select id_expedi into :id_expedi from fases where id_fase=:id_fase;
+if f_es_vacio(id_expedi) then return
+
+SELECT count(*) into :num FROM fases f,fases_minutas m WHERE f.id_fase=m.id_fase 
+and m.pendiente='S' and m.anulada='N' and f.id_expedi=:id_expedi;
+if num=0 then
+	select f_cierre into :f_tmp from expedientes where id_expedi=:id_expedi;
+	if IsNull(f_tmp) then
+		UPDATE expedientes  
+		SET cerrado = 'S',  f_cierre = :fecha_hoy  
+		FROM expedientes 
+		WHERE expedientes.id_expedi = :id_expedi ;
+			
+		if (IsValid(g_detalle_fases)) then
+			w_ventana_fases=g_detalle_fases 
+			select id_expedi into :id_expedi from fases where id_fase=:id_fase;
+			 w_ventana_fases.dw_fases_datos_exp.retrieve(id_expedi)
+		end if
+			
+	end if
+		
+end if
+
+
+/*		////////////////////////////////////////////////////////////////////////////////////////
+		//  Se cierra el expediente cuando se cobra una minuta final	(Agosto 2008)
+		////////////////////////////////////////////////////////////////////////////////////////
+		
+		if g_cerrar_exp_minuta_final='S' and idw_minutas_detalle.getitemstring(idw_minutas_detalle.RowCount(), 't_minuta')='F' then
+
+			id_fase = idw_minutas_detalle.getitemstring(idw_minutas_detalle.RowCount(), 'id_fase')		
+			select id_expedi, f_abono into :id_expedi,:f_abono from fases where id_fase=:id_fase;			
+			
+			if idw_minutas_detalle.getitemstring(1, 'tipo_gestion')='C' then
+				f_cierre= idw_minutas_detalle.GetItemDateTime(1,'fecha_pago')
+			else
+				f_cierre=f_abono
+			end if
+			
+			//ACTUALIZAMOS SOLO SI LA FECHA NO TENIA VALOR
+			select e.f_cierre into :f_tmp from fases f,expedientes e where f.id_fase=:id_fase and f.id_expedi=e.id_expedi;				
+			if IsNull(f_tmp) then 
+				update expedientes set cerrado='S',f_cierre=:f_cierre from fases f where f.id_fase=:id_fase and f.id_expedi=expedientes.id_expedi;
+			end if				
+			
+			if (IsValid(g_detalle_fases)) then
+				w_ventana_fases=g_detalle_fases 
+				select id_expedi into :id_expedi from fases where id_fase=:id_fase;
+				 w_ventana_fases.dw_fases_datos_exp.retrieve(id_expedi)
+			end if
+			
+		end if	
+*/		
+end subroutine
+

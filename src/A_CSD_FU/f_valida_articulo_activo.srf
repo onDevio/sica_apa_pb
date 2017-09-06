@@ -1,0 +1,21 @@
+HA$PBExportHeader$f_valida_articulo_activo.srf
+global type f_valida_articulo_activo from function_object
+end type
+
+forward prototypes
+global function integer f_valida_articulo_activo (string id_articulo, string empresa)
+end prototypes
+
+global function integer f_valida_articulo_activo (string id_articulo, string empresa);// Valida si el art$$HEX1$$ed00$$ENDHEX$$culo est$$HEX2$$e1002000$$ENDHEX$$activo para la empresa 
+long i
+  SELECT 1 
+    INTO :i
+    FROM csi_articulos_servicios  
+   WHERE ( csi_articulos_servicios.activo = 'S' ) AND  
+         ( csi_articulos_servicios.empresa = :empresa ) AND  
+         ( csi_articulos_servicios.codigo = :id_articulo )   ;
+			
+			
+			return i
+end function
+

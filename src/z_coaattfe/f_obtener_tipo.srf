@@ -1,0 +1,17 @@
+HA$PBExportHeader$f_obtener_tipo.srf
+global type f_obtener_tipo from function_object
+end type
+
+forward prototypes
+global function string f_obtener_tipo (string tipo)
+end prototypes
+
+global function string f_obtener_tipo (string tipo);string descripcion
+
+select descripcion into :descripcion
+from cip_tfe_tipo
+where codigo = :tipo;
+
+return(descripcion)
+end function
+

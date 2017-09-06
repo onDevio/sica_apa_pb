@@ -1,0 +1,5 @@
+HA$PBExportHeader$st_usuarios_consulta.srs
+global type st_usuarios_consulta from structure
+	string		cod_usuario
+end type
+

@@ -1,0 +1,30 @@
+HA$PBExportHeader$f_eimporta_truncar_nombre_archivo.srf
+global type f_eimporta_truncar_nombre_archivo from function_object
+end type
+
+forward prototypes
+global function string f_eimporta_truncar_nombre_archivo (string nombre_archivo, long long_maxima)
+end prototypes
+
+global function string f_eimporta_truncar_nombre_archivo (string nombre_archivo, long long_maxima);/* Si el nombre del archivo excede de la longitud m$$HEX1$$e100$$ENDHEX$$xima se trunca pero conservando la extensi$$HEX1$$f300$$ENDHEX$$n.
+
+Ej.:
+
+	nombre_archivo = 'test567890.pdf'
+	long_maxima = 10
+	
+	devuelve 'test56.pdf'
+
+*/
+
+long p_punto
+
+if long_maxima < LenA(nombre_archivo) then
+	p_punto = PosA(reverse(nombre_archivo), ".")
+	nombre_archivo = LeftA(nombre_archivo, long_maxima - p_punto) + RightA(nombre_archivo, p_punto)
+end if
+
+return nombre_archivo
+
+end function
+

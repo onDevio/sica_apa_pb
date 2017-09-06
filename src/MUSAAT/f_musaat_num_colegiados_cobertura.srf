@@ -1,0 +1,25 @@
+HA$PBExportHeader$f_musaat_num_colegiados_cobertura.srf
+global type f_musaat_num_colegiados_cobertura from function_object
+end type
+
+forward prototypes
+global function double f_musaat_num_colegiados_cobertura (string cober, string alta, string residente)
+end prototypes
+
+global function double f_musaat_num_colegiados_cobertura (string cober, string alta, string residente);double retorno
+
+SELECT count ( id_musaat )  
+INTO :retorno  
+FROM musaat, colegiados
+WHERE ( musaat.id_col = colegiados.id_colegiado ) AND
+		( musaat.src_cober = :cober ) AND
+	  	( musaat.src_alta = :alta )  AND
+		( colegiados.c_geografico LIKE :residente ) ;
+		
+
+if isnull (retorno) then retorno = 0
+
+return retorno
+
+end function
+

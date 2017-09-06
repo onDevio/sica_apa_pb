@@ -1,0 +1,6 @@
+HA$PBExportHeader$st_w_factu_e_imprimir.srs
+global type st_w_factu_e_imprimir from structure
+	boolean		varias_facturas
+	n_csd_impresion_formato		impresion_formato
+end type
+

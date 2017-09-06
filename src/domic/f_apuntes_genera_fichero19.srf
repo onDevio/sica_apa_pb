@@ -1,0 +1,284 @@
+HA$PBExportHeader$f_apuntes_genera_fichero19.srf
+global type f_apuntes_genera_fichero19 from function_object
+end type
+
+forward prototypes
+global function double f_apuntes_genera_fichero19 (st_cobros_datos_remesa datos_remesa)
+end prototypes
+
+global function double f_apuntes_genera_fichero19 (st_cobros_datos_remesa datos_remesa);double n, importe, tot_rem, imp_cli, retorno, i
+long asiento, apunte, tot_cred, tot_reg, cuantos_recibos
+string cuenta, linea, cc, id_col, n_remesa, id_cobro, cod_pres, nom_pres, entidad, tipo, concepto1, concepto2, promo, expdte, docto, concepto
+string nom_fich, nom_fich_completo, ctabco, cod_ine, cod_dev, rfcia, ref_int, nom_cli, ccc_cli, conc_domi, cancelada, desglosar, cod_ref//, ent, sucursal, dc
+datastore ds_lineas_fichero, ds_impresion_remesa, ds_domiciliaciones, ds_lineas_facts
+/*
+ds_domiciliaciones = create datastore	
+ds_domiciliaciones.dataobject = 'd_cobros_domiciliaciones'
+ds_domiciliaciones.SetTransObject(SQLCA)
+
+ds_lineas_facts = create datastore	
+ds_lineas_facts.dataobject = 'd_lineas_fact_emitidas'
+ds_lineas_facts.SetTransObject(SQLCA)
+
+ds_lineas_fichero	= create datastore	
+ds_lineas_fichero.dataobject = 'ds_cobros_lineas_remesa'
+ds_lineas_fichero.SetTransObject(SQLCA)
+
+ds_impresion_remesa	= create datastore	
+//Seg$$HEX1$$fa00$$ENDHEX$$n la ventana de datos remesa, ordenaremos por apellidos (opci$$HEX1$$f300$$ENDHEX$$n A) o por n$$HEX2$$ba002000$$ENDHEX$$colegiado
+if datos_remesa.ordenar='A' then
+	if g_colegio = 'COAATCC' then
+		ds_impresion_remesa.dataobject = 'd_cobros_listado_remesa_cc'
+	else
+		ds_impresion_remesa.dataobject = 'd_cobros_listado_remesa'
+	end if
+	ds_impresion_remesa.SetTransObject(SQLCA)
+else
+	if g_colegio = 'COAATCC' then
+		ds_impresion_remesa.dataobject = 'd_cobros_listado_remesa_por_ncol_cc'
+	else
+		ds_impresion_remesa.dataobject = 'd_cobros_listado_remesa_por_ncol'
+	end if
+	ds_impresion_remesa.SetTransObject(SQLCA)
+end if
+
+ds_domiciliaciones.Retrieve('N')
+ds_impresion_remesa.Retrieve('N')
+
+n_remesa = f_siguiente_numero('REMESA_COBROS',10)
+cod_pres = datos_remesa.codigo
+nom_pres=MidA(f_obtener_empresa_nombre_corto( g_empresa)+space(40),1,40)
+
+nom_fich='RD'+string(today(),'yymmdd')
+cod_ine='460000000'
+tot_rem=0
+tot_cred=0
+tot_reg=0
+cod_dev='000000'
+ref_int='0000000000'
+rfcia=''
+nom_cli=''
+ccc_cli=''
+imp_cli=0
+
+//SELECT cuenta_contable,entidad,sucursal,cod_seg,cuenta_banco  
+//INTO :cc,:ent,:sucursal,:dc,:ctabco  
+//FROM csi_bancos  
+//WHERE codigo = :datos_remesa.banco and empresa = :g_empresa;
+
+SELECT cuenta_contable,cuenta_bancaria_iban 
+   INTO :cc,:ctabco  
+   FROM csi_bancos  
+   WHERE codigo = :datos_remesa.banco and empresa = :g_empresa;
+
+ctabco = gnv_control_cuentas_bancarias.of_obtener_cuenta_sin_iban(ctabco)
+
+// MODIFICADO RICARDO 04-03-02
+n_cst_filesrvwin32 cambia_directorio
+string directorio
+cambia_directorio = create n_cst_filesrvwin32
+directorio = cambia_directorio.of_getcurrentdirectory()
+// FIN MODIFICADO RICARDO 04-03-02
+
+// Obtenemos el nombre del fichero a generar
+if(datos_remesa.formato='S') then nom_fich = nom_fich + '_14'
+nom_fich_completo = nom_fich
+
+If GetFileSaveName('Seleccione nombre de fichero F19',nom_fich_completo,nom_fich,'.'+upper(g_ext_f19),'Ficheros de Domiciliaciones formato 19 (*.'+g_ext_f19+'),*.'+g_ext_f19) <> 1 Then
+	cambia_directorio.of_changedirectory(directorio)
+	destroy cambia_directorio
+	return -1
+End If
+
+if isnull(g_directorio_domiciliaciones) then g_directorio_domiciliaciones = 'c:'
+entidad=mid(ctabco, 1, 8)
+// registro CSB de cabecera de presentador   (51->euros)
+linea='5180'+cod_pres+string(today(),'ddmmyy')+space(6)+nom_pres+space(20)+entidad+space(12)+space(40)+space(14)
+f_cobros_inserta_linea_fichdomi(ds_lineas_fichero,linea)
+// registro CSB de cabecera de cliente ordenante  (53->euros)
+linea=''
+linea='5380'+cod_pres+string(today(),'ddmmyy')+string(today(),'ddmmyy')+nom_pres+ctabco+space(8)+'01'+space(10)+space(40)+space(14)
+f_cobros_inserta_linea_fichdomi(ds_lineas_fichero,linea)
+tot_reg=2
+cuantos_recibos = 0
+
+for n=1 to ds_domiciliaciones.RowCount()
+
+	cancelada=ds_domiciliaciones.GetitemString(n,'cancelada')
+	if cancelada<>'S' then
+		cuantos_recibos++
+		id_cobro 	=ds_domiciliaciones.GetItemString(n,'referencia')  //En el campo referencia guardamos el id_cobro
+		imp_cli		=ds_domiciliaciones.GetItemNumber(n,'importe')
+		tot_rem		=tot_rem+imp_cli
+		ccc_cli		=ds_domiciliaciones.GetItemString(n,'banco_dom')
+		rfcia			=ds_domiciliaciones.GetItemString(n,'referencia')
+		tipo			=ds_domiciliaciones.GetItemString(n,'tipo')
+		docto			=trim(ds_domiciliaciones.GetItemString(n,'documento'))
+		conc_domi	=ds_domiciliaciones.GetItemString(n,'concepto')
+		id_col		=ds_domiciliaciones.GetItemString(n,'id_col')
+	
+		//Ponemos el n$$HEX2$$ba002000$$ENDHEX$$de remesa en cada cobro
+		if not(f_es_vacio(id_cobro)) then 
+			update csi_cobros set n_remesa = :n_remesa where id_pago = :id_cobro;
+		end if
+	
+		//   select expedientes.n_expedi into :expdte from fases,expedientes where fases.n_registro like :docto and fases.id_expedi = expedientes.id_expedi using SQLCA;
+		string nom, ape,da,pa,cp
+
+		select nombre, apellidos ,domicilio_activo,poblacion_activa into :nom, :ape,:da,:pa from colegiados where id_colegiado=:id_col using SQLCA;
+		if isnull(nom) then nom = ''
+		if isnull(da) then da=''
+		if isnull(pa) then pa=''
+		promo = ape + ' ' + nom
+		promo=f_cobros_reemplaza_cadena(promo,',',' ')
+		cp = MidA(pa,1,5)
+		if f_es_vacio(cp) then cp=''
+	
+		//Rellenamos el 1er Registro Individual Obligatorio 
+		nom_cli=MidA(f_transforma_cadena_win_dos(f_cobros_reemplaza_cadena(promo,',',' '))+space(40),1,40)
+		//registro CSB de individuales + opcional   (56->euros) 
+		string importe_texto,id_factura
+		importe_texto = RightA('0000000000000'+trim(string(round(imp_cli * 100,0))),10)
+		
+		concepto = datos_remesa.concepto
+	
+		if f_es_vacio(concepto) then 
+			conc_domi = 'DOM.'+MidA(conc_domi,1,18)
+		else 
+			conc_domi = concepto
+		end if
+		concepto1=MidA(conc_domi+FillA(' ',40),1,40)
+		
+		if datos_remesa.desglosar<>'S' then
+			linea=''																					//#,##0.00	 0000000000
+			linea='5680'+cod_pres+MidA(rfcia+space(12),1,12)+nom_cli+ccc_cli+importe_texto+cod_dev+ref_int+concepto1+string(today(),'ddmmyy')+space(2) 
+			f_cobros_inserta_linea_fichdomi(ds_lineas_fichero,linea)
+			tot_cred=tot_cred+1
+			tot_reg=tot_reg+1
+		else
+			//Si hay que desglosar conceptos,tenemos que recorrer todos los conceptos que tiene la factura
+			//en cuesti$$HEX1$$f300$$ENDHEX$$n...
+			select id_factura into :id_factura from csi_cobros where id_pago = :rfcia;
+			ds_lineas_facts.Retrieve(id_factura)
+			string control,t_iva,conc_1,conc_2
+			string ssubtotal,ssubtotal_iva,scant_iva,spor,stotal
+			double num_linea,subtotal,subtotal_iva,cant_iva,por,total
+			//Insertamos la primera l$$HEX1$$ed00$$ENDHEX$$nea que es distinta al resto con el 1er concepto
+			linea=''
+			cod_ref = f_completar_con_caracteres(rfcia,12,'D',' ')//mid(rfcia+space(12),1,12)
+			linea='5680'+cod_pres+cod_ref+nom_cli+ccc_cli+importe_texto+cod_dev+ref_int+concepto1+string(today(),'ddmmyy')+space(2) 
+			f_cobros_inserta_linea_fichdomi(ds_lineas_fichero,linea)
+			tot_cred=tot_cred+1
+			tot_reg=tot_reg+1
+					
+			conc_1 = ' B.I      IVA/IGIC  SUBTOTAL  IMPORTE   '  //Con 40 d$$HEX1$$ed00$$ENDHEX$$gitos (igual para todos)
+			num_linea = 1
+	
+			for i=1 to ds_lineas_facts.RowCount()
+				total = ds_lineas_facts.GetItemNumber(i,'total')
+				subtotal= ds_lineas_facts.GetItemNumber(i,'subtotal')
+				subtotal_iva=ds_lineas_facts.GetItemNumber(i,'subtotal_iva')
+				t_iva = ds_lineas_facts.GetItemString(i,'t_iva')
+				concepto = ds_lineas_facts.GetItemString(i,'descripcion_larga')
+				
+				//Pasamos las cantidades a formato String
+				stotal = string(total,'##0.00')
+				stotal = f_completar_con_caracteres(stotal,10,'D',' ')
+				ssubtotal = string(subtotal,'#####0.00')
+				ssubtotal = f_completar_con_caracteres(ssubtotal,10,'D',' ')
+				ssubtotal_iva = string(subtotal_iva,'#####0.00')
+				ssubtotal_iva = f_completar_con_caracteres(ssubtotal_iva,10,'D',' ')
+				cant_iva = f_aplica_t_iva(subtotal,t_iva)
+				scant_iva = string(cant_iva,'#####0.00')
+				scant_iva = f_completar_con_caracteres(scant_iva,10,'D',' ')
+				SELECT porcent INTO :por FROM csi_t_iva WHERE t_iva = :t_iva;
+				spor = string(por)
+				spor = f_completar_con_caracteres(spor,10,'D',' ')
+				
+				conc_2 = ssubtotal+spor+ssubtotal_iva+stotal
+				conc_2 =f_cobros_reemplaza_cadena(conc_2,',','.')
+					
+				//El fichero solo permite 5 lineas para el desglose de t$$HEX1$$e900$$ENDHEX$$rminos
+				if num_linea>5 then continue
+				if LenA(concepto)>40 then
+					concepto = MidA(concepto,1,40)
+				else
+					concepto = MidA(concepto + FillA(' ',40),1,40)
+				end if 
+				concepto=f_cobros_reemplaza_cadena(concepto,',',' ')
+				linea='568'+string(num_linea)+cod_pres+cod_ref+conc_1+concepto+conc_2
+				f_cobros_inserta_linea_fichdomi(ds_lineas_fichero,linea)
+				tot_reg=tot_reg+1
+				num_linea++
+			next
+
+			//Rellenamos el $$HEX1$$fa00$$ENDHEX$$ltimo Registro Individual (Opcional) 
+			da = f_completar_con_caracteres(da,40,'D',' ')
+			pa = f_completar_con_caracteres(pa,35,'D',' ')
+			cp = f_completar_con_caracteres(cp,5,'D',' ')
+			da = da+pa+cp
+			da= f_cobros_reemplaza_cadena(da,',',' ')
+			linea='5686'+cod_pres+cod_ref+nom_cli+da
+			f_cobros_inserta_linea_fichdomi(ds_lineas_fichero,linea)
+			tot_reg=tot_reg+1
+			num_linea++
+		end if
+	 
+		ds_domiciliaciones.SetItem(n,'remesado','S')
+		//Metemos en el campo 'ref_interna' de la tabla domiciliaciones el N$$HEX2$$ba002000$$ENDHEX$$de Remesa
+		ds_domiciliaciones.SetItem(n,'ref_interna',n_remesa)
+
+	else
+	   ds_domiciliaciones.SetItem(n,'remesado','N')
+	end if
+next
+    
+// registro CSB de total de cliente ordenante
+importe_texto = RightA('0000000000000'+trim(string(round(tot_rem * 100,0))),10)
+linea='5880'+cod_pres+space(12)+space(40)+space(20)+importe_texto+space(6)+string(tot_cred,'0000000000')+string(tot_reg,'0000000000')+space(20)+space(18)
+f_cobros_inserta_linea_fichdomi(ds_lineas_fichero,linea)
+// registro CSB de total general
+linea='5980'+cod_pres+space(12)+space(40)+'0001'+space(16)+importe_texto+space(6)+string(tot_cred,'0000000000')+string(tot_reg+2,'0000000000')+space(20)+space(18)
+f_cobros_inserta_linea_fichdomi(ds_lineas_fichero,linea)
+n=ds_lineas_fichero.RowCount()
+
+ds_lineas_fichero.SaveAs(nom_fich,Text!,FALSE)
+
+if(datos_remesa.formato='S') then
+	uo_migrar_a_norma_19_14 luo_migrar_a_norma_19_14
+	luo_migrar_a_norma_19_14 = create uo_migrar_a_norma_19_14 
+	luo_migrar_a_norma_19_14.wf_migrar_fichero( nom_fich_completo, nom_fich_completo)
+end if	
+
+// MODIFICADO RICARDO 04-03-02
+// Cambiamos al directorio raiz de la aplicacion, como corresponde estar para que todas las imagenes sigan funcionando
+cambia_directorio.of_changedirectory(directorio)
+destroy cambia_directorio
+// FIN MODIFICADO RICARDO 04-03-02
+
+//Actualizar fichero de remesa a estado de remesado='P'
+if ds_domiciliaciones.Update()<>-1 then
+	Messagebox(g_titulo,'N$$HEX2$$ba002000$$ENDHEX$$Remesa : '+n_remesa+cr+'Procesados '+string(cuantos_recibos) + ' recibos: ' + string(tot_rem,'#,##0.00') + ' euros.',Information!)
+   MessageBox('ATENCI$$HEX1$$d300$$ENDHEX$$N','Actualizaci$$HEX1$$f300$$ENDHEX$$n con $$HEX1$$e900$$ENDHEX$$xito.'+CharA(10)+CharA(13)+'Recuerde mandar al banco el fichero '+nom_fich)
+   retorno=1	
+   commit;
+else
+   MessageBox('ATENCI$$HEX1$$d300$$ENDHEX$$N ERROR','Ha ocurrido alg$$HEX1$$fa00$$ENDHEX$$n fallo al actualizar. Avise al Dpto. de Inform$$HEX1$$e100$$ENDHEX$$tica.',Exclamation!)
+   Rollback;
+   retorno=-1
+end if
+
+
+
+ds_impresion_remesa.SetItem(1,'ref_interna',n_remesa)
+ds_impresion_remesa.Print()  
+SetPointer(Arrow!)
+
+destroy ds_lineas_fichero
+destroy ds_impresion_remesa
+//destroy ds_domiciliaciones
+*/
+return retorno
+
+end function
+

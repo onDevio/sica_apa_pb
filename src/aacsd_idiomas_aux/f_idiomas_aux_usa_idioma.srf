@@ -1,0 +1,27 @@
+HA$PBExportHeader$f_idiomas_aux_usa_idioma.srf
+global type f_idiomas_aux_usa_idioma from function_object
+end type
+
+forward prototypes
+global function boolean f_idiomas_aux_usa_idioma ()
+end prototypes
+
+global function boolean f_idiomas_aux_usa_idioma ();/*******************
+Realizada por: Juli$$HEX1$$e100$$ENDHEX$$n Melero
+Esta funci$$HEX1$$f300$$ENDHEX$$n se utiliza para aquellos objetos que no se puedo cambiar el tag y se quiera cambiar por un idioma.
+En codigo para visible se ha de poner esta funci$$HEX1$$f300$$ENDHEX$$n.
+Ejemplo: if(f_idiomas_aux_usa_idioma(),'LO QUE SEA PARA FALSE','LO QUE SEA PARA TRUE')
+Simplemente nos devuelve un True o False si se utiliza idioma.
+*******************/
+
+boolean l_valor
+
+if g_usar_idioma ='S' then
+  l_valor = true  
+else
+  l_valor = false
+end if
+
+return l_valor
+end function
+

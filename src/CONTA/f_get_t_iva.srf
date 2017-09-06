@@ -1,0 +1,17 @@
+HA$PBExportHeader$f_get_t_iva.srf
+global type f_get_t_iva from function_object
+end type
+
+forward prototypes
+global function string f_get_t_iva (double adb_porcentaje, string as_codigo_efactura)
+end prototypes
+
+global function string f_get_t_iva (double adb_porcentaje, string as_codigo_efactura);string ls_codigo 
+
+select t_iva into :ls_codigo from csi_t_iva where porcent =:adb_porcentaje and codigo_tipo_efactura =:as_codigo_efactura;
+
+if f_es_vacio(ls_codigo) then ls_codigo = g_t_iva_defecto
+
+return ls_codigo
+end function
+

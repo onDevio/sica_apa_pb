@@ -1,0 +1,65 @@
+HA$PBExportHeader$f_calcular_cip_bizkaia.srf
+$PBExportComments$Calcula el total de cip para bizkaia
+global type f_calcular_cip_bizkaia from function_object
+end type
+
+forward prototypes
+global function integer f_calcular_cip_bizkaia (ref st_cip_datos st_cip_datos)
+end prototypes
+
+global function integer f_calcular_cip_bizkaia (ref st_cip_datos st_cip_datos);// Entrada
+string tipo_act, tipo_obra
+double superficie, pem
+// Salida
+string aplicar_fijo = 'N'
+double porcentaje = 0 , importe_fijo = 0, importe_minimo = 0
+// Retorno
+// 0 : $$HEX1$$e900$$ENDHEX$$xito
+// -1 :error
+
+tipo_act = st_cip_datos.tipo_act
+tipo_obra = st_cip_datos.tipo_obra
+superficie = st_cip_datos.superficie
+pem = st_cip_datos.pem
+
+if f_es_vacio(tipo_act) or f_es_vacio(tipo_obra) or isnull(st_cip_datos.superficie) or isnull(st_cip_datos.pem) then
+	return -1
+end if
+
+  SELECT cip_sobre_pem.porcentaje,   
+         cip_sobre_pem.aplicar_fijo,   
+         cip_sobre_pem.importe_fijo,   
+         cip_sobre_pem.importe_minimo  
+    INTO :porcentaje,   
+         :aplicar_fijo,   
+         :importe_fijo,   
+         :importe_minimo  
+    FROM cip_sobre_pem  
+   WHERE ( cip_sobre_pem.tipo_actuacion = :tipo_act OR  
+         cip_sobre_pem.tipo_actuacion = '*') AND  
+         ( cip_sobre_pem.tipo_obra = :tipo_obra OR  
+         cip_sobre_pem.tipo_obra = '*') AND  
+         cip_sobre_pem.pem_desde < :superficie AND  
+         cip_sobre_pem.pem_hasta >= :superficie   ;
+
+
+if sqlca.sqlcode <> 0 then
+	st_cip_datos.mensaje = 'CIP : No se encuentra esta combinaci$$HEX1$$f300$$ENDHEX$$n en la tabla'
+	return -1
+end if
+st_cip_datos.porcentaje = porcentaje
+st_cip_datos.aplicar_fijo = aplicar_fijo
+st_cip_datos.importe_minimo = importe_minimo
+
+if aplicar_fijo = 'S' then
+	st_cip_datos.cip = importe_fijo
+else
+	st_cip_datos.cip = pem * porcentaje /100
+	if importe_minimo > st_cip_datos.cip then
+		st_cip_datos.cip = importe_minimo
+	end if
+end if
+	st_cip_datos.cip = f_redondea(st_cip_datos.cip)
+return 0
+end function
+

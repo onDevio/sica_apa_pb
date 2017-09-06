@@ -1,0 +1,51 @@
+HA$PBExportHeader$f_musaat_tasaciones.srf
+$PBExportComments$Dado un id_musaat obtiene sus datos del seguro de tasaciones
+global type f_musaat_tasaciones from function_object
+end type
+
+forward prototypes
+global subroutine f_musaat_tasaciones (string id_musaat, ref string tasad_n_poliza, ref string tasad_importe, ref string tasad_alta, ref string tasad_f_alta, ref string tasad_f_baja, ref string tasad_cober, ref string tasad_cober_f_alta, ref string tasad_cober_f_baja, ref string tasad_cia)
+end prototypes
+
+global subroutine f_musaat_tasaciones (string id_musaat, ref string tasad_n_poliza, ref string tasad_importe, ref string tasad_alta, ref string tasad_f_alta, ref string tasad_f_baja, ref string tasad_cober, ref string tasad_cober_f_alta, ref string tasad_cober_f_baja, ref string tasad_cia);//Esta funci$$HEX1$$f300$$ENDHEX$$n establece los par$$HEX1$$e100$$ENDHEX$$metros que se le pasan por referencia con el valor
+//correspondiente al colegiado indicado por ID_MUSAAT
+
+string tasad_cober_cod, tasad_cia_cod
+double tasad_cober_aux
+
+datastore ds_tasad
+
+ds_tasad = create datastore
+ds_tasad.dataobject ='d_musaat_tasadores'
+ds_tasad.SetTransObject(SQLCA)
+
+ds_tasad.Retrieve(id_musaat)
+
+if ds_tasad.rowcount() > 0 then
+	tasad_cia_cod = ds_tasad.getitemstring(1, 'tasadores_cia')
+	select nom_s into :tasad_cia from musaat_cias_aseguradoras where cod_s = :tasad_cia_cod;
+	tasad_n_poliza = ds_tasad.getitemstring(1, 'tasadores_n_poliza')
+	tasad_importe = string(ds_tasad.getitemnumber(1, 'tasadores_importe'))
+	tasad_alta = ds_tasad.getitemstring(1, 'tasadores_alta')
+	tasad_f_alta = string(ds_tasad.getitemdatetime(1, 'tasadores_f_alta'),"dd/mm/yyyy")
+	tasad_f_baja = string(ds_tasad.getitemdatetime(1, 'tasadores_f_baja'),"dd/mm/yyyy")
+	tasad_cober_cod = ds_tasad.getitemstring(1, 'tasadores_cober')
+	select prima into :tasad_cober_aux from musaat_cober_tasadores where codigo = :tasad_cober_cod;
+	tasad_cober = string(tasad_cober_aux)
+	tasad_cober_f_alta = string(ds_tasad.getitemdatetime(1, 'tasadores_cober_f_alta'),"dd/mm/yyyy")
+	tasad_cober_f_baja = string(ds_tasad.getitemdatetime(1, 'tasadores_cober_f_baja'),"dd/mm/yyyy")
+end if
+
+if f_es_vacio(tasad_cia) then tasad_cia = ''
+if f_es_vacio(tasad_n_poliza) then tasad_n_poliza = ''
+if f_es_vacio(tasad_importe) then tasad_importe = ''
+if f_es_vacio(tasad_alta) then tasad_alta = ''
+if f_es_vacio(tasad_f_alta) then tasad_f_alta = ''
+if f_es_vacio(tasad_f_baja) then tasad_f_baja = ''
+if f_es_vacio(tasad_cober) then tasad_cober = ''
+if f_es_vacio(tasad_cober_f_alta) then tasad_cober_f_alta = ''
+if f_es_vacio(tasad_cober_f_baja) then tasad_cober_f_baja = ''
+
+destroy ds_tasad
+end subroutine
+

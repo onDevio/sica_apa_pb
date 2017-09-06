@@ -1,0 +1,42 @@
+HA$PBExportHeader$f_crear_directorio_temporal.srf
+global type f_crear_directorio_temporal from function_object
+end type
+
+forward prototypes
+global function string f_crear_directorio_temporal ()
+end prototypes
+
+global function string f_crear_directorio_temporal ();// Esta funci$$HEX1$$f300$$ENDHEX$$n prepara un directorio temporal que sea local, cre$$HEX1$$e100$$ENDHEX$$ndolo y devolviendo la ruta con la que se ha creado
+
+
+string ruta
+
+// Obtenemos el directorio temporal del sistema (o del usuario seg$$HEX1$$fa00$$ENDHEX$$n el S.O.)
+ruta = space(1000)
+if GetTempPath(1000, ruta) = 0 then
+	ruta = ""
+else
+	if RightA(ruta, 1) <> "\" then ruta += "\"
+end if
+
+/*// Utilizaremos un subdirectorio dentro del directorio temporal del sistema
+// El nombre del subdirectorio es aleatorio para que, en el caso de que se ejecuten m$$HEX1$$fa00$$ENDHEX$$ltiples instancias de la
+// aplicaci$$HEX1$$f300$$ENDHEX$$n en un mismo pc, no haya conflictos entre ellas.
+randomize(0)
+ruta += "s" + right("0000" + string(rand(100000) - 1), 4)
+randomize(0)
+ruta += right("000" + string(rand(10000) - 1), 3)*/
+ruta += "tmpsica"
+
+// Creamos el directorio temporal
+n_cst_filesrvwin32 dire
+dire = create n_cst_filesrvwin32
+dire.of_CreateDirectory(ruta)
+destroy dire
+
+ruta += "\"
+
+return ruta
+
+end function
+

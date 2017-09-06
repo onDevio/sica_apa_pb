@@ -1,0 +1,14 @@
+HA$PBExportHeader$d_musaat_10.srd
+release 7;
+datawindow(units=0 timer_interval=0 color=79741120 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=420 color="536870912" )
+table(column=(type=char(1) updatewhereclause=no name=generar dbname="name_1" initial="S" values="Generar un aviso por el 10%:	S/Generar un aviso por el 10%:	N" )
+ column=(type=char(1) updatewhereclause=no name=facturar dbname="name_2" initial="S" values="Facturar y cobrar el aviso:	S/Facturar y cobrar el aviso:	N" )
+ )
+groupbox(band=detail text="Opciones:"border="5" color="8388608" x="41" y="28" height="356" width="1184"  name=gb_1  font.face="MS Sans Serif" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="0" color="0" x="174" y="140" height="60" width="887" format="[general]"  name=generar checkbox.text="Generar un aviso por el 10%:" checkbox.on="S" checkbox.off="N" checkbox.lefttext=yes checkbox.scale=no checkbox.threed=yes  font.face="MS Sans Serif" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="82042848" )
+column(band=detail id=2 alignment="0" tabsequence=20 border="0" color="0" x="174" y="256" height="60" width="887" format="[general]"  name=facturar checkbox.text="Facturar y cobrar el aviso:" checkbox.on="S" checkbox.off="N" checkbox.lefttext=yes checkbox.scale=no checkbox.threed=yes  font.face="MS Sans Serif" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="82042848" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

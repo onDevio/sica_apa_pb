@@ -1,0 +1,16 @@
+HA$PBExportHeader$f_visared_usos_tasas.srf
+global type f_visared_usos_tasas from function_object
+end type
+
+forward prototypes
+global function string f_visared_usos_tasas (string codigo)
+end prototypes
+
+global function string f_visared_usos_tasas (string codigo);string retorno
+
+select descripcion into :retorno from usos_tasas where c_trabajo = :codigo;
+if f_es_vacio(retorno) then retorno = ''
+retorno = codigo + ' ' + retorno
+return retorno
+end function
+

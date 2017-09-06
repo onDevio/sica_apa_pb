@@ -1,0 +1,14 @@
+HA$PBExportHeader$f_empresa_direccion.srf
+global type f_empresa_direccion from function_object
+end type
+
+forward prototypes
+global function string f_empresa_direccion (string a_empresa)
+end prototypes
+
+global function string f_empresa_direccion (string a_empresa);string direccion_empresa 
+select direccion into :direccion_empresa  from csi_empresas where codigo = :a_empresa;
+return direccion_empresa
+
+end function
+

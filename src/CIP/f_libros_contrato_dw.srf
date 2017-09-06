@@ -1,0 +1,25 @@
+HA$PBExportHeader$f_libros_contrato_dw.srf
+$PBExportComments$Calcula el total de libros para un contrato determinado
+global type f_libros_contrato_dw from function_object
+end type
+
+forward prototypes
+global function double f_libros_contrato_dw (datawindow idw_fases_informes)
+end prototypes
+
+global function double f_libros_contrato_dw (datawindow idw_fases_informes);int i
+double lib_contrato = 0, lib_linea = 0, lib_iva = 0
+string lib_t_iva
+
+lib_t_iva = g_t_iva_defecto
+for i = 1 to idw_fases_informes.rowcount()
+	if idw_fases_informes.getitemstring(i, 'tipo_informe') = g_codigos_conceptos.libro_ordenes or & 
+	   idw_fases_informes.getitemstring(i, 'tipo_informe') = g_codigos_conceptos.libro_incidencias then
+		lib_linea = idw_fases_informes.getitemnumber(i, 'cuantia_colegiado')
+		lib_contrato += lib_linea
+	end if
+next
+if isnull(lib_contrato) then lib_contrato = 0
+return lib_contrato
+end function
+

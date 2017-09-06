@@ -1,0 +1,12 @@
+HA$PBExportHeader$f_concatena_lineas_fact.srf
+global type f_concatena_lineas_fact from function_object
+end type
+
+forward prototypes
+global function string f_concatena_lineas_fact (string id_factura)
+end prototypes
+
+global function string f_concatena_lineas_fact (string id_factura);//
+return ''
+end function
+

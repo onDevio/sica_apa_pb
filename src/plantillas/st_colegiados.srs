@@ -1,0 +1,39 @@
+HA$PBExportHeader$st_colegiados.srs
+global type st_colegiados from structure
+	string		pr1_direccion
+	string		pr1_poblacion
+	string		pr1_cp
+	string		pr1_provincia
+	string		pr1_telefono
+	string		pr1_fax
+	string		pr1_mail
+	string		pr1_movil
+	string		pr2_direccion
+	string		pr2_poblacion
+	string		pr2_cp
+	string		pr2_provincia
+	string		pr2_telefono
+	string		pr2_fax
+	string		pr2_mail
+	string		pr2_movil
+	string		part1_direccion
+	string		part1_poblacion
+	string		part1_cp
+	string		part1_provincia
+	string		part1_telefono
+	string		part1_fax
+	string		part1_movil
+	string		miembros_sociedad
+	string		apellido1
+	string		apellido2
+	string		nombre
+	string		n_colegiado
+	string		anyo_titulo
+	string		agrupaciones
+	string		nif
+	datetime		f_nacimiento
+	string		delegacion
+	string		direccion_activa
+	string		direccion_activa_fiscal
+end type
+

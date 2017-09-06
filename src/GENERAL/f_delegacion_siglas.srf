@@ -1,0 +1,22 @@
+HA$PBExportHeader$f_delegacion_siglas.srf
+global type f_delegacion_siglas from function_object
+end type
+
+forward prototypes
+global function string f_delegacion_siglas (string cod_delegacion)
+end prototypes
+
+global function string f_delegacion_siglas (string cod_delegacion);// Funci$$HEX1$$f300$$ENDHEX$$n que devuelve el campo contador_registro de la tabla delegaciones
+// Vamos a utilizar este campo para las siglas de la delegaci$$HEX1$$f300$$ENDHEX$$n en la numeraci$$HEX1$$f300$$ENDHEX$$n de contratos
+
+string siglas
+
+SELECT delegaciones.contador_registro  
+INTO :siglas
+FROM delegaciones  
+WHERE delegaciones.cod_delegacion = :cod_delegacion   ;
+
+return siglas
+
+end function
+

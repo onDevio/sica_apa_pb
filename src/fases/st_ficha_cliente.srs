@@ -1,0 +1,15 @@
+HA$PBExportHeader$st_ficha_cliente.srs
+global type st_ficha_cliente from structure
+	string		id_cliente
+	string		nif
+	string		tipo_tercero
+	string		cp
+	string		provincia
+	string		telefono
+	string		fax
+	string		sigla
+	string		domic_prom
+	string		nom_prom
+	string		id_representante
+end type
+

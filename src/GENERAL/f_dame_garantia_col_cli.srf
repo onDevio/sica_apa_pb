@@ -1,0 +1,23 @@
+HA$PBExportHeader$f_dame_garantia_col_cli.srf
+global type f_dame_garantia_col_cli from function_object
+end type
+
+forward prototypes
+global function double f_dame_garantia_col_cli (string id_fase, string id_col, string nif_cli)
+end prototypes
+
+global function double f_dame_garantia_col_cli (string id_fase, string id_col, string nif_cli);double base_garantia
+
+  SELECT sum(fases_garantias.importe  )
+    INTO :base_garantia  
+    FROM fases_garantias  
+   WHERE ( fases_garantias.id_fase = :id_fase ) AND  
+         ( fases_garantias.id_colegiado = :id_col ) AND  
+         ( fases_garantias.id_cliente = :nif_cli ) AND  
+         ( fases_garantias.f_out is null )   ;
+
+if isnull(base_garantia) then base_garantia = 0
+
+return base_garantia
+end function
+

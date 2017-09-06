@@ -1,0 +1,6 @@
+HA$PBExportHeader$st_fichero.srs
+global type st_fichero from structure
+	string		path
+	string		fichero
+end type
+

@@ -1,0 +1,24 @@
+HA$PBExportHeader$f_modifica_radio_dw.srf
+global type f_modifica_radio_dw from function_object
+end type
+
+forward prototypes
+global subroutine f_modifica_radio_dw (ref datawindow dw, string campo, string muestra[], string valores[])
+end prototypes
+
+global subroutine f_modifica_radio_dw (ref datawindow dw, string campo, string muestra[], string valores[]);//Dado un datawindow de la clase uo_csd_dw (dw), y un campo tiop radiobutton (campo),
+//mostrar$$HEX2$$e1002000$$ENDHEX$$las opciones (muestra[]) asignando los valores (valores[])
+
+long ll_num_parametros,i
+string ls_aux,ls_cadena,ls_tab='~t'
+
+ll_num_parametros = upperbound(valores)
+
+ls_cadena = ""
+for i=1 to ll_num_parametros 
+	ls_cadena = ls_cadena +muestra[i] + ls_tab + valores[i]  + '/'
+next
+
+if len(ls_cadena)>0 then dw.modify(campo +".values='"+ ls_cadena +"'")
+end subroutine
+

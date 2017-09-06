@@ -1,0 +1,11 @@
+HA$PBExportHeader$f_devuelve_cod_irpf_col.srf
+global type f_devuelve_cod_irpf_col from function_object
+end type
+
+forward prototypes
+global function string f_devuelve_cod_irpf_col ()
+end prototypes
+
+global function string f_devuelve_cod_irpf_col ();return g_codigos_conceptos.irpf
+end function
+

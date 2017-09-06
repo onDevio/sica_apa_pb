@@ -1,0 +1,129 @@
+HA$PBExportHeader$d_fases_reclamaciones_lista_bi.srd
+release 10.5;
+datawindow(units=0 timer_interval=0 color=82042848 processing=0 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes print.preview.outline=yes hidegrayline=no )
+header(height=68 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=840 color="536870912" )
+detail(height=68 color="536870912" )
+table(column=(type=char(10) updatewhereclause=yes name=fases_minutas_n_aviso dbname="fases_minutas.n_aviso" dbalias=".n_aviso" )
+ column=(type=datetime updatewhereclause=yes name=fases_minutas_fecha dbname="fases_minutas.fecha" dbalias=".fecha" )
+ column=(type=char(1) updatewhereclause=yes name=fases_minutas_tipo_gestion dbname="fases_minutas.tipo_gestion" dbalias=".tipo_gestion" )
+ column=(type=char(1) updatewhereclause=yes name=fases_reclamaciones_tipo_reclamacion dbname="fases_reclamaciones.tipo_reclamacion" dbalias=".tipo_reclamacion" )
+ column=(type=datetime updatewhereclause=yes name=f_reclamacion dbname="fases_reclamaciones.f_reclamacion" dbalias=".f_reclamacion" )
+ column=(type=number updatewhereclause=yes name=fases_minutas_total_cliente dbname="fases_minutas.total_cliente" dbalias=".total_cliente" )
+ column=(type=number updatewhereclause=yes name=fases_minutas_total_colegiado dbname="fases_minutas.total_colegiado" dbalias=".total_colegiado" )
+ column=(type=char(1) updatewhereclause=yes name=fases_minutas_pagador dbname="fases_minutas.pagador" dbalias=".pagador" )
+ column=(type=char(10) updatewhereclause=yes name=colegiados_id_colegiado dbname="colegiados.id_colegiado" dbalias=".id_colegiado" )
+ column=(type=char(10) updatewhereclause=yes name=clientes_id_cliente dbname="clientes.id_cliente" dbalias=".id_cliente" )
+ column=(type=char(255) updatewhereclause=yes name=fases_emplazamiento dbname="fases.emplazamiento" dbalias=".emplazamiento" )
+ column=(type=char(30) updatewhereclause=yes name=fases_n_calle dbname="fases.n_calle" dbalias=".n_calle" )
+ column=(type=char(6) updatewhereclause=yes name=fases_poblacion dbname="fases.poblacion" dbalias=".poblacion" )
+ column=(type=char(14) updatewhereclause=yes name=fases_n_expedi dbname="fases.n_expedi" dbalias=".n_expedi" )
+ column=(type=char(10) updatewhereclause=yes name=fases_reclamaciones_id_minuta dbname="fases_reclamaciones.id_minuta" dbalias=".id_minuta" )
+ column=(type=char(1) updatewhereclause=yes name=fases_reclamaciones_manual dbname="fases_reclamaciones.manual" dbalias=".manual" )
+ column=(type=char(100) updatewhereclause=yes name=notificaciones_nombre dbname="notificaciones.nombre" dbalias=".nombre" )
+ column=(type=char(80) updatewhereclause=yes name=clientes_apellidos dbname="clientes.apellidos" dbalias=".apellidos" )
+ column=(type=char(50) updatewhereclause=yes name=clientes_nombre dbname="clientes.nombre" dbalias=".nombre" )
+ column=(type=char(80) updatewhereclause=yes name=colegiados_apellidos dbname="colegiados.apellidos" dbalias=".apellidos" )
+ column=(type=char(50) updatewhereclause=yes name=colegiados_nombre dbname="colegiados.nombre" dbalias=".nombre" )
+ column=(type=char(11) updatewhereclause=yes name=fases_n_registro dbname="fases.n_registro" dbalias=".n_registro" )
+ column=(type=char(32768) updatewhereclause=no name=fases_descripcion dbname="fases.descripcion" dbalias=".descripcion" )
+ column=(type=datetime updatewhereclause=yes name=fases_f_entrada dbname="fases.f_entrada" dbalias=".f_entrada" )
+ column=(type=char(2) updatewhereclause=yes name=fases_tipo_via_emplazamiento dbname="fases.tipo_via_emplazamiento" dbalias=".tipo_via_emplazamiento" )
+ column=(type=char(3) updatewhereclause=yes name=fases_tipo_fase dbname="fases.tipo_fase" dbalias=".tipo_fase" )
+ column=(type=char(3) updatewhereclause=yes name=fases_tipo_trabajo dbname="fases.tipo_trabajo" dbalias=".tipo_trabajo" )
+ column=(type=char(160) updatewhereclause=yes name=colegiados_domicilio_activo_fiscal dbname="colegiados.domicilio_activo_fiscal" dbalias=".domicilio_activo_fiscal" )
+ column=(type=char(120) updatewhereclause=yes name=colegiados_poblacion_activa_fiscal dbname="colegiados.poblacion_activa_fiscal" dbalias=".poblacion_activa_fiscal" )
+ column=(type=char(2) updatewhereclause=yes name=clientes_tipo_via dbname="clientes.tipo_via" dbalias=".tipo_via" )
+ column=(type=char(100) updatewhereclause=yes name=clientes_nombre_via dbname="clientes.nombre_via" dbalias=".nombre_via" )
+ column=(type=char(5) updatewhereclause=yes name=clientes_cod_prov dbname="clientes.cod_prov" dbalias=".cod_prov" )
+ column=(type=char(6) updatewhereclause=yes name=clientes_cp dbname="clientes.cp" dbalias=".cp" )
+ column=(type=char(3) updatewhereclause=yes name=fases_fase dbname="fases.fase" dbalias=".fase" )
+ column=(type=char(10) updatewhereclause=yes name=fases_id_fase dbname="fases.id_fase" dbalias=".id_fase" )
+ column=(type=char(2) updatewhereclause=yes name=fases_estado dbname="fases.estado" dbalias=".estado" )
+ column=(type=char(1) updatewhereclause=yes name=anulado dbname="anulado" )
+ column=(type=char(1) updatewhereclause=yes name=aplica_honos dbname="fases_minutas.aplica_honos" dbalias=".aplica_honos" )
+ column=(type=number updatewhereclause=yes name=base_honos dbname="fases_minutas.base_honos" dbalias=".base_honos" )
+ column=(type=number updatewhereclause=yes name=iva_honos dbname="fases_minutas.iva_honos" dbalias=".iva_honos" )
+ column=(type=char(1) updatewhereclause=yes name=aplica_desplaza dbname="fases_minutas.aplica_desplaza" dbalias=".aplica_desplaza" )
+ column=(type=number updatewhereclause=yes name=base_desplaza dbname="fases_minutas.base_desplaza" dbalias=".base_desplaza" )
+ column=(type=number updatewhereclause=yes name=iva_desplaza dbname="fases_minutas.iva_desplaza" dbalias=".iva_desplaza" )
+ column=(type=char(1) updatewhereclause=yes name=aplica_dv dbname="fases_minutas.aplica_dv" dbalias=".aplica_dv" )
+ column=(type=number updatewhereclause=yes name=base_dv dbname="fases_minutas.base_dv" dbalias=".base_dv" )
+ column=(type=number updatewhereclause=yes name=iva_dv dbname="fases_minutas.iva_dv" dbalias=".iva_dv" )
+ column=(type=char(1) updatewhereclause=yes name=aplica_cip dbname="fases_minutas.aplica_cip" dbalias=".aplica_cip" )
+ column=(type=number updatewhereclause=yes name=base_cip dbname="fases_minutas.base_cip" dbalias=".base_cip" )
+ column=(type=number updatewhereclause=yes name=iva_cip dbname="fases_minutas.iva_cip" dbalias=".iva_cip" )
+ column=(type=char(1) updatewhereclause=yes name=aplica_musaat dbname="fases_minutas.aplica_musaat" dbalias=".aplica_musaat" )
+ column=(type=number updatewhereclause=yes name=base_musaat dbname="fases_minutas.base_musaat" dbalias=".base_musaat" )
+ column=(type=char(1) updatewhereclause=yes name=aplica_retvol dbname="fases_minutas.aplica_retvol" dbalias=".aplica_retvol" )
+ column=(type=number updatewhereclause=yes name=base_retvol dbname="fases_minutas.base_retvol" dbalias=".base_retvol" )
+ column=(type=number updatewhereclause=yes name=base_garantia dbname="fases_minutas.base_garantia" dbalias=".base_garantia" )
+ column=(type=char(1) updatewhereclause=yes name=aplica_impresos dbname="fases_minutas.aplica_impresos" dbalias=".aplica_impresos" )
+ column=(type=number updatewhereclause=yes name=base_impresos dbname="fases_minutas.base_impresos" dbalias=".base_impresos" )
+ column=(type=number updatewhereclause=yes name=iva_impresos dbname="fases_minutas.iva_impresos" dbalias=".iva_impresos" )
+ column=(type=number updatewhereclause=yes name=base_otros dbname="fases_minutas.base_otros" dbalias=".base_otros" )
+ column=(type=number updatewhereclause=yes name=cobro_a_cuenta dbname="fases_minutas.cobro_a_cuenta" dbalias=".cobro_a_cuenta" )
+ column=(type=number updatewhereclause=yes name=base_cip_suplida dbname="fases_minutas.base_cip_suplida" dbalias=".base_cip_suplida" )
+ column=(type=number updatewhereclause=yes name=iva_cip_suplida dbname="fases_minutas.iva_cip_suplida" dbalias=".iva_cip_suplida" )
+ column=(type=number updatewhereclause=yes name=musaat_suplida dbname="fases_minutas.musaat_suplida" dbalias=".musaat_suplida" )
+ column=(type=number updatewhereclause=yes name=importe_irpf dbname="fases_minutas.importe_irpf" dbalias=".importe_irpf" )
+ retrieve="PBSELECT( VERSION(400) TABLE(NAME=~"clientes~" )  TABLE(NAME=~"colegiados~" )  TABLE(NAME=~"fases_minutas~" )  TABLE(NAME=~"fases_reclamaciones~" )  TABLE(NAME=~"fases~" )  TABLE(NAME=~"notificaciones~" ) COLUMN(NAME=~"fases_minutas.n_aviso~") COLUMN(NAME=~"fases_minutas.fecha~") COLUMN(NAME=~"fases_minutas.tipo_gestion~") COLUMN(NAME=~"fases_reclamaciones.tipo_reclamacion~") COLUMN(NAME=~"fases_reclamaciones.f_reclamacion~") COLUMN(NAME=~"fases_minutas.total_cliente~") COLUMN(NAME=~"fases_minutas.total_colegiado~") COLUMN(NAME=~"fases_minutas.pagador~") COLUMN(NAME=~"colegiados.id_colegiado~") COLUMN(NAME=~"clientes.id_cliente~") COLUMN(NAME=~"fases.emplazamiento~") COLUMN(NAME=~"fases.n_calle~") COLUMN(NAME=~"fases.poblacion~") COLUMN(NAME=~"fases.n_expedi~") COLUMN(NAME=~"fases_reclamaciones.id_minuta~") COLUMN(NAME=~"fases_reclamaciones.manual~") COLUMN(NAME=~"notificaciones.nombre~") COLUMN(NAME=~"clientes.apellidos~") COLUMN(NAME=~"clientes.nombre~") COLUMN(NAME=~"colegiados.apellidos~") COLUMN(NAME=~"colegiados.nombre~") COLUMN(NAME=~"fases.n_registro~") COLUMN(NAME=~"fases.descripcion~") COLUMN(NAME=~"fases.f_entrada~") COLUMN(NAME=~"fases.tipo_via_emplazamiento~") COLUMN(NAME=~"fases.tipo_fase~") COLUMN(NAME=~"fases.tipo_trabajo~") COLUMN(NAME=~"colegiados.domicilio_activo_fiscal~") COLUMN(NAME=~"colegiados.poblacion_activa_fiscal~") COLUMN(NAME=~"clientes.tipo_via~") COLUMN(NAME=~"clientes.nombre_via~") COLUMN(NAME=~"clientes.cod_prov~") COLUMN(NAME=~"clientes.cp~") COLUMN(NAME=~"fases.fase~") COLUMN(NAME=~"fases.id_fase~") COLUMN(NAME=~"fases.estado~") COMPUTE(NAME=~"convert(char(1), 'N') as anulado~") COLUMN(NAME=~"fases_minutas.aplica_honos~") COLUMN(NAME=~"fases_minutas.base_honos~") COLUMN(NAME=~"fases_minutas.iva_honos~") COLUMN(NAME=~"fases_minutas.aplica_desplaza~") COLUMN(NAME=~"fases_minutas.base_desplaza~") COLUMN(NAME=~"fases_minutas.iva_desplaza~") COLUMN(NAME=~"fases_minutas.aplica_dv~") COLUMN(NAME=~"fases_minutas.base_dv~") COLUMN(NAME=~"fases_minutas.iva_dv~") COLUMN(NAME=~"fases_minutas.aplica_cip~") COLUMN(NAME=~"fases_minutas.base_cip~") COLUMN(NAME=~"fases_minutas.iva_cip~") COLUMN(NAME=~"fases_minutas.aplica_musaat~") COLUMN(NAME=~"fases_minutas.base_musaat~") COLUMN(NAME=~"fases_minutas.aplica_retvol~") COLUMN(NAME=~"fases_minutas.base_retvol~") COLUMN(NAME=~"fases_minutas.base_garantia~") COLUMN(NAME=~"fases_minutas.aplica_impresos~") COLUMN(NAME=~"fases_minutas.base_impresos~") COLUMN(NAME=~"fases_minutas.iva_impresos~") COLUMN(NAME=~"fases_minutas.base_otros~") COLUMN(NAME=~"fases_minutas.cobro_a_cuenta~") COLUMN(NAME=~"fases_minutas.base_cip_suplida~") COLUMN(NAME=~"fases_minutas.iva_cip_suplida~") COLUMN(NAME=~"fases_minutas.musaat_suplida~") COLUMN(NAME=~"fases_minutas.importe_irpf~")    JOIN (LEFT=~"fases_minutas.id_minuta~"    OP =~"=~"RIGHT=~"fases_reclamaciones.id_minuta~" )    JOIN (LEFT=~"fases_minutas.id_colegiado~"    OP =~"=~"RIGHT=~"colegiados.id_colegiado~" )    JOIN (LEFT=~"fases_minutas.id_cliente~"    OP =~"=~"RIGHT=~"clientes.id_cliente~" )    JOIN (LEFT=~"fases_minutas.id_fase~"    OP =~"=~"RIGHT=~"fases.id_fase~" )    JOIN (LEFT=~"fases_reclamaciones.tipo_reclamacion~"    OP =~"=~"RIGHT=~"notificaciones.codigo~" )) "  sort="fases_minutas_n_aviso A notificaciones_nombre A " )
+group(level=1 header.height=0 trailer.height=8 by=("fases_minutas_n_aviso" ) header.color="536870912" trailer.color="536870912"  sort="fases_minutas_n_aviso A " )
+text(band=header alignment="2" text="Aviso" border="4" color="0" x="9" y="8" height="52" width="288" html.valueishtml="0"  name=fases_minutas_n_aviso_t visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="82042848" )
+text(band=header alignment="2" text="Fecha" border="4" color="0" x="315" y="8" height="52" width="288" html.valueishtml="0"  name=fases_minutas_fecha_t visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="82042848" )
+text(band=header alignment="2" text="T.Gesti$$HEX1$$f300$$ENDHEX$$n" border="4" color="0" x="622" y="8" height="52" width="265" html.valueishtml="0"  name=tipo_gestion_t visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="82042848" )
+text(band=header alignment="2" text="Tipo de Notificaci$$HEX1$$f300$$ENDHEX$$n" border="4" color="0" x="905" y="8" height="52" width="581" html.valueishtml="0"  name=notificaciones_nombre_t visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="82042848" )
+text(band=header alignment="2" text="F.Reclama." border="4" color="0" x="1504" y="8" height="52" width="270" html.valueishtml="0"  name=f_reclamacion_t visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="82042848" )
+text(band=header alignment="2" text="Pagador" border="4" color="0" x="2139" y="8" height="52" width="1001" html.valueishtml="0"  name=pagador_t visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="82042848" )
+text(band=header.1 alignment="0" text="Cartas del Aviso:" border="0" color="0" x="73" y="12" height="52" width="462" html.valueishtml="0"  name=t_4 visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+button(band=detail text="Imprimir" filename="" enabled=yes action="0" border="0" color="16777215" x="3159" y="4" height="60" width="183" vtextalign="0" htextalign="0"  name=b_imprimir visible="1~tif( fases_reclamaciones_tipo_reclamacion ='z',0,1)"  font.face="Arial" font.height="-7" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="79741120" )
+button(band=detail text="Anular" filename="" enabled=yes action="0" border="0" color="16777215" x="3150" y="4" height="60" width="183" vtextalign="0" htextalign="0"  name=b_anular visible="1~t0//if( fases_reclamaciones_tipo_reclamacion ='z',1,0)"  font.face="Arial" font.height="-7" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="0" background.color="79741120~tif((anulado='S') or (fases_estado='06'), f_color_rojo(), f_color_gris())" )
+column(band=detail id=16 alignment="2" tabsequence=32766 border="0" color="65535" x="3351" y="8" height="52" width="69" format="[general]" html.valueishtml="0"  name=fases_reclamaciones_manual visible="1~tif( fases_reclamaciones_manual = 'M',1,0)" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="MS Sans Serif" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="0" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="33554432" x="9" y="4" height="52" width="288" format="[general]" html.valueishtml="0"  name=fases_minutas_n_aviso  tag=" " visible="1" edit.limit=10 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="MS Sans Serif" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="315" y="4" height="52" width="288" format="dd/mm/yyyy" html.valueishtml="0"  name=fases_minutas_fecha  tag=" " visible="1" edit.limit=0 edit.case=any edit.format="dd/mm/yyyy" edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+compute(band=detail alignment="0" expression="case ( fases_minutas_tipo_gestion  when 'C' then 'Con gesti$$HEX1$$f300$$ENDHEX$$n' when 'S' then 'Sin gesti$$HEX1$$f300$$ENDHEX$$n' when 'A' then 'Autoliquidaci$$HEX1$$f300$$ENDHEX$$n' ) "border="0" color="0" x="622" y="4" height="52" width="265" format="[GENERAL]" html.valueishtml="0"  name=tipo_gestion visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+column(band=detail id=17 alignment="0" tabsequence=32766 border="0" color="0" x="905" y="4" height="52" width="581" format="[general]" html.valueishtml="0"  name=notificaciones_nombre visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+compute(band=detail alignment="0" expression="case( fases_minutas_pagador when '1' then  if ( isnull(colegiados_nombre ) or   colegiados_nombre = '' , colegiados_apellidos , colegiados_apellidos + ', ' + colegiados_nombre ) when '2' then if (isnull(clientes_nombre) or  clientes_nombre = '' , clientes_apellidos , clientes_apellidos + ', ' + clientes_nombre )  else  if (isnull(clientes_nombre) or  clientes_nombre = '' , clientes_apellidos , clientes_apellidos + ', ' + clientes_nombre ) )"border="0" color="0" x="2139" y="4" height="52" width="1001" format="[GENERAL]" html.valueishtml="0"  name=pagador visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+column(band=detail id=35 alignment="0" tabsequence=32766 border="0" color="0" x="3593" y="4" height="52" width="229" format="[general]" html.valueishtml="0"  name=fases_id_fase visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+column(band=detail id=36 alignment="0" tabsequence=32766 border="0" color="0" x="3822" y="0" height="52" width="46" format="[general]" html.valueishtml="0"  name=fases_estado visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+column(band=detail id=37 alignment="0" tabsequence=32766 border="0" color="0" x="3890" y="16" height="52" width="256" format="[general]" html.link="~tif( fases_estado ='z', anulado='S',  anulado='N' )" html.valueishtml="0"  name=anulado visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+text(band=header alignment="2" text="Total Importe" border="4" color="0" x="1792" y="8" height="52" width="329" html.valueishtml="0"  name=total_aviso_t visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="82042848" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="1504" y="4" height="52" width="270" format="dd/mm/yyyy" html.valueishtml="0"  name=f_reclamacion  tag=" " visible="1" edit.limit=0 edit.case=any edit.format="dd/mm/yyyy" edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+compute(band=detail alignment="0" expression="case(fases_minutas_tipo_gestion
+
+when 'C' then
+if(aplica_honos = 'S', base_honos, 0) + 
+if(aplica_desplaza = 'S', base_desplaza, 0) + 
+if(aplica_dv = 'S', base_dv, 0) +
+if(aplica_cip = 'S', base_cip, 0) + 
+if(aplica_musaat = 'S', base_musaat, 0) +
+if(aplica_retvol = 'S', base_retvol, 0) + 
+if(base_garantia > 0, - base_garantia, 0) + 
+if(aplica_impresos = 'S',  base_impresos, 0) + 
+if(cobro_a_cuenta > 0, - cobro_a_cuenta, 0) + base_cip_suplida + musaat_suplida 
+
+when 'A' then
+base_dv + base_cip + base_musaat + base_retvol + base_impresos
+
+when 'S' then
+if(aplica_dv = 'S' , base_dv, 0) + 
+if(aplica_cip = 'S', base_cip, 0) + 
+if(aplica_musaat = 'S', base_musaat, 0) + 
+if(aplica_impresos = 'S', base_impresos, 0) +
+if(isnull(base_otros), 0, base_otros)) 
+
++
+case(fases_minutas_tipo_gestion when 'C' then if(aplica_honos = 'S', iva_honos, 0) +  if(aplica_desplaza = 'S', iva_desplaza, 0) +  if(aplica_dv = 'S', iva_dv, 0) +  if(aplica_cip = 'S', iva_cip, 0) +  if(  aplica_impresos  = 'S',  iva_impresos , 0)+iva_cip_suplida  when 'A' then  iva_dv +  iva_cip +  iva_impresos  when 'S' then  if(aplica_dv = 'S' , iva_dv, 0) +  if(aplica_cip = 'S', iva_cip, 0) +  if( aplica_impresos  = 'S',  iva_impresos , 0) )-
+if(tipo_gestion <> 'A', importe_irpf, 0)"border="0" color="0" x="1792" y="4" height="52" width="329" format="[GENERAL]" html.valueishtml="0"  name=compute_1 visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" pagingmethod=0 generatedddwframes="1" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()
+ 

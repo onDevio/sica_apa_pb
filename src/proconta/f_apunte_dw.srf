@@ -1,0 +1,114 @@
+HA$PBExportHeader$f_apunte_dw.srf
+global type f_apunte_dw from function_object
+end type
+
+forward prototypes
+global function integer f_apunte_dw (ref st_apunte ap, datawindow dw, string moneda_presentacion)
+end prototypes
+
+global function integer f_apunte_dw (ref st_apunte ap, datawindow dw, string moneda_presentacion);datetime fecha
+
+if isnull(ap.debe) then ap.debe = 0
+if isnull(ap.haber) then ap.haber = 0
+if ap.debe = 0 and ap.haber = 0 and ap.base_imp = 0 then return 1
+//if abs(ap.debe) < 1/10000 and abs(ap.haber) < 1/10000 then return 1
+
+//Si se han cometido faltas de redondeo:
+ap.debe = round(ap.debe,2)
+ap.haber = round(ap.haber,2)
+
+dw.InsertRow(0)
+
+g_apunte.id_apunte = f_siguiente_numero('APUNTE',10)
+ap.n_apunte = f_incrementar_napunte_ok(ap.n_apunte)
+
+ap.id_apunte = g_apunte.id_apunte
+ap.n_apunte = g_apunte.n_apunte
+
+dw.SetItem(dw.RowCount(),'id_apunte',ap.id_apunte)
+dw.SetItem(dw.RowCount(),'cuenta',ap.cuenta)
+dw.SetItem(dw.RowCount(),'fecha',ap.fecha)
+dw.SetItem(dw.RowCount(),'concepto',ap.concepto)
+dw.SetItem(dw.RowCount(),'debe',ap.debe)
+dw.SetItem(dw.RowCount(),'haber',ap.haber)
+dw.SetItem(dw.RowCount(),'t_asiento',ap.t_asiento)
+dw.SetItem(dw.RowCount(),'n_asiento',ap.n_asiento)
+dw.SetItem(dw.RowCount(),'n_apunte',ap.n_apunte)
+dw.SetItem(dw.RowCount(),'centro',ap.centro)
+dw.SetItem(dw.RowCount(),'proyecto',ap.proyecto)
+dw.SetItem(dw.RowCount(),'n_doc',ap.n_doc)
+dw.SetItem(dw.RowCount(),'t_doc',ap.t_doc)
+dw.SetItem(dw.RowCount(),'diario',ap.diario)
+dw.SetItem(dw.RowCount(),'id_interno',ap.id_interno)
+dw.SetItem(dw.RowCount(),'cuenta_presupuestaria',ap.cta_presupuestaria)
+if ap.cuenta <> ap.contrapartida then dw.SetItem(dw.RowCount(),'contrapartida',ap.contrapartida)
+
+// Modificado Ricardo 2005-10-12
+if ((ap.debe < 0) or (ap.haber) < 0) and g_cambiar_signo_apuntes_importe_negativo ='S' then
+	//Anulaci$$HEX1$$f300$$ENDHEX$$n
+	dw.SetItem(dw.RowCount(),'concepto','Ab. ' + ap.concepto)
+	dw.SetItem(dw.RowCount(),'debe', -1 * ap.haber)
+	dw.SetItem(dw.RowCount(),'haber',-1 * ap.debe)
+	// 26/04/05 A la base imponible tb. le cambiamos el signo, porque luego el listado de Libro de IVA multiplica por 
+	//			-1 tanto la cuota como la Base
+	// Se comenta el c$$HEX1$$f300$$ENDHEX$$digo en esta funci$$HEX1$$f300$$ENDHEX$$n que inicializaba el valor de la base imp.
+	ap.base_imp = -1 * ap.base_imp
+end if
+
+dw.SetItem(dw.RowCount(),'conciliada','N')
+
+//messagebox('', ap.cuenta)
+//// 
+if LeftA(ap.cuenta,4) = g_prefijo_cuenta_bancaria_col then 
+	string enviar_email
+	SELECT var_globales.texto  INTO :enviar_email  FROM var_globales  WHERE var_globales.nombre = 'g_enviar_mail_cuenta_personal'   ;
+	
+	if enviar_email = 'S' then
+		string asunto, mensaje, id_col
+		SELECT var_globales.texto  INTO :asunto  FROM var_globales  WHERE var_globales.nombre = 'g_enviar_mail_asunto'   ;
+		SELECT var_globales.texto  INTO :mensaje  FROM var_globales  WHERE var_globales.nombre = 'g_enviar_mail_mensaje'   ;
+		SELECT cuentas.id_col  		INTO :id_col  		FROM cuentas  		WHERE cuentas.cuenta = :ap.cuenta   USING bd_ejercicio ;
+
+		st_mail email
+		email.direccion = f_devuelve_mail(id_col)
+		email.asunto = asunto
+		email.mensaje = mensaje
+		f_enviar_email_sock(email)
+	end if
+end if
+
+// MODIFICADO RICARDO 2004-10-25
+// Si existen las columnas, les asignamos los valores correspondientes 
+if lower(dw.describe("nif.name"))='nif' then 
+	dw.SetItem(dw.RowCount(),'nif',ap.nif)
+	ap.nif = ''
+end if
+
+if lower(dw.describe("nombre.name"))='nombre' then 
+	dw.SetItem(dw.RowCount(),'nombre',ap.nombre)
+	ap.nombre = ''
+end if
+
+// Solo para los apuntes de iva
+if lower(dw.describe("base_imp.name"))='base_imp' then 
+	dw.SetItem(dw.RowCount(),'base_imp',ap.base_imp)
+	ap.base_imp = 0
+end if 
+
+select getdate() into :fecha from moneda where moneda = 'E' using bd_ejercicio;
+if lower(dw.describe("f_generacion.name"))='f_generacion' then dw.SetItem(dw.RowCount(),'f_generacion',fecha)
+// FIN MODIFICADO RICARDO 2004-10-25
+
+// MODIFICADO RICARDO 2005-01-14
+// Si existen las columnas, les asignamos los valores correspondientes
+if lower(dw.describe("orden_apunte.name"))='orden_apunte' then 
+	if f_es_vacio(ap.orden_apunte) then setnull(ap.orden_apunte)
+	dw.SetItem(dw.RowCount(),'orden_apunte',double(ap.orden_apunte))
+	ap.orden_apunte = ''
+end if 
+// FIN MODIFICADO RICARDO 2005-01-14
+
+
+return 1
+end function
+

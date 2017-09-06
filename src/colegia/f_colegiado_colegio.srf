@@ -1,0 +1,21 @@
+HA$PBExportHeader$f_colegiado_colegio.srf
+global type f_colegiado_colegio from function_object
+end type
+
+forward prototypes
+global function string f_colegiado_colegio (string id_col)
+end prototypes
+
+global function string f_colegiado_colegio (string id_col);string desc_col
+  SELECT colegios.descripcion  
+    INTO :desc_col  
+    FROM colegiados,   
+         colegios  
+   WHERE ( colegiados.colegio = colegios.cod_colegio ) and  
+         ( ( colegiados.id_colegiado = :id_col ) )   ;
+
+if f_es_vacio(desc_col) then desc_col = ''
+
+return desc_col
+end function
+

@@ -1,0 +1,13 @@
+HA$PBExportHeader$st_renuncias_impresion.srs
+global type st_renuncias_impresion from structure
+	string		copias
+	string		tipo_carta
+	string		destinatario
+	string		id_fase
+	string		tipo_destinatario
+	datastore		ds_renuncia
+	datetime		f_renuncia
+	datetime		fecha
+	string		id_colegiado
+end type
+

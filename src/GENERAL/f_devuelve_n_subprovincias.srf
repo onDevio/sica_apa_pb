@@ -1,0 +1,11 @@
+HA$PBExportHeader$f_devuelve_n_subprovincias.srf
+global type f_devuelve_n_subprovincias from function_object
+end type
+
+forward prototypes
+global function string f_devuelve_n_subprovincias ()
+end prototypes
+
+global function string f_devuelve_n_subprovincias ();return g_colegio_n_subprovincias
+end function
+

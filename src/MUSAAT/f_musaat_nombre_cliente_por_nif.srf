@@ -1,0 +1,31 @@
+HA$PBExportHeader$f_musaat_nombre_cliente_por_nif.srf
+global type f_musaat_nombre_cliente_por_nif from function_object
+end type
+
+forward prototypes
+global function string f_musaat_nombre_cliente_por_nif (string nif)
+end prototypes
+
+global function string f_musaat_nombre_cliente_por_nif (string nif);string apellidos = '', nombre = ''
+string nombre_total = ''
+if f_es_vacio(nif) then return ''
+  SELECT clientes.apellidos,   
+         clientes.nombre  
+    INTO :apellidos,   
+         :nombre  
+    FROM clientes  
+   WHERE clientes.nif = :nif   
+           ;
+
+
+if (f_es_vacio(nombre)) then 
+	nombre_total += apellidos
+elseif (f_es_vacio(apellidos)) then 
+	nombre_total += ', ' + nombre
+else
+	nombre_total += apellidos + ', ' + nombre
+end if
+
+return nombre_total
+end function
+

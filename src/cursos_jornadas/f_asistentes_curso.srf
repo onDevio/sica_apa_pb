@@ -1,0 +1,22 @@
+HA$PBExportHeader$f_asistentes_curso.srf
+global type f_asistentes_curso from function_object
+end type
+
+forward prototypes
+global function integer f_asistentes_curso (string id_curso, decimal importe)
+end prototypes
+
+global function integer f_asistentes_curso (string id_curso, decimal importe);integer total
+
+SELECT COUNT(id_asistente)
+INTO :total
+FROM formacion_asistentes
+WHERE (id_curso=:id_curso) AND
+		(importe=:importe) AND
+		(n_lista_espera=0);
+
+//messagebox("",string(total)+'    '+string(importe))
+
+return total
+end function
+

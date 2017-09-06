@@ -1,0 +1,13 @@
+HA$PBExportHeader$f_busqueda_clientes.srf
+global type f_busqueda_clientes from function_object
+end type
+
+forward prototypes
+global function string f_busqueda_clientes (string nif)
+end prototypes
+
+global function string f_busqueda_clientes (string nif);Openwithparm(w_busqueda_clientes, nif)
+return Message.StringParm
+
+end function
+

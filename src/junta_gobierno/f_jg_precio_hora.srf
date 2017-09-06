@@ -1,0 +1,18 @@
+HA$PBExportHeader$f_jg_precio_hora.srf
+global type f_jg_precio_hora from function_object
+end type
+
+forward prototypes
+global function double f_jg_precio_hora ()
+end prototypes
+
+global function double f_jg_precio_hora ();double precio_hora
+
+SELECT numero
+into:precio_hora
+from var_globales 
+where nombre='g_jg_precio_hora';
+
+return precio_hora
+end function
+

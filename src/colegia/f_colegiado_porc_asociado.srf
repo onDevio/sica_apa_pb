@@ -1,0 +1,21 @@
+HA$PBExportHeader$f_colegiado_porc_asociado.srf
+global type f_colegiado_porc_asociado from function_object
+end type
+
+forward prototypes
+global function double f_colegiado_porc_asociado (string id_colegiado_sociedad, string id_colegiado)
+end prototypes
+
+global function double f_colegiado_porc_asociado (string id_colegiado_sociedad, string id_colegiado);double porcent = 0
+
+  SELECT porcent 
+    INTO :porcent  
+    FROM sociedades  
+   WHERE ( sociedades.id_col_per = :id_colegiado ) AND  
+         ( sociedades.id_col_soc = :id_colegiado_sociedad )   ;
+
+if isnull(porcent) then porcent = 0
+
+return porcent
+end function
+

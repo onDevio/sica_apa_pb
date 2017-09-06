@@ -1,0 +1,18 @@
+HA$PBExportHeader$d_coaatg_honos_capitulos.srd
+release 7;
+datawindow(units=0 timer_interval=0 color=80269524 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=300 color="536870912" )
+table(column=(type=char(10) updatewhereclause=yes name=capitulo dbname="capitulo" )
+ column=(type=char(10) updatewhereclause=yes name=capitulo_nivel2 dbname="capitulo_nivel2" )
+ column=(type=char(10) updatewhereclause=yes name=capitulo_nivel3 dbname="capitulo_nivel3" )
+ )
+column(band=detail id=1 alignment="0" tabsequence=10 border="0" color="0" x="544" y="32" height="64" width="1861" format="[general]"  name=capitulo dddw.name=d_dddw_coaatg_honos_capitulos dddw.displaycolumn=descripcion dddw.datacolumn=id dddw.percentwidth=150 dddw.lines=30 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any dddw.vscrollbar=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+text(band=detail alignment="1" text="Cap$$HEX1$$ed00$$ENDHEX$$tulo:" border="0" color="8388608" x="87" y="32" height="64" width="421"  name=capitulo_t  font.face="MS Sans Serif" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=20 border="0" color="0" x="544" y="124" height="64" width="1861" format="[general]"  name=capitulo_nivel2 visible="1~t0" dddw.name=d_dddw_coaatg_honos_capitulos_nivel2 dddw.displaycolumn=descripcion dddw.datacolumn=id dddw.percentwidth=150 dddw.lines=30 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any dddw.vscrollbar=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+column(band=detail id=3 alignment="0" tabsequence=30 border="0" color="0" x="544" y="212" height="64" width="1861" format="[general]"  name=capitulo_nivel3 visible="1~t0" dddw.name=d_dddw_coaatg_honos_capitulos_nivel3 dddw.displaycolumn=descripcion dddw.datacolumn=id dddw.percentwidth=150 dddw.lines=30 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any dddw.vscrollbar=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+text(band=detail alignment="1" text="Subcap$$HEX1$$ed00$$ENDHEX$$tulo:" border="0" color="8388608" x="59" y="124" height="64" width="448"  name=capitulo_nivel2_t visible="1~t0"  font.face="MS Sans Serif" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Apartado:" border="0" color="8388608" x="82" y="212" height="64" width="425"  name=capitulo_nivel3_t visible="1~t0"  font.face="MS Sans Serif" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

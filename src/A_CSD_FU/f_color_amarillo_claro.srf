@@ -1,0 +1,13 @@
+HA$PBExportHeader$f_color_amarillo_claro.srf
+$PBExportComments$COLORES: AMARILLO CLARO
+global type f_color_amarillo_claro from function_object
+end type
+
+forward prototypes
+global function long f_color_amarillo_claro ()
+end prototypes
+
+global function long f_color_amarillo_claro ();
+return RGB(255,255,200)
+end function
+

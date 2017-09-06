@@ -1,0 +1,9 @@
+HA$PBExportHeader$st_correos_recibidos.srs
+global type st_correos_recibidos from structure
+	integer		codigo[]
+	string		nombre[]
+	string		correo[]
+	string		asunto[]
+	string		descargar[]
+end type
+

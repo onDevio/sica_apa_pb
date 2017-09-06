@@ -1,0 +1,38 @@
+HA$PBExportHeader$f_devuelve_cod_postal_fase.srf
+global type f_devuelve_cod_postal_fase from function_object
+end type
+
+forward prototypes
+global function string f_devuelve_cod_postal_fase (string id_fase)
+end prototypes
+
+global function string f_devuelve_cod_postal_fase (string id_fase);string cod_pob = '', tipo = '', cp_asociado = '', cod_pos = ''
+
+  SELECT fases.poblacion  
+    INTO :cod_pob
+    FROM fases  
+   WHERE fases.id_fase = :id_fase   ;
+
+if f_es_vacio(cod_pob) then cod_pob = ''
+
+
+  SELECT poblaciones.tipo,   
+         poblaciones.cp_asociado,
+			poblaciones.cod_pos
+    INTO :tipo,   
+         :cp_asociado,
+			:cod_pos
+			
+    FROM poblaciones  
+   WHERE poblaciones.cod_pob = :cod_pob   ;
+	
+	
+	if tipo = 'M' then
+		cod_pos = cp_asociado
+
+	end if
+
+
+return cod_pos
+end function
+

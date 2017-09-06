@@ -1,0 +1,20 @@
+HA$PBExportHeader$f_devuelve_tipo_tramite.srf
+global type f_devuelve_tipo_tramite from function_object
+end type
+
+forward prototypes
+global function string f_devuelve_tipo_tramite (string id_fase)
+end prototypes
+
+global function string f_devuelve_tipo_tramite (string id_fase);//Devuelve el tipo de tr$$HEX1$$e100$$ENDHEX$$mite de una fase
+string tipo_tramite
+
+SELECT id_tramite INTO :tipo_tramite
+FROM fases
+WHERE id_fase = :id_fase;
+
+if f_es_vacio(tipo_tramite) then tipo_tramite=''
+
+return tipo_tramite
+end function
+

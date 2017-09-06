@@ -1,0 +1,16 @@
+HA$PBExportHeader$f_visared_dame_nombre_provincia.srf
+global type f_visared_dame_nombre_provincia from function_object
+end type
+
+forward prototypes
+global function string f_visared_dame_nombre_provincia (string codigo)
+end prototypes
+
+global function string f_visared_dame_nombre_provincia (string codigo);string retorno
+
+
+select nombre into :retorno from provincias where cod_provincia=:codigo;
+
+return retorno
+end function
+

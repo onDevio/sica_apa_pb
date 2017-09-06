@@ -1,0 +1,78 @@
+declare @colegio varchar(10)
+select @colegio = texto from var_globales where nombre = 'COLEGIO'
+
+--TODOS
+-- Cambios MUSAAT 2010
+alter table fases_usos add colindantes2m char(1) null;
+alter table musaat_movimientos add colindantes2m char(1) default 'N' null, doble_condicion char(1) default 'N' null, int_forzosa char(1) default 'N' null; 
+alter table fases_colegiados add  doble_condicion char(1) default 'N' null, int_forzosa char(1) default 'N' null, reposicion char(1) default 'N' null; 
+
+--print 'Se agrega variable global para el coeficiente de recargo por colindantes <2m'
+  INSERT INTO var_globales ( nombre,   numero,   descripcion,   modificable )  
+  VALUES ( 'g_musaat_coef_colindantes2m', 1.025,'Contiene el coficiente de recargo para los que tienen colindantes < 2m','S');
+
+-- Poner en N cuando el año sea 2010
+  INSERT INTO var_globales ( nombre, sn, descripcion, modificable )
+  VALUES ( 'g_musaat_tabla_desc_activa','N','Indica si esta activa la tabla de porcentaje', 'S' );
+
+-- Aplica la cobertura de doble condición
+  INSERT INTO var_globales ( nombre, numero, descripcion, modificable )
+  VALUES ( 'g_musaat_factor_doble_condicion',1.30, 'Contiene el factor de cobertura de doble condicion', 'S' );
+
+-- SCP 268
+alter table colegiados add cuenta_contable char(10) null;
+
+-- SCP 272
+INSERT INTO menu ( codigo, descripcion,  objeto, visible, enabled, ventana, activo )  
+  VALUES ('0000000205','Exportación XML','m_aplic_frame.m_file.m_new.m_altadefichas.m_exportacionxml', '1', '1',  '', 'S' );
+
+--TODOS
+ INSERT INTO var_globales ( nombre, sn, descripcion, modificable )
+  VALUES ( 'g_regulariza_cip_porc_nuevo','N','Indica que el porcentaje se realiza por el el campo nuevo y no por diferencia', 'S' );
+
+-- SCP 277
+INSERT INTO menu ( codigo, descripcion,  objeto, visible, enabled, ventana, activo )  
+  VALUES ('0000000206','Mantenimiento de Escuelas','m_file.m_open.m_colegiados.m_escuelas', '1', '1',  '', 'S' );
+
+create table escuela (codigo char(10) not null, descripcion char(255) null);
+alter table escuela add constraint pk_codigo primary key nonclustered (codigo);
+
+--Todos
+alter table premaat_liquidaciones add cod_usuario char(10) null;
+
+-- Todos
+-- Cambios en renuncias
+alter table fases_colegiados add porc_renuncia double precision null; 
+
+
+
+-- COAM 165
+if @colegio = 'COAATMCA'
+begin
+update listados set dw='d_colegiados_listados_reclamacion_dat_mca' where dw='d_colegiados_listados_reclamacion_datos_mca';
+update csi_series set dataobject='d_recibos_mca' where dataobject='d_recibos_le';
+end
+
+--Todos
+-- Debe verse para cada colegio el valor que le corresponda, si no existe, se le asignará el mismo codigo que suplidos
+  INSERT INTO csi_param_sigescon ( nombre, valor_numerico, valor_texto, valor_fecha,descripcion ) VALUES ( 'g_t_iva_exento',null,'EX',null,null);
+
+--Todos
+update musaat_movimientos set decenal = 'N' where decenal is null or decenal = '';
+update musaat_movimientos set colindantes2m = 'N' where colindantes2m is null or colindantes2m = '';
+update musaat_movimientos set doble_condicion = 'N' where doble_condicion is null or doble_condicion = '';
+update musaat_movimientos set int_forzosa = 'N' where int_forzosa is null or int_forzosa = '';
+
+--Solo colegios con la tabla formacion_cursos
+alter table formacion_cursos add horas_curso char(3) null;
+
+--Version minima
+update var_globales set texto = '20091231' where nombre = 'g_version_minima';
+
+
+if @colegio = 'COAATTGN'
+begin
+alter table coaattg_ti add maximo double precision null;
+end
+
+go

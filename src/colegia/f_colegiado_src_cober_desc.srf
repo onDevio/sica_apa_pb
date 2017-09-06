@@ -1,0 +1,23 @@
+HA$PBExportHeader$f_colegiado_src_cober_desc.srf
+global type f_colegiado_src_cober_desc from function_object
+end type
+
+forward prototypes
+global function double f_colegiado_src_cober_desc (string id_col)
+end prototypes
+
+global function double f_colegiado_src_cober_desc (string id_col);double importe_prima
+
+
+
+SELECT musaat_cober_src.prima
+INTO :importe_prima  
+FROM musaat  , musaat_cober_src
+WHERE musaat_cober_src.codigo = musaat.src_cober and 
+( musaat.id_col = :id_col ) ;
+
+if isnull(importe_prima) then importe_prima=0
+
+return importe_prima
+end function
+

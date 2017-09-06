@@ -1,0 +1,39 @@
+HA$PBExportHeader$f_notificacion.srf
+global type f_notificacion from function_object
+end type
+
+forward prototypes
+global function integer f_notificacion (ref st_notificacion notif)
+end prototypes
+
+global function integer f_notificacion (ref st_notificacion notif);datastore ds_notif
+ds_notif = create datastore
+ds_notif.dataobject = notif.dataobject
+ds_notif.InsertRow(0)
+ds_notif.SetItem(1,'n_expedi', notif.n_expedi)
+ds_notif.SetItem(1,'n_registro', notif.n_registro)
+ds_notif.SetItem(1,'emplazamiento', notif.emplazamiento)
+ds_notif.SetItem(1,'fase', notif.fase)
+ds_notif.SetItem(1,'descripcion', notif.descripcion)
+ds_notif.SetItem(1,'f_entrada', notif.f_entrada)
+ds_notif.SetItem(1,'fecha', notif.fecha)
+ds_notif.SetItem(1,'destinatario', notif.destinatario)
+ds_notif.SetItem(1,'tipo_destinatario', notif.tipo_destinatario)
+ds_notif.SetItem(1,'direccion', notif.direccion)
+ds_notif.SetItem(1,'poblacion', notif.poblacion)
+ds_notif.SetItem(1,'colegiados', notif.colegiados)
+ds_notif.SetItem(1,'fecn', notif.fecn)
+ds_notif.SetItem(1,'importe', notif.importe)
+ds_notif.SetItem(1,'ciudad', notif.ciudad)
+//Textos parametrizables:
+ds_notif.SetItem(1,'texto1', g_notif_texto1)
+ds_notif.SetItem(1,'texto2', g_notif_texto2)
+ds_notif.SetItem(1,'texto3', g_notif_texto3)
+
+ds_notif.object.dw_notif_detalle[1].Object.Data = notif.detalle.Object.data
+ds_notif.Print()
+
+destroy ds_notif
+return 1
+end function
+

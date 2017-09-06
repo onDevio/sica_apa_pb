@@ -1,0 +1,96 @@
+HA$PBExportHeader$f_total_avisos_emitidos_colegiado_exp.srf
+global type f_total_avisos_emitidos_colegiado_exp from function_object
+end type
+
+forward prototypes
+global function double f_total_avisos_emitidos_colegiado_exp (string id_exp, string id_col, string tipo_act)
+global function double f_total_avisos_emitidos_colegiado_exp (string id_exp, string id_fase, string id_col, string tipo_act, string concepto)
+end prototypes
+
+global function double f_total_avisos_emitidos_colegiado_exp (string id_exp, string id_col, string tipo_act);double cip_cobrado = 0
+
+  SELECT sum(base_cip)  
+    INTO :cip_cobrado  
+    FROM fases_minutas, fases
+   WHERE fases.id_fase = fases_minutas.id_fase and
+			fases.id_expedi = :id_exp and
+			fases_minutas.id_colegiado = :id_col and
+         fases_minutas.anulada <> 'S' and 
+			fases_minutas.fecha_pago <> null and
+			fases.fase = :tipo_act
+			;
+
+if isnull(cip_cobrado) then cip_cobrado = 0
+
+return cip_cobrado
+end function
+
+global function double f_total_avisos_emitidos_colegiado_exp (string id_exp, string id_fase, string id_col, string tipo_act, string concepto);double cantidad_cobrada = 0
+
+if f_es_vacio(tipo_act) then
+	choose case upper(concepto)
+		case 'CIP'
+			  SELECT sum(base_cip)  
+				 INTO :cantidad_cobrada  
+				 FROM fases_minutas  
+				WHERE fases_minutas.id_fase = :id_fase   and
+						fases_minutas.id_colegiado = :id_col and
+						fases_minutas.anulada <> 'S' and 
+						fases_minutas.pendiente = 'S' and ((tipo_gestion<>'C' and aplica_cip='S') or  (tipo_gestion='C'));		
+		case 'MUSAAT'
+			  SELECT sum(base_musaat)  
+				 INTO :cantidad_cobrada  
+				 FROM fases_minutas  
+				WHERE fases_minutas.id_fase = :id_fase   and
+						fases_minutas.id_colegiado = :id_col and
+						fases_minutas.anulada <> 'S' and 
+						fases_minutas.pendiente = 'S'and ((tipo_gestion<>'C' and aplica_musaat='S') or  (tipo_gestion='C'));	
+		
+		case 'DV'
+			  SELECT sum(base_dv)  
+				 INTO :cantidad_cobrada  
+				 FROM fases_minutas  
+				WHERE fases_minutas.id_fase = :id_fase   and
+						fases_minutas.id_colegiado = :id_col and
+						fases_minutas.anulada <> 'S' and 
+						fases_minutas.pendiente = 'S'and ((tipo_gestion<>'C' and aplica_dv='S') or  (tipo_gestion='C'));			
+	end choose
+else
+	choose case upper(concepto)
+		case 'CIP'
+			SELECT sum(base_cip)  
+			INTO :cantidad_cobrada  
+			FROM fases_minutas, fases
+			WHERE fases.id_fase = fases_minutas.id_fase and
+				fases.id_expedi = :id_exp and
+				fases_minutas.id_colegiado = :id_col and
+				fases_minutas.anulada <> 'S' and 
+				fases_minutas.pendiente = 'S' and
+				fases.fase = :tipo_act and ((fases_minutas.tipo_gestion<>'C' and fases_minutas.aplica_cip='S') or  (fases_minutas.tipo_gestion='C'));
+		case 'MUSAAT'
+			SELECT sum(base_musaat)  
+			INTO :cantidad_cobrada  
+			FROM fases_minutas, fases
+			WHERE fases.id_fase = fases_minutas.id_fase and
+				fases.id_expedi = :id_exp and
+				fases_minutas.id_colegiado = :id_col and
+				fases_minutas.anulada <> 'S' and 
+				fases_minutas.pendiente = 'S' and
+				fases.fase = :tipo_act and ((fases_minutas.tipo_gestion<>'C' and fases_minutas.aplica_musaat='S') or  (fases_minutas.tipo_gestion='C'));
+		case 'DV'
+			SELECT sum(base_cip)  
+			INTO :cantidad_cobrada  
+			FROM fases_minutas, fases
+			WHERE fases.id_fase = fases_minutas.id_fase and
+				fases.id_expedi = :id_exp and
+				fases_minutas.id_colegiado = :id_col and
+				fases_minutas.anulada <> 'S' and 
+				fases_minutas.pendiente = 'S' and
+				fases.fase = :tipo_act and ((fases_minutas.tipo_gestion<>'C' and fases_minutas.aplica_dv='S') or  (fases_minutas.tipo_gestion='C'));		
+		end choose
+end if
+if isnull(cantidad_cobrada) then cantidad_cobrada = 0
+
+return cantidad_cobrada
+end function
+

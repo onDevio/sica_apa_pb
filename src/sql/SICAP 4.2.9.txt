@@ -1,0 +1,67 @@
+
+// REESTRUCTURACION DE LA TABLAS DE TIPOS DE FACTURAS (SE LE HA QUITADO EL CAMPO DE BANDEJA Y SE HA REDUCIDO EL CAMPO BANDEJA
+
+create table dbo.tipos_facturas2 (codigo char(2) not null, descripcion char(60) null, plantilla char(60) null, plantilla_adicional char(60) null, tipo char(1) null, dataobject char(255) null, impresora char(2) null) ;
+alter table dbo.tipos_facturas2 add constraint pk_tipos_facturas primary key nonclustered (codigo) ;
+
+insert into tipos_facturas2 (codigo, descripcion, plantilla, plantilla_adicional, tipo, dataobject) 
+                  (select tipos_facturas.codigo, tipos_facturas.descripcion, tipos_facturas.plantilla, tipos_facturas.plantilla_adicional, 
+tipos_facturas.tipo, tipos_facturas.dataobject from tipos_facturas);
+
+drop table tipos_facturas;
+
+create table dbo.tipos_facturas (codigo char(2) not null, descripcion char(60) null, plantilla char(60) null, plantilla_adicional char(60) null, tipo char(1) null, dataobject char(255) null, impresora char(2) null) ;
+alter table dbo.tipos_facturas add constraint pk_tipos_facturas primary key nonclustered (codigo) ;
+
+insert into tipos_facturas select * from tipos_facturas2;
+
+drop table tipos_facturas2;
+
+
+// CREACION TABLA T_IMPRESORAS
+create table dbo.t_impresoras (codigo char(2) not null, cod_delegacion char(2) not null, impresora char(255) null, bandeja char(2) null) ;
+alter table dbo.t_impresoras add constraint pk_impresora primary key nonclustered (codigo, cod_delegacion) ;
+
+// CREACION TABLA FASES_USOS_TARIFAS
+create table dbo.fases_usos_tarifa (id_fase char(10) not null, cod_uso char(10) not null, superficie double precision not null) ;
+alter table dbo.fases_usos_tarifa add constraint pk_id primary key nonclustered (id_fase, cod_uso) ;
+
+
+alter table registro_series add ruta_virtual char(255) null;
+
+insert into messages_ca (tag,traduccion,modulo,nombre) values ("general.aviso_llegada","Mostrar sempre l'Avís d'arribada","general","aviso_llegada");
+insert into messages_ca (tag,traduccion,modulo,nombre) values ("msg_general.aviso_paquetes_texto"," arxius a la safata d'entrada","msg_general","aviso_paquetes_texto");
+
+
+
+// COAAT TERUEL
+update listados set dw = 'd_consejo_estadillo_totales_ter' where dw = 'd_consejo_estadillo_totales_avi' ;
+
+
+// TODOS
+  INSERT INTO t_aplicacion  
+         ( cod_aplicacion,   
+           nombre )  
+  VALUES ( 'FEW',   
+           'Frontend Web' )  ;
+
+// TODOS
+INSERT INTO menu    ( codigo,   descripcion,   objeto,   visible,     enabled,   ventana,    activo )  
+VALUES ( '0000000197',    'Ayudas Usuario',    'm_aplic_frame.m_file.m_open.m_ayudasusuario',  '0', '0', '', 'N' )  ;
+
+INSERT INTO menu    ( codigo,   descripcion,   objeto,   visible,     enabled,   ventana,    activo )  
+VALUES ( '0000000198',    'Comprobar Cuentas Bancarias',    'm_aplic_frame.m_file.m_open.m_ayudasusuario.m_comprcuentasbanc',  '0', '0', '', 'N' )  ;
+
+INSERT INTO menu    ( codigo,   descripcion,   objeto,   visible,     enabled,   ventana,    activo )  
+VALUES ( '0000000199',    'Depurar Estadillo',    'm_aplic_frame.m_file.m_open.m_ayudasusuario.m_depuración',  '0', '0', '', 'N' )  ;
+
+//COAAT TARRAGONA
+update listados set dw = 'd_fases_listado_por_colegiado_tg' where dw = 'd_fases_listado_por_colegiado';
+update listados set dw = 'd_garantias_general_listados_tg' where dw = 'd_garantias_general_listados';
+
+// COAAT ALICANTE (CAL-163)
+INSERT INTO csi_series  ( serie,  empresa,   contador,   descripcion,   recib,   anyo,   dataobject,   tipo )  
+VALUES ( 'GI',   '02',   1,   'Facturas de GITEC',   'N',   'XX',   'd_factura_gitec_al',   'S' )  ;
+
+// TODOS los colegios en español
+insert into listados values ('Listado General de Renuncias','d_fases_listado_renuncias','w_fases_listados','00','S') ;

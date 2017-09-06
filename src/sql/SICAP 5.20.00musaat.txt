@@ -1,0 +1,171 @@
+// ----  Cambios Musaat 
+
+// Todos los colegios
+
+// Se actualizá la tabla de coeficiente G  musaat_coef_g 
+
+update musaat_coef_g set coef = 1.673 where cobertura = 120000  ;
+update musaat_coef_g set coef = 1.845 where cobertura = 150000  ;
+update musaat_coef_g set coef = 1.995, cobertura= 200000 where cobertura = 210000  ;
+update musaat_coef_g set coef = 2.053, cobertura= 250000 where cobertura = 270000  ;
+update musaat_coef_g set coef = 2.121, cobertura= 300000 where cobertura = 330000  ;
+update musaat_coef_g set coef = 2.293, cobertura= 450000 where cobertura = 480000  ;
+update musaat_coef_g set coef = 2.467, cobertura= 600000 where cobertura = 630000  ;
+update musaat_coef_g set coef = 2.813, cobertura= 900000 where cobertura = 930000  ;
+
+// Se elimina el coeficiente para la cobertura 1230000
+delete from musaat_coef_g  where cobertura = 1230000 ;
+
+
+// Se eliminan los valores de la tabla tarifa E
+delete from musaat_tarifa_e ;
+
+//-- Se actualiza los valores en la tabla de la tarifa E musaat_tarifa_e
+INSERT INTO musaat_tarifa_e ( volumen_desde,volumen_hasta,importe_base,f_desde,f_hasta ) 
+	VALUES ( -1, 5000, 70,   '19000101', '20500101')  ;
+INSERT INTO musaat_tarifa_e ( volumen_desde,volumen_hasta,importe_base,f_desde,f_hasta ) 
+	VALUES ( 5001, 10000, 110,   '19000101', '20500101')  ;
+INSERT INTO musaat_tarifa_e ( volumen_desde,volumen_hasta,importe_base,f_desde,f_hasta ) 
+	VALUES ( 10001, 15000, 150,   '19000101', '20500101')  ;
+INSERT INTO musaat_tarifa_e ( volumen_desde,volumen_hasta,importe_base,f_desde,f_hasta ) 
+	VALUES ( 15001, 999999999, 190,   '19000101', '20500101')  ;
+
+
+// Se agregan las nuevas coberturas
+
+INSERT INTO musaat_cober_src (codigo, prima, t_poliza, activo) values('07', 200000, '01','S');
+INSERT INTO musaat_cober_src (codigo, prima, t_poliza, activo) values('08', 250000, '01','S');
+INSERT INTO musaat_cober_src (codigo, prima, t_poliza, activo) values('09', 300000, '01','S');
+INSERT INTO musaat_cober_src (codigo, prima, t_poliza, activo) values('10', 450000, '01','S');
+INSERT INTO musaat_cober_src (codigo, prima, t_poliza, activo) values('11', 600000, '01','S');
+INSERT INTO musaat_cober_src (codigo, prima, t_poliza, activo) values('12', 900000, '01','S');
+update musaat_cober_src set activo= 'S' where prima= 120000;
+update musaat_cober_src set activo= 'S' where prima= 150000;
+
+//Se inactivan las coberturas que no se utilizarán 
+
+update musaat_cober_src set activo= 'N' where prima= 210000;
+update musaat_cober_src set activo= 'N' where prima= 270000;
+update musaat_cober_src set activo= 'N' where prima= 330000;
+update musaat_cober_src set activo= 'N' where prima= 480000;
+update musaat_cober_src set activo= 'N' where prima= 630000;
+update musaat_cober_src set activo= 'N' where prima= 930000;
+update musaat_cober_src set activo= 'N' where prima= 1230000;
+
+
+// Actualización de coberturas de los colegiados
+update musaat set src_cober=(select codigo from musaat_cober_src where prima=200000 and t_poliza='01' and activo='S') where src_cober=(select codigo from musaat_cober_src where prima=210000 and t_poliza='01');
+update musaat set src_cober=(select codigo from musaat_cober_src where prima=250000 and t_poliza='01' and activo='S') where src_cober=(select codigo from musaat_cober_src where prima=270000 and t_poliza='01');
+update musaat set src_cober=(select codigo from musaat_cober_src where prima=300000 and t_poliza='01' and activo='S') where src_cober=(select codigo from musaat_cober_src where prima=330000 and t_poliza='01');
+update musaat set src_cober=(select codigo from musaat_cober_src where prima=450000 and t_poliza='01' and activo='S') where src_cober=(select codigo from musaat_cober_src where prima=480000 and t_poliza='01');
+update musaat set src_cober=(select codigo from musaat_cober_src where prima=600000 and t_poliza='01' and activo='S') where src_cober=(select codigo from musaat_cober_src where prima=630000 and t_poliza='01');
+update musaat set src_cober=(select codigo from musaat_cober_src where prima=900000 and t_poliza='01' and activo='S') where src_cober=(select codigo from musaat_cober_src where prima=930000 and t_poliza='01');
+update musaat set src_cober=(select codigo from musaat_cober_src where prima=900000 and t_poliza='01' and activo='S') where src_cober=(select codigo from musaat_cober_src where prima=1230000 and t_poliza='01');
+
+
+
+// Se actualiza la prima mínima de todas las tarifas
+
+update musaat_tarifas set minimo = 24 where tarifa in('A','B');
+update musaat_tarifas set minimo = 14 where tarifa like 'C%';
+update musaat_tarifas set minimo = 7 where tarifa= 'C2';
+
+
+// Nuevo campo que indica la poliza plus 
+
+alter table musaat add src_poliza_plus char(1) DEFAULT 'N' null;
+alter table musaat_movimientos add src_poliza_plus char(1) DEFAULT 'N' null;
+Alter table musaat_movimientos add src_recargo decimal(3,2) DEFAULT 1.00 null;
+
+//Actualiza los valores de los nuevos campos para los registros existentes
+update musaat set src_poliza_plus= 'N';
+//update musaat_movimientos set src_poliza_plus= 'N';
+
+//Mensaje en catalán para la poliza plus
+insert into messages_ca values('musaat.poliza_plus','Pòlissa Plus','musaat','poliza_plus');
+
+// Se agrega nueva variable global que contiene el coeficiente  de la poliza plus
+insert into var_globales(nombre, numero, descripcion, ambito, modificable) values('g_musaat_coef_poliza_plus', 1.25, 'Este valor incrementa a el coeficiente G','','N');
+
+
+//Porcentaje que representa recargo en la prima complementaria, si no se encuentra visado o registrado por el colegio
+insert into var_globales(nombre, numero, descripcion, ambito, modificable) values('g_musaat_recargo_prima', 1.02, 'Porcentaje que representa recargo en la prima complementaria, si no se encuentra visado o registrado por el colegio','','N');
+
+
+// SCP-778. Coeficiente de zona por colegio
+
+//Se agrega a la tabla colegio el campo que identifica el coeficiente de musaat por zona 
+alter table colegios add musaat_coef_malus double precision null;
+
+//Se agrega a fases el cod_colegio para identificar según el emplazamiento la provincia donde va el contrato
+alter table fases add cod_colegio_dest char(2) null;
+
+// Se debe actualizar el campo nuevo con el código del colegio actual.
+update fases set cod_colegio_dest = (select texto from var_globales where nombre = 'g_cod_colegio')
+where f_entrada < '19930101';
+update fases set cod_colegio_dest = (select texto from var_globales where nombre = 'g_cod_colegio')
+where f_entrada >='19930101' and f_entrada < '19980101';
+update fases set cod_colegio_dest = (select texto from var_globales where nombre = 'g_cod_colegio')
+where f_entrada >='19980101' and f_entrada < '20010101';
+update fases set cod_colegio_dest = (select texto from var_globales where nombre = 'g_cod_colegio')
+where f_entrada >='20010101' and f_entrada < '20030101';
+update fases set cod_colegio_dest = (select texto from var_globales where nombre = 'g_cod_colegio')
+where f_entrada >='20030101' and f_entrada < '20050101';
+update fases set cod_colegio_dest = (select texto from var_globales where nombre = 'g_cod_colegio')
+where f_entrada >='20050101' and f_entrada < '20070101';
+update fases set cod_colegio_dest = (select texto from var_globales where nombre = 'g_cod_colegio')
+where f_entrada >='20070101' and f_entrada < '20090101';
+update fases set cod_colegio_dest = (select texto from var_globales where nombre = 'g_cod_colegio')
+where f_entrada >='20090101' and f_entrada < '20110101';
+
+//Se agrega a musaat_movimientos el codigo de colegio de destino de la obra
+alter table musaat_movimientos add cod_colegio_dest char(2) null;
+
+dump tran sicapru with truncate_only;
+
+// Se añaden nuevas sentencias para actualizar el campo cod_colegio_dest en la tabla musaat_movimientos:
+
+update musaat_movimientos set src_poliza_plus= 'N', src_recargo = 1.00, cod_colegio_dest = (select texto from var_globales where nombre = 'g_cod_colegio')
+where fecha_calculo < '19930101';
+update musaat_movimientos set src_poliza_plus= 'N', src_recargo = 1.00, cod_colegio_dest = (select texto from var_globales where nombre = 'g_cod_colegio')
+where fecha_calculo >='19930101' and fecha_calculo < '19980101';
+update musaat_movimientos set src_poliza_plus= 'N', src_recargo = 1.00, cod_colegio_dest = (select texto from var_globales where nombre = 'g_cod_colegio')
+where fecha_calculo >='19980101' and fecha_calculo < '20010101';
+update musaat_movimientos set src_poliza_plus= 'N', src_recargo = 1.00, cod_colegio_dest = (select texto from var_globales where nombre = 'g_cod_colegio')
+where fecha_calculo >='20010101' and fecha_calculo < '20030101';
+update musaat_movimientos set src_poliza_plus= 'N', src_recargo = 1.00, cod_colegio_dest = (select texto from var_globales where nombre = 'g_cod_colegio')
+where fecha_calculo >='20030101' and fecha_calculo < '20050101';
+update musaat_movimientos set src_poliza_plus= 'N', src_recargo = 1.00, cod_colegio_dest = (select texto from var_globales where nombre = 'g_cod_colegio')
+where fecha_calculo >='20050101' and fecha_calculo < '20070101';
+update musaat_movimientos set src_poliza_plus= 'N', src_recargo = 1.00, cod_colegio_dest = (select texto from var_globales where nombre = 'g_cod_colegio')
+where fecha_calculo >='20070101' and fecha_calculo < '20090101';
+update musaat_movimientos set src_poliza_plus= 'N', src_recargo = 1.00, cod_colegio_dest = (select texto from var_globales where nombre = 'g_cod_colegio')
+where fecha_calculo >='20090101' and fecha_calculo < '20101231';
+update musaat_movimientos set src_poliza_plus= 'N', src_recargo = 1.00,  cod_colegio_dest = (select texto from var_globales where nombre = 'g_cod_colegio')
+where fecha_calculo = null or fecha_calculo = '';
+
+// Descuentos < 1
+update colegios set musaat_coef_malus = 0.80 where cod_colegio in('01','43'); //aplica descuento del 20%
+update colegios set musaat_coef_malus = 0.85 where cod_colegio in('16','19');
+update colegios set musaat_coef_malus = 0.90 where cod_colegio in('21','22','36','40', '55', '47', '41');
+update colegios set musaat_coef_malus = 0.93 where cod_colegio in('02','20');
+update colegios set musaat_coef_malus = 0.95 where cod_colegio ='51';
+
+//Recargos > 1
+update colegios set musaat_coef_malus = 1.03 where cod_colegio in('14','17','52');
+update colegios set musaat_coef_malus = 1.05 where cod_colegio in('27','10', '31', '38', '50');
+update colegios set musaat_coef_malus = 1.07 where cod_colegio in('05','08', '18','37');
+update colegios set musaat_coef_malus = 1.08 where cod_colegio ='33';
+update colegios set musaat_coef_malus = 1.09 where cod_colegio ='03';
+update colegios set musaat_coef_malus = 1.11 where cod_colegio ='12';
+update colegios set musaat_coef_malus = 1.13 where cod_colegio = '39';
+
+//coef = 1
+update colegios set musaat_coef_malus = 1 where cod_colegio in('04','06','07', '09','11', '13', '15', '23', '24', '25', '26', '28', '29','30', '32', '34','35','42', '44', '45', '46', '48', '49', '56', '96');
+
+insert into messages_ca values('fases.colegio_destino','Col.legi destí','fases','colegio_destino');
+insert into messages_ca values('musaat.coef_zona_musaat','Coef. zona Musaat','musaat','coef_zona_musaat'); 
+
+// Se actualiza para cada colegio el coeficiente de sinestrialidad. Se debe hacer uno a uno por cada colegio.
+
+

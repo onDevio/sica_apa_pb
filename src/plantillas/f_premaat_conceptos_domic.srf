@@ -1,0 +1,46 @@
+HA$PBExportHeader$f_premaat_conceptos_domic.srf
+$PBExportComments$Dado un colegiado devuelve sus datos de conceptos domiciliables de premaat (familia 02)
+global type f_premaat_conceptos_domic from function_object
+end type
+
+forward prototypes
+global function string f_premaat_conceptos_domic (string id_col)
+end prototypes
+
+global function string f_premaat_conceptos_domic (string id_col);//Esta funci$$HEX1$$f300$$ENDHEX$$n devuelve los datos de los conceptos domiciliables
+//que le corresponden al colegiado indicado por ID_COL
+
+string cd_concepto_cod,cd_forma_pago_cod,cd_concepto,cd_importe
+string cd_forma_pago,retorno  //, cd_datos_bancarios
+long i
+datastore ds_conceptos
+
+retorno = ''
+ds_conceptos = create datastore
+ds_conceptos.dataobject ='d_premaat_conceptos_domiciliables'
+ds_conceptos.SetTransObject(SQLCA)
+
+ds_conceptos.Retrieve(id_col)
+
+FOR i=1 TO ds_conceptos.rowcount()
+	cd_concepto_cod = ds_conceptos.getitemstring(i, 'concepto')
+	select descripcion into :cd_concepto from csi_articulos_servicios where codigo = :cd_concepto_cod;
+	cd_importe = string(ds_conceptos.getitemnumber(i, 'importe'))
+	cd_forma_pago_cod = ds_conceptos.getitemstring(i, 'forma_de_pago')
+	select descripcion into :cd_forma_pago from csi_formas_de_pago where tipo_pago = :cd_forma_pago_cod;
+	//cd_datos_bancarios = ds_conceptos.getitemstring(i, 'conceptos_domiciliables_datos_bancarios')
+	
+	if f_es_vacio(cd_concepto) then cd_concepto = ''
+	if f_es_vacio(cd_importe) then cd_importe = ''
+	if f_es_vacio(cd_forma_pago) then cd_forma_pago = ''
+//	if f_es_vacio(cd_datos_bancarios) then cd_datos_bancarios = ''
+	
+	retorno = retorno + 'Concepto: ' + cd_concepto + '~t' + 'Importe: ' + cd_importe + '~t' + 'Forma de Pago: ' + cd_forma_pago + cr //'~t' + 'Datos Bancarios: ' + cd_datos_bancarios + cr
+NEXT
+
+
+destroy ds_conceptos
+
+return retorno
+end function
+

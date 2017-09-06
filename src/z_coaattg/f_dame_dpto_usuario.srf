@@ -1,0 +1,23 @@
+HA$PBExportHeader$f_dame_dpto_usuario.srf
+global type f_dame_dpto_usuario from function_object
+end type
+
+forward prototypes
+global function string f_dame_dpto_usuario (string cod_usuario)
+end prototypes
+
+global function string f_dame_dpto_usuario (string cod_usuario);// Devuelve el departamento asociado al usuario
+// Comprueba que los departamentos existan en csi_proyectos
+string proyecto
+
+  SELECT csi_proyectos.proyecto  
+    INTO :proyecto  
+    FROM csi_proyectos,   
+         t_usuario  
+   WHERE ( csi_proyectos.proyecto = t_usuario.departamento ) and  
+         ( ( t_usuario.cod_usuario = :cod_usuario ) )   ;
+
+if isnull(proyecto)  or proyecto ='' then proyecto = g_explotacion_por_defecto
+return proyecto
+end function
+

@@ -1,0 +1,20 @@
+HA$PBExportHeader$f_dame_tipo_prestacion.srf
+global type f_dame_tipo_prestacion from function_object
+end type
+
+forward prototypes
+global function string f_dame_tipo_prestacion (string cod_prestacion)
+end prototypes
+
+global function string f_dame_tipo_prestacion (string cod_prestacion);string descripcion = ''
+  
+  SELECT premaat_tipo_pres.descripcion  
+    INTO :descripcion  
+    FROM premaat_tipo_pres  
+   WHERE premaat_tipo_pres.codigo = :cod_prestacion   
+           ;
+if f_es_vacio(descripcion) then descripcion = ''
+
+return descripcion
+end function
+

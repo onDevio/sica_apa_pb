@@ -1,0 +1,17 @@
+HA$PBExportHeader$d_dddw_servicios_col.srd
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=64 color="536870912" )
+table(column=(type=char(10) update=yes updatewhereclause=yes key=yes name=codigo dbname="csi_articulos_servicios.codigo" )
+ column=(type=char(32763) update=yes updatewhereclause=no name=descripcion dbname="csi_articulos_servicios.descripcion" )
+ column=(type=char(10) update=yes updatewhereclause=yes key=yes name=colegio dbname="csi_articulos_servicios.colegio" )
+ column=(type=number updatewhereclause=yes name=importe dbname="csi_articulos_servicios.importe" )
+ column=(type=char(2) updatewhereclause=yes name=empresa dbname="csi_articulos_servicios.empresa" )
+ retrieve="PBSELECT( VERSION(400) TABLE(NAME=~"csi_articulos_servicios~" ) COLUMN(NAME=~"csi_articulos_servicios.codigo~") COLUMN(NAME=~"csi_articulos_servicios.descripcion~") COLUMN(NAME=~"csi_articulos_servicios.colegio~") COLUMN(NAME=~"csi_articulos_servicios.importe~") COLUMN(NAME=~"csi_articulos_servicios.empresa~")WHERE(    EXP1 =~"csi_articulos_servicios.activo~"   OP =~"=~"    EXP2 =~"'S'~"    LOGIC =~"and~" ) WHERE(    EXP1 =~"csi_articulos_servicios.en_ficha_colegiado~"   OP =~"=~"    EXP2 =~"'S'~" ) ) " update="csi_articulos_servicios" updatewhere=1 updatekeyinplace=no filter="empresa = f_devuelve_empresa()" )
+column(band=detail id=4 alignment="1" tabsequence=32766 border="0" color="0" x="1083" y="4" height="52" width="375" format="#,##0.00"  name=importe edit.limit=0 edit.case=any edit.autoselect=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="14" y="4" height="52" width="128" format="[general]"  name=codigo edit.limit=0 edit.case=any edit.autoselect=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="151" y="4" height="52" width="914" format="[general]"  name=descripcion edit.limit=0 edit.case=any edit.autoselect=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

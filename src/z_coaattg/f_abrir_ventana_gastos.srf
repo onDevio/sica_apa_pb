@@ -1,0 +1,40 @@
+HA$PBExportHeader$f_abrir_ventana_gastos.srf
+global type f_abrir_ventana_gastos from function_object
+end type
+
+forward prototypes
+global subroutine f_abrir_ventana_gastos ()
+end prototypes
+
+global subroutine f_abrir_ventana_gastos ();w_fases_detalle ventana
+string id_fase
+
+/* DESCOMENTAR CUANDO SE PONGA LA VERSION DEL CALCULO DE GASTOS DEL 2011*/
+
+if (g_colegio = 'COAATAVI' or g_colegio = 'COAATA') then
+	open(w_calcula_gastos)
+else
+	if IsValid(g_detalle_fases) then
+			ventana=g_detalle_fases
+		id_fase=ventana.dw_1.GetItemString(ventana.dw_1.GetRow(),'id_fase')
+	end if
+	g_fases_busqueda.id_fase=id_fase	
+	open (w_calculo_tarifas)
+end if
+return
+
+
+//choose case g_colegio
+//	case 'COAATTGN','COAATTEB' ,'COAATMCA','COAATLL'
+//		if IsValid(g_detalle_fases) then
+//			ventana=g_detalle_fases
+//			id_fase=ventana.dw_1.GetItemString(ventana.dw_1.GetRow(),'id_fase')
+//		end if
+//		g_fases_busqueda.id_fase=id_fase
+//		open(w_calcula_gastos_coaattg)
+//	case else	
+//		open(w_calcula_gastos)
+//end choose
+//
+end subroutine
+

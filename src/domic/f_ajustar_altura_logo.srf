@@ -1,0 +1,19 @@
+HA$PBExportHeader$f_ajustar_altura_logo.srf
+global type f_ajustar_altura_logo from function_object
+end type
+
+forward prototypes
+global function st_datos_logos_empresa f_ajustar_altura_logo (integer max_altura, st_datos_logos_empresa datos_logo)
+end prototypes
+
+global function st_datos_logos_empresa f_ajustar_altura_logo (integer max_altura, st_datos_logos_empresa datos_logo);
+if datos_logo.altura > max_altura then
+						    double diferencia_altura
+						    diferencia_altura=max_altura / datos_logo.altura
+						    datos_logo.anchura=datos_logo.anchura * diferencia_altura
+						    datos_logo.altura=max_altura
+end if
+
+return datos_logo
+end function
+

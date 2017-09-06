@@ -1,0 +1,11 @@
+HA$PBExportHeader$f_compara_controles.srf
+global type f_compara_controles from function_object
+end type
+
+forward prototypes
+global function boolean f_compara_controles (string nombre_tabla, string nombre_objeto)
+end prototypes
+
+global function boolean f_compara_controles (string nombre_tabla, string nombre_objeto);if nombre_tabla = nombre_objeto then return true else return false
+end function
+

@@ -1,0 +1,12 @@
+HA$PBExportHeader$f_color_naranja.srf
+global type f_color_naranja from function_object
+end type
+
+forward prototypes
+global function long f_color_naranja ()
+end prototypes
+
+global function long f_color_naranja ();
+return RGB(255,113,45)
+end function
+

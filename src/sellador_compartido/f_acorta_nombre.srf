@@ -1,0 +1,20 @@
+HA$PBExportHeader$f_acorta_nombre.srf
+global type f_acorta_nombre from function_object
+end type
+
+forward prototypes
+global function string f_acorta_nombre (string nombre)
+end prototypes
+
+global function string f_acorta_nombre (string nombre);string izq,ext
+
+if LenA(nombre)<= 100 then return nombre
+
+ext=RightA(nombre,4)
+izq=LeftA(nombre,96)
+
+return izq+ext
+
+
+end function
+

@@ -1,0 +1,79 @@
+HA$PBExportHeader$f_recuperar_consulta_un_dw.srf
+global type f_recuperar_consulta_un_dw from function_object
+end type
+
+forward prototypes
+global function integer f_recuperar_consulta_un_dw (datawindow dw_actual, string nombre_ventana, string nombre_consulta)
+end prototypes
+
+global function integer f_recuperar_consulta_un_dw (datawindow dw_actual, string nombre_ventana, string nombre_consulta);string dw_nombre
+long fila, col
+string valor_string
+datetime valor_datetime
+double valor_double
+string tipo_columna
+boolean cambiado = false
+ 
+dw_nombre = dw_actual.classname()
+
+ DECLARE cursor_consulta CURSOR FOR  
+  SELECT consultas_datos.columna,   
+         consultas_datos.valor_double,   
+         consultas_datos.valor_string,   
+         consultas_datos.valor_datetime,   
+         consultas_datos.fila  
+    FROM consultas,   
+         consultas_datos  
+   WHERE ( consultas.id_consulta = consultas_datos.id_consulta ) and  
+         ( ( consultas.ventana = :nombre_ventana ) AND  
+         ( consultas.descripcion = :nombre_consulta ) AND  
+         ( consultas_datos.datawindow = :dw_nombre ) )   ;
+
+OPEN cursor_consulta ;
+
+FETCH cursor_consulta INTO :col, :valor_double, :valor_string, :valor_datetime, :fila ;
+
+DO WHILE SQLCA.SQLcode = 0
+
+	do while dw_actual.rowcount()<fila
+		// Si el dw no tiene dataobject no se pueden insertar filas
+		if dw_actual.InsertRow(0) <= 0 then
+			fila = -1
+			exit
+		end if
+	loop
+	if fila = -1 then exit
+	
+	tipo_columna = dw_actual.Describe('#'+string(col)+'.ColType')
+	if (LeftA(tipo_columna,7)='decimal') or tipo_columna ='double' or tipo_columna ='int' or tipo_columna ='long' or tipo_columna ='ulong' or tipo_columna ='real' then tipo_columna = 'number'
+	if (LeftA(tipo_columna,5)='times') then tipo_columna='time'
+	choose case tipo_columna
+		case 'datetime'
+			dw_actual.SetItem(fila,col,valor_datetime)
+			cambiado = true
+		case 'date'
+			dw_actual.SetItem(fila,col,date(valor_datetime))
+			cambiado = true
+		case 'time'
+			dw_actual.SetItem(fila,col,time(valor_datetime))
+			cambiado = true
+		case 'number'
+			dw_actual.SetItem(fila,col,valor_double)
+			cambiado = true
+		case else
+			dw_actual.SetItem(fila,col,valor_string)
+			cambiado = true
+	end choose
+	
+	FETCH cursor_consulta INTO :col, :valor_double, :valor_string, :valor_datetime, :fila ;
+
+LOOP
+
+CLOSE cursor_consulta ;
+
+if cambiado then dw_actual.resetupdate()
+
+return 1
+
+end function
+

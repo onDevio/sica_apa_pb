@@ -1,0 +1,142 @@
+HA$PBExportHeader$f_libros_rellena_estructura.srf
+$PBExportComments$Dado un colegiado inserta sus datos en una nueva fila del datastore que se le pasa
+global type f_libros_rellena_estructura from function_object
+end type
+
+forward prototypes
+global subroutine f_libros_rellena_estructura (string id_colegiado, datetime fecha_prestamo, ref datastore ds_colegiados)
+end prototypes
+
+global subroutine f_libros_rellena_estructura (string id_colegiado, datetime fecha_prestamo, ref datastore ds_colegiados);string apellidos, nombre, n_col,domicilio_activo, poblacion_activa, email, id_prestamo
+string tel_1, tel_2, tel_3, tel_4, tel_5, lugar, fecha, lugar_fecha, SIG, titulo , f_devolucion	
+datetime hoy, f_devolucion_prevista, f_devolucion_p		
+time hora_inicio,hora_fin,dif
+long ll_i
+
+int fila, i
+st_colegiados_domicilios domicilio
+datastore ds_libros
+
+string libros_CDU3,	titulo3	,	libros_titulo		
+string libros_CDU2,libros_CDU,	titulo2			
+ds_libros = create datastore
+ds_libros.dataobject = 'd_libros_plantilla'
+ds_libros.settransobject(SQLCA)
+ds_libros.retrieve(id_colegiado)
+//
+
+SetPointer(Hourglass!)
+
+
+//Se obtiene los datos del colegiado
+  SELECT colegiados.n_colegiado,   
+         colegiados.apellidos,   
+         colegiados.nombre,   
+         colegiados.email,   
+         colegiados.domicilio_activo,   
+         colegiados.poblacion_activa,   
+         colegiados.telefono_1,   
+         colegiados.telefono_2,   
+         colegiados.telefono_3,   
+         colegiados.telefono_4,   
+         colegiados.telefono_5  
+    INTO :n_col,   
+         :apellidos,   
+         :nombre,   
+         :email,   
+         :domicilio_activo,   
+         :poblacion_activa,   
+         :tel_1,   
+         :tel_2,   
+         :tel_3,   
+         :tel_4,   
+         :tel_5  
+    FROM colegiados  
+	 WHERE id_colegiado = :id_colegiado ; 
+	 
+declare mi_cursor cursor for
+   SELECT libros.CDU,   
+         libros.titulo,   
+         prestamos.f_devolucion_prevista 
+  
+    FROM libros,   
+         prestamos  
+   WHERE ( libros.id_libro = prestamos.id_libro ) and  
+         ( ( prestamos.colegiado = :id_colegiado ) and
+			(prestamos.f_prestamo =:fecha_prestamo))  ;
+
+open mi_cursor;
+fetch mi_cursor into :libros_cdu, :libros_titulo,:f_devolucion_p;
+titulo=""
+SIG = ""
+
+DO WHILE SQLCA.sqlcode = 0
+	titulo 		 +=libros_titulo + '~n~n'
+	SIG    		 +=libros_cdu+ '~n~n'
+	f_devolucion +=string(f_devolucion_p,"dd/mm/yyyy")+ '~n~n'
+	FETCH mi_cursor into :libros_cdu, :libros_titulo,:f_devolucion_p;
+LOOP
+
+titulo=LeftA(titulo,LenA(titulo) - 1)
+
+CLOSE mi_cursor;
+
+
+
+//
+//// Se obtiene los datos del libro
+  SELECT prestamos.id_prestamo
+    INTO :id_prestamo
+    FROM libros,   
+         prestamos  
+   WHERE ( libros.id_libro = prestamos.id_libro ) and  
+         ( ( prestamos.colegiado = :id_colegiado ) )   ;
+
+
+fila = ds_colegiados.InsertRow(0)
+
+//CABECERA
+if f_es_vacio(nombre) then nombre=''
+if f_es_vacio(apellidos) then apellidos = ''
+
+//Obtenenmos los apellidos separados
+//f_separar_apellidos(apellidos, apellido1, apellido2)
+//
+////ds_colegiados.SetItem(fila,'apellido1',apellido1)
+////ds_colegiados.SetItem(fila,'apellido2',apellido2)
+ds_colegiados.SetItem(fila,'apellidos',apellidos)
+ds_colegiados.SetItem(fila,'nombre',nombre)
+ds_colegiados.SetItem(fila,'nombre_completo',nombre+' '+apellidos)
+ds_colegiados.SetItem(fila,'domicilio',domicilio_activo)
+ds_colegiados.SetItem(fila,'poblacion',poblacion_activa)
+ds_colegiados.SetItem(fila,'n_colegiado',n_col)
+ds_colegiados.SetItem(fila,'id_prestamo',id_prestamo)
+
+hoy = datetime(today())
+lugar = f_dame_ciudad()
+fecha = string(day(today())) + ' de ' + lower(f_obtener_mes(hoy)) + ' de ' + string(year(today()))
+lugar_fecha =  lugar + ' , ' + fecha
+
+
+ds_colegiados.SetItem(fila,'lugar', lugar)
+ds_colegiados.SetItem(fila,'lugar_fecha', lugar_fecha)
+
+//TEL$$HEX1$$c900$$ENDHEX$$FONOS
+if f_es_vacio(tel_1) then tel_1 = ''
+ds_colegiados.SetItem(fila,'telefono_activo', tel_1)
+
+if f_es_vacio(email) then email = ''
+ds_colegiados.SetItem(fila,'email', email)
+ds_colegiados.SetItem(fila,'titulo',titulo)
+ds_colegiados.SetItem(fila,'f_prestamo',string(fecha_prestamo,"dd/mm/yyyy"))
+ds_colegiados.SetItem(fila,'sig',SIG)
+ds_colegiados.SetItem(fila,'f_devolucion_prevista',f_devolucion)
+
+
+// Guardamos los datos del datastore en un fichero de texto
+ds_colegiados.SaveAs(g_directorio_rtf+'libros.txt', text!, true)
+
+SetPointer(Arrow!)
+
+end subroutine
+

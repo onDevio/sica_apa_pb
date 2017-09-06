@@ -1,0 +1,21 @@
+HA$PBExportHeader$f_musaat_numpre.srf
+global type f_musaat_numpre from function_object
+end type
+
+forward prototypes
+global function string f_musaat_numpre (string id_col)
+end prototypes
+
+global function string f_musaat_numpre (string id_col);string num_pre
+
+SELECT musaat.src_prefijo  
+INTO :num_pre
+FROM musaat  
+WHERE musaat.id_col = :id_col   ;
+	
+if f_es_vacio(num_pre) then num_pre = ''
+
+return num_pre
+
+end function
+

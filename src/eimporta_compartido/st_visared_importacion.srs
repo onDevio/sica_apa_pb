@@ -1,0 +1,30 @@
+HA$PBExportHeader$st_visared_importacion.srs
+global type st_visared_importacion from structure
+	datastore		ds_detalle_fase
+	datastore		ds_colegiados
+	datastore		ds_clientes
+	datastore		ds_documentos_visared
+	datastore		ds_estadisticas
+	datastore		ds_usos
+	datastore		ds_honorarios
+	datastore		ds_informes
+	string		fichero_importacion
+	string		opcion_importacion
+	string		id_expedi
+	datastore		ds_arquitectos
+	datastore		ds_asociados
+	string		paquete_importacion
+	datastore		ds_incidencias
+	datastore		ds_clientes_nuevos
+	datastore		poblacion
+	datastore		ds_datos_urbanisticos
+	datastore		ds_coactfe_usos
+	datastore		ds_coeficientes
+	datastore		ds_constructores
+	datastore		ds_coeficientes_cuota
+	datastore		ds_coeficientes_m2
+	datastore		ds_gastos
+	datastore		ds_representantes_nuevos
+	datastore		ds_fases_pagos_plataforma
+end type
+

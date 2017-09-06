@@ -1,0 +1,69 @@
+HA$PBExportHeader$f_actualiza_cabecera_fe.srf
+global type f_actualiza_cabecera_fe from function_object
+end type
+
+forward prototypes
+global subroutine f_actualiza_cabecera_fe ()
+end prototypes
+
+global subroutine f_actualiza_cabecera_fe ();// esta func. se llamar$$HEX2$$e1002000$$ENDHEX$$al a$$HEX1$$f100$$ENDHEX$$adir l$$HEX1$$ed00$$ENDHEX$$neas a una cabecera existente para actualizar los valores 
+//   que puedan cambiar.
+
+//g_facturacion_emitida_importes.id_factura = 
+//g_facturacion_emitida_importes.subtotal =
+//g_facturacion_emitida_importes.descuento =
+//g_facturacion_emitida_importes.iva =
+//g_facturacion_emitida_importes.importe_reten =
+//f_actualiza_cabecera_fe()
+
+// Subtotal,
+//	Descuento,
+// IVA,
+//	Retenci$$HEX1$$f300$$ENDHEX$$n => acumular el valor que tengamos en la tabla fases_retenciones al valor ya existente en la cabecera si ya existe la cabecera
+// y los derivados base_imp y total
+string id_factura
+double base_imp,descuento,iva,importe_reten,subtotal,total 
+
+// Leemos de la estructura
+id_factura= g_facturacion_emitida_importes.id_factura 
+subtotal= g_facturacion_emitida_importes.subtotal
+descuento= g_facturacion_emitida_importes.descuento
+iva= g_facturacion_emitida_importes.iva
+importe_reten= g_facturacion_emitida_importes.importe_reten
+//base_imp= g_facturacion_emitida_importes.base_imp
+//total= g_facturacion_emitida_importes.total
+
+//Nos protegemos de errores por valores nulos
+if f_es_vacio (id_factura) then return
+
+if IsNull(subtotal) then subtotal = 0
+if IsNull(descuento) then descuento = 0
+if IsNull(iva) then iva = 0
+if IsNull(importe_reten) then importe_reten = 0
+// los siguientes campos se deben actualizar en base a los datos de otros valores
+base_imp = subtotal - descuento
+total = base_imp + iva - importe_reten
+
+// Hacemos la actualizaci$$HEX1$$f300$$ENDHEX$$n de la cabecera
+UPDATE csi_facturas_emitidas
+SET	base_imp = base_imp + :base_imp,
+		iva = iva + :iva,
+		descuento = descuento + :descuento,
+		importe_reten = importe_reten + :importe_reten,
+		subtotal = subtotal + :subtotal,
+		total = total + :total 
+WHERE id_factura = :id_factura;
+
+// Dejamos la estructura limpia para seguir trabajando con ella
+g_facturacion_emitida_importes.id_factura = ''
+g_facturacion_emitida_importes.iva = 0
+g_facturacion_emitida_importes.descuento = 0
+g_facturacion_emitida_importes.importe_reten = 0
+g_facturacion_emitida_importes.subtotal = 0
+g_facturacion_emitida_importes.base_imp = 0
+g_facturacion_emitida_importes.total = 0
+
+
+
+end subroutine
+

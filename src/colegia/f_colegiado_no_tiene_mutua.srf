@@ -1,0 +1,28 @@
+HA$PBExportHeader$f_colegiado_no_tiene_mutua.srf
+global type f_colegiado_no_tiene_mutua from function_object
+end type
+
+forward prototypes
+global function boolean f_colegiado_no_tiene_mutua (string id_col)
+end prototypes
+
+global function boolean f_colegiado_no_tiene_mutua (string id_col);int cuantos = 0
+
+SELECT count(*)  
+INTO :cuantos  
+FROM premaat  
+WHERE ( id_col = :id_col ) ;
+
+if cuantos = 0 then
+	return true
+else
+	SELECT count(*)  
+	INTO :cuantos  
+	FROM premaat  
+	WHERE ( id_col = :id_col ) AND  ( alta = 'N' ) ;	
+
+	return (cuantos > 0)
+end if
+
+end function
+

@@ -1,0 +1,20 @@
+HA$PBExportHeader$f_devuelve_cuenta.srf
+global type f_devuelve_cuenta from function_object
+end type
+
+forward prototypes
+global function string f_devuelve_cuenta (string id_col)
+end prototypes
+
+global function string f_devuelve_cuenta (string id_col);//f_devuelve_cuenta (id_col : string)
+//Devuelve la cuenta bancaria del colegiado dado el id_col.
+
+string cuenta, cuenta_bancaria
+
+select cuenta_bancaria into :cuenta from colegiados where id_colegiado=:id_col;
+
+cuenta_bancaria = trim(cuenta)
+
+return cuenta_bancaria
+end function
+

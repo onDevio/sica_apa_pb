@@ -1,0 +1,22 @@
+HA$PBExportHeader$f_puede_llevar_control_calidad.srf
+global type f_puede_llevar_control_calidad from function_object
+end type
+
+forward prototypes
+global function string f_puede_llevar_control_calidad (string tipo_actuacion)
+end prototypes
+
+global function string f_puede_llevar_control_calidad (string tipo_actuacion);string lleva_control
+
+if not f_es_vacio(tipo_actuacion) then
+	// Otenemos el valor de la bbdd del indicador
+	SELECT t_fases.susceptible_ctrl_calidad  into :lleva_control from t_fases where c_t_fase = :tipo_Actuacion;
+end if
+
+
+// Evitamos el nulo
+if f_es_vacio(lleva_control) then lleva_control = 'N'
+
+return lleva_control
+end function
+

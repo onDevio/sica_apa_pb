@@ -1,0 +1,28 @@
+HA$PBExportHeader$f_decimal_punto.srf
+$PBExportComments$objetos b$$HEX1$$e100$$ENDHEX$$sicos.Reemplaza la coma en un campo con decimales por el punto (de double a string)~r~n
+global type f_decimal_punto from function_object
+end type
+
+forward prototypes
+global function string f_decimal_punto (double datonum)
+end prototypes
+
+global function string f_decimal_punto (double datonum);// Reemplaza la coma en un campo con decimales por el punto
+
+string dato
+
+dato = string((DatoNum))
+		// Reemplazamos las comas por puntos	
+			long posicion
+			posicion = 0
+			DO
+				posicion = PosA(dato,',',posicion+1)
+				if isnull(posicion) then posicion = 0
+				if posicion > 0 then
+					dato=ReplaceA(dato,posicion, 1,".")
+				end if	
+			LOOP UNTIL posicion = 0
+			
+return dato
+end function
+

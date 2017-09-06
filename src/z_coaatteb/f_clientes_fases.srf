@@ -1,0 +1,57 @@
+HA$PBExportHeader$f_clientes_fases.srf
+global type f_clientes_fases from function_object
+end type
+
+forward prototypes
+global function string f_clientes_fases (string id_fase)
+end prototypes
+
+global function string f_clientes_fases (string id_fase);long cuantos,i
+string nombre,apellidos,texto,id_cliente
+
+
+select count(*) into :cuantos from fases_clientes where id_fase = :id_fase;
+
+ DECLARE clientes CURSOR FOR  
+  SELECT fases_clientes.id_cliente
+//    into :id_cliente
+    FROM fases_clientes
+	 WHERE id_fase = :id_fase;
+	 
+ OPEN clientes;	
+if sqlca.sqlcode = -1 then
+  Messagebox('',sqlca.sqlerrtext)	
+end if
+
+for i = 1 to cuantos
+
+
+FETCH clientes INTO :id_cliente;
+
+  SELECT clientes.nombre,   
+         clientes.apellidos  
+    INTO :nombre,   
+         :apellidos  
+    FROM clientes  
+	 WHERE clientes.id_cliente = :id_cliente;
+	 
+if isnull(nombre) then nombre = ' '
+if isnull(apellidos) then apellidos = ' '
+
+if i = 1 then
+  texto = apellidos + ' ' + nombre
+else
+  texto = texto + '; ' +  apellidos + ' ' + nombre
+end if
+
+next
+
+close clientes;
+
+return texto
+
+
+
+
+end function
+

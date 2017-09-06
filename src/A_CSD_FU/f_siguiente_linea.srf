@@ -1,0 +1,34 @@
+HA$PBExportHeader$f_siguiente_linea.srf
+$PBExportComments$Esta funci$$HEX1$$f300$$ENDHEX$$n calcula el siguiente c$$HEX1$$f300$$ENDHEX$$digo que corresponde en las relaciones 1:M cuando queremos que el contador en la relaci$$HEX1$$f300$$ENDHEX$$n M empiece por 1 cada vez.
+global type f_siguiente_linea from function_object
+end type
+
+forward prototypes
+global function double f_siguiente_linea (datawindow dw, string campo)
+end prototypes
+
+global function double f_siguiente_linea (datawindow dw, string campo);double sig_cod
+int fila, total_filas
+string codigo
+double maximo
+
+// Comprobamos el mayor c$$HEX1$$f300$$ENDHEX$$digo que tenemos en la DataWindow
+
+total_filas=dw.rowcount()
+maximo=0
+FOR fila=1 TO total_filas
+	codigo=dw.getitemstring(fila,campo) 
+	IF  maximo < double(codigo) THEN
+		maximo=double(codigo)
+	END IF
+NEXT
+
+
+// Calculamos siguiente c$$HEX1$$f300$$ENDHEX$$digo 
+
+sig_cod = maximo + 1    
+
+return sig_cod
+
+end function
+

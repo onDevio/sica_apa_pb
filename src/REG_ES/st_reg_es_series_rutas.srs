@@ -1,0 +1,10 @@
+HA$PBExportHeader$st_reg_es_series_rutas.srs
+global type st_reg_es_series_rutas from structure
+	string		serie
+	string		ruta_relativa1
+	string		ruta_relativa2
+	string		ruta_relativa3
+	string		ruta_relativa4
+	string		nombre
+end type
+

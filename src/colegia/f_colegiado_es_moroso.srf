@@ -1,0 +1,17 @@
+HA$PBExportHeader$f_colegiado_es_moroso.srf
+global type f_colegiado_es_moroso from function_object
+end type
+
+forward prototypes
+global function boolean f_colegiado_es_moroso (string as_id_colegiado)
+end prototypes
+
+global function boolean f_colegiado_es_moroso (string as_id_colegiado);string ls_moroso
+
+select moroso into :ls_moroso from colegiados where id_colegiado = :as_id_colegiado;
+
+if ls_moroso = 'S' then return true
+
+return false
+end function
+

@@ -1,0 +1,22 @@
+HA$PBExportHeader$f_musaat_dame_coef_k_mov.srf
+global type f_musaat_dame_coef_k_mov from function_object
+end type
+
+forward prototypes
+global function double f_musaat_dame_coef_k_mov (string id_fase, string id_col)
+end prototypes
+
+global function double f_musaat_dame_coef_k_mov (string id_fase, string id_col);double coef_k
+
+
+select coef_k
+into :coef_k
+from musaat_movimientos
+where
+id_fase = :id_fase
+and id_col = :id_col;
+
+
+return coef_k
+end function
+

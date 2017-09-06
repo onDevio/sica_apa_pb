@@ -1,0 +1,17 @@
+HA$PBExportHeader$d_colegiados_listado_sobre_251x189_gc.srd
+$PBExportComments$Etiquetas para los sobres de 25.1 x 18.9
+release 7;
+datawindow(units=3 timer_interval=0 color=1090519039 processing=2 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 0 print.margin.right = 0 print.margin.top = 900 print.margin.bottom = 0 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no label.name="Laser Address 0.50 x 1.75 5267" label.width=25100 label.height=18899 label.rows=3 label.rows.spacing=0 label.columns=1 label.columns.spacing=0 label.topdown=no label.sheet=yes label.shape=roundrectangle label.ellipse_height=83 label.ellipse_width=83 )
+detail(height=18891 color="536870912" )
+table(column=(type=char(10) updatewhereclause=yes key=yes name=id_colegiado dbname="colegiados.id_colegiado" )
+ column=(type=char(50) updatewhereclause=yes name=nombre dbname="colegiados.nombre" )
+ column=(type=char(80) updatewhereclause=yes name=apellidos dbname="colegiados.apellidos" )
+ column=(type=char(15) updatewhereclause=yes name=n_colegiado dbname="colegiados.n_colegiado" )
+ column=(type=char(1) updatewhereclause=yes name=sexo dbname="colegiados.sexo" )
+ column=(type=char(160) updatewhereclause=yes name=domicilio_activo dbname="colegiados.domicilio_activo" )
+ column=(type=char(120) updatewhereclause=yes name=poblacion_activa dbname="colegiados.poblacion_activa" )
+ retrieve="PBSELECT( VERSION(400) TABLE(NAME=~"colegiados~" ) COLUMN(NAME=~"colegiados.id_colegiado~") COLUMN(NAME=~"colegiados.nombre~") COLUMN(NAME=~"colegiados.apellidos~") COLUMN(NAME=~"colegiados.n_colegiado~") COLUMN(NAME=~"colegiados.sexo~") COLUMN(NAME=~"colegiados.domicilio_activo~") COLUMN(NAME=~"colegiados.poblacion_activa~")) " update="colegiados" updatewhere=1 updatekeyinplace=no  sort="poblacion_activa A apellidos A nombre A " )
+compute(band=detail alignment="0" expression="if ( sexo ='M', 'Sr. D. ' + f_colegiado_etiqueta(   id_colegiado ), if (sexo='F', 'Sra. D$$HEX2$$aa002000$$ENDHEX$$' + f_colegiado_etiqueta(   id_colegiado ), f_colegiado_etiqueta(   id_colegiado )))"border="0" color="0" x="10345" y="5873" height="2010" width="7593" format="[GENERAL]"  name=compute_1  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+roundrectangle(band=detail ellipseheight="608" ellipsewidth="608"x="10080" y="5635" height="2487" width="8122"  name=rr_1 brush.hatch="7" brush.color="553648127" pen.style="0" pen.width="26" pen.color="0"  background.mode="1" background.color="553648127" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

@@ -1,0 +1,22 @@
+HA$PBExportHeader$f_cod_colegio_procedencia.srf
+global type f_cod_colegio_procedencia from function_object
+end type
+
+forward prototypes
+global function string f_cod_colegio_procedencia (string cons_procedencia)
+end prototypes
+
+global function string f_cod_colegio_procedencia (string cons_procedencia);string cod_colegio
+
+
+
+select cod_colegio
+into :cod_colegio 
+from colegios
+where descripcion = :cons_procedencia;
+
+if isnull(cod_colegio) or cod_colegio = '' then cod_colegio = g_cod_colegio
+
+return cod_colegio
+end function
+

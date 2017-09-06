@@ -1,0 +1,21 @@
+HA$PBExportHeader$f_csi_articulos_servicios_t_iva.srf
+global type f_csi_articulos_servicios_t_iva from function_object
+end type
+
+forward prototypes
+global function string f_csi_articulos_servicios_t_iva (string cod_concepto, string empresa)
+end prototypes
+
+global function string f_csi_articulos_servicios_t_iva (string cod_concepto, string empresa);string t_iva = ''
+
+SELECT csi_articulos_servicios.t_iva  
+INTO :t_iva  
+FROM csi_articulos_servicios  
+HAVING ( csi_articulos_servicios.codigo = :cod_concepto AND csi_articulos_servicios.empresa= :empresa )   ;
+
+if f_es_vacio(t_iva) then t_iva= '00'
+
+return t_iva
+
+end function
+

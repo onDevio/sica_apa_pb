@@ -1,0 +1,26 @@
+HA$PBExportHeader$f_domicilio_cliente.srf
+global type f_domicilio_cliente from function_object
+end type
+
+forward prototypes
+global function string f_domicilio_cliente (string id_cli)
+end prototypes
+
+global function string f_domicilio_cliente (string id_cli);string datos_cliente = ''
+string nvia,tv
+
+select nombre_via,tipo_via
+	into :nvia, :tv
+	from clientes
+	where id_cliente=:id_cli;
+
+if isnull(nvia) then 
+	datos_cliente=''
+else
+	datos_cliente = f_obtener_domicilio_activo(tv, nvia)
+end if
+
+return datos_cliente
+
+end function
+

@@ -1,0 +1,10 @@
+HA$PBExportHeader$st_eimporta_validacion_certificado.srs
+global type st_eimporta_validacion_certificado from structure
+	string		firma_valida
+	string		certificado_valido
+	integer		error_firma[]
+	integer		num_firmas
+	integer		error_cert[]
+	string		firmantes
+end type
+

@@ -1,0 +1,39 @@
+HA$PBExportHeader$f_string_permitir_comillas.srf
+global type f_string_permitir_comillas from function_object
+end type
+
+forward prototypes
+global function string f_string_permitir_comillas (ref string dato)
+end prototypes
+
+global function string f_string_permitir_comillas (ref string dato);// Funci$$HEX1$$f300$$ENDHEX$$n que permite encontrar si hay comillas dentro de un string y colocarle el ~ delante para permitir la consulta
+
+long pos_comilla = -1, inicio
+
+
+inicio = 1
+
+
+
+DO WHILE pos_comilla<>0 
+	pos_comilla = PosA(dato, "~"", inicio)
+	If pos_comilla >0 then
+		dato = MidA(dato, 1, pos_comilla - 1)+CharA(126)+MidA(dato, pos_comilla, LenA(dato))
+		inicio = pos_comilla + 2
+	END IF
+LOOP
+
+
+inicio = 1
+pos_comilla = -1
+DO WHILE pos_comilla<>0 
+	pos_comilla = PosA(dato, "~'", inicio)
+	If pos_comilla >0 then
+		dato = MidA(dato, 1, pos_comilla - 1)+'_'+MidA(dato, pos_comilla+1, LenA(dato))
+		inicio = pos_comilla + 2
+	END IF
+LOOP
+
+return dato
+end function
+

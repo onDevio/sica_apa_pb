@@ -1,0 +1,36 @@
+HA$PBExportHeader$f_comprobar_fecha_mov_cfo.srf
+global type f_comprobar_fecha_mov_cfo from function_object
+end type
+
+forward prototypes
+global function boolean f_comprobar_fecha_mov_cfo (string as_id_fase)
+end prototypes
+
+global function boolean f_comprobar_fecha_mov_cfo (string as_id_fase);//************************************************************************************************************************************//
+//*** La funci$$HEX1$$f300$$ENDHEX$$n se encarga de comprobar que o bien la fecha de visado o bien la fecha de abono, seg$$HEX1$$fa00$$ENDHEX$$n el dato que utilice el colegio, disponen de un dato v$$HEX1$$e100$$ENDHEX$$ildo en el contrato al ****//
+//*** que se le quiere a$$HEX1$$f100$$ENDHEX$$adir un movimiento de mussat ********************************************************************************************// 
+//***********************************************************************************************************************************//
+//*** Retornar$$HEX2$$e1002000$$ENDHEX$$un booleano para indicar si el dato es correcto o no lo es *******************************************************************************//
+//***********************************************************************************************************************************//
+
+datetime f_visado
+
+if f_var_global_sn('g_utiliza_f_abono_fichero_eco') <> 'S' then 
+	f_visado = f_fases_f_visado(as_id_fase)
+else 	
+	f_visado = f_fases_f_abono(as_id_fase) 
+end if
+
+if  f_visado=datetime(date('01/01/1900'), time('00:00:00')) then 
+	if f_var_global_sn('g_utiliza_f_abono_fichero_eco') <> 'S' then 
+		messagebox("Atenci$$HEX1$$f300$$ENDHEX$$n", "El contrato no dispone de fecha de visado, motivo por el cual, no se generar$$HEX2$$e1002000$$ENDHEX$$el correspondiente movimiento de Musaat." + CR + "Revise los datos.", StopSign!, OK!) 
+	else	
+		messagebox("Atenci$$HEX1$$f300$$ENDHEX$$n", "El contrato no dispone de fecha de abono, motivo por el cual, no se generar$$HEX2$$e1002000$$ENDHEX$$el correspondiente movimiento de Musaat." + CR + "Revise los datos.", StopSign!, OK!)	
+	end if 
+	
+	return false
+end if	
+
+return true 
+end function
+

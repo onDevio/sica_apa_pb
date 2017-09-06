@@ -1,0 +1,100 @@
+HA$PBExportHeader$f_factura_comision_tarjeta.srf
+global type f_factura_comision_tarjeta from function_object
+end type
+
+forward prototypes
+global subroutine f_factura_comision_tarjeta (string id_factura, double comision_tarjeta)
+end prototypes
+
+global subroutine f_factura_comision_tarjeta (string id_factura, double comision_tarjeta);// Funci$$HEX1$$f300$$ENDHEX$$n que a$$HEX1$$f100$$ENDHEX$$ade a una factura una linea con la comisi$$HEX1$$f300$$ENDHEX$$n de la tarjeta
+// Para facturas ya creadas y que se van a cobrar
+string id_minuta, tipo, id_fase, id_linea, id_emisor, emisor,empresa
+double total_fact, imp_comision, iva_comision, bi, iva, irpf
+datetime fecha
+
+//obtener la empresa
+select empresa into :empresa from csi_facturas_emitidas where id_factura=:id_factura;
+
+if f_es_vacio(empresa) then empresa=g_empresa
+//
+
+// Datastore para el detalle de la factura
+datastore ds_factura_detalle
+ds_factura_detalle = create datastore
+ds_factura_detalle.dataobject ='d_facturacion_emitida_detalle'
+ds_factura_detalle.SetTransObject(SQLCA)
+
+// Datastore para las lineas de la factura
+datastore ds_lineas_factura
+ds_lineas_factura = create datastore
+ds_lineas_factura.dataobject ='d_fases_lineas_facturas'
+ds_lineas_factura.SetTransObject(SQLCA)
+
+// Recuperamos los datos de la factura en cuesti$$HEX1$$f300$$ENDHEX$$n
+ds_factura_detalle.retrieve(id_factura)
+ds_lineas_factura.retrieve(id_factura)
+
+// Obtenemos algunos datos que necesitamos para la linea de la factura
+fecha = ds_factura_detalle.getitemdatetime(1, 'fecha')
+emisor = ds_factura_detalle.getitemstring(1, 'emisor')
+id_minuta = ds_factura_detalle.getitemstring(1, 'id_minuta')
+tipo = ds_factura_detalle.getitemstring(1, 'tipo_persona')
+if f_es_vacio(g_explotacion_por_defecto) then g_explotacion_por_defecto = f_dame_dpto_usuario(g_usuario)
+
+// Insertamos la linea con el concepto de la comisi$$HEX1$$f300$$ENDHEX$$n de la tarjeta
+ds_lineas_factura.insertrow(0)
+id_linea=f_siguiente_numero('LINEA_FEMI', 10)	
+ds_lineas_factura.SetItem(ds_lineas_factura.RowCount(),'id_factura',id_factura)
+ds_lineas_factura.SetItem(ds_lineas_factura.RowCount(),'id_linea',id_linea)
+ds_lineas_factura.SetItem(ds_lineas_factura.RowCount(),'id_fase',id_fase) // N$$HEX1$$fa00$$ENDHEX$$mero de aviso o minuta	
+ds_lineas_factura.SetItem(ds_lineas_factura.RowCount(),'articulo', g_codigos_conceptos.comision_tarjeta)	
+ds_lineas_factura.SetItem(ds_lineas_factura.RowCount(),'unidades', 1)
+ds_lineas_factura.SetItem(ds_lineas_factura.RowCount(),'porcent_dto',0)
+ds_lineas_factura.SetItem(ds_lineas_factura.RowCount(),'importe_dto',0)
+ds_lineas_factura.SetItem(ds_lineas_factura.RowCount(),'centro',f_devuelve_centro(g_cod_delegacion))
+ds_lineas_factura.SetItem(ds_lineas_factura.RowCount(),'proyecto',g_explotacion_por_defecto)
+ds_lineas_factura.SetItem(ds_lineas_factura.RowCount(),'id_persona',id_emisor)
+ds_lineas_factura.SetItem(ds_lineas_factura.RowCount(),'tipo_persona',tipo)
+ds_lineas_factura.SetItem(ds_lineas_factura.RowCount(),'fecha',fecha)
+ds_lineas_factura.SetItem(ds_lineas_factura.RowCount(),'descripcion',f_devuelve_desc_concepto(g_codigos_conceptos.comision_tarjeta))
+ds_lineas_factura.SetItem(ds_lineas_factura.RowCount(),'descripcion_larga',f_devuelve_desc_concepto(g_codigos_conceptos.comision_tarjeta))
+
+// Obtenemos el total de la factura anterior
+total_fact = ds_lineas_factura.getitemnumber(ds_lineas_factura.rowcount(), 'total_fact')
+
+// Calculamos el importe de la comisi$$HEX1$$f300$$ENDHEX$$n
+imp_comision = f_redondea(total_fact * comision_tarjeta / 100)
+iva_comision = f_aplica_t_iva(imp_comision, f_csi_articulos_servicios_t_iva(g_codigos_conceptos.comision_tarjeta, empresa))
+
+ds_lineas_factura.SetItem(ds_lineas_factura.RowCount(),'precio', imp_comision)
+ds_lineas_factura.SetItem(ds_lineas_factura.RowCount(),'subtotal', imp_comision)
+ds_lineas_factura.SetItem(ds_lineas_factura.RowCount(),'t_iva', f_csi_articulos_servicios_t_iva(g_codigos_conceptos.comision_tarjeta, empresa))
+ds_lineas_factura.SetItem(ds_lineas_factura.RowCount(),'subtotal_iva', iva_comision)
+ds_lineas_factura.SetItem(ds_lineas_factura.RowCount(),'total', imp_comision + iva_comision)
+
+// Calculamos el importe de la factura una vez aplicada la comisi$$HEX1$$f300$$ENDHEX$$n
+bi = ds_factura_detalle.GetItemNumber(1,'base_imp')
+iva = ds_factura_detalle.GetItemNumber(1,'iva')
+irpf = ds_factura_detalle.GetItemNumber(1,'importe_reten')
+
+total_fact = bi + iva + imp_comision + iva_comision - irpf
+
+ds_factura_detalle.SetItem(ds_factura_detalle.RowCount(),'base_imp',bi+imp_comision)
+ds_factura_detalle.SetItem(ds_factura_detalle.RowCount(),'iva',iva+iva_comision)
+ds_factura_detalle.SetItem(ds_factura_detalle.RowCount(),'total',total_fact)
+ds_factura_detalle.SetItem(ds_factura_detalle.RowCount(),'subtotal',total_fact)
+
+// Actualizamos la linea y el detalle de la factura
+ds_lineas_factura.update()
+ds_factura_detalle.update()
+
+// Debemos actualizar el importe del cobro
+UPDATE csi_cobros  
+SET importe = :total_fact
+WHERE ( csi_cobros.id_factura = :id_factura ) AND  ( csi_cobros.pagado = 'N' )   ;
+
+destroy ds_factura_detalle
+destroy ds_lineas_factura
+
+end subroutine
+

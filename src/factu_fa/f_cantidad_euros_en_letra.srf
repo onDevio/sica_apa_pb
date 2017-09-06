@@ -1,0 +1,55 @@
+HA$PBExportHeader$f_cantidad_euros_en_letra.srf
+global type f_cantidad_euros_en_letra from function_object
+end type
+
+forward prototypes
+global function string f_cantidad_euros_en_letra (string cantidad)
+end prototypes
+
+global function string f_cantidad_euros_en_letra (string cantidad);string parte_entera,parte_decimal,cantidad_final,final_entera,cent
+string final_e,final_d,prep
+double num_aux
+long pos			//Posici$$HEX1$$f300$$ENDHEX$$n de la coma
+
+
+pos = PosA(cantidad,',')
+
+if pos=0 then pos = LenA(cantidad)+1
+
+parte_entera = MidA(cantidad,1,pos - 1)
+
+parte_decimal = MidA(cantidad,pos+1)
+
+//Si la parte decima tiene una cifra se deber$$HEX2$$e1002000$$ENDHEX$$decir en forma de decenas
+// Ej. .8 ser$$HEX2$$e1002000$$ENDHEX$$'CON OCHENTA' y no 'CON OCHO'
+
+if LenA(parte_decimal)=1 then
+	parte_decimal = parte_decimal + '0'
+end if
+
+if LenA(parte_entera)>6 and mod(double(parte_entera),1000000)=0 and parte_decimal='00' then 
+	final_entera =' DE EUROS'
+else
+	final_entera= ' EUROS'
+end if
+
+f_calnumenletra(parte_entera,final_e,1)
+f_calnumenletra(parte_decimal,final_d,1)
+
+
+
+if LenA(final_d) = 0 then 
+	prep = ''
+	cent = ''
+else
+	//Con esto conseguimos quitarle la A que aparece en las cantidades q acaban en 1 (UN en vez de UNA)
+//	if mid(final_d,len(final_d),1)='A' then final_d=mid(final_d,1,len(final_d)-1)
+	prep = ' CON '
+	cent = ' C$$HEX1$$c900$$ENDHEX$$NTIMOS'
+end if
+
+cantidad_final = final_e + final_entera + prep + final_d + cent
+
+return cantidad_final
+end function
+

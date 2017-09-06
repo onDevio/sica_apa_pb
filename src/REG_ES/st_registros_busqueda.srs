@@ -1,0 +1,12 @@
+HA$PBExportHeader$st_registros_busqueda.srs
+global type st_registros_busqueda from structure
+	string		n_registro
+	string		tipo
+	datetime		fecha
+	string		tipo_persona
+	string		nombre_o
+	string		nombre_d
+	string		departamento
+	datetime		fecha_escrito
+end type
+

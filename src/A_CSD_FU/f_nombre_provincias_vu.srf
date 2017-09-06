@@ -1,0 +1,19 @@
+HA$PBExportHeader$f_nombre_provincias_vu.srf
+global type f_nombre_provincias_vu from function_object
+end type
+
+forward prototypes
+global function string f_nombre_provincias_vu (string cod_prov)
+end prototypes
+
+global function string f_nombre_provincias_vu (string cod_prov);string nombre
+
+SELECT descripcion
+INTO :nombre
+FROM equivalencias
+WHERE nombre_nuevo=:cod_prov
+and grupo = 'VU_PROVINCIAS';
+
+return nombre
+end function
+

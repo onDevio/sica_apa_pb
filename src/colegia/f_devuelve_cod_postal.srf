@@ -1,0 +1,19 @@
+HA$PBExportHeader$f_devuelve_cod_postal.srf
+global type f_devuelve_cod_postal from function_object
+end type
+
+forward prototypes
+global function string f_devuelve_cod_postal (string cod_pob)
+end prototypes
+
+global function string f_devuelve_cod_postal (string cod_pob);string cod_postal
+  
+  //Obtiene el c$$HEX1$$f300$$ENDHEX$$digo postal asociado a un c$$HEX1$$f300$$ENDHEX$$digo de poblaci$$HEX1$$f300$$ENDHEX$$n
+  SELECT poblaciones.cod_pos  
+    INTO :cod_postal  
+    FROM poblaciones  
+   WHERE poblaciones.cod_pob = :cod_pob   ;
+
+return cod_postal
+end function
+

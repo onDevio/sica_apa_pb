@@ -1,0 +1,25 @@
+HA$PBExportHeader$f_colegiado_tiene_mutua_grupos.srf
+global type f_colegiado_tiene_mutua_grupos from function_object
+end type
+
+forward prototypes
+global function boolean f_colegiado_tiene_mutua_grupos (string id_col)
+end prototypes
+
+global function boolean f_colegiado_tiene_mutua_grupos (string id_col);int cuantos = 0
+
+SELECT count(*)  
+INTO :cuantos  
+FROM premaat  
+WHERE ( id_col = :id_col ) 
+and (grupo = 'B+' or grupo ='Pr');
+
+if cuantos > 0 then
+	return true
+end if
+
+return false
+
+
+end function
+

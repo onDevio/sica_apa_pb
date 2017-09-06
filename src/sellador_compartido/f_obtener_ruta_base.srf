@@ -1,0 +1,23 @@
+HA$PBExportHeader$f_obtener_ruta_base.srf
+global type f_obtener_ruta_base from function_object
+end type
+
+forward prototypes
+global function string f_obtener_ruta_base (string anyo)
+end prototypes
+
+global function string f_obtener_ruta_base (string anyo);string ruta_base
+
+select directorio into :ruta_base from fases_documentos_directorios where anyo=:anyo;
+
+if f_es_vacio(ruta_base)  then
+	//Colocamos la '\' a la ruta de directorios si no la lleva previamente
+	if RightA(g_directorio_documentos_visared,1) <>'\' then g_directorio_documentos_visared = g_directorio_documentos_visared + '\'
+	
+	return g_directorio_documentos_visared
+else
+	return ruta_base
+end if
+
+end function
+

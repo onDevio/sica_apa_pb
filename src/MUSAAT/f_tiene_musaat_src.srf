@@ -1,0 +1,22 @@
+HA$PBExportHeader$f_tiene_musaat_src.srf
+global type f_tiene_musaat_src from function_object
+end type
+
+forward prototypes
+global function boolean f_tiene_musaat_src (string id_col)
+end prototypes
+
+global function boolean f_tiene_musaat_src (string id_col);int cuantos = 0
+  SELECT count(*)  
+    INTO :cuantos  
+    FROM musaat  
+   WHERE ( id_col = :id_col ) AND  
+         ( musaat.src_alta = 'S' )
+           ;
+if isnull(cuantos) then cuantos = 0
+
+return( cuantos > 0)
+
+
+end function
+

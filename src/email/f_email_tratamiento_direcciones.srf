@@ -1,0 +1,135 @@
+HA$PBExportHeader$f_email_tratamiento_direcciones.srf
+global type f_email_tratamiento_direcciones from function_object
+end type
+
+forward prototypes
+global subroutine f_email_tratamiento_direcciones (ref n_smtp auo_smtp, string as_direcciones, string as_tipo_remitente)
+end prototypes
+
+global subroutine f_email_tratamiento_direcciones (ref n_smtp auo_smtp, string as_direcciones, string as_tipo_remitente);int li_pos_coma, li_pos_punto_coma
+
+///*A$$HEX1$$f100$$ENDHEX$$adida por Alexis el 29/04/2010 con motico del tratamiento de env$$HEX1$$ed00$$ENDHEX$$o de correos con multiples rutas y separadores multiples,(coma y punto y coma) *///
+
+choose case as_tipo_remitente
+	
+	case 'destino'
+		
+		li_pos_coma=1
+		li_pos_punto_coma = 1
+		do while li_pos_coma<>0 and li_pos_punto_coma <>0
+			li_pos_coma=PosA(as_direcciones,',')
+			li_pos_punto_coma=PosA(as_direcciones,';')
+			
+			// La coma esta antes que el punto y coma y/o la posici$$HEX1$$f300$$ENDHEX$$n de la coma no es cero 
+			if (li_pos_coma < li_pos_punto_coma and li_pos_coma <> 0)  then
+				if not f_es_vacio(trim(MidA(as_direcciones,1,li_pos_coma - 1))) then
+						auo_smtp.of_AddTo(trim(MidA(as_direcciones,1,li_pos_coma - 1)))
+				end if	
+				as_direcciones=MidA(as_direcciones,li_pos_coma+1)
+			
+			else 
+				// En el caso de que el punto y coma este antes o no exista comas y si existan puntos y comas
+				if li_pos_punto_coma <> 0 then
+					if not f_es_vacio(trim(MidA(as_direcciones,1,li_pos_punto_coma - 1))) then
+						auo_smtp.of_AddTo(trim(MidA(as_direcciones,1,li_pos_punto_coma - 1)))
+					end if	
+					as_direcciones=MidA(as_direcciones,li_pos_punto_coma+1)
+				else
+					// No hay puntos y comas y quedan comas. 
+					if li_pos_coma <> 0 then
+						if not f_es_vacio(trim(MidA(as_direcciones,1,li_pos_coma - 1))) then
+							auo_smtp.of_AddTo(trim(MidA(as_direcciones,1,li_pos_coma - 1)))
+						end if	
+						as_direcciones=MidA(as_direcciones,li_pos_coma+1)
+					else	
+						// No existe ni comas ni puntos y comas en las direcciones
+						if not f_es_vacio(trim(MidA(as_direcciones,1))) then
+							auo_smtp.of_AddTo(trim(MidA(as_direcciones,1)))
+						end if	
+					end if 
+				end if
+			end if	
+		loop
+		
+	case 'cc'
+		
+		li_pos_coma=1
+		li_pos_punto_coma = 1
+		do while li_pos_coma<>0 and li_pos_punto_coma <>0
+			li_pos_coma=PosA(as_direcciones,',')
+			li_pos_punto_coma=PosA(as_direcciones,';')
+			
+			// La coma esta antes que el punto y coma y/o la posici$$HEX1$$f300$$ENDHEX$$n de la coma no es cero 
+			if (li_pos_coma < li_pos_punto_coma and li_pos_coma <> 0)  then
+				if not f_es_vacio(trim(MidA(as_direcciones,1,li_pos_coma - 1))) then
+						auo_smtp.of_Addcc(trim(MidA(as_direcciones,1,li_pos_coma - 1)))
+				end if	
+				as_direcciones=MidA(as_direcciones,li_pos_coma+1)
+			
+			else 
+				// En el caso de que el punto y coma este antes o no exista comas y si existan puntos y comas
+				if li_pos_punto_coma <> 0 then
+					if not f_es_vacio(trim(MidA(as_direcciones,1,li_pos_punto_coma - 1))) then
+						auo_smtp.of_Addcc(trim(MidA(as_direcciones,1,li_pos_punto_coma - 1)))
+					end if	
+					as_direcciones=MidA(as_direcciones,li_pos_punto_coma+1)
+				else
+					// No hay puntos y comas y quedan comas. 
+					if li_pos_coma <> 0 then
+						if not f_es_vacio(trim(MidA(as_direcciones,1,li_pos_coma - 1))) then
+							auo_smtp.of_Addcc(trim(MidA(as_direcciones,1,li_pos_coma - 1)))
+						end if	
+						as_direcciones=MidA(as_direcciones,li_pos_coma+1)
+					else	
+						// No existe ni comas ni puntos y comas en las direcciones
+						if not f_es_vacio(trim(MidA(as_direcciones,1))) then
+							auo_smtp.of_Addcc(trim(MidA(as_direcciones,1)))
+						end if	
+					end if		
+				end if
+			end if	
+		loop
+		
+	case 'occ'
+		
+		li_pos_coma=1
+		li_pos_punto_coma = 1
+		do while li_pos_coma<>0 and li_pos_punto_coma <>0
+			li_pos_coma=PosA(as_direcciones,',')
+			li_pos_punto_coma=PosA(as_direcciones,';')
+			
+			// La coma esta antes que el punto y coma y/o la posici$$HEX1$$f300$$ENDHEX$$n de la coma no es cero 
+			if (li_pos_coma < li_pos_punto_coma and li_pos_coma <> 0) then
+				if li_pos_coma > 1 then
+						auo_smtp.of_Addbcc(trim(MidA(as_direcciones,1,li_pos_coma - 1)))
+				end if	
+				as_direcciones=MidA(as_direcciones,li_pos_coma+1)
+			
+			else 
+				// En el caso de que el punto y coma este antes o no exista comas y si existan puntos y comas
+				if li_pos_punto_coma <> 0 then
+					if li_pos_punto_coma > 1 then
+						auo_smtp.of_Addbcc(trim(MidA(as_direcciones,1,li_pos_punto_coma - 1)))
+					end if	
+					as_direcciones=MidA(as_direcciones,li_pos_punto_coma+1)
+				else 
+					// No hay puntos y comas y quedan comas. 
+					if li_pos_coma <> 0 then
+						if not f_es_vacio(trim(MidA(as_direcciones,1,li_pos_coma - 1))) then
+							auo_smtp.of_Addbcc(trim(MidA(as_direcciones,1,li_pos_coma - 1)))
+						end if	
+						as_direcciones=MidA(as_direcciones,li_pos_coma+1)
+					else	
+						// No existe ni comas ni puntos y comas en las direcciones
+						if not f_es_vacio(trim(MidA(as_direcciones,1))) then
+							auo_smtp.of_Addbcc(trim(MidA(as_direcciones,1)))
+						end if	
+					end if	
+				end if	
+				
+			end if	
+		loop
+		
+end choose		
+end subroutine
+

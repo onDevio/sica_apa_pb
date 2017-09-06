@@ -1,0 +1,22 @@
+HA$PBExportHeader$f_dame_plantilla_serie_fact.srf
+global type f_dame_plantilla_serie_fact from function_object
+end type
+
+forward prototypes
+global subroutine f_dame_plantilla_serie_fact (string serie, string anyo, ref string ls_plantilla, ref string tipo_dw, string as_empresa)
+end prototypes
+
+global subroutine f_dame_plantilla_serie_fact (string serie, string anyo, ref string ls_plantilla, ref string tipo_dw, string as_empresa);
+// Verifica si tiene el a$$HEX1$$f100$$ENDHEX$$o tiene el formato XX que indica que se debe usuar la plantilla para todos los a$$HEX1$$f100$$ENDHEX$$os
+
+//string ls_plantilla, tipo_dw
+
+select dataobject,tipo into :ls_plantilla,:tipo_dw from csi_series where serie = :serie and anyo='XX' and empresa = :as_empresa ;
+
+if isnull(ls_plantilla) or ls_plantilla = '' then 
+	select dataobject,tipo into :ls_plantilla,:tipo_dw from csi_series where serie = :serie and anyo=:anyo and empresa = :as_empresa;
+end if
+
+
+end subroutine
+

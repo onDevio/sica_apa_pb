@@ -1,0 +1,299 @@
+// V. 3.4.3
+
+// TODOS
+// MUNICIPIOS
+create table dbo.municipios (provincia char(5) not null, cod_muni char(3) not null, descripcion char(100) null) ;
+alter table dbo.municipios add constraint pk primary key nonclustered (provincia, cod_muni) ;
+
+// Rendimiento de la lista de cobros
+CREATE VIEW fases_minutas_fases (id_minuta,id_fase,n_registro,n_expedi,archivo) AS SELECT fases_minutas.id_minuta, 
+ fases_minutas.id_fase, 
+ fases.n_registro, 
+ fases.n_expedi, 
+ fases.archivo 
+ FROM fases, 
+ fases_minutas 
+ WHERE ( fases_minutas.id_fase = fases.id_fase ) ;
+
+// COAATA
+INSERT INTO csi_param_sigescon  
+( nombre, valor_texto, descripcion )  
+VALUES ( 'g_prefijo_cuenta_bancaria_col', '5520', 'Prefijo de la cuenta personal bancaria de los colegiados')  ;
+
+create table csi_traspasos_basicos (id_traspaso char(10) not null, tipo char(2) null, fecha datetime null, numero char(10) null, id_colegiado char(10) null, forma_pago char(2) null, banco char(10) null, importe double precision null, n_talon char(10) null, descripcion char(255) null) ;
+alter table csi_traspasos_basicos add constraint csi_traspasos_basicos_x primary key nonclustered (id_traspaso) ;
+
+INSERT INTO var_globales  
+(nombre, texto, descripcion, modificable)
+VALUES 
+('g_ing_ret_ingresa', 'd_ing_ret_impreso_ingresa', 'Dw del deposito en la cuenta personal', 'N' )  ;
+
+INSERT INTO var_globales  
+(nombre, texto, descripcion, modificable)
+VALUES 
+('g_ing_ret_retira', 'd_ing_ret_impreso_retira', 'Dw del cargo en la cuenta personal', 'N' )  ;
+
+INSERT INTO var_globales  
+(nombre, texto, descripcion, modificable)
+VALUES 
+('g_ing_ret_talon', 'd_ing_ret_impreso_talon', 'Dw del talón para el cargo en la cuenta personal', 'N' )  ;
+
+INSERT INTO contadores  
+( contador, valor, descripcion, modificable )  
+VALUES ( 'ID_TRASPASO', 0, 'Identificador de csi_traspasos_basicos', 'N' )  ;
+
+// INC. 6730
+// Configurar para cada colegio que utilice el registro de E/S
+// param1 = nombre
+// param2 = poblacion
+INSERT INTO t_control_eventos  
+( control,   evento,   activo,   param1,   param2,   id_control )  
+VALUES ( 'DESTINATARIO',   'REGISTRO_NUEVO',   'S',   'COLEGIO DE APAREJADORES',   '50001',   'REG_ES1' )  ;
+
+INSERT INTO t_control_eventos  
+( control,   evento,   activo,   param1,   param2,   id_control )  
+VALUES ( 'REMITENTE',   'REGISTRO_CAMBIO_ES',   'S',   'COLEGIO DE APAREJADORES',   '50001',   'REG_ES2' )  ;
+
+// Visible sólo para el COAATA
+INSERT INTO menu  
+( codigo, descripcion, objeto, visible, enabled, ventana, activo )  
+VALUES ( '0000000175', 'Saldo Cuenta Colegiado', 'm_aplic_frame.m_file.m_new.m_contabilidad0.m_saldocuentacolegiado', '0', '0', '', 'N')  ;
+
+// COAATA
+alter table csi_traspasos_basicos add centro char(3) null ;
+
+create table dbo.caja_salidas (id_caja_salida char(10) not null, fecha datetime null, centro char(10) null, concepto char(100) null, importe double precision null, banco char(10) null, tipo char(1) null, id_usuario char(10) null, id_colegiado char(10) null) ;
+alter table dbo.caja_salidas add constraint caja_salida primary key nonclustered (id_caja_salida) ;
+ 
+INSERT INTO contadores  
+( contador, valor, descripcion, modificable )  
+VALUES ( 'CAJA_SAL', 0, 'Identificador de la tabla caja_salidas', 'N' )  ;
+
+// Visible sólo para el COAATA
+INSERT INTO menu  
+( codigo, descripcion, objeto, visible, enabled, ventana, activo )  
+VALUES ( '0000000176', 'Cuadre de Caja', 'm_aplic_frame.m_file.m_new.m_contabilidad0.m_cuadredecaja', '0', '0', '', 'S')  ;
+
+// COAATA Acreditaciones 
+create table dbo.colegiados_baja_acredit (id_log char(10) not null, id_colegiado char(10) null, f_alta datetime null, f_baja datetime null) ;
+alter table dbo.colegiados_baja_acredit add constraint log_acredit primary key clustered (id_log) ;
+
+INSERT INTO contadores  
+( contador, valor, descripcion, modificable )  
+VALUES ( 'BAJA_ACRE', 0, 'Contador para el log de bajas de acreditados', 'N' )  ;
+
+// TODOS
+alter table colegiados add publicidad char(1) null ;
+update colegiados set publicidad = 'N';
+alter table colegiados add telefono_web char(30) null ;
+
+alter table musaat_histo_cober_src add src_coef_cm double precision null ;
+
+ALTER TABLE colegiados ADD activo_cp char(1) null, cuenta_bancaria_personal char(20) null ; 
+UPDATE colegiados set activo_cp = 'N';
+
+// Visible sólo para COAATA
+INSERT INTO menu  
+( codigo, descripcion, objeto, visible, enabled, ventana, activo )  
+VALUES ( '0000000177', 'Ingresa-Retira directo', 'm_aplic_frame.m_file.m_new.m_contabilidad0.m_ingresa_retiradirecto', '0', '0', '', 'N')  ;
+
+// TODOS
+INSERT INTO contadores  
+( contador, valor, descripcion, modificable )  
+VALUES ( 'CERTIF_REG_SAL', 0, 'Registro de salida para los certificados', 'S' )  ;
+
+// COAATA
+INSERT INTO t_control_eventos  
+( control,   evento,   activo,   param1,   param2,   id_control )  
+VALUES ( 'INSERTA_BOTON',   'ABRIR_FASE',   'S',   'Honorarios Obra', 'csd_honorarios_obra',  'HONOSEXPED') ;
+
+// TODOS
+// El campo ubicacion de la tabla de libros pasarlo a char(2)
+create table libros_ubicaciones (codigo char(2) not null, ubicacion char(50) null) ;
+alter table libros_ubicaciones add constraint pk primary key nonclustered (codigo) ;
+
+// Modificar INI para mailing
+[CORREO]
+tipo_envio=O
+servidor_smtp=XXX.XXX.XX.XX
+servidor_pop=XXX.XXX.XX.XX
+direccion=aaan@aaa.aaa
+nombre=AAA
+login=aaa
+password=
+recordar=S
+direccion_copia=aaan@aaa.aaa
+
+// Permisos por grupos
+create table dbo.t_grupo (cod_grupo char(10) not null, nombre varchar(150) not null) ;
+alter table dbo.t_grupo add constraint pk_t_grupo primary key nonclustered (cod_grupo) ;
+
+create table dbo.t_grupo_permisos (cod_grupo char(10) not null, cod_aplicacion char(10) not null, permiso char(1) null) ;
+alter table dbo.t_grupo_permisos add constraint pk_grupo_permisos primary key nonclustered (cod_grupo, cod_aplicacion) ;
+
+create table dbo.t_usuario_grupos (cod_usuario char(10) not null, cod_grupo char(10) not null) ;
+alter table dbo.t_usuario_grupos add constraint pk_grupos primary key nonclustered (cod_usuario, cod_grupo) ;
+
+INSERT INTO menu  
+( codigo, descripcion, objeto, visible, enabled, ventana, activo )  
+VALUES ( '0000000178', 'Grupos', 'm_aplic_frame.m_file.m_new.m_seguridad.m_grupos', '0', '0', '', 'N')  ;
+
+alter table cartas add plantilla char(10) null ;
+// Quitar rutas absolutas de las plantillas y dejar solo el nombre del doc en el campo ruta de plantillas
+
+alter table premaat_liquidaciones add contrapartida char(10) null ;
+
+INSERT INTO var_globales  
+(nombre, texto, descripcion, modificable)
+VALUES 
+('g_listado_talones_otros_pagos', 'd_premaat_liquid_listado', 'Dw de listado de talones de otros pagos', 'N' )  ;
+
+alter table premaat_liquidaciones add mensual char(1) null ;
+update premaat_liquidaciones set mensual = 'N' ;
+
+// Campo ciudad en callejero
+create table dbo.ciudades (cod_ciudad char(4) not null, descripcion char(60) null) ;
+alter table dbo.ciudades add constraint pk primary key nonclustered (cod_ciudad) ;
+alter table callejero add cod_ciudad char(4) null ;
+
+// Registro de cartas
+alter table cartas add n_registro char(20) null;
+
+// COAATA
+alter table csi_traspasos_basicos add usuario char(10) null;
+
+// COAATMU: Aplicar los anexos para cargar las tablas de Plantillas, plantillas_campos  y las propias plantillas
+
+// COAATA - Módulo de almacén
+create table almacen (id_almacen char(10) not null, fecha_desde datetime null, fecha_hasta datetime null, num_contenedor char(20) null, ub_pasillo char(20) null, ub_celda char(20) null, ub_profundidad char(20) null, tipo_almacen char(2) null, observaciones char(255) null, cod_almacen char(2) null) ;
+alter table almacen add constraint almacen_x primary key nonclustered (id_almacen) ;
+ 
+create table almacen_almacenes (cod_almacen char(2) not null, descripcion char(50) not null) ;
+alter table almacen_almacenes add constraint almacen_almacenes_x primary key nonclustered (cod_almacen) ;
+ 
+create table  almacen_tipos (tipo_almacen char(2) not null, descripcion char(50) null) ;
+alter table almacen_tipos add constraint almacen_tipos_x primary key nonclustered (tipo_almacen) ;
+
+create table almacen_visados (id_almacen_visados char(10) not null, id_fase char(10) null, id_almacen char(10) null, n_visado char(20) null) ;
+alter table almacen_visados add constraint almacen_visados_x primary key nonclustered (id_almacen_visados) ;
+ 
+INSERT INTO contadores 
+VALUES ( 'ID_ALMACEN', 6, 'Contador de almacenes', NULL, NULL);
+
+INSERT INTO contadores 
+VALUES ( 'ID_ALMACEN_VISADOS', 44, 'Contador de visados en almacen', NULL, NULL);
+
+// Visible sólo para COAATA
+INSERT INTO menu 
+VALUES ( '0000000179', 'Registro de Almacén', 'm_aplic_frame.m_file.m_new.m_gestordeproyectos', '0', '0', NULL, 'S');
+INSERT INTO menu 
+VALUES ( '0000000180', 'Tipos de Documentos en Almacén', 'm_aplic_frame.m_file.m_open.m_almacén.m_otro', '1', '1', NULL, 'S');
+INSERT INTO menu 
+VALUES ( '0000000181', 'Códigos de Almacén', 'm_aplic_frame.m_file.m_open.m_almacén.m_mas', '1', '1', NULL,'S');
+INSERT INTO menu 
+VALUES ( '0000000182', 'Almacén', 'm_aplic_frame.m_file.m_open.m_almacén', '0', '0', NULL, 'S');
+ 
+INSERT INTO t_aplicacion 
+VALUES ( '0000000179', 'REGISTRO DE ALMACEN');
+
+// Rutas de pdfs de facturas e informes económicos
+// Añadir en el INI y configurar para cada colegio
+[Informes Economicos]
+g_directorio_informes_economicos=d:\sica v3\economicos\
+g_directorio_otras_facturas=facturas diversas
+
+// Generación automática de N vencimientos para una factura emitida
+
+INSERT INTO csi_formas_de_pago
+( tipo_pago,  descripcion,  tipo,  cuenta, contado,  n_vencimientos, dias_primer_vencimiento, dias_entre_vencimiento,  hay_ingreso, efecto, porcent_primero, porcent_resto, descripcion_breve,             banco_asociado,  fp_extra,  prefijo_cuenta_contable_banco )  
+ VALUES ( 'FR', 'FRACCIONADA',  'T', NULL,'N',NULL,NULL,NULL,'S','N',100,0,'FRACCION',NULL,'N',NULL);
+
+//Listados de Cobros
+INSERT INTO listados  ( descripcion, dw, ventana,orden,activo ) 
+VALUES ( 'Cobros Impagados', 'd_cobros_listado_impagados',  'w_cobros_listados', '00','S');
+
+INSERT INTO listados ( descripcion, dw, ventana,orden,activo ) 
+VALUES ( 'Cobros por Fecha de Vencimiento agrupado por colegiado', 'd_cobros_listado_por_receptor_fact',  'w_cobros_listados', '00','S');
+
+// Rutas documentos plantillas
+// Añadir en el INI y configurar para cada colegio
+[Ruta_documentos_plantillas]
+g_directorio_documentos_plantillas= C:\
+
+// N vencimientos
+alter table csi_cobros add n_plazo char(10) null; 
+
+// TODOS  (INC.7883 Pegatina Libro Incidencias)
+alter table libro_incidencias
+add municipio char(50) null, n_visado  char(60) null, fecha_entrega datetime null;
+
+// Tabla para almacenar la direccion google maps
+create table dbo.fases_otros_datos (id_fase char(10) not null, emplazamiento_url char(255) null) ;
+alter table dbo.fases_otros_datos add constraint pk_otros_datos primary key nonclustered (id_fase) ;
+
+// TODOS (INC. 8260)
+INSERT INTO var_globales  
+(nombre, numero, descripcion, modificable)
+VALUES 
+('g_anyos_reclam_avisos', 5, 'Nº máximo de años de reclamación de avisos', 'S' )  ;
+
+// COAATGUI
+INSERT INTO listados  
+( descripcion,   dw,   ventana,   orden,   activo )  
+VALUES 
+("Etiquetas 36 x 88 mm", "d_colegiados_listado_etiquetas_nuevo_gui", "w_colegiados_listados", "00", "S" )  ;
+
+// Visible sólo para el COAATA
+INSERT INTO menu  
+( codigo, descripcion, objeto, visible, enabled, ventana, activo )  
+VALUES ( '0000000183', 'Cegas', 'm_aplic_frame.m_file.m_new.m_fases.m_cegas', '0', '0', '', 'N')  ;
+
+// TODOS (INC. 7787)
+insert into listados 
+values ('Listado de Colegiados con Nº Visados','d_fases_listado_interv_por_colegiado','w_fases_listados','00','S');
+
+// COAATGC
+// Hacer cambios BD de la incidencia 7461
+// Añadir en el INI y pasar ficheros a la nueva carpeta
+// [Ruta_documentos_fases]
+// g_directorio_documentos_fases=\\servidor\SICA-COMPARTIDO\documentos_fases
+
+INSERT INTO t_control_eventos  
+( control, evento, activo, param1, id_control )  
+VALUES ( "CAMBIO_ESTADO", "INSERTAR_DOCUMENTOS", "S", "04", "GCDOCS0001" )  ;
+
+INSERT INTO t_control_eventos  
+( control, evento, activo, param1, id_control )  
+VALUES ( "CAMBIO_ESTADO", "RETIRADOS_DOCUMENTOS", "S", "05", "GCDOCS0002" )  ;
+//  FIN COAATGC
+
+// TODOS
+INSERT INTO listados  
+( descripcion,   dw,   ventana,   orden,   activo )  
+VALUES ( "Listado Liquidaciones Completo", "d_liquidacion_listado_completo", "w_liquidaciones_listados", "00", "S" )  ;
+
+// COAATAVI (INC. 7552)
+INSERT INTO listados  
+( descripcion,   dw,   ventana,   orden,   activo )  
+VALUES ( 'Listado Facturas Cuotas',   'd_listado_facturas_cuotas_avi',   'w_facturacion_emitida_listados',   '08',  'S' )  ;
+
+// COAATGUI (INC. 7914)
+INSERT INTO listados  
+( descripcion,   dw,   ventana,   orden,   activo )  
+VALUES 
+("Etiquetas 36 x 88 mm", "d_colegiados_listado_etiquetas_nuevo_gui", "w_colegiados_listados", "00", "S" )  ;
+
+// TODOS (INC. 8187)
+// Registro de cartas
+// modificar el campo modulo_asociado de 2 a 20 de longitud
+// 1. exportar datos tabla a fichero de texto
+drop table cartas ;
+create table cartas (id_carta char(10) not null, tipo char(2) null, fecha datetime not null, modulo_asociado char(20) not null, id_referencia char(10) not null, cod_usuario char(10) null, plantilla char(10) null, n_registro char(20) null, nombre_fichero char(100) null, ruta_fichero char(255) null) ;
+alter table cartas add constraint pk_cartas primary key nonclustered (id_carta) ;
+// 2. importar datos guardados en la tabla
+
+INSERT INTO contadores VALUES ( 'N_REGISTRO', 0, 'Contador de registro de plantillas de colegiado', NULL, NULL);
+
+//Indica si es Masivo o individual
+alter table plantillas add individual char(2) null;
+update plantillas set individual ='S';

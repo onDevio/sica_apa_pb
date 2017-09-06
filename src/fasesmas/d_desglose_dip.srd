@@ -1,0 +1,79 @@
+HA$PBExportHeader$d_desglose_dip.srd
+release 10.5;
+datawindow(units=0 timer_interval=0 color=67108864 processing=0 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes print.preview.outline=yes hidegrayline=no )
+header(height=84 color="536870912" )
+summary(height=100 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=280 color="536870912" )
+table(column=(type=char(10) update=yes updatewhereclause=yes name=id_fase dbname="fases_colegiados.id_fase" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=id_col dbname="fases_colegiados.id_col" )
+ column=(type=number update=yes updatewhereclause=yes name=porcen_a dbname="fases_colegiados.porcen_a" )
+ column=(type=number update=yes updatewhereclause=yes name=porcen_d dbname="fases_colegiados.porcen_d" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=tipo_a dbname="fases_colegiados.tipo_a" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=tipo_d dbname="fases_colegiados.tipo_d" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=empresa dbname="fases_colegiados.empresa" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=facturado dbname="fases_colegiados.facturado" )
+ column=(type=char(10) update=yes updatewhereclause=yes key=yes name=id_fases_colegiados dbname="fases_colegiados.id_fases_colegiados" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=renunciado dbname="fases_colegiados.renunciado" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=tipo_gestion dbname="fases_colegiados.tipo_gestion" )
+ column=(type=char(32768) update=yes updatewhereclause=no name=observa dbname="fases_colegiados.observa" )
+ column=(type=char(3) update=yes updatewhereclause=yes name=cobertura dbname="fases_colegiados.cobertura" )
+ column=(type=number update=yes updatewhereclause=yes name=porc_aut dbname="fases_colegiados.porc_aut" )
+ column=(type=number update=yes updatewhereclause=yes name=porc_dir dbname="fases_colegiados.porc_dir" )
+ column=(type=char(40) update=yes updatewhereclause=yes name=otro_seguro dbname="fases_colegiados.otro_seguro" )
+ column=(type=number update=yes updatewhereclause=yes name=coef_cm dbname="fases_colegiados.coef_cm" )
+ column=(type=char(2) update=yes updatewhereclause=yes name=temporal dbname="fases_colegiados.temporal" )
+ column=(type=number updatewhereclause=yes name=dip_base dbname="dip_base" )
+ column=(type=number updatewhereclause=yes name=dip_iva dbname="dip_iva" )
+ column=(type=char(1) updatewhereclause=yes name=procesar dbname="procesar" values="	S/	N" )
+ retrieve="  SELECT fases_colegiados.id_fase,   
+         fases_colegiados.id_col,   
+         fases_colegiados.porcen_a,   
+         fases_colegiados.porcen_d,   
+         fases_colegiados.tipo_a,   
+         fases_colegiados.tipo_d,   
+         fases_colegiados.empresa,   
+         fases_colegiados.facturado,   
+         fases_colegiados.id_fases_colegiados,   
+         fases_colegiados.renunciado,   
+         fases_colegiados.tipo_gestion,   
+         fases_colegiados.observa,   
+         fases_colegiados.cobertura,   
+         fases_colegiados.porc_aut,   
+         fases_colegiados.porc_dir,   
+         fases_colegiados.otro_seguro,   
+         fases_colegiados.coef_cm,   
+         fases_colegiados.temporal,   
+         convert(double precision,0) as dip_base,   
+         convert(double precision,0) as dip_iva,
+		 convert(char(1),'S') as procesar
+    FROM fases_colegiados  
+   WHERE ( fases_colegiados.porcen_a > 0 ) AND  
+         ( fases_colegiados.id_fase = :id_fase )    
+" update="fases_colegiados" updatewhere=1 updatekeyinplace=no arguments=(("id_fase", string)) )
+text(band=header alignment="2" text="Base" border="4" color="0" x="398" y="20" height="52" width="306" html.valueishtml="0"  name=t_2 visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="IVA" border="4" color="0" x="731" y="20" height="52" width="343" html.valueishtml="0"  name=t_3 visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="Total" border="4" color="0" x="1097" y="20" height="52" width="338" html.valueishtml="0"  name=t_4 visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+compute(band=detail alignment="0" expression="f_colegiado_apellido(  id_col )"border="0" color="0" x="27" y="28" height="68" width="1495" format="[GENERAL]" html.valueishtml="0"  name=compute_1 visible="1"  font.face="MS Sans Serif" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="1" background.mode="1" background.color="553648127" )
+text(band=detail alignment="0" text="DIP" border="0" color="0" x="137" y="148" height="64" width="224" html.valueishtml="0"  name=t_1 visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+button(band=detail text="Pago Fraccionado" enabled=yes action="0" border="0" color="0" x="1650" y="140" height="84" width="462" vtextalign="0" htextalign="0"  name=b_fraccionar visible="0"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="67108864" )
+column(band=detail id=19 alignment="1" tabsequence=32766 border="5" color="0" x="398" y="148" height="64" width="325" format="#,##0.00" html.valueishtml="0"  name=dip_base visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+column(band=detail id=20 alignment="1" tabsequence=32766 border="5" color="0" x="754" y="148" height="64" width="325" format="#,##0.00" html.valueishtml="0"  name=dip_iva visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+compute(band=detail alignment="1" expression="dip_base+dip_iva"border="5" color="0" x="1115" y="148" height="64" width="325" format="#,##0.00" html.valueishtml="0"  name=total visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+column(band=detail id=21 alignment="0" tabsequence=10 border="0" color="0" x="1486" y="148" height="52" width="59" format="[general]" html.valueishtml="0"  name=procesar visible="1~tif(dip_base>100,f_dip_desglosado(id_fase,id_col),0)" checkbox.text="" checkbox.on="S" checkbox.off="N" checkbox.scale=no checkbox.threed=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+line(band=summary x1="398" y1="12" x2="1463" y2="12"  name=l_1 visible="1" pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="1090519039" )
+text(band=summary alignment="1" text="Total:" border="0" color="0" x="137" y="32" height="52" width="224" html.valueishtml="0"  name=t_5 visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+compute(band=summary alignment="1" expression="sum(  dip_base  for all )"border="0" color="0" x="402" y="32" height="52" width="334" format="#,##0.00" html.valueishtml="0"  name=compute_2 visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+compute(band=summary alignment="1" expression="sum(  dip_iva  for all )"border="0" color="0" x="768" y="32" height="52" width="334" format="#,##0.00" html.valueishtml="0"  name=compute_3 visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+compute(band=summary alignment="1" expression="sum(  total  for all )"border="0" color="0" x="1129" y="32" height="52" width="334" format="#,##0.00" html.valueishtml="0"  name=compute_4 visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" pagingmethod=0 generatedddwframes="1" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()
+ 

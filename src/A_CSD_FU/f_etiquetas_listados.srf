@@ -1,0 +1,11 @@
+HA$PBExportHeader$f_etiquetas_listados.srf
+global type f_etiquetas_listados from function_object
+end type
+
+forward prototypes
+global function string f_etiquetas_listados ()
+end prototypes
+
+global function string f_etiquetas_listados ();return g_etiquetas_listados
+end function
+

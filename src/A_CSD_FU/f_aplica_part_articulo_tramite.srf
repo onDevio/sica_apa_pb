@@ -1,0 +1,39 @@
+HA$PBExportHeader$f_aplica_part_articulo_tramite.srf
+global type f_aplica_part_articulo_tramite from function_object
+end type
+
+forward prototypes
+global function string f_aplica_part_articulo_tramite (string tipo_tramite, string colegio, string articulo)
+end prototypes
+
+global function string f_aplica_part_articulo_tramite (string tipo_tramite, string colegio, string articulo);// Devuelve si aplica el porcentaje de participaci$$HEX1$$f300$$ENDHEX$$n para el art$$HEX1$$ed00$$ENDHEX$$culo, con ese tipo de tramite
+
+/* Par$$HEX1$$e100$$ENDHEX$$metros de entrada
+
+tipo_tramite: REDOC, IP, VV, REDAP
+colegio : valor que tenga g_colegio
+articulo : 
+
+*/
+
+// Salida  S: aplica el porcentaje de participaci$$HEX1$$f300$$ENDHEX$$n al art$$HEX1$$ed00$$ENDHEX$$culo
+
+string aplica_part, aplica
+
+  SELECT tarifas_informes_x_tramite.aplica_parti  
+    INTO :aplica_part  
+    FROM tarifas_informes_x_tramite  
+   WHERE ( tarifas_informes_x_tramite.tipo_tramite = :tipo_tramite ) AND  
+         ( tarifas_informes_x_tramite.id_informe = :articulo ) AND  
+         ( tarifas_informes_x_tramite.colegio = :colegio )   ;
+			
+if f_es_vacio(aplica_part) then 
+	aplica= 'S'
+else
+	aplica= aplica_part
+end if
+
+return aplica
+
+end function
+

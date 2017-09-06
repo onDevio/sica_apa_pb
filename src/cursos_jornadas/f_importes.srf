@@ -1,0 +1,26 @@
+HA$PBExportHeader$f_importes.srf
+global type f_importes from function_object
+end type
+
+forward prototypes
+global function double f_importes (string id_curso)
+end prototypes
+
+global function double f_importes (string id_curso);double tot_importes
+if id_curso='%' then
+
+SELECT sum(importe)
+INTO :tot_importes
+FROM formacion_asistentes;
+	
+else
+	
+SELECT sum(importe)
+INTO :tot_importes
+FROM formacion_asistentes
+WHERE id_curso=:id_curso;
+end if
+
+return tot_importes
+end function
+

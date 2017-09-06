@@ -1,0 +1,148 @@
+HA$PBExportHeader$f_rellenar_renuncia.srf
+global type f_rellenar_renuncia from function_object
+end type
+
+forward prototypes
+global subroutine f_rellenar_renuncia (ref u_dw dw_renuncia, string id, string tipo_destinatario)
+global subroutine f_rellenar_renuncia (ref st_renuncias_impresion st_datos)
+end prototypes
+
+global subroutine f_rellenar_renuncia (ref u_dw dw_renuncia, string id, string tipo_destinatario);//
+end subroutine
+
+global subroutine f_rellenar_renuncia (ref st_renuncias_impresion st_datos);//
+string id_fase,n_visado,n_expedi,n_reg
+long i
+string id_cliente,descrip,tipo_act
+string clientes,cliente,emp,calle,puerta,piso,pob
+string destinatario,domicilio_dest,poblacion_dest
+string d_tipo_via,d_nom_via,d_cod_pos,d_pob,d_prov,t_act
+string colegiado,colegiados,id_col, archivo, id_renuncia
+double porcentaje,porcen_a
+datastore ds_clientes,ds_renuncia,ds_colegiados
+string nom_col,app_col
+
+id_fase=st_datos.id_fase
+
+select nombre,apellidos into :nom_col,:app_col from colegiados where id_colegiado=:st_datos.id_colegiado;
+
+choose case st_datos.tipo_destinatario
+	case 'C'
+		select v.descripcion,d.nom_via,p.cod_pos,p.descripcion,pr.nombre
+		into :d_tipo_via,:d_nom_via,:d_cod_pos,:d_pob,:d_prov
+		from domicilios d,poblaciones p,provincias pr,tipos_via v
+		where d.id_colegiado=:st_datos.destinatario and d.tipo_via*=v.cod_tipo_via and d.cod_pob=p.cod_pob  and d.cod_prov=pr.cod_provincia;
+		if IsNull(d_tipo_via) then d_tipo_via=''
+		destinatario=f_colegiado_apellido(st_datos.destinatario)
+		domicilio_dest=trim(d_tipo_via+' '+d_nom_via)
+		poblacion_dest=trim(d_cod_pos+' '+d_pob+' ('+d_prov+')')
+	case 'P'
+		select v.descripcion,c.nombre_via,p.cod_pos,p.descripcion,pr.nombre
+		into :d_tipo_via,:d_nom_via,:d_cod_pos,:d_pob,:d_prov
+		from clientes c,poblaciones p,provincias pr,tipos_via v
+		where c.id_cliente=:st_datos.destinatario and c.tipo_via*=v.cod_tipo_via  and c.cod_pob=p.cod_pob  and c.cod_prov=pr.cod_provincia;		
+		if IsNull(d_tipo_via) then d_tipo_via=''
+		destinatario=f_dame_cliente(st_datos.destinatario)
+		domicilio_dest=trim(d_tipo_via+' '+d_nom_via)
+		poblacion_dest=trim(d_cod_pos+' '+d_pob+' ('+d_prov+')')
+	case 'A'
+		select p.descripcion,pr.nombre into :d_pob,:d_prov
+		from fases f,poblaciones p,provincias pr where f.id_fase=:id_fase and f.poblacion=p.cod_pob and p.provincia=pr.cod_provincia;
+		destinatario='AYUNTAMIENTO DE '+d_pob
+		poblacion_dest=d_pob+' ('+d_prov+')'
+	case 'CESLA'
+		destinatario='Inspecci$$HEX1$$f300$$ENDHEX$$n Provincial de Trabajo y Seguridad Social'
+		domicilio_dest='AVENIDA General Primo de Rivera 9'
+		poblacion_dest='10001 CACERES (CACERES)'
+	case 'INSPEC_MCA'
+		destinatario='Administraci$$HEX1$$f300$$ENDHEX$$n Perif$$HEX1$$e900$$ENDHEX$$rica del Estado'
+		domicilio_dest='C/ Miquel Capllonch, 12 - 3$$HEX1$$ba00$$ENDHEX$$'
+		poblacion_dest='07010 - Palma de Mallorca'	
+	case 'CONSE_MCA'
+		destinatario='CONSELLER$$HEX1$$cd00$$ENDHEX$$A DE TRABAJO Y FORMACI$$HEX1$$d300$$ENDHEX$$N'
+		domicilio_dest='Plaza del Caudillo S/N Pol$$HEX1$$ed00$$ENDHEX$$gono Son Castell$$HEX1$$f300$$ENDHEX$$'
+		poblacion_dest='07009 - Palma de Mallorca'			
+end choose
+
+select id_renuncia into :id_renuncia from fases_renuncias where id_fase = :id_fase;
+
+
+ds_renuncia=st_datos.ds_renuncia
+
+ds_clientes=create datastore
+ds_clientes.dataobject='d_fases_promotores'
+ds_clientes.SetTransObject(SQLCA)
+ds_clientes.retrieve(id_fase)
+
+clientes=""
+for i=1 to ds_clientes.rowcount()
+	id_cliente=ds_clientes.GetItemString(i,'id_cliente')
+	cliente=f_dame_cliente ( id_cliente )
+	clientes+=cliente+'~n~r'
+next
+
+ds_colegiados=create datastore
+ds_colegiados.dataobject='d_fases_colegiados'
+ds_colegiados.SetTransObject(SQLCA)
+ds_colegiados.retrieve(id_fase)
+
+colegiados=''
+for i=1 to ds_colegiados.rowcount()
+	if ds_colegiados.GetItemString(i,'renunciado')='S' then continue
+	id_col=ds_colegiados.GetItemString(i,'id_col')
+	porcen_a=ds_colegiados.GetItemNumber(i,'porcen_a')
+	colegiado=f_colegiado_apellido ( id_col )
+	colegiados+=colegiado+' - '+string(porcen_a,'###.00')+'% ~n~r'
+next
+
+select f.n_registro, e.n_expedi,f.archivo, f.descripcion, f.emplazamiento, f.n_calle, f.piso, f.puerta, p.descripcion, t.d_t_trabajo,f.fase
+into :n_reg,:n_expedi,:n_visado,:descrip,:emp,:calle,:piso,:puerta,:pob,:tipo_act,:t_act
+from fases f,poblaciones p,expedientes e,tipos_trabajos t
+where f.id_expedi=e.id_expedi and f.tipo_trabajo=t.c_t_trabajo and f.id_fase=:id_fase and f.poblacion=p.cod_pob;
+ 
+//select porcen_a into :porcentaje from fases_colegiados where id_col=:st_datos.id_colegiado;
+//If IsNull(porcentaje) then porcentaje=0
+datastore ds_fases_renuncia
+ds_fases_renuncia = create datastore
+ds_fases_renuncia.dataobject='d_fases_renuncias_lista'
+ds_fases_renuncia.SetTransObjecT(SQLCA)
+ds_fases_renuncia.retrieve(id_fase)
+
+ds_fases_renuncia.SetSort("fecha d")
+ds_fases_renuncia.sort()
+if ds_fases_renuncia.rowcount( )>0 then porcentaje=ds_fases_renuncia.GetItemNumber(1,'porc_renuncia')
+if g_colegio = 'COAATCC' then porcentaje = abs(porcentaje -100)
+if not(f_es_vacio(calle)) then emp+=', '+calle
+if not(f_es_vacio(piso)) then emp+=', piso '+piso
+if not(f_es_vacio(puerta)) then emp+=', pta '+puerta
+if not(f_es_vacio(pob)) then emp+=', '+pob
+
+if lower(ds_renuncia.describe("colegio.name")) = 'colegio' then ds_renuncia.SetItem(1,'colegio',g_nombre_colegio_carta)
+if lower(ds_renuncia.describe("colegio_direc.name")) = 'colegio_direc' then ds_renuncia.SetItem(1,'colegio_direc',g_direc_colegio_carta)
+if lower(ds_renuncia.describe("colegio_pob.name")) = 'colegio_pob' then ds_renuncia.SetItem(1,'colegio_pob',g_pobla_colegio_carta)
+if lower(ds_renuncia.describe("colegio_tlf.name")) = 'colegio_tlf' then ds_renuncia.SetItem(1,'colegio_tlf',g_col_telefono)
+if lower(ds_renuncia.describe("colegio_fax.name")) = 'colegio_fax' then ds_renuncia.SetItem(1,'colegio_fax',g_col_fax)
+if lower(ds_renuncia.describe("colegio_email.name")) = 'colegio_email' then ds_renuncia.SetItem(1,'colegio_email',g_email_colegio_carta)
+if lower(ds_renuncia.describe("colegiados.name")) = 'colegiados' then ds_renuncia.SetItem(1,'colegiados',colegiados)
+if lower(ds_renuncia.describe("clientes.name")) = 'clientes' then ds_renuncia.SetItem(1,'clientes',clientes)
+if lower(ds_renuncia.describe("emplazamiento.name")) = 'emplazamiento' then ds_renuncia.SetItem(1,'emplazamiento',emp)
+if lower(ds_renuncia.describe("descripcion.name")) = 'descripcion' then ds_renuncia.SetItem(1,'descripcion',descrip)
+if lower(ds_renuncia.describe("n_registro.name")) = 'n_registro' then ds_renuncia.SetItem(1,'n_reg',n_reg)
+if lower(ds_renuncia.describe("n_expedi.name")) = 'n_expedi' then ds_renuncia.SetItem(1,'n_expedi',n_expedi)
+if lower(ds_renuncia.describe("n_visado.name")) = 'n_visado' then ds_renuncia.SetItem(1,'n_visado',n_visado)
+if lower(ds_renuncia.describe("tipo_actuacion.name")) = 'tipo_actuacion' then ds_renuncia.SetItem(1,'tipo_actuacion',tipo_act)
+if lower(ds_renuncia.describe("t_act.name")) = 't_act' then ds_renuncia.SetItem(1,'t_act',t_act)
+if lower(ds_renuncia.describe("f_renuncia.name")) = 'f_renuncia' then ds_renuncia.SetItem(1,'f_renuncia',st_datos.f_renuncia)
+if lower(ds_renuncia.describe("fecha.name")) = 'fecha' then ds_renuncia.SetItem(1,'fecha',st_datos.fecha)
+if lower(ds_renuncia.describe("destinatario.name")) = 'destinatario' then ds_renuncia.SetItem(1,'destinatario',destinatario)
+if lower(ds_renuncia.describe("domicilio_dest.name")) = 'domicilio_dest' then ds_renuncia.SetItem(1,'domicilio_dest',domicilio_dest)
+if lower(ds_renuncia.describe("poblacion_dest.name")) = 'poblacion_dest' then ds_renuncia.SetItem(1,'poblacion_dest',poblacion_dest)
+if lower(ds_renuncia.describe("porcentaje.name")) = 'porcentaje' then ds_renuncia.SetItem(1,'porcentaje',string(porcentaje)+' %')
+if lower(ds_renuncia.describe("n_reg_salida.name")) = 'n_reg_salida' then ds_renuncia.SetItem(1,'n_reg_salida','RENUNCIA - '+f_siguiente_numero_registro_es('RENUNCIA',10))
+if lower(ds_renuncia.describe("n_renuncia.name")) = 'n_renuncia' then ds_renuncia.SetItem(1,'n_renuncia',id_renuncia)
+if lower(ds_renuncia.describe("municipio.name")) = 'municipio' then ds_renuncia.SetItem(1,'municipio',pob)
+if lower(ds_renuncia.describe("nombre_col.name")) = 'nombre_col' then ds_renuncia.SetItem(1,'nombre_col',nom_col+' '+app_col)
+
+
+end subroutine
+

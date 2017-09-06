@@ -1,0 +1,6 @@
+HA$PBExportHeader$adeudosrequest.srs
+$PBExportComments$Proxy imported from Web service using Web Service Proxy Generator.
+global type adeudosRequest from structure
+    string inputText
+end type
+

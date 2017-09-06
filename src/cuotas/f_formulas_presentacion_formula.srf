@@ -1,0 +1,48 @@
+HA$PBExportHeader$f_formulas_presentacion_formula.srf
+$PBExportComments$objetos b$$HEX1$$e100$$ENDHEX$$sicos
+global type f_formulas_presentacion_formula from function_object
+end type
+
+forward prototypes
+global function string f_formulas_presentacion_formula (string formula)
+end prototypes
+
+global function string f_formulas_presentacion_formula (string formula);// Adpata una formula para poder mostrarla en una ventana
+
+n_cst_string lnv_string
+long pos, i
+datastore ds_coeficientes
+string coeficiente_feo, coeficiente_bonito
+
+formula = trim(formula)
+
+if lower(LeftA(formula, 6)) = "round(" and RightA(formula, 1) = ")" then
+	formula = MidA(formula, 7)
+	pos = lnv_string.of_lastpos(formula, ',', 0)
+	if pos > 0 then formula = LeftA(formula, pos - 1)
+	formula = trim(formula)
+end if
+
+formula = lnv_string.of_globalreplace(formula, "f_max", "MAX")
+
+ds_coeficientes = create datastore
+ds_coeficientes.dataobject = 'ds_coeficientes_presentacion'
+ds_coeficientes.settransobject(sqlca)
+ds_coeficientes.retrieve()
+for i= 1 to ds_coeficientes.rowcount()
+	coeficiente_feo = ds_coeficientes.getitemstring(i, 'codigo')
+	coeficiente_feo = '['+coeficiente_feo+']'
+	coeficiente_bonito = ds_coeficientes.getitemstring(i, 'codigo_presentacion')
+	if not f_es_vacio(coeficiente_bonito) then
+		formula = lnv_string.of_globalreplace(formula, coeficiente_feo, coeficiente_bonito)
+	end if
+next 
+
+formula = lnv_string.of_globalreplace(formula, "[", "")
+formula = lnv_string.of_globalreplace(formula, "]", "")
+
+destroy ds_coeficientes
+return formula
+
+end function
+

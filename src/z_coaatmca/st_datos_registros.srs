@@ -1,0 +1,10 @@
+HA$PBExportHeader$st_datos_registros.srs
+global type st_datos_registros from structure
+	string		n_reg_entrada
+	datetime		f_reg_entrada
+	datetime		f_reg_salida
+	string		n_reg_salida
+	string		n_col
+	string		serie
+end type
+

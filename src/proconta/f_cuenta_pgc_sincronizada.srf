@@ -1,0 +1,162 @@
+HA$PBExportHeader$f_cuenta_pgc_sincronizada.srf
+global type f_cuenta_pgc_sincronizada from function_object
+end type
+
+forward prototypes
+global function string f_cuenta_pgc_sincronizada (st_cuenta st_cuenta, string mostrar_error)
+end prototypes
+
+global function string f_cuenta_pgc_sincronizada (st_cuenta st_cuenta, string mostrar_error);// 20/04/05
+// Funci$$HEX1$$f300$$ENDHEX$$n que crea cuentas de Forma +/- simult$$HEX1$$e100$$ENDHEX$$nea cuando se est$$HEX2$$e1002000$$ENDHEX$$trabajando con un ejercicio Cerrado Provisionalmente:
+// 		a principios de a$$HEX1$$f100$$ENDHEX$$o se trabaja por ejemplo con el ejercicio anterior Cerrado Provisionalmente y el nuevo ejercicio 
+//			abierto 
+//
+// La Funci$$HEX1$$f300$$ENDHEX$$n recibe como p$$HEX1$$e100$$ENDHEX$$rametro de entrada:
+//			una estructura con el contenido de la cuenta a crear del PGC 
+// 		una etiqueta S/N que indica si se muestra el error desde la funci$$HEX1$$f300$$ENDHEX$$n $$HEX2$$f3002000$$ENDHEX$$Se transmite el error al lugar desde el que se llam$$HEX2$$f3002000$$ENDHEX$$a la funci$$HEX1$$f300$$ENDHEX$$n
+			
+long desconectar_ejercicio_ant, desconectar_ejercicio_post, activar_ejercicio_ant, activar_ejercicio_post
+string estado_ejer_ant, mensaje, msg_error, ejercicio_ant, ejercicio_post, l_estado
+int resp
+n_tr bd_ejercicio_ant, bd_ejercicio_post
+
+mensaje = ''
+msg_error = ''
+desconectar_ejercicio_ant = 1
+desconectar_ejercicio_post = 1
+activar_ejercicio_ant = 0 
+activar_ejercicio_post = 0
+
+//resp=f_guardar_cambios()
+//if resp=-1 then
+
+l_estado=f_ejercicio_estado()
+
+// COMPROBAMOS A QU$$HEX2$$c9002000$$ENDHEX$$TRANSACCIONES HEMOS DE CONECTAR
+IF l_estado = 'A' THEN  
+
+	// Si el estado del Ejercicio anterior es C utilizaremos el ejercicio anterior
+	// conectamos para obtener el estado del ejercicio anterior
+
+	ejercicio_ant = String(Integer(g_ejercicio)-1)
+	// REALIZAMOS LA CONEXI$$HEX1$$d300$$ENDHEX$$N AL EJERCICIO ANTERIOR. SI DA ERROR, MOSTRAMOS EL MSG POR PANTALLA, Y CONTINUAMOS LA EJECUCI$$HEX1$$d300$$ENDHEX$$N
+	// 	PARA QUE POR LO MENOS SE CREE LA CUENTA EN EL EJERCICIO AL QUE ESTAMOS CONECTADOS.
+	IF NOT IsValid(bd_ejercicio_ant) THEN 
+		// 09/05/05 S$$HEX1$$f300$$ENDHEX$$lo lanzamos las validaciones si est$$HEX2$$e1002000$$ENDHEX$$activado que se sincronicen los ejercicios
+		if f_ejercicio_sincronizar(g_ejercicio,'A') = 1 then 
+			bd_ejercicio_ant = CREATE n_tr
+			If bd_ejercicio_ant.of_init(gnv_app.of_GetAppIniFile(),"Database_ejer") = -1 then
+				  mensaje +=  "La conexi$$HEX1$$f300$$ENDHEX$$n ha fallado con el fichero "+ gnv_app.of_GetAppIniFile() + cr
+			else
+				// Comprobamos antes de intentar conectar que dicha ejercicio exista en el Sistema
+				if f_ejercicio_ya_abierto(ejercicio_ant) = -1 then 
+					mensaje += "El Ejercicio no existe en el Sistema." + ejercicio_ant + cr
+				else				
+					bd_ejercicio_ant.database = 'conta'+ ejercicio_ant +g_empresa
+					if bd_ejercicio_ant.of_connect() = -1 then 
+						mensaje += "La conexi$$HEX1$$f300$$ENDHEX$$n con la Base de Datos Ejer. Ant. ha fallado." + bd_ejercicio_ant.sqlerrtext + cr
+					elseif bd_ejercicio_ant.sqlcode <> 0 then
+						mensaje += "La conexi$$HEX1$$f300$$ENDHEX$$n con la Base de Datos Ejer. Ant. ha fallado." + bd_ejercicio_ant.sqlerrtext + cr
+					end if
+				end if
+			end if
+			
+		end if
+	ELSE
+		desconectar_ejercicio_ant = 0
+	END IF
+	// FIN CONEXI$$HEX1$$d300$$ENDHEX$$N EJERCICIO ANTERIOR
+
+	IF f_es_vacio(mensaje) THEN 
+		// EN FUNCI$$HEX1$$d300$$ENDHEX$$N DEL ESTADO, ACTIVAMOS/DESACTIVAMOS LA CREACI$$HEX1$$d300$$ENDHEX$$N DE LA CUENTA 
+		// ACTIVAMOS LA CREACI$$HEX1$$d300$$ENDHEX$$N DE LA CUENTA si est$$HEX2$$e1002000$$ENDHEX$$activado que se sincronice el ejercicio anterior
+		if f_ejercicio_sincronizar(ejercicio_ant,'A') = 1 then
+			SELECT estado INTO :estado_ejer_ant FROM estado USING bd_ejercicio_ant;
+			if estado_ejer_ant = 'C' then activar_ejercicio_ant = 1
+		end if	
+	END IF
+
+
+	
+ELSEIF l_estado = 'C' THEN 
+
+	// REALIZAMOS LA CONEXI$$HEX1$$d300$$ENDHEX$$N AL EJERCICIO SIGUIENTE. SI DA ERROR, MOSTRAMOS EL MSG POR PANTALLA, Y CONTINUAMOS LA EJECUCI$$HEX1$$d300$$ENDHEX$$N
+	// 	PARA QUE POR LO MENOS SE CREE LA CUENTA EN EL EJERCICIO AL QUE ESTAMOS CONECTADOS.
+	
+	ejercicio_post = String(Integer(g_ejercicio)+1)
+		
+	IF NOT IsValid(bd_ejercicio_post) THEN 
+		// 09/05/05 S$$HEX1$$f300$$ENDHEX$$lo lanzamos las validaciones si est$$HEX2$$e1002000$$ENDHEX$$activado que se sincronicen los ejercicios
+		if f_ejercicio_sincronizar(g_ejercicio,'P') = 1 then 
+			
+			bd_ejercicio_post = CREATE n_tr
+			If bd_ejercicio_post.of_init(gnv_app.of_GetAppIniFile(),"Database_ejer") = -1 then
+				  mensaje +=  "La conexi$$HEX1$$f300$$ENDHEX$$n ha fallado con el fichero "+ gnv_app.of_GetAppIniFile() + cr
+			else
+				// 06/05/05 ejercicio_post = String(Integer(MID(bd_ejercicio_post.database,6,4))+1)
+				// Comprobamos antes de intentar conectar que dicha ejercicio exista en el Sistema
+				if f_ejercicio_ya_abierto(ejercicio_post) = -1 then 
+					mensaje += "El Ejercicio no existe en el Sistema." + ejercicio_post + cr
+				else
+					bd_ejercicio_post.database = 'conta'+ ejercicio_post +g_empresa
+					if bd_ejercicio_post.of_connect() = -1 then 
+						mensaje += "La conexi$$HEX1$$f300$$ENDHEX$$n con la Base de Datos Ejer. post. ha fallado." + bd_ejercicio_post.sqlerrtext + cr
+					elseif bd_ejercicio_post.sqlcode <> 0 then
+						mensaje += "La conexi$$HEX1$$f300$$ENDHEX$$n con la Base de Datos Ejer. post. ha fallado." + bd_ejercicio_post.sqlerrtext + cr
+					end if
+				end if
+			end if
+		
+		end if
+	ELSE
+		desconectar_ejercicio_post = 0
+	END IF
+	
+	IF f_es_vacio(mensaje) THEN 
+		// ACTIVAMOS LA CREACI$$HEX1$$d300$$ENDHEX$$N DE LA CUENTA si est$$HEX2$$e1002000$$ENDHEX$$activado que se sincronice el ejercicio posterior
+		if f_ejercicio_sincronizar(ejercicio_post,'P') = 1 then activar_ejercicio_post = 1
+	END IF
+	// FIN CONEXI$$HEX1$$d300$$ENDHEX$$N EJERCICIO SIGUIENTE
+
+END IF
+
+//if f_es_vacio (estado)
+// ACTIVAMOS LA CREACI$$HEX1$$d300$$ENDHEX$$N DE LA CUENTA 
+// En el Ejercicio Actual
+	INSERT INTO cuentas (cuenta, titulo, resumen, final, empresa, debe, haber, saldo, presupuesto, id_col, s1, s2, s3, ica, otros) 
+	VALUES (:st_cuenta.cuenta,:st_cuenta.titulo,:st_cuenta.resumen,:st_cuenta.final,:st_cuenta.empresa,:st_cuenta.debe,:st_cuenta.haber,:st_cuenta.saldo,:st_cuenta.presupuesto,:st_cuenta.id_col,:st_cuenta.s1,:st_cuenta.s2,:st_cuenta.s3,:st_cuenta.ica,:st_cuenta.otros) 
+	USING bd_ejercicio;
+
+// Comprobar errores... 
+	if bd_ejercicio.SQLCode = -1 then 
+		mensaje += 'Ha ocurrido el siguiente error creando la cuenta '+st_cuenta.cuenta+' :'+bd_ejercicio.SQLERRTEXT	+cr	
+	end if
+	
+// En los otros ejercicios, se comprueba si se debe insertar la cuenta 
+	if activar_ejercicio_ant = 1 then
+		INSERT INTO cuentas (cuenta, titulo, resumen, final, empresa, debe, haber, saldo, presupuesto, id_col, s1, s2, s3, ica, otros) 
+		VALUES (:st_cuenta.cuenta,:st_cuenta.titulo,:st_cuenta.resumen,:st_cuenta.final,:st_cuenta.empresa,:st_cuenta.debe,:st_cuenta.haber,:st_cuenta.saldo,:st_cuenta.presupuesto,:st_cuenta.id_col,:st_cuenta.s1,:st_cuenta.s2,:st_cuenta.s3,:st_cuenta.ica,:st_cuenta.otros) 
+		USING bd_ejercicio_ant ;
+	elseif activar_ejercicio_post = 1 then
+		INSERT INTO cuentas (cuenta, titulo, resumen, final, empresa, debe, haber, saldo, presupuesto, id_col, s1, s2, s3, ica, otros) 
+		VALUES (:st_cuenta.cuenta,:st_cuenta.titulo,:st_cuenta.resumen,:st_cuenta.final,:st_cuenta.empresa,:st_cuenta.debe,:st_cuenta.haber,:st_cuenta.saldo,:st_cuenta.presupuesto,:st_cuenta.id_col,:st_cuenta.s1,:st_cuenta.s2,:st_cuenta.s3,:st_cuenta.ica,:st_cuenta.otros) 
+		USING bd_ejercicio_post ;
+	end if
+		
+// POR $$HEX1$$da00$$ENDHEX$$LTIMO, DESCONECTAMOS LAS TRANSACCIONES TEMPORALES UTILIZADAS.
+// Si hay conexi$$HEX1$$f300$$ENDHEX$$n establecida a la bd. ant. $$HEX2$$f3002000$$ENDHEX$$post.
+//			pero ya estaba de antes de lanzar la funci$$HEX1$$f300$$ENDHEX$$n, no desconectamos
+IF IsValid(bd_ejercicio_ant) AND desconectar_ejercicio_ant = 1 THEN DESTROY bd_ejercicio_ant
+IF IsValid(bd_ejercicio_post) AND desconectar_ejercicio_post = 1 THEN DESTROY bd_ejercicio_post
+
+// Procesamos el msg de error
+if mostrar_error = 'S' AND NOT f_es_vacio (mensaje) then 
+	MessageBox(g_titulo, mensaje, StopSign!)
+else
+	// Se transmite el error al lugar desde el que se llam$$HEX2$$f3002000$$ENDHEX$$a la funci$$HEX1$$f300$$ENDHEX$$n
+	msg_error = mensaje
+end if
+
+return msg_error
+end function
+

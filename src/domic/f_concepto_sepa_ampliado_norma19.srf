@@ -1,0 +1,31 @@
+HA$PBExportHeader$f_concepto_sepa_ampliado_norma19.srf
+global type f_concepto_sepa_ampliado_norma19 from function_object
+end type
+
+forward prototypes
+global function string f_concepto_sepa_ampliado_norma19 (boolean lb_desglose_factura, string tipo_desglose, string id_cobro)
+end prototypes
+
+global function string f_concepto_sepa_ampliado_norma19 (boolean lb_desglose_factura, string tipo_desglose, string id_cobro);string ls_concepto_sepa_ext, n_factura
+datetime f_factura
+
+IF NOT(lb_desglose_factura) THEN RETURN ''
+
+
+CHOOSE CASE tipo_desglose
+	CASE 'SIN', 'SN' // SIN N$$HEX2$$ba002000$$ENDHEX$$FACTURA
+		
+	CASE ELSE
+		// Obtenemos fecha y numero de factura
+		select csi_facturas_emitidas.n_fact, csi_facturas_emitidas.fecha
+			into :n_factura, :f_factura from csi_cobros, csi_facturas_emitidas
+				where csi_cobros.id_factura = csi_facturas_emitidas.id_factura and id_pago = :id_cobro;
+	
+		ls_concepto_sepa_ext  = 'N.Fact. '+n_factura +' '+'F.Fact. '
+		if string(f_factura, 'd/m/yyyy') <> '1/1/1900' then	ls_concepto_sepa_ext  += string(f_factura, "dd mm yyyy")
+		
+END CHOOSE
+
+RETURN ls_concepto_sepa_ext
+end function
+

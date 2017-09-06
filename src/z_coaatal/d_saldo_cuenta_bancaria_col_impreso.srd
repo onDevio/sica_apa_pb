@@ -1,0 +1,17 @@
+HA$PBExportHeader$d_saldo_cuenta_bancaria_col_impreso.srd
+release 7;
+datawindow(units=3 timer_interval=0 color=1073741824 processing=5 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 1500 print.margin.right = 0 print.margin.top = 5000 print.margin.bottom = 2000 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=1746 color="536870912" )
+summary(height=1375 color="536870912" )
+footer(height=714 color="536870912" )
+detail(height=2381 color="536870912"  height.autosize=yes)
+table(column=(type=char(10) updatewhereclause=yes name=a dbname="a" )
+ unbound = "yes")
+text(band=header alignment="2" text="" border="0" color="0" x="423" y="502" height="608" width="18467"  name=colegiado  font.face="Arial" font.height="-14" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+report(band=detail dataobject="d_saldo_cuenta_bancaria_col_facturas" x="423" y="1296" height="793" width="17965" border="0"  height.autosize=yes criteria="" trail_footer = yes  name=dw_facturas  slideup=directlyabove )
+report(band=detail dataobject="d_saldo_cuenta_bancaria_col_extracto" x="423" y="238" height="793" width="17965" border="0"  height.autosize=yes criteria="" trail_footer = yes  name=dw_apuntes  slideup=directlyabove )
+text(band=summary alignment="1" text="" border="0" color="0" x="423" y="423" height="608" width="17039"  name=saldo  font.face="Arial" font.height="-14" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+compute(band=footer alignment="0" expression="datetime(today(),now())"border="0" color="0" x="79" y="186" height="343" width="3148" format="dd/mm/yyyy     hh:mm:ss"  name=compute_21  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+compute(band=footer alignment="1" expression="'P$$HEX1$$e100$$ENDHEX$$gina ' + page() + ' de ' + pageCount()"border="0" color="0" x="15504" y="186" height="343" width="3624" format="[general]"  name=compute_22  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

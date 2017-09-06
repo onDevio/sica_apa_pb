@@ -1,0 +1,25 @@
+HA$PBExportHeader$f_fases_usos_suma_superficies.srf
+global type f_fases_usos_suma_superficies from function_object
+end type
+
+forward prototypes
+global function double f_fases_usos_suma_superficies (string id_fase)
+end prototypes
+
+global function double f_fases_usos_suma_superficies (string id_fase);double superficie, sup_viv, sup_gar, sup_otros
+ 
+SELECT fases_usos.sup_viv,	fases_usos.sup_garage, fases_usos.sup_otros  
+INTO :sup_viv, :sup_gar, :sup_otros  
+FROM fases_usos  
+WHERE fases_usos.id_fase = :id_fase   ;
+
+if isnull(sup_viv) then sup_viv = 0
+if isnull(sup_gar) then sup_gar = 0
+if isnull(sup_otros) then sup_otros = 0
+
+superficie = sup_viv + sup_gar + sup_otros
+
+return superficie
+
+end function
+

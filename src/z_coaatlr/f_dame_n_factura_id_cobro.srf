@@ -1,0 +1,24 @@
+HA$PBExportHeader$f_dame_n_factura_id_cobro.srf
+global type f_dame_n_factura_id_cobro from function_object
+end type
+
+forward prototypes
+global function string f_dame_n_factura_id_cobro (string id_cobro)
+end prototypes
+
+global function string f_dame_n_factura_id_cobro (string id_cobro);// Devolver$$HEX2$$e1002000$$ENDHEX$$el numero de factura del cobro asociado
+string n_factura
+
+SELECT csi_facturas_emitidas.n_fact
+ INTO :n_factura
+ FROM csi_cobros,   
+		csi_facturas_emitidas
+ WHERE ( csi_cobros.id_factura = csi_facturas_emitidas.id_factura ) and  
+		 ( csi_cobros.id_pago = :id_cobro );
+
+// Evitamos el nulo
+if isnull(n_factura) then n_factura = ''
+
+return n_factura
+end function
+

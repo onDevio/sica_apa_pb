@@ -1,0 +1,14 @@
+HA$PBExportHeader$st_minutas_devolucion_porcentajes_renuncia.srs
+global type st_minutas_devolucion_porcentajes_renuncia from structure
+	string		id_expedi
+	string		id_fase
+	string		id_colegiado
+	double		porc_obra_ejecutada
+	double		porc_participacion_sobre_ejec
+	double		porc_obra_pendiente
+	double		porc_renuncia
+	double		porc_participacion_sobre_pte
+	double		porc_final_sobre_total_obra
+	double		porc_renuncia_sobre_pte
+end type
+

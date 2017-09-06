@@ -1,0 +1,26 @@
+HA$PBExportHeader$f_total_cobrado_musaat_colegiado_expedi.srf
+global type f_total_cobrado_musaat_colegiado_expedi from function_object
+end type
+
+forward prototypes
+global function double f_total_cobrado_musaat_colegiado_expedi (string id_exp, string id_col, string tipo_act)
+end prototypes
+
+global function double f_total_cobrado_musaat_colegiado_expedi (string id_exp, string id_col, string tipo_act);double musaat_cobrado = 0
+
+  SELECT sum(base_musaat)  
+    INTO :musaat_cobrado  
+    FROM fases_minutas, fases
+   WHERE fases.id_fase = fases_minutas.id_fase and
+			fases.id_expedi = :id_exp and
+			fases_minutas.id_colegiado = :id_col and
+         fases_minutas.anulada <> 'S' and 
+			fases_minutas.fecha_pago <> null and
+			fases.fase = :tipo_act
+			;
+
+if isnull(musaat_cobrado) then musaat_cobrado = 0
+
+return musaat_cobrado
+end function
+

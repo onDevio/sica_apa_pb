@@ -1,0 +1,12 @@
+HA$PBExportHeader$hora.srf
+$PBExportComments$Funcion que convierte un date a datetime solo cogiendo la hora
+global type hora from function_object
+end type
+
+forward prototypes
+global function datetime hora (string dato)
+end prototypes
+
+global function datetime hora (string dato);return datetime(time(Integer(MidA(dato,12,2)),Integer(MidA(dato,15,2)),Integer(MidA(dato,18,2))))
+end function
+

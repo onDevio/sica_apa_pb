@@ -1,0 +1,38 @@
+HA$PBExportHeader$f_siguiente_n_fact_fe_empresa.srf
+global type f_siguiente_n_fact_fe_empresa from function_object
+end type
+
+forward prototypes
+global function string f_siguiente_n_fact_fe_empresa (st_facturas ast_facturas, string serie, integer longitud)
+end prototypes
+
+global function string f_siguiente_n_fact_fe_empresa (st_facturas ast_facturas, string serie, integer longitud);/////***SCP-1126. Se genera la funci$$HEX1$$f300$$ENDHEX$$n por motivo de los cambios a multiempresa. Alexis. 09/03/2011 ***///
+
+double i, ultima_factura
+string num_fact, serie_aux
+
+execute immediate 'BEGIN transaction';
+
+select contador
+into :i
+from csi_series 
+where serie = :serie and empresa = :ast_facturas.cod_empresa and anyo = :g_ejercicio ;
+
+i=i+1
+
+if g_n_fact_automatico='S' then
+	update csi_series
+	set contador=:i
+	where serie = :serie and empresa = :ast_facturas.cod_empresa and anyo = :g_ejercicio ;
+
+	execute immediate 'COMMIT transaction';
+	COMMIT;
+end if
+
+if IsNull(i) then i=0
+
+return RightA('0000000000000000000000'+string(i),longitud)
+
+
+end function
+

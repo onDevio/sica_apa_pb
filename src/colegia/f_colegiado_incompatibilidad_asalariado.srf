@@ -1,0 +1,22 @@
+HA$PBExportHeader$f_colegiado_incompatibilidad_asalariado.srf
+global type f_colegiado_incompatibilidad_asalariado from function_object
+end type
+
+forward prototypes
+global function string f_colegiado_incompatibilidad_asalariado (string id_col)
+end prototypes
+
+global function string f_colegiado_incompatibilidad_asalariado (string id_col);// Funci$$HEX1$$f300$$ENDHEX$$n que devuelve la empresa de un colegiado asalariado con la que tiene una incompatibilidad
+string empresa
+  
+SELECT incompatibilidades.organismo  
+INTO :empresa  
+FROM incompatibilidades  
+WHERE ( incompatibilidades.id_colegiado = :id_col ) AND  
+		( incompatibilidades.tipo_situacion = '05' )   ;
+
+if isnull(empresa) or empresa = '' then empresa = '-1'
+
+return empresa
+end function
+

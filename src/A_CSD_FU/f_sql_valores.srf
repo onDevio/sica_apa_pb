@@ -1,0 +1,145 @@
+HA$PBExportHeader$f_sql_valores.srf
+global type f_sql_valores from function_object
+end type
+
+forward prototypes
+global function string f_sql_valores (string campo_en_tabla, string operador, any valor, string tipo, ref string sql_orig, string bd, string parametro)
+end prototypes
+
+global function string f_sql_valores (string campo_en_tabla, string operador, any valor, string tipo, ref string sql_orig, string bd, string parametro);//Argumentos:
+//
+//1. campo_en_tabla: Nombre del campo en la tabla. Se podr$$HEX2$$e1002000$$ENDHEX$$prefijar el nombre de la tabla si se quiere.
+//2. operador: "like", ">=", "<", etc.
+//3. valor a buscar
+//4. tipo del valor
+//5. sql_orig: REFERENCIA. string que contiene la sentencia sql original de la datastore
+//6. base de datos (1:sybase, 2:access). Var del .ini
+//7. parametro descripcion
+//
+//ESTA FUNCION ACTUALIZA LA VARIABLE sql_orig CON LA NUEVA CONDICION EN LA CLAUSULA
+// WHERE DEL SQL DE LA FORMA:  select ... where <campo_en_tabla> <operador> <campo_en_dw>
+
+Boolean haywhere, HayQueModificarSQL, HayQuePonerComillas = true
+string dato
+datetime datofecha
+double datonum
+date fechatemp
+long posicion
+
+//Miramos si el SQL ya tiene clausula where. Si no lo hay, a$$HEX1$$f100$$ENDHEX$$adimos la clausula:
+haywhere = (PosA(upper(sql_orig), "WHERE") > 0)
+
+CHOOSE CASE upper(LeftA(tipo ,2))
+	CASE 'CH' 
+		// El campo es de tipo string
+		dato = String(valor)
+		IF isnull(dato) or  dato = '' or dato = '%' then
+			HayQueModificarSQL = true
+		else
+			HayQueModificarSQL = true
+			f_string_permitir_comillas(dato)
+			if PosA(upper(operador), 'LIKE') > 0  then dato = dato + '%'
+		end if
+		if dato = "null" then HayQuePonerComillas = false
+	CASE 'DA' 
+		// El campo es de tipo datetime
+		datofecha =  valor
+		if isnull(datofecha) then
+			HayQueModificarSQL = true
+			if bd = '1' OR bd = '3' then //'1' Sybase, '3' SQL SERVER
+				HayQueModificarSQL = true
+				fechatemp = date(datofecha)
+				// 05/05/03
+				//Para permitir las consultas anteriores a una fecha, utilizamos el operador '<<' para indicar 
+				// anterior sin incrementar en 1 d$$HEX1$$ed00$$ENDHEX$$a la fecha
+				if operador = '<<' then
+					operador = '<'
+				elseif PosA(upper(operador), '<') > 0 then 	
+					fechatemp = relativedate(fechatemp, 1)
+				end if
+			
+				dato = string(fechatemp, "YYYYMMDD")
+			end if //Fin sybase, SQL Server
+			if bd = '2' then //Access
+				HayQuePonerComillas = false
+				HayQueModificarSQL = True
+				fechatemp = date(datofecha)
+				// 05/05/03
+				//Para permitir las consultas anteriores a una fecha, utilizamos el operador '<<' para indicar 
+				// anterior sin incrementar en 1 d$$HEX1$$ed00$$ENDHEX$$a la fecha
+				if operador = '<<' then
+					operador = '<'
+				elseif PosA(upper(operador), '<') > 0 then 	
+					fechatemp = relativedate(fechatemp, 1)
+				end if
+	
+				dato = string(fechatemp,"dd/mm/yyyy")
+				dato = "cdate('" +dato + "')"
+			end if // Fin access
+		end if
+
+	CASE 'NU'	,'RE', 'DE'
+		//Campo de tipo num$$HEX1$$e900$$ENDHEX$$rico, posiblemente con decimales
+		HayQuePonerComillas = false
+		DatoNum = valor
+		if Isnull(DatoNum) then
+			HayQueModificarSQL = true
+		else
+			HayQueModificarSQL = true
+			dato = string((DatoNum))
+		// Reemplazamos las comas por espacios	
+			posicion = 0
+			DO
+				posicion = PosA(dato,',',posicion+1)
+				if isnull(posicion) then posicion = 0
+				if posicion > 0 then
+					dato=ReplaceA(dato,posicion, 1,".")
+					EXIT
+				end if	
+			LOOP UNTIL posicion = 0
+		end if		
+				
+	CASE ELSE
+		//Campo de tipo num$$HEX1$$e900$$ENDHEX$$rico
+		HayQuePonerComillas = false
+		DatoNum = valor
+		if Isnull(DatoNum) then
+			HayQueModificarSQL = true
+		else
+			HayQueModificarSQL = true
+			dato = string(Long(DatoNum))
+		end if
+END CHOOSE
+
+if HayQueModificarSQL then
+	// Construcci$$HEX1$$f300$$ENDHEX$$n de Par$$HEX1$$e100$$ENDHEX$$metros
+/*	if not f_es_vacio(parametro) then
+		// Llamamos a la funci$$HEX1$$f300$$ENDHEX$$n que controlar$$HEX2$$e1002000$$ENDHEX$$el n$$HEX2$$ba002000$$ENDHEX$$de params. obtenidos advirtiendo si hay m$$HEX1$$e100$$ENDHEX$$s 
+		//	de los que se pueden visualizar completamente
+//			f_controlar_num_params_listados()
+			
+		if not f_es_vacio(g_etiquetas_listados) then 
+			g_etiquetas_listados += "~r" + parametro + ':'
+			g_parametros_listados  += "~r" +  f_descripcion_parametro(parametro, dato, operador) 
+		else
+			g_etiquetas_listados += parametro + ':'
+			g_parametros_listados  += f_descripcion_parametro(parametro, dato, operador) 			
+		end if
+			
+//		if not f_es_vacio(g_parametros_listados) then g_parametros_listados  = g_parametros_listados + "~r" +  f_descripcion_parametro(parametro, dato, operador) +  "          "
+	end if	*/
+
+	if not HayWhere then sql_orig = sql_orig + " where "
+	if HayQuePonerComillas then dato = " '"+dato+"' "	
+	if HayWhere then
+		sql_orig = sql_orig + ' and  ' + campo_en_tabla + " " + operador + dato
+	else
+		sql_orig = sql_orig + campo_en_tabla + " " + operador + dato
+	end if
+
+end if
+
+return sql_orig
+
+end function
+

@@ -1,0 +1,13 @@
+HA$PBExportHeader$f_busqueda_remesas.srf
+global type f_busqueda_remesas from function_object
+end type
+
+forward prototypes
+global function string f_busqueda_remesas ()
+end prototypes
+
+global function string f_busqueda_remesas ();open(w_busqueda_remesas)
+return Message.StringParm
+
+end function
+

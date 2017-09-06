@@ -1,0 +1,19 @@
+HA$PBExportHeader$f_ejercicio_estado.srf
+global type f_ejercicio_estado from function_object
+end type
+
+forward prototypes
+global function string f_ejercicio_estado ()
+end prototypes
+
+global function string f_ejercicio_estado ();
+string l_estado 
+
+ 
+SELECT estado INTO :l_estado
+FROM estado 
+USING bd_ejercicio;
+
+return l_estado
+end function
+

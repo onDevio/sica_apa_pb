@@ -1,0 +1,59 @@
+HA$PBExportHeader$f_dato_cliente.srf
+global type f_dato_cliente from function_object
+end type
+
+forward prototypes
+global function string f_dato_cliente (string id_cliente, string campo)
+end prototypes
+
+global function string f_dato_cliente (string id_cliente, string campo);//devuelve dato del colegiado
+
+string devolver
+choose case campo
+		
+	case 'nombre'
+		select nombre into :devolver from clientes where id_cliente=:id_cliente;
+		return devolver
+		
+	case 'apellidos'
+		select apellidos into :devolver from clientes where id_cliente=:id_cliente;
+		return devolver
+		
+	case 'n_cliente'			
+	select n_cliente into :devolver from clientes where id_cliente=:id_cliente;
+	return devolver
+	
+	case 'cod_pob'			
+	select cod_pob into :devolver from clientes where id_cliente=:id_cliente;
+	select descripcion into :devolver from poblaciones where cod_pob=:devolver;
+	return devolver
+	
+	case 'cod_prov'			
+	select cod_prov into :devolver from clientes where id_cliente=:id_cliente;
+	select nombre into :devolver from provincias where cod_provincia=:devolver;
+	return devolver
+	
+	case 'nif'			
+	select nif into :devolver from clientes where id_cliente=:id_cliente;
+	return devolver
+	
+	case 'cp'			
+	select cp into :devolver from clientes where id_cliente=:id_cliente;
+	return devolver
+	
+	case 'telefono'			
+	select telefono into :devolver from clientes where id_cliente=:id_cliente;
+	return devolver
+	
+	case 'nombre_via'			
+	select nombre_via into :devolver from clientes where id_cliente=:id_cliente;
+	return devolver
+	
+	case 'fax'			
+	select fax into :devolver from clientes where id_cliente=:id_cliente;
+	return devolver
+end choose
+
+return ''
+end function
+

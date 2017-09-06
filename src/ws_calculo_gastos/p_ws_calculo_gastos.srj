@@ -1,0 +1,12 @@
+HA$PBExportHeader$p_ws_calculo_gastos.srj
+$PBExportComments$Generated Web Service Proxy Project
+GeneratorID:{1B1DCEE2-E514-11D1-B30A-006008925BD4}GENBC00000000
+WSDLLOCATION:http://192.168.1.121:8080/ws/calculate.wsdl
+ASSEMBLY:1	1	c:\proyectos\sicap\calculateportservice.dll
+COMPONENT:1	WebService.CalculatePortService::WebService.CalculatePortService::WebService.CalculatePortService
+PACKAGE:2	WebService.calculateRequest	WebService.KeyValue
+COMMENT:Web Service Proxy Generator
+DEPLOYMENT:c:\proyectos\sicap\ws_calculo_gastos\ws_calculo_gastos.pbl	0	0
+PROJECT:p_ws_calculo_gastos
+PREFIX:
+

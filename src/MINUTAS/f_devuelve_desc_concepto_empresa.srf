@@ -1,0 +1,33 @@
+HA$PBExportHeader$f_devuelve_desc_concepto_empresa.srf
+global type f_devuelve_desc_concepto_empresa from function_object
+end type
+
+forward prototypes
+global function string f_devuelve_desc_concepto_empresa (string cod_concepto)
+global function string f_devuelve_desc_concepto_empresa (string as_cod_concepto, string as_cod_empresa)
+end prototypes
+
+global function string f_devuelve_desc_concepto_empresa (string cod_concepto);string desc_concepto = ''
+  SELECT csi_articulos_servicios.descripcion  
+    INTO :desc_concepto  
+    FROM csi_articulos_servicios  
+  HAVING ( csi_articulos_servicios.codigo = :cod_concepto )   ;
+
+
+if f_es_vacio(desc_concepto) then desc_concepto= ''
+
+return desc_concepto
+end function
+
+global function string f_devuelve_desc_concepto_empresa (string as_cod_concepto, string as_cod_empresa);string desc_concepto = ''
+  SELECT csi_articulos_servicios.descripcion  
+    INTO :desc_concepto  
+    FROM csi_articulos_servicios  
+ WHERE ( csi_articulos_servicios.codigo = :as_cod_concepto )  and (csi_articulos_servicios.empresa = :as_cod_empresa) ;
+
+
+if f_es_vacio(desc_concepto) then desc_concepto= ''
+
+return desc_concepto
+end function
+

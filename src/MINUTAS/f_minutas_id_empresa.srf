@@ -1,0 +1,25 @@
+HA$PBExportHeader$f_minutas_id_empresa.srf
+global type f_minutas_id_empresa from function_object
+end type
+
+forward prototypes
+global function string f_minutas_id_empresa (string id_minuta, string id_colegiado)
+end prototypes
+
+global function string f_minutas_id_empresa (string id_minuta, string id_colegiado);string id_cli
+
+SELECT fases_colegiados.id_empresa  
+INTO :id_cli  
+FROM fases_minutas  , fases_colegiados
+WHERE fases_colegiados.id_fase = fases_minutas.id_fase and 
+		fases_colegiados.id_col = fases_minutas.id_colegiado and 	 // CGN-412 Si hay m$$HEX1$$e100$$ENDHEX$$s de un colegiado devolv$$HEX1$$ed00$$ENDHEX$$a m$$HEX1$$e100$$ENDHEX$$s de una fila
+		fases_minutas.id_colegiado = :id_colegiado and 	
+		fases_minutas.id_minuta = :id_minuta   ;
+	
+if f_es_vacio(id_cli) then id_cli = ''
+
+return id_cli
+	
+
+end function
+

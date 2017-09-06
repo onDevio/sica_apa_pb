@@ -1,0 +1,13 @@
+declare @colegio varchar(10)
+select @colegio = texto from var_globales where nombre = 'COLEGIO'
+// TODOS
+// NUEVO MANTENIMIENTO SCP-365
+INSERT into contadores(contador,valor,descripcion,orden,modificable,empresa) VALUES('ID_SELLO_TEXTO',0,'t_sello_textos.id_texto',' ',' ',' ');
+
+if @colegio = 'COAATMCA'
+begin
+INSERT into t_control_eventos(control,evento,activo,param1,param2,id_control) VALUES('INSERTA_BOTON','ABRIR_FASE','S','Ref.Frontend','csd_actualizar_frontend','FEW');
+end
+// NUEVO MANTENIMIENTO SCP-365 contador a valor maximo 
+//ATENCIÓN!! NO INTRODUCIDO CON LA PRIMERA PASADA DE SCRIPT V4219 EN LA BASE DE DATOS DE PRUEBAS !!
+UPDATE contadores SET valor = (SELECT CONVERT(INTEGER,max(id_texto)) from t_sello_textos) WHERE contador='ID_SELLO_TEXTO';

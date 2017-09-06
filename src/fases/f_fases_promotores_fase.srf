@@ -1,0 +1,47 @@
+HA$PBExportHeader$f_fases_promotores_fase.srf
+global type f_fases_promotores_fase from function_object
+end type
+
+forward prototypes
+global function string f_colegiados_fase (string id_fase)
+global function string f_fases_promotores_fase (string id_fase)
+end prototypes
+
+global function string f_colegiados_fase (string id_fase);string colegiados,id_col
+
+ DECLARE colegiados CURSOR FOR  
+  SELECT fases_colegiados.id_col  
+    FROM fases_colegiados  
+   WHERE fases_colegiados.id_fase = :id_fase ;
+	
+open colegiados;
+fetch colegiados into :id_col;
+do while SQLCA.sqlcode=0
+	colegiados= colegiados + f_colegiado_apellido(id_col) + cr
+	fetch colegiados into :id_col;	
+loop
+close colegiados;
+
+return colegiados
+end function
+
+global function string f_fases_promotores_fase (string id_fase);string clientes,id_cli
+
+ DECLARE clientes CURSOR FOR  
+  SELECT fases_clientes.id_cliente  
+    FROM fases_clientes  
+   WHERE fases_clientes.id_fase = :id_fase and fases_clientes.promotor = 'S';
+
+	
+open clientes;
+fetch clientes into :id_cli;
+do while SQLCA.sqlcode=0
+	clientes= clientes + f_dame_nif(id_cli) + '  ' + f_dame_cliente(id_cli) + ' / '
+	fetch clientes into :id_cli;	
+loop
+clientes=LeftA(clientes,LenA(clientes)-2)
+close clientes;
+
+return clientes
+end function
+

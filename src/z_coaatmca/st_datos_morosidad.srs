@@ -1,0 +1,5 @@
+HA$PBExportHeader$st_datos_morosidad.srs
+global type st_datos_morosidad from structure
+	string		n_colegiado
+end type
+

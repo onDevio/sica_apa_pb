@@ -1,0 +1,19 @@
+HA$PBExportHeader$f_obtener_dia_fecha.srf
+global type f_obtener_dia_fecha from function_object
+end type
+
+forward prototypes
+global function string f_obtener_dia_fecha (datetime fecha)
+end prototypes
+
+global function string f_obtener_dia_fecha (datetime fecha);integer dia
+string retorno,retorno1
+
+dia = Day(date(fecha))
+retorno = f_calnumenletra(string(dia),retorno1,0)
+
+return retorno
+
+
+end function
+

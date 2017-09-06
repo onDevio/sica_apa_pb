@@ -1,0 +1,21 @@
+HA$PBExportHeader$f_liquidacion_total_facturas_deducidas.srf
+global type f_liquidacion_total_facturas_deducidas from function_object
+end type
+
+forward prototypes
+global function double f_liquidacion_total_facturas_deducidas (string as_id_liquidacion)
+end prototypes
+
+global function double f_liquidacion_total_facturas_deducidas (string as_id_liquidacion);///*** SCP-813. Alexis. 03/01/2011. Se crea para comprobar si los totales que se corresponden ***///
+///*** con la deuda de facturas deducidas es correcto ***///
+
+double ldb_total
+
+
+select sum(total) into :ldb_total
+from csi_facturas_emitidas 
+where id_liquidacion = :as_id_liquidacion;
+
+return ldb_total
+end function
+

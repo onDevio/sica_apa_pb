@@ -1,0 +1,58 @@
+HA$PBExportHeader$f_centrar_ventana.srf
+global type f_centrar_ventana from function_object
+end type
+
+forward prototypes
+global function integer f_centrar_ventana (window ventana)
+end prototypes
+
+global function integer f_centrar_ventana (window ventana);// Centra la ventana segun la resoluci$$HEX1$$f300$$ENDHEX$$n de la pantalla
+// FCO VILELLA 29-04-2001
+
+////Declaracion de variables
+//  Integer h_principal, w_principal
+//  Integer h_ventana, w_ventana
+//  
+////Obtengo el centro de la ventana principal
+//  h_principal=Round(w_aplic_frame.height/2,0)
+//  w_principal=Round(w_aplic_frame.width/2,0)
+//  
+////Obtengo el centro de la ventana que se nos pasa como parametro
+//  h_ventana=Round(ventana.height/2,0)  
+//  w_ventana=Round(ventana.width/2,0)
+//  
+////Posiciono la ventana pasada como parametro en el centro de la ventana principal
+//  ventana.X=w_principal - w_ventana
+//  ventana.Y=h_principal - h_ventana - valor
+  
+  
+int li_screenheight, li_screenwidth, li_rc, li_x=1, li_y=1
+environment	lenv_obj
+
+//  Comprobamos si la ventana est$$HEX2$$e1002000$$ENDHEX$$instanciada 
+If IsNull ( ventana ) Or Not IsValid ( ventana ) Then Return -1
+
+//  Obtenemos los datos del entorno de trabajo
+If GetEnvironment ( lenv_obj ) = -1 Then Return -1
+
+//  Determinamos la resoluci$$HEX1$$f300$$ENDHEX$$n actual de la pantalla y la validamos 
+li_screenheight = PixelsToUnits ( lenv_obj.ScreenHeight, YPixelsToUnits! )
+li_screenwidth  = PixelsToUnits ( lenv_obj.ScreenWidth, XPixelsToUnits! )
+If Not ( li_screenheight > 0 ) Or Not ( li_screenwidth > 0 ) Then Return -1
+
+// Obtenemos el punto central 
+If li_screenwidth > ventana.Width Then
+	li_x = ( li_screenwidth / 2 ) - ( ventana.Width / 2 )
+End If
+If li_screenheight > ventana.Height Then
+	li_y = ( li_screenheight / 2 ) - ( ventana.Height / 2 )
+End If
+
+// Finalmente centramos la ventana
+li_rc = ventana.Move ( li_x, li_y )
+If li_rc <> 1 Then Return -1
+
+Return 1
+  
+end function
+

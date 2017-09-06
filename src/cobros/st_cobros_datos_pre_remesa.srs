@@ -1,0 +1,10 @@
+HA$PBExportHeader$st_cobros_datos_pre_remesa.srs
+global type st_cobros_datos_pre_remesa from structure
+	u_dw		dw_lista
+	string		modulo
+	datetime		fecha_apuntes
+	string		forma_pago
+	string		banco
+	datetime		fecha
+end type
+

@@ -1,0 +1,19 @@
+// V. 4.1.7
+//TODOS
+//Activa Modalidad de cuentas contables de colegiados con codigo de colegio de procedencia N= No activo, S=Activo
+INSERT INTO var_globales ( nombre,  sn,  descripcion, modificable )  
+VALUES ( 'g_digito_colegio_pro', 'N', 'Indica si se utiliza la modalidad en la generación de ctas contables de colegiados, con el indicando el colegio  de procedencia ejemplo: (43X): prefijo + (xx)codigo colegio procedencia + (xxxxx) n_colegiado','N' )  ;
+
+//TODOS
+// Valores para desviar la bandeja
+// Default(0), Arriba(1), Bajo(2), Medio(3), Manual(4), Sobre(5), Sobre Manual(6), Auto(7), Tractor(8), Smallfmt(9), Largefmt(10), LargeCapacity(11), Cassette(14)
+//el nombre de la impresora debe ser completa ejemplo : \\192.168.0.51\Canon LBP5300	winspool	Ne03:
+// Indica la impresora y bandeja a utilizar en tipos de facturas
+alter table registro_series add impresora char(100) null, bandeja char(2) default '0'  null;
+// Indica la impresora y bandeja a utilizar en informe de liquidacion
+alter table tipos_facturas add impresora char(100) null, bandeja char(2) default '0' null;
+
+// El colegio debe tener un registro con la serie LIQUID en la tabla registro _serie,
+// de no trabajar con esta serie sustituir LIQUID con X en la siguiente sintaxis
+INSERT INTO var_globales ( nombre,  texto,  descripcion, modificable )  
+VALUES ( 'g_serie_liquidaciones', 'LIQUID',   'Indica la serie del informe de liquidaciones',  'N' )  ;

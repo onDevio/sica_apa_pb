@@ -1,0 +1,420 @@
+HA$PBExportHeader$f_rellena_base_datos.srf
+global type f_rellena_base_datos from function_object
+end type
+
+forward prototypes
+global function double f_rellena_base_datos (datastore colegiados, st_retorno_seleccion retorno)
+end prototypes
+
+global function double f_rellena_base_datos (datastore colegiados, st_retorno_seleccion retorno);string apellidos,lugar_fecha, fecha, lugar, sufijo, articulo, musaat_otros, perit_cia, tasad_cia, src_cia, premaat_nom_hered, premaat_conc_domic 
+string premaat_benef, premaat_imp_cobrar, premaat_total_pagar, premaat_imp_pag_c2, premaat_f_alta_c2, premaat_grupo_c2, premaat_imp_pag_c1
+string premaat_f_alta_c1, premaat_grupo_c1, premaat_imp_pagar, premaat_f_alta, premaat_grupo, premaat_forma_cobro, premaat_forma_pago, premaat_f_baja
+string premaat_n_hijos, premaat_n_conyuges, premaat_tipo_mutlist, premaat_situacion, premaat_tipo_prest, premaat_f_pasivo, premaat_n_mutlist
+string premaat_nif_hered, premaat_alta, musaat_n_mutlist, escuela, f_titulacion,  f_colegiacion, f_baja, t_baja, f_alta_cabecera, t_alta, f_situacion
+string situacion, alta_baja, c_geografico, demarcacion, tratamiento, sexo, n_consejo, tipo_persona, colegio, coberturas_src, movimientos_src
+string musaat_conc_domic, perit_cober_f_baja, perit_cober_f_alta, perit_cober, perit_f_baja, perit_f_alta, perit_alta, perit_importe, perit_n_poliza
+string accid_cober_f_baja, accid_cober_f_alta, accid_cober_invalid, accid_cober_muerte, accid_f_baja, accid_f_alta, accid_alta, accid_importe
+string accid_asistencia, accid_n_poliza, accid_cia, src_cober_f_baja, src_cober_f_alta, src_cober, src_f_baja, src_f_alta, src_alta, src_franqui
+string src_bonimp, src_boni, src_forma_pago, src_coef_cm, src_importe, src_estado, src_t_poliza, src_n_poliza, tasad_cober_f_baja, tasad_cober_f_alta
+string tasad_cober, tasad_f_baja, tasad_f_alta, tasad_alta, tasad_importe, tasad_n_poliza, url, email, mut_imp_cobrar, mut_total_pagar, mut_imp_pagar_c2
+string mut_f_alta_c2, mut_imp_pagar_c1, mut_f_alta_c1, mut_imp_pagar, mut_f_alta, mut_grupo, mut_alta, mut_n_mutualista, listas_col, otros_datos
+string domic_fiscal, domic_activo, rec_circulares, per_cesion_dat, seguros_accid_cia, seguros_accid_poliza, seguros_accid_alta, seguros_src_bonimp
+string seguros_src_coef_cm, seguros_src_n_poliza, seguros_src_cober, seguros_n_mutualista, seguros_src_f_alta, seguros_src_alta, sit_altas_bajas
+string poblacion_empresa, domicilio_empresa, cuenta_empresa, nif_empresa, nombre_empresa, banco_domic, cuenta_domic, conc_facturables, nombre_banco
+string datos_bancarios, forma_de_pago, irpf, iva_igic, ret_voluntaria, ultima_factura, titul_permiso_caduc, titul_permiso_regim, titul_permiso_ambito
+string titul_permiso_tipo, titul_convalid_denom, titul_convalid_fecha, titul_convalid_docum, titul_circunst_hab, titul_pais, titul_observaciones
+string titul_tipo, situaciones_incomp, orientaciones, agrup_fechas, tel_5, tel_4, tel_3, tel_2, tel_1, pr1_direccion, pr1_poblacion, pr1_cp
+string pr1_provincia, pr1_telefono, pr1_fax, pr1_mail, pr2_direccion, pr2_poblacion, pr2_cp, pr2_provincia, pr2_telefono, pr2_fax, pr2_mail, pr1_movil
+string pr2_movil, part1_direccion, part1_poblacion, part1_cp, part1_provincia, part1_telefono, part1_fax, part1_mail, part1_movil, nombre_completo
+string domicilio, poblacion, apellido1, apellido2, nombre, n_colegiado, anyo_titulacion, agrupaciones, nif, f_nacimiento, datos_sociedades, delegacion
+string direccion_correo, direccion_fiscal, funcionario, contratado, administrador, campo1, campo2, campo3, campo4, campo5, provincia_domic, n_acreditado
+string dir_windows
+double i, insertadas
+long j, maximo
+
+transaction trans
+
+
+dir_windows = f_variable_entorno("windir", "C:\WINDOWS")  
+RegistrySet("HKEY_CURRENT_USER\Software\ODBC\ODBC.INI\ODBC Data Sources", "correspondencias_tmp", RegString!, "Microsoft Access Driver (*.mdb)")
+RegistrySet("HKEY_CURRENT_USER\Software\ODBC\ODBC.INI\correspondencias_tmp", "Driver", RegString!, dir_windows+"\system32\odbcjt32.dll")  
+RegistrySet("HKEY_CURRENT_USER\Software\ODBC\ODBC.INI\correspondencias_tmp", "DBQ", RegString!, g_directorio_rtf+'correspondencias_XP.mdb')      
+RegistrySet("HKEY_CURRENT_USER\Software\ODBC\ODBC.INI\correspondencias_tmp", "DriverId", ReguLong!, 25) 
+RegistrySet("HKEY_CURRENT_USER\Software\ODBC\ODBC.INI\correspondencias_tmp", "FIL", RegString!, "MS Access;") 
+RegistrySet("HKEY_CURRENT_USER\Software\ODBC\ODBC.INI\correspondencias_tmp", "SafeTransactions", ReguLong!, 0) 
+RegistrySet("HKEY_CURRENT_USER\Software\ODBC\ODBC.INI\correspondencias_tmp", "UID", RegString!, "")      
+RegistrySet("HKEY_CURRENT_USER\Software\ODBC\ODBC.INI\correspondencias_tmp\Engines\Jet", "ImplicitCommitSync", RegString!, "")   
+RegistrySet("HKEY_CURRENT_USER\Software\ODBC\ODBC.INI\correspondencias_tmp\Engines\Jet", "MaxBufferSize", ReguLong!, 2048)     
+RegistrySet("HKEY_CURRENT_USER\Software\ODBC\ODBC.INI\correspondencias_tmp\Engines\Jet", "PageTimeout", ReguLong!, 5)     
+RegistrySet("HKEY_CURRENT_USER\Software\ODBC\ODBC.INI\correspondencias_tmp\Engines\Jet", "Threads", ReguLong!, 3)     
+RegistrySet("HKEY_CURRENT_USER\Software\ODBC\ODBC.INI\correspondencias_tmp\Engines\Jet", "UserCommitSync", RegString!, "Yes") 
+ 
+trans = CREATE transaction
+trans.DBMS = "ODBC"
+trans.AutoCommit = False
+trans.DBParm = "ConnectString='DSN=correspondencias_tmp;UID=;PWD='" 
+
+connect using trans;
+
+if trans.sqlcode <0 then 
+	MessageBox(g_titulo, "Error al conectar con el ODBC de correspondencias", StopSign!)
+	return 0
+end if
+
+
+// Reconstruimos la tabla por si alguna columna ha sido actualizada desde la $$HEX1$$fa00$$ENDHEX$$ltima vez
+string sql_create
+
+sql_create = &
+	"CREATE TABLE colegiados " + &
+	"(apellidos varchar(50), lugar_fecha varchar(50), fecha varchar(25), lugar varchar(20), sufijo varchar(1), articulo varchar(2), "+&
+	"musaat_otros varchar(255), perit_cia varchar(25), tasad_cia varchar(25), src_cia varchar(25), premaat_nom_hered varchar(150), "+&
+	"premaat_conc_domic longchar, premaat_benef longchar, premaat_imp_cobrar varchar(15), premaat_total_pagar varchar(15), premaat_imp_pag_c2 varchar(15), "+&
+	"premaat_f_alta_c2 varchar(20), premaat_grupo_c2 varchar(1), premaat_imp_pag_c1 varchar(15), premaat_f_alta_c1 varchar(20), "+&
+	"premaat_grupo_c1 varchar(1), premaat_imp_pagar varchar(15), premaat_f_alta varchar(20), premaat_grupo varchar(30), "+&
+	"premaat_forma_cobro varchar(60), premaat_forma_pago varchar(60), premaat_f_baja varchar(20), premaat_n_hijos varchar(10), "+&
+	"premaat_n_conyuges varchar(10), premaat_tipo_mutlist varchar(30), premaat_situacion varchar(30), premaat_tipo_prest varchar(30), "+&
+	"premaat_f_pasivo varchar(20), premaat_n_mutlist varchar(10), premaat_nif_hered varchar(15), premaat_alta varchar(2), "+&
+	"musaat_n_mutlist varchar(10), escuela varchar(60), f_titulacion varchar(20), f_colegiacion varchar(20), f_baja varchar(20), "+&
+	"t_baja varchar(60), f_alta_cabecera varchar(20), t_alta varchar(60), f_situacion varchar(20), situacion varchar(60), "+&
+	"alta_baja varchar(2), c_geografico varchar(60), demarcacion varchar(60), tratamiento varchar(60), sexo varchar(10), "+&
+	"n_consejo varchar(15), tipo_persona varchar(10), colegio varchar(60), coberturas_src longchar, movimientos_src longchar, musaat_conc_domic longchar, "+&
+	"perit_cober_f_baja varchar(20), perit_cober_f_alta varchar(20), perit_cober varchar(15), perit_f_baja varchar(20), perit_f_alta varchar(20), "+&
+	"perit_alta varchar(2), perit_importe varchar(15), perit_n_poliza varchar(10), accid_cober_f_baja varchar(20), accid_cober_f_alta varchar(20), "+&
+	"accid_cober_invalid varchar(15), accid_cober_muerte varchar(15), accid_f_baja varchar(20), accid_f_alta varchar(20), accid_alta varchar(2), "+&
+	"accid_importe varchar(15), accid_asistencia varchar(50), accid_n_poliza varchar(10), accid_cia varchar(25), src_cober_f_baja varchar(20), "+&
+	"src_cober_f_alta varchar(20), src_cober varchar(15), src_f_baja varchar(20), src_f_alta varchar(20), src_alta varchar(2), "+&
+	"src_franqui varchar(15), src_bonimp varchar(15), src_boni varchar(15), src_forma_pago varchar(60), src_coef_cm varchar(15), "+&
+	"src_importe varchar(15), src_estado varchar(30), src_t_poliza varchar(30), src_n_poliza varchar(10), tasad_cober_f_baja varchar(20), "+&
+	"tasad_cober_f_alta varchar(20), tasad_cober varchar(15), tasad_f_baja varchar(20), tasad_f_alta varchar(20), tasad_alta varchar(2), "+&
+	"tasad_importe varchar(15), tasad_n_poliza varchar(10), url varchar(100), email varchar(100), mut_imp_cobrar varchar(15), "+&
+	"mut_total_pagar varchar(15), mut_imp_pagar_c2 varchar(15), mut_f_alta_c2 varchar(20), mut_imp_pagar_c1 varchar(15), mut_f_alta_c1 varchar(20), "+&
+	"mut_imp_pagar varchar(15), mut_f_alta varchar(20), mut_grupo varchar(30), mut_alta varchar(2), mut_n_mutualista varchar(10), listas_col longchar, "+&
+	"otros_datos longchar, domic_fiscal varchar(50), domic_activo varchar(50), rec_circulares varchar(50), per_cesion_dat varchar(50), "+&
+	"seguros_accid_cia varchar(25), seguros_accid_poliza varchar(10), seguros_accid_alta varchar(2), seguros_src_bonimp varchar(15), "+&
+	"seguros_src_coef_cm varchar(15), seguros_src_n_poliza varchar(10), seguros_src_cober varchar(15), seguros_n_mutualista varchar(10), "+&
+	"seguros_src_f_alta varchar(20), seguros_src_alta varchar(2), sit_altas_bajas longchar, poblacion_empresa varchar(100), "+&
+	"domicilio_empresa varchar(100), cuenta_empresa varchar(20), nif_empresa varchar(15), nombre_empresa varchar(100), banco_domic varchar(10), "+&
+	"cuenta_domic varchar(30), conc_facturables longchar, nombre_banco varchar(150), datos_bancarios varchar(30), forma_de_pago varchar(20), "+&
+	"irpf varchar(10), iva_igic varchar(10), ret_voluntaria varchar(10), ultima_factura varchar(10), titul_permiso_caduc varchar(20), "+&
+	"titul_permiso_regim varchar(60), titul_permiso_ambito varchar(60), titul_permiso_tipo varchar(60), titul_convalid_denom varchar(60), "+&
+	"titul_convalid_fecha varchar(20), titul_convalid_docum varchar(40), titul_circunst_hab varchar(1), titul_pais varchar(50), "+&
+	"titul_observaciones varchar(255), titul_tipo varchar(20), situaciones_incomp varchar(200), orientaciones varchar(200), "+&
+	"agrup_fechas varchar(200), tel_5 varchar(30), tel_4 varchar(30), tel_3 varchar(30), tel_2 varchar(30), tel_1 varchar(30), "+&
+	"pr1_direccion varchar(200), pr1_poblacion varchar(150), pr1_cp varchar(10), pr1_provincia varchar(150), pr1_telefono varchar(50), "+&
+	"pr1_fax varchar(50), pr1_mail varchar(100), pr2_direccion varchar(200), pr2_poblacion varchar(150), pr2_cp varchar(10), "+&
+	"pr2_provincia varchar(150), pr2_telefono varchar(50), pr2_fax varchar(50), pr2_mail varchar(100), pr1_movil varchar(20), "+&
+	"pr2_movil varchar(20), part1_direccion varchar(200), part1_poblacion varchar(150), part1_cp varchar(10), part1_provincia varchar(150), "+&
+	"part1_telefono varchar(50), part1_fax varchar(50), part1_mail varchar(100), part1_movil varchar(20), nombre_completo varchar(150), "+&
+	"domicilio varchar(150), poblacion varchar(100), apellido1 varchar(100), apellido2 varchar(100), nombre varchar(50), n_colegiado varchar(20), "+&
+	"anyo_titulacion varchar(10), agrupaciones varchar(100), nif varchar(15), f_nacimiento varchar(15), datos_sociedades varchar(100), "+&
+	"delegacion varchar(40), direccion_correo varchar(1), direccion_fiscal varchar(1), funcionario varchar(100), contratado varchar(100), "+&
+	"administrador varchar(20), clave counter, campo1 varchar(100), campo2 varchar(100), campo3 varchar(100), campo4 varchar(100), "+&
+	"campo5 varchar(100), provincia_domic varchar(50), n_acreditado varchar(15)) ;"
+		
+	
+EXECUTE IMMEDIATE "DROP TABLE colegiados ;" USING trans ;
+EXECUTE IMMEDIATE :sql_create USING trans ;
+EXECUTE IMMEDIATE "CREATE UNIQUE INDEX primarykey ON colegiados (clave) ;" USING trans ;
+
+
+for i = 1 to colegiados.rowcount()
+
+	apellidos = colegiados.getitemstring(i, 'apellidos')	
+	lugar_fecha = colegiados.getitemstring(i, 'lugar_fecha')
+	fecha = colegiados.getitemstring(i, 'fecha')
+	lugar = colegiados.getitemstring(i, 'lugar')
+	sufijo = colegiados.getitemstring(i, 'sufijo')
+	articulo = colegiados.getitemstring(i, 'articulo')
+	musaat_otros = colegiados.getitemstring(i, 'musaat_otros')
+	perit_cia  = colegiados.getitemstring(i, 'perit_cia')
+	tasad_cia = colegiados.getitemstring(i, 'tasad_cia')
+	src_cia = colegiados.getitemstring(i, 'src_cia')
+	premaat_nom_hered = colegiados.getitemstring(i, 'premaat_nom_hered')
+	premaat_conc_domic = colegiados.getitemstring(i, 'premaat_conc_domic')
+	premaat_benef = colegiados.getitemstring(i, 'premaat_benef')
+	premaat_imp_cobrar = colegiados.getitemstring(i, 'premaat_imp_cobrar')
+	premaat_total_pagar = colegiados.getitemstring(i, 'premaat_total_pagar')
+	premaat_imp_pag_c2 = colegiados.getitemstring(i, 'premaat_imp_pag_c2')   
+   premaat_f_alta_c2 = colegiados.getitemstring(i, 'premaat_f_alta_c2')   
+   premaat_grupo_c2 = colegiados.getitemstring(i, 'premaat_grupo_c2')   
+   premaat_imp_pag_c1 = colegiados.getitemstring(i, 'premaat_imp_pag_c1')   
+   premaat_f_alta_c1 = colegiados.getitemstring(i, 'premaat_f_alta_c1')   
+   premaat_grupo_c1 = colegiados.getitemstring(i, 'premaat_grupo_c1')   
+   premaat_imp_pagar = colegiados.getitemstring(i, 'premaat_imp_pagar')   
+   premaat_f_alta = colegiados.getitemstring(i, 'premaat_f_alta')   
+   premaat_grupo = colegiados.getitemstring(i, 'premaat_grupo')   
+   premaat_forma_cobro = colegiados.getitemstring(i, 'premaat_forma_cobro')   
+   premaat_forma_pago = colegiados.getitemstring(i, 'premaat_forma_pago')   
+   premaat_f_baja = colegiados.getitemstring(i, 'premaat_f_baja')   
+   premaat_n_hijos = colegiados.getitemstring(i, 'premaat_n_hijos')   
+   premaat_n_conyuges = colegiados.getitemstring(i, 'premaat_n_conyuges')   
+   premaat_tipo_mutlist = colegiados.getitemstring(i, 'premaat_tipo_mutlist')   
+   premaat_situacion = colegiados.getitemstring(i, 'premaat_situacion')   
+   premaat_tipo_prest = colegiados.getitemstring(i, 'premaat_tipo_prest')   
+   premaat_f_pasivo = colegiados.getitemstring(i, 'premaat_f_pasivo')   
+   premaat_n_mutlist = colegiados.getitemstring(i, 'premaat_n_mutlist')   
+   premaat_nif_hered = colegiados.getitemstring(i, 'premaat_nif_hered')   
+   premaat_alta = colegiados.getitemstring(i, 'premaat_alta')   
+   musaat_n_mutlist = colegiados.getitemstring(i, 'musaat_n_mutlist')   
+   escuela = colegiados.getitemstring(i, 'escuela')   
+   f_titulacion = colegiados.getitemstring(i, 'f_titulacion')   
+   f_colegiacion = colegiados.getitemstring(i, 'f_colegiacion')   
+   f_baja = colegiados.getitemstring(i, 'f_baja')   
+   t_baja = colegiados.getitemstring(i, 't_baja')   
+   f_alta_cabecera = colegiados.getitemstring(i, 'f_alta_cabecera')   
+   t_alta = colegiados.getitemstring(i, 't_alta')   
+   f_situacion = colegiados.getitemstring(i, 'f_situacion')   
+   situacion = colegiados.getitemstring(i, 'situacion')   
+   alta_baja = colegiados.getitemstring(i, 'alta_baja')   
+   c_geografico = colegiados.getitemstring(i, 'c_geografico')   
+   demarcacion = colegiados.getitemstring(i, 'demarcacion')   
+   tratamiento = colegiados.getitemstring(i, 'tratamiento')   
+   sexo = colegiados.getitemstring(i, 'sexo')   
+   n_consejo = colegiados.getitemstring(i, 'n_consejo')   
+   tipo_persona = colegiados.getitemstring(i, 'tipo_persona')   
+   colegio = colegiados.getitemstring(i, 'colegio')   
+   coberturas_src = colegiados.getitemstring(i, 'coberturas_src')   
+   movimientos_src = colegiados.getitemstring(i, 'movimientos_src')   
+   musaat_conc_domic = colegiados.getitemstring(i, 'musaat_conc_domic')   
+   perit_cober_f_baja = colegiados.getitemstring(i, 'perit_cober_f_baja')   
+   perit_cober_f_alta = colegiados.getitemstring(i, 'perit_cober_f_alta')   
+   perit_cober = colegiados.getitemstring(i, 'perit_cober')   
+   perit_f_baja = colegiados.getitemstring(i, 'perit_f_baja')   
+   perit_f_alta = colegiados.getitemstring(i, 'perit_f_alta')   
+   perit_alta = colegiados.getitemstring(i, 'perit_alta')   
+   perit_importe = colegiados.getitemstring(i, 'perit_importe')   
+   perit_n_poliza = colegiados.getitemstring(i, 'perit_n_poliza')   
+   accid_cober_f_baja = colegiados.getitemstring(i, 'accid_cober_f_baja')   
+   accid_cober_f_alta = colegiados.getitemstring(i, 'accid_cober_f_alta')   
+   accid_cober_invalid = colegiados.getitemstring(i, 'accid_cober_invalid')   
+   accid_cober_muerte = colegiados.getitemstring(i, 'accid_cober_muerte')   
+   accid_f_baja = colegiados.getitemstring(i, 'accid_f_baja')   
+   accid_f_alta = colegiados.getitemstring(i, 'accid_f_alta')   
+   accid_alta = colegiados.getitemstring(i, 'accid_alta')   
+   accid_importe = colegiados.getitemstring(i, 'accid_importe')   
+   accid_asistencia = colegiados.getitemstring(i, 'accid_asistencia')   
+   accid_n_poliza = colegiados.getitemstring(i, 'accid_n_poliza')   
+   accid_cia = colegiados.getitemstring(i, 'accid_cia')   
+   src_cober_f_baja = colegiados.getitemstring(i, 'src_cober_f_baja')   
+   src_cober_f_alta = colegiados.getitemstring(i, 'src_cober_f_alta')   
+   src_cober = colegiados.getitemstring(i, 'src_cober')   
+   src_f_baja = colegiados.getitemstring(i, 'src_f_baja')   
+   src_f_alta = colegiados.getitemstring(i, 'src_f_alta')   
+   src_alta = colegiados.getitemstring(i, 'src_alta')   
+   src_franqui = colegiados.getitemstring(i, 'src_franqui')   
+   src_bonimp = colegiados.getitemstring(i, 'src_bonimp')   
+   src_boni = colegiados.getitemstring(i, 'src_boni')   
+   src_forma_pago = colegiados.getitemstring(i, 'src_forma_pago')   
+   src_coef_cm = colegiados.getitemstring(i, 'src_coef_cm')   
+   src_importe = colegiados.getitemstring(i, 'src_importe')   
+   src_estado = colegiados.getitemstring(i, 'src_estado')   
+   src_t_poliza = colegiados.getitemstring(i, 'src_t_poliza')   
+   src_n_poliza = colegiados.getitemstring(i, 'src_n_poliza')   
+   tasad_cober_f_baja = colegiados.getitemstring(i, 'tasad_cober_f_baja')   
+   tasad_cober_f_alta = colegiados.getitemstring(i, 'tasad_cober_f_alta')   
+   tasad_cober = colegiados.getitemstring(i, 'tasad_cober')   
+   tasad_f_baja = colegiados.getitemstring(i, 'tasad_f_baja')   
+   tasad_f_alta = colegiados.getitemstring(i, 'tasad_f_alta')   
+   tasad_alta = colegiados.getitemstring(i, 'tasad_alta')   
+   tasad_importe = colegiados.getitemstring(i, 'tasad_importe')   
+   tasad_n_poliza = colegiados.getitemstring(i, 'tasad_n_poliza')   
+   url = colegiados.getitemstring(i, 'url')   
+   email = colegiados.getitemstring(i, 'email')   
+   mut_imp_cobrar = colegiados.getitemstring(i, 'mut_imp_cobrar')   
+   mut_total_pagar = colegiados.getitemstring(i, 'mut_total_pagar')   
+   mut_imp_pagar_c2 = colegiados.getitemstring(i, 'mut_imp_pagar_c2')   
+   mut_f_alta_c2 = colegiados.getitemstring(i, 'mut_f_alta_c2')   
+   mut_imp_pagar_c1 = colegiados.getitemstring(i, 'mut_imp_pagar_c1')   
+   mut_f_alta_c1 = colegiados.getitemstring(i, 'mut_f_alta_c1')   
+   mut_imp_pagar = colegiados.getitemstring(i, 'mut_imp_pagar')   
+   mut_f_alta = colegiados.getitemstring(i, 'mut_f_alta')   
+   mut_grupo = colegiados.getitemstring(i, 'mut_grupo')   
+   mut_alta = colegiados.getitemstring(i, 'mut_alta')   
+   mut_n_mutualista = colegiados.getitemstring(i, 'mut_n_mutualista')   
+   listas_col = colegiados.getitemstring(i, 'listas_col')   
+   otros_datos = colegiados.getitemstring(i, 'otros_datos')   
+   domic_fiscal = colegiados.getitemstring(i, 'domic_fiscal')   
+   domic_activo = colegiados.getitemstring(i, 'domic_activo')   
+   rec_circulares = colegiados.getitemstring(i, 'rec_circulares')   
+   per_cesion_dat = colegiados.getitemstring(i, 'per_cesion_dat')   
+   seguros_accid_cia = colegiados.getitemstring(i, 'seguros_accid_cia')   
+   seguros_accid_poliza = colegiados.getitemstring(i, 'seguros_accid_poliza')   
+   seguros_accid_alta = colegiados.getitemstring(i, 'seguros_accid_alta')   
+   seguros_src_bonimp = colegiados.getitemstring(i, 'seguros_src_bonimp')   
+   seguros_src_coef_cm = colegiados.getitemstring(i, 'seguros_src_coef_cm')   
+   seguros_src_n_poliza = colegiados.getitemstring(i, 'seguros_src_n_poliza')   
+   seguros_src_cober = colegiados.getitemstring(i, 'seguros_src_cober')   
+   seguros_n_mutualista = colegiados.getitemstring(i, 'seguros_n_mutualista')   
+   seguros_src_f_alta = colegiados.getitemstring(i, 'seguros_src_f_alta')   
+   seguros_src_alta = colegiados.getitemstring(i, 'seguros_src_alta')   
+   sit_altas_bajas = colegiados.getitemstring(i, 'sit_altas_bajas')   
+   poblacion_empresa = colegiados.getitemstring(i, 'poblacion_empresa')   
+   domicilio_empresa = colegiados.getitemstring(i, 'domicilio_empresa')   
+	cuenta_empresa = colegiados.getitemstring(i, 'cuenta_empresa')   
+	nif_empresa = colegiados.getitemstring(i, 'nif_empresa')   
+	nombre_empresa = colegiados.getitemstring(i, 'nombre_empresa')   
+	banco_domic = colegiados.getitemstring(i, 'banco_domic')   
+	cuenta_domic = colegiados.getitemstring(i, 'cuenta_domic')   
+	conc_facturables = colegiados.getitemstring(i, 'conc_facturables')   
+	nombre_banco = colegiados.getitemstring(i, 'nombre_banco')   
+	datos_bancarios = colegiados.getitemstring(i, 'datos_bancarios')   
+	forma_de_pago = colegiados.getitemstring(i, 'forma_de_pago')   
+	irpf = colegiados.getitemstring(i, 'irpf')   
+	iva_igic = colegiados.getitemstring(i, 'iva_igic')   
+	ret_voluntaria = colegiados.getitemstring(i, 'ret_voluntaria')   
+	ultima_factura = colegiados.getitemstring(i, 'ultima_factura')   
+	titul_permiso_caduc = colegiados.getitemstring(i, 'titul_permiso_caduc')   
+	titul_permiso_regim = colegiados.getitemstring(i, 'titul_permiso_regim')   
+	titul_permiso_ambito = colegiados.getitemstring(i, 'titul_permiso_ambito')   
+	titul_permiso_tipo = colegiados.getitemstring(i, 'titul_permiso_tipo')   
+	titul_convalid_denom = colegiados.getitemstring(i, 'titul_convalid_denom')   
+	titul_convalid_fecha = colegiados.getitemstring(i, 'titul_convalid_fecha')   
+	titul_convalid_docum = colegiados.getitemstring(i, 'titul_convalid_docum')   
+	titul_circunst_hab = colegiados.getitemstring(i, 'titul_circunst_hab')   
+	titul_pais = colegiados.getitemstring(i, 'titul_pais')   
+	titul_observaciones = colegiados.getitemstring(i, 'titul_observaciones')   
+	titul_tipo = colegiados.getitemstring(i, 'titul_tipo')   
+	situaciones_incomp = colegiados.getitemstring(i, 'situaciones_incomp')   
+	orientaciones = colegiados.getitemstring(i, 'orientaciones')   
+	agrup_fechas = colegiados.getitemstring(i, 'agrup_fechas')   
+	tel_5 = colegiados.getitemstring(i, 'tel_5')   
+	tel_4 = colegiados.getitemstring(i, 'tel_4')   
+	tel_3 = colegiados.getitemstring(i, 'tel_3')   
+	tel_2 = colegiados.getitemstring(i, 'tel_2')   
+	tel_1 = colegiados.getitemstring(i, 'tel_1')   
+	pr1_direccion = colegiados.getitemstring(i, 'pr1_direccion')   
+	pr1_poblacion = colegiados.getitemstring(i, 'pr1_poblacion')   
+	pr1_cp = colegiados.getitemstring(i, 'pr1_cp')   
+	pr1_provincia = colegiados.getitemstring(i, 'pr1_provincia')   
+	pr1_telefono = colegiados.getitemstring(i, 'pr1_telefono')   
+	pr1_fax = colegiados.getitemstring(i, 'pr1_fax')   
+	pr1_mail = colegiados.getitemstring(i, 'pr1_mail')   
+	pr2_direccion = colegiados.getitemstring(i, 'pr2_direccion')   
+	pr2_poblacion = colegiados.getitemstring(i, 'pr2_poblacion')   
+	pr2_cp = colegiados.getitemstring(i, 'pr2_cp')   
+	pr2_provincia = colegiados.getitemstring(i, 'pr2_provincia')   
+	pr2_telefono = colegiados.getitemstring(i, 'pr2_telefono')   
+	pr2_fax = colegiados.getitemstring(i, 'pr2_fax')   
+	pr2_mail = colegiados.getitemstring(i, 'pr2_mail')   
+	pr1_movil = colegiados.getitemstring(i, 'pr1_movil')   
+	pr2_movil = colegiados.getitemstring(i, 'pr2_movil')   
+	part1_direccion = colegiados.getitemstring(i, 'part1_direccion')   
+	part1_poblacion = colegiados.getitemstring(i, 'part1_poblacion')   
+	part1_cp = colegiados.getitemstring(i, 'part1_cp')   
+	part1_provincia = colegiados.getitemstring(i, 'part1_provincia')   
+	part1_telefono = colegiados.getitemstring(i, 'part1_telefono')   
+	part1_fax = colegiados.getitemstring(i, 'part1_fax')   
+	part1_mail = colegiados.getitemstring(i, 'part1_mail')   
+	part1_movil = colegiados.getitemstring(i, 'part1_movil')   
+	nombre_completo = colegiados.getitemstring(i, 'nombre_completo')   
+	domicilio = colegiados.getitemstring(i, 'domicilio')   
+	poblacion = colegiados.getitemstring(i, 'poblacion')   
+	apellido1 = colegiados.getitemstring(i, 'apellido1')   
+	apellido2 = colegiados.getitemstring(i, 'apellido2')   
+	nombre = colegiados.getitemstring(i, 'nombre')   
+	n_colegiado = colegiados.getitemstring(i, 'n_colegiado')   
+	anyo_titulacion = colegiados.getitemstring(i, 'anyo_titulacion')   
+	agrupaciones = colegiados.getitemstring(i, 'agrupaciones')   
+	nif = colegiados.getitemstring(i, 'nif')   
+	f_nacimiento = colegiados.getitemstring(i, 'f_nacimiento')   
+	datos_sociedades = colegiados.getitemstring(i, 'datos_sociedades')   
+	delegacion = colegiados.getitemstring(i, 'delegacion')   
+	direccion_correo = colegiados.getitemstring(i, 'direccion_correo')   
+	direccion_fiscal = colegiados.getitemstring(i, 'direccion_fiscal')   
+	funcionario = colegiados.getitemstring(i, 'funcionario')   
+	contratado = colegiados.getitemstring(i, 'contratado')   
+	administrador  = colegiados.getitemstring(i, 'administrador')
+	provincia_domic=colegiados.getitemstring(i, 'provincia_domic')
+	n_acreditado=colegiados.getitemstring(i, 'n_acreditado')
+	campo1 = retorno.campo1
+	campo2 = retorno.campo2
+	campo3 = retorno.campo3
+	campo4 = retorno.campo4
+	campo5 = retorno.campo5
+	
+	INSERT INTO colegiados  
+		( 
+		apellidos, lugar_fecha, fecha, lugar, sufijo, articulo, musaat_otros, perit_cia, tasad_cia, src_cia, premaat_nom_hered, premaat_conc_domic, 
+		premaat_benef, premaat_imp_cobrar, premaat_total_pagar, premaat_imp_pag_c2, premaat_f_alta_c2, premaat_grupo_c2, premaat_imp_pag_c1, 
+		premaat_f_alta_c1, premaat_grupo_c1, premaat_imp_pagar, premaat_f_alta, premaat_grupo, premaat_forma_cobro, premaat_forma_pago, premaat_f_baja, 
+		premaat_n_hijos, premaat_n_conyuges, premaat_tipo_mutlist, premaat_situacion, premaat_tipo_prest, premaat_f_pasivo, premaat_n_mutlist, 
+		premaat_nif_hered, premaat_alta, musaat_n_mutlist, escuela, f_titulacion,  f_colegiacion, f_baja, t_baja, f_alta_cabecera, t_alta, f_situacion, 
+		situacion, alta_baja, c_geografico, demarcacion, tratamiento, sexo, n_consejo, tipo_persona, colegio, coberturas_src, movimientos_src, 
+		musaat_conc_domic, perit_cober_f_baja, perit_cober_f_alta, perit_cober, perit_f_baja, perit_f_alta, perit_alta, perit_importe, perit_n_poliza, 
+		accid_cober_f_baja, accid_cober_f_alta, accid_cober_invalid, accid_cober_muerte, accid_f_baja, accid_f_alta, accid_alta, accid_importe, 
+		accid_asistencia, accid_n_poliza, accid_cia, src_cober_f_baja, src_cober_f_alta, src_cober, src_f_baja, src_f_alta, src_alta, src_franqui, 
+		src_bonimp, src_boni, src_forma_pago, src_coef_cm, src_importe, src_estado, src_t_poliza, src_n_poliza, tasad_cober_f_baja, tasad_cober_f_alta, 
+		tasad_cober, tasad_f_baja, tasad_f_alta, tasad_alta, tasad_importe, tasad_n_poliza, url, email, mut_imp_cobrar, mut_total_pagar, mut_imp_pagar_c2, 
+		mut_f_alta_c2, mut_imp_pagar_c1, mut_f_alta_c1, mut_imp_pagar, mut_f_alta, mut_grupo, mut_alta, mut_n_mutualista, listas_col, otros_datos, 
+		domic_fiscal, domic_activo, rec_circulares, per_cesion_dat, seguros_accid_cia, seguros_accid_poliza, seguros_accid_alta, seguros_src_bonimp, 
+		seguros_src_coef_cm, seguros_src_n_poliza, seguros_src_cober, seguros_n_mutualista, seguros_src_f_alta, seguros_src_alta, sit_altas_bajas, 
+		poblacion_empresa, domicilio_empresa, cuenta_empresa, nif_empresa, nombre_empresa, banco_domic, cuenta_domic, conc_facturables, nombre_banco, 
+		datos_bancarios, forma_de_pago, irpf, iva_igic, ret_voluntaria, ultima_factura, titul_permiso_caduc, titul_permiso_regim, titul_permiso_ambito, 
+		titul_permiso_tipo, titul_convalid_denom, titul_convalid_fecha, titul_convalid_docum, titul_circunst_hab, titul_pais, titul_observaciones, 
+		titul_tipo, situaciones_incomp, orientaciones, agrup_fechas, tel_5, tel_4, tel_3, tel_2, tel_1, pr1_direccion, pr1_poblacion, pr1_cp, pr1_provincia,
+		pr1_telefono, pr1_fax, pr1_mail, pr2_direccion, pr2_poblacion, pr2_cp, pr2_provincia, pr2_telefono, pr2_fax, pr2_mail, pr1_movil, pr2_movil, 
+		part1_direccion, part1_poblacion, part1_cp, part1_provincia, part1_telefono, part1_fax, part1_mail, part1_movil, nombre_completo, domicilio, 
+		poblacion, apellido1, apellido2, nombre, n_colegiado, anyo_titulacion, agrupaciones, nif, f_nacimiento, datos_sociedades, delegacion, 
+		direccion_correo, direccion_fiscal, funcionario, contratado, administrador, campo1, campo2, campo3, campo4, campo5, provincia_domic, n_acreditado
+		) 
+	VALUES 
+		( 
+		:apellidos, :lugar_fecha, :fecha, :lugar, :sufijo, :articulo, :musaat_otros, :perit_cia, :tasad_cia, :src_cia, :premaat_nom_hered, 
+		:premaat_conc_domic, :premaat_benef, :premaat_imp_cobrar, :premaat_total_pagar, :premaat_imp_pag_c2, :premaat_f_alta_c2, :premaat_grupo_c2, 
+		:premaat_imp_pag_c1, :premaat_f_alta_c1, :premaat_grupo_c1, :premaat_imp_pagar, :premaat_f_alta, :premaat_grupo, :premaat_forma_cobro, 
+		:premaat_forma_pago, :premaat_f_baja, :premaat_n_hijos, :premaat_n_conyuges, :premaat_tipo_mutlist, :premaat_situacion, :premaat_tipo_prest, 
+		:premaat_f_pasivo, :premaat_n_mutlist, :premaat_nif_hered, :premaat_alta, :musaat_n_mutlist, :escuela, :f_titulacion, : f_colegiacion, :f_baja, 
+		:t_baja, :f_alta_cabecera, : t_alta, :f_situacion, :situacion, :alta_baja, :c_geografico, :demarcacion, :tratamiento, :sexo, :n_consejo, 
+		:tipo_persona, :colegio, :coberturas_src, :movimientos_src, :musaat_conc_domic, :perit_cober_f_baja, :perit_cober_f_alta, :perit_cober, 
+		:perit_f_baja, :perit_f_alta, :perit_alta, :perit_importe, :perit_n_poliza, :accid_cober_f_baja, :accid_cober_f_alta, :accid_cober_invalid, 
+		:accid_cober_muerte, :accid_f_baja, :accid_f_alta, :accid_alta, :accid_importe, :accid_asistencia, :accid_n_poliza, :accid_cia, :src_cober_f_baja, 
+		:src_cober_f_alta, :src_cober, :src_f_baja, :src_f_alta, :src_alta, :src_franqui, :src_bonimp, :src_boni, :src_forma_pago, :src_coef_cm, 
+		:src_importe, :src_estado, :src_t_poliza, :src_n_poliza, :tasad_cober_f_baja, :tasad_cober_f_alta, :tasad_cober, :tasad_f_baja, :tasad_f_alta, 
+		:tasad_alta, :tasad_importe, :tasad_n_poliza, :url, :email, :mut_imp_cobrar, :mut_total_pagar, :mut_imp_pagar_c2, :mut_f_alta_c2, :mut_imp_pagar_c1,
+		:mut_f_alta_c1, :mut_imp_pagar, :mut_f_alta, :mut_grupo, :mut_alta, :mut_n_mutualista, :listas_col, :otros_datos, :domic_fiscal, :domic_activo, 
+		:rec_circulares, :per_cesion_dat, :seguros_accid_cia, :seguros_accid_poliza, :seguros_accid_alta, :seguros_src_bonimp, :seguros_src_coef_cm,  
+		:seguros_src_n_poliza, :seguros_src_cober, :seguros_n_mutualista, :seguros_src_f_alta, :seguros_src_alta, :sit_altas_bajas, :poblacion_empresa, 
+		:domicilio_empresa, :cuenta_empresa, :nif_empresa, :nombre_empresa, :banco_domic, :cuenta_domic, :conc_facturables, :nombre_banco, :datos_bancarios,
+		:forma_de_pago, :irpf, :iva_igic, :ret_voluntaria, :ultima_factura, :titul_permiso_caduc, :titul_permiso_regim, :titul_permiso_ambito, 
+		:titul_permiso_tipo, :titul_convalid_denom, :titul_convalid_fecha, :titul_convalid_docum, :titul_circunst_hab, :titul_pais, :titul_observaciones, 
+		:titul_tipo, :situaciones_incomp, :orientaciones, :agrup_fechas, :tel_5, :tel_4, :tel_3, :tel_2, :tel_1, :pr1_direccion, :pr1_poblacion, :pr1_cp, 
+		:pr1_provincia, :pr1_telefono, :pr1_fax, :pr1_mail, :pr2_direccion, :pr2_poblacion, :pr2_cp, :pr2_provincia, :pr2_telefono, :pr2_fax, :pr2_mail, 
+		:pr1_movil, :pr2_movil, :part1_direccion, :part1_poblacion, :part1_cp, :part1_provincia, :part1_telefono, :part1_fax, :part1_mail, :part1_movil, 
+		:nombre_completo, :domicilio, :poblacion, :apellido1, :apellido2, :nombre, :n_colegiado, :anyo_titulacion, :agrupaciones, :nif, :f_nacimiento, 
+		:datos_sociedades, :delegacion, :direccion_correo,  :direccion_fiscal, :funcionario, :contratado, :administrador, :campo1, :campo2, :campo3, :campo4, 
+		:campo5,: provincia_domic, :n_acreditado	
+		)  using trans ;
+
+next
+
+
+commit;
+
+select count(*) into :insertadas from colegiados using trans;
+
+disconnect using trans;
+
+destroy trans
+
+RegistryDelete("HKEY_CURRENT_USER\Software\ODBC\ODBC.INI\ODBC Data Sources","correspondencias_tmp") 
+RegistryDelete("HKEY_CURRENT_USER\Software\ODBC\ODBC.INI\correspondencias_tmp", "Driver")  
+RegistryDelete("HKEY_CURRENT_USER\Software\ODBC\ODBC.INI\correspondencias_tmp", "DBQ")
+RegistryDelete("HKEY_CURRENT_USER\Software\ODBC\ODBC.INI\correspondencias_tmp", "DriverId")
+RegistryDelete("HKEY_CURRENT_USER\Software\ODBC\ODBC.INI\correspondencias_tmp", "FIL")
+RegistryDelete("HKEY_CURRENT_USER\Software\ODBC\ODBC.INI\correspondencias_tmp", "SafeTransactions")
+RegistryDelete("HKEY_CURRENT_USER\Software\ODBC\ODBC.INI\correspondencias_tmp", "UID")
+RegistryDelete("HKEY_CURRENT_USER\Software\ODBC\ODBC.INI\correspondencias_tmp\Engines\Jet", "ImplicitCommitSync")
+RegistryDelete("HKEY_CURRENT_USER\Software\ODBC\ODBC.INI\correspondencias_tmp\Engines\Jet", "MaxBufferSize")
+RegistryDelete("HKEY_CURRENT_USER\Software\ODBC\ODBC.INI\correspondencias_tmp\Engines\Jet", "PageTimeout")
+RegistryDelete("HKEY_CURRENT_USER\Software\ODBC\ODBC.INI\correspondencias_tmp\Engines\Jet", "Threads")
+RegistryDelete("HKEY_CURRENT_USER\Software\ODBC\ODBC.INI\correspondencias_tmp\Engines\Jet", "UserCommitSync")
+RegistryDelete("HKEY_CURRENT_USER\Software\ODBC\ODBC.INI\correspondencias_tmp\Engines\Jet", "")
+RegistryDelete("HKEY_CURRENT_USER\Software\ODBC\ODBC.INI\correspondencias_tmp\Engines\", "")
+RegistryDelete("HKEY_CURRENT_USER\Software\ODBC\ODBC.INI\correspondencias_tmp\","")
+
+
+return insertadas
+
+end function
+

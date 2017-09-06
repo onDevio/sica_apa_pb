@@ -1,0 +1,86 @@
+HA$PBExportHeader$f_musaat_movimientos_src.srf
+$PBExportComments$Dado un colegiado devuelve sus datos del hist$$HEX1$$f300$$ENDHEX$$rico de movimientos de src
+global type f_musaat_movimientos_src from function_object
+end type
+
+forward prototypes
+global function string f_musaat_movimientos_src (string id_col)
+end prototypes
+
+global function string f_musaat_movimientos_src (string id_col);//Esta funci$$HEX1$$f300$$ENDHEX$$n devuelve los datos de los movimientos src
+//que le corresponden al colegiado indicado por ID_COL
+
+string fecha_calculo,fecha_notificacion,presupuesto,superficie,volumen,tabla,coef_k,coef_c
+string coef_g,coef_sin,coef_col,porcentaje,importe_vble,importe_cobrado,importe_pendiente
+string t_visado,nif_pagador,cobertura,prefijo,num_pol,num_mut,seguridad,obra_oficial
+string n_contrato_ant,retorno
+long i
+datastore ds_movimientos
+
+retorno = ''
+ds_movimientos = create datastore
+ds_movimientos.dataobject ='d_musaat_movimientos_colegiado'
+ds_movimientos.SetTransObject(SQLCA)
+
+ds_movimientos.Retrieve(id_col)
+
+FOR i=1 TO ds_movimientos.rowcount()
+	fecha_calculo = string(ds_movimientos.getitemdatetime(i, 'fecha_calculo'))
+	fecha_notificacion = string(ds_movimientos.getitemdatetime(i, 'fecha_notificacion'))
+	presupuesto = string(ds_movimientos.getitemnumber(i, 'presupuesto'))
+	superficie = string(ds_movimientos.getitemnumber(i, 'superficie'))
+	volumen = string(ds_movimientos.getitemnumber(i, 'volumen'))
+	tabla = ds_movimientos.getitemstring(i, 'tabla')
+	coef_k = string(ds_movimientos.getitemnumber(i, 'coef_k'))
+	coef_c = string(ds_movimientos.getitemnumber(i, 'coef_c'))
+	coef_g = string(ds_movimientos.getitemnumber(i, 'coef_g'))
+	coef_sin = string(ds_movimientos.getitemnumber(i, 'coef_sin'))
+	coef_col = string(ds_movimientos.getitemnumber(i, 'coef_col'))
+	porcentaje = string(ds_movimientos.getitemnumber(i, 'porcentaje'))
+	importe_vble = string(ds_movimientos.getitemnumber(i, 'importe_vble'))
+	importe_cobrado = string(ds_movimientos.getitemnumber(i, 'importe_cobrado'))
+	importe_pendiente = string(ds_movimientos.getitemnumber(i, 'importe_pendiente'))
+	t_visado = ds_movimientos.getitemstring(i, 't_visado')
+	nif_pagador = ds_movimientos.getitemstring(i, 'nif_pagador')
+	cobertura = string(ds_movimientos.getitemnumber(i, 'cobertura'))
+	prefijo = ds_movimientos.getitemstring(i, 'prefijo')
+	num_pol = ds_movimientos.getitemstring(i, 'num_pol')
+	num_mut = ds_movimientos.getitemstring(i, 'num_mut')
+	seguridad = ds_movimientos.getitemstring(i, 'seguridad')
+	obra_oficial = ds_movimientos.getitemstring(i, 'obra_oficial')
+	n_contrato_ant = ds_movimientos.getitemstring(i, 'n_contrato_ant')
+	
+	if f_es_vacio(fecha_calculo) then fecha_calculo = ''
+	if f_es_vacio(fecha_notificacion) then fecha_notificacion = ''
+	if f_es_vacio(presupuesto) then presupuesto = ''
+	if f_es_vacio(superficie) then superficie = ''
+	if f_es_vacio(volumen) then volumen = ''
+	if f_es_vacio(tabla) then tabla = ''
+	if f_es_vacio(coef_k) then coef_k = ''
+	if f_es_vacio(coef_c) then coef_c = ''
+	if f_es_vacio(coef_g) then coef_g = ''
+	if f_es_vacio(coef_sin) then coef_sin = ''
+	if f_es_vacio(coef_col) then coef_col = ''
+	if f_es_vacio(porcentaje) then porcentaje = ''
+	if f_es_vacio(importe_vble) then importe_vble = ''
+	if f_es_vacio(importe_cobrado) then importe_cobrado = ''
+	if f_es_vacio(importe_pendiente) then importe_pendiente = ''
+	if f_es_vacio(t_visado) then t_visado = ''
+	if f_es_vacio(nif_pagador) then nif_pagador = ''
+	if f_es_vacio(cobertura) then cobertura = ''
+	if f_es_vacio(prefijo) then prefijo = ''
+	if f_es_vacio(num_pol) then num_pol = ''
+	if f_es_vacio(num_mut) then num_mut = ''
+	if f_es_vacio(seguridad) then seguridad = ''
+	if f_es_vacio(obra_oficial) then obra_oficial = ''
+	if f_es_vacio(n_contrato_ant) then n_contrato_ant = ''
+	
+	retorno = retorno + 'F. Calculo: ' + fecha_calculo + '~t' + 'F. Notificacion: ' + fecha_notificacion + '~t' + 'Presupuesto: ' + presupuesto + '~t' + 'Superficie: ' + superficie + '~t' + 'Volumen: ' + volumen + '~t' + 'Tabla: ' + tabla + '~t' + 'Coef_k: ' + coef_k + '~t' + 'Coef_c: ' + coef_c + '~t' + 'Coef_g: ' + coef_g + '~t' + 'Coef cm: ' + coef_sin + '~t' + 'Coef_col: ' + coef_col + '~t' + '% part.: ' + porcentaje + '~t' + 'Prima Total: ' + importe_vble + '~t' + 'Imp Cobrado: ' + importe_cobrado + '~t' + 'Imp Pte: ' + importe_pendiente + '~t' + 'Tipo: ' + t_visado + '~t' + 'NIF Pagador: ' + nif_pagador + '~t' + 'Cobertura: ' + cobertura + '~t' + 'Prefijo: ' + prefijo + '~t' + 'N$$HEX2$$ba002000$$ENDHEX$$Poliza: ' + num_pol + '~t' + 'N$$HEX2$$ba002000$$ENDHEX$$Mutua: ' + num_mut + '~t' + 'Seguridad: ' + seguridad + '~t' + 'Obra Ofic.: ' + obra_oficial + '~t' + 'Contrato Ant.: ' + n_contrato_ant + cr
+NEXT
+
+
+destroy ds_movimientos
+
+return retorno
+end function
+

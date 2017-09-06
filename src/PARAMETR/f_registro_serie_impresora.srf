@@ -1,0 +1,29 @@
+HA$PBExportHeader$f_registro_serie_impresora.srf
+global type f_registro_serie_impresora from function_object
+end type
+
+forward prototypes
+global subroutine f_registro_serie_impresora (string serie, ref string impresora, ref string bandeja)
+end prototypes
+
+global subroutine f_registro_serie_impresora (string serie, ref string impresora, ref string bandeja);
+string nombre, band
+
+
+  SELECT registro_series.impresora,   
+         registro_series.bandeja  
+    INTO :nombre,   
+         :band  
+    FROM registro_series  
+   WHERE registro_series.codigo = :serie   ;
+	
+	if isnull(nombre) then nombre= ''
+	if isnull(band) then band= ''
+	
+	
+	
+	impresora = nombre
+	bandeja = band
+
+end subroutine
+

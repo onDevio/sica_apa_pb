@@ -1,0 +1,6 @@
+HA$PBExportHeader$st_w_escanear.srs
+global type st_w_escanear from structure
+	string		ruta
+	string		nombre_fichero
+end type
+

@@ -1,0 +1,23 @@
+HA$PBExportHeader$f_musaat_es_perito.srf
+global type f_musaat_es_perito from function_object
+end type
+
+forward prototypes
+global function boolean f_musaat_es_perito (string id_col)
+end prototypes
+
+global function boolean f_musaat_es_perito (string id_col);string es_perito = 'N'
+boolean bl_es_perito = false
+  
+  SELECT musaat.peritos_alta  
+    INTO :es_perito  
+    FROM musaat  
+   WHERE musaat.id_col = :id_col   ;
+
+
+if f_es_vacio(es_perito) then es_perito = 'N'
+bl_es_perito = (es_perito = 'S')
+
+return bl_es_perito
+end function
+

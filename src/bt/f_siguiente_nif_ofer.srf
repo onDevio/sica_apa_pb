@@ -1,0 +1,25 @@
+HA$PBExportHeader$f_siguiente_nif_ofer.srf
+global type f_siguiente_nif_ofer from function_object
+end type
+
+forward prototypes
+global function string f_siguiente_nif_ofer ()
+end prototypes
+
+global function string f_siguiente_nif_ofer ();string nif_ofer
+  
+  SELECT max(nif)  
+    INTO :nif_ofer  
+    FROM clientes  
+   WHERE UPPER(substring(nif, 1 , 4)) = 'OFER'   ;
+	
+if f_es_vacio(nif_ofer) then 
+	nif_ofer = 'OFER00001'
+ELSE
+	nif_ofer = string(long(RightA(nif_ofer, 5)) + 1)
+	nif_ofer = 'OFER' + RightA('000000' + nif_ofer, 5)
+END IF
+
+return nif_ofer
+end function
+

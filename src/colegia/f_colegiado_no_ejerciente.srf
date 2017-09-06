@@ -1,0 +1,26 @@
+HA$PBExportHeader$f_colegiado_no_ejerciente.srf
+$PBExportComments$Funcion que regresa los datos del colegiado
+global type f_colegiado_no_ejerciente from function_object
+end type
+
+forward prototypes
+global function string f_colegiado_no_ejerciente (string id_col)
+end prototypes
+
+global function string f_colegiado_no_ejerciente (string id_col);// Esta funcion devuelve "S" si el colegiado es no ejerciente
+string situ, no_eje = 'N'
+
+SELECT c_geograficos.descripcion  
+INTO :situ  
+FROM colegiados, c_geograficos  
+WHERE ( colegiados.c_geografico = c_geograficos.c_geografico ) and  
+		( ( colegiados.id_colegiado = :id_col ) )   ;
+
+// Tenemos q hacer la b$$HEX1$$fa00$$ENDHEX$$squeda por la descripci$$HEX1$$f300$$ENDHEX$$n ya que los
+// c$$HEX1$$f300$$ENDHEX$$digos son diferentes en algunos colegios
+if PosA(situ, 'NO EJERCIENTE') > 0 then no_eje = 'S'
+	
+return no_eje
+
+end function
+

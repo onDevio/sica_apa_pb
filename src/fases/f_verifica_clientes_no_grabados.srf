@@ -1,0 +1,24 @@
+HA$PBExportHeader$f_verifica_clientes_no_grabados.srf
+global type f_verifica_clientes_no_grabados from function_object
+end type
+
+forward prototypes
+global subroutine f_verifica_clientes_no_grabados (string id_fase, datawindow dw_clientes, datawindowchild dw)
+end prototypes
+
+global subroutine f_verifica_clientes_no_grabados (string id_fase, datawindow dw_clientes, datawindowchild dw);string cli
+double i,cli_bd,num
+
+dw_clientes.AcceptText()
+
+//dw_clientes.Reset() //14/10/01
+dw.reset() //14/10/01
+for i=1 to dw_clientes.RowCount() 
+	cli= dw_clientes.GetItemString(i,'id_cliente')
+	if dw_clientes.GetItemString(i,'pagador')='S' then
+		dw.InsertRow(0)
+		dw.SetItem(dw.RowCount(),'id_cliente',cli)		
+	end if
+next
+end subroutine
+

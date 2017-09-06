@@ -1,0 +1,22 @@
+HA$PBExportHeader$f_siguiente_n_fact_emitida_n_recibo.srf
+global type f_siguiente_n_fact_emitida_n_recibo from function_object
+end type
+
+forward prototypes
+global function string f_siguiente_n_fact_emitida_n_recibo (st_facturas ast_facturas, string as_serie)
+end prototypes
+
+global function string f_siguiente_n_fact_emitida_n_recibo (st_facturas ast_facturas, string as_serie);///***SCP-1190- Alexis. 16/03/2011. Se crea en substituci$$HEX1$$f300$$ENDHEX$$n de la funci$$HEX1$$f300$$ENDHEX$$n f_siguiente_n_fact_emitida_za ***///
+///******************** Ya que no se adaptaba a las nuevas circunstancias multiempresa ********************///
+
+string n_fact, num
+
+num = f_siguiente_n_fact_fe_empresa (ast_facturas, as_serie, 5)
+
+// Utilizaremos 2 d$$HEX1$$ed00$$ENDHEX$$gitos para la serie y 8 para la numeraci$$HEX1$$f300$$ENDHEX$$n(2 del ejercicio y 5 del n$$HEX1$$fa00$$ENDHEX$$mero)	
+n_fact = LeftA(RightA(TRIM(as_serie),2) + '-' + RightA(g_ejercicio,2) + num, 10)
+
+return n_fact
+
+end function
+

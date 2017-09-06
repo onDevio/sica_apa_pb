@@ -1,0 +1,26 @@
+HA$PBExportHeader$f_fecha_baja_premaat_src.srf
+global type f_fecha_baja_premaat_src from function_object
+end type
+
+forward prototypes
+global function boolean f_fecha_baja_premaat_src (string id_col)
+end prototypes
+
+global function boolean f_fecha_baja_premaat_src (string id_col);datetime fecha_baja
+
+  SELECT f_baja  
+    INTO :fecha_baja  
+    FROM premaat  
+   WHERE ( id_col = :id_col );
+	
+if isnull(fecha_baja) then return false
+if(date(fecha_baja) < Today()) then
+	return true
+else 
+	return false
+end if
+
+
+
+end function
+

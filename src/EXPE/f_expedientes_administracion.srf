@@ -1,0 +1,22 @@
+HA$PBExportHeader$f_expedientes_administracion.srf
+global type f_expedientes_administracion from function_object
+end type
+
+forward prototypes
+global function string f_expedientes_administracion (string id_fase)
+end prototypes
+
+global function string f_expedientes_administracion (string id_fase);string obraofic = 'N'
+
+SELECT expedientes.administracion  
+INTO :obraofic  
+FROM expedientes, fases  
+WHERE ( expedientes.id_expedi = fases.id_expedi ) and  
+		( ( fases.id_fase = :id_fase ) )   ;
+	
+if f_es_vacio(obraofic) then obraofic = 'N'
+
+return obraofic
+
+end function
+

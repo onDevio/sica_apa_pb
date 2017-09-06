@@ -1,0 +1,21 @@
+HA$PBExportHeader$f_minutas_total_aviso.srf
+global type f_minutas_total_aviso from function_object
+end type
+
+forward prototypes
+global function double f_minutas_total_aviso (string id_minuta)
+end prototypes
+
+global function double f_minutas_total_aviso (string id_minuta);double total
+
+  SELECT fases_minutas.total_aviso
+    INTO :total  
+    FROM fases_minutas  
+   WHERE fases_minutas.id_minuta = :id_minuta   ;
+	
+if isnull(total) then total = 0
+
+return total
+
+end function
+

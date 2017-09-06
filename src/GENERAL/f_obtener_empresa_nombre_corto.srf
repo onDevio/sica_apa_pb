@@ -1,0 +1,17 @@
+HA$PBExportHeader$f_obtener_empresa_nombre_corto.srf
+global type f_obtener_empresa_nombre_corto from function_object
+end type
+
+forward prototypes
+global function string f_obtener_empresa_nombre_corto (string as_cod_empresa)
+end prototypes
+
+global function string f_obtener_empresa_nombre_corto (string as_cod_empresa);string ls_nombre_corto
+
+select csi_empresas.nombre_corto into :ls_nombre_corto
+from csi_empresas
+where csi_empresas.codigo = :as_cod_empresa;
+
+return ls_nombre_corto
+end function
+

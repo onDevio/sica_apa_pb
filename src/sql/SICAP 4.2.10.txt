@@ -1,0 +1,79 @@
+declare @colegio varchar(10)
+select @colegio = texto from var_globales where nombre = 'COLEGIO'
+
+-- TODOS
+print 'INSERTS EN t_promotor'
+insert into t_promotor values ('J','Sociedades civiles, con o sin personalidad jurídica','1')
+insert into t_promotor values ('R','Congregaciones e instituciones religiosas','6')
+insert into t_promotor values ('U','Uniones Temporales de Empresas','6')
+insert into t_promotor values ('V','Otros tipos no definidos en el resto de claves','6')
+insert into t_promotor values ('N','Entidades extranjeras','6')
+insert into t_promotor values ('W','Establecimientos permanentes de entidades no residentes en España','6')
+print 'CAMPO orden EN reparos_ficha_linea'
+alter table reparos_ficha_linea add orden integer null
+
+-- GRAN CANARIA
+if @colegio = 'COAATGC'
+begin
+print 'g_borrar_conceptos_facturables en Var_globales'
+INSERT INTO var_globales( nombre,numero,sn,texto,fecha,descripcion,ambito,modificable ) 
+VALUES ( 'g_borrar_conceptos_facturables',null,null,'N',null,'borra los conceptos facturables de al dar de baja un colegiado', 
+null,'S')
+-- CGC-91
+print 'g_codigo_otros_conceptos en Var_globales'
+INSERT INTO var_globales( nombre,numero,sn,texto,fecha,descripcion,ambito,modificable ) 
+VALUES ( 'g_codigo_otros_conceptos',null,null,'CDC',null,'Concepto EXCESO DE DEVOLUCIÓN DE CIP', 
+null,'S')
+-- CGC-80
+print 'Concepto facturable'
+insert into t_control_eventos (control,evento,activo,param1,param2,id_control) values ('CONCEPTO_DOMIC','COLEGIADO_NUEVO','S','200','DB','CuotaCol')
+end
+
+
+-- ALICANTE
+-- CAL-179
+if @colegio = 'COAATA'
+begin
+insert into t_sello_textos (id_texto,nombre,texto,activo,orden,codigo,sello) values ('1','INGENIERO EDIFICACION','En virtud de lo dispuesto en el artículo 1º de la O.M. ECI 3855/2007','N','1','1','A');
+end
+
+-- ZARAGOZA
+if @colegio = 'COAATZA'
+begin
+print 'Actualizamos la zona de las poblaciones'
+update poblaciones set zona = '01' where provincia = '00050'
+end
+
+
+-- TODOS
+print 'INSERTS EN tratamiento'
+--SCP-168
+INSERT INTO tratamientos ( descripcion ) VALUES ( 'INGENIERO DE EDIFICACION' ) 
+
+-- RESTO DE COLEGIOS QUE NO SEAN GRAN CANARIA
+if @colegio <> 'COAATGC'
+begin
+-- CGC-80
+print 'Concepto facturable de Expedientes'
+insert into t_control_eventos (control,evento,activo,param1,param2,id_control) values ('CONCEPTO_DOMIC','COLEGIADO_NUEVO','S','EXP','DB','CuotaCol')
+end
+
+-- GRAN CANARIA
+if @colegio = 'COAATGC'
+begin
+  print 'Insertamos en control de eventos para activar las cartas de reclamacion para GC'
+  insert into t_control_eventos (control,evento,activo,param1,param2,id_control) values ('INSERTA_BOTON','ABRIR_FASE','S','Cartas Renunc.','csd_renuncia','RENGUADA')
+  print 'Ahora insertamos las cartas'
+  INSERT INTO listados ( descripcion,dw,ventana,orden,activo ) VALUES ( 'Carta Propietario','d_renuncias_carta_propietario_gc','w_renuncias_impresos','00','S' )  
+  INSERT INTO listados ( descripcion,dw,ventana,orden,activo ) VALUES ( 'Carta Ayuntamiento','d_renuncias_carta_ayuntamiento_gc','w_renuncias_impresos','00','S' )  
+  INSERT INTO listados ( descripcion,dw,ventana,orden,activo ) VALUES ( 'Carta Trabajo','d_renuncias_carta_trabajo_gc','w_renuncias_impresos','00','S' )  
+
+end
+
+
+--  CAV-53 Nuevo listado para Avila
+
+insert into listados values ('Listado exportable Obras visadas','d_fases_listado_obras_visadas','w_fases_listados','00','S');
+
+
+go 

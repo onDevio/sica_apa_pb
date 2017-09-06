@@ -1,0 +1,19 @@
+HA$PBExportHeader$f_cobros_devuelve_ncontrol.srf
+global type f_cobros_devuelve_ncontrol from function_object
+end type
+
+forward prototypes
+global function string f_cobros_devuelve_ncontrol (string banco)
+end prototypes
+
+global function string f_cobros_devuelve_ncontrol (string banco);  string codigo
+  
+  SELECT cod_presentador  
+    INTO :codigo  
+    FROM csi_bancos  
+   WHERE codigo = :banco and empresa=:g_empresa;
+	
+return codigo
+
+end function
+

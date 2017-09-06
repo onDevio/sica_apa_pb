@@ -1,0 +1,116 @@
+HA$PBExportHeader$f_grabar_consulta_un_dw.srf
+global type f_grabar_consulta_un_dw from function_object
+end type
+
+forward prototypes
+global function integer f_grabar_consulta_un_dw (datawindow dw_actual, string nombre_ventana, string nombre_consulta)
+end prototypes
+
+global function integer f_grabar_consulta_un_dw (datawindow dw_actual, string nombre_ventana, string nombre_consulta);long fila
+string id_consulta
+string dw_nombre 
+datastore ds_consulta,ds_datos_consulta
+
+if isnull(dw_actual) then return -1
+
+ds_datos_consulta = create datastore
+ds_datos_consulta.dataobject = 'd_consultas_datos'
+ds_datos_consulta.SetTransObject(SQLCA)
+
+dw_nombre=dw_actual.classname();
+
+
+select id_consulta into :id_consulta from consultas where descripcion=:nombre_consulta and ventana=:nombre_ventana;
+
+// Si no existe la consulta, la creamos
+if f_es_vacio(id_consulta) then
+	
+	ds_consulta = create datastore
+	ds_consulta.dataobject = 'd_consultas_grabacion'
+	ds_consulta.SetTransObject(SQLCA)
+	
+	id_consulta=f_siguiente_numero('CONSULTAS',10)
+	
+	fila = ds_consulta.InsertRow(0)
+	ds_consulta.SetItem(fila,'id_consulta',id_consulta)
+	ds_consulta.SetItem(fila,'descripcion',nombre_consulta)
+	ds_consulta.SetItem(fila,'ventana',nombre_ventana)
+	ds_consulta.SetItem(fila,'fecha',datetime(Today()))
+	ds_consulta.SetItem(fila,'usuario',g_usuario)
+	
+	ds_consulta.Update()
+	
+	destroy ds_consulta
+
+else
+	
+	delete from consultas_datos where id_consulta=:id_consulta and datawindow=:dw_nombre;
+	
+end if
+
+
+long t,j,num_columnas
+string valor_columna_string,desc_columna,tipo_columna
+datetime valor_columna_datetime
+double  valor_columna_double
+
+
+dw_actual.AcceptText()
+
+//Recorremos todas las columnas del dw
+num_columnas = double(dw_actual.Object.Datawindow.Column.Count)
+//Recorremos todas las l$$HEX1$$ed00$$ENDHEX$$neas del dw
+for t=1 to dw_actual.Rowcount()
+	//Recorremos todos los valores
+	for j=1 to num_columnas
+		desc_columna = dw_actual.Describe('#'+string(j)+'.Name ')
+		tipo_columna = dw_actual.Describe('#'+string(j)+'.ColType')
+		if (LeftA(tipo_columna,7)='decimal') or tipo_columna ='double' or tipo_columna ='int' or tipo_columna ='long' or tipo_columna ='ulong' or tipo_columna ='real' then tipo_columna = 'number'
+		if (LeftA(tipo_columna,5)='times') then tipo_columna='time'
+		choose case tipo_columna
+			case 'datetime'
+				valor_columna_datetime = dw_actual.GetItemDatetime(t,j)
+				setnull(valor_columna_double)
+				setnull(valor_columna_string)
+				if isnull(valor_columna_datetime) then continue
+			case 'date'
+				valor_columna_datetime = datetime(dw_actual.GetItemDate(t,j))
+				setnull(valor_columna_double)
+				setnull(valor_columna_string)
+				if isnull(valor_columna_datetime) then continue
+			case 'time'
+				valor_columna_datetime = datetime(dw_actual.GetItemTime(t,j))
+				setnull(valor_columna_double)
+				setnull(valor_columna_string)
+				if isnull(valor_columna_datetime) then continue
+			case 'number'
+				valor_columna_double = dw_actual.GetItemNumber(t,j)
+				setnull(valor_columna_datetime)
+				setnull(valor_columna_string)
+				if isnull(valor_columna_double) then continue
+			case else
+				valor_columna_string =dw_actual.GetItemString(t,j)
+				setnull(valor_columna_double)
+				setnull(valor_columna_datetime)
+				if f_es_vacio(valor_columna_string) then continue
+		end choose
+		//Insertamos los valores en la tabla consulta
+		fila = ds_datos_consulta.InsertRow(0)
+		ds_datos_consulta.SetItem(fila,'id_consulta_datos',f_siguiente_numero('CONSULTAS_DATOS',10))
+		ds_datos_consulta.SetItem(fila,'id_consulta',id_consulta)
+		ds_datos_consulta.SetItem(fila,'datawindow',dw_nombre)
+		ds_datos_consulta.SetItem(fila,'columna',j)
+		ds_datos_consulta.SetItem(fila,'fila',t)
+		ds_datos_consulta.SetItem(fila,'valor_datetime',valor_columna_datetime)
+		ds_datos_consulta.SetItem(fila,'valor_double',valor_columna_double)
+		ds_datos_consulta.SetItem(fila,'valor_string',valor_columna_string)
+	next				
+next
+
+ds_datos_consulta.Update()
+
+destroy ds_datos_consulta
+
+return 1
+end function
+

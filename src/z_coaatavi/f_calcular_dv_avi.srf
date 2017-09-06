@@ -1,0 +1,36 @@
+HA$PBExportHeader$f_calcular_dv_avi.srf
+$PBExportComments$Calcula el total de dv para $$HEX1$$c100$$ENDHEX$$vila
+global type f_calcular_dv_avi from function_object
+end type
+
+forward prototypes
+global function integer f_calcular_dv_avi (ref st_dv_datos st_dv_datos)
+end prototypes
+
+global function integer f_calcular_dv_avi (ref st_dv_datos st_dv_datos);double Honorarios	= 0, porc, Minimo_Aux, minimo, DV
+
+// CAV-11 No se cobran gastos de tramitaci$$HEX1$$f300$$ENDHEX$$n (cuando sea obras de direcci$$HEX1$$f300$$ENDHEX$$n 14,11, 13,16,17) y en el resto si.
+CHOOSE CASE st_dv_datos.tipoact
+	CASE '14','11','13','16','17'
+		if st_dv_datos.administracion then return 0
+END CHOOSE
+
+Honorarios = st_dv_datos.hon_teor
+
+SELECT importe, minimo
+INTO :porc, :Minimo_Aux
+FROM dv_sobre_honos
+WHERE hon_desde <= :honorarios AND hon_hasta >= :honorarios ;
+
+Minimo = Minimo_Aux * g_ca
+
+DV = Honorarios * porc / 100
+
+DV = max( DV, Minimo)
+
+st_dv_datos.dv = f_redondea(DV)
+
+return 0
+
+end function
+

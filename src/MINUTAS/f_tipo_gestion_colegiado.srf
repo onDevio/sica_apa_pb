@@ -1,0 +1,20 @@
+HA$PBExportHeader$f_tipo_gestion_colegiado.srf
+global type f_tipo_gestion_colegiado from function_object
+end type
+
+forward prototypes
+global function string f_tipo_gestion_colegiado (string id_fase, string id_col)
+end prototypes
+
+global function string f_tipo_gestion_colegiado (string id_fase, string id_col);string retorno
+
+  SELECT fases_colegiados.tipo_gestion  
+    INTO :retorno  
+    FROM fases_colegiados  
+   WHERE ( fases_colegiados.id_fase = :id_fase ) AND  
+         ( fases_colegiados.id_col = :id_col )   ;
+
+return retorno
+
+end function
+

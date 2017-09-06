@@ -1,0 +1,21 @@
+HA$PBExportHeader$f_fases_usos_colindantes.srf
+global type f_fases_usos_colindantes from function_object
+end type
+
+forward prototypes
+global function string f_fases_usos_colindantes (string id_fase)
+end prototypes
+
+global function string f_fases_usos_colindantes (string id_fase);string colindantes
+
+SELECT fases_usos.colindantes  
+INTO :colindantes  
+FROM fases_usos  
+WHERE fases_usos.id_fase = :id_fase   ;
+
+if f_es_vacio(colindantes) then colindantes = '00'
+
+return colindantes
+
+end function
+

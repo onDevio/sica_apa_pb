@@ -1,0 +1,19 @@
+HA$PBExportHeader$f_incrementar_napunte_ok.srf
+global type f_incrementar_napunte_ok from function_object
+end type
+
+forward prototypes
+global function string f_incrementar_napunte_ok (string napunte)
+end prototypes
+
+global function string f_incrementar_napunte_ok (string napunte);string sn_apunte
+long n_apunte
+
+n_apunte = long(napunte)
+n_apunte = n_apunte + 1
+
+sn_apunte = RightA('0000'+string(n_apunte),5)
+
+return sn_apunte
+end function
+

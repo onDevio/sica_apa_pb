@@ -1,0 +1,12 @@
+// LLEIDA
+INSERT INTO var_globales  
+( nombre,   numero,   sn,   texto,   fecha,   descripcion,   ambito,   modificable )  
+VALUES ( 'g_num_consell',   3,   null,   3,   null,   'Numero del consejo',   null,   null )  ;
+
+// TERRES Y TARRAGONA
+INSERT INTO var_globales  
+( nombre,   numero,   sn,   texto,   fecha,   descripcion,   ambito,   modificable )  
+VALUES ( 'g_num_consell',   4,   null,   4,   null,   'Numero del consejo',   null,   null )  ;
+
+//Se actualiza la fecha de versión
+update var_globales set texto='20110513', descripcion = 'versión v5.3.01b' where nombre='g_version_minima';

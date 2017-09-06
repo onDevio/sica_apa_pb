@@ -1,0 +1,12 @@
+HA$PBExportHeader$f_colores_ayuda.srf
+global type f_colores_ayuda from function_object
+end type
+
+forward prototypes
+global function long f_colores_ayuda ()
+end prototypes
+
+global function long f_colores_ayuda ();return RGB(255,255,230)
+
+end function
+

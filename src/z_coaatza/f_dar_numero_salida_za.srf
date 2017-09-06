@@ -1,0 +1,23 @@
+HA$PBExportHeader$f_dar_numero_salida_za.srf
+global type f_dar_numero_salida_za from function_object
+end type
+
+forward prototypes
+global subroutine f_dar_numero_salida_za (string id_fase)
+end prototypes
+
+global subroutine f_dar_numero_salida_za (string id_fase);// Introduce el n$$HEX1$$fa00$$ENDHEX$$mero de salida en el contrato correspondiente si no ten$$HEX1$$ed00$$ENDHEX$$a
+string archivo_fase, n_salida
+st_control_eventos c_evento
+
+select fases.archivo into :archivo_fase from fases where id_fase = :id_fase;
+				
+if f_es_vacio(archivo_fase) then
+	c_evento.evento = 'NUMERO_SAL'
+	f_control_eventos(c_evento)
+	n_salida = f_numera_salida(c_evento.param1)	// Modificado Ricardo 2005-05-11 -> SE le pasa el formato directamente
+	update fases set archivo = :n_salida where id_fase = :id_fase;
+end if
+
+end subroutine
+

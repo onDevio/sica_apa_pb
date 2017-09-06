@@ -1,0 +1,17 @@
+HA$PBExportHeader$f_reclamacion_agrupada.srf
+global type f_reclamacion_agrupada from function_object
+end type
+
+forward prototypes
+global function boolean f_reclamacion_agrupada (string tipo_reclamacion)
+end prototypes
+
+global function boolean f_reclamacion_agrupada (string tipo_reclamacion);// Funcion que indica si el tipo de reclamacion elegida es agrupada o no
+
+string agrupada
+
+select agrupar into :agrupada from csi_fact_reclamaciones_tipos where tipo_reclamacion = :tipo_reclamacion;
+
+return (agrupada = 'S')
+end function
+

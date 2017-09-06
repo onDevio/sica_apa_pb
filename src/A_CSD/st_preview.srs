@@ -1,0 +1,7 @@
+HA$PBExportHeader$st_preview.srs
+global type st_preview from structure
+	string		dataobject
+	string		data
+	string		modulo
+end type
+

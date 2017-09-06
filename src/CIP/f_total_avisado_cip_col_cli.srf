@@ -1,0 +1,32 @@
+HA$PBExportHeader$f_total_avisado_cip_col_cli.srf
+global type f_total_avisado_cip_col_cli from function_object
+end type
+
+forward prototypes
+global function double f_total_avisado_cip_col_cli (string id_fase, string id_col, string id_cli)
+end prototypes
+
+global function double f_total_avisado_cip_col_cli (string id_fase, string id_col, string id_cli);double cip_avisado = 0
+if f_es_vacio(g_id_minuta_actual) then
+  SELECT sum(base_cip)  
+    INTO :cip_avisado  
+    FROM fases_minutas  
+   WHERE fases_minutas.id_fase = :id_fase   and
+		fases_minutas.id_colegiado = :id_col and 
+		fases_minutas.id_cliente = :id_cli and 
+           fases_minutas.anulada <> 'S';
+else
+  SELECT sum(base_cip)  
+    INTO :cip_avisado  
+    FROM fases_minutas  
+   WHERE fases_minutas.id_fase = :id_fase   and
+		fases_minutas.id_colegiado = :id_col and 
+		fases_minutas.id_cliente = :id_cli and 
+           fases_minutas.anulada <> 'S' and fases_minutas.id_minuta <> :g_id_minuta_actual ;	
+end if
+
+if isnull(cip_avisado) then cip_avisado = 0
+
+return cip_avisado
+end function
+

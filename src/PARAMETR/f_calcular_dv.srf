@@ -1,0 +1,43 @@
+HA$PBExportHeader$f_calcular_dv.srf
+$PBExportComments$Calcula el total de dv
+global type f_calcular_dv from function_object
+end type
+
+forward prototypes
+global function integer f_calcular_dv (ref st_dv_datos st_dv_datos)
+end prototypes
+
+global function integer f_calcular_dv (ref st_dv_datos st_dv_datos);double retorno = -1
+
+choose case upper(g_colegio)
+	case 'COAATB'
+		retorno = f_calcular_dv_bizkaia(st_dv_datos)
+	case 'COAATMU'
+		retorno = f_calcular_dv_murcia(st_dv_datos)
+	case 'COAATBU'
+		retorno = 0
+	case 'COAATGUI'
+		retorno = f_calcular_dv_guipuz(st_dv_datos)
+	case 'COAATLR'
+		retorno = f_calcular_dv_lr(st_dv_datos)
+	case 'COAATCU'
+		retorno = f_calcular_dv_cu(st_dv_datos)
+	case 'COAATZ'
+		retorno = f_calcular_dv_za(st_dv_datos)
+	case 'COAATGU'
+		retorno = f_calcular_dv_gu(st_dv_datos)
+	case 'COAATAVI'
+		retorno = f_calcular_dv_avi(st_dv_datos)
+	case 'COAATNA'
+		retorno = f_calcular_dv_na(st_dv_datos)
+	case 'COAATTER'
+		retorno = f_calcular_dv_ter(st_dv_datos)	
+	case 'COAATMCA'
+		retorno = f_calcular_dv_mca(st_dv_datos)
+	case else
+		retorno = 0
+end choose
+
+return retorno
+end function
+

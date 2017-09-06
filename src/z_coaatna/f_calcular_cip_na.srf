@@ -1,0 +1,164 @@
+HA$PBExportHeader$f_calcular_cip_na.srf
+global type f_calcular_cip_na from function_object
+end type
+
+forward prototypes
+global function integer f_calcular_cip_na (ref st_dv_datos st_dv_datos)
+global function integer f_calcular_cip_na (ref st_cip_datos st_cip_datos)
+end prototypes
+
+global function integer f_calcular_cip_na (ref st_dv_datos st_dv_datos);// Entrada
+string tipo_act, tipo_obra, anyo, mes, bonif
+double pem
+// Salida
+double dv, coef_k
+// F$$HEX1$$f300$$ENDHEX$$rmulas
+// 	Visados tradicionales:													DV = 16 + sqrt ( 0.0275 x PEM )
+// 	Visados tradicionales, interv. seguridad y control calidad: 	DV = 16 + sqrt ( 0.0275 x PEM x 0.02 )
+// 	Visados digitales:														DV = 11 + sqrt ( 0.0275 x PEM )
+// 	Visados digitales, interv. seguridad y control calidad:			DV = 11 + sqrt ( 0.0275 x PEM x 0.02)
+// Retorno
+// 0 : $$HEX1$$e900$$ENDHEX$$xito
+// -1 :error 
+
+tipo_act = st_dv_datos.tipoact
+tipo_obra = st_dv_datos.tipoobra
+pem = st_dv_datos.pem
+
+if f_es_vacio(tipo_act) or f_es_vacio(tipo_obra) or isnull(st_dv_datos.pem) then
+	return -1
+end if
+
+// Coeficiente K
+SELECT desc_gui_tipo_act.coef_k  
+INTO :coef_k  
+FROM desc_gui_tipo_act  
+WHERE ( :tipo_act like desc_gui_tipo_act.tipo_actuacion OR 	desc_gui_tipo_act.tipo_actuacion = '%'  ) AND  
+		( :tipo_obra like desc_gui_tipo_act.tipo_obra OR desc_gui_tipo_act.tipo_obra = '%' ) AND  
+		( desc_gui_tipo_act.anyo = :anyo )   ;
+
+if sqlca.sqlcode <> 0 then
+	SELECT desc_gui_tipo_act.coef_k  
+	INTO :coef_k  
+	FROM desc_gui_tipo_act  
+	WHERE ( :tipo_act like desc_gui_tipo_act.tipo_actuacion OR 	desc_gui_tipo_act.tipo_actuacion = '%'  ) AND  
+		( :tipo_obra like desc_gui_tipo_act.tipo_obra OR desc_gui_tipo_act.tipo_obra = '%' ) AND  
+		( desc_gui_tipo_act.anyo like '*' )   ;
+	
+	if sqlca.sqlcode <> 0 then
+		st_dv_datos.dv = 0
+		return -1
+	end if
+end if
+
+// Bonificaci$$HEX1$$f300$$ENDHEX$$n
+choose case tipo_act
+	case '01','02','04','05','11','12','15','41'
+		bonif = 'S'
+	case else
+		bonif = 'N'
+end choose
+
+// C$$HEX1$$e100$$ENDHEX$$lculo
+choose case st_dv_datos.visared
+	case 'V'
+		dv = 11 + sqrt ( 0.0275 * pem * coef_k)
+		if bonif = 'S' then dv = max( dv * 0.75, 11) // Bonificaci$$HEX1$$f300$$ENDHEX$$n 25%, M$$HEX1$$ed00$$ENDHEX$$nimo 11$$HEX1$$ac20$$ENDHEX$$
+	case else
+		dv = 11 + sqrt ( 0.0275 * pem * coef_k)
+end choose
+
+st_dv_datos.dv = f_redondea(dv)
+
+return 0
+
+end function
+
+global function integer f_calcular_cip_na (ref st_cip_datos st_cip_datos);// Entrada
+string tipo_act, tipo_obra, anyo, id_fase, administracion, facturado,mes = '00'
+double pem
+// Salida
+double cip, coef_k, Cc
+// F$$HEX1$$f300$$ENDHEX$$rmulas
+// DIP = (14 + ( PEM x Coef K) / 9000 ) x Cc
+// Retorno
+// 0 : $$HEX1$$e900$$ENDHEX$$xito
+// -1 :error 
+
+tipo_act = st_cip_datos.tipo_act
+tipo_obra = st_cip_datos.tipo_obra
+pem = st_cip_datos.pem
+id_fase = st_cip_datos.id_fase
+administracion = st_cip_datos.admon
+if isnull(st_cip_datos.fecha) then
+	anyo = g_ejercicio
+else
+	anyo = string(year(date(st_cip_datos.fecha)) )
+	mes = string(month(date(st_cip_datos.fecha)) )
+	mes = RightA('00' + mes, 2)
+end if
+
+if f_es_vacio(tipo_act) or f_es_vacio(tipo_obra) or isnull(pem) then
+	return -1
+end if
+
+// Si es funcionario y la obra es oficial no paga
+if administracion = 'S' then
+	select facturado into :facturado from fases_colegiados where id_fase = :id_fase ;
+	if facturado = 'S' then
+		cip = 0
+		return 1
+	end if
+end if
+
+// Coeficiente K
+SELECT coef_k, coef_c
+INTO :coef_k, :Cc  
+FROM cip_tipo_act  
+WHERE ( :tipo_act like cip_tipo_act.tipo_actuacion OR cip_tipo_act.tipo_actuacion = '%'  ) AND  
+		( :tipo_obra like cip_tipo_act.tipo_obra OR cip_tipo_act.tipo_obra = '%' ) AND  
+		( cip_tipo_act.anyo = :anyo )   ;
+
+if sqlca.sqlcode <> 0 then
+	SELECT coef_k, coef_c
+	INTO :coef_k, :Cc
+	FROM cip_tipo_act  
+	WHERE ( :tipo_act like cip_tipo_act.tipo_actuacion OR cip_tipo_act.tipo_actuacion = '%'  ) AND  
+		( :tipo_obra like cip_tipo_act.tipo_obra OR cip_tipo_act.tipo_obra = '%' ) AND  
+		( cip_tipo_act.anyo like '*' )   ;
+	
+	if sqlca.sqlcode <> 0 then
+		st_cip_datos.cip = 0
+		return -1
+	end if
+end if
+
+// C$$HEX1$$e100$$ENDHEX$$lculo
+choose case anyo
+	case '1900' TO '2008'
+		cip = (14 + (pem * coef_k) / 9000) * Cc
+		st_cip_datos.formula = "DIP = ( 14 + ( PEM x Coef K ) / 9000 ) x Cc"
+		st_cip_datos.desarrollo = "DIP = ( 14 + ( " + string(pem,  '###,###,##0.00') + " x " + string(coef_k) + " ) / 9000 ) x " + string(Cc)		
+	// Se debe cambiar por a$$HEX1$$f100$$ENDHEX$$o si varian
+	case else // antes estaba 2009
+		
+		///* Cambio solicitado en la incidencia ICN-355. Alexis. 19/1/2010*****///
+		choose case tipo_act
+			case '61','62', '63', '64', '65', '66', '71', '72', '73', '74', '75', '81', '82', '83', '84', '91', '92', '93', '94', '95'
+				cip = 16 
+				st_cip_datos.formula = "DIP = ( 16 + ( PEM x Coef K ) / 7500 ) x Cc"
+				st_cip_datos.desarrollo = "DIP =  16  (M$$HEX1$$ed00$$ENDHEX$$nimo)"		
+			case else
+				cip = (16 + (pem * coef_k) / 7500) * Cc
+				st_cip_datos.formula = "DIP = ( 16 + ( PEM x Coef K ) / 7500 ) x Cc"
+				st_cip_datos.desarrollo = "DIP = ( 16 + ( " + string(pem,  '###,###,##0.00') + " x " + string(coef_k) + " ) / 7500 ) x " + string(Cc)		
+		end choose		
+			
+end choose
+
+st_cip_datos.cip = f_redondea(cip)
+
+return 0
+
+end function
+

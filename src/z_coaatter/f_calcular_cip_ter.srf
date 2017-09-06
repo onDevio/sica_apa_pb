@@ -1,0 +1,49 @@
+HA$PBExportHeader$f_calcular_cip_ter.srf
+$PBExportComments$Calcula el total de cip para Zaragoza
+global type f_calcular_cip_ter from function_object
+end type
+
+forward prototypes
+global function integer f_calcular_cip_ter (ref st_cip_datos st_cip_datos)
+end prototypes
+
+global function integer f_calcular_cip_ter (ref st_cip_datos st_cip_datos);// Id$$HEX1$$e900$$ENDHEX$$ntica a la funci$$HEX1$$f300$$ENDHEX$$n de Cuenca aunque s$$HEX1$$f300$$ENDHEX$$lo ser$$HEX1$$ed00$$ENDHEX$$a necesario un porcentaje
+double Honorarios	= 0
+double porc_aplicado,pem,importe_fijo,importe_variable
+string id_fase,tarifa,contenido
+
+Honorarios = st_cip_datos.hon_teor
+id_fase=st_cip_datos.id_fase
+pem=st_cip_datos.pem
+
+if st_cip_datos.admon = 'S' then 
+	porc_aplicado = g_porc_cip_admon
+elseif st_cip_datos.tipo_gestion = 'P' then
+	porc_aplicado = g_porc_cip_sgc
+else
+	porc_aplicado = g_porc_cip_defecto	
+end if
+
+// Aplicamos los importes fijos
+//Luis ICT-151
+if(f_es_vacio(id_fase))then
+	tarifa = st_cip_datos.tarifa
+	contenido = st_cip_datos.contenido
+else
+	select tarifa,epigrafe into :tarifa,:contenido from fases_cip_tfe where id_fase=:id_fase;
+end if
+//fin cambio
+if f_es_vacio(contenido) then contenido='@'
+
+select importe into :importe_fijo from coaatter_deduc_fija where tarifa=:tarifa and contenido=:contenido and desde<=:pem and hasta>:pem;
+if IsNull(importe_fijo) then importe_fijo=0
+
+importe_variable=f_redondea( st_cip_datos.hon_teor * porc_aplicado /100)
+st_cip_datos.texto = 'FIJO: '+string(importe_fijo,'###,###,##0.00') + '$$HEX2$$ac202000$$ENDHEX$$VARIABLE: '+string(importe_variable,'###,###,##0.00') +'$$HEX1$$ac20$$ENDHEX$$'
+st_cip_datos.cip = importe_fijo + importe_variable
+
+
+return 1
+
+end function
+

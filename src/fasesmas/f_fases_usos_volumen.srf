@@ -1,0 +1,21 @@
+HA$PBExportHeader$f_fases_usos_volumen.srf
+global type f_fases_usos_volumen from function_object
+end type
+
+forward prototypes
+global function double f_fases_usos_volumen (string id_fase)
+end prototypes
+
+global function double f_fases_usos_volumen (string id_fase);double volumen
+
+SELECT fases_usos.volumen  
+INTO :volumen  
+FROM fases_usos  
+WHERE fases_usos.id_fase = :id_fase    ;
+
+if isnull(volumen) then volumen = 0
+
+return volumen
+
+end function
+

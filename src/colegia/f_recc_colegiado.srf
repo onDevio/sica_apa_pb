@@ -1,0 +1,42 @@
+HA$PBExportHeader$f_recc_colegiado.srf
+global type f_recc_colegiado from function_object
+end type
+
+forward prototypes
+global function integer f_recc_colegiado (string as_tipo_factura, string as_emisor, string as_num_factura)
+end prototypes
+
+global function integer f_recc_colegiado (string as_tipo_factura, string as_emisor, string as_num_factura);
+//as_tipo_factura --> tipo de la factura 
+//as_emisor --> numero del emisor (colegiado)
+//as_num_factura --> numero de la factura. Se utilizar$$HEX2$$e1002000$$ENDHEX$$para obtener la fecha
+
+
+string id_col
+datetime fecha_factura
+
+//obtenemos los datos a partir de los parametros
+select id_colegiado into :id_col from colegiados where n_colegiado = :as_emisor;
+select fecha into :fecha_factura from csi_facturas_emitidas where n_fact = :as_num_factura;
+
+
+
+
+
+if ( as_tipo_factura <> g_colegiado_cliente) then return 0
+
+int li_cantidad
+li_cantidad = 0
+
+select count(*) into :li_cantidad
+from colegiados_recc
+where id_colegiado = :id_col
+and aplica_recc = 'S' 
+and f_inicio <= :fecha_factura
+and f_fin >= :fecha_factura;
+
+if (li_cantidad > 0) then return 1
+
+return 0
+end function
+

@@ -1,0 +1,19 @@
+HA$PBExportHeader$f_dame_formapago.srf
+global type f_dame_formapago from function_object
+end type
+
+forward prototypes
+global function string f_dame_formapago (string tipo)
+end prototypes
+
+global function string f_dame_formapago (string tipo);string descripcion
+
+   SELECT csi_formas_de_pago.descripcion  
+    INTO :descripcion  
+    FROM csi_formas_de_pago  
+   WHERE csi_formas_de_pago.tipo_pago = :tipo;
+
+
+return descripcion
+end function
+

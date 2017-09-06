@@ -1,0 +1,30 @@
+HA$PBExportHeader$f_poblacion_cliente.srf
+global type f_poblacion_cliente from function_object
+end type
+
+forward prototypes
+global function string f_poblacion_cliente (string id_cli)
+end prototypes
+
+global function string f_poblacion_cliente (string id_cli);string datos_cliente = ''
+string apell, nomb, nvia, pob, tv, prov, cp
+
+select cod_pob,cod_prov, cp
+into :pob,:prov, :cp
+from clientes
+where id_cliente=:id_cli;
+
+if isnull(pob) then 
+	datos_cliente =''
+else
+	if isnull(prov) Then
+		datos_cliente = ''
+	else
+		datos_cliente = f_obtener_poblacion_activa(pob, prov, cp)
+	end if
+end if
+
+return datos_cliente
+
+end function
+

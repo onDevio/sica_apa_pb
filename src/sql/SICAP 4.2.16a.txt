@@ -1,0 +1,20 @@
+declare @colegio varchar(10)
+select @colegio = texto from var_globales where nombre = 'COLEGIO'
+
+-- Todos Activa la funcionalidad de multiempresa debe ponerse en S si se requiere
+INSERT INTO var_globales  ( nombre,   sn,   descripcion,  modificable )  
+VALUES ('g_activa_multiempresa', 'N', "Indica si se activa la funcionalidad de multiempresa", 'N' )  ;
+
+--Todos
+-- Se agrega el campo empresa, que se ultilizará para algunos contadores
+alter table contadores add empresa char(2) null;
+
+-- Solo en mallorca
+if @colegio='COAATMCA'
+begin
+UPDATE csi_series SET dataobject = 'd_premaat_factura_cuotas_mca' WHERE csi_series.serie = 'PR'
+end
+
+--Todos
+update var_globales set texto='20100204' where nombre = 'g_version_minima';
+go

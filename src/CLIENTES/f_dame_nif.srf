@@ -1,0 +1,24 @@
+HA$PBExportHeader$f_dame_nif.srf
+global type f_dame_nif from function_object
+end type
+
+forward prototypes
+global function string f_dame_nif (string id_cliente)
+end prototypes
+
+global function string f_dame_nif (string id_cliente);string datos_cliente = ''
+string nif
+long num_clientes
+
+select count(*) into :num_clientes from clientes where id_cliente=:id_cliente;
+if num_clientes > 0 then  
+	select nif into :nif from clientes where id_cliente=:id_cliente;
+
+	datos_cliente = nif
+
+end if
+//messagebox ('',datos_colegiado)
+
+return datos_cliente
+end function
+

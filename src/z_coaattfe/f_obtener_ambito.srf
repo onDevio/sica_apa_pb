@@ -1,0 +1,17 @@
+HA$PBExportHeader$f_obtener_ambito.srf
+global type f_obtener_ambito from function_object
+end type
+
+forward prototypes
+global function string f_obtener_ambito (string ambito)
+end prototypes
+
+global function string f_obtener_ambito (string ambito);string descripcion
+
+select descripcion into :descripcion
+from cip_tfe_ambito
+where codigo = :ambito;
+
+return(descripcion)
+end function
+

@@ -1,0 +1,169 @@
+HA$PBExportHeader$d_minutas_lista.srd
+release 10.5;
+datawindow(units=0 timer_interval=0 color=1090519039 processing=0 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes print.preview.outline=yes hidegrayline=no )
+header(height=64 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=84 color="536870912" )
+detail(height=68 color="536870912" )
+table(column=(type=char(10) update=yes updatewhereclause=yes name=id_minuta dbname="fases_minutas.id_minuta" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=id_fase dbname="fases_minutas.id_fase" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=id_colegiado dbname="fases_minutas.id_colegiado" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=id_cliente dbname="fases_minutas.id_cliente" )
+ column=(type=number update=yes updatewhereclause=yes name=irpf dbname="fases_minutas.irpf" )
+ column=(type=number updatewhereclause=yes name=importe_irpf dbname="fases_minutas.importe_irpf" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=id_factura dbname="fases_minutas.id_factura" )
+ column=(type=number update=yes updatewhereclause=yes name=total_aviso dbname="fases_minutas.total_aviso" )
+ column=(type=number update=yes updatewhereclause=yes name=total_cliente dbname="fases_minutas.total_cliente" )
+ column=(type=number update=yes updatewhereclause=yes name=total_colegiado dbname="fases_minutas.total_colegiado" )
+ column=(type=char(1) updatewhereclause=yes name=tipo_gestion dbname="fases_minutas.tipo_gestion" )
+ column=(type=char(1) updatewhereclause=yes name=pagador dbname="fases_minutas.pagador" )
+ column=(type=char(50) updatewhereclause=yes name=clientes_nombre dbname="clientes.nombre" )
+ column=(type=char(80) updatewhereclause=yes name=clientes_apellidos dbname="clientes.apellidos" )
+ column=(type=char(50) updatewhereclause=yes name=colegiados_nombre dbname="colegiados.nombre" )
+ column=(type=char(80) updatewhereclause=yes name=colegiados_apellidos dbname="colegiados.apellidos" )
+ column=(type=char(15) updatewhereclause=yes name=colegiados_n_colegiado dbname="colegiados.n_colegiado" )
+ column=(type=char(10) updatewhereclause=yes name=n_aviso dbname="fases_minutas.n_aviso" )
+ column=(type=datetime updatewhereclause=yes name=fecha dbname="fases_minutas.fecha" )
+ column=(type=char(11) updatewhereclause=yes name=fases_n_registro dbname="fases.n_registro" )
+ column=(type=char(14) updatewhereclause=yes name=fases_n_expedi dbname="fases.n_expedi" )
+ column=(type=char(1) updatewhereclause=yes name=aplica_honos dbname="fases_minutas.aplica_honos" )
+ column=(type=char(1) updatewhereclause=yes name=aplica_desplaza dbname="fases_minutas.aplica_desplaza" )
+ column=(type=char(1) updatewhereclause=yes name=aplica_dv dbname="fases_minutas.aplica_dv" )
+ column=(type=char(1) updatewhereclause=yes name=aplica_cip dbname="fases_minutas.aplica_cip" )
+ column=(type=char(1) updatewhereclause=yes name=aplica_musaat dbname="fases_minutas.aplica_musaat" )
+ column=(type=char(1) updatewhereclause=yes name=aplica_retvol dbname="fases_minutas.aplica_retvol" )
+ column=(type=char(1) updatewhereclause=yes name=aplica_impresos dbname="fases_minutas.aplica_impresos" )
+ column=(type=number updatewhereclause=yes name=base_honos dbname="fases_minutas.base_honos" )
+ column=(type=number updatewhereclause=yes name=base_desplaza dbname="fases_minutas.base_desplaza" )
+ column=(type=number updatewhereclause=yes name=base_dv dbname="fases_minutas.base_dv" )
+ column=(type=number updatewhereclause=yes name=base_cip dbname="fases_minutas.base_cip" )
+ column=(type=number updatewhereclause=yes name=base_musaat dbname="fases_minutas.base_musaat" )
+ column=(type=number updatewhereclause=yes name=base_retvol dbname="fases_minutas.base_retvol" )
+ column=(type=number updatewhereclause=yes name=base_impresos dbname="fases_minutas.base_impresos" )
+ column=(type=number updatewhereclause=yes name=base_garantia dbname="fases_minutas.base_garantia" )
+ column=(type=number updatewhereclause=yes name=cobro_a_cuenta dbname="fases_minutas.cobro_a_cuenta" )
+ column=(type=number updatewhereclause=yes name=iva_honos dbname="fases_minutas.iva_honos" )
+ column=(type=number updatewhereclause=yes name=iva_desplaza dbname="fases_minutas.iva_desplaza" )
+ column=(type=number updatewhereclause=yes name=iva_dv dbname="fases_minutas.iva_dv" )
+ column=(type=number updatewhereclause=yes name=iva_cip dbname="fases_minutas.iva_cip" )
+ column=(type=number updatewhereclause=yes name=iva_musaat dbname="fases_minutas.iva_musaat" )
+ column=(type=number updatewhereclause=yes name=iva_retvol dbname="fases_minutas.iva_retvol" )
+ column=(type=number updatewhereclause=yes name=iva_impresos dbname="fases_minutas.iva_impresos" )
+ column=(type=number updatewhereclause=yes name=base_cip_suplida dbname="fases_minutas.base_cip_suplida" )
+ column=(type=number updatewhereclause=yes name=iva_cip_suplida dbname="fases_minutas.iva_cip_suplida" )
+ column=(type=number updatewhereclause=yes name=musaat_suplida dbname="fases_minutas.musaat_suplida" )
+ retrieve="  SELECT fases_minutas.id_minuta,   
+         fases_minutas.id_fase,   
+         fases_minutas.id_colegiado,   
+         fases_minutas.id_cliente,   
+         fases_minutas.irpf,   
+         fases_minutas.importe_irpf,   
+         fases_minutas.id_factura,   
+         fases_minutas.total_aviso,   
+         fases_minutas.total_cliente,   
+         fases_minutas.total_colegiado,   
+         fases_minutas.tipo_gestion,   
+         fases_minutas.pagador,   
+         clientes.nombre,   
+         clientes.apellidos,   
+         colegiados.nombre,   
+         colegiados.apellidos,   
+         colegiados.n_colegiado,   
+         fases_minutas.n_aviso,   
+         fases_minutas.fecha,   
+         fases.n_registro,   
+         fases.n_expedi,   
+         fases_minutas.aplica_honos,   
+         fases_minutas.aplica_desplaza,   
+         fases_minutas.aplica_dv,   
+         fases_minutas.aplica_cip,   
+         fases_minutas.aplica_musaat,   
+         fases_minutas.aplica_retvol,   
+         fases_minutas.aplica_impresos,   
+         fases_minutas.base_honos,   
+         fases_minutas.base_desplaza,   
+         fases_minutas.base_dv,   
+         fases_minutas.base_cip,   
+         fases_minutas.base_musaat,   
+         fases_minutas.base_retvol,   
+         fases_minutas.base_impresos,   
+         fases_minutas.base_garantia,
+			fases_minutas.cobro_a_cuenta,  
+         fases_minutas.iva_honos,   
+         fases_minutas.iva_desplaza,   
+         fases_minutas.iva_dv,   
+         fases_minutas.iva_cip,   
+         fases_minutas.iva_musaat,   
+         fases_minutas.iva_retvol,   
+         fases_minutas.iva_impresos,
+			fases_minutas.base_cip_suplida,
+			fases_minutas.iva_cip_suplida,
+			fases_minutas.musaat_suplida   
+    FROM fases_minutas,   
+         fases,   
+         colegiados,   
+         clientes  
+   WHERE ( fases_minutas.id_fase = fases.id_fase ) and  
+         ( fases_minutas.id_colegiado = colegiados.id_colegiado ) and  
+         ( fases_minutas.id_cliente = clientes.id_cliente )    
+" )
+text(band=header alignment="2" text="N$$HEX2$$ba002000$$ENDHEX$$Aviso" border="6" color="0" x="23" y="8" height="52" width="297" html.valueishtml="0"  name=n_aviso_t visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="79741120" )
+text(band=header alignment="2" text="Fecha" border="6" color="0" x="338" y="8" height="52" width="302" html.valueishtml="0"  name=fecha_t visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="79741120" )
+text(band=header alignment="2" text="N$$HEX2$$ba002000$$ENDHEX$$Col." border="6" color="0" x="658" y="8" height="52" width="224" html.valueishtml="0"  name=colegiados_n_colegiado_t visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="79741120" )
+text(band=header alignment="2" text="Colegiado" border="6" color="0" x="901" y="8" height="52" width="992" html.valueishtml="0"  name=colegiado_t visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="79741120" )
+text(band=header alignment="2" text="Cliente" border="6" color="0" x="1911" y="8" height="52" width="992" html.valueishtml="0"  name=cliente_t visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="79741120" )
+text(band=header alignment="2" text="Total Aviso" border="6" color="0" x="2921" y="8" height="52" width="343" html.valueishtml="0"  name=total_aviso_comp_t visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="79741120" )
+compute(band=detail alignment="1" expression="case(  tipo_gestion  when 'C' then if(aplica_honos = 'S', base_honos, 0) + 
+ if(aplica_desplaza = 'S', base_desplaza, 0) +  if(aplica_dv = 'S', base_dv, 0) +
+  if(aplica_cip = 'S', base_cip, 0) +  if(aplica_musaat = 'S', base_musaat, 0) +
+  if(aplica_retvol = 'S', base_retvol, 0) + if(base_garantia > 0, - base_garantia, 0) +  if(  aplica_impresos  = 'S',  base_impresos  , 0) + if(cobro_a_cuenta > 0, -cobro_a_cuenta, 0)+base_cip_suplida+musaat_suplida when 'A' then 
+ base_dv +  base_cip + base_musaat +  base_retvol +  base_impresos + base_cip_suplida + musaat_suplida  when 'S' then  
+if(aplica_dv = 'S', base_dv, 0) +  if(aplica_cip = 'S', base_cip, 0) +  if(aplica_musaat = 'S', base_musaat, 0) +  if(  aplica_impresos  = 'S',  base_impresos , 0) ) "border="0" color="0" x="2021" y="280" height="52" width="270" format="[GENERAL]" html.valueishtml="0"  name=base_total visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="1" expression="case(  tipo_gestion  when 'C' then if(aplica_honos = 'S', iva_honos, 0) +  if(aplica_desplaza = 'S', iva_desplaza, 0) +  if(aplica_dv = 'S', iva_dv, 0) +  if(aplica_cip = 'S', iva_cip, 0) +  if(  aplica_impresos  = 'S',  iva_impresos , 0)+iva_cip_suplida  when 'A' then  iva_dv +  iva_cip +  iva_impresos+iva_cip_suplida  when 'S' then  if(aplica_dv = 'S', iva_dv, 0) +  if(aplica_cip = 'S', iva_cip, 0) +  if( aplica_impresos  = 'S',  iva_impresos , 0) )"border="0" color="0" x="2295" y="280" height="52" width="270" format="###,###,##0.00" html.valueishtml="0"  name=iva_total visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+compute(band=detail alignment="1" expression="if(  tipo_gestion <> 'A', importe_irpf, 0  )"border="0" color="0" x="2569" y="280" height="52" width="302" format="[GENERAL]" html.valueishtml="0"  name=irpf_total visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+compute(band=detail alignment="1" expression="case(  tipo_gestion  when 'C' then 
+   base_dv+base_cip + base_musaat  when 'A' then 
+   base_dv+base_cip + base_musaat  when 'S' then  
+if(aplica_dv = 'S' , base_dv, 0) +  if(aplica_cip = 'S', base_cip, 0) +  if(aplica_musaat = 'S', base_musaat, 0) +  if(  aplica_impresos  = 'S',  base_impresos , 0) ) "border="0" color="0" x="2021" y="216" height="52" width="270" format="[GENERAL]" html.valueishtml="0"  name=base_total_colegiado visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="1" expression="case(  tipo_gestion  when 'C' then iva_dv + iva_cip  when 'A' then  iva_dv + iva_cip  when 'S' then  if(aplica_dv = 'S', iva_dv, 0) +  if(aplica_cip = 'S', iva_cip, 0) +  if( aplica_impresos  = 'S',  iva_impresos , 0) )"border="0" color="0" x="2295" y="216" height="52" width="270" format="###,###,##0.00" html.valueishtml="0"  name=iva_total_colegiado visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+compute(band=detail alignment="1" expression="case(  tipo_gestion  when 'C' then if(aplica_honos = 'S', base_honos, 0) + 
+ if(aplica_desplaza = 'S', base_desplaza, 0) +  if(aplica_dv = 'S', base_dv, 0) +
+  if(aplica_cip = 'S', base_cip, 0) +  if(aplica_musaat = 'S', base_musaat, 0) +
+  if(aplica_retvol = 'S', base_retvol, 0) + if(base_garantia > 0, - base_garantia, 0) +  if(  aplica_impresos  = 'S',  base_impresos  , 0) + if(cobro_a_cuenta > 0, - cobro_a_cuenta, 0) +base_cip_suplida + musaat_suplida when 'A' then if(aplica_honos = 'S', base_honos, 0) + 
+ if(aplica_desplaza = 'S', base_desplaza, 0) +  if(aplica_dv = 'S', base_dv, 0) +
+  if(aplica_cip = 'S', base_cip, 0) +  if(aplica_musaat = 'S', base_musaat, 0) +
+  if(aplica_retvol = 'S', base_retvol, 0) + if(base_garantia > 0, - base_garantia, 0) +  if(  aplica_impresos  = 'S',  base_impresos  , 0) + if(cobro_a_cuenta > 0, - cobro_a_cuenta, 0) +base_cip_suplida + musaat_suplida when 'S' then  0 ) "border="0" color="0" x="2021" y="152" height="52" width="270" format="[GENERAL]" html.valueishtml="0"  name=base_total_cliente visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="1" expression="case(  tipo_gestion  when 'C' then if(aplica_honos = 'S', iva_honos, 0) +  if(aplica_desplaza = 'S', iva_desplaza, 0) +  if(aplica_dv = 'S', iva_dv, 0) +  if(aplica_cip = 'S', iva_cip, 0) +  if(  aplica_impresos  = 'S',  iva_impresos , 0)+iva_cip_suplida  when 'A' then  if(aplica_honos = 'S', iva_honos, 0) +  if(aplica_desplaza = 'S', iva_desplaza, 0) +  if(aplica_dv = 'S', iva_dv, 0) +  if(aplica_cip = 'S', iva_cip, 0) +  if(  aplica_impresos  = 'S',  iva_impresos , 0)+iva_cip_suplida  when 'S' then  0 )                                  "border="0" color="0" x="2295" y="152" height="52" width="270" format="###,###,##0.00" html.valueishtml="0"  name=iva_total_cliente visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+compute(band=detail alignment="1" expression="if(  tipo_gestion <> 'A', importe_irpf, 0  )"border="0" color="0" x="2569" y="152" height="52" width="302" format="[GENERAL]" html.valueishtml="0"  name=irpf_total_cliente visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=18 alignment="1" tabsequence=32766 border="0" color="16711680" x="23" y="8" height="52" width="297" format="[general]" html.valueishtml="0"  name=n_aviso visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="MS Sans Serif" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=19 alignment="1" tabsequence=32766 border="0" color="0" x="338" y="8" height="52" width="302" format="dd/mm/yyyy" html.valueishtml="0"  name=fecha visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=17 alignment="1" tabsequence=32766 border="0" color="0" x="658" y="8" height="52" width="224" format="[general]" html.valueishtml="0"  name=colegiados_n_colegiado visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="0" expression=" colegiados_apellidos + if(isnull( colegiados_nombre ) , '' ,  ', ' + colegiados_nombre )"border="0" color="0" x="901" y="8" height="52" width="992" format="[GENERAL]" html.valueishtml="0"  name=colegiado visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="0" expression=" clientes_apellidos + if(isnull( clientes_nombre ) , '' , ', ' + clientes_nombre)"border="0" color="0" x="1911" y="8" height="52" width="992" format="[GENERAL]" html.valueishtml="0"  name=cliente visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="1" expression=" if(isnull(base_total), 0, base_total) +  if(isnull(base_total), 0, iva_total) -   if(isnull(irpf_total), 0, irpf_total)"border="0" color="16711680" x="2921" y="8" height="52" width="343" format="#,##0.00" html.valueishtml="0"  name=total_aviso_comp visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=footer alignment="1" text="Total de Avisos :" border="0" color="0" x="18" y="28" height="52" width="613" html.valueishtml="0"  name=t_2 visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+compute(band=footer alignment="0" expression="rowcount()"border="0" color="0" x="649" y="28" height="52" width="261" format="[General]" html.valueishtml="0"  name=cuantos visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=footer alignment="1" expression="sum( if(isnull(base_total), 0, base_total) +  if(isnull(base_total), 0, iva_total) -   if(isnull(irpf_total), 0, irpf_total) for all)"border="0" color="16711680" x="2921" y="28" height="52" width="343" format="#,##0.00" html.valueishtml="0"  name=compute_3 visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=footer alignment="1" text="Totales:" border="0" color="0" x="2373" y="28" height="52" width="219" html.valueishtml="0"  name=t_1 visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+line(band=footer x1="2354" y1="12" x2="3282" y2="12"  name=l_1 visible="1" pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="1090519039" )
+text(band=header alignment="2" text="N$$HEX2$$ba002000$$ENDHEX$$Exped." border="6" color="0" x="3282" y="8" height="52" width="361" html.valueishtml="0"  name=fases_n_expedi_t visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="79741120" )
+text(band=header alignment="2" text="N$$HEX2$$ba002000$$ENDHEX$$Registro" border="6" color="0" x="3662" y="8" height="52" width="343" html.valueishtml="0"  name=fases_n_registro_t visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="79741120" )
+column(band=detail id=21 alignment="0" tabsequence=32766 border="0" color="0" x="3305" y="8" height="52" width="334" format="[general]" html.valueishtml="0"  name=fases_n_expedi visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=20 alignment="0" tabsequence=32766 border="0" color="0" x="3653" y="8" height="52" width="343" format="[general]" html.valueishtml="0"  name=fases_n_registro visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Total Cliente" border="6" color="0" x="4018" y="8" height="52" width="343" html.valueishtml="0"  name=total_cliente_comp_t visible="0"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="79741120" )
+text(band=header alignment="2" text="Total Colegiado" border="6" color="0" x="4375" y="8" height="52" width="343" html.valueishtml="0"  name=total_colegiado_comp_t visible="0"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="79741120" )
+compute(band=detail alignment="1" expression=" if(isnull(base_total_cliente), 0, base_total_cliente) +  if(isnull(base_total_cliente), 0, iva_total_cliente) -   if(isnull(irpf_total_cliente), 0, irpf_total_cliente)"border="0" color="0" x="4014" y="8" height="52" width="343" format="#,##0.00" html.valueishtml="0"  name=total_cliente_comp visible="0"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="1" expression=" if(isnull(base_total_colegiado), 0, base_total_colegiado) +  if(isnull(base_total_colegiado), 0, iva_total_colegiado)"border="0" color="0" x="4375" y="8" height="52" width="343" format="#,##0.00" html.valueishtml="0"  name=total_colegiado_comp visible="0"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=footer alignment="1" expression="sum( if(isnull(base_total_cliente), 0, base_total_cliente) +  if(isnull(base_total_cliente), 0, iva_total_cliente) -   if(isnull(irpf_total_cliente), 0, irpf_total_cliente) for all)"border="0" color="0" x="4014" y="28" height="52" width="343" format="#,##0.00" html.valueishtml="0"  name=compute_1 visible="0"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=footer alignment="1" expression="sum( if(isnull(base_total_colegiado), 0, base_total_colegiado) +  if(isnull(base_total_colegiado), 0, iva_total_colegiado) for all)"border="0" color="0" x="4375" y="28" height="52" width="343" format="#,##0.00" html.valueishtml="0"  name=compute_2 visible="0"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" pagingmethod=0 generatedddwframes="1" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()
+ 

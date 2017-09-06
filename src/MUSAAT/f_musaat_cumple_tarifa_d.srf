@@ -1,0 +1,26 @@
+HA$PBExportHeader$f_musaat_cumple_tarifa_d.srf
+global type f_musaat_cumple_tarifa_d from function_object
+end type
+
+forward prototypes
+global function boolean f_musaat_cumple_tarifa_d (string as_id_fase)
+end prototypes
+
+global function boolean f_musaat_cumple_tarifa_d (string as_id_fase);string tipo_actuacion, tipo_obra 
+	long num_registros
+
+	//Obtenemos los tipos de actuacion y los tipos de obra de la fase
+	SELECT fase,tipo_trabajo into :tipo_actuacion ,:tipo_obra FROM fases where id_fase = :as_id_fase;
+
+	//comprobamos que existen registos en musaat_coef_c con los tipos anteriormente obtenidos y que ademas el campo "tabla" sea el "D"
+
+	SELECT count(*) into :num_registros 
+	FROM musaat_coef_c 
+	where ((tipoact = :tipo_actuacion and tipoobra = :tipo_obra) or (tipoact = :tipo_actuacion and tipoobra = '') or 	(tipoact = '' and tipoobra = :tipo_obra) ) and tabla = 'D'; 		
+	
+	if num_registros >0 then RETURN TRUE
+
+	RETURN FALSE
+
+end function
+

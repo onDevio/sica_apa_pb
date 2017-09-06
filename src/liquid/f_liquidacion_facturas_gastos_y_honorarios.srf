@@ -1,0 +1,28 @@
+HA$PBExportHeader$f_liquidacion_facturas_gastos_y_honorarios.srf
+global type f_liquidacion_facturas_gastos_y_honorarios from function_object
+end type
+
+forward prototypes
+global function string f_liquidacion_facturas_gastos_y_honorarios (string id_fase, string id_col)
+end prototypes
+
+global function string f_liquidacion_facturas_gastos_y_honorarios (string id_fase, string id_col);int i
+string n_facturas = ''
+
+datastore ds_gastos_hono
+ds_gastos_hono = create datastore
+ds_gastos_hono.dataobject = 'd_liquidacion_facturas_liquidacion'
+ds_gastos_hono.settransobject(sqlca)
+ds_gastos_hono.retrieve(id_fase,id_col)
+
+for i = 1 to ds_gastos_hono.rowcount( )
+	if(i = 1)then
+		n_facturas = ds_gastos_hono.getitemstring(i,'n_fact')
+	else
+		n_facturas = n_facturas+', '+ds_gastos_hono.getitemstring(i,'n_fact')
+	end if
+next
+
+return n_facturas
+end function
+

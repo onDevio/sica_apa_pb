@@ -1,0 +1,50 @@
+HA$PBExportHeader$d_fases_datos_para_remesa.srd
+$PBExportComments$Solo se usa para la facturacion de la rioja, por eso lo dejo en esta libreria. Si se instaura para todos ya veremos donde lo colocamos
+release 10.5;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes print.preview.outline=yes hidegrayline=no )
+header(height=136 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=84 color="536870912" )
+table(column=(type=char(11) updatewhereclause=yes name=n_registro dbname="fases.n_registro" dbalias=".n_registro" )
+ column=(type=char(14) updatewhereclause=yes name=n_expedi dbname="fases.n_expedi" dbalias=".n_expedi" )
+ column=(type=char(32768) updatewhereclause=no name=descripcion dbname="fases.descripcion" dbalias=".descripcion" )
+ column=(type=char(15) updatewhereclause=yes name=n_cliente dbname="clientes.n_cliente" dbalias=".n_cliente" )
+ column=(type=char(80) updatewhereclause=yes name=apellidos dbname="clientes.apellidos" dbalias=".apellidos" )
+ column=(type=char(50) updatewhereclause=yes name=nombre dbname="clientes.nombre" dbalias=".nombre" )
+ column=(type=char(10) updatewhereclause=yes name=id_cliente dbname="fases_clientes.id_cliente" dbalias=".id_cliente" )
+ column=(type=number updatewhereclause=yes name=porcen dbname="fases_clientes.porcen" dbalias=".porcen" )
+ column=(type=char(60) updatewhereclause=yes name=fases_archivo dbname="fases.archivo" dbalias=".archivo" )
+ retrieve="PBSELECT( VERSION(400) TABLE(NAME=~"fases~" )  TABLE(NAME=~"fases_clientes~" )  TABLE(NAME=~"clientes~" ) COLUMN(NAME=~"fases.n_registro~") COLUMN(NAME=~"fases.n_expedi~") COLUMN(NAME=~"fases.descripcion~") COLUMN(NAME=~"clientes.n_cliente~") COLUMN(NAME=~"clientes.apellidos~") COLUMN(NAME=~"clientes.nombre~") COLUMN(NAME=~"fases_clientes.id_cliente~") COLUMN(NAME=~"fases_clientes.porcen~") COLUMN(NAME=~"fases.archivo~")    JOIN (LEFT=~"fases.id_fase~"    OP =~"=~"RIGHT=~"fases_clientes.id_fase~" )    JOIN (LEFT=~"fases_clientes.id_cliente~"    OP =~"=~"RIGHT=~"clientes.id_cliente~" )WHERE(    EXP1 =~"fases.id_fase~"   OP =~"=~"    EXP2 =~":id_fase~" ) ) ARG(NAME = ~"id_fase~" TYPE = string) " arguments=(("id_fase", string)) )
+text(band=header alignment="2" text="Fases
+N Registro" border="0" color="0" x="5" y="4" height="128" width="329" html.valueishtml="0"  name=fases_n_registro_t visible="1"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Fases
+N Expedi" border="0" color="0" x="338" y="4" height="128" width="411" html.valueishtml="0"  name=fases_n_expedi_t visible="1"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Fases
+Descripcion" border="0" color="0" x="754" y="4" height="128" width="3511" html.valueishtml="0"  name=fases_descripcion_t visible="1"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Clientes
+N Cliente" border="0" color="0" x="4270" y="4" height="128" width="439" html.valueishtml="0"  name=clientes_n_cliente_t visible="1"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Clientes
+Apellidos" border="0" color="0" x="4713" y="4" height="128" width="2222" html.valueishtml="0"  name=clientes_apellidos_t visible="1"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Clientes
+Nombre" border="0" color="0" x="6939" y="4" height="128" width="1399" html.valueishtml="0"  name=clientes_nombre_t visible="1"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="5" y="4" height="76" width="329" format="[general]" html.valueishtml="0"  name=n_registro visible="1" edit.limit=11 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="338" y="4" height="76" width="411" format="[general]" html.valueishtml="0"  name=n_expedi visible="1" edit.limit=14 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="754" y="4" height="76" width="3511" format="[general]" html.valueishtml="0"  name=descripcion visible="1" edit.limit=32000 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="4270" y="4" height="76" width="439" format="[general]" html.valueishtml="0"  name=n_cliente visible="1" edit.limit=15 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="4713" y="4" height="76" width="2222" format="[general]" html.valueishtml="0"  name=apellidos visible="1" edit.limit=80 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="0" color="0" x="6939" y="4" height="76" width="1399" format="[general]" html.valueishtml="0"  name=nombre visible="1" edit.limit=50 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="0" x="8338" y="0" height="64" width="270" format="[general]" html.valueishtml="0"  name=id_cliente visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="0" color="0" x="8608" y="0" height="64" width="1161" format="[general]" html.valueishtml="0"  name=porcen visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=9 alignment="0" tabsequence=0 border="0" color="0" x="9769" y="0" height="64" width="1623" html.valueishtml="0"  name=fases_archivo visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" pagingmethod=0 generatedddwframes="1" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()
+ 

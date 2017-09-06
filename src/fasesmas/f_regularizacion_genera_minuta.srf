@@ -1,0 +1,197 @@
+HA$PBExportHeader$f_regularizacion_genera_minuta.srf
+global type f_regularizacion_genera_minuta from function_object
+end type
+
+forward prototypes
+global function string f_regularizacion_genera_minuta (statictext st_proceso, datawindow dw_pago, string i_id_col, double cip, double musaat, double dv, datawindow dw_3, boolean factura, integer impr_copias, integer impr_orig, string id_cliente, string t_minuta, double pem_certificacion, double porc_cip)
+end prototypes
+
+global function string f_regularizacion_genera_minuta (statictext st_proceso, datawindow dw_pago, string i_id_col, double cip, double musaat, double dv, datawindow dw_3, boolean factura, integer impr_copias, integer impr_orig, string id_cliente, string t_minuta, double pem_certificacion, double porc_cip);string forma_pago, banco, asunto, id_col, tipo_movimiento_csd, pendiente = 'N'
+string obra_oficial, t_visado, id_minuta, id_fase, n_aviso, pagador, t_iva
+string t_iva_honos, t_iva_desplaza, t_iva_dv, t_iva_cip, facturado = 'S', honos_descripcion
+datetime fecha_pago, fecha
+double porc_renuncia = 0, porc_iva, base_musaat, total_cliente, iva_cip = 0, total_colegiado
+double porc_iva_honos, porc_iva_desplaza, porc_iva_dv, porc_iva_cip, irpf, total_aviso, iva_dv = 0	
+double pem_movimiento
+boolean genera_movi = false, encontrado = false, es_sociedad = false
+
+forma_pago 	= dw_pago.getitemstring(1, 'forma_pago')
+fecha_pago 	= dw_pago.getitemdatetime(1, 'fecha_pago')
+banco 		= dw_pago.getitemstring(1, 'banco')
+asunto		= dw_pago.getitemstring(1, 'asunto')
+
+id_col = i_id_col
+
+if musaat <> 0 then genera_movi = true else genera_movi = false
+if f_colegiado_tipopersona(id_col) = 'S' then
+	es_sociedad = true		
+end if		
+
+st_proceso.text = 'Generando Aviso de Gastos ...'
+id_fase =  g_id_fase
+id_minuta = f_siguiente_numero('FASES-MINUTAS',10)
+n_aviso = f_numera_aviso(true) // Modificado Ricardo 2005-05-12
+irpf = f_dame_irpf_colegiado(id_col)
+fecha = fecha_pago
+pagador = '1'
+t_iva = g_t_iva_defecto
+porc_iva =  f_dame_porcent_iva(g_t_iva_defecto)
+base_musaat = musaat
+total_cliente = 0
+t_iva_honos = g_t_iva_00
+t_iva_desplaza = g_t_iva_00  
+t_iva_dv = g_t_iva_00
+
+if f_expedientes_administracion(id_fase) = 'S' then
+	if t_minuta = 'F' then
+		obra_oficial = '5' // ES O.O
+	else
+		obra_oficial = '3' // ES O.O
+	end if
+else
+	obra_oficial = '0' // O.O.
+end if
+t_visado = '2' // Modificaci$$HEX1$$f300$$ENDHEX$$n
+tipo_movimiento_csd = t_visado + obra_oficial
+
+// Modificado David - 25/02/2005
+// Cogemos el n$$HEX2$$ba002000$$ENDHEX$$contrato anterior si ya est$$HEX2$$e1002000$$ENDHEX$$puesto en el contrato
+string n_contrato_ant
+SELECT fases.n_contrato_ant  INTO :n_contrato_ant  FROM fases  WHERE fases.id_fase = :id_fase   ;
+
+
+SELECT t_iva
+ INTO :t_iva_cip
+ FROM csi_articulos_servicios  
+WHERE csi_articulos_servicios.codigo = :g_codigos_conceptos.cip and csi_articulos_servicios.colegio = :g_colegio;
+
+SELECT t_iva
+ INTO :t_iva_dv
+ FROM csi_articulos_servicios  
+WHERE csi_articulos_servicios.codigo = :g_codigos_conceptos.dv and csi_articulos_servicios.colegio = :g_colegio;
+
+SELECT descripcion, t_iva
+ INTO :honos_descripcion, :t_iva_honos
+ FROM csi_articulos_servicios  
+WHERE csi_articulos_servicios.codigo = :g_codigos_conceptos.honorarios and csi_articulos_servicios.colegio = :g_colegio;
+
+SELECT t_iva
+ INTO :t_iva_desplaza
+ FROM csi_articulos_servicios  
+WHERE csi_articulos_servicios.codigo = :g_codigos_conceptos.desplazamientos and csi_articulos_servicios.colegio = :g_colegio;
+
+// Modificiado ricardo 2005-06-14
+// incic. 0000002726
+if g_colegio = 'COAATZ' then
+	if obra_oficial = '3' or obra_oficial = '5' then
+		pem_movimiento = pem_certificacion
+		//SELECT fases_usos.pem INTO :pem_movimiento FROM fases_usos  WHERE fases_usos.id_fase = :id_fase   ;
+	else
+		setnull(pem_movimiento)
+	end if
+else
+	setnull(pem_movimiento)
+end if
+
+
+
+porc_iva_honos = 0   
+porc_iva_desplaza = 0   
+porc_iva_dv = f_dame_porcent_iva(t_iva_dv)
+porc_iva_cip = f_dame_porcent_iva(t_iva_cip)
+porc_iva_honos = f_dame_porcent_iva(t_iva_honos)
+porc_iva_desplaza = f_dame_porcent_iva(t_iva_desplaza)
+
+
+iva_cip = f_aplica_t_iva(cip, t_iva_cip)
+iva_dv = f_aplica_t_iva(dv, t_iva_dv)
+total_colegiado = musaat + cip + iva_cip + dv + iva_dv
+total_aviso = total_colegiado
+
+// Modificado Ricardo 2005-03-21
+if total_aviso<0 then forma_pago = g_formas_pago.liquidacion
+// Fin Modificado Ricardo 2005-03-21
+
+
+if not factura then 
+	pendiente = 'S'
+	facturado = 'N'
+	setnull(fecha_pago)
+	setnull(forma_pago)
+	setnull(banco)
+end if
+
+INSERT INTO fases_minutas  
+	( id_minuta, id_fase, id_colegiado, id_cliente, cantidad, pendiente, facturado, id_honorario,   
+	  f_facturado, id_factura, tipo_minuta, irpf, importe_irpf, n_aviso, fecha, fecha_pago,   
+	  tipo_gestion, pagador, reclamar, t_iva, porc_iva, forma_pago, aplica_honos, porc_honos,   
+	  concepto_honos, base_honos, iva_honos, aplica_desplaza, base_desplaza, iva_desplaza,   
+	  concepto_desplaza, aplica_dv, base_dv, iva_dv, aplica_cip, base_cip, iva_cip, aplica_musaat,   
+	  base_musaat, iva_musaat, aplica_retvol, porc_retvol, base_retvol, iva_retvol, total_cliente,   
+	  total_colegiado, t_iva_honos, t_iva_desplaza, t_iva_dv, t_iva_cip, porc_iva_honos,   
+	  porc_iva_desplaza, porc_iva_dv, porc_iva_cip, anulada, banco, irpf_cliente, observaciones,
+	  base_garantia, total_aviso, aplica_impresos, base_impresos, iva_impresos, paga_asalariado,
+	  paga_externo, paga_dv, n_contrato_ant, pem_certificacion, t_minuta, urgente,base_cip_suplida, 
+	  porc_iva_cip_suplida, iva_cip_suplida, musaat_suplida, porc_cip)  
+VALUES 
+	( :id_minuta, :id_fase, :id_col, :id_cliente, :porc_renuncia, :pendiente, :facturado, null, 
+		null, null, :tipo_movimiento_csd, :irpf, 0, :n_aviso, :fecha, :fecha_pago,   
+	  'S', :pagador, 'S', :t_iva, :porc_iva, :forma_pago, 'N', 0, 
+	  :honos_descripcion, 0, 0, 'N',  0, 0,   
+	  null, 'S', :dv, :iva_dv, 'S', :cip, :iva_cip, 'S',   
+	  :base_musaat, 0, 'N', 0, 0, 0, :total_cliente,   
+	  :total_colegiado, :t_iva_honos, :t_iva_desplaza, :t_iva_dv, :t_iva_cip, :porc_iva_honos,   
+	  :porc_iva_desplaza, :porc_iva_dv, :porc_iva_cip, 'N', :banco, 'N', null,
+	  0, :total_aviso, 'N', 0, 0, 'N', 'N', 'P', :n_contrato_ant, :pem_movimiento, :t_minuta, 'N',0,0,0,0, :porc_cip)  ;
+
+COMMIT;
+
+// Si no est$$HEX2$$e1002000$$ENDHEX$$marcado el check no se genera la factura
+if not factura then 
+	if isvalid(g_detalle_fases) then
+		g_detalle_fases.postevent('csd_refrescar_avisos')
+		g_detalle_fases.postevent('csd_refrescar_src')	
+	end if
+//	st_proceso.text = 'Proceso Finalizado ...'
+//	messagebox(g_titulo, 'Proceso Finalizado')
+	return id_minuta // Para generar la liquidaci$$HEX1$$f300$$ENDHEX$$n - DAVID 04/01/2005
+end if
+
+// Generamos las facturas
+st_proceso.text = 'Recuperando Datos ...'
+dw_3.Retrieve(id_minuta)
+st_proceso.text = 'Generando Facturas ...'
+// g_cobro_obligado : con esto no regulariza : puede dejar de usarse usando el tipo_movimiento_csd
+g_cobro_obligado = 'S'
+// Modificado Ricardo 2005-05-10
+st_generar_facturas_minutas parametros_factura_minuta
+
+parametros_factura_minuta.dw_minuta 			= dw_3
+parametros_factura_minuta.num_orig 				= impr_copias
+parametros_factura_minuta.num_copias 			= impr_orig
+parametros_factura_minuta.regulariza_musaat	= false
+parametros_factura_minuta.movimiento_musaat	= genera_movi
+parametros_factura_minuta.tipo_movimiento_csd= tipo_movimiento_csd
+parametros_factura_minuta.tipo_prev				= ''
+parametros_factura_minuta.dw_factura			= dw_3
+// Por ser una minuta SGC, es sencillo averiguar la serie que le tenemos que pasar!
+if total_colegiado>0 then
+	parametros_factura_minuta.serie				= g_serie_fases
+else
+	parametros_factura_minuta.serie				= g_facturas_negativas_serie
+end if
+
+f_generar_facturas_minuta(parametros_factura_minuta)
+//	f_generar_facturas_minuta(dw_3,impr_copias,impr_orig, FALSE, genera_movi, tipo_movimiento_csd, '', dw_3)
+// FIN Modificado Ricardo 2005-05-10
+g_cobro_obligado = 'N'
+
+
+if isvalid(g_detalle_fases) then
+	g_detalle_fases.postevent('csd_refrescar_avisos')
+	g_detalle_fases.postevent('csd_refrescar_src')	
+end if
+
+return id_minuta
+end function
+

@@ -1,0 +1,87 @@
+HA$PBExportHeader$f_sql_join.srf
+global type f_sql_join from function_object
+end type
+
+forward prototypes
+global function string f_sql_join (string sql_origen, string joins[])
+end prototypes
+
+global function string f_sql_join (string sql_origen, string joins[]);// Funci$$HEX1$$f300$$ENDHEX$$n que toma como entrada una una sql y una serie de joins y modifica la sql para que tome los joins
+// Ejemplo de uso: f_sql_join(i_sql_nuevo, {'colegiados.id_colegiado = agrupaciones.id_colegiado', 'colegiados.id_colegiado = incompatibilidades.id_colegiado'})
+// Fecha de creacion 9/3/2003
+String  ls_sql
+n_cst_sqlattrib  lnv_sqlattrib[ ]
+Integer  li_return
+n_cst_sql inv_sql
+long i, j, pos_punto,pos_coma
+String sentencia_from, sentencia_where
+n_cst_string inv_string
+string tablas_joins[]
+string tablas_from[]
+string from_aux
+long contador
+boolean encontrado
+
+// Dividimos la sql en partes (parse)
+li_return = inv_sql.of_Parse(sql_origen, lnv_sqlattrib)
+// Si se produce error retornamos la sql origen
+if li_return <= 0 then return sql_origen
+
+sentencia_from = lnv_sqlattrib[1].s_tables
+sentencia_where = lnv_sqlattrib[1].s_where
+
+from_aux = sentencia_from
+contador = 1
+pos_coma = PosA ( from_aux , ',' , 1 )
+do while pos_coma > 0 
+	tablas_from[contador] = trim(LeftA (from_aux, pos_coma - 1))
+	contador++
+	from_aux = MidA(from_aux,pos_coma + 1)
+	pos_coma = PosA (from_aux, ',' , 1)
+loop
+tablas_from[contador] =  trim(from_aux)
+
+// Agregamos joins
+for i = 1 to upperbound(joins[])
+	// Obtener las tablas implicadas
+	// Modificar FROM
+	inv_string.of_parsetoarray(joins[i], ' ', tablas_joins[])
+	for j = 1 to upperbound(tablas_joins[])
+		pos_punto = PosA(tablas_joins[j], '.', 1)
+		if  pos_punto > 0 then
+			encontrado = false
+			contador = 1
+			do while not(encontrado) and contador <= UpperBound(tablas_from)
+				string tabla_join
+				tabla_join=trim ( left( tablas_joins[j] , pos_punto - 1) ) 
+				if tablas_from[contador] = tabla_join then encontrado = true 
+				if pos(tablas_from[contador],'JOIN')>0 then
+					if pos(tablas_from[contador],tabla_join)>0 then encontrado=true 
+				end if
+				contador++
+			loop
+			if encontrado then continue
+//			if pos (sentencia_from, left( tablas_joins[j] , pos_punto - 1), 1) > 0 then continue
+			sentencia_from += ', ' + LeftA( tablas_joins[j], pos_punto - 1)
+			tablas_from[upperbound(tablas_from) + 1] = LeftA( tablas_joins[j], pos_punto - 1) // Asi evitamos que se pueda agregar dos veces la misma tabla si se estan poniendo 2 joins sobre ella
+		end if
+	next
+
+	inv_string.of_parsetoarray('', '', tablas_joins[])
+	// Modificar where
+	if LenA(sentencia_where) > 0 then sentencia_where += ' and '
+	sentencia_where += joins[i]
+next
+for i = 1 to upperbound(lnv_sqlattrib[])
+	lnv_sqlattrib[i].s_tables = sentencia_from
+	lnv_sqlattrib[i].s_where = sentencia_where	
+next
+
+// Reconstruimos la select (assembly)
+ls_sql = inv_sql.of_Assemble(lnv_sqlattrib)
+//MessageBox("SQL", ls_sql)
+
+
+return ls_sql
+end function
+

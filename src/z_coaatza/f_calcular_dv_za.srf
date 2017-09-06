@@ -1,0 +1,25 @@
+HA$PBExportHeader$f_calcular_dv_za.srf
+$PBExportComments$Calcula el total de dv para Zaragoza
+global type f_calcular_dv_za from function_object
+end type
+
+forward prototypes
+global function integer f_calcular_dv_za (ref st_dv_datos st_dv_datos)
+end prototypes
+
+global function integer f_calcular_dv_za (ref st_dv_datos st_dv_datos);double Honorarios	= 0
+
+// En las obras oficiales no se pagan dv
+if st_dv_datos.administracion then return 0
+
+// Solo se calculan en la primera actuaci$$HEX1$$f300$$ENDHEX$$n de un expediente
+//if not f_fases_primera_actuacion(st_dv_datos.id_expediente, st_dv_datos.id_fase) then return 0
+
+Honorarios = st_dv_datos.hon_teor
+
+st_dv_datos.dv = f_redondea(st_dv_datos.hon_teor * g_porc_dv_defecto /100)
+
+return 0
+
+end function
+

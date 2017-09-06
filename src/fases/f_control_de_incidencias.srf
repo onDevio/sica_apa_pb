@@ -1,0 +1,48 @@
+HA$PBExportHeader$f_control_de_incidencias.srf
+global type f_control_de_incidencias from function_object
+end type
+
+forward prototypes
+global function string f_control_de_incidencias (string tipo, string id)
+end prototypes
+
+global function string f_control_de_incidencias (string tipo, string id);datetime fecha
+string mensaje,mensaje2,cabecera, aviso
+
+
+ DECLARE incidencias CURSOR FOR  
+  SELECT incidencias.fecha,incidencias.texto FROM incidencias  
+  WHERE ( incidencias.tipo = :tipo ) AND ( incidencias.id = :id ) ORDER BY incidencias.fecha ASC  ;
+
+if tipo='C' then
+	cabecera=g_idioma.of_getmsg('fases.msg_inci_col','Atenci$$HEX1$$f300$$ENDHEX$$n !!! Incidencias. Colegiado: ') + f_colegiado_apellido(id) + CR + CR
+else
+	cabecera=g_idioma.of_getmsg('fases.msg_inci_cli','Atenci$$HEX1$$f300$$ENDHEX$$n !!! Incidencias. Cliente: ') + f_dame_cliente(id) + CR + CR
+end if
+open incidencias;
+fetch incidencias into :fecha,:mensaje;
+do while SQLCA.SQLcode = 0
+	if mensaje<>'' then 	mensaje2= mensaje2 + string(fecha,'dd/mm/yyyy') + ' : ' + mensaje + cr
+	fetch incidencias into :fecha,:mensaje;
+loop
+close incidencias;
+
+// aviso
+if upper(tipo) = 'C' then
+	  SELECT colegiados.aviso  
+    INTO :aviso  
+    FROM colegiados  
+   WHERE colegiados.id_colegiado = :id   
+           ;
+	if not f_es_vacio(aviso) then
+		mensaje2 = mensaje2 + cr + aviso
+	end if
+end if
+
+if mensaje2<>'' then 
+	mensaje2= cabecera + mensaje2
+	MessageBox(g_titulo,mensaje2)
+end if
+return mensaje2
+end function
+

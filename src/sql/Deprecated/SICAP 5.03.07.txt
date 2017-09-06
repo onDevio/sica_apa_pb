@@ -1,0 +1,5 @@
+//Solo Murcia. 
+UPDATE csi_empresas SET logo='logo_datie.jpg' WHERE es_colegio = 'N';
+
+//Se actualiza la fecha de versión
+update var_globales set texto='20111122', descripcion = 'versión v5.3.07' where nombre='g_version_minima';

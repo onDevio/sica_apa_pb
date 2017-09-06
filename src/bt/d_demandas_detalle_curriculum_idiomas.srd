@@ -1,0 +1,17 @@
+HA$PBExportHeader$d_demandas_detalle_curriculum_idiomas.srd
+release 7;
+datawindow(units=0 timer_interval=0 color=79741120 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=72 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=84 color="536870912" )
+table(column=(type=char(2) update=yes updatewhereclause=yes key=yes name=idioma dbname="bt_demandas_idiomas.idioma" )
+ column=(type=char(2) update=yes updatewhereclause=yes name=nivel dbname="bt_demandas_idiomas.nivel" )
+ column=(type=char(10) update=yes updatewhereclause=yes key=yes name=id_col dbname="bt_demandas_idiomas.id_col" )
+ retrieve="PBSELECT( VERSION(400) TABLE(NAME=~"bt_demandas_idiomas~" ) COLUMN(NAME=~"bt_demandas_idiomas.idioma~") COLUMN(NAME=~"bt_demandas_idiomas.nivel~") COLUMN(NAME=~"bt_demandas_idiomas.id_col~")WHERE(    EXP1 =~"bt_demandas_idiomas.id_col~"   OP =~"=~"    EXP2 =~":id_col~" ) ) ARG(NAME = ~"id_col~" TYPE = string) " update="bt_demandas_idiomas" updatewhere=1 updatekeyinplace=no arguments=(("id_col", string)) )
+text(band=header alignment="2" text="Idioma" border="6" color="0" x="18" y="8" height="52" width="1385"  name=idioma_t  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Nivel" border="6" color="0" x="1422" y="8" height="52" width="471"  name=nivel_t  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="5" color="0" x="23" y="4" height="56" width="1385" format="[general]"  name=idioma dddw.name=d_dddw_idiomas dddw.displaycolumn=descripcion dddw.datacolumn=codigo dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any dddw.nilisnull=yes dddw.vscrollbar=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+column(band=detail id=2 alignment="0" tabsequence=20 border="5" color="0" x="1422" y="4" height="56" width="471" format="[general]"  name=nivel  tag=" " dddw.name=d_dddw_nivel_idiomas dddw.displaycolumn=descripcion dddw.datacolumn=codigo dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any dddw.nilisnull=yes dddw.vscrollbar=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

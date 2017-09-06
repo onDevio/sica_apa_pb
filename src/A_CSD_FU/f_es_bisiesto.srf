@@ -1,0 +1,32 @@
+HA$PBExportHeader$f_es_bisiesto.srf
+$PBExportComments$Dada una fecha, nos da el n$$HEX2$$ba002000$$ENDHEX$$de d$$HEX1$$ed00$$ENDHEX$$as del mes
+global type f_es_bisiesto from function_object
+end type
+
+forward prototypes
+global function datetime f_es_bisiesto (datetime f_desde)
+global function boolean f_es_bisiesto (integer anyo)
+end prototypes
+
+global function datetime f_es_bisiesto (datetime f_desde);// Funci$$HEX1$$f300$$ENDHEX$$n que, dada una fecha, devuelve el datetime correspondiente al $$HEX1$$fa00$$ENDHEX$$ltimo d$$HEX1$$ed00$$ENDHEX$$a de dicho mes y a$$HEX1$$f100$$ENDHEX$$o
+datetime f_hasta
+integer mes, anyo, j, mismo_mes
+
+ mes =  Month (Date(f_desde))
+ anyo = Year( Date(f_desde))
+
+j = f_numero_dias_mes ( f_desde)
+ f_hasta = Datetime( Date(string(j) + '/' + string(mes) + '/' + string(anyo)))
+
+return f_hasta
+end function
+
+global function boolean f_es_bisiesto (integer anyo);// Funci$$HEX1$$f300$$ENDHEX$$n que, dado un a$$HEX1$$f100$$ENDHEX$$o, devuelve si es o no bisiesto
+
+if ((mod(anyo,4)=0 and mod(anyo,100)<>0) or mod(anyo,400)=0) then
+  return true
+else  
+   return false
+end if
+end function
+

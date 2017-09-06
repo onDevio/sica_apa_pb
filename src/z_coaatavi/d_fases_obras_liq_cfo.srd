@@ -1,0 +1,77 @@
+HA$PBExportHeader$d_fases_obras_liq_cfo.srd
+release 10.5;
+datawindow(units=0 timer_interval=0 color=1073741824 processing=0 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes print.preview.outline=yes hidegrayline=no )
+header(height=136 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=84 color="536870912" )
+table(column=(type=char(3) updatewhereclause=yes name=trabajos_c_trabajo dbname="trabajos.c_trabajo" dbalias=".c_trabajo" )
+ column=(type=char(3) updatewhereclause=yes name=t_fases_c_t_fase dbname="t_fases.c_t_fase" dbalias=".c_t_fase" )
+ column=(type=char(60) updatewhereclause=yes name=trabajos_d_trabajo dbname="trabajos.d_trabajo" dbalias=".d_trabajo" )
+ column=(type=char(60) updatewhereclause=yes name=t_fases_d_t_descripcion dbname="t_fases.d_t_descripcion" dbalias=".d_t_descripcion" )
+ column=(type=datetime updatewhereclause=yes name=fechas dbname="fases.FECHAS" dbalias=".FECHAS" )
+ column=(type=char(60) updatewhereclause=yes name=fases_archivo dbname="fases.archivo" dbalias=".archivo" )
+ column=(type=char(255) updatewhereclause=yes name=fases_emplazamiento dbname="fases.emplazamiento" dbalias=".emplazamiento" )
+ column=(type=char(60) updatewhereclause=yes name=poblaciones_descripcion dbname="poblaciones.descripcion" dbalias=".descripcion" )
+ column=(type=char(32768) updatewhereclause=no name=fases_descripcion dbname="fases.descripcion" dbalias=".descripcion" )
+ column=(type=char(10) updatewhereclause=yes name=fases_id_fase dbname="fases.id_fase" dbalias=".id_fase" )
+ retrieve="  SELECT trabajos.c_trabajo,   
+         t_fases.c_t_fase,   
+         trabajos.d_trabajo,   
+         t_fases.d_t_descripcion,   
+         fases.f_visado as FECHAS,   
+         fases.archivo,   
+         fases.emplazamiento,   
+         poblaciones.descripcion,   
+         fases.descripcion,   
+         fases.id_fase  
+    FROM fases,   
+         t_fases,   
+         trabajos,   
+         poblaciones,   
+         expedientes  
+   WHERE ( t_fases.c_t_fase = fases.fase ) and  
+         ( trabajos.c_trabajo = fases.tipo_trabajo ) and  
+         ( poblaciones.cod_pob = fases.poblacion ) and  
+         ( expedientes.id_expedi = fases.id_expedi ) and  
+         ( expedientes.f_cierre >= :f_desde ) AND  
+         ( expedientes.f_cierre <= :f_hasta )    
+" arguments=(("f_desde", date),("f_hasta", date)) )
+text(band=header alignment="2" text="Trabajos
+C Trabajo" border="0" color="33554432" x="5" y="4" height="128" width="251" html.valueishtml="0"  name=trabajos_c_trabajo_t visible="1"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="T Fases
+C T Fase" border="0" color="33554432" x="261" y="4" height="128" width="242" html.valueishtml="0"  name=t_fases_c_t_fase_t visible="1"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Trabajos
+D Trabajo" border="0" color="33554432" x="507" y="4" height="128" width="1673" html.valueishtml="0"  name=trabajos_d_trabajo_t visible="1"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="T Fases
+D T Descripcion" border="0" color="33554432" x="2185" y="4" height="128" width="1673" html.valueishtml="0"  name=t_fases_d_t_descripcion_t visible="1"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Fechas" border="0" color="33554432" x="3863" y="4" height="64" width="329" html.valueishtml="0"  name=fechas_t visible="1"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Fases
+Expediente" border="0" color="33554432" x="4197" y="4" height="128" width="1673" html.valueishtml="0"  name=fases_expediente_t visible="1"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Fases
+Lugar" border="0" color="33554432" x="5874" y="4" height="128" width="4389" html.valueishtml="0"  name=fases_lugar_t visible="1"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Poblaciones
+Orden" border="0" color="33554432" x="10267" y="4" height="128" width="1673" html.valueishtml="0"  name=poblaciones_orden_t visible="1"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Fases
+Tipo" border="0" color="33554432" x="11945" y="4" height="128" width="4389" html.valueishtml="0"  name=fases_tipo_t visible="1"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="33554432" x="5" y="4" height="76" width="110" format="[general]" html.valueishtml="0"  name=trabajos_c_trabajo visible="1" edit.limit=3 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="33554432" x="261" y="4" height="76" width="110" format="[general]" html.valueishtml="0"  name=t_fases_c_t_fase visible="1" edit.limit=3 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="33554432" x="507" y="4" height="76" width="1673" format="[general]" html.valueishtml="0"  name=trabajos_d_trabajo visible="1" edit.limit=60 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="33554432" x="2185" y="4" height="76" width="1673" format="[general]" html.valueishtml="0"  name=t_fases_d_t_descripcion visible="1" edit.limit=60 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="0" color="33554432" x="16334" y="0" height="64" width="1623" format="[general]" html.valueishtml="0"  name=fases_archivo visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="33554432" x="17957" y="0" height="64" width="4389" format="[general]" html.valueishtml="0"  name=fases_emplazamiento visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="0" color="33554432" x="22345" y="0" height="64" width="1623" format="[general]" html.valueishtml="0"  name=poblaciones_descripcion visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=9 alignment="0" tabsequence=32766 border="0" color="33554432" x="23968" y="0" height="64" width="4389" format="[general]" html.valueishtml="0"  name=fases_descripcion visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=10 alignment="0" tabsequence=32766 border="0" color="33554432" x="28357" y="0" height="64" width="270" format="[general]" html.valueishtml="0"  name=fases_id_fase visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=0 border="0" color="33554432" x="28626" y="0" height="64" width="1595" html.valueishtml="0"  name=fechas visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" pagingmethod=0 generatedddwframes="1" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()
+ 

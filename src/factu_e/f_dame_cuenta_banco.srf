@@ -1,0 +1,23 @@
+HA$PBExportHeader$f_dame_cuenta_banco.srf
+global type f_dame_cuenta_banco from function_object
+end type
+
+forward prototypes
+global function string f_dame_cuenta_banco (string codigo)
+end prototypes
+
+global function string f_dame_cuenta_banco (string codigo);string cuenta
+// da la cuenta corriente asociada a un banco
+
+SELECT cuenta_bancaria_iban  
+INTO :cuenta  
+FROM csi_bancos  
+WHERE csi_bancos.codigo = :codigo   ;
+
+cuenta = gnv_control_cuentas_bancarias.of_obtener_cuenta_sin_iban(cuenta)
+
+if f_es_vacio(cuenta) then cuenta = ''
+
+return cuenta
+end function
+

@@ -1,0 +1,120 @@
+HA$PBExportHeader$f_siguiente_numero_bd_ejercicio.srf
+$PBExportComments$$$HEX1$$cd00$$ENDHEX$$dem, pero con el objeto transacci$$HEX1$$f300$$ENDHEX$$n bd_ejercicio
+global type f_siguiente_numero_bd_ejercicio from function_object
+end type
+
+forward prototypes
+global function string f_siguiente_numero_bd_ejercicio (string contador, integer longitud)
+end prototypes
+
+global function string f_siguiente_numero_bd_ejercicio (string contador, integer longitud);// ================================================================================
+// Se cambia la funci$$HEX1$$f300$$ENDHEX$$n el 11/02/05 para evitar la aparici$$HEX1$$f300$$ENDHEX$$n de duplicados
+// ================================================================================
+double i
+string mensaje
+
+// 25/05/2004 Se parametriza la Numeraci$$HEX1$$f300$$ENDHEX$$n $$HEX1$$da00$$ENDHEX$$nica de Asiento por Ejercicio : sea el contador de diario que sea, se le asigna un n$$HEX1$$fa00$$ENDHEX$$mero $$HEX1$$fa00$$ENDHEX$$nico de Asiento para
+//	esa empresa y ejercicio=> lo que hace es cambiar en la llamada el Contador cuando se trate de cualquiera de los Diarios para devolver el N$$HEX3$$ba002000fa00$$ENDHEX$$nico
+//  		(Antes del SELECT)
+//contador = f_contador_numeracion_asiento( contador)
+IF f_numeracion_unica_asientos() = 'S' THEN contador = 'UNI'
+
+// Conectamos y desconectamos el objeto transaccion...
+
+bd_ejercicio.AUTOCOMMIT = FALSE;
+execute immediate 'BEGIN transaction' USING bd_ejercicio;
+
+//Cambio 31/12/2003
+//execute immediate 'lock table contadores in exclusive mode'; // No funciona
+
+// Hacemos primero el update porque bloquea la tabla y no permite acceder a ella desde otra transacci$$HEX1$$f300$$ENDHEX$$n
+update contador set valor=valor+1 where contador=:contador using bd_ejercicio;
+
+IF bd_ejercicio.sqlcode <> 0 then 
+	mensaje = 'Ha ocurrido un error con el contador: '+contador+ cr +SQLCA.sqlerrtext
+	if g_usar_idioma = "S" Then
+		mensaje = 'Ha ocurrido un error con el contador: %s'+ cr + '%s'
+		string params[]
+		params[1] = contador
+		params[2] = SQLCA.SqlErrText
+		mensaje = g_idioma.of_getmsg( "general.error_contador", params,mensaje)
+	end if
+	Messagebox(g_titulo,'Ha ocurrido un error con el contador: '+contador+ cr +SQLCA.sqlerrtext)
+END IF
+
+SELECT valor INTO :i FROM contador WHERE contador = :contador  using bd_ejercicio;
+
+execute immediate 'COMMIT transaction' USING bd_ejercicio;
+
+COMMIT using bd_ejercicio;
+
+bd_ejercicio.AUTOCOMMIT = TRUE;
+
+return RightA('0000000000000000000000'+string(i),longitud)
+
+/*
+// ==================================================================================================
+// Versi$$HEX1$$f300$$ENDHEX$$n anterior a 11 de Febrero
+// ==================================================================================================
+
+double i
+
+// Cambio 14/07/03, aplico el mismo comportamiento que en f_siguiente para SQLCA a fin de evitar problemas con el = n$$HEX2$$ba002000$$ENDHEX$$asiento
+bd_ejercicio.AUTOCOMMIT = FALSE;
+
+execute immediate 'BEGIN transaction';
+
+execute immediate 'lock table contador in exclusive mode';
+
+// 25/05/2004 Se parametriza la Numeraci$$HEX1$$f300$$ENDHEX$$n $$HEX1$$da00$$ENDHEX$$nica de Asiento por Ejercicio : sea el contador de diario que sea, se le asigna un n$$HEX1$$fa00$$ENDHEX$$mero $$HEX1$$fa00$$ENDHEX$$nico de Asiento para
+//	esa empresa y ejercicio=> lo que hace es cambiar en la llamada el Contador cuando se trate de cualquiera de los Diarios para devolver el N$$HEX3$$ba002000fa00$$ENDHEX$$nico
+//  		(Antes del SELECT)
+contador = f_contador_numeracion_asiento( contador)
+
+  SELECT valor  INTO :i FROM contador   WHERE contador = :contador   USING bd_ejercicio;
+
+i++
+
+update contador set valor=:i	WHERE contador=:contador 	USING bd_ejercicio;
+
+//19/06/03
+// si no ha podido obtener el valor del Contador, avisamos por pantalla 
+if bd_ejercicio.sqlcode <> 0 then 	MessageBox(g_titulo,'Ha habido un problema al generar el siguiente contador('+contador+'):' +cr+bd_ejercicio.sqlerrtext)
+
+execute immediate 'COMMIT transaction';
+COMMIT;
+
+bd_ejercicio.AUTOCOMMIT = TRUE;
+	
+return right('0000000000000000000000'+string(i),longitud)
+// ==================================================================================================
+*/
+
+/*double i
+// 12/5/03, Probamos a controlar Manualmente el AutoCommit para la Transacci$$HEX1$$f300$$ENDHEX$$n en esta funci$$HEX1$$f300$$ENDHEX$$n 
+//				para evitar duplicados en el uso de la tabla contador.
+bd_ejercicio.AUTOCOMMIT = FALSE;
+
+execute immediate 'BEGIN transaction';
+
+ SELECT contador.valor  
+    INTO :i  
+    FROM contador 
+   WHERE contador.contador = :contador   
+	USING bd_ejercicio;
+
+i++
+
+update contador
+set contador.valor=:i
+where contador.contador=:contador
+using bd_ejercicio;
+
+execute immediate 'COMMIT transaction';
+COMMIT using bd_ejercicio;
+
+bd_ejercicio.AUTOCOMMIT = TRUE;
+
+return right('0000000000000000000000'+string(i),longitud)*/
+end function
+

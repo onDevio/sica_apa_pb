@@ -1,0 +1,20 @@
+HA$PBExportHeader$f_descripcion_otros_datos.srf
+global type f_descripcion_otros_datos from function_object
+end type
+
+forward prototypes
+global function string f_descripcion_otros_datos (string codigo)
+end prototypes
+
+global function string f_descripcion_otros_datos (string codigo);//Devuelve la descripcion a un c$$HEX1$$f300$$ENDHEX$$digo de caracter$$HEX1$$ed00$$ENDHEX$$stica (Otros Datos Colegiados)
+string descrip_concepto
+descrip_concepto=''
+
+SELECT otros_conceptos.descripcion  
+INTO  :descrip_concepto
+FROM   otros_conceptos  
+WHERE  otros_conceptos.codigo like :codigo;
+
+return descrip_concepto
+end function
+

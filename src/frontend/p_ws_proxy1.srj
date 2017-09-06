@@ -1,0 +1,12 @@
+HA$PBExportHeader$p_ws_proxy1.srj
+$PBExportComments$Generated Web Service Proxy Project
+GeneratorID:{1B1DCEE2-E514-11D1-B30A-006008925BD4}GENBC00000000
+
+WSDLLOCATION:http://as-tst-03.csd.com.es/few/src/main/webapp/ws/WSIntegracionSica.asmx?WSDL	
+COMPONENT:1	WSIntegracionSICA::WSIntegracionSICASoap::fr_WSIntegracionSICASoap
+PACKAGE:1	tns__integracionSicaFew
+COMMENT:Web Service Proxy Generator
+DEPLOYMENT:d:\_aplic\sica_apa\frontend\frontend.pbl	0	0
+PROJECT:p_ws_proxy1
+PREFIX:fr_
+ASSEMBLY:0	0	

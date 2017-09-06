@@ -1,0 +1,23 @@
+HA$PBExportHeader$f_dame_directorio_imagenes.srf
+global type f_dame_directorio_imagenes from function_object
+end type
+
+forward prototypes
+global function string f_dame_directorio_imagenes ()
+end prototypes
+
+global function string f_dame_directorio_imagenes ();// FUNCION CREADA PARA DEVOLVER EL DIRECTORIO DE LAS IMAGENES
+string directorio
+
+directorio = trim(gnv_app.of_GetAppInifile())
+
+// Miramos si lleva la barra final
+IF RightA(directorio ,1) <> '\' then directorio +='\'
+// a$$HEX1$$f100$$ENDHEX$$adimos el valor de imagenes
+directorio +='imagenes\'
+
+// devolvermos el directorio
+return directorio
+
+end function
+

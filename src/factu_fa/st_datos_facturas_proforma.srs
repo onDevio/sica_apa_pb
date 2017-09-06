@@ -1,0 +1,12 @@
+HA$PBExportHeader$st_datos_facturas_proforma.srs
+global type st_datos_facturas_proforma from structure
+	string		lista_id_factura
+	string		forma_pago
+	string		banco
+	string		pagado
+	datetime		fecha_facturacion
+	datetime		fecha_pago
+	string		cobros_a_cero
+	string		id_liquidacion
+end type
+

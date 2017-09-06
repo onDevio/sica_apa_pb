@@ -1,0 +1,22 @@
+HA$PBExportHeader$st_csi_articulos_servicios.srs
+global type st_csi_articulos_servicios from structure
+	string		codigo
+	string		descripcion
+	string		familia
+	string		cuenta
+	string		cta_presupuestaria
+	string		exp
+	string		general
+	double		importe
+	string		activo
+	string		es_informe
+	double		impuesto
+	double		orden
+	string		colegio
+	string		t_iva
+	string		honorario
+	string		impreso
+	string		en_ficha_colegiado
+	string		empresa
+end type
+

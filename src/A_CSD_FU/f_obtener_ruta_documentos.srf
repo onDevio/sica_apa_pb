@@ -1,0 +1,112 @@
+HA$PBExportHeader$f_obtener_ruta_documentos.srf
+global type f_obtener_ruta_documentos from function_object
+end type
+
+forward prototypes
+global function string f_obtener_ruta_documentos (string id_tipo_modulo, string anyo, string id_modulo, string id_documento_modulo, integer tipo)
+end prototypes
+
+global function string f_obtener_ruta_documentos (string id_tipo_modulo, string anyo, string id_modulo, string id_documento_modulo, integer tipo);/*
+ TIPO:  1-> devuelve la ruta relativa MODULO\GRUPO\A$$HEX1$$d100$$ENDHEX$$O
+		  2-> devuelve la ruta relativa con el fichero MODULO\GRUPO\A$$HEX1$$d100$$ENDHEX$$O\FICHERO
+           3-> devuelve la ruta completa virtual Ej. \GESCOL\DOCUMENTOS\CLIENTES\GENERAL\
+           4-> devuelve la ruta completa virtual con el fichero  Ej. \GESCOL\DOCUMENTOS\CLIENTES\GENERAL\
+           5-> devuelve la ruta completa real Ej. C:\TEMP\DOCUMENTOS\CLIENTES\GENERAL\fichero.txt
+           6-> devuelve la ruta completa real con el fichero  Ej. C:\TEMP\DOCUMENTOS\CLIENTES\GENERAL\	fichero.txt
+		  7-> devuelve solo el nombre del fichero
+*/
+
+datetime f_creacion
+string dir_modulo,dir_grupo,ruta,fichero,carpeta_anyo,dir_id_modulo
+string ruta_modulo,id,id_modulo_,id_tipo_modulo_
+
+if IsNull(id_tipo_modulo) then id_tipo_modulo=''
+if IsNull(id_modulo) then id_modulo=''
+if IsNull(id_documento_modulo) then id_documento_modulo=''
+
+if IsNull(tipo) then tipo=1
+
+
+if not(f_es_vacio(id_documento_modulo)) then
+	// SI HEMOS INTRODUCIDO EL ID_DOC_MODULO OBTENEMOS LA RUTA CON SU ID
+	
+	select id_documento_modulo,id_tipo_modulo,id_modulo into :id,:id_tipo_modulo_,:id_modulo_ 
+	from csd_doc_modulo where id_documento_modulo=:id_documento_modulo;
+	
+	if IsNull(id) then return '\'
+	if IsNull(id_tipo_modulo_) then id_tipo_modulo_=''
+	if IsNull(id_modulo_) then id_modulo_=''
+	
+	ruta_modulo = ProfileString(g_dir_aplicacion+"sica.ini","directorios",id_tipo_modulo_,"")			
+	if right(ruta_modulo,1)<>'\' then ruta_modulo+="\"
+	
+	dir_id_modulo=id_modulo_+"\"
+
+else
+	
+	// DIRECTORIO DEL TIPO DE MODULO
+	choose case id_tipo_modulo
+		case 'GENERAL',''  // MODULO GENERAL
+			dir_modulo="GENERAL\"
+		case 'PLANTILLAS'  // PLANTILLAS COMUNES
+			dir_modulo="PLANTILLAS\"		
+		case else
+			//select directorio_real into :ruta_modulo from csd_seg_tipo_modulo where id_tipo_modulo=:id_tipo_modulo;	
+			//ruta_modulo = gnv_parametros.of_getparametro( ruta_modulo )
+			//ruta_modulo += id_tipo_modulo+'\'
+			//dir_modulo=id_tipo_modulo+'\'
+			
+			ruta_modulo = ProfileString(g_dir_aplicacion+"sica.ini","directorios",id_tipo_modulo,"")			
+			if right(ruta_modulo,1)<>'\' then ruta_modulo+="\"
+	end choose
+	
+	// DIRECTORIO DEL ID_MODULO
+	if f_es_vacio(id_modulo) then 
+		dir_id_modulo="GENERAL\"
+	else
+		dir_id_modulo=id_modulo+"\"
+	end if
+end if
+
+// DIRECTORIO DEL A$$HEX1$$d100$$ENDHEX$$O
+if f_es_vacio(anyo) then
+	carpeta_anyo=''
+else
+	carpeta_anyo=anyo+"\"
+end if
+
+
+ruta=""
+
+// DEVOLUCION DE RESULTADOS
+choose case tipo
+	case 1  //RUTA RELATIVA
+		ruta=ruta_modulo+carpeta_anyo+dir_id_modulo
+		
+	case 2 //RUTA RELATIVA + FICHERO
+		ruta=ruta_modulo+carpeta_anyo+dir_id_modulo+fichero
+		
+	case 3  //RUTA COMPLETA VIRTUAL   \GESCOL\ruta
+	//	ruta=gnv_parametros.of_getparametro('ruta_virtual_doc')+dir_modulo+carpeta_anyo+dir_id_modulo
+
+	case 4  //RUTA COMPLETA VIRTUAL + FICHERO \GESCOL\ruta\fichero
+	//	ruta=gnv_parametros.of_getparametro('ruta_virtual_doc')+dir_modulo+carpeta_anyo+dir_id_modulo+fichero
+
+	case 5  //RUTA COMPLETA REAL   C:\ruta_real_doc\
+		ruta=ruta_modulo+carpeta_anyo+dir_id_modulo
+		
+	case 6  //RUTA COMPLETA VIRTUAL + FICHERO   C:\ruta_real_doc\fichero.txt
+		ruta=ruta_modulo+carpeta_anyo+dir_id_modulo+fichero
+		
+	case 7   //SOLO EL NOMBRE DEL FICHERO 
+		ruta=fichero
+		
+	case else
+		ruta=dir_modulo+"\"+dir_grupo+"\"+carpeta_anyo+"\"+dir_id_modulo+"\"
+end choose
+
+
+return ruta
+
+end function
+

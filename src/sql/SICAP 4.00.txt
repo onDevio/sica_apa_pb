@@ -1,0 +1,232 @@
+// V. 4.0.0
+create table dbo.colegiados_cambios_dom (id_cambio_dom char(10) not null, id_colegiado char(10) not null, fiscal char(1) not null, domicilio_antiguo char(160) null, poblacion_antigua char(120) null, domicilio_nuevo char(160) null, poblacion_nueva char(120) null, usuario char(10) null, fecha datetime null) ;
+alter table dbo.colegiados_cambios_dom add constraint pk_id_cambio_dom primary key clustered (id_cambio_dom) ;
+
+create table dbo.premaat_historico (id_modificacion char(10) not null, id_premaat char(10) not null, fecha datetime null, tipo char(1) null, usuario char(10) null) ;
+alter table dbo.premaat_historico add constraint pk_id_mod primary key clustered (id_modificacion) ;
+
+create table dbo.registro_series (codigo char(10) not null, descripcion char(100) null, cod_delegacion char(2) not null, contador double precision null, tipo char(1) null, ruta_base char(255) null, tiene_anyo char(1) null, tiene_carpeta_final char(1) null) ;
+alter table dbo.registro_series add constraint pk_serie primary key nonclustered (codigo, cod_delegacion) ;
+
+insert into listados (descripcion,dw,ventana,activo) values ('Cambios de Domicilio','d_consejo_cambios_domicilios','w_consejo_estadillo','S');
+
+insert into contadores (contador,valor,descripcion) values ('ID_CAMBIO_DOM',0,'Contador de lineas del historico de cambios de domicilio');
+insert into contadores (contador,valor,descripcion) values ('ID_PREMAAT_HISTORICO',0,'Contador de lineas del historico de Premaat');
+
+// Añadido el tipo de documento a los documentos de visared
+alter table t_documentos add visared char(1) null;
+alter table fases_documentos_visared add tipo_documento char(2) null;
+update t_documentos set visared='S';
+
+alter table csi_series add dataobject char(100) null;
+alter table csi_series add tipo char(1) null;
+
+alter table notificaciones add tipo_minuta char(1) null;
+update notificaciones set tipo_minuta='%';    // Si vale 1->Minuta Inicial, 2-> Minuta Parcial o Final
+
+// TODOS (FACTURACION ELECTRONICA)
+ALTER TABLE tipos_facturas  ADD dataobject char(255) null;
+ALTER TABLE tipos_facturas  ADD tipo varchar(1) null;
+ALTER TABLE csi_facturas_emitidas ADD exportado_a_pdf varchar(1) null;
+ALTER TABLE csi_facturas_emitidas ADD firmado varchar(1) null;
+UPDATE csi_facturas_emitidas set exportado_a_pdf='N',firmado='N';
+ 
+INSERT INTO var_globales(nombre,texto) VALUES('g_ds_detalle','ds_detalle') ;
+INSERT INTO var_globales(nombre,texto) VALUES('g_ds_lineas','ds_lineas') ;
+INSERT INTO var_globales(nombre,texto) VALUES('g_texto_mail','Ya puede descargar la factura %N_FACT% de la web.') ;
+INSERT INTO var_globales(nombre,texto) VALUES('g_firmador','S') ;
+
+// TODOS (PERSONALIZAR PARA CADA COLEGIO)
+insert into var_globales (nombre,texto,modificable) values ('g_reg_es_series','N','N');
+insert into var_globales (nombre,texto,modificable) values ('g_codigo_cuota_colegial','251','N');
+insert into var_globales (nombre,texto,descripcion,modificable) values ('g_comprobar_mas_65','N','Comprobacion inicial de cuotas pendientes para colegiados +65','S');
+insert into var_globales (nombre,texto,descripcion,modificable) values ('g_calcular_cuota_alta_premaat','S','Proceso de cálculo de la cuota de Premaat al colegiar','S');
+insert into var_globales (nombre,texto,descripcion,modificable) values ('g_premaat_cod_basico','150Ba','Código Básico PREMAAT','S');
+insert into var_globales (nombre,texto,descripcion,modificable) values ('g_premaat_cod_2000','1502k','Código 2000 PREMAAT','S');
+insert into var_globales (nombre,texto,descripcion,modificable) values ('g_premaat_cod_comple1','150C1','Código Complementario PREMAAT','S');
+
+// TODOS (INC. 9460)
+alter table musaat add f_actividad_prof datetime null ;
+
+// TODOS (INC. 9517)
+alter table musaat_cober_src add t_poliza char(2) null ;
+update musaat_cober_src set t_poliza = '01' ;
+INSERT INTO musaat_cober_src  ( codigo,   prima,   t_poliza )  VALUES ( 'S01',   150000,   '02' )  ;
+INSERT INTO musaat_cober_src  ( codigo,   prima,   t_poliza )  VALUES ( 'S02',   300000,   '02' )  ;
+INSERT INTO musaat_cober_src  ( codigo,   prima,   t_poliza )  VALUES ( 'S03',   450000,   '02' )  ;
+INSERT INTO musaat_cober_src  ( codigo,   prima,   t_poliza )  VALUES ( 'S04',   600000,   '02' )  ;
+INSERT INTO musaat_cober_src  ( codigo,   prima,   t_poliza )  VALUES ( 'S05',   900000,   '02' )  ;
+update musaat set src_t_poliza = '01' where src_t_poliza = null ;
+
+// TODOS (REPAROS)
+create table dbo.reparos_ficha ( id_reparo_ficha char(10) not null,n_ficha char(10) null, fecha datetime not null, 
+f_subsanacion datetime null, apto char(1) null, sms char(1) null, email char(1) null, web char(1) null, carta char(1) null, 
+anulado char(1) null, id_usuario char(10) null, id_colegiado char(10) null, id_fase char(10) null, f_envio datetime null, 
+notificado char(1) null) ;
+alter table dbo.reparos_ficha add constraint id_reparo_ficha primary key nonclustered (id_reparo_ficha) ;
+
+create table dbo.reparos_ficha_linea (id_reparo_linea char(10) not null,id_reparo_ficha char(10) not null,codigo_reparo char(3) null,
+f_subsanacion datetime null,subsanado char(1) null,texto text null,observaciones text null);
+alter table dbo.reparos_ficha_linea add constraint id_reparo_linea primary key nonclustered (id_reparo_linea) ;
+
+alter table t_reparos_fases add orden double precision null;
+insert into contadores (contador,valor,descripcion,modificable) values ('ID_REPARO_FICHA',0,'Identificador de reparos','N');
+insert into contadores (contador,valor,descripcion,modificable) values ('ID_REPARO_LINEA',0,'Identificador de líneas de reparos','N');
+
+// SOLO COLEGIOS NUEVOS
+update t_control_eventos set param1 = '0' where evento like 'FASES_REPAROS'  and control = 'VISIBLE_TAB' ;
+
+// TODOS
+INSERT INTO t_control_eventos  
+( control,   evento,   activo,  id_control )  
+VALUES ( 'AVISO_NO_PREMAAT',   'FASES_COLEGIADOS_NCO',   'S',  'AVISOMUTUA' )  ;
+
+update t_control_eventos set param1 = 'Sellador' where param1 = 'Visared' ;
+
+// TODOS (EMPRESAS COLEGIADOS)
+create table dbo.colegiados_empresas (id_colegiado char(10) not null, id_empresa char(10) not null) 
+alter table dbo.colegiados_empresas add constraint pk_coleg_empresas primary key clustered (id_colegiado, id_empresa) ;
+
+// COAATNA
+INSERT INTO var_globales  ( nombre,   numero,  descripcion,   modificable )  
+VALUES ( 'g_porc_gastos_minutas',   0.005,   'Porcentaje sobre honorarios de gastos por gestión de cobro de minutas (Coaat Navarra)',  'S' )  ;
+insert into var_globales (nombre,texto,modificable) values ('g_comprobar_vencimiento_avisos','S','N');
+update t_control_eventos set param1='0' where evento='FASES_REPAROS' and control='VISIBLE_TAB';
+insert into t_control_eventos (control,evento,activo,param1,id_control,orden) values ('VISIBLE_TAB','FASES_REPAROS_NEW','S','1','X000000028','0');
+insert into t_control_eventos (control,evento,activo,param1,id_control,orden) values ('NOMBRE_TAB','FASES_REPAROS_NEW','S','Reparos New','X000000050','10');
+insert into t_control_eventos (control,evento,activo,param1,param2,id_control,orden) values ('INSERTA_BOTON','ABRIR_FASE','S','Desglose DIP','csd_desglose_dip','DGDIP','10');
+insert into t_control_eventos (control,evento,activo,param1,id_control,orden,mensaje) values ('OPCIONES_CAJA','ABRIR_CAJA','S','4','X000000029','0','Expedientes (F1)	1/Factura Nueva (F2)	2/Factura Emitida Pendiente (F3)	3/Avisos Fraccionados (F8)	8/');
+
+// TODOS
+//cobros multiples
+alter table csi_cobros_multiples add n_talon char(15) null, cod_usuario char(10) null,  centro char(10) null;
+
+alter table fases_colegiados add id_empresa char(10) null ;
+
+// TODOS
+// Para que se guarden todos los avisos en las observaciones del colegiado.
+update t_control_eventos set orden = '99' where control = 'OBSERVACIONES' and evento = 'FASES_COLEGIADOS_NCO' ;
+
+// TODOS
+alter table conceptos_domiciliables add ips double precision null, ccs double precision null, f_inicio datetime null, f_fin datetime null, periodicidad char(2) null ;
+// Quizas en algun colegio la serie sea diferente, cambiarla
+update csi_series set dataobject = 'd_premaat_factura_cuotas' , tipo = 'S' where serie = 'PREMAA' and anyo = '2008' ;
+// TODOS (Sabana)
+update menu set visible = '1', enabled = '1', activo = 'S' where codigo = '0000000191' ;
+
+//TODOS 
+INSERT INTO menu    ( codigo,   descripcion,   objeto,   visible,     enabled,   ventana,    activo )  
+  VALUES ( '0000000195',    'Informe Caja',    'm_aplic_frame.m_file.m_new.m_contabilidad0.m_informedecaja',   
+           '1',    '1',    '',    'S' )  ;
+
+//TODOS
+ INSERT INTO listados   ( descripcion,    dw,    ventana,    orden,     activo )  
+  VALUES ( 'Informe de Caja',  'd_caja_salidas_listado_cm',  'w_cobros_listados',   '00',   'S' )  ;
+
+
+//TODOS
+//Contabilidad
+//Valores genericos de diario y  concepto del apunte
+  INSERT INTO csi_param_sigescon  ( nombre,  valor_numerico,  valor_texto,  valor_fecha,  descripcion )  
+  VALUES ( 'g_sica_diario_facts_emitidas_general',    null,   '905',  null,      'Diario de facturas emitidas general' )  ;
+INSERT INTO csi_param_sigescon  ( nombre,  valor_numerico,  valor_texto,  valor_fecha,  descripcion )  
+ VALUES ( 'g_concepto_apunte_general',    null,   'Fact',      null,         '' )  ;
+INSERT INTO csi_param_sigescon  ( nombre,  valor_numerico,  valor_texto,  valor_fecha,  descripcion )  
+ VALUES ( 'g_concepto_apunte_irpf',    null,   'IRPF',      null,         'Prefijo de apunte utilizado para el IRPF' )  ;
+
+//COAATNA, COAATGUI
+//Indica si utiliza digito en cuentas contable de colegiados y Sociedades
+// Se coloca vacio si no tiene este forma de trabajar
+ INSERT INTO var_globales  ( nombre,   texto,  descripcion,   modificable )  
+  VALUES ( 'g_digito_cta_colegiado',  '9',   'Digito adicional que compone la cuenta del colegiado ej: 430900222  430= prefijo, digito= 9 , n_col = 00222',    'N' )  ;
+  INSERT INTO var_globales  ( nombre,   texto,  descripcion,   modificable )  
+  VALUES ( 'g_digito_cta_sociedades_col',  '7',   'Digito adicional que compone la cuenta de la sociedades  ej: 430700222  430= prefijo, digito= 7 , n_col = S0222 ',    'N' )  ;
+
+// Todos
+//Para mejorar rendimiento en el proceso de contabilizacion.
+//Agregar indice a la tablas
+create nonclustered index f_pago_x on dbo.csi_cobros (f_pago) ;
+create nonclustered index fecha_x on dbo.csi_facturas_emitidas (fecha) ;
+
+//Todos
+//Almacena el usuario en cobros
+alter table csi_cobros add cod_usuario char(10) null;
+
+//TODOS
+insert into t_aplicacion (cod_aplicacion, nombre) values('0000000062', 'INFORME CAJA');
+
+//Todos
+//Actualiza descripción de forma de pago Cobro Múltiple
+update csi_formas_de_pago set descripcion= 'COBRO COMPUESTO' where tipo_pago = 'CM';
+
+// TODOS (RENUNCIAS)
+create table dbo.fases_renuncias (id_fase char(10) not null, id_renuncia char(10) not null, cliente_colegiado char(2) null, id_colegiado char(10) null, id_cliente char(10) null, presupuesto double precision null, porc_renuncia double precision null, tipo_visado char(1) null, tipo_oo char(1) null, observ char(255) null, n_contrato_ant char(10) null, decenal char(1) null, restar_cip char(1) null, restar_musaat char(1) null, restar_dv char(1) null, total_cip double precision null, total_musaat double precision null, total_dv double precision null, pagado_cip double precision null, pagado_musaat double precision null, pagado_dv double precision null, realizado_cip double precision null, realizado_musaat double precision null, realizado_dv double precision null, cip double precision null, musaat double precision null, dv double precision null, fecha datetime null, devol_proy char(1) null) 
+alter table dbo.fases_renuncias add constraint pk_fases_renuncias primary key nonclustered (id_fase, id_renuncia) ;
+
+update t_control_eventos set param1 = 'Cartas Renunc.' where param1 = 'Renuncias' ;
+
+insert into t_control_eventos (control,evento,activo,param1,param2,id_control,orden) 
+values ('INSERTA_BOTON','ABRIR_FASE','S','Renuncias','csd_renuncias_lista','LISTARENUN','');
+
+insert into t_control_eventos (control,evento,activo,param1,param2,id_control,orden) 
+values ('CAMBIAR_DW','W_MINUTAS_DEVOLUCION','S','d_minutas_renuncias','','LE00000005','');
+
+insert into contadores (contador,valor,descripcion,modificable) values ('RENUNCIAS',0,'Identificador de fases_renuncias','N');
+
+// COAATNA
+create table dbo.fases_renuncias_desglose (tipo_act char(2) not null, proyecto char(2) not null,
+ porc_proy_musaat double precision not null, porc_proy_cip double precision not null, direccion char(2) not null, 
+porc_dir_musaat double precision not null, porc_dir_cip double precision not null) ;
+
+INSERT INTO fases_renuncias_desglose  VALUES ( '04',   '01',   19.23,   66.66,   '03',   80.77,   33.34 )  ;
+INSERT INTO fases_renuncias_desglose  VALUES ( '05',   '02',   11.27,   60,   '03',   88.73,   40 )  ;
+INSERT INTO fases_renuncias_desglose  VALUES ( '11',   '12',   70,  75,   '13',   30,   25 )  ;
+
+//Solo colegios nuevos
+//Agrega id pagador y tipo pagador en el cobro multiple
+alter table csi_cobros_multiples  add id_pagador char(10) null, tipo_pagador char(1) null;
+//GUARDA LA DIFERENCIA EN EL ULTIMO COBRO
+alter table csi_cobros_multiples add diferencia double  precision null;
+
+//TODOS
+//Cuenta puente y concepto de descuadre de caja y tipo de documento
+INSERT INTO csi_param_sigescon  ( nombre,    valor_texto,     descripcion )  
+  VALUES ( 'g_concepto_descuadre_caja',  'DESCUADRE COBRO BANCARIO',   'Concepto contable de descuadre de cobro en caja' )  ;
+INSERT INTO csi_param_sigescon  ( nombre,    valor_texto,     descripcion )  
+  VALUES ( 'g_cuenta_puente_descuadre',  '555000002',   'Cuenta puente contable de descuadre de cobro en caja' )  ;
+INSERT INTO csi_param_sigescon  ( nombre,    valor_texto,     descripcion )  
+  VALUES ( 'g_t_doc_descuadre',  'DE',   'Tipo de documento para descuadre de cobro en caja' )  ;
+//Contabilidad conjunta o separada
+INSERT INTO csi_param_sigescon  ( nombre,    valor_texto,     descripcion )  
+  VALUES ( 'g_contabilidad_conjunta',  'S',   'Indica que los apuntes de cobros salen junto a los apuntes de facturas si es igual a S' )  ;
+
+//TODOS
+//Guarda las facturas relacionadas en cobros multiples
+alter table csi_cobros_multiples add lista_fact char(150) null;
+
+alter table incidencias_fases add usuario char(10) null ;
+
+// TODOS
+// Cambiar tamaño campo "banco" en tabla "remesas" de char(2) a char(10)
+create table dbo.remesas2 (n_remesa char(10) not null, fecha datetime null, descripcion char(100) null, tipo char(1) null, anulada char(1) null, banco char(10) null, n_fact_desde char(15) null, n_fact_hasta char(15) null) ;
+alter table dbo.remesas2 add constraint n_remesa2 primary key nonclustered (n_remesa) ;
+insert into remesas2 select * from remesas;
+drop table remesas;
+create table dbo.remesas (n_remesa char(10) not null, fecha datetime null, descripcion char(100) null, tipo char(1) null, anulada char(1) null, banco char(10) null, n_fact_desde char(15) null, n_fact_hasta char(15) null) ;
+alter table dbo.remesas add constraint n_remesa primary key nonclustered (n_remesa) ;
+
+insert into remesas select * from remesas2;
+// TODOS
+//Indices mejora el proceso del fichero economico de MUSAAT
+create nonclustered index id_minuta on dbo.musaat_movimientos (id_minuta ) ;
+create nonclustered index fecha_calculo on dbo.musaat_movimientos (fecha_calculo ) ;
+
+// Indices que mejoran el proceso de Descontar facturas
+create nonclustered index idx_estado on dbo.fases_liquidaciones (estado ) ;
+create nonclustered index pagado on dbo.csi_facturas_emitidas (pagado ) ;
+
+// TODOS
+//Se agregó cuenta contable de gastos  para colegiados
+// El valor debe coincidir con la g_prefijo_arqui si no tiene cuenta de gastos
+INSERT INTO csi_param_sigescon  ( nombre,  valor_texto,  descripcion )  
+VALUES ( 'g_prefijo_arqui_gasto',   '443',   'Cuenta contable de gastos para colegiados' )  ;

@@ -1,0 +1,20 @@
+HA$PBExportHeader$f_rellenar_ceros.srf
+global type f_rellenar_ceros from function_object
+end type
+
+forward prototypes
+global function string f_rellenar_ceros (integer longitud, string numero)
+end prototypes
+
+global function string f_rellenar_ceros (integer longitud, string numero);// f_rellenar_ceros
+// fecha: 4-8-2000
+// autor: Salva
+
+// funcion: rellena ceros a la izquierda de un numero
+// parametros: > longitud: longitud del elemento que se tiene que obtener
+//					> numero: numero al cual se tienen que contatenar ceros
+
+
+return RightA('0000000000000000000000'+ numero,longitud)
+end function
+

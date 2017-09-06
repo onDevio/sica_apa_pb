@@ -1,0 +1,24 @@
+HA$PBExportHeader$f_equivalencia_vu.srf
+global type f_equivalencia_vu from function_object
+end type
+
+forward prototypes
+global function string f_equivalencia_vu (string grupo, string nombre_anterior)
+end prototypes
+
+global function string f_equivalencia_vu (string grupo, string nombre_anterior);// Devuelve la equivalencia del codigo de la tabla de equivalencias
+
+string nombre_nuevo
+
+
+  SELECT equivalencias.nombre_nuevo  
+    INTO :nombre_nuevo  
+    FROM equivalencias  
+   WHERE ( equivalencias.grupo = :grupo ) AND  
+         ( equivalencias.nombre_anterior = :nombre_anterior )   
+           ;
+
+
+return nombre_nuevo
+end function
+

@@ -1,0 +1,8 @@
+HA$PBExportHeader$st_poblacion_datos.srs
+global type st_poblacion_datos from structure
+	string		cod_pob
+	string		cod_pos
+	string		desc_poblacion
+	string		desc_provincia
+end type
+

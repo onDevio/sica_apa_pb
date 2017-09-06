@@ -1,0 +1,61 @@
+HA$PBExportHeader$f_total_movi_musaat_col.srf
+global type f_total_movi_musaat_col from function_object
+end type
+
+forward prototypes
+global function double f_total_movi_musaat_col (string id_fase, string id_col)
+end prototypes
+
+global function double f_total_movi_musaat_col (string id_fase, string id_col);int j 
+double total = 0,total_parcial = 0
+datastore ds_colegiados_asociados
+string id_asociado, id_fases_colegiados
+if f_colegiado_tipopersona(id_col) <> 'S' then
+
+	  SELECT sum(importe_vble)  
+		 INTO :total  
+		 FROM musaat_movimientos  
+		WHERE ( musaat_movimientos.id_fase = :id_fase ) AND  
+				( musaat_movimientos.id_col = :id_col )   ;
+				
+		if isnull(total) then total = 0
+else
+	// Primero vemos si hay un movimiento a la sociedad
+	  SELECT sum(importe_vble) 
+		 INTO :total  
+		 FROM musaat_movimientos  
+		WHERE ( musaat_movimientos.id_fase = :id_fase ) AND  
+				( musaat_movimientos.id_col = :id_col )   ;
+				
+		if isnull(total) then total = 0
+
+	// Luego vemos si hay algun movimientos  a algun asociado
+	SELECT fases_colegiados.id_fases_colegiados  
+	 INTO :id_fases_colegiados  
+	 FROM fases_colegiados  
+	WHERE ( fases_colegiados.id_fase = :id_fase ) AND  
+			( fases_colegiados.id_col = :id_col )   ;
+		
+	ds_colegiados_asociados = create datastore						
+	ds_colegiados_asociados.dataobject = 'ds_fases_colegiados_asociados'
+	ds_colegiados_asociados.settransobject(sqlca)		
+	ds_colegiados_asociados.retrieve(id_fases_colegiados)	
+
+	for j = 1 to ds_colegiados_asociados.rowcount()
+		id_asociado = ds_colegiados_asociados.getitemstring(j, 'id_col_per')
+		SELECT sum(importe_vble) 
+		 INTO :total_parcial  
+		 FROM musaat_movimientos  
+		WHERE ( musaat_movimientos.id_fase = :id_fase ) AND  
+				( musaat_movimientos.id_col = :id_asociado )   ;
+				
+		if isnull(total_parcial) then total_parcial = 0
+		total += total_parcial
+	
+	next			
+	destroy ds_colegiados_asociados
+end if
+return total
+
+end function
+

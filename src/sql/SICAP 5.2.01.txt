@@ -1,0 +1,54 @@
+
+// SCP-901. Para todos los colegios. Alexis
+
+insert into var_globales values('g_conta_concepto_solo_n_registros',null, 'N', '',null, 'En caso afirmativo indica que en el proceso de contabilización, el concepto incluirá sólo el núm. de  Registro. En caso negativo si dispone de núm. de Visado el contrato asociado, introducirá el núm. de visado', null, 'S');
+
+//SCP-891
+alter table fases_renuncias add obra_iniciada char(1) default 'N' null;
+alter table musaat_movimientos add obra_iniciada char(1) default 'N' null, f_renuncia datetime null, nom_promotor char(40) null, nif_promotor char(15) null, f_extorno datetime null;
+
+update fases_renuncias set obra_iniciada = 'N';
+update musaat_movimientos set obra_iniciada = 'N' where fecha_calculo > '20101231';
+update musaat_movimientos set obra_iniciada = 'N' where fecha_calculo > '20091231' and fecha_calculo< '20101231';
+update musaat_movimientos set obra_iniciada = 'N' where fecha_calculo > '20081231' and fecha_calculo< '20091231';
+update musaat_movimientos set obra_iniciada = 'N' where fecha_calculo > '20061231' and fecha_calculo< '20081231';
+update musaat_movimientos set obra_iniciada = 'N' where fecha_calculo > '20001231' and fecha_calculo< '20051231';
+
+
+//SCP-815
+alter table csi_facturas_emitidas add imprime_cta_banco_col char(1) default 'N' null;
+
+//SCP-919
+insert into var_globales(nombre,sn,descripcion,modificable) values('g_clientes_utiliza_multiempresa','N','Para un valor S se distinguiran los clientes por empresas creadas.Este valor solo se tiene en cuenta si g_activa_multiempresa=S', 'S');
+
+// TABLAS DE TARIFAS QUE HAN CAMBIADO
+drop table tarifas_tipo_act;
+create table dbo.tarifas_tipo_act (id_tarifa varchar(10) not null, tipo_act varchar(3) null, tipo_obra varchar(3) null, sup_desde double precision null, sup_hasta double precision null, pem_desde double precision null, pem_hasta double precision null, otro_desde double precision null, otro_hasta double precision null, colegio varchar(10) null) ;
+alter table dbo.tarifas_tipo_act add constraint pl primary key nonclustered (id_tarifa) ;
+
+drop table tarifas_coeficientes; 
+create table dbo.tarifas_coeficientes (id varchar(10) not null, variable varchar(100) null, igual_a varchar(50) null, porcentaje double precision null, valor_fijo double precision null, colegio varchar(10) null) ;
+alter table dbo.tarifas_coeficientes add constraint pk_t_coef primary key nonclustered (id) ;
+
+
+
+//SCP-886. SCP-892. [Jboluda] Nuevo Informe Genérico. 
+INSERT INTO listados (descripcion, dw, ventana, orden, activo) VALUES ('Diario de Facturación y Liquidaciones','d_listado_fact_l_g_c_composite','w_facturacion_emitida_listados','01','S');
+
+//SCP-911. Añadido al listado el nº de registro [JMartin]
+//SCP-913. Añadido nº de registro y f. de entrada [JMartin]
+//*********CUIDADO********* Para algunos colegios ya existen estos listados, solo añadir a los que no los tengan
+INSERT INTO listados (descripcion, dw, ventana, orden, activo) VALUES ('Listado General de Facturas Detallado','d_listado_facturas_general_detallado','w_facturacion_emitida_listados','00','S');
+INSERT INTO listados (descripcion, dw, ventana, orden, activo) VALUES ('Listado de Trabajos Profesionales','d_fases_listado_general_avi','w_fases_listados','00','S');
+
+// Adicionalmente, se debe crear una tabla sólo en los colegios que aún no la tienen (Seguro la tiene TFE. El resto, en principio no la tienen)
+declare @colegio varchar(10)
+select @colegio = texto from var_globales where nombre = 'COLEGIO'
+
+if @colegio<> 'COAATTFE' 
+begin
+	CREATE TABLE caja_pagos (id_caja_pagos char(10) NOT NULL, fecha datetime NULL, importe float NULL, observaciones char(255) NULL, centro char(10) NULL, tipo_persona char(1) NULL, id_persona char(10) NULL, nombre char(40) NULL, n_coleg_dni char(10))
+	ALTER TABLE caja_pagos ADD constraint caja_pagos_x PRIMARY KEY NONCLUSTERED (id_caja_pagos) 
+end
+go
+

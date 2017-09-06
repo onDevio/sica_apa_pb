@@ -1,0 +1,22 @@
+HA$PBExportHeader$f_devuelve_banco.srf
+global type f_devuelve_banco from function_object
+end type
+
+forward prototypes
+global function string f_devuelve_banco (string tipo_pago)
+end prototypes
+
+global function string f_devuelve_banco (string tipo_pago);//Devuelve el banco asociado a una forma de pago
+string banco
+
+
+SELECT csi_formas_de_pago.banco_asociado  
+		INTO :banco  
+		FROM csi_formas_de_pago  
+		WHERE csi_formas_de_pago.tipo_pago = :tipo_pago ;
+
+if isnull(banco) then banco = ''
+
+return banco
+end function
+

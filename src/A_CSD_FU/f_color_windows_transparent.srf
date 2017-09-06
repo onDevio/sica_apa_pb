@@ -1,0 +1,12 @@
+HA$PBExportHeader$f_color_windows_transparent.srf
+global type f_color_windows_transparent from function_object
+end type
+
+forward prototypes
+global function long f_color_windows_transparent ()
+end prototypes
+
+global function long f_color_windows_transparent ();return 553648127
+
+end function
+

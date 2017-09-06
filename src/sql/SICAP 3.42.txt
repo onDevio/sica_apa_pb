@@ -1,0 +1,44 @@
+// V. 3.4.2
+
+// TODOS 
+// En algunos colegios será necesaria una migración del campo c_geografico.
+alter table colegiados add ejerciente char(1) null ;
+update colegiados set ejerciente = 'N' ;
+
+// COAATAVI
+INSERT INTO var_globales  
+(nombre, texto, descripcion, modificable)
+VALUES 
+('g_obra_admin_cip_sobre_src', 'S', 
+'Si en las obras oficiales se cobra la DIP en proporción a la Musaat', 'N' )  ;
+
+// TODOS (INC. 6992)
+Insert into listados values
+('Listado de Modificados y Renuncias', 'd_musaat_listado_movimientos_no_altas', 'w_musaat_movimientos_listados', '00', 'S');
+
+// INC. 6973
+// Añadir este permiso al usuario correspondiente conforme lo soliciten
+INSERT INTO t_aplicacion  
+( cod_aplicacion,   nombre )  
+VALUES ( 'ANFAC00001',  'ANULACIÓN RANGO FACTURAS' )  ;
+
+// INC. 7163
+alter table csi_facturas_emitidas add domicilio_largo char(100) null ,
+domicilio_pagador_largo char(100) null ;
+
+update csi_facturas_emitidas set domicilio_largo = domicilio, domicilio_pagador_largo = domicilio_pagador ;
+
+// INC. 7346
+// Añadir este permiso al usuario correspondiente conforme lo soliciten
+INSERT INTO t_aplicacion  
+( cod_aplicacion,   nombre )  
+VALUES ( 'MANTSERIES',  'MANTENIMIENTO SERIES FACTURAS' )  ;
+
+INSERT INTO menu  
+( codigo, descripcion, objeto, visible, enabled, ventana, activo )  
+VALUES ( '0000000173', 'Familias', 'm_aplic_frame.m_file.m_open.m_contabilidad.m_familias', '1', '1', '', 'N')  ;
+
+INSERT INTO menu  
+( codigo, descripcion, objeto, visible, enabled, ventana, activo )  
+VALUES ( '0000000174', 'Series Facturas', 'm_aplic_frame.m_file.m_open.m_contabilidad.m_seriesfacturas', '1', '1', '', 'N')  ;
+

@@ -1,0 +1,24 @@
+HA$PBExportHeader$f_devuelve_formula.srf
+global type f_devuelve_formula from function_object
+end type
+
+forward prototypes
+global function string f_devuelve_formula (string id_fase, string tipo_informe)
+end prototypes
+
+global function string f_devuelve_formula (string id_fase, string tipo_informe);// devuelve la formula del cip  o musaat guardada en la tabla de fases_informes para cada fase
+string formula
+
+  SELECT fases_informes.formula_sustituida  
+    INTO :formula
+    FROM fases_informes  
+   WHERE ( fases_informes.id_fase = :id_fase ) AND  
+         ( fases_informes.tipo_informe = :tipo_informe )   
+           ;
+
+
+if isnull(formula) then formula= ''
+
+return formula
+end function
+

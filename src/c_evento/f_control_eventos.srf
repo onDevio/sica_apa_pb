@@ -1,0 +1,433 @@
+HA$PBExportHeader$f_control_eventos.srf
+global type f_control_eventos from function_object
+end type
+
+forward prototypes
+global function any f_control_eventos (ref st_control_eventos controla)
+end prototypes
+
+global function any f_control_eventos (ref st_control_eventos controla);string control, evento, respuesta, aviso, nom_col, mensaje2, descripcion, obs, n_col, cadena, tipo_in, cod_pob, param_control, param1, param2
+string mensaje, c_mensaje, param3
+datetime hoy, fdesde, fhasta
+double cuantos, i, suma_porcentajes_col
+integer num_evento
+boolean cambio_estado=true
+datastore ds_eventos 
+
+mensaje='' 
+
+ds_eventos = create datastore
+ds_eventos.dataobject = 'd_control_eventos_lista_a_disparar'
+ds_eventos.SetTransObject(SQLCA)
+
+ds_eventos.Retrieve(controla.evento)
+ds_eventos.sort()
+
+nom_col = f_colegiado_nombre_apellido(controla.id_colegiado)
+for num_evento= 1 to ds_eventos.RowCount()
+		param1 = ds_eventos.GetItemString(num_evento,'param1')
+		param2 = ds_eventos.GetItemString(num_evento,'param2')
+		param3 = ds_eventos.GetItemString(num_evento,'param3')
+		control= ds_eventos.GetItemString(num_evento,'control')
+		c_mensaje= ds_eventos.GetItemString(num_evento,'mensaje')
+		if upper(LeftA(control,4)) = 'SIT_' then 
+			param_control = control
+			control = 'SITUACION'
+		end if
+
+CHOOSE CASE control
+		
+	    CASE 'CONTA_COLEGIADOS'
+			//SCP-492
+			controla.param1=param1;
+			
+		CASE 'ALTA_MUSAAT'
+			controla.dw.TriggerEvent('csd_alta_musaat')
+			controla.dw.update()		
+		CASE 'AVISO_DOMICILIACION'
+			controla.dw.TriggerEvent(param1)
+		CASE 'AVISO_GARANTIA'
+			controla.dw.TriggerEvent(param1)
+		CASE 'AVISO_REPAROS'
+			controla.dw.TriggerEvent(param1)
+		CASE 'AVISO_HABILITADO'
+			if f_colegiado_tipopersona(controla.id_colegiado) = 'P' then 
+				if f_colegiado_residente(controla.id_colegiado)='H' then mensaje = mensaje + 'HABILITADO :' + CR + '     ' + 'El colegiado ' + nom_col + ' es habilitado.' + cr + cr
+			end if
+		CASE 'AVISO_IMPAGO'
+			if (f_factura_impago_colegiado(controla.id_colegiado))then 
+				mensaje = mensaje + 'IMPAGO :' + CR + '     ' + 'El colegiado ' + nom_col + ' tiene facturas pendientes de pago.' + cr + cr
+			end if
+		CASE 'AVISO_NO_MUSAAT'
+			if f_colegiado_tipopersona(controla.id_colegiado) = 'P' then
+				if f_colegiado_no_tiene_src(controla.id_colegiado) then 
+					mensaje = mensaje + 'SRC :' + CR + '     ' + 'El colegiado ' + nom_col + ' no tiene SRC.' + cr + cr
+				else
+					choose case f_tipo_alta_src(controla.id_colegiado)
+						case 'S'
+								if not(f_tiene_musaat_src(controla.id_colegiado)) then 
+									if(g_colegio='COAATTGN' or g_colegio='COAATTEB' or g_colegio='COAATLL' )then
+										if MessageBox("Atenci$$HEX1$$f300$$ENDHEX$$n!","MUSAAT :"+CR+'     ' + 'El colegiado ' + nom_col + ' no tiene SRC de MUSAAT.$$HEX1$$bf00$$ENDHEX$$Generar carta de src para el colegiado',Question!,YesNo!)=1 then controla.dw.dynamic Trigger Event csd_imprimir_carta_notienemusaat(controla.id_colegiado)
+									else
+										mensaje = mensaje + 'MUSAAT :' + CR + '     ' + 'El colegiado ' + nom_col + ' no tiene SRC de MUSAAT.' + cr + cr
+									end if
+								else
+									if(f_fecha_baja_musaat_src(controla.id_colegiado))then
+										mensaje = mensaje + 'MUSAAT :' + CR + '     ' + 'El colegiado ' + nom_col + ' ha sobrepasado la fecha de baja SRC de MUSAAT.' + cr + cr
+									end if
+								end if
+						case 'O'
+							mensaje = mensaje + 'SRC :' + CR + '     ' + 'El colegiado ' + nom_col + ' tiene SRC distinta de MUSAAT.' + cr + cr
+						case else
+							mensaje = mensaje + 'SRC :' + CR + '     ' + 'El colegiado ' + nom_col + ' no tiene SRC.' + cr + cr
+					end choose
+				end if
+			end if
+			string t_poliza
+			select src_t_poliza into :t_poliza from musaat where id_col = :controla.id_colegiado;
+			if t_poliza = '02' then mensaje = mensaje + 'SRC :' + CR + '     ' + 'El colegiado ' + nom_col + ' tiene p$$HEX1$$f300$$ENDHEX$$liza colectiva.' + cr + cr
+		CASE 'AVISO_NO_MUSAAT_COL'
+			controla.dw.TriggerEvent(param1)
+		CASE 'AVISO_NO_EJERCIENTE'
+			if f_colegiado_tipopersona(controla.id_colegiado) = 'P' then 
+				if f_colegiado_no_ejerciente(controla.id_colegiado) = 'S' then mensaje = mensaje + 'EJERCIENTE :' + CR + + '     ' + 'Este colegiado no es ejerciente.' + cr + cr
+			end if
+		CASE 'AVISO_NO_PREMAAT'
+			/*if f_colegiado_tipopersona(controla.id_colegiado) = 'P' then
+				if f_colegiado_no_tiene_mutua(controla.id_colegiado) then 
+					mensaje = mensaje + 'MUTUA :' + CR + '     ' + 'El colegiado ' + nom_col + ' no tiene MUTUA.' + cr + cr
+				else
+					boolean lb_funcion
+					lb_funcion = f_fecha_baja_premaat_src(controla.id_colegiado)
+					if(lb_funcion)then
+						mensaje = mensaje + 'MUTUA :' + CR + '     ' + 'El colegiado ' + nom_col + ' ha sobrepasado la fecha de baja de la MUTUA.' + cr + cr
+					end if
+				end if
+			end if*/
+			mensaje = f_colegiado_control_mutuas(controla.id_colegiado)
+		CASE 'AVISO_PREMAAT_RETA'
+			/*boolean lb_tiene_premaat, lb_tiene_reta
+			lb_tiene_premaat = false
+			lb_tiene_reta = false
+			string ls_mensaje_aux
+			
+			ls_mensaje_aux = ''
+			
+			if f_colegiado_tipopersona(controla.id_colegiado) = 'P' then
+				if not (f_colegiado_tiene_mutua_grupos(controla.id_colegiado)) then 
+					ls_mensaje_aux = ls_mensaje_aux + 'MUTUA :' + CR + '     ' + 'El colegiado ' + nom_col + ' no est$$HEX2$$e1002000$$ENDHEX$$de alta en PREMAAT en los grupos b$$HEX1$$e100$$ENDHEX$$sico ampliado o profesional.' + cr + cr
+				else
+					if( f_fecha_baja_premaat_src(controla.id_colegiado))then
+						ls_mensaje_aux = ls_mensaje_aux + 'MUTUA :' + CR + '     ' + 'El colegiado ' + nom_col + ' ha sobrepasado la fecha de baja de la MUTUA.' + cr + cr
+					else 
+						lb_tiene_premaat = true
+					end if
+				end if
+				
+				if not f_colegiado_tiene_reta(controla.id_colegiado) then 
+					ls_mensaje_aux = ls_mensaje_aux + 'MUTUA :' + CR + '     ' + 'El colegiado ' + nom_col + ' no tiene RETA.' + cr + cr
+				else
+					if(f_fecha_baja_reta(controla.id_colegiado))then
+						ls_mensaje_aux = ls_mensaje_aux + 'MUTUA :' + CR + '     ' + 'El colegiado ' + nom_col + ' ha sobrepasado la fecha de baja de la RETA.' + cr + cr
+					else 
+						lb_tiene_reta = true
+					end if
+				end if
+				
+				if ((lb_tiene_reta = false) and (lb_tiene_premaat = false)) then mensaje = mensaje + ls_mensaje_aux
+				
+			end if	*/
+			
+			mensaje = f_colegiado_control_mutuas(controla.id_colegiado)
+		CASE 'AVISO_ASALARIADO'
+			if f_colegiado_tipopersona(controla.id_colegiado) = 'P' then
+				string empresa
+				empresa = f_colegiado_incompatibilidad_asalariado(controla.id_colegiado)
+				if empresa <> '-1' then mensaje = mensaje + 'ASALARIADO :' + CR + + '     ' + 'Este colegiado es asalariado para la empresa ' + empresa + cr + cr
+			end if
+		CASE 'AVISO_REGISTRO'
+			controla.dw.postEvent(param1)
+		CASE 'BAJA'
+			respuesta = ''
+			select alta_baja into :respuesta from colegiados where id_colegiado = :controla.id_colegiado;
+			if respuesta = 'N' then 
+				mensaje = mensaje + 'BAJAS :' + CR + '     ' + 'El colegiado ' + nom_col + ' est$$HEX2$$e1002000$$ENDHEX$$de baja.' + cr + cr
+			elseif f_es_vacio(respuesta) then
+				mensaje = mensaje + 'ERROR :' + CR + '     ' + 'El colegiado ' + nom_col + ' no existe.' + cr + cr
+			end if
+		CASE 'BORRAR_FASE'
+			controla.dw.dynamic Trigger Event csd_borrar_fase(param1)
+		CASE 'CAMBIAR_DW'
+			controla.dw.dataobject = param1
+			controla.dw.SetTransObject(SQLCA)
+		CASE 'CAMBIO_ESTADO'
+			if cambio_estado = false then continue
+			descripcion = controla.dw.GetItemString(1,'estado')
+			if f_es_vacio(param2) then 
+				controla.dw.SetItem(1,'estado',param1)
+				if not f_es_vacio(param1) then controla.dw.TriggerEvent('csd_cambio_estado')
+				cambio_estado=false
+			else
+				if descripcion = param2 then 
+					controla.dw.SetItem(1,'estado',param1)
+					if not f_es_vacio(param1) then controla.dw.TriggerEvent('csd_cambio_estado')
+					cambio_estado=false
+				end if
+			end if
+		CASE 'CENTRO'
+			if controla.dw.GetItemString(1,'e_mail') = 'V' then controla.dw.setitem(1, 'modalidad', param1)
+//		CASE 'CARGO_ASEMAS'
+//			controla.dw.TriggerEvent('csd_cargo_asemas')
+//		//Te activa el check de asemas para ese colegiado en la fase, siempre y cuando lo tengan activado en su ficha
+//		//de colegiado		
+		CASE 'CLAVE_ACCESO'
+			controla.dw.TriggerEvent('csd_clave_acceso')
+//		CASE 'CLIENTE_PAGADOR'
+//			numero = controla.dw.dynamic Event csd_comprobar_cliente_pagador()
+//			if numero = -1 then return -1
+		CASE 'COBRAR_GASTOS'
+			controla.dw.TriggerEvent('csd_cobrar_gastos')
+		CASE 'COBRAR_MUSAAT'
+			controla.dw.TriggerEvent('csd_cobrar_musaat')
+//		CASE 'COL_VISADOR'
+//			//Comprueba si se ha especificado un arquitecto visador
+//			numero = controla.dw.dynamic Trigger Event csd_comprobar_arquitecto_visador()
+//			if numero = -1 then return -1
+//			SetNull(numero)
+//		CASE 'COMPROBAR_NOTIFICADO'
+//			numero = controla.dw.dynamic Trigger Event csd_borrar_reparos_notificados()
+//			if numero = -1 then return -1
+//			SetNull(numero)
+		CASE 'COMPROBAR_NVISADO'
+			controla.dw.dynamic Trigger Event csd_comprobar_nvisado()
+			
+		CASE 'CONCEPTO_DOMIC'
+			controla.dw.dynamic Trigger Event csd_inserta_concepto_domic(param1,param2, param3)
+		CASE 'DESCRIPCION'
+			if f_es_vacio(param1) then
+				controla.dw.triggerevent(param2)
+			else
+				controla.dw.setitem(controla.dw.getrow(), 'descripcion', param1)
+			end if
+		CASE 'DESTINATARIO'
+			controla.dw.setitem(1, 'nombre_d', f_reg_es_nombre_defecto (param1) )
+			controla.dw.setitem(1, 'poblacion_d', param2)
+			controla.dw.setitem(1, 'cp_d', f_devuelve_cod_postal(param2))			
+		CASE 'DUPLICADO'
+			cuantos =0 
+			controla.dw.accepttext()
+			n_col = f_colegiado_n_col(controla.id_colegiado)
+			for i=1 to controla.dw.rowcount()
+				if controla.dw.getitemstring(i,'n_col') =  n_col then
+					cuantos++
+				end if
+			next 		
+			if cuantos > 1 then mensaje = mensaje + 'DUPLICIDAD :' + CR + + '     ' + 'No puede haber un colegiado duplicado.' + cr + cr
+		CASE 'ENLAZA_DW'
+			controla.dw.PostEvent('csd_enlaza')
+		CASE 'ENVIAR_CARTA', 'ENVIAR_EMAIL', 'ENVIAR_SMS', 'ENVIAR_MENSAJE'
+			controla.dw.PostEvent('csd_envio')
+		CASE 'FASES_FINALES_OBRA'
+         controla.dw.PostEvent(param2)
+		CASE 'FINAL_OBRA_TOTAL'
+			controla.dw.triggerevent('csd_retirar')
+		CASE 'FINALIZAR_OBRA'
+			controla.param1=param1
+//		CASE 'GASTOS_EXTRA'
+//			controla.dw.TriggerEvent('csd_generar_gastos_extra')
+//		CASE 'GENERA_MINUTAS'
+//			controla.dw.PostEvent('csd_generar_minutas')
+//		CASE 'HONORARIOS'
+//			controla.dw.TriggerEvent('csd_comprobar_honorarios')
+		CASE 'INCIDENCIAS'
+			cuantos=0
+			g_incidencias.tipo='C'
+			g_incidencias.id=controla.id_colegiado
+			select count(*) into :cuantos from incidencias where id = :controla.id_colegiado;
+			message.stringparm=''
+			if cuantos>0	then openwithparm(w_incidencias,evento)
+//		CASE 'INCIDENCIAS_EXP'
+//			controla.dw.TriggerEvent('csd_comprobar_incidencias_exp')
+		CASE 'INCIDENCIAS_AVISOS'
+			controla.dw.dynamic Trigger Event csd_comprobar_avisos_incidencias(param2)
+		CASE 'INCOMPATIBILIDAD'
+			DECLARE incompatibilidades CURSOR FOR  
+			SELECT incompatibilidades.fecha_inicio,incompatibilidades.fecha_fin,  t_incompatibilidad.descripcion, incompatibilidades.cod_pob
+			FROM incompatibilidades, t_incompatibilidad  WHERE  incompatibilidades.incompatibilidad = 'S'  AND  
+				  incompatibilidades.fecha_inicio <= :hoy AND   incompatibilidades.fecha_fin >= :hoy AND
+				  incompatibilidades.id_colegiado = :controla.id_colegiado AND  incompatibilidades.tipo_incompatibilidad = t_incompatibilidad.cod_incompatibilidad;
+			
+			hoy=datetime(today(),now())
+			mensaje2=''
+			open incompatibilidades;
+			fetch incompatibilidades into :fdesde, :fhasta, :tipo_in, :cod_pob;
+			do while SQLCA.SQLcode = 0
+				mensaje2 += cr + '         ' + 'Desde el  ' + string(fdesde,'dd/mm/yyyy') + ' hasta el ' + string(fhasta,'dd/mm/yyyy') + ' : '  + tipo_in + ' en ' + f_dame_poblacion(cod_pob)
+				fetch incompatibilidades into :fdesde, :fhasta, :tipo_in, :cod_pob;	
+			loop
+			close incompatibilidades;
+			if LenA(mensaje2 ) > 0 then 
+				mensaje=mensaje + cr + 'INCOMPATIBILIDADES : ' + CR + '     ' + 'El colegiado ' + nom_col + ' tiene incompatibilidades:' + mensaje2 + CR + CR
+			end if
+
+		CASE 'INCIDENCIAS_CLI'
+			controla.dw.dynamic Trigger Event csd_comprobar_incidencias_col_cli('P')
+
+		CASE 'INCIDENCIAS_COL'
+			controla.dw.dynamic Trigger Event csd_comprobar_incidencias_col_cli('C')			
+			
+		CASE 'INSERTA_BOTON'
+			controla.dw.dynamic Trigger Event csd_inserta_boton(param1,param2)
+		CASE 'MENSAJE'
+			//Abre una ventana de mensaje con el mensaje que hayamos puesto en el campo 'mensaje'
+			//si hacemos itemchanged de un campo concreto de un dw (param1) con el valor param2
+			//Si es vacio param1 o param2 muestra el mensaje siempre
+			if (param1 = controla.param1 and param2 = controla.param2) or f_es_vacio(param1) then
+				f_mensaje('Aviso',c_mensaje)
+			end if
+			// Si param1 (campo dw) --- param 2 (operador) --- param3 (valor campo)
+			CHOOSE CASE param2
+				CASE '>'
+					if double(controla.param2) > double(param3) then f_mensaje('Aviso',c_mensaje)
+				CASE '<'
+					if double(controla.param2) < double(param3) then f_mensaje('Aviso',c_mensaje)
+				CASE '<>'
+					if double(controla.param2) <> double(param3) then f_mensaje('Aviso',c_mensaje)
+				CASE '>='
+					if double(controla.param2) >= double(param3) then f_mensaje('Aviso',c_mensaje)
+				CASE '<='
+					if double(controla.param2) <= double(param3) then f_mensaje('Aviso',c_mensaje)
+			END CHOOSE
+		CASE 'MENSAJE_AVISO'
+			select aviso into :aviso from colegiados where id_colegiado = :controla.id_colegiado;
+			if not f_es_vacio(aviso) then 
+				mensaje = mensaje + 'AVISOS : (' + nom_col +')' + cr + '        ' + aviso + CR + CR
+			END IF
+		CASE 'MUSAAT_FUNCIONARIO'
+			controla.dw.TriggerEvent('csd_musaat_funcionario')
+		CASE 'NOMBRE_TAB'
+			controla.dw.dynamic Event csd_nombre_pestanyas(param1)
+		CASE 'REGISTRO_ES'
+			controla.param1=param1
+	
+		CASE 'NUMERO_RENUNCIA'
+			controla.param1=param1
+
+		CASE 'NUMERO_EXP'
+			controla.param1=param1
+			controla.param2=param2
+		CASE 'NUMERO_REG'
+			controla.param1=param1
+			controla.param2=param2
+			controla.param3=param3
+		CASE 'NUMERO_SAL'
+			controla.param1=param1
+			controla.param2=param2
+			controla.param3=param3
+//		CASE 'NUMERO_REPAROS'
+//			controla.dw.TriggerEvent('csd_numero_reparos')
+		CASE 'OBRA_REPLICADA'		
+			controla.dw.TriggerEvent(param1)
+			
+		CASE 'OBSERVACIONES'
+			cadena = ''
+			select observaciones into :cadena from colegiados where id_colegiado = :controla.id_colegiado;
+			if not f_es_vacio(cadena) then 
+				mensaje= mensaje + 'OBSERVACIONES : (' + nom_col +')' + cr + '        ' + cadena + CR + CR
+			END IF		
+			// No ponemos solo las observaciones sino todo el mensaje que aparece
+			// (este evento deber$$HEX1$$ed00$$ENDHEX$$a ser el $$HEX1$$fa00$$ENDHEX$$ltimo que se ejecutara)
+			
+			// Concatenaci$$HEX1$$f300$$ENDHEX$$n de los diferentes mensajes si corresponde (sociedades)
+			if lower(controla.dw.describe("observaciones.name")) = 'observaciones' then obs = controla.dw.getItemstring(controla.dw.GetRow(),'observaciones')
+			if isnull(obs) then 
+				obs = ''
+			else
+				obs = obs + mensaje
+			end if			
+			if lower(controla.dw.describe("observaciones.name")) = 'observaciones' then controla.dw.SetItem(controla.dw.GetRow(),'observaciones', obs)
+		CASE 'OFICIO'
+			controla.dw.TriggerEvent(param1)			
+		CASE 'OPCIONES_CAJA'
+			controla.dw.dynamic Event csd_colocar_opciones(c_mensaje, param1)
+		CASE 'OPCIONES_CREACION_FA'
+			controla.dw.dynamic Event csd_colocar_opciones(c_mensaje, param1)
+		CASE 'ABRIR_CREACION_FASES'
+		CASE 'PARTICIPACION'
+			suma_porcentajes_col=0
+			for i=1 to controla.dw.rowcount()
+				suma_porcentajes_col= suma_porcentajes_col + controla.dw.getitemnumber(i,'porcen_a')
+			next 
+			if suma_porcentajes_col<100 then
+				controla.dw.setitem(controla.dw.rowcount(),'porcen_a',100 - suma_porcentajes_col)	
+			end if
+		CASE 'POSICION'
+			cadena = param1 +".X='"+param2+"'"
+			controla.dw.Modify(cadena)
+			cadena = param1 +".Y='"+param3+"'"
+			controla.dw.Modify(cadena)
+			cadena=''
+		CASE 'REMITENTE'
+			if controla.dw.GetItemString(1,'es')='S' then
+				controla.dw.setitem(1, 'tipo_persona_o', 'C')
+				controla.dw.setitem(1, 'id_o',"")									
+				controla.dw.setitem(1, 'codigo_o',"")					
+				controla.dw.setitem(1, 'nombre_o', '')
+				controla.dw.setitem(1, 'poblacion_o', '')
+				controla.dw.setitem(1, 'cp_o', '')
+				controla.dw.setitem(1, 'tipo_persona_d', 'O')				
+				controla.dw.setitem(1, 'nombre_d', f_reg_es_nombre_defecto (param1) )
+				controla.dw.setitem(1, 'poblacion_d', param2)
+				controla.dw.setitem(1, 'cp_d', f_devuelve_cod_postal(param2))				
+			else
+				controla.dw.setitem(1, 'tipo_persona_o', 'O')
+				controla.dw.setitem(1, 'nombre_o', f_reg_es_nombre_defecto (param1) )
+				controla.dw.setitem(1, 'poblacion_o', param2)
+				controla.dw.setitem(1, 'cp_o', f_devuelve_cod_postal(param2))
+				controla.dw.setitem(1, 'tipo_persona_d', 'C')
+				controla.dw.setitem(1, 'id_d',"")	
+				controla.dw.setitem(1, 'codigo_d',"")	
+				controla.dw.setitem(1, 'nombre_d', '')
+				controla.dw.setitem(1, 'poblacion_d', '')
+				controla.dw.setitem(1, 'cp_d', '')
+			end if
+		CASE 'SALDO_DEUDOR'
+			OpenWithParm(w_conta_saldo_resumen,controla.id_colegiado)
+//		CASE 'SALDO_DEUDOR_AVISO'
+//			OpenWithParm(w_aviso_saldo_deudor,controla.id_colegiado)
+//		CASE 'SIN_REPAROS'
+//			controla.dw.dynamic Trigger Event csd_estado_fase_sin_reparos(param1)
+		CASE 'TAMANYO'
+			cadena = param1 +".Width='"+param2+"'"
+			controla.dw.Modify(cadena)
+			cadena = param1 +".Height='"+param3+"'"
+			controla.dw.Modify(cadena)
+			cadena=''			
+		CASE 'TEXTO_OBJETO'
+			cadena = param1 +".Text='"+param2+"'"
+			controla.dw.Modify(cadena)
+			cadena=''
+		CASE 'ULTIMO_NUM_MINUTA'
+			controla.dw.postEvent('csd_ultimo_num_minuta')	
+		CASE 'VALIDAR_T_GESTION'
+			if controla.dw.GetItemString(1,'tipo_gestion')='P' then
+				mensaje = mensaje + '     ' + 'El tipo de Gesti$$HEX1$$f300$$ENDHEX$$n de la Fase NO conlleva Honorarios.' + Cr + CR
+			end if
+		CASE 'VISIBLE_OBJETO'
+			cadena = param1 +'.Visible='+param2
+			controla.dw.Modify(cadena)
+			cadena=''
+		CASE 'VISIBLE_TAB'
+			controla.dw.dynamic PostEvent('csd_oculta_tab',integer(param1),1)
+		CASE 'COMPROBAR_PROY_NA'	
+			controla.param2 = string(f_comprobar_tarifa_direcciones(controla.param1))
+	END CHOOSE
+next
+
+if mensaje <> '' then Messagebox(g_titulo,mensaje,Exclamation!)	
+	
+return 1
+
+destroy ds_eventos
+end function
+

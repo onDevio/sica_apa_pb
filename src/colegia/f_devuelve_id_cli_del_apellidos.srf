@@ -1,0 +1,18 @@
+HA$PBExportHeader$f_devuelve_id_cli_del_apellidos.srf
+global type f_devuelve_id_cli_del_apellidos from function_object
+end type
+
+forward prototypes
+global function string f_devuelve_id_cli_del_apellidos (string apellido)
+end prototypes
+
+global function string f_devuelve_id_cli_del_apellidos (string apellido);string id_client	
+	
+   SELECT clientes.id_cliente
+   INTO :id_client
+   FROM clientes
+   WHERE clientes.apellidos=  :apellido ;
+
+return id_client
+end function
+

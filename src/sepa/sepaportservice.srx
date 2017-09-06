@@ -1,0 +1,26 @@
+HA$PBExportHeader$sepaportservice.srx
+$PBExportComments$Proxy imported from Web service using Web Service Proxy Generator.
+global type SepaPortService from NonVisualObject
+end type
+
+type variables
+Protected:
+        string pbws_ver = ".NET"
+        string cs_namespace = "WebService"
+        string cs_class = "SepaPortService"
+        string cs_assembly = "SEPA.dll"
+        string pb_prefix = ""
+        string pb_target = "c:\proyectos\sicap"
+        string transferenciasRequest = "transferenciasRequest(System.String inputText)"
+        string transferenciasResponse = "transferenciasResponse(System.String outputXml)"
+        string adeudosRequest = "adeudosRequest(System.String inputText)"
+        string adeudosResponse = "adeudosResponse(System.String outputXml)"
+end variables
+
+forward prototypes
+public:
+function transferenciasResponse transferencias(  transferenciasRequest transferenciasRequest) alias for "<method name='transferencias' ns='WebService' pbname='transferencias'><return name='returnvalue' type='WebService.transferenciasResponse' isRef='False' ArrayDim='0' IsNullableType='False' /><param name='transferenciasRequest' type='WebService.transferenciasRequest' pos='0' dir='in' ArrayDim='0' IsNullableType='False'/></method>"
+function adeudosResponse adeudos(  adeudosRequest adeudosRequest) alias for "<method name='adeudos' ns='WebService' pbname='adeudos'><return name='returnvalue' type='WebService.adeudosResponse' isRef='False' ArrayDim='0' IsNullableType='False' /><param name='adeudosRequest' type='WebService.adeudosRequest' pos='0' dir='in' ArrayDim='0' IsNullableType='False'/></method>"
+subroutine CancelAsync (  any userState) alias for "<method name='CancelAsync' ns='WebService' pbname='CancelAsync'><param name='userState' type='System.Object' pos='0' dir='in' ArrayDim='0' IsNullableType='False'/></method>"
+end prototypes
+

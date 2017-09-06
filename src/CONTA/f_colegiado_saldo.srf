@@ -1,0 +1,21 @@
+HA$PBExportHeader$f_colegiado_saldo.srf
+global type f_colegiado_saldo from function_object
+end type
+
+forward prototypes
+global function double f_colegiado_saldo (string id_col)
+end prototypes
+
+global function double f_colegiado_saldo (string id_col);double saldo
+string cuenta_arqui
+
+cuenta_arqui = g_prefijo_arqui+'%'
+
+select sum(apuntes.debe -  apuntes.haber) into :saldo from apuntes,cuentas 
+	where cuentas.cuenta = apuntes.cuenta and cuentas.id_col = :id_col and cuentas.cuenta like :cuenta_arqui using bd_ejercicio;
+	
+if isnull(saldo) then saldo = 0
+
+return saldo
+end function
+

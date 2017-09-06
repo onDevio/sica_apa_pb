@@ -1,0 +1,38 @@
+HA$PBExportHeader$f_busca_cobro_multiple.srf
+global type f_busca_cobro_multiple from function_object
+end type
+
+forward prototypes
+global function st_generar_facturas_minutas f_busca_cobro_multiple (string id_factura)
+end prototypes
+
+global function st_generar_facturas_minutas f_busca_cobro_multiple (string id_factura);// Devuelve la cantidad de avisos asociados a un cobro multiple
+// Devuelve el importe del cobro multiple
+// Devuelve el id_cobro_multiple
+
+// Se pasa el id_factura
+string 	id_cobro_multiple, formapago
+double 	importe_cobro
+int			count_n_aviso
+st_generar_facturas_minutas st_cobro_mult
+
+select (select count(a.id_cobro_multiple) from csi_cobros a where csi_cobros.id_cobro_multiple = a.id_cobro_multiple) as n_avisos,
+(select importe from   csi_cobros_multiples where id_cobro_multiple =  csi_cobros.id_cobro_multiple) as importe_c,
+id_cobro_multiple,
+(select forma_pago from csi_cobros_multiples where id_cobro_multiple =  csi_cobros.id_cobro_multiple) as forma_pago
+into
+	:count_n_aviso,
+	:importe_cobro,
+	:id_cobro_multiple,
+	:formapago
+from csi_cobros
+ where id_factura = :id_factura;
+ 
+ st_cobro_mult.id_cobro_multiple 	= id_cobro_multiple
+ st_cobro_mult.importe_cobro	   	= importe_cobro
+ st_cobro_mult.cant_avisos			= count_n_aviso
+ st_cobro_mult.formapago			= formapago
+ 
+ return st_cobro_mult
+end function
+

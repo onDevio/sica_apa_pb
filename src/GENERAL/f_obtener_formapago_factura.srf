@@ -1,0 +1,17 @@
+HA$PBExportHeader$f_obtener_formapago_factura.srf
+global type f_obtener_formapago_factura from function_object
+end type
+
+forward prototypes
+global function string f_obtener_formapago_factura (string as_id_factura)
+end prototypes
+
+global function string f_obtener_formapago_factura (string as_id_factura);string ls_forma_pago
+
+select formadepago into :ls_forma_pago from csi_facturas_emitidas where id_factura = :as_id_factura;
+
+return ls_forma_pago
+
+
+end function
+

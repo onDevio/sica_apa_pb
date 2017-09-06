@@ -1,0 +1,146 @@
+declare @colegio varchar(10)
+select @colegio = texto from var_globales where nombre = 'COLEGIO'
+
+if @colegio <> 'COAATB'
+begin
+update contadores set valor = 0 where contador like 'NUM_EXP%'
+update contadores set valor = 0 where contador like 'NUM_REG%'
+update contadores set valor = 0 where contador like 'NUM_SAL%'
+update contadores set valor = 0 where contador like 'REGISTRO_ENTRADA' 
+update contadores set valor = 0 where contador like 'REGISTRO_SALIDA'
+end
+
+if @colegio = 'COAATTER'
+begin
+update contadores set valor = 0 where contador like 'N_REMESA'
+end
+
+if @colegio = 'COAATTGN'
+begin
+update contadores set valor = 0 where contador like 'NUM_RENUNCIAS'
+end
+
+if @colegio = 'COAATCU'
+begin
+update contadores set valor = 0 where contador like 'LIBRO_ORDENES'
+update contadores set valor = 0 where contador like 'LIBRO_INCIDENCIAS'
+end
+
+if @colegio = 'COAATB'
+begin
+Update var_globales set numero = 1.05 where nombre = 'g_col_coef_musaat'
+
+UPDATE t_control_eventos SET param2=1 WHERE control='VISIBLE_OBJETO' AND evento = 'ABRIR_FASE' and param1 = 'b_salida_fase'
+UPDATE t_control_eventos SET param2=1 WHERE control='VISIBLE_OBJETO' AND evento = 'ABRIR_FASE' and param1 = 'archivo_fase_t'
+UPDATE t_control_eventos SET param2=1 WHERE control='VISIBLE_OBJETO' AND evento = 'ABRIR_FASE' and param1 = 'archivo_fase'
+
+INSERT into contadores (contador, valor, descripcion, orden, modificable, empresa) VALUES ('NUM_SAL',0,'Numero de visado','','N','')
+UPDATE contadores SET valor = (SELECT valor FROM contadores WHERE contador = 'N_AVISO') WHERE contador = 'NUM_SAL'
+
+end
+if @colegio = 'COAATGUI'
+begin
+Update var_globales set numero = 0.93 where nombre = 'g_col_coef_musaat'
+end
+if @colegio = 'COAATLR'
+begin
+Update var_globales set numero = 1.05 where nombre = 'g_col_coef_musaat'
+Update contadores set valor = 0 where contador = 'N_AVISO'
+end
+if @colegio = 'COAATTFE'
+begin
+Update var_globales set numero = 1 where nombre = 'g_col_coef_musaat'
+update contadores set valor = 0 where contador like 'LIBRO_ORDENES'
+update contadores set valor = 0 where contador like 'LIBRO_INCIDENCIAS'
+end
+if @colegio = 'COAATGC'
+begin
+Update var_globales set numero = 1.05 where nombre = 'g_col_coef_musaat'
+end
+if @colegio = 'COAATZA'
+begin
+Update var_globales set numero = 1.03 where nombre = 'g_col_coef_musaat'
+update contadores set valor = 0 where contador like 'REGISTRO_ENTRADA_C';
+update contadores set valor = 0 where contador like 'REGISTRO_SALIDA_C';
+end
+if @colegio = 'COAATMU'
+begin
+Update var_globales set numero = 1 where nombre = 'g_col_coef_musaat'
+update contadores set valor = 0 where contador like 'REGISTRO_ENTRADA_C';
+update contadores set valor = 0 where contador like 'REGISTRO_SALIDA_C';
+end
+if @colegio = 'COAATBU'
+begin
+Update var_globales set numero = 1 where nombre = 'g_col_coef_musaat'
+Update contadores set valor = 0 where contador = 'N_AVISO' 
+end
+if @colegio = 'COAATGU'
+begin
+Update var_globales set numero = 0.85 where nombre = 'g_col_coef_musaat'
+update contadores set valor = 0 where contador like 'N_AVISO'
+end
+if @colegio = 'COAATCU'
+begin
+Update var_globales set numero = 0.85 where nombre = 'g_col_coef_musaat'
+end
+if @colegio = 'COAATA'
+begin
+Update var_globales set numero = 1.09 where nombre = 'g_col_coef_musaat'
+end
+if @colegio = 'COAATAV'
+begin
+Update var_globales set numero = 1 where nombre = 'g_col_coef_musaat'
+Update contadores set valor = 0 where contador = 'N_AVISO' 
+end
+if @colegio = 'COAATCC'
+begin
+Update var_globales set numero = 1.05 where nombre = 'g_col_coef_musaat'
+end
+if @colegio = 'COAATTEB'
+begin
+Update var_globales set numero = 0.90 where nombre = 'g_col_coef_musaat'
+end
+if @colegio = 'COAATTER'
+begin
+Update var_globales set numero = 1 where nombre = 'g_col_coef_musaat'
+UPDATE t_control_eventos SET activo = 'N' WHERE evento='VISAR' AND control='ALTA_MUSAAT'
+end
+if @colegio = 'COAATTGN'
+begin
+Update var_globales set numero = 1 where nombre = 'g_col_coef_musaat'
+end
+if @colegio = 'COAATLE'
+begin
+Update var_globales set numero = 1 where nombre = 'g_col_coef_musaat'
+Update contadores set valor = 0 where contador = 'N_AVISO'
+end
+if @colegio = 'COAATNA'
+begin
+Update var_globales set numero = 0.90 where nombre = 'g_col_coef_musaat'
+Update contadores set valor = 0 where contador = 'N_AVISO' 
+UPDATE t_control_eventos SET param1='aa-nnnnnn' WHERE control='NUMERO_REG' and evento='NUMERO_REG'
+Update contadores set valor = 0 where contador = 'LIBROS_ORDENES'
+Update contadores set valor = 0 where contador = 'LIBROS_INCIDENCIAS'
+end
+if @colegio = 'COAATMCA'
+begin
+Update var_globales set numero = 1.08  where nombre = 'g_col_coef_musaat'
+UPDATE t_control_eventos SET param1='Raannnnn' WHERE control='NUMERO_REG' and evento='NUMERO_REG'
+end
+
+
+//Todos
+
+insert into csi_control_ejercicios select distinct '2011', empresa  from csi_control_ejercicios;
+
+update colegiados set ultima_factura = 0;
+update colegiados set ultima_factura_rectif = 0;
+
+insert into csi_series (serie, empresa, contador, descripcion, recib, anyo, dataobject, tipo, serie_abono, proforma)
+select serie,   empresa,   0,   descripcion,   recib,   '2011', dataobject, tipo, serie_abono, proforma
+from csi_series  where anyo = '2010';
+
+update var_globales set texto = '2011' where nombre = 'g_anyo_numeracion';
+
+Update registro_series set contador=0;
+

@@ -1,0 +1,92 @@
+HA$PBExportHeader$f_reg_es_obtener_ruta_serie.srf
+global type f_reg_es_obtener_ruta_serie from function_object
+end type
+
+forward prototypes
+global function string f_reg_es_obtener_ruta_serie (string serie)
+global function string f_reg_es_obtener_ruta_serie (st_reg_es_series_rutas st_rutas, integer tipo_ruta)
+end prototypes
+
+global function string f_reg_es_obtener_ruta_serie (string serie);//
+string ruta
+
+
+return ruta
+end function
+
+global function string f_reg_es_obtener_ruta_serie (st_reg_es_series_rutas st_rutas, integer tipo_ruta);/*
+
+ENTRADA
+st_rutas (serie->codigo de la serie
+			  ruta_relativa1->Primer segmento de la ruta relativa (puede ser vacio)
+			  ruta_relativa2->Segundo segmento (A$$HEX1$$d100$$ENDHEX$$O)
+			  ruta_relativa3->Tercer segmento (id_modulo_grupo)
+			  ruta_relativa4->Carpeta final
+tipo_ruta Tipo de ruta que queremos obtener
+
+SALIDA
+
+tipo_ruta= 0   -> ruta_base
+tipo_ruta= 1   -> ruta_base+ruta_relativa
+tipo_ruta= 2   -> ruta_relativa
+tipo_ruta= 3   -> ruta_base+ruta_relativa+fichero
+
+RUTA_BASE + RUTA_RELATIVA2 (A$$HEX1$$d100$$ENDHEX$$O) + RUTA_RELATIVA3 (N$$HEX1$$ba00$$ENDHEX$$REG)
+C:\SICA-COMPARTIDO\DOCUMENTOS\2008\08-000001
+
+RUTA_BASE + RUTA_RELATIVA2 (A$$HEX1$$d100$$ENDHEX$$O) + RUTA_RELATIVA3 (N$$HEX1$$ba00$$ENDHEX$$COL)+ RUTA_RELATIVA4 (carpeta final)
+C:\SICA-COMPARTIDO\DOCUMENTOS\2008\00183\economicos
+C:\SICA-COMPARTIDO\DOCUMENTOS\2008\00183\reparos
+
+*/
+
+string ruta,carpeta_final
+string ruta_base,tiene_anyo
+string ruta_relativa_tot=''
+
+select ruta_base,tiene_anyo,tiene_carpeta_final into :ruta_base,:tiene_anyo,:carpeta_final from registro_series where codigo=:st_rutas.serie;
+
+// SI ESTAMOS CONECTADOS A LA BD DE PRUEBAS SOBREESCRIBIMOS LA RUTA
+if g_pruebas then
+	ruta_base='C:\SICA\Documentos\'
+end if
+
+ruta=''
+
+if not(f_es_vacio(st_rutas.ruta_relativa1)) then ruta_relativa_tot=st_rutas.ruta_relativa1+"\"
+if tiene_anyo='S' then
+	if f_es_vacio(st_rutas.ruta_relativa2) then
+		ruta_relativa_tot+=string(year(today()))+"\"		
+	else
+		ruta_relativa_tot+=st_rutas.ruta_relativa2+"\"
+	end if
+end if
+
+	
+if not(f_es_vacio(st_rutas.ruta_relativa3)) then ruta_relativa_tot+=st_rutas.ruta_relativa3+"\"	
+	
+
+choose case tipo_ruta		
+	case 0
+		ruta=ruta_base
+		if right(ruta,1)<>'\' then ruta+='\'
+	case 1
+		ruta=ruta_base
+		if right(ruta,1)<>'\' then ruta+='\'		
+		ruta+=ruta_relativa_tot
+		if carpeta_final='S' then ruta+=st_rutas.ruta_relativa4+'\'
+	case 2
+		ruta=ruta_relativa_tot
+		if carpeta_final='S' then ruta+=st_rutas.ruta_relativa4+'\'
+	case 3
+		ruta=ruta_base
+		if right(ruta,1)<>'\' then ruta+='\'		
+		ruta+=ruta_relativa_tot
+		if carpeta_final='S' then ruta+=st_rutas.ruta_relativa4+'\'
+		ruta+=st_rutas.nombre
+end choose
+
+
+return ruta
+end function
+

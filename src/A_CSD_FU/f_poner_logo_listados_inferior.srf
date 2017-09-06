@@ -1,0 +1,14 @@
+HA$PBExportHeader$f_poner_logo_listados_inferior.srf
+global type f_poner_logo_listados_inferior from function_object
+end type
+
+forward prototypes
+global function string f_poner_logo_listados_inferior ()
+end prototypes
+
+global function string f_poner_logo_listados_inferior ();// Func. que pone una determinada inscripci$$HEX1$$f300$$ENDHEX$$n en el logo_INFerior
+
+return g_titulo_listados_inferior
+
+end function
+

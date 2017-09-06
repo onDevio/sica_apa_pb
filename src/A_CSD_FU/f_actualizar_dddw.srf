@@ -1,0 +1,49 @@
+HA$PBExportHeader$f_actualizar_dddw.srf
+global type f_actualizar_dddw from function_object
+end type
+
+forward prototypes
+global function integer f_actualizar_dddw (u_dw data_w)
+end prototypes
+
+global function integer f_actualizar_dddw (u_dw data_w);
+// Funcion a la le que pasamos como parametro una data_window
+//	de la cual queremos actualizar sus DropDown
+// devuelve un 1 si se ha ejecutado correctamente
+
+
+datawindowchild dddw_para_actualizar
+string  num_col_dw ,nombre_columna ,tipo_columna
+integer n
+
+// Se obtiene el numero de columnas de la data_windows
+num_col_dw = data_w.Describe("DataWindow.Column.Count")
+
+// Realizamos la conexion para hacer el select en el retrieve
+CONNECT USING SQLCA;	
+
+FOR n = 1 to integer(num_col_dw)
+	
+	// Se obtiene el nombre de las columnas de la data_windows
+	nombre_columna = data_w.Describe("#" + string(n) +".Name")
+	
+	// Se obtiene el tipo de las columnas de la data_windows
+	tipo_columna = data_w.Describe(nombre_columna + ".Edit.Style")
+	
+	// Actualizamos los campos DropDown
+	if tipo_columna = "dddw" then
+		data_w.GetChild(nombre_columna,dddw_para_actualizar)
+			
+			// Obtenemos la transaccion para la DropDown
+			dddw_para_actualizar.SetTransObject(SQLCA)
+				
+			// Actualiza el campo con Drop Down
+			dddw_para_actualizar.Retrieve()
+	end if
+NEXT
+
+return 1
+
+
+end function
+

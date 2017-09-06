@@ -1,0 +1,24 @@
+HA$PBExportHeader$f_devuelve_servicio_bbva.srf
+global type f_devuelve_servicio_bbva from function_object
+end type
+
+forward prototypes
+global function string f_devuelve_servicio_bbva (string id_col)
+end prototypes
+
+global function string f_devuelve_servicio_bbva (string id_col); // devuelve el valor que se encuentre en el campo activo_cp de la tabla colegiados
+ // retorna los valores 'S', 'N'
+  string activo_cp
+ 
+ 
+ SELECT colegiados.activo_cp  
+ INTO :activo_cp  
+ FROM colegiados  
+ WHERE colegiados.id_colegiado = :id_col   ;
+
+if isnull(activo_cp) or activo_cp = ''  then 	activo_cp = 'N'
+	
+return activo_cp
+
+end function
+

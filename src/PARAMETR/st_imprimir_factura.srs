@@ -1,0 +1,13 @@
+HA$PBExportHeader$st_imprimir_factura.srs
+global type st_imprimir_factura from structure
+	string		id_factura
+	string		id_persona
+	string		tipo
+	string		copia
+	integer		num_copias
+	datawindow		dw
+	boolean		recibo
+	string		paga_empresa
+	string		paga_externo
+end type
+

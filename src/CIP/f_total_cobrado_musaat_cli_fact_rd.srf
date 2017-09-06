@@ -1,0 +1,41 @@
+HA$PBExportHeader$f_total_cobrado_musaat_cli_fact_rd.srf
+global type f_total_cobrado_musaat_cli_fact_rd from function_object
+end type
+
+forward prototypes
+global function double f_total_cobrado_musaat_cli_fact_rd (string id_fase, string id_cli)
+end prototypes
+
+global function double f_total_cobrado_musaat_cli_fact_rd (string id_fase, string id_cli);double musaat_cobrado = 0
+double ld_total_pagado_facturas
+
+SELECT sum ( csi_lineas_fact_emitidas.subtotal )  
+INTO :musaat_cobrado  
+FROM csi_facturas_emitidas, csi_lineas_fact_emitidas, fases_minutas
+WHERE ( csi_lineas_fact_emitidas.id_factura = csi_facturas_emitidas.id_factura ) and  
+		( csi_facturas_emitidas.id_fase = fases_minutas.id_minuta ) and  
+		( csi_lineas_fact_emitidas.articulo = :g_codigos_conceptos.musaat_variable ) AND  
+		( csi_facturas_emitidas.id_persona = :id_cli ) AND  
+		( fases_minutas.id_fase = :id_fase )    ;
+
+
+if isnull(musaat_cobrado) then musaat_cobrado = 0
+
+SELECT sum ( csi_lineas_fact_emitidas.subtotal )  
+INTO :ld_total_pagado_facturas  
+FROM csi_facturas_emitidas, csi_lineas_fact_emitidas 
+WHERE ( csi_lineas_fact_emitidas.id_factura = csi_facturas_emitidas.id_factura ) and  
+		( csi_lineas_fact_emitidas.articulo = :g_codigos_conceptos.musaat_variable ) AND  
+		( csi_facturas_emitidas.id_persona = :id_cli ) AND  
+		( csi_facturas_emitidas.id_minuta = :id_fase )    ;
+
+if isnull(ld_total_pagado_facturas) then ld_total_pagado_facturas = 0
+
+ld_total_pagado_facturas = ld_total_pagado_facturas + musaat_cobrado
+
+return ld_total_pagado_facturas
+
+
+
+end function
+

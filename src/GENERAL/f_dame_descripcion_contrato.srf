@@ -1,0 +1,19 @@
+HA$PBExportHeader$f_dame_descripcion_contrato.srf
+global type f_dame_descripcion_contrato from function_object
+end type
+
+forward prototypes
+global function string f_dame_descripcion_contrato (string id_fase)
+end prototypes
+
+global function string f_dame_descripcion_contrato (string id_fase);string descripcion_manual
+
+  SELECT fases.descripcion  
+    INTO :descripcion_manual  
+    FROM fases  
+   WHERE fases.id_fase = :id_fase   ;
+	
+
+return descripcion_manual
+end function
+

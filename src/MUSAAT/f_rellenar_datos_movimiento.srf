@@ -1,0 +1,76 @@
+HA$PBExportHeader$f_rellenar_datos_movimiento.srf
+global type f_rellenar_datos_movimiento from function_object
+end type
+
+forward prototypes
+global function st_musaat_datos f_rellenar_datos_movimiento (string id_fase, string id_col, boolean es_cfo)
+end prototypes
+
+global function st_musaat_datos f_rellenar_datos_movimiento (string id_fase, string id_col, boolean es_cfo);string id_linea, proforma,  tipo_csd, n_contrato_ant, funcionario, tipo_factura, id_colegiado, administracion
+st_musaat_datos st_musaat_datos
+double pem, porcentaje, base_musaat
+
+string n_contrato , n_col, id_factura, tabla,	tipo_act	, tipo_obra	, t_visado,	destino,	nif_pagador, prefijo ,num_pol, num_mut, seguridad
+string obra_oficial, pagador, id_minuta, id_sociedad ,colindantes2m, doble_condicion
+string int_forzosa, poliza_plus, cod_colegio_dest, obra_iniciada
+
+double	honorarios, importe_cobrado, importe_pendiente, coef_k, coef_c ,coef_g, presupuesto,	importe_vble,	superficie, cobertura
+double	volumen, altura, coef_sin, coef_col, coef_recargo, ld_porcentaje
+
+datetime fecha_calculo, fecha_notificacion,	f_pago,	f_renuncia
+
+boolean	aplica_10, aplicado_10
+
+int li_es_colegiado
+
+//carga de datos faltantes
+// Comprobamos si es un colegiado o se trata de un asociado
+select count(*), facturado, porcen_a into :li_es_colegiado, :funcionario, :ld_porcentaje FROM fases_colegiados WHERE id_fase = :id_fase AND id_col = :id_col group by id_fase, id_col;
+
+if (li_es_colegiado = 0) then 
+	SELECT 'N', porcent INTO :funcionario, :ld_porcentaje FROM fases_colegiados_asociados WHERE id_fase = :id_fase AND id_col_per = :id_col ;	
+end if 	
+
+
+
+SELECT expedientes.administracion INTO :administracion FROM expedientes, fases WHERE expedientes.id_expedi = fases.id_expedi and fases.id_fase = :id_fase ;
+	IF f_es_vacio(administracion) THEN administracion = 'N'
+	
+if (administracion) = 'N' then
+	tipo_csd=	'10'
+else 
+	tipo_csd=	'12'
+end if
+
+if (es_cfo) then 
+	tipo_csd = '30'
+//	st_musaat_datos.fecha_cfo = 	
+end if	
+
+
+select n_contrato_ant into :n_contrato_ant from fases where id_fase = :id_fase;
+
+
+
+
+
+// ====================================================
+
+st_musaat_datos.n_visado = id_fase
+st_musaat_datos.id_col = id_col
+st_musaat_datos.id_minuta = ''
+st_musaat_datos.funcionario = funcionario
+st_musaat_datos.pem_certificacion = 0
+st_musaat_datos.tipo_csd = tipo_csd
+st_musaat_datos.n_contrato_ant = n_contrato_ant 
+st_musaat_datos.porcentaje = ld_porcentaje	
+st_musaat_datos.recuperar = TRUE
+st_musaat_datos.genera_movi = TRUE
+
+// ====================================================
+
+
+
+RETURN st_musaat_datos
+end function
+

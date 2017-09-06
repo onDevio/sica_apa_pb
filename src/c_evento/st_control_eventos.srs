@@ -1,0 +1,12 @@
+HA$PBExportHeader$st_control_eventos.srs
+global type st_control_eventos from structure
+	string		id_colegiado
+	string		control
+	string		evento
+	datawindow		dw
+	string		estado
+	string		param1
+	string		param2
+	string		param3
+end type
+

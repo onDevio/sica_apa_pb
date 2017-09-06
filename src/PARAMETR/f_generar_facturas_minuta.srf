@@ -1,0 +1,58 @@
+HA$PBExportHeader$f_generar_facturas_minuta.srf
+global type f_generar_facturas_minuta from function_object
+end type
+
+forward prototypes
+global subroutine f_generar_facturas_minuta (st_generar_facturas_minutas generar_facturas)
+end prototypes
+
+global subroutine f_generar_facturas_minuta (st_generar_facturas_minutas generar_facturas);// Variable en la que metemos los ids de movimientos de musaat que se van a facturar
+gds_musaat_movimientos_a_facturar.reset()
+
+CHOOSE CASE g_colegio
+	CASE 'COAATB'
+		f_generar_facturas_bizkaia(generar_facturas)
+	CASE 'COAATBU'
+		f_generar_facturas_burgos(generar_facturas)
+	CASE 'COAATMU'
+		f_generar_facturas_murcia(generar_facturas)
+	CASE 'COAATGUI'
+		f_generar_facturas_gui(generar_facturas)
+	CASE 'COAATGC'
+		f_generar_facturas_grancanaria(generar_facturas)
+	CASE 'COAATLR'
+		f_generar_facturas_lr(generar_facturas)
+	CASE 'COAATCU'
+		f_generar_facturas_cu(generar_facturas)
+	CASE 'COAATTFE'
+		f_generar_facturas_tfe(generar_facturas)
+	CASE 'COAATZ'
+		f_generar_facturas_za(generar_facturas)
+	CASE 'COAATGU'
+		f_generar_facturas_gu(generar_facturas)
+	CASE 'COAATLE'
+		f_generar_facturas_le(generar_facturas)
+	CASE 'COAATAVI'
+		f_generar_facturas_avi(generar_facturas)
+	CASE 'COAATA'
+		f_generar_facturas_al(generar_facturas)
+	CASE 'COAATNA'
+		f_generar_facturas_na(generar_facturas)
+	CASE 'COAATTGN'
+		f_generar_facturas_tg(generar_facturas)
+	CASE 'COAATTEB'
+		f_generar_facturas_teb(generar_facturas)
+	CASE 'COAATCC'
+		f_generar_facturas_cc(generar_facturas)
+	CASE 'COAATTER'
+		f_generar_facturas_ter(generar_facturas)		
+	CASE 'COAATMCA'
+		f_generar_facturas_mca(generar_facturas)	
+	CASE 'COAATLL'
+		f_generar_facturas_ll(generar_facturas)	
+	CASE ELSE
+		f_generar_facturas_bizkaia(generar_facturas)
+END CHOOSE
+
+end subroutine
+

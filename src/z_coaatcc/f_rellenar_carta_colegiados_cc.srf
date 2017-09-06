@@ -1,0 +1,262 @@
+HA$PBExportHeader$f_rellenar_carta_colegiados_cc.srf
+global type f_rellenar_carta_colegiados_cc from function_object
+end type
+
+forward prototypes
+global subroutine f_rellenar_carta_colegiados_cc (string id_fase, string tipo_carta, integer copias)
+end prototypes
+
+global subroutine f_rellenar_carta_colegiados_cc (string id_fase, string tipo_carta, integer copias);// FUNCION QUE SE UTILIZARA PARA RELLENAR TODOS LOS DATOS NECESARIOS PARA OBTENER LAS CARTAS DEL AYUNTAMIENTO
+string nucol, ls_nombre, colegiado, sl_total_colegiados, id_cliente, sl_total_clientes, cliente, n_c, nom_aut, obser, sl_tipo_act, sl_des_tipo_act
+string sl_tipo_obra, sl_des_tipo_obra, sl_uso_obra, sl_des_uso_obra, t_via, nomvia, numero, sl_num_contrato, sl_f_visado, cp, pobla, des_via, empl
+string ls_fecha, sl_colegio, n_registro, id_col, autor, n_expedi, descripcion, id_fases_col, ls_col_soc, tipo_trabajo, trabajo, fase, observaciones, ls_domicilio_activo,ls_poblacion_activa
+string tipo_via_emplazamiento, emplazamiento, n_calle, poblacion, visared, archivo, n_registro_sal, tipo_actuacion
+datetime ldtt_hoy, fec, f_visado
+date ldt_hoy
+long i, cuantos, viviendas, cols, k
+decimal dl_sup_otros, dl_sup_garaje, dl_sup_viviendas,importe_seguro
+
+
+// Recuperamos los datos del contrato
+SELECT n_registro, n_expedi, descripcion, f_visado, tipo_trabajo, trabajo, observaciones, fase, tipo_via_emplazamiento,
+		emplazamiento, n_calle, poblacion, e_mail, archivo
+INTO :n_registro, :n_expedi, :descripcion, :f_visado, :tipo_trabajo, :trabajo, :observaciones, :fase,
+	  :tipo_via_emplazamiento, :emplazamiento, :n_calle, :poblacion, :visared, :archivo
+FROM fases  
+WHERE fases.id_fase = :id_fase;
+
+
+SELECT n_registro
+INTO :n_registro_sal
+FROM fases_minutas, fases_minutas_cartas
+WHERE fases_minutas.id_fase = :id_fase and fases_minutas_cartas.id_referencia = fases_minutas.id_minuta   ;
+
+SELECT d_t_descripcion
+INTO :tipo_actuacion
+FROM t_fases
+WHERE c_t_fase = :fase;
+
+SELECT cuantia_colegiado
+INTO :importe_seguro
+FROM fases_informes
+WHERE (id_fase = :id_fase) and (tipo_informe = '12');
+
+
+datastore ds_imprime_hoja
+ds_imprime_hoja = create datastore
+ds_imprime_hoja.dataobject = 'd_carta_colegiados_cc'
+ds_imprime_hoja.settransobject(sqlca)
+ds_imprime_hoja.insertrow(0)
+
+sl_colegio= g_nombre_colegio_carta
+
+// Creamos un datastore para recuperar los clientes del contrato
+datastore ds_fases_promotores
+ds_fases_promotores = create datastore
+ds_fases_promotores.dataobject = 'd_fases_promotores'
+ds_fases_promotores.SetTransObject(SQLCA)
+ds_fases_promotores.retrieve(id_fase)
+
+cuantos = ds_fases_promotores.rowcount()
+for i = 1 to cuantos
+	// Vamos a meter 3 clientes por hoja, si hay m$$HEX1$$e100$$ENDHEX$$s insertamos linea
+	if i > 3 and mod ( i,  3 ) = 1 then
+		ds_imprime_hoja.setitem(ds_imprime_hoja.rowcount(),"clientes",sl_total_clientes)
+		ds_imprime_hoja.insertrow(0)
+	end if
+	
+	id_cliente = ds_fases_promotores.getitemstring(i,"id_cliente")
+	nucol = f_dame_nif(id_cliente)
+	ls_nombre = f_dame_cliente(id_cliente)
+	n_c = nucol + ' ' + ls_nombre
+	if not isNull(n_c) then
+		n_c = n_c + space(70 - LenA(n_c))
+		if LenA(n_c) > 35 then n_c = MidA(n_c,1,70)
+	else
+		n_c = space(50)
+	end if	   
+	cliente = ls_nombre //+ cr + f_dame_domicilio (id_cliente) + cr //+ f_retorna_poblacion (id_cliente)	
+	if mod(i,3)  = 1 then
+		sl_total_clientes = cliente
+	else
+		sl_total_clientes = sl_total_clientes + "~n~r" + cliente
+	end if
+next
+ds_imprime_hoja.setitem(ds_imprime_hoja.rowcount(),"clientes",sl_total_clientes)
+
+
+// Creamos un datastore para recuperar los colegiados del contrato
+datastore ds_fases_colegiados
+ds_fases_colegiados = create datastore
+ds_fases_colegiados.dataobject = 'd_fases_colegiados'
+ds_fases_colegiados.setFilter("renunciado<>'S'")
+ds_fases_colegiados.Settransobject(SQLCA)
+ds_fases_colegiados.retrieve(id_fase)
+
+cuantos = ds_fases_colegiados.rowcount()
+for i = 1 to cuantos
+	id_col = ds_fases_colegiados.getitemstring(i,"id_col")
+	nucol = f_colegiado_n_col(id_col)
+	ls_nombre = f_colegiado_apellido(id_col)
+	select domicilio_activo into :ls_domicilio_activo from colegiados where id_colegiado =:id_col;
+	select poblacion_activa into :ls_poblacion_activa from colegiados where id_colegiado =:id_col;
+	n_c = nucol + ' ' + ls_nombre
+	if not isNull(n_c) then
+		n_c = n_c + space(50 - LenA(n_c))
+		if LenA(n_c) > 50 then n_c = MidA(n_c,1,50)
+	else
+		n_c = space(50)
+	end if
+	colegiado = n_c
+
+	autor = ds_fases_colegiados.getitemstring(i,"tipo_a")
+	if autor = 'S' then
+		nom_aut = ls_nombre + cr
+	else
+		nom_aut = ''
+	end if
+	colegiado = ls_nombre
+			
+	if i = 1 then  // Mejorar
+		sl_total_colegiados = colegiado
+//			sl_total_autores = nom_aut
+	else
+		sl_total_colegiados = sl_total_colegiados + cr + cr + colegiado
+//			sl_total_autores = sl_total_autores + nom_aut
+	end if
+next
+
+for i = 1 to cuantos
+	id_col = ds_fases_colegiados.getitemstring(i,"id_col")
+	nucol = f_colegiado_n_col(id_col)
+	id_fases_col = ds_fases_colegiados.getitemstring(i, 'id_fases_colegiados')
+	if LeftA(nucol, 1) = 'S' then 
+		datastore ds_cols_soc
+		ds_cols_soc = create datastore
+		ds_cols_soc.dataobject = 'ds_fases_colegiados_asociados'
+		ds_cols_soc.settransobject(sqlca)
+		ds_cols_soc.retrieve(id_fases_col)
+		
+		for cols = 1 to ds_cols_soc.rowcount()
+			id_col = ds_cols_soc.getitemstring(cols,"id_col_per")
+			ls_col_soc += 'D./D$$HEX1$$aa00$$ENDHEX$$.  ' + f_colegiado_apellido( id_col ) + '   ( ' + ls_nombre + ' ) ' + cr
+		next
+//		for k=1 to ds_imprime_hoja.rowcount()
+//			ds_imprime_hoja.setitem(k,"colegiado_soc", ls_col_soc)
+//		next
+		destroy ds_cols_soc
+	end if
+next
+
+
+sl_tipo_obra = tipo_trabajo
+obser = observaciones
+
+if isnull(obser) then obser=''
+sl_des_tipo_obra = f_dame_desc_tipo_obra(sl_tipo_obra)
+if isnull(sl_des_tipo_obra) then sl_des_tipo_obra=''
+
+sl_uso_obra = trabajo
+sl_des_uso_obra = f_dame_desc_destino_obra(sl_uso_obra)
+
+if isnull(sl_des_uso_obra) then sl_des_uso_obra=''
+
+sl_tipo_act = fase
+sl_des_tipo_act = f_dame_desc_tipo_actuacion(sl_tipo_act)
+
+if isnull(sl_des_tipo_act) then sl_des_tipo_act=''
+
+
+sl_num_contrato = n_expedi
+sl_des_uso_obra = n_registro
+if isnull(sl_num_contrato) then sl_num_contrato=''
+
+sl_f_visado=string( f_visado,"dd/mm/yyyy")
+if isnull(sl_f_visado) then sl_f_visado=''
+
+t_via = tipo_via_emplazamiento
+nomvia = emplazamiento
+numero = n_calle
+cp = poblacion
+pobla = f_poblacion_descripcion(cp)
+des_via = f_dame_desc_tipo_via(t_via)
+
+if isnull(des_via) then des_via = " "
+if isnull(nomvia) then nomvia = " "
+if isnull(numero) then numero = " "
+if isnull(cp) then cp = " "
+if isnull(pobla) then pobla = " "
+
+
+ldtt_hoy =datetime(today(),now())
+ldt_hoy  = today()
+//ls_fecha = Upper( g_col_ciudad + ', ' + string(day(ldt_hoy)) + ' de ' + lower(f_obtener_mes (ldtt_hoy)) + ' de ' + string(year(ldt_hoy)))
+obser = descripcion //+ ' / ' + sl_des_tipo_act
+empl = trim(des_via) + " " + trim(nomvia) + " " + trim(numero) +', '+ trim(pobla)
+ls_fecha = Upper(g_col_ciudad) + '    a/n    ' + string(day(date(f_visado))) + '    de/ko(e)  ' + f_obtener_mes(f_visado) + '    de/aren ' + string(year(date(f_visado))) + ' (e)an'
+//pobla = sl_total_autores
+
+// Rellenamos todas las hojas ya que puede haber varias
+for k = 1 to ds_imprime_hoja.rowcount()
+	//ds_imprime_hoja.setitem(k,"colegiados",sl_total_colegiados)
+	ds_imprime_hoja.setitem(k,"tipo_obra",sl_des_tipo_obra)
+	//ds_imprime_hoja.setitem(k,"uso_obra",sl_des_uso_obra)
+	ds_imprime_hoja.setitem(k,"n_aviso",archivo)
+	//ds_imprime_hoja.setitem(k,"tipo_actuacion",sl_des_tipo_act)
+	//ds_imprime_hoja.setitem(k,"n_contrato",sl_num_contrato)
+	//ds_imprime_hoja.setitem(k,"fecha_visado",sl_f_visado)
+	ds_imprime_hoja.setitem(k,"direccion",ls_domicilio_activo)  
+	ds_imprime_hoja.setitem(k,"destinatario",sl_total_colegiados)  
+	ds_imprime_hoja.setitem(k,"poblacion",ls_poblacion_activa)  
+	ds_imprime_hoja.setitem(k,"emplazamiento",empl)  
+	ds_imprime_hoja.setitem(k,"descripcion",obser)
+	//ds_imprime_hoja.setitem(k,"alcalde",pobla)
+	ds_imprime_hoja.setitem(k,"reg_salida",'SRC - '+f_siguiente_numero_registro_es('SRC',10))
+	ds_imprime_hoja.setitem(k,"total_aviso",importe_seguro)
+	//ds_imprime_hoja.setitem(k,"tipo_actuacion",tipo_actuacion)
+	ds_imprime_hoja.setitem(k,"colegio",g_nombre_colegio_carta)
+	ds_imprime_hoja.setitem(k,"colegio_direc",g_direc_colegio_carta)
+	ds_imprime_hoja.setitem(k,"colegio_pob",g_pobla_colegio_carta)
+	ds_imprime_hoja.setitem(k,"colegio_tlf",g_col_telefono)
+	ds_imprime_hoja.setitem(k,"colegio_fax",g_col_fax)
+	ds_imprime_hoja.setitem(k,"colegio_email",g_email_colegio_carta)
+	//ds_imprime_hoja.setitem(k,"n_registro_sal",'AYTO - '+f_siguiente_numero_registro_es('AYTO',10))
+	//ds_imprime_hoja.setitem(k,"fecha",ls_fecha)
+next
+
+
+n_csd_impresion_formato uo_impresion
+uo_impresion=create n_csd_impresion_formato
+uo_impresion.copias=1
+uo_impresion.generar_registro='S' //g_formato_impresion.generar_registro
+uo_impresion.tipo_receptor='O'
+uo_impresion.asunto_email='CARTA AVISO COLEGIADOS'
+uo_impresion.asunto_registro='CARTA AVISO COLEGIADOS'
+uo_impresion.receptor= sl_total_colegiados
+uo_impresion.serie='SRC'
+//uo_impresion.tipo_doc='AY'
+uo_impresion.dw=ds_imprime_hoja
+uo_impresion.visualizar_web = 'N'
+uo_impresion.email = 'N'
+uo_impresion.pdf= 'N'
+uo_impresion.papel='S'
+uo_impresion.referencia=id_fase
+//uo_impresion.ruta_automatica=true
+uo_impresion.ruta_base = g_directorio_documentos_visared
+uo_impresion.ruta_relativa1=''
+uo_impresion.ruta_relativa2=''
+//uo_impresion.ruta_relativa2=string(year(date(f_entrada)))
+uo_impresion.ruta_relativa3=sl_num_contrato
+uo_impresion.n_expedi=id_fase
+uo_impresion.expediente=n_registro
+uo_impresion.nombre="carta_colegiado"
+if uo_impresion.f_opciones_impresion()>0 then uo_impresion.f_impresion()
+
+//ds_imprime_hoja.print( )
+
+destroy ds_fases_colegiados
+destroy ds_fases_promotores
+destroy ds_imprime_hoja
+
+end subroutine
+

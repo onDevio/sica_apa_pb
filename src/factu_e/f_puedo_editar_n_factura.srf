@@ -1,0 +1,33 @@
+HA$PBExportHeader$f_puedo_editar_n_factura.srf
+global type f_puedo_editar_n_factura from function_object
+end type
+
+forward prototypes
+global function integer f_puedo_editar_n_factura (string usuario, string aplicacion)
+end prototypes
+
+global function integer f_puedo_editar_n_factura (string usuario, string aplicacion);//Esta funci$$HEX1$$f300$$ENDHEX$$n comprueba si se tienen permisos para editar el n$$HEX2$$ba002000$$ENDHEX$$de factura.
+// Con permisos -> Devuelve 1
+// Sin permisos -> Devuelve -1
+
+char permiso=''
+long cuantos=0
+
+// Comprobamos los permisos de usuario
+select permiso into :permiso from t_permisos 
+where cod_usuario=:usuario and cod_aplicacion=:aplicacion;
+
+if isnull(permiso) or permiso='' then 
+	// Comprobamos los permisos de grupo
+	select count(*) into :cuantos from t_usuario_grupos,t_grupo_permisos where  t_usuario_grupos.cod_usuario=:usuario and 
+	 t_usuario_grupos.cod_grupo=t_grupo_permisos.cod_grupo and t_grupo_permisos.cod_aplicacion=:aplicacion;
+	if cuantos>0 then 
+		return 1
+	end if
+	return -1
+else 
+	return 1
+end if
+
+end function
+

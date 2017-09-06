@@ -1,0 +1,65 @@
+declare @colegio varchar(10)
+select @colegio = texto from var_globales where nombre = 'COLEGIO'
+
+--INC-414. Navarra ya lo tiene instalado el listado. Se debe instalar para el resto.
+If @colegio <> 'COAATNA' 
+begin
+insert into listados (descripcion, dw, ventana, orden, activo) values('Listado estadistico de fases para el consejo', 'd_fases_listado_estadistico_consejo', 'w_fases_estadisticas', '16', 'S')
+end
+
+--CGN-525. Listado de Finales de Obra especifico
+if @colegio='COAATGN'
+begin
+update listados set dw='d_fases_listado_finales_obra_tg' where dw='d_fases_listado_finales_obra'
+end
+
+If @colegio='COAATB' or @colegio='COAATLE'
+begin
+update var_globales set sn='S' where nombre='g_imprime_resumen_sin_email'
+end 
+
+//CGI-152 Nuevo listado Guipuzkoa
+if @colegio='COAATGUI'
+begin
+INSERT INTO listados (descripcion, dw, ventana, orden, activo) VALUES ("Listado DIC y DV's",'d_fases_listado_dv_dic_gui','w_fases_listados','00','S')
+end 
+go
+
+
+--Todos
+update var_globales set texto='20100222' where nombre='g_version_minima';
+
+---SCP 319
+INSERT INTO menu ( codigo, descripcion,  objeto, visible, enabled, ventana, activo )  
+VALUES ( '0000000210', 'Regenera población y dirección activa', 'm_aplic_frame.m_file.m_new.m_cip.m_regenerapoblacion', '1', '1', 'w_regenera_poblaciones', 'S' );
+
+
+-- Todos
+update menu set objeto = 'm_aplic_frame.m_file.m_new.m_colegiados.m_origenesdeinhabilitacion' where codigo = '0000000209';
+update menu set objeto = 'm_aplic_frame.m_file.m_new.m_colegiadosm_tiposinhabilitacion' where codigo = '0000000208';
+go
+
+-- Gran Canaria	CGC-118
+update colegiados set recibir_c_email = 'S' where email is not null and email <> ' '; 
+
+-- TODOS
+-- SCP318
+INSERT INTO var_globales( nombre,numero,sn,texto,fecha,descripcion,ambito,modificable ) 
+VALUES ( 'g_imprime_resumen_sin_email',null,'N',null,null,'Activa comprobar si el colegiado no tiene email', 
+null,'S');
+
+-- SCP 228
+INSERT INTO t_aplicacion( cod_aplicacion,nombre ) 
+VALUES ( 'PERM_PASSW','Permiso para poder visualizar el Password');
+
+--Todos
+update var_globales set texto='20100429' where nombre='g_version_minima';
+
+--SCP-353
+INSERT INTO csd_seg_tipo_idioma (cod_tipo_idioma, descripcion) VALUES ('ES','ESPAÑOL');
+INSERT INTO csd_seg_tipo_idioma (cod_tipo_idioma, descripcion) VALUES ('IN','INGLÉS');
+INSERT INTO csd_seg_tipo_idioma (cod_tipo_idioma, descripcion) VALUES ('CA','CATALÁN');
+INSERT INTO csd_seg_tipo_idioma (cod_tipo_idioma, descripcion) VALUES ('EU','EUSKERA');
+INSERT INTO csd_seg_tipo_idioma (cod_tipo_idioma, descripcion) VALUES ('GA','GALLEGO');
+
+go

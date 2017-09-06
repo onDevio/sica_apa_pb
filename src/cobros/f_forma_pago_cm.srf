@@ -1,0 +1,31 @@
+HA$PBExportHeader$f_forma_pago_cm.srf
+global type f_forma_pago_cm from function_object
+end type
+
+forward prototypes
+global function string f_forma_pago_cm (string id_factura)
+end prototypes
+
+global function string f_forma_pago_cm (string id_factura);// Devuelve la forma de pago asociada a un cobro multiple.
+
+string forma_pago, id_cobro_multiple
+
+
+SELECT csi_cobros.id_cobro_multiple  
+INTO :id_cobro_multiple  
+FROM csi_cobros  
+WHERE csi_cobros.id_factura = :id_factura   ;
+
+if not isnull(id_cobro_multiple) then 
+	SELECT csi_cobros_multiples.forma_pago  
+	INTO :forma_pago  
+	FROM csi_cobros_multiples  
+	WHERE csi_cobros_multiples.id_cobro_multiple = :id_cobro_multiple   ;
+end if
+
+if isnull(forma_pago) then forma_pago = g_forma_pago_por_defecto
+
+return forma_pago
+
+end function
+

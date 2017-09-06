@@ -1,0 +1,48 @@
+HA$PBExportHeader$f_colegiados_listas_pertenece.srf
+$PBExportComments$Dado un colegiado devuelve las listas a las que pertenece
+global type f_colegiados_listas_pertenece from function_object
+end type
+
+forward prototypes
+global function string f_colegiados_listas_pertenece (string id_col)
+end prototypes
+
+global function string f_colegiados_listas_pertenece (string id_col);//Par$$HEX1$$e100$$ENDHEX$$metro: el identificador del colegiado.
+//Devuelve: un string con los campos de las listas a las que pertenece
+//el colegiado indicado por id_col
+
+long i
+string retorno, nombre_lista, cod_propietario, propietario, fecha_creacion, activa
+retorno = ''
+
+
+datastore ds_lista
+
+ds_lista = create datastore
+ds_lista.dataobject ='d_colegiados_listas_pertenece'
+ds_lista.SetTransObject(SQLCA)
+
+ds_lista.Retrieve(id_col)
+
+for i = 1 to ds_lista.rowcount()
+	nombre_lista = ds_lista.getitemstring(i, 'listas_colegiados_nombre_lista')
+	cod_propietario = ds_lista.getitemstring(i, 'listas_colegiados_propietario')
+	select nombre_usuario into :propietario from t_usuario where cod_usuario = :cod_propietario;
+	fecha_creacion = string(ds_lista.getitemdatetime(i, 'listas_colegiados_fecha_creacion'))
+	activa = ds_lista.getitemstring(i, 'listas_colegiados_activa')
+	
+	if f_es_vacio(nombre_lista) then nombre_lista = ''
+	if f_es_vacio(propietario) then propietario = ''
+	if f_es_vacio(fecha_creacion) then fecha_creacion = ''
+	if f_es_vacio(activa) then activa = ''
+	
+	retorno = retorno + nombre_lista + '~t' + 'Propietario: ' + propietario + '~t' + 'Fecha: ' + fecha_creacion + '~t' + 'Activa: ' + activa + cr
+	
+next
+
+destroy ds_lista
+
+return retorno
+
+end function
+

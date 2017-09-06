@@ -1,0 +1,13 @@
+HA$PBExportHeader$st_fases_consulta.srs
+global type st_fases_consulta from structure
+	string		id_fase
+	string		id_expedi
+	string		opcion_importacion
+	string		fichero_importacion
+	string		paquete_importacion
+	string		visared
+	string		tipo_gestion
+	string		proforma
+	string		tipo_tramite
+end type
+

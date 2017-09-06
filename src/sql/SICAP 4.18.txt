@@ -1,0 +1,21 @@
+// V. 4.1.8
+// COAATCC
+create table dbo.coaatcc_ho_tablas (desde double precision not null, hasta double precision not null, coef double precision not null, limite char(1) not null, tarifa char(10) not null, contenido char(4) not null) ;
+alter table dbo.coaatcc_ho_tablas add constraint cip_tablas_x primary key nonclustered (desde, hasta, tarifa, contenido) ;
+
+create table dbo.coaatcc_ho_tarifas (cod_tarifa char(10) not null, descripcion char(255) null, formula char(255) null, param1 char(100) null, param2 char(100) null, param3 char(100) null, param4 char(100) null, param5 char(100) null, formula_cip char(255) null) ;
+alter table dbo.coaatcc_ho_tarifas add constraint ho_tarifas_x primary key nonclustered (cod_tarifa) ;
+
+create table dbo.coaatcc_ho_tarifas_contenidos (cod_tarifa char(10) not null, cod_contenido char(10) not null, minimo double precision null, coef double precision null, minimo_cip double precision null) ;
+alter table dbo.coaatcc_ho_tarifas_contenidos add constraint pk_ho_tarifas_contenidos primary key nonclustered (cod_tarifa, cod_contenido) ;
+
+// TODOS (Configurar para cada colegio)
+INSERT INTO var_globales ( nombre,  texto,  descripcion, modificable )  
+VALUES ( 'g_envio_sms', 'N', '', 'N' )  ;
+
+INSERT INTO var_globales ( nombre,  texto,  descripcion, modificable )  
+VALUES ( 'g_email_colegio_carta', '', '',  'S' )  ;
+
+INSERT INTO var_globales ( nombre,  texto,  descripcion, modificable )  
+VALUES ( 'g_col_fax', '', '',  'S' )  ;
+

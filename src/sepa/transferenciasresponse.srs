@@ -1,0 +1,6 @@
+HA$PBExportHeader$transferenciasresponse.srs
+$PBExportComments$Proxy imported from Web service using Web Service Proxy Generator.
+global type transferenciasResponse from structure
+    string outputXml
+end type
+

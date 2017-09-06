@@ -1,0 +1,6 @@
+HA$PBExportHeader$st_final_obra_consulta.srs
+global type st_final_obra_consulta from structure
+	string		id_fases_final
+	string		id_fase
+end type
+

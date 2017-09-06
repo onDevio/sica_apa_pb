@@ -1,0 +1,19 @@
+HA$PBExportHeader$f_devuelve_nif.srf
+global type f_devuelve_nif from function_object
+end type
+
+forward prototypes
+global function string f_devuelve_nif (string id_col)
+end prototypes
+
+global function string f_devuelve_nif (string id_col);
+string datos_colegiado = ''
+string nif
+
+select nif into :nif from colegiados where id_colegiado=:id_col;
+if f_es_vacio(nif) then nif = ''
+datos_colegiado = nif
+
+return datos_colegiado
+end function
+

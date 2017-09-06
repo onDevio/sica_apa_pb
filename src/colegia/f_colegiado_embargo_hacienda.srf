@@ -1,0 +1,18 @@
+HA$PBExportHeader$f_colegiado_embargo_hacienda.srf
+global type f_colegiado_embargo_hacienda from function_object
+end type
+
+forward prototypes
+global function boolean f_colegiado_embargo_hacienda (string id_colegiado)
+end prototypes
+
+global function boolean f_colegiado_embargo_hacienda (string id_colegiado);// FUNCION CREADA POR RICARDO 2005-03-15
+
+string embargo_hacienda
+
+select embargo_hacienda into :embargo_hacienda from colegiados where id_colegiado = :id_colegiado;
+if f_es_vacio(embargo_hacienda) then embargo_hacienda = 'N'
+
+return (embargo_hacienda = 'S')
+end function
+

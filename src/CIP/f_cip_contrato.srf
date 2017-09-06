@@ -1,0 +1,23 @@
+HA$PBExportHeader$f_cip_contrato.srf
+$PBExportComments$Calcula el total de cip para un contrato determinado
+global type f_cip_contrato from function_object
+end type
+
+forward prototypes
+global function double f_cip_contrato (string id_fase)
+end prototypes
+
+global function double f_cip_contrato (string id_fase);double cip = 0
+
+SELECT fases_informes.cuantia_colegiado  
+INTO :cip  
+FROM fases_informes  
+WHERE ( fases_informes.id_fase = :id_fase ) AND  
+		( fases_informes.tipo_informe = '05' )   ;
+
+if isnull(cip) then cip = 0
+
+return cip
+
+end function
+

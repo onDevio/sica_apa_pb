@@ -1,0 +1,31 @@
+HA$PBExportHeader$d_almacen_visados.srd
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=1 )
+header(height=72 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=80 color="536870912" )
+table(column=(type=char(10) update=yes updatewhereclause=yes name=id_almacen dbname="almacen_visados.id_almacen" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=id_fase dbname="almacen_visados.id_fase" )
+ column=(type=char(10) update=yes updatewhereclause=yes key=yes name=id_almacen_visados dbname="almacen_visados.id_almacen_visados" )
+ column=(type=char(20) update=yes updatewhereclause=yes name=n_visado dbname="almacen_visados.n_visado" )
+ column=(type=char(1) updatewhereclause=yes name=estado dbname="estado" initial="S" )
+ retrieve="  SELECT almacen_visados.id_almacen,   
+         almacen_visados.id_fase,   
+         almacen_visados.id_almacen_visados,    
+         almacen_visados.n_visado,
+			'S' as estado  
+    FROM almacen_visados  
+   WHERE almacen_visados.id_almacen = :id_almacen    
+" update="almacen_visados" updatewhere=1 updatekeyinplace=no arguments=(("id_almacen", string)) )
+text(band=header alignment="2" text="N$$HEX2$$ba002000$$ENDHEX$$Visado" border="6" color="0" x="9" y="12" height="52" width="375"  name=t_1  font.face="Microsoft Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="83227374" )
+bitmap(band=detail filename="C:\sica\Imagenes\v.gif" x="599" y="8" height="60" width="96" border="0"  name=p_1 visible="1~tif( not f_es_vacio(n_visado), if(f_es_vacio(compute_1),0,if(estado='S',1,0) ),0) " )
+compute(band=detail alignment="0" expression=" if( not f_es_vacio(n_visado), if(f_es_vacio(compute_1),'No se encuentra la fase','' ),'')  "border="0" color="0" x="393" y="8" height="64" width="306" format="[GENERAL]"  name=compute_2 visible="1~t0"  font.face="Microsoft Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+bitmap(band=detail filename="C:\sica\Imagenes\x.gif" x="603" y="8" height="60" width="96" border="0"  name=p_2 visible="1~tif( not f_es_vacio(n_visado), if(f_es_vacio(compute_1),1,if(estado='S',0,1) ),if(estado='S',0,1)) " )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="709" y="8" height="64" width="1042" format="[general]"  name=id_fase  tag=" " visible="1~t0" edit.limit=10 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Microsoft Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="0" expression="f_devuelve_fase_visado( n_visado) "border="0" color="0" x="1760" y="12" height="52" width="878" format="[GENERAL]"  name=compute_1 visible="1~t0"  font.face="Microsoft Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+column(band=detail id=4 alignment="0" tabsequence=10 border="0" color="0" x="9" y="8" height="64" width="375" format="[general]"  name=n_visado edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Microsoft Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+button(band=detail text="..."filename=""action="0" border="0" color="0" x="443" y="8" height="68" width="110" vtextalign="0" htextalign="0"  name=b_fase  font.face="Microsoft Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="67108864" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="2647" y="12" height="52" width="69" format="[general]"  name=estado visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Microsoft Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

@@ -1,0 +1,153 @@
+declare @colegio varchar(10)
+select @colegio = texto from var_globales where nombre = 'COLEGIO'
+
+-- LA RIOJA. CRI-154
+if @colegio = 'COAATNA'
+begin
+insert into plantillas (codigo, descripcion, ruta, modulo, individual) 
+select REPLICATE('0', 10 - DATALENGTH(convert(varchar,convert(int, valor)))) + convert(varchar(10), convert(int, valor + 1 )), 'Certificado acreditación sociedades', 'certificado sociedad navarra.doc', 'REGSOC', 'S' from contadores where contador = 'PLANTILLAS'
+update contadores set valor = valor + 1 where contador = 'plantillas'
+insert into plantillas_campos (modulo, campo_formulario, campo_interno) select convert(varchar,valor), 'campo1', 'Colegio Acredit.' from contadores where contador = 'PLANTILLAS'
+insert into plantillas_campos (modulo, campo_formulario, campo_interno) select convert(varchar,valor), 'campo2', 'Trabajo Prof.' from contadores where contador = 'PLANTILLAS'
+end
+
+-- Navarra. CRI-154
+if @colegio = 'COAATLR'
+begin
+insert into plantillas (codigo, descripcion, ruta, modulo, individual) 
+select REPLICATE('0', 10 - DATALENGTH(convert(varchar,convert(int, valor)))) + convert(varchar(10), convert(int, valor + 1 )), 'Certificado acreditación sociedades', 'Certificado Acreditacion Registro Soc Prof-LR.doc', 'REGSOC', 'S' from contadores where contador = 'PLANTILLAS'
+update contadores set valor = valor + 1 where contador = 'plantillas'
+insert into plantillas_campos (modulo, campo_formulario, campo_interno) select convert(varchar,valor), 'campo1', 'Colegio Acredit.' from contadores where contador = 'PLANTILLAS'
+insert into plantillas_campos (modulo, campo_formulario, campo_interno) select convert(varchar,valor), 'campo2', 'Trabajo Prof.' from contadores where contador = 'PLANTILLAS'
+end
+
+
+-- MURCIA
+if @colegio = 'COAATMU'
+begin
+update listados set dw = 'd_fases_listado_por_colegiado_certif_fo_mur' where dw = 'd_fases_listado_por_colegiado_certif_mur' and ventana = 'w_fases_listados'
+update listados set dw = 'd_fases_listado_por_colegiado_certif_mur' where dw = 'd_fases_listado_por_colegiado_certif' and ventana = 'w_fases_listados'
+end
+
+-- MALLORCA
+if @colegio = 'COAATMCA'
+begin
+insert into contadores (contador,valor,descripcion) values ('N_COL_AUTO',0,'Nº Colegiado Automático')
+
+-- COAM-37
+INSERT INTO listados   ( descripcion,dw,ventana,orden,activo )  
+VALUES ( 'Recuent de movimientos', 'd_listado_recuento_mov_mca', 'w_fases_estadisticas', '12','S' )
+
+--COAM-46
+print 'Se agrega listado d_fases_estadistica_sup_parcela_mca '
+INSERT INTO listados( descripcion, dw,  ventana, orden, activo )  
+VALUES ( 'Listado de Estadisticas de Superficies de Parcelas','d_fases_estadistica_sup_parcela_mca','w_fases_estadisticas','14','S' )
+
+-- COAM-45
+print 'Se agrega listado d_fases_estadistica_obra_nueva_mca '
+INSERT INTO listados   ( descripcion,    dw,    ventana,    orden,     activo )  
+VALUES ( 'Listado de Estadisticas Obra Nueva', 'd_fases_estadistica_obra_nueva_mca',  'w_fases_estadisticas', '13','S' )
+
+--COAM-47
+print 'Se agrega listado d_fases_estadistica_sup_municipio_mca'
+INSERT INTO listados   ( descripcion,    dw,    ventana,    orden,     activo )  
+VALUES ( 'Listado de Estadisticas Superficie de Parcelas Por Municipio', 'd_fases_estadistica_sup_municipio_mca', 'w_fases_estadisticas', '15', 'S')
+
+--coam-65
+print 'Se insertan los campos a utilizarse para peritos'
+ INSERT INTO otros_conceptos ( codigo,  tipo,   modulo,   descripcion )  
+  VALUES ( 'PF',   'D',   'C',    'Fecha designación' )
+ INSERT INTO otros_conceptos ( codigo,  tipo,   modulo,   descripcion )  
+  VALUES ( 'NJ','S','C','Nº de Juzgado' )
+ INSERT INTO otros_conceptos ( codigo,  tipo,   modulo,   descripcion )  
+  VALUES ( 'NA','S','C','Nº de Auto (XXXX/XX)' )
+ INSERT INTO otros_conceptos ( codigo,  tipo,   modulo,   descripcion )  
+  VALUES ( 'FP','D','C','Fecha de presentación' )
+ INSERT INTO otros_conceptos ( codigo,  tipo,   modulo,   descripcion )  
+  VALUES ( 'SI','S','C','Situación' )
+
+  -- COAM-65
+print 'Listado Peritaje Judicial'
+INSERT INTO listados   ( descripcion,    dw,    ventana,    orden,     activo )  
+VALUES ('Listado Peritaje Judicial','d_colegiados_listado_peritaje','w_colegiados_listados','00','S')
+
+-- COAM 48
+print 'Listados estadisticos colegiales'
+INSERT INTO listados ( descripcion, dw, ventana, orden,  activo )  
+  VALUES ( 'Estadístico por edad', 'd_colegiado_listado_por_edad',   'w_colegiados_listados',  '00',   'S' )
+INSERT INTO listados ( descripcion, dw, ventana, orden,  activo )  
+  VALUES ( 'Estadístico por sexo', 'd_colegiado_listado_por_sexo',    'w_colegiados_listados',  '00',   'S' )
+INSERT INTO listados ( descripcion, dw, ventana, orden,  activo )  
+  VALUES ( 'Estadístico por municipio', 'd_colegiado_listado_por_municipio',    'w_colegiados_listados',  '00',   'S' )
+
+-- COAM-82
+alter table coaatmca_fases_estadisticas add f_visado_pb datetime null;
+alter table coaatmca_fases_estadisticas add f_visado_pe datetime null;
+alter table coaatmca_fases_estadisticas add n_visado_pb char(15) null;
+alter table coaatmca_fases_estadisticas add n_visado_pe char(15) null;
+
+
+end 
+
+
+-- Todos    COAM-55
+print 'Se agrega campo activo en coberturas de musaat'
+alter table dbo.musaat_cober_src add activo char(1) null
+
+
+-- TODOS ICC-187
+print 'Añadimos campo con codigo de consejo para facturación en Cáceres'
+alter table colegios add cod_consejo varchar(2) null
+
+-- TODOS COAM-40 Preferencia de Idiomas
+print 'Se agrega Tabla csd_seg_tipo_idioma'
+create table dbo.csd_seg_tipo_idioma (cod_tipo_idioma varchar(2) not null, descripcion varchar(100) null)
+alter table dbo.csd_seg_tipo_idioma add constraint pk_csd_seg_tipo_idioma primary key nonclustered (cod_tipo_idioma)
+
+print 'Se agrega opción en el menu'
+INSERT INTO menu ( codigo, descripcion,  objeto, visible, enabled, ventana, activo )  
+  VALUES ('0000000200','Tipo de Idioma','m_aplic_frame.m_file.m_open.m_general.m_tipoidioma', '1', '1',  'w_mant_csi_seg_tipo_idioma', 'S' )
+
+print 'Se enlaza la tabla t_usuario con csd_seg_tipo_idioma'
+alter table t_usuario add cod_tipo_idioma varchar(2)  null
+
+print 'Se agrega idioma por defecto ES'
+INSERT INTO var_globales  ( nombre,   texto,    descripcion,   modificable )  
+VALUES ( 'g_idioma_defecto', 'es',   'Contiene el idioma por defecto', 'N' )
+-- fin COAM-40
+
+--TODOS CRI-154
+print 'Se agrega el campo indefinido a la tabla regsoc'
+alter table regsoc add indefinida char(1) null
+update regsoc set indefinida = 'N'
+
+
+-- TODOS CAL-151
+alter table almacen add anulada char(1) default 'N' null
+update almacen set anulada = 'N'
+
+
+-- ICN-321. Necesario para que funcione el registro de impresión de certificados. 
+alter table cartas add visible_web char(1) null
+
+-- TODOS
+alter table fases_minutas add porc_cip double precision null
+alter table registro add serie char(10) null;
+
+--Actualiza el campo de la versión minima que debe tener
+update var_globales set texto = '20090917' where nombre = 'g_version_minima' 
+
+--TODOS  SCP240
+alter table csi_articulos_servicios add cta_gasto char(10) null
+
+-- TODOS SCP243
+INSERT INTO menu ( codigo, descripcion,  objeto, visible, enabled, ventana, activo )  
+  VALUES ('0000000203','Mantenimiento de bancos','m_file.m_open.m_contabilidad.m_mant_bancos', '1', '1',  'w_mant_csi_bancos', 'S' )
+
+-- TODOS SCP-234
+print 'Se agrega campo empresa en premaat_liquidaciones'
+alter table premaat_liquidaciones add empresa char(2) null
+--Se debe modificar en cada colegio según sea el codigo empresa principal
+update premaat_liquidaciones set empresa = '01'
+
+go

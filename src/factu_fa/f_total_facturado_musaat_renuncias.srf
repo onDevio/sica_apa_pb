@@ -1,0 +1,64 @@
+HA$PBExportHeader$f_total_facturado_musaat_renuncias.srf
+global type f_total_facturado_musaat_renuncias from function_object
+end type
+
+forward prototypes
+global function double f_total_cobrado_musaat_renuncias (string id_fase, string id_expedi, string tipo_informe, string id_col)
+global function double f_total_facturado_musaat_renuncias (string id_fase, string id_col)
+end prototypes
+
+global function double f_total_cobrado_musaat_renuncias (string id_fase, string id_expedi, string tipo_informe, string id_col);double retorno
+//Se calcula el total del concepto facturado para una fase en concreto.
+
+//2 tipos de consulta (por el tema de Gran Canaria)
+//       1$$HEX1$$ba00$$ENDHEX$$. SI buscamos por id_fase, obtenemos las facturas de la fase
+//       2$$HEX1$$ba00$$ENDHEX$$. SI buscamos por id_expedi, obtenemos las facturas del expediente
+if id_fase='-1' then
+	SELECT sum ( csi_lineas_fact_emitidas.subtotal )  
+	INTO :retorno
+	FROM csi_facturas_emitidas, csi_lineas_fact_emitidas
+	WHERE ( csi_lineas_fact_emitidas.id_factura = csi_facturas_emitidas.id_factura ) and  
+	( csi_lineas_fact_emitidas.articulo = :tipo_informe ) and
+	( csi_facturas_emitidas.id_fase IN (
+			SELECT id_fase 
+			FROM fases 
+			WHERE id_expedi = :id_expedi ) ) and
+	( csi_facturas_emitidas.id_persona = :id_col) and
+	( csi_facturas_emitidas.proforma='N' );
+else
+	SELECT sum ( csi_lineas_fact_emitidas.subtotal )  
+	INTO :retorno
+	FROM csi_facturas_emitidas, csi_lineas_fact_emitidas
+	WHERE ( csi_lineas_fact_emitidas.id_factura = csi_facturas_emitidas.id_factura ) and  
+	( csi_lineas_fact_emitidas.articulo = :tipo_informe ) and
+	( csi_facturas_emitidas.id_fase = :id_fase ) and
+	( csi_facturas_emitidas.id_persona = :id_col ) and
+	( csi_facturas_emitidas.proforma='N' );
+end if
+
+if isnull(retorno) then
+	retorno=0
+end if
+
+return retorno
+end function
+
+global function double f_total_facturado_musaat_renuncias (string id_fase, string id_col);double musaat_cobrado
+//Se calcula el total del concepto 'MUSAAT' facturado para una fase en concreto.
+
+SELECT sum ( csi_lineas_fact_emitidas.subtotal )  
+INTO :musaat_cobrado  
+FROM csi_facturas_emitidas, csi_lineas_fact_emitidas, csi_articulos_servicios  
+WHERE ( csi_lineas_fact_emitidas.id_factura = csi_facturas_emitidas.id_factura ) and  
+		( csi_lineas_fact_emitidas.articulo = csi_articulos_servicios.codigo ) and  
+		( ( csi_articulos_servicios.familia = '01' ) AND  
+		( csi_facturas_emitidas.id_persona = :id_col ) AND  
+		( csi_facturas_emitidas.id_fase = :id_fase ) )   ;
+
+if isnull(musaat_cobrado) then
+	musaat_cobrado=0.0
+end if
+
+return musaat_cobrado
+end function
+

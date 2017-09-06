@@ -1,0 +1,6 @@
+HA$PBExportHeader$st_w_fases_liquidaciones.srs
+global type st_w_fases_liquidaciones from structure
+	string		id_fase
+	string		id_expedi
+end type
+

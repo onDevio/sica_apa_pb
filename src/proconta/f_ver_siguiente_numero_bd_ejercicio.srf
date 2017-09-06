@@ -1,0 +1,25 @@
+HA$PBExportHeader$f_ver_siguiente_numero_bd_ejercicio.srf
+$PBExportComments$Obtiene el sig. valor del contador, pero no lo actualiza en la BD
+global type f_ver_siguiente_numero_bd_ejercicio from function_object
+end type
+
+forward prototypes
+global function string f_ver_siguiente_numero_bd_ejercicio (string contador, integer longitud)
+end prototypes
+
+global function string f_ver_siguiente_numero_bd_ejercicio (string contador, integer longitud);double i
+
+IF f_numeracion_unica_asientos() = 'S' THEN contador = 'UNI'
+
+// Obtiene el sig. valor del contador, pero no lo actualiza en la BD
+ SELECT contador.valor  
+    INTO :i  
+    FROM contador 
+   WHERE contador.contador = :contador   
+	USING bd_ejercicio;
+
+i=i+1
+
+return RightA('0000000000000000000000'+string(i),longitud)
+end function
+

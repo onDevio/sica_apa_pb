@@ -1,0 +1,249 @@
+HA$PBExportHeader$d_fases_busqueda_minutas_lista.srd
+release 10.5;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes print.preview.outline=yes hidegrayline=no )
+header(height=72 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=60 color="536870912" )
+table(column=(type=char(1) updatewhereclause=yes name=procesar dbname="procesar" values="	S/	N" )
+ column=(type=char(1) updatewhereclause=yes name=desmarcado_manual dbname="desmarcado_manual" )
+ column=(type=char(10) updatewhereclause=yes name=id_fase dbname="fases_minutas.id_fase" dbalias=".id_fase" )
+ column=(type=datetime updatewhereclause=yes name=fecha dbname="fases_minutas.fecha" dbalias=".fecha" )
+ column=(type=char(1) updatewhereclause=yes name=tipo_gestion dbname="fases_minutas.tipo_gestion" dbalias=".tipo_gestion" )
+ column=(type=char(1) updatewhereclause=yes name=pagador dbname="fases_minutas.pagador" dbalias=".pagador" )
+ column=(type=char(10) updatewhereclause=yes name=id_colegiado dbname="fases_minutas.id_colegiado" dbalias=".id_colegiado" )
+ column=(type=char(10) updatewhereclause=yes name=id_cliente dbname="fases_minutas.id_cliente" dbalias=".id_cliente" )
+ column=(type=char(2) updatewhereclause=yes name=t_iva dbname="fases_minutas.t_iva" dbalias=".t_iva" )
+ column=(type=char(1) updatewhereclause=yes name=reclamar dbname="fases_minutas.reclamar" dbalias=".reclamar" )
+ column=(type=char(1) updatewhereclause=yes name=anulada dbname="fases_minutas.anulada" dbalias=".anulada" )
+ column=(type=number updatewhereclause=yes name=irpf dbname="fases_minutas.irpf" dbalias=".irpf" )
+ column=(type=char(1) updatewhereclause=yes name=irpf_cliente dbname="fases_minutas.irpf_cliente" dbalias=".irpf_cliente" )
+ column=(type=char(1) updatewhereclause=yes name=pendiente dbname="fases_minutas.pendiente" dbalias=".pendiente" )
+ column=(type=char(255) updatewhereclause=yes name=observaciones dbname="fases_minutas.observaciones" dbalias=".observaciones" )
+ column=(type=char(1) updatewhereclause=yes name=aplica_honos dbname="fases_minutas.aplica_honos" dbalias=".aplica_honos" )
+ column=(type=char(1) updatewhereclause=yes name=aplica_desplaza dbname="fases_minutas.aplica_desplaza" dbalias=".aplica_desplaza" )
+ column=(type=char(1) updatewhereclause=yes name=aplica_dv dbname="fases_minutas.aplica_dv" dbalias=".aplica_dv" )
+ column=(type=char(1) updatewhereclause=yes name=aplica_cip dbname="fases_minutas.aplica_cip" dbalias=".aplica_cip" )
+ column=(type=char(1) updatewhereclause=yes name=aplica_musaat dbname="fases_minutas.aplica_musaat" dbalias=".aplica_musaat" )
+ column=(type=char(1) updatewhereclause=yes name=aplica_retvol dbname="fases_minutas.aplica_retvol" dbalias=".aplica_retvol" )
+ column=(type=char(1) updatewhereclause=yes name=aplica_impresos dbname="fases_minutas.aplica_impresos" dbalias=".aplica_impresos" )
+ column=(type=number updatewhereclause=yes name=porc_honos dbname="fases_minutas.porc_honos" dbalias=".porc_honos" )
+ column=(type=number updatewhereclause=yes name=porc_retvol dbname="fases_minutas.porc_retvol" dbalias=".porc_retvol" )
+ column=(type=char(50) updatewhereclause=yes name=concepto_honos dbname="fases_minutas.concepto_honos" dbalias=".concepto_honos" )
+ column=(type=number updatewhereclause=yes name=base_honos dbname="fases_minutas.base_honos" dbalias=".base_honos" )
+ column=(type=char(2) updatewhereclause=yes name=t_iva_honos dbname="fases_minutas.t_iva_honos" dbalias=".t_iva_honos" )
+ column=(type=number updatewhereclause=yes name=porc_iva_honos dbname="fases_minutas.porc_iva_honos" dbalias=".porc_iva_honos" )
+ column=(type=number updatewhereclause=yes name=iva_honos dbname="fases_minutas.iva_honos" dbalias=".iva_honos" )
+ column=(type=number updatewhereclause=yes name=base_desplaza dbname="fases_minutas.base_desplaza" dbalias=".base_desplaza" )
+ column=(type=char(2) updatewhereclause=yes name=t_iva_desplaza dbname="fases_minutas.t_iva_desplaza" dbalias=".t_iva_desplaza" )
+ column=(type=number updatewhereclause=yes name=porc_iva_desplaza dbname="fases_minutas.porc_iva_desplaza" dbalias=".porc_iva_desplaza" )
+ column=(type=number updatewhereclause=yes name=iva_desplaza dbname="fases_minutas.iva_desplaza" dbalias=".iva_desplaza" )
+ column=(type=char(50) updatewhereclause=yes name=concepto_desplaza dbname="fases_minutas.concepto_desplaza" dbalias=".concepto_desplaza" )
+ column=(type=number updatewhereclause=yes name=porc_iva dbname="fases_minutas.porc_iva" dbalias=".porc_iva" )
+ column=(type=number updatewhereclause=yes name=importe_irpf dbname="fases_minutas.importe_irpf" dbalias=".importe_irpf" )
+ column=(type=number updatewhereclause=yes name=base_dv dbname="fases_minutas.base_dv" dbalias=".base_dv" )
+ column=(type=char(2) updatewhereclause=yes name=t_iva_dv dbname="fases_minutas.t_iva_dv" dbalias=".t_iva_dv" )
+ column=(type=number updatewhereclause=yes name=porc_iva_dv dbname="fases_minutas.porc_iva_dv" dbalias=".porc_iva_dv" )
+ column=(type=number updatewhereclause=yes name=iva_dv dbname="fases_minutas.iva_dv" dbalias=".iva_dv" )
+ column=(type=number updatewhereclause=yes name=base_cip dbname="fases_minutas.base_cip" dbalias=".base_cip" )
+ column=(type=char(2) updatewhereclause=yes name=t_iva_cip dbname="fases_minutas.t_iva_cip" dbalias=".t_iva_cip" )
+ column=(type=number updatewhereclause=yes name=porc_iva_cip dbname="fases_minutas.porc_iva_cip" dbalias=".porc_iva_cip" )
+ column=(type=number updatewhereclause=yes name=iva_cip dbname="fases_minutas.iva_cip" dbalias=".iva_cip" )
+ column=(type=number updatewhereclause=yes name=base_musaat dbname="fases_minutas.base_musaat" dbalias=".base_musaat" )
+ column=(type=number updatewhereclause=yes name=base_retvol dbname="fases_minutas.base_retvol" dbalias=".base_retvol" )
+ column=(type=number updatewhereclause=yes name=base_garantia dbname="fases_minutas.base_garantia" dbalias=".base_garantia" )
+ column=(type=number updatewhereclause=yes name=base_impresos dbname="fases_minutas.base_impresos" dbalias=".base_impresos" )
+ column=(type=number updatewhereclause=yes name=iva_impresos dbname="fases_minutas.iva_impresos" dbalias=".iva_impresos" )
+ column=(type=number updatewhereclause=yes name=cobro_a_cuenta dbname="fases_minutas.cobro_a_cuenta" dbalias=".cobro_a_cuenta" )
+ column=(type=char(10) updatewhereclause=yes name=id_minuta dbname="fases_minutas.id_minuta" dbalias=".id_minuta" )
+ column=(type=char(10) updatewhereclause=yes name=n_aviso dbname="fases_minutas.n_aviso" dbalias=".n_aviso" )
+ column=(type=datetime updatewhereclause=yes name=fecha_pago dbname="fases_minutas.fecha_pago" dbalias=".fecha_pago" )
+ column=(type=char(2) updatewhereclause=yes name=forma_pago dbname="fases_minutas.forma_pago" dbalias=".forma_pago" )
+ column=(type=char(10) updatewhereclause=yes name=banco dbname="fases_minutas.banco" dbalias=".banco" )
+ column=(type=number updatewhereclause=yes name=total_cliente dbname="fases_minutas.total_cliente" dbalias=".total_cliente" )
+ column=(type=number updatewhereclause=yes name=total_colegiado dbname="fases_minutas.total_colegiado" dbalias=".total_colegiado" )
+ column=(type=number updatewhereclause=yes name=total_aviso dbname="fases_minutas.total_aviso" dbalias=".total_aviso" )
+ column=(type=char(10) updatewhereclause=yes name=tipo_minuta dbname="fases_minutas.tipo_minuta" dbalias=".tipo_minuta" )
+ column=(type=number updatewhereclause=yes name=cantidad dbname="fases_minutas.cantidad" dbalias=".cantidad" )
+ column=(type=number updatewhereclause=yes name=base_otros dbname="fases_minutas.base_otros" dbalias=".base_otros" )
+ column=(type=char(15) updatewhereclause=yes name=n_contrato_ant dbname="n_contrato_ant" )
+ column=(type=real updatewhereclause=yes name=porc_musaat dbname="porc_musaat" )
+ column=(type=char(50) updatewhereclause=yes name=clientes_nombre dbname="clientes.nombre" dbalias=".nombre" )
+ column=(type=char(80) updatewhereclause=yes name=clientes_apellidos dbname="clientes.apellidos" dbalias=".apellidos" )
+ column=(type=char(50) updatewhereclause=yes name=colegiados_nombre dbname="colegiados.nombre" dbalias=".nombre" )
+ column=(type=char(80) updatewhereclause=yes name=colegiados_apellidos dbname="colegiados.apellidos" dbalias=".apellidos" )
+ column=(type=char(14) updatewhereclause=yes name=n_expedi dbname="fases.n_expedi" dbalias=".n_expedi" )
+ column=(type=char(60) update=yes updatewhereclause=yes name=fases_archivo dbname="fases.archivo" dbalias=".archivo" )
+ column=(type=char(10) updatewhereclause=yes name=colegiados_id_empresa dbname="colegiados.id_empresa" dbalias=".id_empresa" )
+ column=(type=char(3) updatewhereclause=yes name=fase dbname="fases.fase" dbalias=".fase" )
+ column=(type=char(3) updatewhereclause=yes name=tipo_registro dbname="fases.tipo_registro" dbalias=".tipo_registro" )
+ column=(type=char(11) updatewhereclause=yes name=n_registro dbname="fases.n_registro" dbalias=".n_registro" )
+ column=(type=char(3) updatewhereclause=yes name=tipo_trabajo dbname="fases.tipo_trabajo" dbalias=".tipo_trabajo" )
+ column=(type=char(2) updatewhereclause=yes name=estado dbname="fases.estado" dbalias=".estado" )
+ column=(type=datetime updatewhereclause=yes name=f_visado dbname="fases.f_visado" dbalias=".f_visado" )
+ column=(type=char(14) updatewhereclause=yes name=n_expedi dbname="fases.n_expedi" dbalias=".n_expedi" )
+ retrieve="  SELECT 'N' as procesar,
+			'N' as desmarcado_manual,
+			fases_minutas.id_fase,   
+         fases_minutas.fecha,   
+         fases_minutas.tipo_gestion,   
+         fases_minutas.pagador,   
+         fases_minutas.id_colegiado,   
+         fases_minutas.id_cliente,   
+         fases_minutas.t_iva,   
+         fases_minutas.reclamar,   
+         fases_minutas.anulada,   
+         fases_minutas.irpf,   
+         fases_minutas.irpf_cliente,   
+         fases_minutas.pendiente,   
+         fases_minutas.observaciones,   
+         fases_minutas.aplica_honos,   
+         fases_minutas.aplica_desplaza,   
+         fases_minutas.aplica_dv,   
+         fases_minutas.aplica_cip,   
+         fases_minutas.aplica_musaat,   
+         fases_minutas.aplica_retvol,   
+         fases_minutas.aplica_impresos,   
+         fases_minutas.porc_honos,   
+         fases_minutas.porc_retvol,   
+         fases_minutas.concepto_honos,   
+         fases_minutas.base_honos,   
+         fases_minutas.t_iva_honos,   
+         fases_minutas.porc_iva_honos,   
+         fases_minutas.iva_honos,   
+         fases_minutas.base_desplaza,   
+         fases_minutas.t_iva_desplaza,   
+         fases_minutas.porc_iva_desplaza,   
+         fases_minutas.iva_desplaza,   
+         fases_minutas.concepto_desplaza,   
+         fases_minutas.porc_iva,   
+         fases_minutas.importe_irpf,   
+         fases_minutas.base_dv,   
+         fases_minutas.t_iva_dv,   
+         fases_minutas.porc_iva_dv,   
+         fases_minutas.iva_dv,   
+         fases_minutas.base_cip,   
+         fases_minutas.t_iva_cip,   
+         fases_minutas.porc_iva_cip,   
+         fases_minutas.iva_cip,   
+         fases_minutas.base_musaat,   
+         fases_minutas.base_retvol,   
+         fases_minutas.base_garantia,   
+         fases_minutas.base_impresos,   
+         fases_minutas.iva_impresos,   
+			fases_minutas.cobro_a_cuenta,
+         fases_minutas.id_minuta,   
+         fases_minutas.n_aviso,   
+         fases_minutas.fecha_pago,   
+         fases_minutas.forma_pago,   
+         fases_minutas.banco,   
+         fases_minutas.total_cliente,   
+         fases_minutas.total_colegiado,   
+         fases_minutas.total_aviso,   
+         fases_minutas.tipo_minuta,   
+         fases_minutas.cantidad,   
+			fases_minutas.base_otros,
+         '               ' as n_contrato_ant,   
+         convert( real , 0 ) as porc_musaat,
+       	clientes.nombre,   
+         clientes.apellidos,   
+         colegiados.nombre,   
+         colegiados.apellidos,
+			fases.n_expedi,
+			fases.archivo,
+			colegiados.id_empresa,
+			fases.fase,
+			fases.tipo_registro,
+			fases.n_registro,
+			fases.tipo_trabajo,
+			fases.estado,
+			fases.f_visado,
+			fases.n_expedi
+    FROM fases_minutas,  
+         colegiados,   
+         clientes,
+			fases,
+			expedientes  
+   WHERE ( fases_minutas.id_colegiado = colegiados.id_colegiado ) and  
+         ( fases_minutas.id_cliente = clientes.id_cliente ) and
+			( fases_minutas.id_fase = fases.id_fase ) and
+			( fases.id_expedi = expedientes.id_expedi ) and
+			( anulada = 'N' ) 
+
+
+"  sort="nombre_pagador A n_registro A n_aviso A " )
+group(level=1 header.height=0 trailer.height=8 by=("nombre_pagador" ) header.color="536870912" trailer.color="536870912" )
+group(level=2 header.height=0 trailer.height=4 by=("n_registro" ) header.color="536870912" trailer.color="536870912" )
+text(band=header alignment="2" text="N$$HEX2$$ba002000$$ENDHEX$$Aviso" border="6" color="0" x="27" y="12" height="52" width="261" html.valueishtml="0"  name=n_aviso_t visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="80269524" )
+text(band=header alignment="2" text="TOTAL" border="6" color="0" x="2971" y="12" height="52" width="334" html.valueishtml="0"  name=total_t visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="80269524" )
+text(band=header alignment="2" text="IRPF" border="6" color="0" x="2757" y="12" height="52" width="201" html.valueishtml="0"  name=importe_irpf_t visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="80269524" )
+text(band=header alignment="2" text="IVA/IGIC" border="6" color="0" x="2542" y="12" height="52" width="201" html.valueishtml="0"  name=iva_t visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="80269524" )
+text(band=header alignment="2" text="B.Imp." border="6" color="0" x="2222" y="12" height="52" width="306" html.valueishtml="0"  name=base_imponible_t visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="80269524" )
+text(band=header alignment="2" text="F.Visado" border="6" color="0" x="1998" y="12" height="52" width="210" html.valueishtml="0"  name=f_visado_t visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="79416533" )
+text(band=header alignment="2" text="T.A." border="6" color="0" x="302" y="12" height="52" width="123" html.valueishtml="0"  name=fase_t visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="79416533" )
+text(band=header alignment="2" text="T.A." border="6" color="0" x="302" y="12" height="52" width="123" html.valueishtml="0"  name=tipo_registro_fase_t visible="1~t0"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="80269524" )
+text(band=header alignment="2" text="T.O." border="6" color="0" x="439" y="12" height="52" width="91" html.valueishtml="0"  name=fases_tipo_trabajo_t visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="79416533" )
+text(band=header alignment="2" text="N$$HEX2$$ba002000$$ENDHEX$$Registro" border="6" color="0" x="832" y="12" height="52" width="274" html.valueishtml="0"  name=fases_n_registro_t visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="79416533" )
+text(band=header alignment="2" text="Est." border="6" color="0" x="1120" y="12" height="52" width="78" html.valueishtml="0"  name=estado_t visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="79416533" )
+text(band=header alignment="2" text="Pagador" border="6" color="0" x="1211" y="12" height="52" width="773" html.valueishtml="0"  name=pagador_t visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="80269524" )
+text(band=header alignment="2" text="N$$HEX2$$ba002000$$ENDHEX$$Exped." border="6" color="0" x="544" y="12" height="52" width="274" html.valueishtml="0"  name=t_1 visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="79416533" )
+column(band=detail id=71 alignment="2" tabsequence=32766 border="0" color="0" x="302" y="4" height="52" width="123" format="[general]" html.valueishtml="0"  name=fase visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+compute(band=detail alignment="1" expression="if (irpf_cliente='S',  if (tipo_gestion = 'A', base_imponible+iva, base_imponible + iva - importe_irpf), base_imponible + iva)"border="0" color="0" x="2971" y="4" height="52" width="334" format="#,##0.00" html.valueishtml="0"  name=total visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+compute(band=detail alignment="0" expression="case( pagador when '1' then   id_colegiado  when '2' then   id_cliente  when '3' then   id_cliente  else '-1')"border="0" color="0" x="1289" y="4" height="52" width="59" format="[GENERAL]" html.valueishtml="0"  name=id_pagador visible="1~t0"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+column(band=detail id=52 alignment="2" tabsequence=32766 border="0" color="0" x="27" y="4" height="52" width="261" format="[general]" html.valueishtml="0"  name=n_aviso visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+compute(band=detail alignment="1" expression="if (irpf_cliente='S',  if (tipo_gestion = 'A', 0, importe_irpf), 0)"border="0" color="0" x="2757" y="4" height="52" width="201" format="#,##0.00" html.valueishtml="0"  name=importe_irpf_real visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+compute(band=detail alignment="1" expression="case(  tipo_gestion  when 'C' then if(aplica_honos = 'S', iva_honos, 0) +  if(aplica_desplaza = 'S', iva_desplaza, 0) +  if(aplica_dv = 'S', iva_dv, 0) +  if(aplica_cip = 'S', iva_cip, 0) +  if(  aplica_impresos  = 'S',  iva_impresos , 0)  when 'A' then  iva_dv +  iva_cip +  iva_impresos  when 'S' then  if(aplica_dv = 'S', iva_dv, 0) +  if(aplica_cip = 'S', iva_cip, 0) +  if( aplica_impresos  = 'S',  iva_impresos , 0) )         "border="0" color="0" x="2542" y="4" height="52" width="201" format="#,##0.00" html.valueishtml="0"  name=iva visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+compute(band=detail alignment="1" expression="case(tipo_gestion 
+when 'C' then 
+
+if(aplica_honos = 'S', base_honos, 0) + 
+if(aplica_desplaza = 'S', base_desplaza, 0) + 
+if(aplica_dv = 'S', base_dv, 0) + 
+if(aplica_cip = 'S', base_cip, 0) + 
+if(aplica_musaat = 'S', base_musaat, 0) +
+if(aplica_retvol = 'S', base_retvol, 0) + 
+if(base_garantia > 0, - base_garantia, 0) + 
+if(aplica_impresos = 'S', base_impresos, 0) + 
+if(cobro_a_cuenta > 0, - cobro_a_cuenta, 0) 
+
+when 'A' then
+
+base_dv +  base_cip + base_musaat + base_retvol +  base_impresos  
+
+when 'S' then 
+if(aplica_dv = 'S', base_dv, 0) + 
+if(aplica_cip = 'S', base_cip, 0) + 
+if(aplica_musaat = 'S', base_musaat, 0) + 
+if(aplica_impresos = 'S', base_impresos, 0) +
+if(isnull(base_otros), 0, base_otros))"border="0" color="0" x="2222" y="4" height="52" width="306" format="#,##0.00" html.valueishtml="0"  name=base_imponible visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+column(band=detail id=76 alignment="2" tabsequence=32766 border="0" color="0" x="1998" y="4" height="52" width="210" format="dd/mm/yy" html.valueishtml="0"  name=f_visado visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+compute(band=detail alignment="2" expression="tipo_registro + '/' + fase"border="0" color="0" x="302" y="4" height="52" width="123" format="[GENERAL]" html.valueishtml="0"  name=tipo_registro_fase visible="1~t0"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=74 alignment="2" tabsequence=32766 border="0" color="0" x="439" y="4" height="52" width="96" format="[general]" html.valueishtml="0"  name=tipo_trabajo visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+column(band=detail id=73 alignment="2" tabsequence=32766 border="0" color="0" x="832" y="4" height="52" width="274" format="[general]" html.valueishtml="0"  name=n_registro visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+column(band=detail id=75 alignment="2" tabsequence=32766 border="0" color="0" x="1120" y="4" height="52" width="78" format="[general]" html.valueishtml="0"  name=estado visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+compute(band=detail alignment="0" expression="case( pagador when '1' then  (colegiados_apellidos + if(isnull( colegiados_nombre ) , '' ,  ', ' + colegiados_nombre )) when '2' then  (f_nombre_empre_col(  id_colegiado,  id_fase   )) when '3' then  (clientes_apellidos + if(isnull( clientes_nombre ) , '' ,  ', ' + clientes_nombre )) else 'DESCONOCIDO')"border="0" color="0" x="1211" y="4" height="52" width="773" format="[GENERAL]" html.valueishtml="0"  name=nombre_pagador visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+column(band=detail id=77 alignment="2" tabsequence=32766 border="0" color="0" x="544" y="4" height="52" width="274" format="[general]" html.valueishtml="0"  name=n_expedi visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+line(band=trailer.2 x1="0" y1="0" x2="3525" y2="0"  name=l_2 visible="1" pen.style="0" pen.width="5" pen.color="8421504"  background.mode="2" background.color="1090519039" )
+line(band=trailer.1 x1="5" y1="4" x2="3529" y2="4"  name=l_3 visible="1" pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="1090519039" )
+compute(band=footer alignment="1" expression="totalizado_base_imponible + totalizado_iva - totalizado_importe_irpf"border="0" color="0" x="3077" y="132" height="52" width="334" format="#,##0.00" html.valueishtml="0"  name=totalizado_total visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+compute(band=footer alignment="1" expression="total_pagar_base_imponible + total_pagar_iva - total_importe_irpf"border="0" color="0" x="3077" y="36" height="52" width="334" format="#,##0.00" html.valueishtml="0"  name=total_pagar_total visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+line(band=footer x1="2203" y1="12" x2="3406" y2="16"  name=l_1 visible="1" pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="1090519039" )
+compute(band=footer alignment="1" expression="sum(if (procesar = 'S', importe_irpf_real, 0) for all)"border="0" color="0" x="2862" y="36" height="52" width="201" format="#,##0.00" html.valueishtml="0"  name=total_importe_irpf visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+compute(band=footer alignment="1" expression="sum(importe_irpf_real for all)"border="0" color="0" x="2862" y="132" height="52" width="201" format="#,##0.00" html.valueishtml="0"  name=totalizado_importe_irpf visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+compute(band=footer alignment="1" expression="sum(iva  for all)"border="0" color="0" x="2647" y="132" height="52" width="201" format="#,##0.00" html.valueishtml="0"  name=totalizado_iva visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+compute(band=footer alignment="1" expression="sum(if (procesar = 'S', iva, 0) for all)"border="0" color="0" x="2647" y="36" height="52" width="201" format="#,##0.00" html.valueishtml="0"  name=total_pagar_iva visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+compute(band=footer alignment="1" expression="sum(base_imponible for all)"border="0" color="0" x="2327" y="132" height="52" width="306" format="#,##0.00" html.valueishtml="0"  name=totalizado_base_imponible visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+compute(band=footer alignment="1" expression="sum(if ( procesar ='S', base_imponible, 0) for all)"border="0" color="0" x="2327" y="36" height="52" width="306" format="#,##0.00" html.valueishtml="0"  name=total_pagar_base_imponible visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+text(band=footer alignment="1" text="Totales a pagar (a procesar):" border="0" color="0" x="1294" y="36" height="52" width="1015" html.valueishtml="0"  name=total_pagar_t visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=footer alignment="1" text="Totales:" border="0" color="0" x="2062" y="132" height="52" width="247" html.valueishtml="0"  name=totales_t visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" pagingmethod=0 generatedddwframes="1" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()
+ 

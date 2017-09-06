@@ -1,0 +1,109 @@
+HA$PBExportHeader$f_siguiente_n_fact_emitida.srf
+$PBExportComments$PRINCIPAL, Devuelve el num. de factura emitida
+global type f_siguiente_n_fact_emitida from function_object
+end type
+
+forward prototypes
+global function string f_siguiente_n_fact_emitida (string tipo_factura, string serie, string id_persona, datetime fecha)
+end prototypes
+
+global function string f_siguiente_n_fact_emitida (string tipo_factura, string serie, string id_persona, datetime fecha);// Devuelve el num. de factura emitida
+
+// Validaci$$HEX1$$f300$$ENDHEX$$n con la generaci$$HEX1$$f300$$ENDHEX$$n de facturas => la fecha
+//    No puede haber una factura de la misma serie con:
+//				num. posterior a otra emitida en fecha posterior
+string n_fact, num, ls_serie_delegacion
+boolean lb_serie_correcta
+lb_serie_correcta = False
+
+CHOOSE CASE tipo_factura 
+//* COLEGIADO - CLIENTE (PROMOTOR)
+	CASE g_colegiado_cliente //'04'
+		// Modificado Ricardo 2005-05-09
+		// Si es la serie negativa... 
+		if serie = g_facturas_negativas_serie then
+			// Si lleva la serie, hay que pensar que se trata de facturas negativas, por lo que hay que poner el siguiente formato
+			//serie+'R'+'-'+numero
+			// obtenemos el siguiente num. de factura de las emitidas en nombre del colegiado(long=6)
+			num = f_siguiente_fact_rect_id_col (id_persona, 6)
+			// para este tipo no tendremos en cuenta la serie pasada como par$$HEX1$$e100$$ENDHEX$$metro, se utilizar$$HEX2$$e1002000$$ENDHEX$$el 
+			//	num.colegiado
+			serie = f_colegiado_n_col (id_persona)+'R'
+		else
+			// obtenemos el siguiente num. de factura de las emitidas en nombre del colegiado(long=6)
+			num = f_siguiente_fact_id_col (id_persona, 6)
+			// para este tipo no tendremos en cuenta la serie pasada como par$$HEX1$$e100$$ENDHEX$$metro, se utilizar$$HEX2$$e1002000$$ENDHEX$$el 
+			//	num.colegiado
+			serie = f_colegiado_n_col (id_persona)
+		end if	
+
+		// Modificado Ricardo 2005-05-09
+	CASE g_colegio_cliente, g_colegio_colegiado, g_colegio_general, g_musaat_colegiado // '02', '03', '01', '05'
+		
+		if g_colegio = 'COAATCC' and serie = g_serie_fases then
+			num = f_siguiente_n_fact_fe ( tipo_factura , f_delegacion_siglas(g_cod_delegacion), 6 )
+		else
+			num = f_siguiente_n_fact_fe (tipo_factura, serie, 6)
+		end if
+
+END CHOOSE
+
+	if f_es_vacio(serie) then serie = ''
+	if f_es_vacio(num) then num = ''
+// Utilizaremos 6 d$$HEX1$$ed00$$ENDHEX$$gitos para la serie y 8 para la numeraci$$HEX1$$f300$$ENDHEX$$n(2 del ejercicio y 6 del n$$HEX1$$fa00$$ENDHEX$$mero)	
+	n_fact = LeftA( RightA(TRIM(serie),6) + '-' + RightA(g_ejercicio,2) + num, 15)
+	// Excepci$$HEX1$$f300$$ENDHEX$$n para Guadalajara en las facturas de honorarios
+	if g_colegio = 'COAATGU' and tipo_factura = g_colegiado_cliente then
+		if RightA(serie,1) = 'R' then
+			n_fact = LeftA( RightA(TRIM(serie),6) + '-' + RightA(g_ejercicio,2) + RightA(num,2), 11)
+		else
+			n_fact = LeftA( RightA(TRIM(serie),6) + '-' + RightA(g_ejercicio,2) + RightA(num,3), 11)
+		end if
+	end if
+	
+	
+	// ICC-187 Numeraci$$HEX1$$f300$$ENDHEX$$n de facturas para C$$HEX1$$e100$$ENDHEX$$ceres
+	if g_colegio = 'COAATCC' then
+		if tipo_factura = g_colegiado_cliente then 
+			string cod_colegio
+			  SELECT colegios.cod_consejo  
+			    INTO :cod_colegio  
+			    FROM colegiados,   
+			         colegios  
+			   WHERE ( colegiados.colegio = colegios.cod_colegio ) and  
+			         ( ( colegiados.id_colegiado = :id_persona ) )   ;
+
+			n_fact = cod_colegio + RightA(TRIM(serie),6) + '-' + RightA(g_ejercicio,2) + RightA(num,4)
+		else
+			
+			///** Alexis. 17/11/2010. SCP-702. Se crea un cursor para recorrer las diversas series segun las delegaciones, si coincide, aplicaremos el formato adecuado **///
+			DECLARE variable CURSOR FOR  
+			//select distinct contador_registro into :ls_serie_delegacion from delegaciones where cod_delegacion =:g_cod_delegacion ;
+			select distinct contador_registro from delegaciones where empresa =:g_empresa ;
+		
+			Open variable;		
+			fetch variable into :ls_serie_delegacion;
+			
+			do while (sqlca.sqlcode = 0 and lb_serie_correcta = false)
+				if not f_es_vacio(ls_serie_delegacion) then
+					if serie = ls_serie_delegacion then
+						lb_serie_correcta = True
+						n_fact = serie + '-' + RightA(g_ejercicio,2) + RightA(num,6)
+					end if	
+				end if
+				fetch variable into :ls_serie_delegacion;
+			
+			loop
+			
+			if (lb_serie_correcta = false and serie = g_serie_fases) then
+				n_fact = f_delegacion_siglas(g_cod_delegacion) + '-' + RightA(g_ejercicio,2) + RightA(num,6)
+			end if 	
+		end if
+		
+		
+	end if
+	
+return n_fact
+
+end function
+

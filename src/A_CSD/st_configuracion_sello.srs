@@ -1,0 +1,10 @@
+HA$PBExportHeader$st_configuracion_sello.srs
+global type st_configuracion_sello from structure
+	datastore		dw_pos_sellos
+	datastore		dw_datos_firma
+	datastore		dw_opciones_sello
+	datastore		dw_certificados
+	datastore		dw_configuracion_sello
+	string		sentencia_proteger
+end type
+

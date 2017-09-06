@@ -1,0 +1,18 @@
+HA$PBExportHeader$st_control_doc.srs
+global type st_control_doc from structure
+	string		no_cte
+	string		tipo_actuacion
+	string		modulo
+	string		encargo
+	string		emplazamiento
+	string		nombre_col1
+	string		nombre_col2
+	string		nombre_col3
+	string		n_col1
+	string		n_col2
+	string		n_col3
+	string		nif1
+	string		nif2
+	string		nif3
+end type
+

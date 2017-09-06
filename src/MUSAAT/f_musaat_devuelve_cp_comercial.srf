@@ -1,0 +1,21 @@
+HA$PBExportHeader$f_musaat_devuelve_cp_comercial.srf
+global type f_musaat_devuelve_cp_comercial from function_object
+end type
+
+forward prototypes
+global function string f_musaat_devuelve_cp_comercial (string id_col)
+end prototypes
+
+global function string f_musaat_devuelve_cp_comercial (string id_col);string cp
+
+  SELECT domicilios.cp  
+    INTO :cp  
+    FROM domicilios  
+   WHERE ( domicilios.id_colegiado = :id_col ) AND  
+         ( domicilios.comercial = 'S' )   ;
+
+if f_es_vacio(cp) then cp = ''
+
+return cp
+end function
+

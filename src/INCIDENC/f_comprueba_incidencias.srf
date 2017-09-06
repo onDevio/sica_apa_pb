@@ -1,0 +1,40 @@
+HA$PBExportHeader$f_comprueba_incidencias.srf
+global type f_comprueba_incidencias from function_object
+end type
+
+forward prototypes
+global function boolean f_comprueba_incidencias (integer tipo, datawindow dw)
+end prototypes
+
+global function boolean f_comprueba_incidencias (integer tipo, datawindow dw);boolean op 
+string id, col
+
+op=false
+setnull(id)
+if dw.rowcount() > 0 then 
+	choose case tipo
+		case 1 // Colegiados
+			col=dw.getitemstring(1,'id_colegiado')
+			SELECT incidencias.id_incidencias INTO :id FROM incidencias  
+			WHERE ( incidencias.id = :col ) AND  ( incidencias.tipo = 'C' )  ;
+		case 2 // Clientes
+			col=dw.getitemstring(1,'id_cliente')
+			SELECT incidencias.id_incidencias INTO :id FROM incidencias  
+			WHERE ( incidencias.id = :col ) AND  ( incidencias.tipo = 'P' )  ;
+		case 3 // Expedientes
+			col=dw.getitemstring(1,'id_expedi')
+			SELECT incidencias_exp.id_incidencias INTO :id FROM incidencias_exp  
+				WHERE incidencias_exp.exp LIKE :col   ;
+		case 4 // Contratos
+			col=dw.getitemstring(1,'id_fase')
+			SELECT incidencias_fases.id_incidencias INTO :id FROM incidencias_fases
+				WHERE incidencias_fases.id_fase LIKE :col   ;
+		case else
+	end choose
+	if not f_es_vacio(id) then op=true
+end if
+return op
+            
+	
+end function
+

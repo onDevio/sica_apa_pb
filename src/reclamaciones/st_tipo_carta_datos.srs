@@ -1,0 +1,14 @@
+HA$PBExportHeader$st_tipo_carta_datos.srs
+global type st_tipo_carta_datos from structure
+	string		nombre
+	string		dataobject
+	string		tipo_destinatario
+	string		sig_carta
+	string		pagador
+	string		es_primera
+	double		ciclo
+	string		tipo_gestion
+	string		tiene_detalle
+	string		comunicado
+end type
+

@@ -1,0 +1,38 @@
+HA$PBExportHeader$f_musaat_regulariza_tres_meses.srf
+global type f_musaat_regulariza_tres_meses from function_object
+end type
+
+forward prototypes
+global function string f_musaat_regulariza_tres_meses (string id_minuta, string id_fase, datetime f_pago)
+end prototypes
+
+global function string f_musaat_regulariza_tres_meses (string id_minuta, string id_fase, datetime f_pago);// Funci$$HEX1$$f300$$ENDHEX$$n que devuelve "S" si hay que regularizar la musaat porque 
+// han pasado m$$HEX1$$e100$$ENDHEX$$s de tres meses desde el c$$HEX1$$e100$$ENDHEX$$lculo al cobro.
+string retorno='N', tipo_minuta
+datetime f_inicio, f_final
+long dias
+
+// La fecha inicial depende del tipo de visado, la fecha de visado o la fecha del aviso
+SELECT fases_minutas.tipo_minuta INTO :tipo_minuta FROM fases_minutas WHERE fases_minutas.id_minuta = :id_minuta   ;
+if LeftA(tipo_minuta, 1) = '1' then
+	SELECT fases.f_visado INTO :f_inicio FROM fases WHERE fases.id_fase = :id_fase   ;
+else
+	SELECT fases_minutas.fecha INTO :f_inicio FROM fases_minutas WHERE fases_minutas.id_minuta = :id_minuta   ;
+end if
+if isnull(f_inicio) then f_inicio = datetime(today(), now())
+
+// Si la fecha inicial no es de los meses octubre, noviembre o diciembre no hacemos nada
+if month(date(f_inicio)) < 10 then return 'S'
+
+
+// La fecha final es la fecha de pago del aviso
+if isnull(f_pago) then f_pago = datetime(today(), now()) // En la previsualizacion de las facturas no hay fecha de pago
+f_final = f_pago
+
+//dias = daysafter(date(f_inicio), date(f_final))
+//messagebox('' , string(dias))
+if daysafter(date(f_inicio), date(f_final)) > 90 then retorno = 'S'
+
+return retorno
+end function
+

@@ -1,0 +1,20 @@
+HA$PBExportHeader$f_dame_descripcion_delegacion.srf
+global type f_dame_descripcion_delegacion from function_object
+end type
+
+forward prototypes
+global function string f_dame_descripcion_delegacion ()
+end prototypes
+
+global function string f_dame_descripcion_delegacion ();string delegacion = ''
+
+
+  SELECT delegaciones.descripcion  
+    INTO :delegacion  
+    FROM delegaciones  
+   WHERE delegaciones.cod_delegacion = :g_cod_delegacion   ;
+
+
+return delegacion
+end function
+

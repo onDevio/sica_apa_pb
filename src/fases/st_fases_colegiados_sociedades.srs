@@ -1,0 +1,6 @@
+HA$PBExportHeader$st_fases_colegiados_sociedades.srs
+global type st_fases_colegiados_sociedades from structure
+	string		id_sociedad
+	string		id_colegiados[]
+end type
+

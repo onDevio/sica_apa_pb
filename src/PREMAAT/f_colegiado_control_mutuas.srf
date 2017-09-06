@@ -1,0 +1,30 @@
+HA$PBExportHeader$f_colegiado_control_mutuas.srf
+global type f_colegiado_control_mutuas from function_object
+end type
+
+forward prototypes
+global function string f_colegiado_control_mutuas (string id_colegiado)
+end prototypes
+
+global function string f_colegiado_control_mutuas (string id_colegiado);string ls_mensaje_aux
+string nom_col
+
+ls_mensaje_aux = ''
+
+nom_col = f_colegiado_nombre_apellido(id_colegiado)
+
+if f_colegiado_tipopersona(id_colegiado) = 'P' then
+
+		if (not f_colegiado_tiene_mutua_grupos(id_colegiado)) and (not  f_colegiado_tiene_reta(id_colegiado) ) then 
+			ls_mensaje_aux = ls_mensaje_aux + 'MUTUA :' + CR + '     ' + 'El colegiado ' + nom_col + ' no tiene RETA o no est$$HEX2$$e1002000$$ENDHEX$$de alta en PREMAAT en los grupos b$$HEX1$$e100$$ENDHEX$$sico ampliado o profesional.' + cr + cr	
+		end if	
+		
+	if( f_fecha_baja_premaat_src(id_colegiado))then	ls_mensaje_aux = ls_mensaje_aux + 'MUTUA :' + CR + '     ' + 'El colegiado ' + nom_col + ' ha sobrepasado la fecha de baja de la MUTUA.' + cr + cr	
+	
+	if(f_fecha_baja_reta(id_colegiado))then	ls_mensaje_aux = ls_mensaje_aux + 'MUTUA :' + CR + '     ' + 'El colegiado ' + nom_col + ' ha sobrepasado la fecha de baja de la RETA.' + cr + cr
+	
+end if	
+
+return ls_mensaje_aux
+end function
+

@@ -1,0 +1,9 @@
+HA$PBExportHeader$st_ctrlasistencias_consulta.srs
+global type st_ctrlasistencias_consulta from structure
+	string		id_asistencia_fecha
+	datetime		fecha_desde
+	string		id_asistencia
+	datetime		fecha_hasta
+	string		id_curso
+end type
+

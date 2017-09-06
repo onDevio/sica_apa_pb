@@ -1,0 +1,53 @@
+HA$PBExportHeader$st_musaat_datos_movimiento.srs
+global type st_musaat_datos_movimiento from structure
+	string		id_fase
+	string		id_col
+	string		n_contrato
+	string		n_col
+	double		honorarios
+	double		importe_cobrado
+	datetime		fecha_calculo
+	double		importe_pendiente
+	datetime		fecha_notificacion
+	string		id_factura
+	string		tabla
+	double		coef_k
+	double		coef_c
+	double		coef_g
+	double		presupuesto
+	double		importe_vble
+	double		superficie
+	double		cobertura
+	string		tipo_act
+	string		tipo_obra
+	double		volumen
+	double		altura
+	string		t_visado
+	double		coef_sin
+	string		destino
+	string		nif_pagador
+	double		coef_col
+	string		prefijo
+	string		num_pol
+	string		num_mut
+	string		seguridad
+	string		obra_oficial
+	double		porcentaje
+	string		n_contrato_ant
+	string		pagador
+	string		id_minuta
+	boolean		aplica_10
+	boolean		aplicado_10
+	string		tipo_csd
+	datetime		f_pago
+	string		id_sociedad
+	string		colindantes2m
+	string		doble_condicion
+	string		int_forzosa
+	string		poliza_plus
+	double		coef_recargo
+	string		cod_colegio_dest
+	string		obra_iniciada
+	datetime		f_renuncia
+end type
+

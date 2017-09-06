@@ -1,0 +1,18 @@
+HA$PBExportHeader$st_formas_pago.srs
+global type st_formas_pago from structure
+	string		transferencia
+	string		talon
+	string		pago_cuenta
+	string		metalico
+	string		domiciliacion
+	string		cargo
+	string		liquidacion
+	string		autoliquidacion
+	string		defecto
+	string		otras_entidades
+	string		pendientes_abono
+	string		cuenta_personal
+	string		fraccionada
+	string		pendiente
+end type
+

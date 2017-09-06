@@ -1,0 +1,7 @@
+HA$PBExportHeader$st_csd_seleccion_formato_parametros.srs
+global type st_csd_seleccion_formato_parametros from structure
+	string		referencia
+	string		referencia2
+	string		referencia3
+end type
+

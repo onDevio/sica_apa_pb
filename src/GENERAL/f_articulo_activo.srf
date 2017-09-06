@@ -1,0 +1,27 @@
+HA$PBExportHeader$f_articulo_activo.srf
+global type f_articulo_activo from function_object
+end type
+
+forward prototypes
+global function boolean f_articulo_activo (string as_cod_articulo, string as_empresa)
+end prototypes
+
+global function boolean f_articulo_activo (string as_cod_articulo, string as_empresa);int li_cuenta
+boolean lb_return
+
+lb_return = False
+li_cuenta = 0
+
+select count(*) into :li_cuenta 
+from csi_articulos_servicios
+where csi_articulos_servicios.codigo = :as_cod_articulo
+and csi_articulos_servicios.empresa like :as_empresa
+and csi_articulos_servicios.activo = 'S';
+
+if li_cuenta > 0 then
+	lb_return = true
+end if	
+
+return lb_return
+end function
+

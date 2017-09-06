@@ -1,0 +1,17 @@
+HA$PBExportHeader$f_obtener_epigrafe.srf
+global type f_obtener_epigrafe from function_object
+end type
+
+forward prototypes
+global function string f_obtener_epigrafe (string epigrafe)
+end prototypes
+
+global function string f_obtener_epigrafe (string epigrafe);string descripcion
+
+select descripcion into :descripcion
+from ho_epigrafes
+where cod_epigrafe = :epigrafe;
+
+return(descripcion)
+end function
+

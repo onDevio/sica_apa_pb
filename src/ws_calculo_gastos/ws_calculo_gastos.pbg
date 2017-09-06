@@ -1,0 +1,11 @@
+Save Format v3.0(19990112)
+@begin Libraries
+ "ws_calculo_gastos\\ws_calculo_gastos.pbl" "";
+@end;
+@begin Objects
+ "ws_calculo_gastos\\calculateportservice.srx" "ws_calculo_gastos\\ws_calculo_gastos.pbl";
+ "ws_calculo_gastos\\calculaterequest.srs" "ws_calculo_gastos\\ws_calculo_gastos.pbl";
+ "ws_calculo_gastos\\n_ws_calculo_gastos.sru" "ws_calculo_gastos\\ws_calculo_gastos.pbl";
+ "ws_calculo_gastos\\p_ws_calculo_gastos.srj" "ws_calculo_gastos\\ws_calculo_gastos.pbl";
+ "ws_calculo_gastos\\keyvalue.srs" "ws_calculo_gastos\\ws_calculo_gastos.pbl";
+@end;

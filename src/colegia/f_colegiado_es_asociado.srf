@@ -1,0 +1,25 @@
+HA$PBExportHeader$f_colegiado_es_asociado.srf
+global type f_colegiado_es_asociado from function_object
+end type
+
+forward prototypes
+global function boolean f_colegiado_es_asociado (string id_colegiado_sociedad, string id_colegiado)
+end prototypes
+
+global function boolean f_colegiado_es_asociado (string id_colegiado_sociedad, string id_colegiado);int cuantos  = 0
+
+  SELECT count(*)  
+    INTO :cuantos  
+    FROM sociedades  
+   WHERE ( sociedades.id_col_per = :id_colegiado ) AND  
+         ( sociedades.id_col_soc = :id_colegiado_sociedad )   ;
+
+if cuantos > 0 then
+	return true
+else
+	return false
+end if
+
+return false
+end function
+

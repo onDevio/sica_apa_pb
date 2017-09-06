@@ -1,0 +1,58 @@
+declare @colegio varchar(10)
+select @colegio = texto from var_globales where nombre = 'COLEGIO'
+
+--Correcion a la incidencia ICTL-255 ( EJECUTAR PASO POR PASO !!!!! )
+
+if @colegio <> 'COAATTER' and @colegio <> 'COAATTFE' and @colegio <> 'COAATCU' and @colegio <> 'COAATCC'
+begin
+
+UPDATE t_control_eventos SET param1='aa-nnnnnnnn' WHERE control = 'NUMERO_RENUNCIA' and evento = 'NUMERO_RENUNCIA'
+
+CREATE TABLE renuncias_copy ( id_renuncia char(20), n_renuncia numeric(7,0) identity )
+ALTER TABLE renuncias_copy ADD primary key (id_renuncia)
+
+INSERT INTO renuncias_copy (id_renuncia) SELECT id_renuncia FROM fases_renuncias ORDER BY id_renuncia
+
+UPDATE fases_renuncias SET n_renuncia = (SELECT r.id_renuncia FROM renuncias_copy r WHERE r.id_renuncia = fases_renuncias.id_renuncia) WHERE id_renuncia IN (SELECT id_renuncia FROM renuncias_copy)
+
+UPDATE contadores SET valor = (SELECT CONVERT(INTEGER,max(n_renuncia)) from fases_renuncias) WHERE contador='NUM_RENUNCIA'
+
+DROP TABLE renuncias_copy
+end
+
+if @colegio = 'COAATCC'
+begin 
+
+UPDATE t_control_eventos SET param1='aa-nnnnnnnn' WHERE control = 'NUMERO_RENUNCIA' and evento = 'NUMERO_RENUNCIA'
+
+UPDATE contadores SET contador = 'NUM_RENUNCIA_01' WHERE contador = 'NUM_RENUNCIA'
+
+INSERT INTO contadores(contador,valor,descripcion,modificable) VALUES ('NUM_RENUNCIA_02',0,'Identificador de Renuncias para el año','N')
+
+CREATE TABLE renuncias_copy ( id_renuncia char(20), n_renuncia numeric(7,0) identity )
+ALTER TABLE renuncias_copy ADD primary key (id_renuncia)
+
+INSERT INTO renuncias_copy (id_renuncia) SELECT id_renuncia FROM fases_renuncias ORDER BY id_renuncia
+
+UPDATE fases_renuncias SET n_renuncia = (SELECT r.id_renuncia FROM renuncias_copy r WHERE r.id_renuncia = fases_renuncias.id_renuncia) WHERE id_renuncia IN (SELECT id_renuncia FROM renuncias_copy)
+
+UPDATE contadores SET valor = (SELECT CONVERT(INTEGER,max(n_renuncia)) from fases_renuncias WHERE id_renuncia NOT LIKE 'M%') WHERE contador='NUM_RENUNCIA'
+end
+
+--CGN-544
+if @colegio='COAATTGN'
+begin
+Insert into messages_ca(tag,traduccion,modulo,nombre) values("colegiados.edad","Edad","colegiados","edad")
+Insert into messages_ca(tag,traduccion,modulo,nombre) values("colegiados.anyos","Anys","colegiados","anyos")
+end
+
+--ICC-355
+if @colegio='COAATCC'
+begin
+INSERT INTO listados (descripcion, dw, ventana, orden, activo) VALUES('Listado CIP por Tipo de Obra','d_fases_listado_cip_cc','w_fases_listados','00','S')
+end
+
+go
+
+--Todos
+update var_globales set texto='20100531' where nombre='g_version_minima';

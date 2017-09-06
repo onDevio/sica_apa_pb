@@ -1,0 +1,29 @@
+HA$PBExportHeader$f_dame_irpf_colegiado.srf
+global type f_dame_irpf_colegiado from function_object
+end type
+
+forward prototypes
+global function double f_dame_irpf_colegiado (string id_col)
+end prototypes
+
+global function double f_dame_irpf_colegiado (string id_col);double porc_irpf
+
+  SELECT colegiados.irpf  
+    INTO :porc_irpf  
+    FROM colegiados  
+   WHERE colegiados.id_colegiado = :id_col   ;
+	
+if isnull(porc_irpf) then porc_irpf = g_irpf_por_defecto
+string texto[]
+
+texto[1] = string(g_irpf_por_defecto)
+if g_usar_idioma = 'N' then
+if (porc_irpf <> g_irpf_por_defecto) and (porc_irpf <> 0) then messagebox(g_titulo, 'Este colegiado tiene un IRPF distinto a '+string(g_irpf_por_defecto))
+end if
+if g_usar_idioma = 'S' then
+if (porc_irpf <> g_irpf_por_defecto) and (porc_irpf <> 0) then messagebox(g_titulo, g_idioma.of_getMsg("colegiados.irpf_distinto",{string(g_irpf_por_defecto)}) )
+end if
+return porc_irpf
+
+end function
+

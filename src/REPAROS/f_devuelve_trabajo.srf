@@ -1,0 +1,28 @@
+HA$PBExportHeader$f_devuelve_trabajo.srf
+global type f_devuelve_trabajo from function_object
+end type
+
+forward prototypes
+global function string f_devuelve_trabajo (string id_exp)
+end prototypes
+
+global function string f_devuelve_trabajo (string id_exp);string trabajo,tipo_trabajo
+
+  SELECT tipos_trabajos.d_t_trabajo,   
+         trabajos.d_trabajo  
+    INTO :tipo_trabajo,   
+         :trabajo  
+    FROM expedientes,   
+         tipos_trabajos,   
+         trabajos  
+   WHERE ( expedientes.id_expedi = :id_exp ) AND  
+         ( expedientes.tipo_trabajo = tipos_trabajos.c_t_trabajo ) AND  
+         ( expedientes.trabajo = trabajos.c_trabajo )   
+           ;
+
+
+trabajo = tipo_trabajo + '('+trabajo+')'
+
+return trabajo
+end function
+

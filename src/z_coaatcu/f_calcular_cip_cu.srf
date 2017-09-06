@@ -1,0 +1,32 @@
+HA$PBExportHeader$f_calcular_cip_cu.srf
+$PBExportComments$Calcula el total de cip para cuenca
+global type f_calcular_cip_cu from function_object
+end type
+
+forward prototypes
+global function integer f_calcular_cip_cu (ref st_cip_datos st_cip_datos)
+end prototypes
+
+global function integer f_calcular_cip_cu (ref st_cip_datos st_cip_datos);double Honorarios	= 0
+double porc_aplicado
+
+Honorarios = st_cip_datos.hon_teor
+
+If Honorarios = 0 Then
+	MessageBox(g_titulo,'Esta Tarifa no Tiene Honorarios Te$$HEX1$$f300$$ENDHEX$$ricos',StopSign!,OK!,1)
+	return -1
+End if
+
+if st_cip_datos.admon = 'S' then 
+	porc_aplicado = g_porc_cip_admon
+elseif st_cip_datos.tipo_gestion = 'P' then
+	porc_aplicado = g_porc_cip_sgc
+else
+	porc_aplicado = g_porc_cip_defecto	
+end if
+
+st_cip_datos.cip =  f_redondea(st_cip_datos.hon_teor * porc_aplicado /100)
+
+return 1
+end function
+

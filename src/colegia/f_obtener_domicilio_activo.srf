@@ -1,0 +1,24 @@
+HA$PBExportHeader$f_obtener_domicilio_activo.srf
+$PBExportComments$Obtiene de manera concatenada el campo de Domicilio Activo
+global type f_obtener_domicilio_activo from function_object
+end type
+
+forward prototypes
+global function string f_obtener_domicilio_activo (string cod_via, string nom_via)
+end prototypes
+
+global function string f_obtener_domicilio_activo (string cod_via, string nom_via);// f_obtener_domicilio_activo ( cod_via : string )
+//		Obtiene de manera concatenada el campo de Domicilio Activo
+// 	formado: Descripcion_tipo_via + Nombre_via
+//--------------------------------------------------------------
+string domic_activo, descripcion_via
+
+select descripcion into :descripcion_via from tipos_via where cod_tipo_via = :cod_via;
+
+if isnull(descripcion_via) then descripcion_via=""
+
+domic_activo = descripcion_via + " " + nom_via
+
+return  domic_activo
+end function
+

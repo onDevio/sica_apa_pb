@@ -1,0 +1,122 @@
+HA$PBExportHeader$f_numera_salida.srf
+global type f_numera_salida from function_object
+end type
+
+forward prototypes
+global function string f_numera_salida (string formato)
+end prototypes
+
+global function string f_numera_salida (string formato);double i, n_reg, enes, aes, des
+string cont, contador, descripcion, numero, anyo, deleg
+
+
+// MODIFCIADO RICARDO 2005-05-11
+// FORMATO : Contiene el formato a seguir... Se marcan con 'a' el a$$HEX1$$f100$$ENDHEX$$o y la numeracion con 'n'
+//		Ej: aaaa-nnnnn -> 4 para el a$$HEX1$$f100$$ENDHEX$$o, 5 para el numero, con un guion
+
+cont = formato
+
+if PosA(formato, 'n')>0 then
+	// la numeracion
+	// Contamos las aes que hay
+	for i=1 to LenA(formato)
+		if MidA(formato, i, 1) = 'n' then enes++
+	next
+	
+	CHOOSE CASE g_colegio
+		CASE 'COAATTFE',  'COAATCC'
+			// para el colegio de tenerife cada una de las sedes tendr$$HEX1$$e100$$ENDHEX$$n su propio contador, y se determina por el codigo del
+			// centro en el que est$$HEX1$$e100$$ENDHEX$$
+			if f_es_vacio(f_devuelve_centro(g_cod_delegacion)) then
+				Messagebox(g_titulo, "Error: La delegaci$$HEX1$$f300$$ENDHEX$$n no est$$HEX2$$e1002000$$ENDHEX$$seleccionada para este puesto de trabajo. Avise al departamento de inform$$HEX1$$e100$$ENDHEX$$tica", stopsign!)
+				return ''
+			end if
+			// Miramos si est$$HEX2$$e1002000$$ENDHEX$$el contador
+			contador = 'NUM_SAL_'+f_devuelve_centro(g_cod_delegacion)
+			select count(*) into :n_reg from contadores where contador = :contador;
+			if n_reg=0 then
+				// No existe el contador, como ser$$HEX2$$e1002000$$ENDHEX$$para una nueva instalacion lo creamos a 0
+				descripcion = 'Numero de salida para el centro '+f_devuelve_centro(g_cod_delegacion)
+				Execute Immediate "BEGIN tran" using SQLCA;
+				INSERT INTO contadores ( contador, valor, descripcion, orden, modificable ) VALUES ( :contador, 0, :descripcion, '00', 'N' )  ;
+				Execute Immediate "COMMIT transaction";
+				commit;
+				Execute Immediate "END tran" using SQLCA;
+			end if
+			numero = f_siguiente_numero(contador,enes)
+		CASE ELSE
+			// Construimos el a$$HEX1$$f100$$ENDHEX$$o como quieren
+			numero = f_siguiente_numero('NUM_SAL',enes)
+	END CHOOSE
+	// Y lo reemplazamos en el formato
+	cont = ReplaceA(cont,PosA(formato, 'n'),enes,numero)
+end if
+
+if PosA(formato, 'a')>0 then
+	// Lleva el a$$HEX1$$f100$$ENDHEX$$o
+	// Contamos las aes que hay
+	for i=1 to LenA(formato)
+		if MidA(formato, i, 1) = 'a' then aes++
+	next
+	// Construimos el a$$HEX1$$f100$$ENDHEX$$o como quieren
+	anyo = RightA(string(year(today())),aes)
+	// Y lo reemplazamos en el formato
+	cont = ReplaceA(cont,PosA(formato, 'a'),aes,anyo)
+end if
+
+if PosA(formato, 'd')>0 then
+	// Lleva la delegaci$$HEX1$$f300$$ENDHEX$$n
+	// Contamos las des que hay
+	for i=1 to LenA(formato)
+		if MidA(formato, i, 1) = 'd' then des++
+	next
+	// Construimos la delegaci$$HEX1$$f300$$ENDHEX$$n como quieren
+	deleg = f_delegacion_siglas(g_cod_delegacion)
+	if isnull(deleg) then deleg = ''
+	// Y lo reemplazamos en el formato
+	cont = ReplaceA(cont,PosA(formato, 'd'),des,deleg)
+end if
+
+
+
+// CODIGO ANTIGUO
+// valor1 indica la longitud del a$$HEX1$$f100$$ENDHEX$$o
+// valor2 indica si el n$$HEX1$$fa00$$ENDHEX$$mero de registro lleva guion
+// valor3 indica la longitud del n$$HEX1$$fa00$$ENDHEX$$mero de salida
+
+//CHOOSE CASE g_colegio
+//	CASE 'COAATTFE'
+//		// para el colegio de tenerife cada una de las sedes tendr$$HEX1$$e100$$ENDHEX$$n su propio contador, y se determina por el codigo del
+//		// centro en el que est$$HEX1$$e100$$ENDHEX$$
+//		if f_es_vacio(f_devuelve_centro(g_cod_delegacion)) then
+//			Messagebox(g_titulo, "Error: La delegaci$$HEX1$$f300$$ENDHEX$$n no est$$HEX2$$e1002000$$ENDHEX$$seleccionada para este puesto de trabajo. Avise al departamento de inform$$HEX1$$e100$$ENDHEX$$tica", stopsign!)
+//			return ''
+//		end if
+//		// Miramos si est$$HEX2$$e1002000$$ENDHEX$$el contador
+//		contador = 'NUM_SAL_'+f_devuelve_centro(g_cod_delegacion)
+//		select count(*) into :n_reg from contadores where contador = :contador;
+//		if n_reg=0 then
+//			// No existe el contador, como ser$$HEX2$$e1002000$$ENDHEX$$para una nueva instalacion lo creamos a 0
+//			descripcion = 'Numero de salida para el centro '+f_devuelve_centro(g_cod_delegacion)
+//			Execute Immediate "BEGIN tran" using SQLCA;
+//			INSERT INTO contadores ( contador, valor, descripcion, orden, modificable ) VALUES ( :contador, 0, :descripcion, '00', 'N' )  ;
+//			Execute Immediate "COMMIT transaction";
+//			commit;
+//			Execute Immediate "END tran" using SQLCA;
+//		end if
+//		cont = f_siguiente_numero(contador,valor3)
+//	CASE ELSE
+//		// PAra todos los dem$$HEX1$$e100$$ENDHEX$$s colegios este numero es unico!!
+//		cont = f_siguiente_numero('NUM_SAL',valor3)
+//END CHOOSE
+//
+//if valor2 = 'S' then
+//	cont = right(string(year(today())),valor1) + '-' + cont
+//else
+//	cont = right(string(year(today())),valor1) + cont
+//end if
+//
+return cont
+
+end function
+

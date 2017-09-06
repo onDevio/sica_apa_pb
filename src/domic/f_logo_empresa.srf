@@ -1,0 +1,79 @@
+HA$PBExportHeader$f_logo_empresa.srf
+global type f_logo_empresa from function_object
+end type
+
+forward prototypes
+global subroutine f_logo_empresa (string identificador_empresa, datawindow dw, string as_modulo)
+end prototypes
+
+global subroutine f_logo_empresa (string identificador_empresa, datawindow dw, string as_modulo);if isnull(dw) then return
+
+integer li_x_logo 
+
+st_datos_empresa_emisora datos_empresa_emisora
+
+f_rellena_st_datos_empresa(datos_empresa_emisora , identificador_empresa)
+
+if g_activa_multiempresa = 'S' then
+	//choose case g_colegio
+		//case 'COAATGU', 'COAATTFE', 'COAATTGN', 'COAATA', 'COAATAVI', 'COAATZ', 'COAATLE', 'COAATGUI', 'COAATB','COAATNA', 'COAATTER'
+			//if not f_es_vacio(datos_empresa_emisora.logo_empresa)then
+	if lower(dw.describe("p_logo_empresa.name")) = 'p_logo_empresa' then 
+		//dw.Object.p_logo_empresa.Filename = ".\imagenes\" + datos_empresa_emisora.logo_empresa 
+	              		
+		integer max_anchura, max_altura, diferencia_x
+						
+		 if f_existe_logo(identificador_empresa, as_modulo) <1 then return
+						 
+		 //Obtener las dimensiones del cuadro del logo reservado en el dw
+		max_anchura=integer(dw.Object.p_logo_empresa.width)
+		max_altura=integer(dw.Object.p_logo_empresa.height)
+		li_x_logo= integer(dw.Object.p_logo_empresa.x)
+	                
+		// Obtener los parametros del logo 
+		st_datos_logos_empresa lst_datos_logos_empresa
+         lst_datos_logos_empresa = f_obtener_datos_logo(identificador_empresa, as_modulo) 
+		
+		dw.Object.p_logo_empresa.Filename = ".\imagenes\" + lst_datos_logos_empresa.nombre_logo
+		// validaciones y control de las dimensiones del logo
+		if lst_datos_logos_empresa.anchura < 1 or  lst_datos_logos_empresa.altura < 1 then 
+			lst_datos_logos_empresa.anchura = max_anchura 
+			lst_datos_logos_empresa.altura = max_altura
+		end if
+//							 
+//		if lst_datos_logos_empresa.anchura>max_anchura	 then
+//		     lst_datos_logos_empresa= f_ajustar_anchura_logo(max_anchura, lst_datos_logos_empresa)
+//		end if			
+								
+//		if lst_datos_logos_empresa.altura>max_altura then
+//              lst_datos_logos_empresa= f_ajustar_altura_logo(max_altura, lst_datos_logos_empresa)
+//		end if
+
+		f_ajustar_tamanyo_logos(max_anchura, max_altura, lst_datos_logos_empresa)
+			
+			// controlar la posicion X
+		diferencia_x	 = lst_datos_logos_empresa.anchura + lst_datos_logos_empresa.pos_x
+		if  diferencia_x - (max_anchura +li_x_logo) > 0 then
+		    if ((lst_datos_logos_empresa.pos_x - ( diferencia_x	- max_anchura)) > 0) then
+				lst_datos_logos_empresa.pos_x= lst_datos_logos_empresa.pos_x - ( diferencia_x	- max_anchura)
+			end if 
+		end if 
+		
+							   
+		dw.Object.p_logo_empresa.height=lst_datos_logos_empresa.altura
+		dw.Object.p_logo_empresa.width=lst_datos_logos_empresa.anchura
+		dw.Object.p_logo_empresa.x=lst_datos_logos_empresa.pos_x
+		dw.Object.p_logo_empresa.y=integer(dw.Object.p_logo_empresa.y)
+		if lst_datos_logos_empresa.visible = 'S' then 
+			 dw.Object.p_logo_empresa.visible=1 
+		else
+			 dw.Object.p_logo_empresa.visible=0
+		end if 
+		//lst_datos_logos_empresa.pos_y
+				 
+	end if	
+			//end if	
+	//end choose
+end if	
+end subroutine
+

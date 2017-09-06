@@ -1,0 +1,20 @@
+HA$PBExportHeader$f_dame_desc_destino_obra.srf
+global type f_dame_desc_destino_obra from function_object
+end type
+
+forward prototypes
+global function string f_dame_desc_destino_obra (string destino_obra)
+end prototypes
+
+global function string f_dame_desc_destino_obra (string destino_obra);string descripcion = ''
+
+  SELECT trabajos.d_trabajo  
+    INTO :descripcion  
+    FROM trabajos  
+   WHERE trabajos.c_trabajo = :destino_obra   ;
+
+if f_es_vacio(descripcion) then descripcion = ''
+
+return descripcion
+end function
+

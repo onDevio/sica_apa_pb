@@ -1,0 +1,15 @@
+HA$PBExportHeader$d_dddw_fases_cip_tfe_tipo.srd
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=84 color="536870912" )
+table(column=(type=char(2) update=yes updatewhereclause=yes key=yes name=codigo dbname="cip_tfe_tipo.codigo" )
+ column=(type=char(100) update=yes updatewhereclause=yes name=descripcion dbname="cip_tfe_tipo.descripcion" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=visible_a dbname="cip_tfe_tipo.visible_a" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=visible_b dbname="cip_tfe_tipo.visible_b" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=visible_c dbname="cip_tfe_tipo.visible_c" )
+ retrieve="PBSELECT( VERSION(400) TABLE(NAME=~"cip_tfe_tipo~" ) COLUMN(NAME=~"cip_tfe_tipo.codigo~") COLUMN(NAME=~"cip_tfe_tipo.descripcion~") COLUMN(NAME=~"cip_tfe_tipo.visible_a~") COLUMN(NAME=~"cip_tfe_tipo.visible_b~") COLUMN(NAME=~"cip_tfe_tipo.visible_c~")) " update="cip_tfe_tipo" updatewhere=1 updatekeyinplace=no  sort="descripcion A " )
+column(band=detail id=2 alignment="0" tabsequence=20 border="0" color="0" x="0" y="4" height="64" width="1312" format="[general]"  name=descripcion  tag=" " edit.limit=100 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="0" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

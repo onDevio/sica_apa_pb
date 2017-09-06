@@ -1,0 +1,23 @@
+HA$PBExportHeader$f_nombre_abogado.srf
+global type f_nombre_abogado from function_object
+end type
+
+forward prototypes
+global function string f_nombre_abogado ()
+end prototypes
+
+global function string f_nombre_abogado ();string retorno, ape_cli, nom_cli
+
+SELECT clientes.apellidos, clientes.nombre  
+INTO :ape_cli, :nom_cli  
+FROM clientes  
+WHERE clientes.id_cliente = :g_abogado_colegio   ;
+
+if f_es_vacio(nom_cli) then nom_cli = '' 
+if f_es_vacio(ape_cli) then ape_cli = '' 
+
+retorno = nom_cli + ' ' + ape_cli
+
+return retorno
+end function
+

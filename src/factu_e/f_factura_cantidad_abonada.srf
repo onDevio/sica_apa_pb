@@ -1,0 +1,15 @@
+HA$PBExportHeader$f_factura_cantidad_abonada.srf
+global type f_factura_cantidad_abonada from function_object
+end type
+
+forward prototypes
+global function double f_factura_cantidad_abonada (string id_factura)
+end prototypes
+
+global function double f_factura_cantidad_abonada (string id_factura);double abonado
+// Obtenemos la cantidad abonada ya
+select sum(importe) into :abonado from csi_cobros where id_factura =:id_factura and pagado = 'S';
+
+return abonado
+end function
+

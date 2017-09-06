@@ -1,0 +1,23 @@
+HA$PBExportHeader$f_existe_nregistro.srf
+global type f_existe_nregistro from function_object
+end type
+
+forward prototypes
+global function boolean f_existe_nregistro (string nregistro)
+end prototypes
+
+global function boolean f_existe_nregistro (string nregistro); int cont
+ 
+ SELECT count(*)  
+    INTO :cont  
+    FROM registro  
+   WHERE n_registro = :nregistro   
+           ;
+
+if cont>0 then
+	return true
+else 
+	return false
+end if
+end function
+

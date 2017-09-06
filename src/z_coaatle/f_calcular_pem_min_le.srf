@@ -1,0 +1,35 @@
+HA$PBExportHeader$f_calcular_pem_min_le.srf
+$PBExportComments$Calcula el pem m$$HEX1$$ed00$$ENDHEX$$nimo para Le$$HEX1$$f300$$ENDHEX$$n
+global type f_calcular_pem_min_le from function_object
+end type
+
+forward prototypes
+global function integer f_calcular_pem_min_le (ref st_honteor_datos st_hon)
+end prototypes
+
+global function integer f_calcular_pem_min_le (ref st_honteor_datos st_hon);String Tarifa
+Double Fa, Sup, Tipo_terr, Pem_min, Num_resp, Uso, Dificil_Acc, Sup_Acond, Fs, Sup_Urb, Nave
+
+Fa = g_fa
+
+Tarifa 			= st_hon.tarifa
+Sup 				= st_hon.superficie
+Uso				= st_hon.uso
+Tipo_Terr		= st_hon.tipo_terr
+Nave				= st_hon.nave
+
+CHOOSE CASE Tarifa
+	CASE 'A.1.6'
+		if Nave = 1 then
+			Pem_min = 15.03 * Fa * Sup * Tipo_Terr
+		else
+			Pem_min = 30.05 * Fa * Uso
+		end if
+END CHOOSE
+
+st_hon.pem_min = f_redondea(Pem_min)
+
+return 1
+
+end function
+

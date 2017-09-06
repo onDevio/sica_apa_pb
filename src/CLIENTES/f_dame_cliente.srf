@@ -1,0 +1,43 @@
+HA$PBExportHeader$f_dame_cliente.srf
+global type f_dame_cliente from function_object
+end type
+
+forward prototypes
+global function string f_dame_cliente (string id_cliente)
+end prototypes
+
+global function string f_dame_cliente (string id_cliente);string datos_cliente = '', n_cli, apell, nomb, nif
+long num_clientes
+
+select count(*) into :num_clientes from clientes where id_cliente=:id_cliente;
+
+if num_clientes > 0 then  
+	select apellidos, nombre into :apell, :nomb from clientes where id_cliente=:id_cliente;
+
+	if g_colegio='COAATGC' then
+		if IsNull(nomb) then nomb=''
+		if f_es_vacio(apell) then
+			datos_cliente=nomb
+		else
+			datos_cliente=nomb+ ' '+apell
+		end if
+	else
+		if IsNull(nomb) then 
+			nomb=''
+		else
+			nomb = ', '+nomb
+		end if
+		if isnull(apell) or apell = '' then 
+			datos_cliente = rightA(nomb, len(nomb)-2)
+		else		
+			datos_cliente = apell + nomb
+		end if
+	end if
+
+end if
+//messagebox ('',datos_colegiado)
+
+return datos_cliente
+
+end function
+

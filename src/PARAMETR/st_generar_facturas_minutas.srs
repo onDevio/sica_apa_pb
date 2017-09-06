@@ -1,0 +1,27 @@
+HA$PBExportHeader$st_generar_facturas_minutas.srs
+global type st_generar_facturas_minutas from structure
+	u_dw		dw_minuta
+	integer		num_orig
+	integer		num_copias
+	boolean		regulariza_musaat
+	boolean		movimiento_musaat
+	string		tipo_movimiento_csd
+	string		tipo_prev
+	datawindow		dw_factura
+	string		serie
+	string		id_factura
+	string		motivo_anul
+	datetime		f_anul
+	double		comision_tarjeta
+	n_csd_impresion_formato		impresion_formato
+	string		tipo_anul
+	datawindow		dw_cobros_multiples
+	string		id_cobro_multiple
+	double		importe_cobro
+	integer		cant_avisos
+	string		tipo_cobro
+	string		formapago
+	string		modulo
+	datetime		fecha_factura
+end type
+

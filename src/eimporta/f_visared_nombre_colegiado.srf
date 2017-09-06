@@ -1,0 +1,26 @@
+HA$PBExportHeader$f_visared_nombre_colegiado.srf
+$PBExportComments$Funcion que regresa los datos del colegiado
+global type f_visared_nombre_colegiado from function_object
+end type
+
+forward prototypes
+global function string f_visared_nombre_colegiado (string n_col)
+end prototypes
+
+global function string f_visared_nombre_colegiado (string n_col);//f_colegiado_apellido (id_col : string)
+//Esta funcion devuelve el apellido y nombre de un colegiado
+//
+string datos_colegiado = ''
+string  apell, nomb
+
+select  apellidos, nombre into :apell, :nomb from colegiados where n_colegiado=:n_col;
+
+if f_es_vacio(nomb) then nomb= ""
+if f_es_vacio(apell) then apell =""
+
+datos_colegiado = nomb +' '+apell
+
+return datos_colegiado
+
+end function
+

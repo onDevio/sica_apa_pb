@@ -1,0 +1,47 @@
+HA$PBExportHeader$f_rellenar_destinatarios_email.srf
+global type f_rellenar_destinatarios_email from function_object
+end type
+
+forward prototypes
+global subroutine f_rellenar_destinatarios_email (string a_id_factura, n_csd_impresion_formato a_impresion_formato)
+end prototypes
+
+global subroutine f_rellenar_destinatarios_email (string a_id_factura, n_csd_impresion_formato a_impresion_formato);string tipo_factura, id_persona, emisor, id_minuta, tipo_gestion, id_fase //, envio_facturas_clientes
+
+// Recordemos que en la tabla de facturas el id_fase y el id_minuta est$$HEX1$$e100$$ENDHEX$$n intercambiados. 
+select tipo_factura, id_persona, emisor, id_minuta, id_fase into :tipo_factura, :id_persona, :emisor, :id_fase, :id_minuta
+from csi_facturas_emitidas where id_factura = :a_id_factura;
+
+if tipo_factura=g_colegio_colegiado then
+	a_impresion_formato.direccion_email=f_devuelve_mail_profesional(id_persona)	
+	return 
+end if 
+
+//envio_facturas_clientes = f_var_global_sn("g_enviar_email_facturacion_clientes")
+
+if tipo_factura=g_colegio_cliente then 
+	a_impresion_formato.direccion_email=f_devuelve_mail_persona(id_persona,'P')	
+//	if (envio_facturas_clientes = 'S') then a_impresion_formato.email='S'
+	return	
+end if
+
+if tipo_factura = g_colegiado_cliente then //factura de honorarios. 
+	if not (f_es_vacio(id_fase)) then 
+		tipo_gestion = f_tipo_gestion_colegiado(id_fase, emisor)
+	else 	
+		id_fase = f_devuelve_id_fase_minuta(id_minuta)
+		tipo_gestion = f_tipo_gestion_colegiado(id_fase, emisor)
+	end if	
+		
+		if tipo_gestion = 'P' then 
+			a_impresion_formato.direccion_email=f_devuelve_mail_profesional(emisor)		
+		elseif tipo_gestion = 'C' then 
+			a_impresion_formato.direccion_email=f_devuelve_mail_persona(id_persona,'P')
+			a_impresion_formato.cc_email = f_devuelve_mail_profesional(emisor)
+	//		if (envio_facturas_clientes = 'S') then a_impresion_formato.email='S'
+		end if 
+end if
+
+return
+end subroutine
+

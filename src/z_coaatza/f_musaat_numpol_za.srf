@@ -1,0 +1,35 @@
+HA$PBExportHeader$f_musaat_numpol_za.srf
+global type f_musaat_numpol_za from function_object
+end type
+
+forward prototypes
+global function string f_musaat_numpol_za (string id_col, string concepto)
+end prototypes
+
+global function string f_musaat_numpol_za (string id_col, string concepto);string prefijo, num_pol
+
+
+CHOOSE CASE concepto
+	CASE '106'
+		// Accidentes
+		SELECT musaat.accidentes_n_poliza INTO :num_pol FROM musaat WHERE musaat.id_col = :id_col   ;
+		num_pol = f_rellenar_ceros(8, num_pol)
+	CASE '107'
+		// Tasadores
+		SELECT musaat.tasadores_n_poliza INTO :num_pol FROM musaat WHERE musaat.id_col = :id_col   ;
+		num_pol = f_rellenar_ceros(8, num_pol)
+	CASE ELSE
+		// Todo lo demas
+		SELECT musaat.src_prefijo, musaat.src_n_poliza INTO :prefijo,:num_pol FROM musaat WHERE musaat.id_col = :id_col   ;
+		if f_es_vacio(prefijo) then prefijo = ''
+		prefijo = f_rellenar_ceros(2, prefijo)
+		if f_es_vacio(num_pol) then num_pol = ''
+		num_pol = f_rellenar_ceros(6, num_pol)
+		num_pol = prefijo+num_pol
+END CHOOSE
+
+
+return num_pol
+
+end function
+

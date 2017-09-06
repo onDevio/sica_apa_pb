@@ -1,0 +1,27 @@
+HA$PBExportHeader$f_poblacion_abogado.srf
+global type f_poblacion_abogado from function_object
+end type
+
+forward prototypes
+global function string f_poblacion_abogado ()
+end prototypes
+
+global function string f_poblacion_abogado ();string tipo_via_cli, nombre_via_cli, cod_prov_cli, cp_cli, pobla_cli, prov_cli, poblacion
+
+SELECT clientes.tipo_via, clientes.nombre_via, clientes.cod_prov, clientes.cp  
+INTO :tipo_via_cli, :nombre_via_cli, :cod_prov_cli, :cp_cli  
+FROM clientes  
+WHERE clientes.id_cliente = :g_abogado_colegio  ;
+
+if f_es_vacio(cp_cli) then cp_cli = ''
+pobla_cli = f_poblacion_descripcion(cp_cli)
+if f_es_vacio(pobla_cli) then pobla_cli = ''				
+prov_cli = f_provincia_descripcion(cod_prov_cli)	
+if f_es_vacio(prov_cli) then prov_cli = ''						
+poblacion = cp_cli + ' ' + pobla_cli + ' ' + prov_cli
+
+return poblacion
+
+
+end function
+

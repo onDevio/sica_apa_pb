@@ -1,0 +1,47 @@
+HA$PBExportHeader$f_ejercicio_ya_abierto.srf
+global type f_ejercicio_ya_abierto from function_object
+end type
+
+forward prototypes
+global function integer f_ejercicio_ya_abierto (string ejercicio)
+end prototypes
+
+global function integer f_ejercicio_ya_abierto (string ejercicio);/*   Se necesitan hacer las siguientes comprobaciones:
+
+=> Al iniciar la ejecuci$$HEX1$$f300$$ENDHEX$$n
+		Desde las aplicaciones de gesti$$HEX1$$f300$$ENDHEX$$n se puede querer conectar a un ejercicio contable aunque no est$$HEX2$$e9002000$$ENDHEX$$abierto, porque
+		por ejemplo se puede querer ir generando facturas pero no contabilizarlas.
+		Se controlar$$HEX2$$e1002000$$ENDHEX$$en los procesos contables a fin de evitar contabilizar si el ejercicio no est$$HEX2$$e1002000$$ENDHEX$$creado porque le faltan 
+		los contadores, las cuentas contables.
+*/
+
+// Funci$$HEX1$$f300$$ENDHEX$$n que recorre una tabla que tiene almacenados las BD's que hay creadas,
+// indicando si existe o no la BD para el ejercicio anterior 
+
+int num, existe_empresa
+
+// Comprueba si ese ejercicio est$$HEX2$$e1002000$$ENDHEX$$abierto
+Select count(*) 
+into :num
+from csi_ejercicios_abiertos
+where ejercicio like :ejercicio and empresa = :g_empresa ;
+
+// 03/05/05 Comprobamos si la tabla de ejercicios tiene asociada la empresa, en caso contrario hacemos la comprobaci$$HEX1$$f300$$ENDHEX$$n quitando la empresa 
+if SQLCA.SQLCODE = -1 then 
+	Select count(*) 
+	into :num
+	from csi_ejercicios_abiertos
+	where ejercicio like :ejercicio ;
+end if
+
+// Si encuentra alguno, devolver$$HEX2$$e1002000$$ENDHEX$$1
+if num > 0 then 
+	return 1
+else 
+	return -1
+end if
+
+return -1
+
+end function
+

@@ -1,0 +1,10 @@
+HA$PBExportHeader$st_sellador_integridad.srs
+global type st_sellador_integridad from structure
+	string		n_registro
+	string		ruta
+	string		fichero
+	string		id_documento
+	string		id_fase
+	string		fichero_largo
+end type
+

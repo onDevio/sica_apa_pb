@@ -1,0 +1,38 @@
+HA$PBExportHeader$f_total_facturado_concepto.srf
+global type f_total_facturado_concepto from function_object
+end type
+
+forward prototypes
+global function double f_total_facturado_concepto (string id_fase, string tipo_informe, string tipo_factura, string id_persona, string proforma)
+end prototypes
+
+global function double f_total_facturado_concepto (string id_fase, string tipo_informe, string tipo_factura, string id_persona, string proforma);double retorno
+// Devuelve el Importe facturado para un concepto en una fase en concreto
+// Par$$HEX1$$e100$$ENDHEX$$metros:
+// 	id_fase: se filtran facturas vinculadas a una fase
+// 	tipo_informe: concepto a comprobar
+// 	tipo_factura: Colegio-Cliente $$HEX2$$f3002000$$ENDHEX$$Colegio-Colegiado (Busca por igual: si se quiere para ambas, se debe invocar 2 veces cambiando el valor de este par$$HEX1$$e100$$ENDHEX$$metro)
+// 	id_persona: id_persona (puede no querer acotar por este valor, en cuyo caso se indica %)
+// 	proforma: proforma ('S','N','%' ): en el caso de renuncias quiere so$$HEX1$$f300$$ENDHEX$$lo No proformas ('N'). En otros casos (controles de importes facturados) normalmente los querr$$HEX2$$e1002000$$ENDHEX$$todos('%')
+//   as_empresa: (cod_empresa, '%'): Se recibe el c$$HEX1$$f300$$ENDHEX$$digo de la empresa para filtrar las facturas a partir de la cual obtener datos. Antes s$$HEX1$$f300$$ENDHEX$$lo se filtraba por la empresa activa.
+// Otros: Redondea a dos decimales
+
+
+SELECT sum ( csi_lineas_fact_emitidas.subtotal )  
+INTO :retorno
+FROM csi_facturas_emitidas, csi_lineas_fact_emitidas
+WHERE ( csi_lineas_fact_emitidas.id_factura = csi_facturas_emitidas.id_factura ) and  
+( csi_lineas_fact_emitidas.articulo = :tipo_informe ) and
+( ( csi_facturas_emitidas.id_minuta = :id_fase )  or  ( csi_facturas_emitidas.id_fase IN (SELECT id_minuta FROM fases_minutas WHERE id_fase = :id_fase)  )  ) and
+//( csi_facturas_emitidas.empresa like :g_empresa ) and
+( csi_facturas_emitidas.tipo_factura like :tipo_factura ) and
+( csi_facturas_emitidas.id_persona like :id_persona ) and
+( csi_facturas_emitidas.proforma like :proforma ) and
+( csi_facturas_emitidas.anulada <> 'S' );
+
+// Evitamos nulo y Redondeamos 
+retorno = f_redondea(retorno)
+
+return retorno
+end function
+

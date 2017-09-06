@@ -1,0 +1,29 @@
+HA$PBExportHeader$st_retorno_seleccion.srs
+global type st_retorno_seleccion from structure
+	string		codigo
+	string		plantilla
+	string		ruta
+	string		campos[]
+	boolean		pdf
+	string		nombre
+	boolean		email
+	string		dir_email
+	string		asunto
+	boolean		previsualizar
+	integer		copias
+	string		certificado
+	string		nombre_cer
+	string		password
+	string		razon
+	string		situacion
+	boolean		firmar_pdf
+	boolean		permitir_editar_plantilla
+	string		campo1
+	string		campo2
+	string		campo3
+	string		campo4
+	string		campo5
+	string		modulo
+	string		individual
+end type
+

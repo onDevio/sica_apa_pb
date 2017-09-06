@@ -1,0 +1,18 @@
+HA$PBExportHeader$ds_encuesta_valores_test.srd
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=268 color="536870912" )
+table(column=(type=char(10) updatewhereclause=yes key=yes name=id_respuesta_test dbname="formacion_mant_test.id_respuesta_test" )
+ column=(type=char(60) updatewhereclause=yes name=respuesta_test dbname="formacion_mant_test.respuesta_test" )
+ column=(type=long updatewhereclause=yes name=valor_respuesta dbname="formacion_mant_test.valor_respuesta" )
+ retrieve="PBSELECT( VERSION(400) TABLE(NAME=~"formacion_mant_test~" ) COLUMN(NAME=~"formacion_mant_test.id_respuesta_test~") COLUMN(NAME=~"formacion_mant_test.respuesta_test~") COLUMN(NAME=~"formacion_mant_test.valor_respuesta~")) " update="formacion_mant_test" updatewhere=0 updatekeyinplace=no )
+text(band=detail alignment="1" text="Respuesta Test:" border="0" color="0" x="101" y="8" height="56" width="393"  name=respuesta_test_t  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="535" y="8" height="56" width="805" format="[general]"  name=id_respuesta_test edit.limit=0 edit.case=any edit.autoselect=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+text(band=detail alignment="1" text="Id Respuesta Test:" border="0" color="0" x="69" y="104" height="56" width="425"  name=id_respuesta_test_t  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="535" y="104" height="56" width="1920" format="[general]"  name=respuesta_test edit.limit=0 edit.case=any edit.autoselect=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+text(band=detail alignment="1" text="Valor Respuesta:" border="0" color="0" x="101" y="200" height="56" width="393"  name=valor_respuesta_t  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="535" y="200" height="56" width="320" format="[General]"  name=valor_respuesta edit.limit=0 edit.case=any edit.autoselect=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

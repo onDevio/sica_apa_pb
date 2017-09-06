@@ -1,0 +1,42 @@
+HA$PBExportHeader$ds_consejo_estadillo_no_residentes.srd
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=136 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=84 color="536870912" )
+table(column=(type=char(10) updatewhereclause=yes name=colegiados_id_colegiado dbname="colegiados.id_colegiado" )
+ column=(type=char(1) updatewhereclause=yes name=altas_bajas_situaciones_alta dbname="altas_bajas_situaciones.alta" )
+ column=(type=char(1) updatewhereclause=yes name=altas_bajas_situaciones_baja dbname="altas_bajas_situaciones.baja" )
+ column=(type=datetime updatewhereclause=yes name=altas_bajas_situaciones_fecha dbname="altas_bajas_situaciones.fecha" )
+ retrieve="  SELECT colegiados.id_colegiado,   
+         altas_bajas_situaciones.alta,   
+         altas_bajas_situaciones.baja,   
+         altas_bajas_situaciones.fecha  
+    FROM altas_bajas_situaciones,   
+         colegiados  
+   WHERE ( altas_bajas_situaciones.id_colegiado = colegiados.id_colegiado ) and  
+         ( ( colegiados.c_geografico like 'N%' ) AND  
+         ( colegiados.tipo_persona <> 'S' ) AND  
+         ( altas_bajas_situaciones.fecha < :fecha ) AND  
+         (
+				( altas_bajas_situaciones.alta = 'S' ) 
+				OR  
+         	( altas_bajas_situaciones.baja = 'S' )
+			)   
+         )    
+" arguments=(("fecha", datetime))  sort="colegiados_id_colegiado A altas_bajas_situaciones_fecha A altas_bajas_situaciones_alta D " )
+text(band=header alignment="2" text="Colegiados
+Id Colegiado" border="0" color="0" x="5" y="4" height="128" width="325"  name=colegiados_id_colegiado_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Altas Bajas Situaciones
+Alta" border="0" color="0" x="334" y="4" height="128" width="635"  name=altas_bajas_situaciones_alta_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Altas Bajas Situaciones
+Baja" border="0" color="0" x="974" y="4" height="128" width="635"  name=altas_bajas_situaciones_baja_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Altas Bajas Situaciones
+Fecha" border="0" color="0" x="1614" y="4" height="128" width="635"  name=altas_bajas_situaciones_fecha_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="5" y="4" height="76" width="302" format="[general]"  name=colegiados_id_colegiado edit.limit=10 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="334" y="4" height="76" width="55" format="[general]"  name=altas_bajas_situaciones_alta edit.limit=1 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="974" y="4" height="76" width="55" format="[general]"  name=altas_bajas_situaciones_baja edit.limit=1 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="1614" y="4" height="76" width="603" format="[shortdate] [time]"  name=altas_bajas_situaciones_fecha edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

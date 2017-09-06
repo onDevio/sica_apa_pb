@@ -1,0 +1,41 @@
+HA$PBExportHeader$f_obtener_poblacion_activa.srf
+$PBExportComments$Obtiene de manera concatenada el campo de Poblacion Activa
+global type f_obtener_poblacion_activa from function_object
+end type
+
+forward prototypes
+global function string f_obtener_poblacion_activa (string cod_pob, string cod_prov, string cod_pos)
+end prototypes
+
+global function string f_obtener_poblacion_activa (string cod_pob, string cod_prov, string cod_pos);//	Obtiene de manera concatenada el campo de Poblacion Activa
+// 	formado: Codigo_postal + Descripcion_Provincia + Descripcion_poblacion
+//--------------------------------------------------------------------------
+// 18/11/2008 Vamos a obtener el cp y la provincia del domicilio no de la tabla poblaciones
+
+string pob_activa,  descripcion_pob, descripcion_prov
+
+//select cod_pos, descripcion into :cod_pos, :descripcion_pob from poblaciones where cod_pob = :cod_pob;
+//select nombre into :descripcion_prov from provincias where cod_provincia = :cod_prov;
+
+select descripcion into :descripcion_pob from poblaciones where cod_pob = :cod_pob;
+select nombre into :descripcion_prov from provincias where cod_provincia = :cod_prov;
+
+if isnull(descripcion_pob)  then descripcion_pob=""
+if isnull(descripcion_prov) then descripcion_prov=""
+if isnull(cod_pos) then cod_pos=""
+
+// No repetir cuando la poblacion y la provincia es la misma
+if descripcion_pob = descripcion_prov then descripcion_prov = ""
+
+cod_pos = LeftA(cod_pos, 5)
+
+//CGC-174 Jesus 12-05-2010
+//if (g_colegio='COAATGC') then
+//	pob_activa = descripcion_pob + " - " + descripcion_prov
+//else
+pob_activa = cod_pos + " " + descripcion_pob + " " + descripcion_prov
+//end if
+
+return  pob_activa
+end function
+

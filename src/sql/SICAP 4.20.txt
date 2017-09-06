@@ -1,0 +1,11 @@
+// V. 4.2.0
+// COAATTGN
+insert into var_globales values ('g_bloqueo_zonas','','','@','','Indica el código de las zonas a bloquear','','S') ; 
+insert into var_globales values ('g_bloqueo_poblacion','','','S','','Indica si se bloquean poblaciones en la aplicación','','S') ; 
+insert into var_globales values ('g_bloqueo_fases','','','N','','Indica si se bloquean poblaciones en el módulo de contratos','','S') ; 
+
+// TODOS
+alter table fases_minutas_cartas add n_registro char(10) null ;
+
+INSERT INTO t_control_eventos  ( control,   evento,   activo,   param1,   param2,   id_control,   orden,   param3,   mensaje )  
+VALUES ( 'VISIBLE_OBJETO',   'ABRIR_FASE',   'S',   'ult_fase',   '0',   'ULTFASE',   null,   null,   null )  ;

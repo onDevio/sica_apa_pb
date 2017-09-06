@@ -1,0 +1,44 @@
+HA$PBExportHeader$f_genera_factura_cobro.srf
+global type f_genera_factura_cobro from function_object
+end type
+
+forward prototypes
+global subroutine f_genera_factura_cobro (string id_factura, string formapago, datetime f_pago, string banco, string n_talon, double total, string pagado, string empresa_factura)
+end prototypes
+
+global subroutine f_genera_factura_cobro (string id_factura, string formapago, datetime f_pago, string banco, string n_talon, double total, string pagado, string empresa_factura);string id_pago,cuenta,centro,contabilizado,n_fact, empresa
+datetime f_vencimiento
+empresa=empresa_factura
+id_pago = f_siguiente_numero('COBRO_FEMI',10)
+f_vencimiento=f_f_venc_forma_de_pago(formapago,f_pago)
+cuenta = f_cuenta_forma_de_pago(formapago,banco,'',1)
+centro = f_devuelve_centro(g_cod_delegacion)
+
+
+//SCP-1071 Se modifica para que la empresa corresponda con la empresa asociada a la factura
+if f_es_vacio(empresa) then 
+	select empresa into :empresa from csi_facturas_emitidas where id_factura = :id_factura using sqlca;
+end if
+if f_es_vacio(empresa) then empresa = g_empresa
+
+// MODIFICADO RICARDO 04-04-29
+if pagado = 'N' then setnull(f_pago)
+//if formapago = g_formas_pago.domiciliacion then
+//	pagado = 'N'
+//Else
+//	pagado = 'S'
+//End If
+// FIN MODIFICADO RICARDO 04-04-29
+
+
+  INSERT INTO csi_cobros  
+         ( id_pago,id_factura,forma_pago,importe,f_pago,pagado,f_vencimiento,n_talon,   
+           banco,cuenta,centro,proyecto,cta_presupuestaria,contabilizado,f_contabilizado,devuelto, cod_usuario, empresa)  
+  VALUES ( :id_pago,:id_factura,:formapago,:total,:f_pago,:pagado,:f_vencimiento,   
+           :n_talon,:banco,:cuenta,:centro,:g_explotacion_por_defecto,null,:contabilizado,null,'N', :g_usuario, :empresa);
+  COMMIT;
+
+
+
+end subroutine
+

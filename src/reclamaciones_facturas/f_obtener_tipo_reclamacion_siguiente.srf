@@ -1,0 +1,66 @@
+HA$PBExportHeader$f_obtener_tipo_reclamacion_siguiente.srf
+global type f_obtener_tipo_reclamacion_siguiente from function_object
+end type
+
+forward prototypes
+global function string f_obtener_tipo_reclamacion_siguiente (string tipo_ultima_reclamacion,string id_factura, string tipo_persona,/* string remesada,*/ string aplica)
+end prototypes
+
+global function string f_obtener_tipo_reclamacion_siguiente (string tipo_ultima_reclamacion,string id_factura, string tipo_persona,/* string remesada,*/ string aplica);
+// Devolveremos la ultima reclamacion realizada por esa factura
+
+long n_reg,n_dias
+string tipo_reclamacion,tipo_recla_siguiente,agrupada
+datetime fecha
+
+if f_es_vacio(tipo_ultima_reclamacion) then
+	select tipo_reclamacion into :tipo_reclamacion from csi_fact_reclamaciones_tipos where tipo_persona = :tipo_persona /*and remesada = :remesada*/ and esPrimera='S' and (aplica = :aplica or aplica = 'A');
+	if f_es_vacio(tipo_reclamacion) then tipo_reclamacion = 'NO'
+	return tipo_reclamacion
+else
+	//Obtenemos la fecha de l ultima reclamaci$$HEX1$$f300$$ENDHEX$$n
+	select f_reclamacion into :fecha from csi_fact_reclamaciones where id_factura= :id_factura and id_reclamacion_factura=(select max(id_reclamacion_factura) from csi_fact_reclamaciones where id_factura= :id_factura);
+	//Calculamos el n$$HEX2$$ba002000$$ENDHEX$$de dias que han pasado
+	n_dias=daysafter(date(fecha), today())
+	//Obtenemos la reclamacion siguiente
+	select codigo_siguiente into :tipo_recla_siguiente from csi_fact_reclamaciones_tipos where tipo_reclamacion= :tipo_ultima_reclamacion;
+	
+	//Comprobamos si el ciclo se ha cumplido
+	select tipo_reclamacion into :tipo_reclamacion from csi_fact_reclamaciones_tipos where tipo_reclamacion= :tipo_recla_siguiente and ciclo < = :n_dias;
+	
+	if f_es_vacio(tipo_reclamacion) then tipo_reclamacion = 'NO'
+	
+	return tipo_reclamacion
+	
+end if
+	
+
+//select count(*) into :n_reg from csi_fact_reclamaciones where id_factura = :id_factura;
+//if n_reg = 0 then
+//	// Ahora es cuando hay que buscar
+//	select tipo_reclamacion into :tipo_reclamacion from csi_fact_reclamaciones_tipos where tipo_persona = :tipo_persona and remesada = :remesada and esPrimera='S' and (aplica = :aplica or aplica = 'A');
+//	if f_es_vacio(tipo_reclamacion) then tipo_reclamacion = 'NO'
+//else
+//	
+//	// Obtenemos el tipo y la fecha de la ultima reclamaci$$HEX1$$f300$$ENDHEX$$n
+//	select tipo_reclamacion,f_reclamacion into :tipo_reclamacion, :fecha from csi_fact_reclamaciones where id_factura= :id_factura and f_reclamacion=(select max(f_reclamacion) from csi_fact_reclamaciones where id_factura= :id_factura);
+//	//Preparamos funci$$HEX1$$f300$$ENDHEX$$n para notificaciones mixtas
+//	//Comprobamos si el tipo es agrupada
+//	select agrupar into :agrupada from csi_fact_reclamaciones_tipos where tipo_reclamacion= :tipo_reclamacion;	
+//	if agrupada='S' then return tipo_reclamacion
+//	
+//	n_dias = daysafter(date(fecha), today())	
+//	//Obtenemos la reclamaci$$HEX1$$f300$$ENDHEX$$n siguiente
+//	select codigo_siguiente into :tipo_recla_siguiente from csi_fact_reclamaciones_tipos where tipo_reclamacion= :tipo_reclamacion;
+//	
+//	//Comprobamos si ha pasado el periodo necesario para el tipo de reclamacion
+//	tipo_reclamacion=' '
+//	select tipo_reclamacion into :tipo_reclamacion from csi_fact_reclamaciones_tipos where tipo_reclamacion= :tipo_recla_siguiente and ciclo < = :n_dias;
+//	
+//	if f_es_vacio(tipo_reclamacion) then tipo_reclamacion = 'NO'
+//end if
+
+
+//return tipo_reclamacion
+end function
+

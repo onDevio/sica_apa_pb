@@ -1,0 +1,39 @@
+HA$PBExportHeader$f_obtener_descuento_tarifas_al.srf
+global type f_obtener_descuento_tarifas_al from function_object
+end type
+
+forward prototypes
+global function double f_obtener_descuento_tarifas_al (string as_tipo_tramite, string as_tipo_actuacion, string as_tipo_obra)
+end prototypes
+
+global function double f_obtener_descuento_tarifas_al (string as_tipo_tramite, string as_tipo_actuacion, string as_tipo_obra);double ld_retorno
+ld_retorno = 0.9
+choose case as_tipo_tramite
+		
+	case 'REDAP', 'REDOC'
+		ld_retorno = 0.9
+	case else 
+		
+		choose case as_tipo_actuacion
+			case '11', '12', '15'
+				choose case as_tipo_obra
+					case '11', '12', '21', '22', '91', '92', '93'
+						ld_retorno = 0.95
+					case else 
+						ld_retorno = 0.9
+				end choose
+			case '14', '17'
+				choose case as_tipo_obra
+					case '11', '12', '13', '21', '22', '23', '31', '32', '33', '41', '51', '52', '61', '62', '63'
+						ld_retorno = 0.95
+					case else 
+						ld_retorno = 0.9
+				end choose
+			case else 	
+				ld_retorno = 0.9
+		end choose		
+end choose		
+
+return ld_retorno
+end function
+

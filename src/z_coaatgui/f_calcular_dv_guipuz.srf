@@ -1,0 +1,156 @@
+HA$PBExportHeader$f_calcular_dv_guipuz.srf
+$PBExportComments$Calcula el total de dv para guipuzkoa
+global type f_calcular_dv_guipuz from function_object
+end type
+
+forward prototypes
+global function integer f_calcular_dv_guipuz (ref st_dv_datos st_dv_datos)
+end prototypes
+
+global function integer f_calcular_dv_guipuz (ref st_dv_datos st_dv_datos);// Entrada
+string tipo_act, tipo_obra, anyo, mes = '00'
+double pem, Ca, Cp
+// Salida
+double dv, coef_c, coef_k
+// F$$HEX1$$f300$$ENDHEX$$rmula
+// 	DV = ( 15 + sqrt ( 0.15 * PEM * Coef C * Coef K ) ) * Ca * Cp
+// Retorno
+// 0 : $$HEX1$$e900$$ENDHEX$$xito
+// -1 :error
+
+//Ca = g_ca
+//Cp = g_cp
+if isnull(st_dv_datos.fecha) then
+	anyo = g_ejercicio
+else
+	anyo = string(year(date(st_dv_datos.fecha)))
+	mes = string(month(date(st_dv_datos.fecha)))
+	mes = RightA('00' + mes, 2)
+end if
+
+tipo_act = st_dv_datos.tipoact
+tipo_obra = st_dv_datos.tipoobra
+pem = st_dv_datos.pem
+
+if f_es_vacio(tipo_act) or f_es_vacio(tipo_obra) or isnull(st_dv_datos.pem) then
+	return -1
+end if
+
+// Coeficiente K
+SELECT desc_gui_tipo_act.coef_k  
+INTO :coef_k  
+FROM desc_gui_tipo_act  
+WHERE ( :tipo_act like desc_gui_tipo_act.tipo_actuacion OR
+		desc_gui_tipo_act.tipo_actuacion = '%'  ) AND  
+      ( :tipo_obra like desc_gui_tipo_act.tipo_obra OR
+		desc_gui_tipo_act.tipo_obra = '%' ) AND  
+      ( desc_gui_tipo_act.anyo = :anyo )   ;
+
+if sqlca.sqlcode <> 0 then
+	SELECT desc_gui_tipo_act.coef_k  
+	INTO :coef_k  
+	FROM desc_gui_tipo_act  
+	WHERE ( :tipo_act like desc_gui_tipo_act.tipo_actuacion OR
+		desc_gui_tipo_act.tipo_actuacion = '%'  ) AND  
+		( :tipo_obra like desc_gui_tipo_act.tipo_obra OR
+		desc_gui_tipo_act.tipo_obra = '%' ) AND  
+		( desc_gui_tipo_act.anyo like '*' )   ;
+	
+	if sqlca.sqlcode <> 0 then
+		st_dv_datos.dv = 0
+		return -1
+	end if
+end if
+
+// Coeficientes Ca y Cp
+  SELECT desc_gui_coefs.coef_a,   
+         desc_gui_coefs.coef_p_dv  
+    INTO :Ca,   
+         :Cp  
+    FROM desc_gui_coefs  
+   WHERE ( desc_gui_coefs.desde_fecha <= :st_dv_datos.fecha ) AND  
+         ( desc_gui_coefs.hasta_fecha > :st_dv_datos.fecha )   ;
+
+	if sqlca.sqlcode <> 0 then	
+		return -1
+	end if
+
+double base_tabla
+if anyo >= '2004' then 
+	base_tabla = pem / Ca
+else
+	base_tabla = pem 
+end if
+
+// Coeficiente C
+SELECT desc_gui_pem.coef_c  
+INTO :coef_c  
+FROM desc_gui_pem  
+WHERE ( desc_gui_pem.pem_desde <= :base_tabla ) AND  
+      ( desc_gui_pem.pem_hasta >= :base_tabla ) AND  
+      ( desc_gui_pem.anyo like :anyo )  ;
+
+if sqlca.sqlcode <> 0 then
+		SELECT desc_gui_pem.coef_c  
+		INTO :coef_c  
+		FROM desc_gui_pem  
+		WHERE ( desc_gui_pem.pem_desde <= :base_tabla ) AND  
+		( desc_gui_pem.pem_hasta >= :base_tabla ) AND  
+		( desc_gui_pem.anyo like '*' )  ;
+		
+	if sqlca.sqlcode <> 0 then		
+		st_dv_datos.dv = 0
+		return -1
+	end if
+end if
+
+choose case anyo
+	case '1900' TO '1999', '2002', '2003'
+		//		if mes > '01' then Ca = 1.13 else Ca = 1.09
+		dv = ( 15 + sqrt ( 0.15 * pem * coef_c * coef_k ) ) * Ca * Cp
+	case '2000'
+		//dv = ( 21 + sqrt ( 15 * pem * coef_c * coef_k ) ) * Ca * Cp	
+		dv = ( 21 + sqrt ( 0.09 * pem * coef_c * coef_k ) ) * Ca * Cp 		
+	case '2001'
+//		if mes > '01' then Ca = 1.09 else Ca = 1.05
+//		dv = ( 15 + sqrt ( 25 * pem * coef_c * coef_k ) ) * Ca * Cp			
+		dv = ( 15 + sqrt ( 0.15 * pem * coef_c * coef_k ) ) * Ca * Cp
+	case '2004'
+		dv = ( ( 15 * Ca ) + sqrt ( 0.15 * pem * coef_c * coef_k ) ) * Cp	
+	case '2005', '2006'
+		dv = ( ( 15 * Ca ) + sqrt ( 0.15 * pem * coef_c * coef_k ) ) * Cp		
+		choose case st_dv_datos.tipoact
+			case '01','02'
+				if st_dv_datos.pem <= 61000 then dv = 8 * Ca
+			case '03'
+				if st_dv_datos.pem <= 61000 then	dv = 16 * Ca
+			case '04','05'
+				if st_dv_datos.pem <= 61000 then	dv = 24 * Ca
+			case '71','72','73','74','75'
+				dv = 8 * Ca
+			case else
+				dv = ( ( 15 * Ca ) + sqrt ( 0.15 * pem * coef_c * coef_k ) ) * Cp	
+		end choose
+	case '2007' TO '2050'
+		dv = ( ( 15 * Ca ) + sqrt ( 0.20 * pem * coef_c * coef_k ) ) * Cp		
+		choose case st_dv_datos.tipoact
+			case '01','02'
+				if st_dv_datos.pem <= 68000 then dv = 8 * Ca
+			case '03'
+				if st_dv_datos.pem <= 68000 then	dv = 16 * Ca
+			case '04','05'
+				if st_dv_datos.pem <= 68000 then	dv = 24 * Ca
+			case '71','72','73','74','75'
+				dv = 8 * Ca
+			case else
+				dv = ( ( 15 * Ca ) + sqrt ( 0.20 * pem * coef_c * coef_k ) ) * Cp	
+		end choose		
+end choose
+
+
+st_dv_datos.dv = f_redondea(dv)
+
+return 0
+
+end function
+

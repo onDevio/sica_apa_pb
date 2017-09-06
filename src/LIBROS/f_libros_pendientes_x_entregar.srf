@@ -1,0 +1,33 @@
+HA$PBExportHeader$f_libros_pendientes_x_entregar.srf
+global type f_libros_pendientes_x_entregar from function_object
+end type
+
+forward prototypes
+global function integer f_libros_pendientes_x_entregar (datetime dia, string id_libro)
+end prototypes
+
+global function integer f_libros_pendientes_x_entregar (datetime dia, string id_libro);// Obtiene la si el libro fue devuelto pasada la fecha de devolucion
+
+integer count
+ SELECT distinct 1
+ into :count
+    FROM libros,   
+         prestamos  
+   WHERE ( libros.id_libro = prestamos.id_libro ) and  
+			( libros.id_libro = :id_libro ) and  	
+         ( ( prestamos.f_devolucion_prevista < prestamos.f_devolucion_real ) OR  
+         (  prestamos.f_devolucion_prevista < :dia AND  
+            prestamos.f_devolucion_real is null)   
+         ) ;
+			
+			
+			
+			
+			
+if isnull(count) then
+	count = 0
+end if 
+			
+return count
+end function
+

@@ -1,0 +1,20 @@
+HA$PBExportHeader$f_minutas_id_minuta.srf
+global type f_minutas_id_minuta from function_object
+end type
+
+forward prototypes
+global function string f_minutas_id_minuta (string n_aviso)
+end prototypes
+
+global function string f_minutas_id_minuta (string n_aviso);string id_minuta = ''
+
+if f_es_vacio(n_aviso) then return ''
+
+  SELECT fases_minutas.id_minuta  
+    INTO :id_minuta  
+    FROM fases_minutas  
+   WHERE fases_minutas.n_aviso = :n_aviso   ;
+
+return id_minuta
+end function
+

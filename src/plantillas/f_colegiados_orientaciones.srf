@@ -1,0 +1,65 @@
+HA$PBExportHeader$f_colegiados_orientaciones.srf
+$PBExportComments$Dado un colegiado obtiene la lista de sus orientaciones profesionales
+global type f_colegiados_orientaciones from function_object
+end type
+
+forward prototypes
+global function string f_colegiados_orientaciones (string id_col)
+end prototypes
+
+global function string f_colegiados_orientaciones (string id_col);//Par$$HEX1$$e100$$ENDHEX$$metro: el identificador del colegiado.
+//Devuelve: un string con la descripci$$HEX1$$f300$$ENDHEX$$n y el c$$HEX1$$f300$$ENDHEX$$digo de las orientaciones
+//				profesionales del colegiado.
+
+long i
+string retorno, cod_ori, desc_ori
+retorno = ''
+
+
+datastore ds_orientaciones
+
+ds_orientaciones = create datastore
+ds_orientaciones.dataobject ='d_colegiados_orientaciones_profesionales'
+ds_orientaciones.SetTransObject(SQLCA)
+
+ds_orientaciones.Retrieve(id_col)
+
+for i = 1 to ds_orientaciones.rowcount()
+	desc_ori = ''
+	cod_ori = ds_orientaciones.getitemstring(i, 'orientacion_profesional')	
+	select descripcion into :desc_ori from t_orientaciones_profesionales where cod_orientacion_profesional = :cod_ori;
+	
+	if f_es_vacio(cod_ori) then cod_ori = ''
+	if f_es_vacio(desc_ori) then desc_ori = ''
+	
+	retorno = retorno + desc_ori + cr
+next
+
+destroy ds_orientaciones
+
+return retorno
+
+
+
+
+//string retorno = '', cod_ori = '', desc_ori = ''
+//int i
+//
+//declare c_orient cursor for
+//select t_orientaciones_profesionales.cod_orientacion_profesional, t_orientaciones_profesionales.descripcion
+//from t_orientaciones_profesionales, orientaciones_profesionales
+//where orientaciones_profesionales.id_colegiado = :id_col and
+//		orientaciones_profesionales.orientacion_profesional = t_orientaciones_profesionales.cod_orientacion_profesional;
+//
+//open c_orient;
+//
+//FOR i=1 TO sqlca.SQLNRows
+//	fetch c_orient into :cod_ori, :desc_ori;
+//	retorno = retorno + cod_ori + '	' + desc_ori + cr
+//NEXT
+//
+//close c_orient;
+//
+//return retorno
+end function
+

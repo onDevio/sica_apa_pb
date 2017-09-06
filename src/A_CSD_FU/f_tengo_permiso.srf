@@ -1,0 +1,31 @@
+HA$PBExportHeader$f_tengo_permiso.srf
+global type f_tengo_permiso from function_object
+end type
+
+forward prototypes
+global function integer f_tengo_permiso (string usuario, string aplicacion, string tipo_permiso)
+end prototypes
+
+global function integer f_tengo_permiso (string usuario, string aplicacion, string tipo_permiso);char permiso=''
+//long cuantos=0
+
+//select count(*) into :cuantos from t_permisos where cod_usuario = :usuario and cod_aplicacion = 'E';
+
+if f_es_superusuario()<>'-1' then return 1
+
+
+select permiso into :permiso from t_permisos where cod_usuario=:usuario and cod_aplicacion=:aplicacion and permiso like :tipo_permiso;
+
+if f_es_vacio(permiso) then 
+	select t_grupo_permisos.permiso into :permiso from t_usuario_grupos,t_grupo_permisos where  t_usuario_grupos.cod_usuario=:usuario and 
+	t_usuario_grupos.cod_grupo=t_grupo_permisos.cod_grupo and t_grupo_permisos.cod_aplicacion=:aplicacion;
+	if f_es_vacio(permiso) then
+		return -1
+	else
+		return 1
+	end if
+else 
+	return 1
+end if
+end function
+

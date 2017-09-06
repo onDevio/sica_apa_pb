@@ -1,0 +1,21 @@
+HA$PBExportHeader$f_devuelve_visado_fase.srf
+global type f_devuelve_visado_fase from function_object
+end type
+
+forward prototypes
+global function string f_devuelve_visado_fase (string id_fase)
+end prototypes
+
+global function string f_devuelve_visado_fase (string id_fase);// Devuelve el id_fase para un archivo determinado
+
+
+string devuelve
+
+devuelve=''
+
+select archivo into :devuelve from fases where id_fase=:id_fase;
+
+if f_es_vacio(id_fase) then devuelve=''
+return devuelve
+end function
+

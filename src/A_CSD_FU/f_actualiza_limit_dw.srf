@@ -1,0 +1,39 @@
+HA$PBExportHeader$f_actualiza_limit_dw.srf
+global type f_actualiza_limit_dw from function_object
+end type
+
+forward prototypes
+global function integer f_actualiza_limit_dw (u_dw data_w)
+end prototypes
+
+global function integer f_actualiza_limit_dw (u_dw data_w);// PARA ELEMS. DE CONTABILIDAD
+
+// Funcion a la le que pasamos como parametro una data_window
+//	de la cual queremos ampliar la propiedad limit de sus campos cuenta
+// devuelve un 1 si se ha ejecutado correctamente
+string  num_col_dw ,nombre_columna ,tipo_columna, limit_columna
+integer n
+
+// Se obtiene el numero de columnas de la data_windows
+num_col_dw = data_w.Describe("DataWindow.Column.Count")
+
+FOR n = 1 to integer(num_col_dw)
+	
+	// Se obtiene el nombre de las columnas de la data_windows
+	nombre_columna = data_w.Describe("#" + string(n) +".Name")
+
+	// Se obtiene el tipo de las columnas de la data_windows
+	tipo_columna = data_w.Describe(nombre_columna + ".Edit.Style")
+	
+	//Limit
+	if ( LeftA(nombre_columna,3) = 'cue') and tipo_columna = "edit"  then 
+			data_w.Modify("#"+string(n)+".Edit.Limit= 10")
+	end if
+		
+NEXT
+
+return 1
+
+
+end function
+

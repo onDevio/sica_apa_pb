@@ -1,0 +1,20 @@
+HA$PBExportHeader$f_dame_desc_tipo_via.srf
+global type f_dame_desc_tipo_via from function_object
+end type
+
+forward prototypes
+global function string f_dame_desc_tipo_via (string cod_tipo_via)
+end prototypes
+
+global function string f_dame_desc_tipo_via (string cod_tipo_via);string descripcion
+
+  SELECT tipos_via.descripcion  
+    INTO :descripcion  
+    FROM tipos_via  
+  HAVING ( tipos_via.cod_tipo_via = :cod_tipo_via )   ;
+
+if f_es_vacio(descripcion) then descripcion = ''
+
+return descripcion
+end function
+

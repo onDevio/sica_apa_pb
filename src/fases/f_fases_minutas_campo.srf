@@ -1,0 +1,36 @@
+HA$PBExportHeader$f_fases_minutas_campo.srf
+global type f_fases_minutas_campo from function_object
+end type
+
+forward prototypes
+global function string f_fases_minutas_campo (string id_minuta)
+global function string f_fases_minutas_campo (string id_minuta, string campo)
+end prototypes
+
+global function string f_fases_minutas_campo (string id_minuta);string n_sal
+
+SELECT fases.archivo INTO :n_sal   FROM fases, fases_minutas  WHERE fases.id_fase = fases_minutas.id_fase AND fases_minutas.id_minuta= :id_minuta;
+
+	
+if f_es_vacio(n_sal) then n_sal = ''
+return n_sal
+end function
+
+global function string f_fases_minutas_campo (string id_minuta, string campo);string ls_valor_devuelto, n_sal, n_reg
+// Funci$$HEX1$$f300$$ENDHEX$$n para obtener datos de una fase a partir del id_minuta
+// Se crea tras detectar que en fases_liquidaciones.id_fase se guarda fases_minutas.id_minuta, y en fases_liquidaciones.id_minuta NO se guarda fases_minutas.id_minuta
+
+SELECT fases.archivo, fases.n_registro  INTO :n_sal, :n_reg FROM fases, fases_minutas  WHERE fases.id_fase = fases_minutas.id_fase AND fases_minutas.id_minuta= :id_minuta;
+
+CHOOSE CASE campo 
+	CASE 'N_REGISTRO'
+		ls_valor_devuelto = n_reg
+		
+	CASE 'N_SALIDA'
+		ls_valor_devuelto = n_sal
+END CHOOSE
+
+IF f_es_vacio(ls_valor_devuelto) THEN ls_valor_devuelto = ''
+return ls_valor_devuelto
+end function
+

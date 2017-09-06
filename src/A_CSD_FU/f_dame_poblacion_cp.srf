@@ -1,0 +1,23 @@
+HA$PBExportHeader$f_dame_poblacion_cp.srf
+global type f_dame_poblacion_cp from function_object
+end type
+
+forward prototypes
+global function string f_dame_poblacion_cp (string codigo)
+end prototypes
+
+global function string f_dame_poblacion_cp (string codigo);// Devuelve la descripci$$HEX1$$f300$$ENDHEX$$n de la poblacion a partir del c$$HEX1$$f300$$ENDHEX$$digo postal
+
+string pobla
+
+SELECT poblaciones.descripcion  
+    INTO :pobla
+    FROM poblaciones  
+   WHERE poblaciones.cod_pos = :codigo; 
+         
+IF f_es_vacio (pobla) then pobla = ''
+			
+				
+return pobla
+end function
+

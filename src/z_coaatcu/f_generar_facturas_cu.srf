@@ -1,0 +1,773 @@
+HA$PBExportHeader$f_generar_facturas_cu.srf
+global type f_generar_facturas_cu from function_object
+end type
+
+forward prototypes
+global subroutine f_generar_facturas_cu (st_generar_facturas_minutas generar_facturas)
+end prototypes
+
+global subroutine f_generar_facturas_cu (st_generar_facturas_minutas generar_facturas);st_facturas datos_factura, datos_honos, datos_gastos
+st_musaat_datos datos_musaat
+datastore lineas_factura, ds_honos, ds_gastos, ds_suplidos
+
+boolean anyadir=FALSE, hay_dto=FALSE, regulariza_musaat=FALSE, previsualizar=FALSE
+string aplica_honos='N', aplica_desplaza='N', aplica_dv='N', aplica_cip='N', aplica_musaat='N', aplica_retvol='N'
+string tipo_gestion, id_fase, id_col, id_cli, pagador, t_iva_honos, t_iva_desplaza, t_iva_dv, t_iva_cip, t_iva_impresos 
+string nombre_emisor, direc_emisor, pobla_emisor, nif_emisor, nombre_receptor, direc_receptor, pobla_receptor, nif_receptor
+string lugar_fecha, concepto, t_iva, codigo, irpf_cliente, aplicado_10='N', concepto_desplaza
+string asunto='', nombre_cliente='', n_expedi='', n_contrato_ant, aplica_impresos='N'
+double base_honos=0, base_desplaza=0, base_dv=0, base_cip=0, base_musaat=0, base_retvol=0, importe, base, porc_irpf
+double iva_honos=0, iva_desplaza=0, iva_dv=0, iva_cip=0, iva,irpf=0, total_irpf=0, irpf_colegio=0, total_irpf_colegio=0
+double retorno, musaat, musaat_cobrado, base_garantia=0, porc_honos, base_impresos=0, iva_impresos=0
+int aplicas, n_orig_hon, n_orig_gas, n_cop_hon, n_cop_gas
+long fila
+datetime fecha
+
+
+// Modificado Ricardo 2005-05-10
+// Por el cambio para pasar los par$$HEX1$$e100$$ENDHEX$$metros como estructura... se definen las variables aqu$$HEX2$$ed002000$$ENDHEX$$y toman valor aqu$$HEX2$$ed002000$$ENDHEX$$
+u_dw dw_minuta
+integer num_orig, num_copias
+boolean reg_musaat, movimiento_musaat
+string tipo_movimiento_csd, tipo_prev
+datawindow dw_factura
+
+// ASIGNADO DE LOS VALORES DE LA ESTRUCTURA A LAS VARIABLES LOCALES!
+dw_minuta 				= generar_facturas.dw_minuta
+num_orig  				= generar_facturas.num_orig
+num_copias  			= generar_facturas.num_copias
+reg_musaat			 	= generar_facturas.regulariza_musaat
+movimiento_musaat  	= generar_facturas.movimiento_musaat
+tipo_movimiento_csd  = generar_facturas.tipo_movimiento_csd
+tipo_prev  				= generar_facturas.tipo_prev
+dw_factura 				= generar_facturas.dw_factura
+// fin Modificado Ricardo 2005-05-10
+
+
+
+ds_honos = create Datastore
+ds_honos.DataObject = 'd_fases_lineas_facturas'
+ds_honos.SetTransObject(SQLCA)
+
+ds_gastos = create Datastore
+ds_gastos.DataObject = 'd_fases_lineas_facturas'
+ds_gastos.SetTransObject(SQLCA)
+
+ds_suplidos = create Datastore
+ds_suplidos.DataObject = 'd_fases_lineas_facturas'
+ds_suplidos.SetTransObject(SQLCA)
+
+if tipo_prev = 'G' or tipo_prev = 'H' then previsualizar = TRUE
+
+lineas_factura = create Datastore
+lineas_factura.DataObject = 'd_fases_lineas_facturas'
+lineas_factura.SetTransObject(SQLCA)
+
+tipo_gestion = dw_minuta.GetItemString(1,'tipo_gestion')
+id_col = dw_minuta.getitemstring(1, 'id_colegiado')
+id_cli = dw_minuta.getitemstring(1, 'id_cliente')
+aplica_honos = dw_minuta.getitemstring(1, 'aplica_honos')
+aplica_desplaza = dw_minuta.getitemstring(1, 'aplica_desplaza')
+aplica_dv = dw_minuta.getitemstring(1, 'aplica_dv')
+aplica_cip = dw_minuta.getitemstring(1, 'aplica_cip')
+aplica_musaat = dw_minuta.getitemstring(1, 'aplica_musaat')
+aplica_retvol = dw_minuta.getitemstring(1, 'aplica_retvol')
+aplica_impresos = dw_minuta.getitemstring(1, 'aplica_impresos')
+base_honos = dw_minuta.GetItemNumber(1,'base_honos')
+base_desplaza = dw_minuta.GetItemNumber(1,'base_desplaza')
+base_dv = dw_minuta.getitemnumber(1, 'base_dv')
+base_cip = dw_minuta.getitemnumber(1, 'base_cip')
+base_musaat = dw_minuta.getitemnumber(1, 'base_musaat')
+base_retvol = dw_minuta.GetItemNumber(1,'base_retvol')
+base_garantia = dw_minuta.GetItemNumber(1,'base_garantia')
+base_impresos = dw_minuta.GetItemNumber(1,'base_impresos')
+iva_honos = dw_minuta.GetItemNumber(1,'iva_honos')
+iva_desplaza = dw_minuta.GetItemNumber(1,'iva_desplaza')
+iva_dv = dw_minuta.GetItemNumber(1,'iva_dv')
+iva_cip = dw_minuta.GetItemNumber(1,'iva_cip')
+iva_impresos = dw_minuta.GetItemNumber(1,'iva_impresos')
+t_iva_honos = dw_minuta.GetItemString(1,'t_iva_honos')
+t_iva_desplaza = dw_minuta.GetItemString(1,'t_iva_desplaza')
+t_iva_dv = dw_minuta.GetItemString(1,'t_iva_dv')
+t_iva_cip = dw_minuta.GetItemString(1,'t_iva_cip')
+t_iva_impresos = dw_minuta.GetItemString(1,'t_iva_impresos')
+pagador = dw_minuta.getitemstring(1, 'pagador')
+id_fase = dw_minuta.getItemString(1,'id_fase')
+porc_irpf = dw_minuta.getitemnumber(1, 'irpf')
+irpf_cliente = dw_minuta.getitemstring(1, 'irpf_cliente')
+porc_honos = dw_minuta.getitemnumber(1, 'porc_honos')
+fecha = dw_minuta.getitemdatetime(1, 'fecha')
+n_contrato_ant = dw_minuta.getitemstring(1, 'n_contrato_ant')
+
+n_expedi = f_dame_exp(id_fase)
+if f_es_vacio(n_expedi) then n_expedi = ''
+nombre_cliente = f_dame_cliente(id_cli)
+if f_es_vacio(nombre_cliente) then nombre_cliente = ''
+
+// Modificado David 24/02/2006 - Pasamos el objeto de impresi$$HEX1$$f300$$ENDHEX$$n a la funci$$HEX1$$f300$$ENDHEX$$n
+datos_factura.impresion_formato = generar_facturas.impresion_formato
+// Guardamos el valor original ya que se machaca el valor al imprimir
+string email
+if isvalid(datos_factura.impresion_formato) then email = datos_factura.impresion_formato.email
+
+// Hay que ver si la fase tiene aplicado_10 = 'S'
+  SELECT fases.aplicado_10  
+    INTO :aplicado_10  
+    FROM fases  
+   WHERE fases.id_fase = :id_fase   ;
+if sqlca.sqlcode <> 0 then aplicado_10 = 'N'
+//Rellenar datos generales de la factura
+datos_factura.formapago = dw_minuta.GetItemString(1,'forma_pago')
+// Me guardo la forma de pago de la minuta
+STRING formadepago_copia 
+formadepago_copia = datos_factura.formapago
+datos_factura.banco = dw_minuta.GetItemString(1,'banco')
+datos_factura.fecha = dw_minuta.GetItemDateTime(1,'fecha_pago')
+// MODIFICADO RICARDO 2005-05-11
+if not f_es_vacio(generar_facturas.serie) then
+	datos_factura.serie = generar_facturas.serie
+else
+	datos_factura.serie = g_serie_fases
+end if	
+// FIN MODIFICADO RICARDO 2005-05-11
+datos_factura.t_impuesto = dw_minuta.GetItemString(1,'t_iva')
+datos_factura.id_minuta = dw_minuta.GetItemString(1,'id_minuta')
+datos_factura.num_originales = num_orig
+datos_factura.num_copias = num_copias
+// Si es una devolucion y no es una forma de pago al contado
+string es_contado
+SELECT csi_formas_de_pago.contado  
+	INTO :es_contado  
+	FROM csi_formas_de_pago  
+	WHERE csi_formas_de_pago.tipo_pago = :formadepago_copia;
+
+//if left(tipo_movimiento_csd,1) = '6' and es_contado <> 'S' then
+//	datos_factura.pagada = 'N'
+//else
+	datos_factura.pagada = 'S'
+//end if
+
+datos_factura.asunto = n_expedi + ', ' + nombre_cliente
+datos_factura.incluir_todos = 'S'
+
+//datos_factura.base_imponible = dw_minuta.GetItemNumber(1,'base_total')
+//datos_factura.importe_iva = dw_minuta.GetItemNumber(1,'compute_3')
+
+if tipo_gestion <> 'S' Then // Factura de Honorarios : Colegiado - Cliente
+	if tipo_gestion = 'A' then
+		datos_factura.formapago  = g_formas_pago.autoliquidacion
+	end if
+	
+	//Generar factura de honorarios
+	//EMISOR -> Colegiado
+	datos_factura.id_emisor = id_col
+	//RECEPTOR -> Cliente
+	datos_factura.id_receptor = id_cli
+//	datos_factura.es_colegiado = FALSE
+	datos_factura.tipo_factura = g_colegiado_cliente
+	aplicas = 1
+	irpf = 0
+	DO
+	CHOOSE CASE aplicas
+		CASE 1
+			if aplica_honos = 'S' and base_honos <> 0 Then
+				anyadir = TRUE
+				codigo = g_codigos_conceptos.honorarios
+				concepto = dw_minuta.getitemstring(1, 'concepto_honos')
+				base = base_honos
+				iva = iva_honos
+				t_iva = t_iva_honos
+				if irpf_cliente = 'S' then 
+					irpf = f_redondea(base_honos * porc_irpf /100 )
+				end if
+			End If
+		CASE 2
+			if aplica_desplaza = 'S' and base_desplaza <> 0 Then
+				anyadir = TRUE
+				codigo = g_codigos_conceptos.desplazamientos
+				concepto_desplaza = dw_minuta.getitemstring(1, 'concepto_desplaza')
+				if f_es_vacio(concepto_desplaza) then  concepto_desplaza = f_devuelve_desc_concepto(codigo)
+				concepto = concepto_desplaza 
+				base = base_desplaza
+				iva = iva_desplaza
+				t_iva = t_iva_desplaza
+				if irpf_cliente = 'S' and g_aplica_irpf_en_desplaza = 'S' then  
+					irpf = f_redondea(base_desplaza * porc_irpf /100 )
+				end if
+			End If
+		CASE 3
+			if aplica_dv = 'S' and base_dv <> 0 Then
+				anyadir = TRUE
+				codigo = g_codigos_conceptos.dv
+				concepto = f_devuelve_desc_concepto(codigo)
+				base = base_dv
+				iva = iva_dv
+				t_iva = t_iva_dv
+			End If
+		CASE 4
+			if aplica_cip = 'S' and base_cip <> 0 Then
+				anyadir = TRUE
+				codigo = g_codigos_conceptos.cip // CIP CGC
+				concepto = f_devuelve_desc_concepto(codigo)
+				base = base_cip
+				iva = iva_cip
+				t_iva = t_iva_cip
+//				if daysafter(date(fecha), date(datos_factura.fecha)) <= 10 then hay_dto = TRUE
+			End If
+		CASE 5
+			if aplica_musaat = 'S' and base_musaat <> 0 Then
+				anyadir = TRUE
+				codigo = g_codigos_conceptos.musaat_variable
+				concepto = f_devuelve_desc_concepto(codigo)
+				base = base_musaat
+				iva = 0
+				//t_iva = g_t_iva_00
+				t_iva = f_csi_articulos_servicios_t_iva(codigo, g_empresa)
+			End If
+		CASE 6
+			if aplica_retvol = 'S' and base_retvol <> 0 Then
+				anyadir = TRUE
+				codigo = g_codigos_conceptos.retvol
+				concepto = f_devuelve_desc_concepto(codigo)
+				base = base_retvol
+				iva = 0
+				//t_iva = g_t_iva_00
+				t_iva = f_csi_articulos_servicios_t_iva(codigo, g_empresa)
+			End If
+		CASE 7
+			if base_garantia <> 0 Then
+				anyadir = TRUE
+				codigo = g_codigos_conceptos.dev_garantia
+				concepto = f_devuelve_desc_concepto(codigo)
+				base = (-1) * base_garantia
+				iva = 0
+				//t_iva = g_t_iva_00
+				t_iva = f_csi_articulos_servicios_t_iva(codigo, g_empresa)
+//				if irpf_cliente = 'S'  then  
+//					irpf = f_redondea( base * porc_irpf /100 )
+//				end if				
+			End If
+		CASE 8 // El descuento es s$$HEX1$$f300$$ENDHEX$$lo para SGC
+			//	if hay_dto Then
+			//		anyadir = TRUE
+			//		codigo = g_codigos_conceptos.pronto_pago
+			//		concepto = f_devuelve_desc_concepto(codigo)
+			//		base = (-1) * f_redondea(base_cip * 5 / 100)
+			//		t_iva = f_csi_articulos_servicios_t_iva ( g_codigos_conceptos.pronto_pago )
+			//		iva = f_aplica_t_iva(base, t_iva)
+			//	End If
+		CASE 9
+			if aplica_impresos = 'S' and base_impresos <> 0 Then
+				anyadir = TRUE
+				codigo = g_codigos_conceptos.impresos
+				concepto = f_devuelve_desc_concepto(codigo)
+				base = base_impresos
+				iva = iva_impresos
+				t_iva = t_iva_impresos
+			End If
+	END CHOOSE
+
+	if anyadir Then 
+		fila = lineas_factura.InsertRow(0)
+		lineas_factura.SetItem(fila,'descripcion',concepto)
+		lineas_factura.SetItem(fila,'descripcion_larga',concepto)		
+		lineas_factura.SetItem(fila,'precio',base)
+		lineas_factura.SetItem(fila,'unidades',1)
+		lineas_factura.SetItem(fila,'subtotal',base)
+		lineas_factura.SetItem(fila,'t_iva',t_iva)
+		lineas_factura.SetItem(fila,'subtotal_iva',iva)
+		lineas_factura.SetItem(fila,'articulo',codigo)
+		lineas_factura.SetItem(fila,'total',base + iva)
+		total_irpf = total_irpf + irpf
+	End If
+
+	irpf = 0
+	anyadir = FALSE
+	aplicas++
+LOOP UNTIL aplicas > 9
+
+if total_irpf > 0 then datos_factura.tipo_irpf = porc_irpf else datos_factura.tipo_irpf = 0
+datos_factura.irpf_colegio = 0
+datos_factura.importe_irpf = f_redondea(total_irpf)
+datos_factura.ds_lineas = lineas_factura
+
+// Si es con gesti$$HEX1$$f300$$ENDHEX$$n de cobro separamos los originales y copias en las facturas de honos y gastos
+// Para las autoliquidaciones tambi$$HEX1$$e900$$ENDHEX$$n
+if tipo_gestion = 'C' or tipo_gestion = 'A' then
+	n_orig_hon = integer(LeftA(string(num_orig,'0000'),2))
+	n_orig_gas = integer(RightA(string(num_orig,'0000'),2))
+	n_cop_hon = integer(LeftA(string(num_copias,'0000'),2))
+	n_cop_gas = integer(RightA(string(num_copias,'0000'),2))
+	datos_factura.num_originales = n_orig_hon
+	datos_factura.num_copias = n_cop_hon
+	if isvalid(datos_factura.impresion_formato) then datos_factura.impresion_formato.email = email
+end if
+
+
+if not previsualizar then f_factura(datos_factura)
+lineas_factura.rowscopy(1, lineas_factura.rowcount(), Primary!, ds_honos, 1, Primary!)
+datos_honos = datos_factura
+End If
+
+if isvalid(lineas_factura) then lineas_factura.Reset()
+if isvalid(datos_factura.ds_lineas) Then datos_factura.ds_lineas.Reset()
+
+//======================================
+//Generar factura de gastos
+//======================================
+datos_factura.tipo_irpf = 0
+datos_factura.importe_irpf = 0
+datos_factura.irpf_colegio = 0 //**//
+//EMISOR -> Colegio  (id_emisor debe ser vacio)
+setnull(datos_factura.id_emisor)
+CHOOSE CASE pagador
+	CASE '1'
+		datos_factura.id_receptor = id_col
+//		datos_factura.es_colegiado = TRUE
+		datos_factura.tipo_factura = g_colegio_colegiado
+		datos_factura.es_empresa = FALSE
+	CASE '2'
+		datos_factura.id_receptor = id_col
+//		datos_factura.es_colegiado = TRUE
+		datos_factura.tipo_factura = g_colegio_colegiado	
+		datos_factura.es_empresa = TRUE
+	CASE '3'
+		datos_factura.id_receptor = id_cli
+//		datos_factura.es_colegiado = FALSE
+		datos_factura.tipo_factura = g_colegio_cliente	
+		datos_factura.es_empresa = FALSE
+END CHOOSE
+
+aplicas = 1
+
+CHOOSE CASE tipo_gestion
+	CASE 'S'  //'Sin gesti$$HEX1$$f300$$ENDHEX$$n de cobro'
+		DO
+		CHOOSE CASE aplicas
+			CASE 1
+				if aplica_dv = 'S' and base_dv <> 0 Then
+					anyadir = TRUE
+					codigo = g_codigos_conceptos.dv
+					concepto = f_devuelve_desc_concepto(g_codigos_conceptos.dv)
+					base = base_dv
+					iva = iva_dv
+					t_iva = t_iva_dv
+				End If
+			CASE 2
+				if aplica_cip = 'S' and base_cip <> 0 Then
+					anyadir = TRUE
+					codigo = g_codigos_conceptos.cip_sgc // CIP SGC
+					concepto = f_devuelve_desc_concepto(codigo)
+					base = base_cip
+					iva = iva_cip
+					t_iva = t_iva_cip
+//					if daysafter(date(fecha), date(datos_factura.fecha)) <= 10 then hay_dto = TRUE
+				End If
+			CASE 3
+				if aplica_musaat = 'S' and base_musaat <> 0 Then
+					// recuperar par$$HEX1$$e100$$ENDHEX$$metros de la base de datos
+					datos_musaat.recuperar = TRUE
+					// Generar movimiento para MUSAAT
+					datos_musaat.genera_movi = movimiento_musaat
+					datos_musaat.id_minuta = datos_factura.id_minuta 
+					// Si el cobro de MUSAAT es por certificaciones
+					datos_musaat.aplicado_10 = ( aplicado_10 = 'S' )
+					datos_musaat.importe_sobre_honos = base_musaat		
+					datos_musaat.porc_sobre_honos = porc_honos					
+					// NUEVO : tipo_csd
+					datos_musaat.tipo_csd = tipo_movimiento_csd
+					// Si devolucion pasamos el % de devoluci$$HEX1$$f300$$ENDHEX$$n, El campo cantidad de la minuta se usa para guardar el % de renuncia
+					if (LeftA(datos_musaat.tipo_csd,1) = '6') then datos_musaat.porcentaje_devolucion = f_redondea(dw_minuta.getitemnumber(1,'cantidad'))					
+					if g_cobro_obligado = 'S' THEN 
+						datos_musaat.anticipo_10 = TRUE
+					end if
+					datos_musaat.n_visado = dw_minuta.getitemstring(1, 'id_fase')
+					id_col    = dw_minuta.getitemstring(1, 'id_colegiado')
+					datos_musaat.id_col = id_col
+					datos_musaat.n_contrato_ant = n_contrato_ant
+					
+					// No genera movimientos de musaat si es previsualizacion
+					if previsualizar then datos_musaat.genera_movi = false
+					
+					if f_colegiado_tipopersona(id_col) = 'S' then
+						retorno = f_musaat_calcula_prima_sociedad(datos_musaat)			
+					else
+						retorno = f_musaat_calcula_prima(datos_musaat)
+					end if		
+					musaat = datos_musaat.prima_comp		
+					musaat = f_redondea(musaat)
+					
+					musaat_cobrado = f_redondea(dw_minuta.getitemnumber(1, 'base_musaat'))
+					if musaat <> musaat_cobrado and pagador = '1' and  g_cobro_obligado <> 'S'  and aplicado_10 <> 'S'  then
+						regulariza_musaat = true
+					end if					
+					
+					anyadir = TRUE
+					codigo = g_codigos_conceptos.musaat_variable
+					concepto = f_devuelve_desc_concepto(g_codigos_conceptos.musaat_variable)
+					base = base_musaat
+					iva = 0
+					//t_iva = g_t_iva_00
+					t_iva = f_csi_articulos_servicios_t_iva(codigo, g_empresa)
+				End If
+			CASE 4
+//				if regulariza_musaat then
+//					anyadir = TRUE
+//					codigo = g_codigos_conceptos.reg_mus
+//					concepto = f_devuelve_desc_concepto(g_codigos_conceptos.reg_mus)
+//					base = f_redondea(musaat - musaat_cobrado)
+//					iva = 0
+//					t_iva = g_t_iva_00
+//				end if
+			CASE 5
+//				string t_mov_csd
+//				t_mov_csd = left(tipo_movimiento_csd,1)
+//				// Si es una devoluci$$HEX1$$f300$$ENDHEX$$n no hay descuento
+//				if t_mov_csd='6' or t_mov_csd='2' or t_mov_csd='1' then hay_dto = false
+//				if hay_dto Then
+//					anyadir = TRUE
+//					codigo = g_codigos_conceptos.pronto_pago
+//					concepto = f_devuelve_desc_concepto(codigo)
+//					base = (-1) * f_redondea(base_cip * 5 / 100)
+//					t_iva = f_csi_articulos_servicios_t_iva ( g_codigos_conceptos.pronto_pago )
+//					//	iva = f_aplica_t_iva(base, t_iva) 
+//					// No hacemos redondeo para que el % de iva salga bien en la factura
+//					iva = f_dame_porcent_iva(t_iva) * base / 100 
+//				End If
+			CASE 6
+				if aplica_impresos = 'S' and base_impresos <> 0 Then
+					anyadir = TRUE
+					codigo = g_codigos_conceptos.impresos
+					concepto = f_devuelve_desc_concepto(g_codigos_conceptos.impresos)
+					base = base_impresos
+					iva = iva_impresos
+					t_iva = t_iva_impresos
+				End If
+
+		END CHOOSE
+
+		if anyadir Then 
+			fila = lineas_factura.InsertRow(0)
+			lineas_factura.SetItem(fila,'descripcion',concepto)
+			lineas_factura.SetItem(fila,'descripcion_larga',concepto)			
+			lineas_factura.SetItem(fila,'precio',base)
+			lineas_factura.SetItem(fila,'unidades',1)
+			lineas_factura.SetItem(fila,'subtotal',base)
+			lineas_factura.SetItem(fila,'t_iva',t_iva)
+			lineas_factura.SetItem(fila,'subtotal_iva',iva)
+			lineas_factura.SetItem(fila,'articulo',codigo)
+			lineas_factura.SetItem(fila,'total',base + iva)
+		End If
+		anyadir = FALSE
+		aplicas++
+	LOOP UNTIL aplicas > 6
+	
+	datos_factura.ds_lineas = lineas_factura
+	if not previsualizar then
+		f_factura(datos_factura)
+		// MODIFICADO RICARDO 2004-08-10
+		// Vemos si se ha regularizado la musaat. TEnemos el numero de la factura generada en f_factura
+		if abs(base_musaat - datos_musaat.prima_comp)>=0.01 then f_musaat_enviar_mensaje_al_regularizar(base_musaat, datos_musaat.prima_comp, g_return_f_factura)
+		// fin MODIFICADO RICARDO 2004-08-10
+	end if
+
+
+	CASE ELSE  //'Con Gestion de Cobro' o 'Autoliquidaci$$HEX1$$f300$$ENDHEX$$n'
+		if tipo_gestion = 'C' then
+			datos_factura.formapago  = g_formas_pago.cargo	
+		end if
+		if tipo_gestion = 'A' then
+			datos_factura.formapago  = formadepago_copia
+		end if		
+		// Receptor colegiado SIEMPRE
+		datos_factura.id_receptor = id_col
+//		datos_factura.es_colegiado = TRUE
+		datos_factura.tipo_factura = g_colegio_colegiado		
+		DO
+		CHOOSE CASE aplicas
+			CASE 1
+				if base_dv <> 0 Then
+					anyadir = TRUE
+					codigo = g_codigos_conceptos.dv
+					concepto = f_devuelve_desc_concepto(g_codigos_conceptos.dv)
+					base = base_dv
+					iva = iva_dv
+					t_iva = t_iva_dv					
+				End If
+			CASE 2
+				if base_cip <> 0 Then
+					anyadir = TRUE
+					codigo = g_codigos_conceptos.cip // CIP CGC
+					concepto = f_devuelve_desc_concepto(codigo)
+					base = base_cip
+					iva = iva_cip
+					t_iva = t_iva_cip
+//					if daysafter(date(fecha), date(datos_factura.fecha)) <= 10 then hay_dto = TRUE
+				End If
+			CASE 3
+				if base_musaat <> 0 Then
+					datos_musaat.recuperar = TRUE
+					datos_musaat.genera_movi = movimiento_musaat
+					datos_musaat.id_minuta = datos_factura.id_minuta
+					IF g_cobro_obligado = 'S' THEN datos_musaat.anticipo_10 = TRUE
+					// Certificaciones
+					datos_musaat.aplicado_10 = ( aplicado_10 = 'S' )
+					datos_musaat.importe_sobre_honos = base_musaat		
+					datos_musaat.porc_sobre_honos = porc_honos					
+					// NUEVO : tipo_csd
+					datos_musaat.tipo_csd = tipo_movimiento_csd
+					
+					datos_musaat.n_visado = dw_minuta.getitemstring(1, 'id_fase')
+					id_col    = dw_minuta.getitemstring(1, 'id_colegiado')
+					datos_musaat.id_col = id_col
+					datos_musaat.n_contrato_ant = n_contrato_ant
+					
+					// No genera movimientos de musaat si es previsualizacion
+					if previsualizar then datos_musaat.genera_movi = false
+										
+					if f_colegiado_tipopersona(id_col) = 'S' then
+						retorno = f_musaat_calcula_prima_sociedad(datos_musaat)			
+					else
+						retorno = f_musaat_calcula_prima(datos_musaat)
+					end if		
+					musaat = datos_musaat.prima_comp		
+					musaat = f_redondea(musaat)
+					
+					anyadir = TRUE
+					codigo = g_codigos_conceptos.musaat_variable
+					concepto = f_devuelve_desc_concepto(g_codigos_conceptos.musaat_variable)
+					// Regularizamos si no se cobra por certificaciones y si no es cobro obligado
+					if  g_cobro_obligado <> 'S'  and aplicado_10 <> 'S' then
+						base = musaat					
+					else
+						base = base_musaat
+					end if
+					iva = 0
+					//t_iva = g_t_iva_00
+					t_iva = f_csi_articulos_servicios_t_iva(codigo, g_empresa)			
+				End If
+			CASE 4
+				if base_retvol <> 0 Then
+					anyadir = TRUE
+					codigo = g_codigos_conceptos.retvol
+					concepto = f_devuelve_desc_concepto(g_codigos_conceptos.retvol)
+					base = base_retvol
+					iva = 0
+					//t_iva = g_t_iva_00
+					t_iva = f_csi_articulos_servicios_t_iva(codigo, g_empresa)				
+				End If
+
+			CASE 5 // El descuento es s$$HEX1$$f300$$ENDHEX$$lo para SGC
+				// if hay_dto Then
+				// 	anyadir = TRUE
+				// 	codigo = g_codigos_conceptos.pronto_pago
+				// 	concepto = f_devuelve_desc_concepto(codigo)
+				//	   base = (-1) * f_redondea(base_cip * 5 / 100)
+				// 	t_iva = f_csi_articulos_servicios_t_iva ( g_codigos_conceptos.pronto_pago )
+				// 	iva = f_aplica_t_iva(base, t_iva)
+				// End If
+
+			CASE 6
+				if base_impresos <> 0 Then
+					anyadir = TRUE
+					codigo = g_codigos_conceptos.impresos
+					concepto = f_devuelve_desc_concepto(g_codigos_conceptos.impresos)
+					base = base_impresos
+					iva = iva_impresos
+					t_iva = t_iva_impresos					
+				End If
+		END CHOOSE
+
+		if anyadir Then 
+			fila = lineas_factura.InsertRow(0)
+			lineas_factura.SetItem(fila,'descripcion',concepto)
+			lineas_factura.SetItem(fila,'descripcion_larga',concepto)			
+			lineas_factura.SetItem(fila,'precio',base)
+			lineas_factura.SetItem(fila,'unidades',1)
+			lineas_factura.SetItem(fila,'subtotal',base)
+			lineas_factura.SetItem(fila,'t_iva',t_iva)
+			lineas_factura.SetItem(fila,'subtotal_iva',iva)
+			lineas_factura.SetItem(fila,'articulo',codigo)
+			lineas_factura.SetItem(fila,'total',base + iva)
+		End If
+		anyadir = FALSE
+		aplicas++
+	LOOP UNTIL aplicas > 6
+
+	// Si es con gesti$$HEX1$$f300$$ENDHEX$$n de cobro separamos los originales y copias en las facturas de honos y gastos
+	// Para las autoliquidaciones tambi$$HEX1$$e900$$ENDHEX$$n
+	if tipo_gestion = 'C' or tipo_gestion = 'A' then
+		n_orig_hon = integer(LeftA(string(num_orig,'0000'),2))
+		n_orig_gas = integer(RightA(string(num_orig,'0000'),2))
+		n_cop_hon = integer(LeftA(string(num_copias,'0000'),2))
+		n_cop_gas = integer(RightA(string(num_copias,'0000'),2))
+		datos_factura.num_originales = n_orig_gas
+		datos_factura.num_copias = n_cop_gas
+		if isvalid(datos_factura.impresion_formato) then datos_factura.impresion_formato.email = email
+	end if
+
+
+	datos_factura.ds_lineas = lineas_factura
+	if not previsualizar then
+		f_factura(datos_factura)
+		// MODIFICADO RICARDO 2004-08-10
+		// Vemos si se ha regularizado la musaat. TEnemos el numero de la factura generada en f_factura
+		if abs(base_musaat - datos_musaat.prima_comp)>=0.01 then f_musaat_enviar_mensaje_al_regularizar(base_musaat, datos_musaat.prima_comp, g_return_f_factura)
+		// fin MODIFICADO RICARDO 2004-08-10
+	end if
+
+	
+END CHOOSE
+
+//	lineas_factura.rowscopy(1, lineas_factura.rowcount(), Primary!, ds_gastos, 1, Primary!)
+// Introducimos solo los conceptos no suplidos
+	string suplido, articulo
+	int f
+	for f=lineas_factura.rowcount() to 1 step -1
+		articulo = lineas_factura.getitemstring(f, 'articulo')
+		SELECT suplido INTO :suplido FROM csi_articulos_servicios WHERE codigo = :articulo   ;
+		if suplido = 'N' then 
+			lineas_factura.rowscopy(f, f, Primary!, ds_gastos, 1, Primary!)
+		else
+			lineas_factura.rowscopy(f, f, Primary!, ds_suplidos, 1, Primary!)
+		end if
+	next
+	datos_gastos = datos_factura
+
+
+if not previsualizar then return
+
+
+// *********************************************************************
+// *********************  Previsualizacion  ****************************
+// *********************************************************************
+long fila_new, i, lineas, indice_suplido=0, sup
+string tipo_act, tipo_obra, uso_obra, descripcion_obra = '', id_rec, id_emi, id_empresa, descripcion
+
+tipo_act = f_dame_fase(id_fase)
+tipo_obra = f_dame_tipo_obra(id_fase)
+uso_obra = f_dame_uso_obra(id_fase)
+descripcion_obra = f_dame_desc_tipo_actuacion(tipo_act) + ' / ' + f_dame_desc_tipo_obra(tipo_obra) + ' / ' + f_dame_desc_destino_obra(uso_obra)
+lugar_fecha = g_col_ciudad + ' ' + string(Today())
+
+// Emisor y Receptor
+CHOOSE CASE tipo_prev
+	CASE 'H'
+		id_emi = datos_honos.id_emisor
+		id_rec = datos_honos.id_receptor
+		// Emisor - colegiado
+		nombre_emisor  = f_nombre_colegiado(id_emi)
+		direc_emisor   = f_domicilio_fiscal(id_emi)
+		pobla_emisor   = f_poblacion_fiscal(id_emi)
+		nif_emisor     = f_devuelve_nif(id_emi)
+		// Receptor - cliente
+		nombre_receptor= f_dame_cliente_nom_ape(id_rec)
+		direc_receptor = f_dame_domicilio(id_rec)
+		pobla_receptor = f_retorna_poblacion(id_rec)
+		nif_receptor   = f_dame_nif(id_rec)
+	CASE 'G'
+		id_rec = datos_gastos.id_receptor
+		// Emisor - colegio
+		nombre_emisor = g_nombre_colegio_carta
+		direc_emisor  = g_direc_colegio_carta
+		pobla_emisor  = g_pobla_colegio_carta
+		nif_emisor    = g_col_nif
+		// Receptor
+		if datos_factura.tipo_factura = g_colegio_colegiado then
+			if datos_factura.es_empresa then
+			// cambiar "id_empresa" en colegiados join con terceros
+			select id_empresa into :id_empresa from colegiados where id_colegiado = :id_rec;
+			if f_es_vacio(id_empresa) then
+				// Si no encuentra los datos de la empresa cogemos los del colegiado
+				nif_receptor 	 = f_devuelve_nif(id_rec) 
+				nombre_receptor = f_colegiado_apellido(id_rec)
+				direc_receptor  = f_domicilio_fiscal(id_rec)
+				pobla_receptor  = f_poblacion_fiscal(id_rec)			
+			else
+				nif_receptor 	= f_dame_nif(id_empresa)
+				nombre_receptor= f_dame_cliente_nom_ape(id_empresa)
+				direc_receptor = f_dame_domicilio(id_empresa)
+				pobla_receptor = f_retorna_poblacion(id_empresa)
+			end if
+		else
+			nif_receptor 	= f_devuelve_nif(id_rec) 
+			nombre_receptor= f_colegiado_apellido(id_rec)
+			direc_receptor	= f_domicilio_fiscal(id_rec)
+			pobla_receptor	= f_poblacion_fiscal(id_rec)
+		end if	
+	else
+		nif_receptor	= f_dame_nif(id_rec)
+		nombre_receptor= f_dame_cliente(id_rec)
+		direc_receptor	= f_dame_domicilio(id_rec)
+		pobla_receptor	= f_retorna_poblacion(id_rec)
+	end if
+END CHOOSE
+
+dw_factura.object.copia.text = 'COPIA'
+
+if tipo_prev = 'H' then
+	lineas = ds_honos.rowcount()
+else
+	lineas = ds_gastos.rowcount()
+end if
+
+for i = 1 to lineas
+	fila_new = dw_factura.insertrow(0)
+	
+	choose case tipo_prev
+		case 'H'
+			dw_factura.SetItem(fila_new, 'concepto_1', ds_honos.getItemstring(i,'descripcion'))
+			dw_factura.SetItem(fila_new, 'bi_1', ds_honos.getItemnumber(i,'subtotal'))
+			dw_factura.SetItem(fila_new, 'iva_1', ds_honos.getItemnumber(i,'subtotal_iva'))
+			dw_factura.SetItem(fila_new, 'irpf_total', datos_honos.importe_irpf)
+		case 'G'
+			dw_factura.SetItem(fila_new, 'concepto_1', ds_gastos.getItemstring(i,'descripcion'))
+			dw_factura.SetItem(fila_new, 'bi_1', ds_gastos.getItemnumber(i,'subtotal'))
+			dw_factura.SetItem(fila_new, 'iva_1', ds_gastos.getItemnumber(i,'subtotal_iva'))
+	end choose
+
+	dw_factura.SetItem(fila_new, 'tipo_obra', descripcion_obra )
+	dw_factura.setitem(fila_new, 'descripcion', f_dame_descripcion_contrato(id_fase))
+	dw_factura.setitem(fila_new, 'emplazamiento', f_dame_direccion_contrato(id_fase))
+	dw_factura.SetItem(fila_new, 'visado', f_dame_n_reg(id_fase))
+	dw_factura.SetItem(fila_new, 'lugar_fecha', lugar_fecha)
+	// Hay que meter un valor en num_fra porque la factura est$$HEX2$$e1002000$$ENDHEX$$agrupada por este campo 
+	dw_factura.setitem(fila_new, 'num_fra', id_fase) 
+	dw_factura.setitem(fila_new, 'colegiado', f_colegiado_n_col(id_col))				
+	dw_factura.Setitem(fila_new, 'cliente' , f_fases_promotores_fase(id_fase))
+	dw_factura.setitem(fila_new, 'n_aviso', dw_minuta.getitemstring(1, 'n_aviso'))
+	dw_factura.setitem(fila_new, 'observaciones', dw_minuta.getitemstring(1, 'observaciones'))
+
+	dw_factura.setitem(fila_new, 'nombre_emisor', nombre_emisor)
+	dw_factura.setitem(fila_new, 'direcc_emisor', direc_emisor)
+	dw_factura.setitem(fila_new, 'poblac_emisor', pobla_emisor)
+	dw_factura.SetItem(fila_new, 'nif_emisor', nif_emisor)
+
+	dw_factura.setitem(fila_new, 'nombre_receptor', nombre_receptor)
+	dw_factura.setitem(fila_new, 'direcc_receptor', direc_receptor)
+	dw_factura.setitem(fila_new, 'poblac_receptor', pobla_receptor)		
+	dw_factura.setitem(fila_new, 'nif_receptor', nif_receptor)
+next
+
+// Insertamos las lineas con articulos suplidos
+for i = 1 To ds_suplidos.RowCount()
+	choose case tipo_prev
+		case 'G'
+			indice_suplido ++
+			descripcion = ds_suplidos.GetItemString(i,'descripcion_larga')
+			if f_es_vacio(descripcion) then descripcion = ds_suplidos.GetItemString(i,'descripcion')
+			for sup = 1 to lineas
+				dw_factura.SetItem(sup,'texto_suplido_'+string(indice_suplido),descripcion)
+				dw_factura.SetItem(sup,'suplido_'+ string(indice_suplido),ds_suplidos.GetItemNumber(i,'subtotal'))
+			next
+	end choose
+next
+
+dw_factura.object.num_fra.visible = FALSE
+dw_factura.groupcalc()
+
+destroy ds_honos
+destroy ds_gastos
+destroy ds_suplidos
+end subroutine
+

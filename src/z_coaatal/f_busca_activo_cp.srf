@@ -1,0 +1,24 @@
+HA$PBExportHeader$f_busca_activo_cp.srf
+global type f_busca_activo_cp from function_object
+end type
+
+forward prototypes
+global function string f_busca_activo_cp (string id_colegiado)
+end prototypes
+
+global function string f_busca_activo_cp (string id_colegiado);string activo_cp 
+//Busca el campo activo_cp que indica si tiene el servicio de BBVA asociado
+
+  SELECT colegiados.activo_cp  
+    INTO :activo_cp  
+    FROM colegiados  
+   WHERE colegiados.id_colegiado = :id_colegiado   ;
+	
+	if isnull(activo_cp) or activo_cp ='' then
+		activo_cp  ='N'
+	end if
+	
+	return activo_cp 
+
+end function
+

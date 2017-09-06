@@ -1,0 +1,19 @@
+HA$PBExportHeader$f_liquidacion_factura_gastos.srf
+global type f_liquidacion_factura_gastos from function_object
+end type
+
+forward prototypes
+global function string f_liquidacion_factura_gastos (string id_minuta)
+end prototypes
+
+global function string f_liquidacion_factura_gastos (string id_minuta);string n_fact_gastos = ''
+
+  SELECT csi_facturas_emitidas.n_fact  
+    INTO :n_fact_gastos  
+    FROM csi_facturas_emitidas  
+   WHERE ( csi_facturas_emitidas.id_fase = :id_minuta) and  
+         ( ( csi_facturas_emitidas.tipo_factura = :g_colegio_colegiado ) );
+			
+	return n_fact_gastos 
+end function
+

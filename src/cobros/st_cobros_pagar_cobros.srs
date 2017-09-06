@@ -1,0 +1,10 @@
+HA$PBExportHeader$st_cobros_pagar_cobros.srs
+global type st_cobros_pagar_cobros from structure
+	string		ventana
+	double		importe_total
+	u_dw		dw_lista
+	string		contabilizar
+	string		forma_pago
+	string		retorno
+end type
+

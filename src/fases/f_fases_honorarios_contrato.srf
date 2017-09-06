@@ -1,0 +1,21 @@
+HA$PBExportHeader$f_fases_honorarios_contrato.srf
+global type f_fases_honorarios_contrato from function_object
+end type
+
+forward prototypes
+global function double f_fases_honorarios_contrato (string id_fase)
+end prototypes
+
+global function double f_fases_honorarios_contrato (string id_fase);double honos
+
+SELECT sum(honorarios)  
+INTO :honos  
+FROM fases
+WHERE fases.id_fase = :id_fase   ;
+
+if isnull(honos) then honos = 0
+
+return honos
+
+end function
+

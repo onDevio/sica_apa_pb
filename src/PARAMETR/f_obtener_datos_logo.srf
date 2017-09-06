@@ -1,0 +1,76 @@
+HA$PBExportHeader$f_obtener_datos_logo.srf
+global type f_obtener_datos_logo from function_object
+end type
+
+forward prototypes
+global function st_datos_logos_empresa f_obtener_datos_logo (string cod_empresa, string as_modulo)
+end prototypes
+
+global function st_datos_logos_empresa f_obtener_datos_logo (string cod_empresa, string as_modulo);st_datos_logos_empresa lst_datos_logos_empresa 
+
+string ls_nom_logo, ls_visible
+integer li_pos_x, li_pos_y, li_altura, li_anchura
+
+// Se busca logo del m$$HEX1$$f300$$ENDHEX$$dulo espec$$HEX1$$ed00$$ENDHEX$$fico
+select pos_x, pos_y, altura, anchura, logo, visible
+into :li_pos_x, :li_pos_y, :li_altura, :li_anchura, :ls_nom_logo, :ls_visible
+from csi_empresas_logos
+where codigo_empresa = :cod_empresa
+and modulo = :as_modulo;
+
+if sqlca.sqlcode = 0 then 
+	if f_es_vacio(ls_nom_logo) then 
+		select logo
+		into :ls_nom_logo
+		from csi_empresas
+		where codigo = :cod_empresa;
+	end if 
+	
+	if li_pos_x < 1 or isnull(li_pos_x)  then li_pos_x = 0
+	if li_pos_y < 1 or isnull(li_pos_y) then li_pos_y = 0
+	if li_altura < 1 or isnull(li_altura) then li_altura = 0
+	if li_anchura <1 or isnull(li_anchura) then li_anchura=0
+	
+	// Si es visible le pasamos el logo a cargar. En caso de no ser visible, volver$$HEX2$$e1002000$$ENDHEX$$vac$$HEX1$$ed00$$ENDHEX$$o y no asignar$$HEX2$$e1002000$$ENDHEX$$una imagen concreta. 
+	if ls_visible = 'S' then 
+		lst_datos_logos_empresa.nombre_logo = ls_nom_logo
+		lst_datos_logos_empresa.pos_x = li_pos_x
+		lst_datos_logos_empresa.pos_y = li_pos_y
+		lst_datos_logos_empresa.altura = li_altura
+		lst_datos_logos_empresa.anchura = li_anchura
+		lst_datos_logos_empresa.visible = ls_visible
+	end if
+	
+else 
+	// Si no existe un logo para que m$$HEX1$$f300$$ENDHEX$$dulo espec$$HEX1$$ed00$$ENDHEX$$fico, se busca si existe un logo para el m$$HEX1$$f300$$ENDHEX$$dulo m$$HEX1$$f300$$ENDHEX$$dulo gen$$HEX1$$e900$$ENDHEX$$rico
+	
+	select logo
+	into :ls_nom_logo
+	from csi_empresas
+	where codigo = :cod_empresa;
+	
+	if not (f_es_vacio(ls_nom_logo)) then 
+		select pos_x, pos_y, altura, anchura, visible
+		into :li_pos_x, :li_pos_y, :li_altura, :li_anchura, :ls_visible
+		from csi_empresas_logos
+		where codigo_empresa = :cod_empresa
+		and modulo = '000';
+		
+		if li_pos_x < 1 or isnull(li_pos_x)  then li_pos_x = 0
+		if li_pos_y < 1 or isnull(li_pos_y) then li_pos_y = 0
+		if li_altura < 1 or isnull(li_altura) then li_altura = 0
+		if li_anchura <1 or isnull(li_anchura) then li_anchura=0
+
+		lst_datos_logos_empresa.nombre_logo = ls_nom_logo
+		lst_datos_logos_empresa.pos_x = li_pos_x
+		lst_datos_logos_empresa.pos_y = li_pos_y
+		lst_datos_logos_empresa.altura = li_altura
+		lst_datos_logos_empresa.anchura = li_anchura
+		lst_datos_logos_empresa.visible = ls_visible
+	end if
+	
+end if 	
+
+	return lst_datos_logos_empresa
+end function
+

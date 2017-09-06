@@ -1,0 +1,85 @@
+HA$PBExportHeader$f_enviar_email.srf
+global type f_enviar_email from function_object
+end type
+
+forward prototypes
+global function integer f_enviar_email (string asunto, string cuerpo, string destinatario, string remitente, string adjunto_nombre, string adjunto_path)
+end prototypes
+
+global function integer f_enviar_email (string asunto, string cuerpo, string destinatario, string remitente, string adjunto_nombre, string adjunto_path);n_csd_impresion_formato lo_impresion
+
+lo_impresion = create n_csd_impresion_formato
+
+lo_impresion.email='S'
+lo_impresion.direccion_email=destinatario
+lo_impresion.asunto_email=asunto
+lo_impresion.texto_email=cuerpo
+
+// Si el texto empieza por la etiqueta <HTML> asumimos que es un mail con contenido HTML
+if upper(LeftA(lefttrim(cuerpo), 6)) = "<HTML>" then
+	lo_impresion.formato_html = 'S'
+end if
+
+lo_impresion.ruta_base = adjunto_path
+lo_impresion.ruta_relativa = ''
+lo_impresion.nombre_adjunto_email = adjunto_nombre
+
+lo_impresion.avisos = 1
+
+return lo_impresion.f_mail()	
+
+
+/*string ls_Filter
+mailsession lms_Session
+mailmessage lm_Message
+mailrecipient lm_Recipient
+mailFileDescription lmf_File
+mailreturncode lmc_Return
+
+string ls_UserName
+ulong ll_Length
+
+//Si queremos adjuntar archivos...
+//lmf_File.FileType = mailAttach!
+//lmf_File.FileName = ls_FileName
+//lmf_file.PathName = ls_PathName + ls_FileName
+
+
+// Comenzamos la sesi$$HEX1$$f300$$ENDHEX$$n de correo electr$$HEX1$$f300$$ENDHEX$$nico
+lms_Session = CREATE mailsession
+
+// Comprobamos que la sesi$$HEX1$$f300$$ENDHEX$$n ha sido iniciada con $$HEX1$$e900$$ENDHEX$$xito
+if lmc_Return <> mailReturnSuccess! then
+	MessageBox(g_titulo, "Fallo en el establecimiento de la sesi$$HEX1$$f300$$ENDHEX$$n de correo electr$$HEX1$$f300$$ENDHEX$$nico ")
+end if
+
+//lmc_Return = lms_Session.mailAddress(lm_Message)
+
+//Rellenamos el mensaje
+lm_Message.NoteText = cuerpo
+lm_Message.Subject = asunto
+//lm_Message.Attachmentfile[1] = lmf_File
+
+//Rellenamos el recipiente para el destinatario adecuado
+lm_Recipient.Address =destinatario  //destinatario   
+lm_Recipient.Name = destinatario  //"Notificaciones de Reparos"
+
+lm_Recipient.RecipientType = mailTo!
+lm_Message.Recipient[1] = lm_Recipient
+
+lmc_Return = lms_Session.mailLogon()
+lmc_Return = lms_Session.mailSend(lm_Message)
+
+// Comprobamos que el mensaje ha sido enviado con $$HEX1$$e900$$ENDHEX$$xito
+if lmc_return <> MailReturnSuccess! then
+	MessageBox(g_titulo, 'Fallo en el env$$HEX1$$ed00$$ENDHEX$$o del mensaje a .'+destinatario)
+	return
+//else
+//	MessageBox(g_titulo, 'El mensaje fue enviado con $$HEX1$$e900$$ENDHEX$$xito.')
+end if
+
+lmc_Return = lms_Session.mailLogoff()
+destroy lms_Session
+*/
+end function
+

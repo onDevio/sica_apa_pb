@@ -1,0 +1,17 @@
+HA$PBExportHeader$f_min.srf
+$PBExportComments$objetos b$$HEX1$$e100$$ENDHEX$$sicos
+global type f_min from function_object
+end type
+
+forward prototypes
+global function double f_min (double val1, double val2)
+end prototypes
+
+global function double f_min (double val1, double val2);if val1 < val2 then
+	return val1
+else
+	return val2
+end if
+
+end function
+

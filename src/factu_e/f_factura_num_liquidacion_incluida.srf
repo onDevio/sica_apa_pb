@@ -1,0 +1,21 @@
+HA$PBExportHeader$f_factura_num_liquidacion_incluida.srf
+global type f_factura_num_liquidacion_incluida from function_object
+end type
+
+forward prototypes
+global function string f_factura_num_liquidacion_incluida (string id_fase)
+end prototypes
+
+global function string f_factura_num_liquidacion_incluida (string id_fase);// Funci$$HEX1$$f300$$ENDHEX$$n que devuelve el n$$HEX2$$ba002000$$ENDHEX$$de liquidaci$$HEX1$$f300$$ENDHEX$$n en que se encuentra una factura
+string id_liq
+
+if not f_es_vacio(id_fase) then
+	SELECT fases_liquidaciones.id_liquidacion  
+	INTO :id_liq  
+	FROM fases_liquidaciones  
+	WHERE fases_liquidaciones.id_fase like :id_fase   ;
+end if
+
+return id_liq
+end function
+

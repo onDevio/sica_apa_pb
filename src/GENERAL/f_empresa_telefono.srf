@@ -1,0 +1,14 @@
+HA$PBExportHeader$f_empresa_telefono.srf
+global type f_empresa_telefono from function_object
+end type
+
+forward prototypes
+global function string f_empresa_telefono (string a_empresa)
+end prototypes
+
+global function string f_empresa_telefono (string a_empresa);string telefono_empresa 
+select telefono into :telefono_empresa  from csi_empresas where codigo = :a_empresa;
+return telefono_empresa
+
+end function
+

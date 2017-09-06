@@ -1,0 +1,6 @@
+HA$PBExportHeader$st_registros_consulta.srs
+global type st_registros_consulta from structure
+	string		id_registro
+	string		n_registro
+end type
+

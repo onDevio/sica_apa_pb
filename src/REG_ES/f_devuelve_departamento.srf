@@ -1,0 +1,25 @@
+HA$PBExportHeader$f_devuelve_departamento.srf
+global type f_devuelve_departamento from function_object
+end type
+
+forward prototypes
+global function string f_devuelve_departamento (string codigo)
+end prototypes
+
+global function string f_devuelve_departamento (string codigo);// f_devuelve_departamento ( codigo : string )
+// Funcion que devuelve la descripcion de departamento asociado a un id de usuario
+//
+string cod_dpto, departamento = ''
+
+select departamento into :cod_dpto from t_usuario where cod_usuario=:codigo;		
+
+if isnull(cod_dpto) then 
+	departamento=''
+else 
+	select descripcion into :departamento from departamentos where cod_departamento=:cod_dpto;		
+end if
+
+return departamento
+
+end function
+

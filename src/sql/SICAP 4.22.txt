@@ -1,0 +1,2 @@
+// V. 4.2.2
+alter table fases_cip_tfe add legalizacion char(1) null ;

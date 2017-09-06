@@ -1,0 +1,24 @@
+HA$PBExportHeader$st_clientes.srs
+global type st_clientes from structure
+	string		n_cliente
+	string		apellidos
+	string		nombre
+	string		nif
+	string		tipo_persona
+	string		sexo
+	string		observaciones
+	string		email
+	string		url
+	string		tipo_via
+	string		nombre_via
+	string		cod_pob
+	string		cod_prov
+	string		pais
+	string		cp
+	string		telefono
+	string		fax
+	string		cuenta_banco
+	string		tipo_cliente
+	string		numero_cliente
+end type
+

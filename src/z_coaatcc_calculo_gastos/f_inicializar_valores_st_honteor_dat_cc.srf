@@ -1,0 +1,23 @@
+HA$PBExportHeader$f_inicializar_valores_st_honteor_dat_cc.srf
+global type f_inicializar_valores_st_honteor_dat_cc from function_object
+end type
+
+forward prototypes
+global subroutine f_inicializar_valores_st_honteor_dat_cc (w_calculo_honorarios_cc w)
+end prototypes
+
+global subroutine f_inicializar_valores_st_honteor_dat_cc (w_calculo_honorarios_cc w);double nulo
+setnull(nulo)
+
+// Campos propios de Zaragoza para el pem minimo
+w.dw_1.setitem(1, 'pem_min', 0)
+w.dw_2.setitem(1, 'num_resp', 0)
+w.dw_2.setitem(1, 'uso', 0)
+w.dw_2.setitem(1, 'dificil_acc', 1)
+w.dw_2.setitem(1, 'sup_acond', 0)
+w.dw_2.setitem(1, 'sup_urb', 0)
+w.dw_2.setitem(1, 'tipo_terr', nulo)
+w.dw_2.setitem(1, 'nave', 45)
+
+end subroutine
+

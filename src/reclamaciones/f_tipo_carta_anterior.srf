@@ -1,0 +1,15 @@
+HA$PBExportHeader$f_tipo_carta_anterior.srf
+global type f_tipo_carta_anterior from function_object
+end type
+
+forward prototypes
+global function string f_tipo_carta_anterior (string sig_carta)
+end prototypes
+
+global function string f_tipo_carta_anterior (string sig_carta);string carta_anterior = ''
+
+select codigo into :carta_anterior from notificaciones  where sig_carta = :sig_carta;
+
+return carta_anterior
+end function
+

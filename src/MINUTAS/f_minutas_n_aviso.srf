@@ -1,0 +1,19 @@
+HA$PBExportHeader$f_minutas_n_aviso.srf
+global type f_minutas_n_aviso from function_object
+end type
+
+forward prototypes
+global function string f_minutas_n_aviso (string id_minuta)
+end prototypes
+
+global function string f_minutas_n_aviso (string id_minuta);string n_aviso = ''
+
+SELECT fases_minutas.n_aviso  
+INTO :n_aviso  
+FROM fases_minutas  
+WHERE fases_minutas.id_minuta = :id_minuta   ;
+
+return n_aviso
+
+end function
+

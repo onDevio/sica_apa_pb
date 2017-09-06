@@ -1,0 +1,96 @@
+// V. 4.1.3
+
+// TODOS
+// Tabla del gestor documental. Borrar la anterior
+// drop table csd_doc_modulo;
+create table dbo.csd_doc_modulo (id_documento_modulo varchar(20) not null, id_tipo_modulo varchar(20) null, id_modulo varchar(20) null, f_activacion datetime null, f_caducidad datetime null, version varchar(20) null, anyo varchar(4) null, nombre_fichero varchar(255) null, descripcion varchar(255) null, autor varchar(100) null, id_usuario varchar(20) null, visible_web varchar(1) null, cod_tipo_documento_archivo varchar(2) null, cod_tipo_documento_celda varchar(2) null, cod_tipo_documento varchar(2) null, ubicacion varchar(100) null, tamanyo double precision null) ;
+alter table dbo.csd_doc_modulo add constraint pk_doc_mod primary key clustered (id_documento_modulo) ;
+insert into contadores (contador,valor,descripcion,modificable) values ('ID_DOC_MODULO',0,'Contador de documentos','N');
+
+// COAATTGN 
+create table dbo.etiquetas_visado (id_etiqueta char(10) not null, id_expedi char(10) not null, hoja_encargo int not null, prog_cq int not null, aprov_ps int not null, ess int not null, libro_reg int not null, libro_ord int not null, hoja_asume int not null, ccq int not null, ebss int not null, css int not null, libro_inc int not null, cfo int not null) ;
+alter table dbo.etiquetas_visado add constraint pk_et primary key nonclustered (id_etiqueta) ;
+create table dbo.colegiados_autorizaciones (id_col_autorizado char(10) not null, id_colegiado char(10) not null, nombre char(255) null, nif char(15) null) ;
+alter table dbo.colegiados_autorizaciones add constraint pk_col_auto primary key clustered (id_col_autorizado) ;
+insert into contadores (contador,valor,descripcion,modificable) values ('ETIQUETAS_VISADO',0,'Contador de etiquetas de visado','N');
+insert into contadores (contador,valor,descripcion,modificable) values ('ID_COL_AUTORIZADO',0,'Contador de colegiados autorizados','N');
+
+create table dbo.coaattg_coef_urb (id char(10) not null, pres_desde double precision null, pres_hasta double precision null, ku double precision null, dim double precision null) ;
+alter table dbo.coaattg_coef_urb add constraint pk_coef primary key nonclustered (id) ;
+create table dbo.coaattg_derribos (id char(10) not null, tipo_obra char(3) null, destino char(3) null, volumen_inf double precision null, volumen_sup double precision null, valor double precision not null) ;
+alter table dbo.coaattg_derribos add constraint pk_id primary key nonclustered (id) ;
+create table dbo.coaattg_instalaciones (id char(10) not null, tipo_obra char(3) not null, rango_inf double precision not null, rango_sup double precision not null, valor double precision not null) ;
+alter table dbo.coaattg_instalaciones add constraint pk_id primary key nonclustered (id) ;
+create table dbo.coaattg_K (id char(10) not null, rango_inf double precision null, rango_sup double precision null, valor double precision null) ;
+alter table dbo.coaattg_K add constraint pk_id primary key nonclustered (id) ;
+create table dbo.coaattg_pm2 (id char(10) not null, destino char(3) not null, rango_inf double precision not null, rango_sup double precision not null, valor double precision not null) ;
+alter table dbo.coaattg_pm2 add constraint pk_pm2 primary key nonclustered (id) ;
+create table dbo.coaattg_re (id char(10) not null, rango_inf double precision not null, rango_sup double precision not null, limite double precision not null, valor double precision not null) ;
+alter table dbo.coaattg_re add constraint pk_re primary key nonclustered (id) ;
+create table dbo.coaattg_ti (id char(10) not null, t_fase char(3) null, coef_ti double precision null, minimo double precision null) ;
+alter table dbo.coaattg_ti add constraint pk_ti primary key nonclustered (id) ;
+create table dbo.coaattg_to (id char(10) not null, tipo_obra char(3) not null, tipo_reforma char(1) not null, valor double precision null) ;
+alter table dbo.coaattg_to add constraint pk_coef primary key nonclustered (id) ;
+
+INSERT INTO listados  ( descripcion,  dw,  ventana,  orden,  activo )  
+VALUES ( 'Diario Caja',   'd_caja_listado_diario_caja_tg',   'w_cobros_listados',  '00', 'S' )  ;
+INSERT INTO listados  ( descripcion,  dw,  ventana,  orden,  activo )  
+VALUES ( 'Listado de Talones',   'd_caja_listado_talones_tg',   'w_cobros_listados',  '00', 'S' )  ;
+
+INSERT INTO t_control_eventos  ( control,   evento,   activo,   param1,   param2,   id_control,   orden,   param3,   mensaje )  
+VALUES ( 'TEXTO_OBJETO',   'ABRIR_COLEGIADO',   'S',   'c_geografico_t',   'Tipus:',   'TGNRESIDEN',   null,   null,   null )  ;
+INSERT INTO t_control_eventos  ( control,   evento,   activo,   param1,   param2,   id_control,   orden,   param3,   mensaje )  
+VALUES ( 'VISIBLE_OBJETO',   'ABRIR_FASE',   'S',   't_14',   '1',   'TGN2',   null,   null,   null )  ;
+INSERT INTO t_control_eventos  ( control,   evento,   activo,   param1,   param2,   id_control,   orden,   param3,   mensaje )  
+VALUES ( 'VISIBLE_OBJETO',   'ABRIR_FASE',   'S',   'nr_duplicado',   '1',   'TGN3',   null,   null,   null )  ;
+
+// g_numeracion_unica_asientos variable para una unica numeración de asientos
+INSERT INTO csi_param_sigescon (nombre, valor_texto, descripcion) 
+VALUES ('g_numeracion_unica_asientos','S','Activa una numeración única común independiente del diario de generación');
+// El valor de este contador se debe actualizar al valor máximo obtenido durante la migración
+INSERT INTO contadores (contador, valor, descripcion) VALUES ("UNI",0,"ÚNICO PARA TODOS DIARIOS"); 
+
+insert into t_control_eventos (control,evento,activo,param1,param2,id_control,orden) 
+values ('VISIBLE_OBJETO','ABRIR_FASE','S','t_destino_int','1','T_DEST','');
+insert into t_control_eventos (control,evento,activo,param1,param2,id_control,orden) 
+values ('VISIBLE_OBJETO','ABRIR_FASE','S','destino_int','1','DEST','');
+insert into t_control_eventos (control,evento,activo,param1,param2,id_control,orden) 
+values ('VISIBLE_OBJETO','FASES_CLIENTES','S','b_auto','0','B_AUTO','');
+insert into t_control_eventos (control,evento,activo,param1,id_control)  
+values ('OBRA_REPLICADA','GRABAR_FASE','S','csd_obra_replicada','Rep1');
+
+// FIN COAATTGN
+
+// TODOS: Comprobar Incompatibilidades al importar
+insert into t_control_eventos (control,evento,activo,id_control) values ('INCOMPATIBILIDAD','INCOMPATIBILIDAD','S','INC0001');
+
+// TODOS (Campo para formula_sustituida)
+alter table fases_informes add formula_sustituida char(150) null;
+
+// TODOS (Campos para las situaciones de los colegiados)
+alter table fases_colegiados add c_geografico char(5) null;
+alter table fases_colegiados add situacion char(2) null;
+
+// TODOS (Usuarios-email)
+alter table t_usuario add email char(100) null;
+
+// TODOS
+alter table t_usuario add fecha_caducidad datetime null;
+alter table t_usuario add n_fallos int null;
+alter table t_usuario add email char(100) null;
+
+UPDATE fases SET nr_duplicado='N'where nr_duplicado='' OR nr_duplicado=null; 
+
+INSERT INTO var_globales  ( nombre,   texto,    descripcion,    modificable )  
+VALUES ( 'g_usuarios_n_fallos_max',   '3',   'Numero maximo de errores al introducir la contraseña',   'S' )  ;
+INSERT INTO var_globales  ( nombre,   texto,    descripcion,    modificable )  
+VALUES ( 'g_usuarios_activo_caducidad',   '60',   'Numero de días para la fecha de caducidad',   'S' )  ;
+INSERT INTO var_globales  ( nombre,   texto,    descripcion,    modificable )  
+VALUES ( 'g_usuarios_usar_gest_con',   'S',   'Opcion para utilizar la gestión de contraseñas',   'S' )  ;
+
+// Variable global para indicar el tipo de cálculo de iva en las facturas
+// Valores  S= aplica por precio  y N= aplica por subtotal
+INSERT INTO var_globales  ( nombre,   texto,    descripcion,    modificable )  
+VALUES ( 'g_calculo_iva_fact',   'S',   'Indica el cálculo de iva en las lineas de las facturas S:aplica cáculo por precio; N:aplica cálculo por subtotal',   'S' )  ;
+
+alter table fases_usos add tipo_reforma char (1) null ;

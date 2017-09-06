@@ -1,0 +1,17 @@
+HA$PBExportHeader$f_companyia_otro_src.srf
+global type f_companyia_otro_src from function_object
+end type
+
+forward prototypes
+global function string f_companyia_otro_src (string id_colegiado)
+end prototypes
+
+global function string f_companyia_otro_src (string id_colegiado);string src_cia
+
+SELECT src_cia INTO :src_cia FROM src_colegiado WHERE id_colegiado = :id_colegiado ;
+
+IF f_es_vacio(src_cia) then src_cia = ''
+
+RETURN src_cia
+end function
+

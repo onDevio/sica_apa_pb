@@ -1,0 +1,15 @@
+HA$PBExportHeader$f_formatea_nulo.srf
+global type f_formatea_nulo from function_object
+end type
+
+forward prototypes
+global function string f_formatea_nulo (string campo, string valor_defecto)
+end prototypes
+
+global function string f_formatea_nulo (string campo, string valor_defecto);//Formateamos el campo a un valor por defecto en caso de que sea nulo
+
+if f_es_vacio(campo) then campo = valor_defecto
+
+return campo
+end function
+

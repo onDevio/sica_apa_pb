@@ -1,0 +1,49 @@
+HA$PBExportHeader$f_email_sustituir_palabras_reservadas.srf
+global type f_email_sustituir_palabras_reservadas from function_object
+end type
+
+forward prototypes
+global subroutine f_email_sustituir_palabras_reservadas (ref string texto, string id_fase)
+end prototypes
+
+global subroutine f_email_sustituir_palabras_reservadas (ref string texto, string id_fase);// FUNCI$$HEX1$$d300$$ENDHEX$$N MODIFICADA POR ROBERTO MARCO EL 16/05/05
+
+n_cst_string lnv_string
+
+string n_registro, fase, descripcion, s_f_visado, telefono
+datetime f_visado
+
+SELECT n_registro,
+		 fase,
+		 descripcion,
+		 f_visado
+  INTO :n_registro,
+		 :fase,
+		 :descripcion,
+		 :f_visado
+  FROM fases WHERE id_fase = :id_fase ;
+
+
+if f_es_vacio(descripcion) then descripcion = ''
+
+s_f_visado = string(f_visado, "dd/mm/yyyy")
+if f_es_vacio(s_f_visado) then s_f_visado = ''
+
+SELECT telefono INTO :telefono FROM csi_empresas WHERE codigo=:g_empresa;
+if f_es_vacio(telefono) then telefono=''
+
+texto = lnv_string.of_globalreplace(texto, "{N_EXPEDI}", f_dame_exp(id_fase) )
+texto = lnv_string.of_globalreplace(texto, "{FASE}", fase )
+texto = lnv_string.of_globalreplace(texto, "{N_REGISTRO}", n_registro )
+texto = lnv_string.of_globalreplace(texto, "{DESC_FASE}", descripcion )
+texto = lnv_string.of_globalreplace(texto, "{F_VISADO}", s_f_visado)
+texto = lnv_string.of_globalreplace(texto, "{NOMBRE_COLEGIO}", g_nombre_empresa)
+texto = lnv_string.of_globalreplace(texto, "{DIREC_COLEGIO}", g_direccion_empresa)
+texto = lnv_string.of_globalreplace(texto, "{POBLACION_COLEGIO}", g_localidad_empresa)
+texto = lnv_string.of_globalreplace(texto, "{TELEF_COLEGIO}", telefono)
+texto = lnv_string.of_globalreplace(texto, "{FECHA_HOY}", string(today(), "dd/mm/yyyy"))
+
+// Otros c$$HEX1$$f300$$ENDHEX$$digos reservados: {NOMBRE_DOCUMENTO}, {MENSAJE}
+
+end subroutine
+

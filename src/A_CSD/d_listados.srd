@@ -1,0 +1,23 @@
+HA$PBExportHeader$d_listados.srd
+$PBExportComments$DW EXTERNA CON LOS PARAMETROS DE BUSQUEDA.
+release 7;
+datawindow(units=0 timer_interval=0 color=79416533 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 97 print.margin.bottom = 97 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=4 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=1416 color="536870912" )
+table()
+text(band=detail alignment="1" text="Direcci$$HEX1$$f300$$ENDHEX$$n General:" border="0" color="0" x="0" y="396" height="52" width="402"  name=direccion_general_t  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Jefe:" border="0" color="0" x="0" y="484" height="52" width="402"  name=jefe_t  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Responsable:" border="0" color="0" x="0" y="572" height="52" width="402"  name=responsable_t  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Cliente:" border="0" color="0" x="0" y="660" height="52" width="402"  name=cliente_t  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Calificaci$$HEX1$$f300$$ENDHEX$$n:" border="0" color="0" x="0" y="748" height="52" width="402"  name=calificacion_t  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Actividad:" border="0" color="0" x="0" y="836" height="52" width="402"  name=actividad_t  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Empresa:" border="0" color="0" x="0" y="924" height="52" width="402"  name=empresa_t  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Empleado:" border="0" color="0" x="0" y="1012" height="52" width="402"  name=empleado_t  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Departamento:" border="0" color="0" x="0" y="308" height="52" width="402"  name=departamento_t  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Tipo de Proyecto:" border="0" color="0" x="0" y="220" height="52" width="402"  name=tipo_t  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="N$$HEX2$$ba002000$$ENDHEX$$de Proyecto:" border="0" color="0" x="0" y="132" height="52" width="402"  name=proyecto_t  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Hasta:" border="0" color="0" x="1120" y="40" height="52" width="142"  name=hf_t  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Desde la fecha de presentaci$$HEX1$$f300$$ENDHEX$$n:" border="0" color="0" x="0" y="40" height="52" width="704"  name=df_t  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="0" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

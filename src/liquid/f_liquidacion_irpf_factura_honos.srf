@@ -1,0 +1,21 @@
+HA$PBExportHeader$f_liquidacion_irpf_factura_honos.srf
+global type f_liquidacion_irpf_factura_honos from function_object
+end type
+
+forward prototypes
+global function double f_liquidacion_irpf_factura_honos (string id_liquidacion)
+end prototypes
+
+global function double f_liquidacion_irpf_factura_honos (string id_liquidacion);double irpf
+
+SELECT sum(csi_facturas_emitidas.importe_reten)
+INTO :irpf  
+FROM csi_facturas_emitidas, fases_liquidaciones  
+WHERE ( fases_liquidaciones.id_fase = csi_facturas_emitidas.id_fase ) and  
+      ( ( csi_facturas_emitidas.tipo_factura = :g_colegiado_cliente ) and
+		(	fases_liquidaciones.id_liquidacion = :id_liquidacion ) ) ;
+
+return irpf
+
+end function
+

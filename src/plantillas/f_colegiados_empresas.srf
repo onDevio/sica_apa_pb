@@ -1,0 +1,38 @@
+HA$PBExportHeader$f_colegiados_empresas.srf
+$PBExportComments$Dado un id_empresa obtiene los datos de la empesa
+global type f_colegiados_empresas from function_object
+end type
+
+forward prototypes
+global subroutine f_colegiados_empresas (string id_col, ref string nom_empresa, ref string nif_empresa, ref string cuenta_empresa, ref string domicilio_empresa, ref string poblacion_empresa)
+end prototypes
+
+global subroutine f_colegiados_empresas (string id_col, ref string nom_empresa, ref string nif_empresa, ref string cuenta_empresa, ref string domicilio_empresa, ref string poblacion_empresa);//Esta funci$$HEX1$$f300$$ENDHEX$$n establece los par$$HEX1$$e100$$ENDHEX$$metros que se le pasan por referencia con el valor
+//que le corresponde al colegiado indicado por ID_COL
+
+
+datastore ds_empresas
+
+ds_empresas = create datastore
+ds_empresas.dataobject ='d_colegiados_empresas'
+ds_empresas.SetTransObject(SQLCA)
+
+ds_empresas.Retrieve(id_col)
+
+if ds_empresas.rowcount() > 0 then
+	nom_empresa = f_dame_cliente ( ds_empresas.getitemstring(1, 'id_cliente'))	//ds_empresas.getitemstring(1, 'compute_1')
+	nif_empresa = ds_empresas.getitemstring(1, 'nif')
+	cuenta_empresa = ds_empresas.getitemstring(1, 'clientes_datos_bancarios_iban')
+	domicilio_empresa = ds_empresas.getitemstring(1, 'nombre_via')
+	poblacion_empresa = f_dame_poblacion(ds_empresas.getitemstring(1, 'cod_pob'))
+end if
+
+if f_es_vacio(nom_empresa) then nom_empresa = ''
+if f_es_vacio(nif_empresa) then nif_empresa = ''
+if f_es_vacio(cuenta_empresa) then cuenta_empresa = ''
+if f_es_vacio(domicilio_empresa) then domicilio_empresa = ''
+if f_es_vacio(poblacion_empresa) then poblacion_empresa = ''
+
+destroy ds_empresas
+end subroutine
+

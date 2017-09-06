@@ -1,0 +1,20 @@
+HA$PBExportHeader$f_eimporta_importacion.srf
+global type f_eimporta_importacion from function_object
+end type
+
+forward prototypes
+global function st_visared_importacion f_eimporta_importacion (string fichero)
+end prototypes
+
+global function st_visared_importacion f_eimporta_importacion (string fichero);st_visared_importacion retorno
+
+
+if lower(RightA(fichero, 4)) = '.ini' then
+	return f_visared_importacion_enterprise_apa(fichero)		//VISARED APAREJADORES
+else
+	Messagebox(g_titulo,'El fichero no existe o no tiene una extensi$$HEX1$$f300$$ENDHEX$$n v$$HEX1$$e100$$ENDHEX$$lida. No se continuar$$HEX2$$e1002000$$ENDHEX$$con la acci$$HEX1$$f300$$ENDHEX$$n')
+	retorno.id_expedi='-1'
+	return retorno
+end if
+end function
+

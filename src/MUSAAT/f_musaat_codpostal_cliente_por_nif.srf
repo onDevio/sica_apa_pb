@@ -1,0 +1,22 @@
+HA$PBExportHeader$f_musaat_codpostal_cliente_por_nif.srf
+global type f_musaat_codpostal_cliente_por_nif from function_object
+end type
+
+forward prototypes
+global function string f_musaat_codpostal_cliente_por_nif (string nif)
+end prototypes
+
+global function string f_musaat_codpostal_cliente_por_nif (string nif);string cod_pob
+string cod_postal
+
+  SELECT clientes.cod_pob  
+    INTO :cod_pob  
+    FROM clientes  
+   WHERE clientes.nif = :nif   
+           ;
+
+cod_postal = f_devuelve_cod_postal(cod_pob)
+
+return cod_postal
+end function
+

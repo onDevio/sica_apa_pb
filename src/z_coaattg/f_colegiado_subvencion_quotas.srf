@@ -1,0 +1,61 @@
+HA$PBExportHeader$f_colegiado_subvencion_quotas.srf
+global type f_colegiado_subvencion_quotas from function_object
+end type
+
+forward prototypes
+global function integer f_colegiado_subvencion_quotas (string id_colegiado, datetime f_fact)
+end prototypes
+
+global function integer f_colegiado_subvencion_quotas (string id_colegiado, datetime f_fact);// Funci$$HEX1$$f300$$ENDHEX$$n que devuelve si aplica o no la subvenci$$HEX1$$f300$$ENDHEX$$n de las cuotas
+// Valores de retorno:
+//							0 : No aplica subvebci$$HEX1$$f300$$ENDHEX$$n
+//							1 : aplica subvenci$$HEX1$$f300$$ENDHEX$$n de las cuotas, menos la cobertura de musaat
+//							2 : aplica la subvenci$$HEX1$$f300$$ENDHEX$$n de todas las cuotas
+// P$$HEX1$$e100$$ENDHEX$$rametros: id_colegiado y la fecha de generaci$$HEX1$$f300$$ENDHEX$$n de la factura de cuotas.
+
+datetime f_colegiacion, f_titulacion, f_alta
+string 	alta_baja
+
+
+  SELECT colegiados.f_titulacion,   colegiados.alta_baja,    colegiados.f_alta  
+  INTO   :f_titulacion,   :alta_baja,   :f_alta  
+  FROM colegiados  
+  WHERE colegiados.id_colegiado = :id_colegiado   ;
+
+
+
+if alta_baja = 'N' then return 0											// Se valida que el colegiado este de alta
+if f_colegiado_procedencia(id_colegiado) <> 'ESCOLA' then return 0  // Se valida que el colegio de procedencia sea la ESCUELA
+if abs (DaysAfter(date(f_fact), date(f_alta))) > 365 then return 0
+if abs (DaysAfter(date(f_alta), date(f_titulacion))) > 365 then return 0
+
+// Se valida si le subvenciona la cobertura tambien
+if f_colegiado_src_cober_desc( id_colegiado ) > 120000 then
+	return 1
+else
+	return 2
+end if
+
+
+
+
+// C$$HEX1$$f300$$ENDHEX$$digo proporcionado por el colegio
+//Subvencio_quotes:
+//If IsNull(rst_colegiats.Fields("data_alta")) = True Then GoTo fin_subvencio_quotes
+//If IsNull(rst_colegiats.Fields("procedencia")) = True Then GoTo fin_subvencio_quotes
+//If rst_colegiats.Fields("procedencia") <> "ESCOLA" Then GoTo fin_subvencio_quotes
+//If (data_generacio - rst_colegiats.Fields("data_alta")) > 365 Then GoTo fin_subvencio_quotes
+//If (rst_colegiats.Fields("data_alta") - rst_colegiats.Fields("data_titol")) > 365 Then GoTo fin_subvencio_quotes
+//rst_quotes_lineas.AddNew
+//rst_quotes_lineas.Fields("rebut") = rst_quotes.Fields("id")
+//rst_quotes_lineas.Fields("concepte") = "Subvencio Quota Col.legial"
+//rst_quotes_lineas.Fields("import") = import_rebut * -1
+//If rst_colegiats.Fields("cobertura") > 120 Then
+//rst_quotes_lineas.Fields("import") = rst_quotes_lineas.Fields("import") + (rst_colegiats.Fields("prima_fixe_mensual") + rst_colegiats.Fields("mensual_cobertura1") + rst_colegiats.Fields("mensual_cobertura2") + rst_colegiats.Fields("mensual_cobertura3"))
+//End If
+//import_rebut = import_rebut + rst_quotes_lineas.Fields("import")
+//rst_quotes_lineas.Fields("data_concepte") = data_generacio
+//rst_quotes_lineas.Update
+//fin_subvencio_quotes:
+end function
+

@@ -1,0 +1,26 @@
+HA$PBExportHeader$f_dame_cuenta_banco_empresa.srf
+global type f_dame_cuenta_banco_empresa from function_object
+end type
+
+forward prototypes
+global function string f_dame_cuenta_banco_empresa (string as_cod_banco, string as_cod_empresa)
+end prototypes
+
+global function string f_dame_cuenta_banco_empresa (string as_cod_banco, string as_cod_empresa);// da la cuenta corriente asociada a un banco
+///*** SCP-1196. Alexis. Esta funci$$HEX1$$f300$$ENDHEX$$n duplica a f_dame_cuenta_banco con la aplicaci$$HEX1$$f300$$ENDHEX$$n de multifunci$$HEX1$$f300$$ENDHEX$$n. 21/03/2011 ***/// 
+
+string cuenta  
+
+SELECT cuenta_bancaria_iban  
+INTO :cuenta  
+FROM csi_bancos  
+WHERE csi_bancos.codigo = :as_cod_banco
+and csi_bancos.empresa = :as_cod_empresa ;
+
+//cuenta = gnv_control_cuentas_bancarias.of_obtener_cuenta_sin_iban(cuenta)
+
+if f_es_vacio(cuenta) then cuenta = ''
+
+return cuenta
+end function
+

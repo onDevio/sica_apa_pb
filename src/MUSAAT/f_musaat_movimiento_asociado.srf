@@ -1,0 +1,23 @@
+HA$PBExportHeader$f_musaat_movimiento_asociado.srf
+global type f_musaat_movimiento_asociado from function_object
+end type
+
+forward prototypes
+global function double f_musaat_movimiento_asociado (string id_col, string id_fase)
+end prototypes
+
+global function double f_musaat_movimiento_asociado (string id_col, string id_fase);// Obtiene lo pagado a musaat
+double prima_comp
+
+SELECT sum(musaat_movimientos.importe_vble)
+into :prima_comp
+from musaat_movimientos
+where musaat_movimientos.id_fase = :id_fase and
+		musaat_movimientos.id_col = :id_col;
+		
+if isnull(prima_comp) then prima_comp = 0
+
+
+return prima_comp
+end function
+

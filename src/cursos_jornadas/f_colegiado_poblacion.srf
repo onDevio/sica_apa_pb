@@ -1,0 +1,30 @@
+HA$PBExportHeader$f_colegiado_poblacion.srf
+global type f_colegiado_poblacion from function_object
+end type
+
+forward prototypes
+global function string f_colegiado_poblacion (string id_col)
+end prototypes
+
+global function string f_colegiado_poblacion (string id_col);
+string datos_colegiado = ''
+string pob
+
+  SELECT poblaciones.descripcion  
+    INTO :pob  
+    FROM domicilios,   
+         poblaciones  
+   WHERE ( domicilios.cod_pob = poblaciones.cod_pob )	AND
+			(domicilios.comercial='S') and  
+         ( ( domicilios.id_colegiado = :id_col )   
+         )   ;
+
+if isnull(pob) or pob= '' then 
+	pob=''
+end if
+
+datos_colegiado = pob
+return datos_colegiado
+
+end function
+

@@ -1,0 +1,20 @@
+HA$PBExportHeader$f_musaat_dame_codigo_cobertura_src.srf
+global type f_musaat_dame_codigo_cobertura_src from function_object
+end type
+
+forward prototypes
+global function string f_musaat_dame_codigo_cobertura_src (double id_prima)
+end prototypes
+
+global function string f_musaat_dame_codigo_cobertura_src (double id_prima);string cobertura 
+
+// Hallamos la cobertura src del colegiado
+SELECT codigo INTO :cobertura FROM musaat_cober_src WHERE musaat_cober_src.prima = :id_prima  ;
+
+if IsNull(cobertura) then 
+	cobertura = '00' 
+end if
+
+return cobertura
+end function
+

@@ -1,0 +1,20 @@
+HA$PBExportHeader$f_fecha_registro.srf
+global type f_fecha_registro from function_object
+end type
+
+forward prototypes
+global subroutine f_fecha_registro (string colegio, datawindow dw, integer columna, integer tab)
+end prototypes
+
+global subroutine f_fecha_registro (string colegio, datawindow dw, integer columna, integer tab);string col
+col=colegio
+if isvalid(dw) then
+	if g_f_registro_es='S' then
+		dw.SetTabOrder(columna, tab)
+	else
+		dw.SetTabOrder(columna, 0)
+	end if
+end if
+
+end subroutine
+

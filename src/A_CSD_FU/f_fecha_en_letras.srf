@@ -1,0 +1,37 @@
+HA$PBExportHeader$f_fecha_en_letras.srf
+global type f_fecha_en_letras from function_object
+end type
+
+forward prototypes
+global function string f_fecha_en_letras (datetime fecha_entrada, string formato)
+end prototypes
+
+global function string f_fecha_en_letras (datetime fecha_entrada, string formato);//  Recibe la fecha en formato datetime y la devuelve como un
+//  String con dos posibles formatos:
+// - formato "n": dia en numero "de" mes en letra "de" a$$HEX1$$f100$$ENDHEX$$o en numero
+// - formato "l": dia en letra "de" mes en letra "de" a$$HEX1$$f100$$ENDHEX$$o en letra    
+//
+integer dia, ano
+datetime mes
+string c_dia, c_mes, c_ano, cadena,prueba, anoletra, dialetra
+
+dia = day (date (fecha_entrada))
+ano = year (date (fecha_entrada))
+c_dia = string (dia)
+c_ano = string (ano)
+
+c_mes = f_obtener_mes (fecha_entrada)
+
+IF formato = "n" THEN
+ cadena = c_dia + " DE " + c_mes + " DE "+ c_ano
+ return (cadena)
+END IF
+
+IF formato = "l" THEN
+ f_calnumenletra (c_dia,dialetra,1)
+ f_calnumenletra (c_ano,anoletra,1)
+ cadena = dialetra+" DE "+ c_mes +" DE "+ anoletra
+ return (cadena)
+END IF
+end function
+

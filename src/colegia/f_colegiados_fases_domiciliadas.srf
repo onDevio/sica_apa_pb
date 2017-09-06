@@ -1,0 +1,21 @@
+HA$PBExportHeader$f_colegiados_fases_domiciliadas.srf
+global type f_colegiados_fases_domiciliadas from function_object
+end type
+
+forward prototypes
+global function boolean f_colegiados_fases_domiciliadas (string id_col)
+end prototypes
+
+global function boolean f_colegiados_fases_domiciliadas (string id_col);boolean retorno=false
+int cuantos
+
+select count(*) into :cuantos from conceptos_domiciliables 
+	where  id_colegiado = :id_col 
+		and concepto = 'EXP' 
+		and forma_de_pago = :g_formas_pago.domiciliacion;
+			
+if cuantos >0 then retorno = true
+
+return retorno
+end function
+

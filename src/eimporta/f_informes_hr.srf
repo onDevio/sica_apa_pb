@@ -1,0 +1,207 @@
+HA$PBExportHeader$f_informes_hr.srf
+global type f_informes_hr from function_object
+end type
+
+forward prototypes
+global subroutine f_informes_hr (datastore ds_resenya, ref datastore ds_informes, string idfase)
+end prototypes
+
+global subroutine f_informes_hr (datastore ds_resenya, ref datastore ds_informes, string idfase);//Informes
+double ap,iua,iup,iaa,iap,loa,lop,gua,gup,ita,itp,tua,tup,ivainf
+string tiva
+ap = ds_resenya.GetItemNumber(1,'ap')
+iua = ds_resenya.GetItemNumber(1,'iu_arq')
+iup = ds_resenya.GetItemNumber(1,'iu_pro')
+iaa = ds_resenya.GetItemNumber(1,'ia_arq')
+iap = ds_resenya.GetItemNumber(1,'ia_pro')
+loa = ds_resenya.GetItemNumber(1,'lo_arq')
+lop = ds_resenya.GetItemNumber(1,'lo_pro')
+gua = ds_resenya.GetItemNumber(1,'gu_arq')
+gup = ds_resenya.GetItemNumber(1,'gu_pro')
+ita = ds_resenya.GetItemNumber(1,'it_arq')
+itp = ds_resenya.GetItemNumber(1,'it_pro')
+tua = ds_resenya.GetItemNumber(1,'tu_arq')
+tup = ds_resenya.GetItemNumber(1,'tu_pro')
+
+
+
+if ap > 0 then
+		select t_iva into :tiva from csi_articulos_servicios where codigo = 'AP';
+		select porcent into :ivainf from csi_t_iva where t_iva = :tiva;
+		ds_informes.InsertRow(0)
+		ds_informes.SetItem(ds_informes.RowCount(),'id_fase',idfase)
+		ds_informes.SetItem(ds_informes.RowCount(),'id_informe',f_siguiente_numero('FASES-INFORMES',10))	               
+		ds_informes.SetItem(ds_informes.RowCount(),'tipo_informe','AP')
+		ds_informes.SetItem(ds_informes.RowCount(),'cuantia_cliente',0)
+		ds_informes.SetItem(ds_informes.RowCount(),'cuantia_colegiado',ap)
+		ds_informes.SetItem(ds_informes.RowCount(),'t_iva',tiva)
+		ds_informes.SetItem(ds_informes.RowCount(),'impuesto_cliente',0)
+		ds_informes.SetItem(ds_informes.RowCount(),'impuesto_colegiado',ap*ivainf/100)
+		
+end if	
+if iua > 0 then
+		select t_iva into :tiva from csi_articulos_servicios where codigo = 'IU';
+		select porcent into :ivainf from csi_t_iva where t_iva = :tiva;
+		ds_informes.InsertRow(0)
+		ds_informes.SetItem(ds_informes.RowCount(),'id_fase',idfase)
+		ds_informes.SetItem(ds_informes.RowCount(),'id_informe',f_siguiente_numero('FASES-INFORMES',10))	                     
+		ds_informes.SetItem(ds_informes.RowCount(),'tipo_informe','IU')
+		ds_informes.SetItem(ds_informes.RowCount(),'cuantia_cliente',0)
+		ds_informes.SetItem(ds_informes.RowCount(),'cuantia_colegiado',iua)
+		ds_informes.SetItem(ds_informes.RowCount(),'t_iva',tiva)
+		ds_informes.SetItem(ds_informes.RowCount(),'impuesto_cliente',0)
+		ds_informes.SetItem(ds_informes.RowCount(),'impuesto_colegiado',iua*ivainf/100)
+
+end if
+if iup > 0 then
+		select t_iva into :tiva from csi_articulos_servicios where codigo = 'IU';
+		select porcent into :ivainf from csi_t_iva where t_iva = :tiva;
+		ds_informes.InsertRow(0)
+		ds_informes.SetItem(ds_informes.RowCount(),'id_fase',idfase)
+		ds_informes.SetItem(ds_informes.RowCount(),'id_informe',f_siguiente_numero('FASES-INFORMES',10))		                     
+		ds_informes.SetItem(ds_informes.RowCount(),'tipo_informe','IU')
+		ds_informes.SetItem(ds_informes.RowCount(),'cuantia_cliente',iup)
+		ds_informes.SetItem(ds_informes.RowCount(),'cuantia_colegiado',0)
+		ds_informes.SetItem(ds_informes.RowCount(),'t_iva',tiva)
+		ds_informes.SetItem(ds_informes.RowCount(),'impuesto_cliente',iup*ivainf/100)
+		ds_informes.SetItem(ds_informes.RowCount(),'impuesto_colegiado',0)
+
+end if
+if iaa > 0 then
+		select t_iva into :tiva from csi_articulos_servicios where codigo = 'IU';
+		select porcent into :ivainf from csi_t_iva where t_iva = :tiva;
+		ds_informes.InsertRow(0)
+		ds_informes.SetItem(ds_informes.RowCount(),'id_fase',idfase)
+		ds_informes.SetItem(ds_informes.RowCount(),'id_informe',f_siguiente_numero('FASES-INFORMES',10))		                     
+		ds_informes.SetItem(ds_informes.RowCount(),'tipo_informe','IA')
+		ds_informes.SetItem(ds_informes.RowCount(),'cuantia_cliente',0)
+		ds_informes.SetItem(ds_informes.RowCount(),'cuantia_colegiado',iaa)
+		ds_informes.SetItem(ds_informes.RowCount(),'t_iva',tiva)
+		ds_informes.SetItem(ds_informes.RowCount(),'impuesto_cliente',0)
+		ds_informes.SetItem(ds_informes.RowCount(),'impuesto_colegiado',iaa*ivainf/100)
+
+end if
+if iap > 0 then
+		select t_iva into :tiva from csi_articulos_servicios where codigo = 'IA';
+		select porcent into :ivainf from csi_t_iva where t_iva = :tiva;
+		ds_informes.InsertRow(0)
+		ds_informes.SetItem(ds_informes.RowCount(),'id_fase',idfase)
+		ds_informes.SetItem(ds_informes.RowCount(),'id_informe',f_siguiente_numero('FASES-INFORMES',10))		                     
+		ds_informes.SetItem(ds_informes.RowCount(),'tipo_informe','IA')
+		ds_informes.SetItem(ds_informes.RowCount(),'cuantia_cliente',iap)
+		ds_informes.SetItem(ds_informes.RowCount(),'cuantia_colegiado',0)
+		ds_informes.SetItem(ds_informes.RowCount(),'t_iva',tiva)
+		ds_informes.SetItem(ds_informes.RowCount(),'impuesto_cliente',iap*ivainf/100)
+		ds_informes.SetItem(ds_informes.RowCount(),'impuesto_colegiado',0)
+
+end if
+if loa > 0 then
+		select t_iva into :tiva from csi_articulos_servicios where codigo = 'LO';
+		select porcent into :ivainf from csi_t_iva where t_iva = :tiva;
+		ds_informes.InsertRow(0)
+		ds_informes.SetItem(ds_informes.RowCount(),'id_fase',idfase)
+		ds_informes.SetItem(ds_informes.RowCount(),'id_informe',f_siguiente_numero('FASES-INFORMES',10))		                     
+		ds_informes.SetItem(ds_informes.RowCount(),'tipo_informe','LO')
+		ds_informes.SetItem(ds_informes.RowCount(),'cuantia_cliente',0)
+		ds_informes.SetItem(ds_informes.RowCount(),'cuantia_colegiado',loa)
+		ds_informes.SetItem(ds_informes.RowCount(),'t_iva',tiva)
+		ds_informes.SetItem(ds_informes.RowCount(),'impuesto_cliente',0)
+		ds_informes.SetItem(ds_informes.RowCount(),'impuesto_colegiado',loa*ivainf/100)
+
+end if
+if lop > 0 then
+		select t_iva into :tiva from csi_articulos_servicios where codigo = 'LO';
+		select porcent into :ivainf from csi_t_iva where t_iva = :tiva;
+		ds_informes.InsertRow(0)
+		ds_informes.SetItem(ds_informes.RowCount(),'id_fase',idfase)
+		ds_informes.SetItem(ds_informes.RowCount(),'id_informe',f_siguiente_numero('FASES-INFORMES',10))		                     
+		ds_informes.SetItem(ds_informes.RowCount(),'tipo_informe','LO')
+		ds_informes.SetItem(ds_informes.RowCount(),'cuantia_cliente',lop)
+		ds_informes.SetItem(ds_informes.RowCount(),'cuantia_colegiado',0)
+		ds_informes.SetItem(ds_informes.RowCount(),'t_iva',tiva)
+		ds_informes.SetItem(ds_informes.RowCount(),'impuesto_cliente',lop*ivainf/100)
+		ds_informes.SetItem(ds_informes.RowCount(),'impuesto_colegiado',0)
+
+end if
+if gua > 0 then
+		select t_iva into :tiva from csi_articulos_servicios where codigo = 'GU';
+		select porcent into :ivainf from csi_t_iva where t_iva = :tiva;
+		ds_informes.InsertRow(0)
+		ds_informes.SetItem(ds_informes.RowCount(),'id_fase',idfase)
+		ds_informes.SetItem(ds_informes.RowCount(),'id_informe',f_siguiente_numero('FASES-INFORMES',10))	                     
+		ds_informes.SetItem(ds_informes.RowCount(),'tipo_informe','GU')
+		ds_informes.SetItem(ds_informes.RowCount(),'cuantia_cliente',0)
+		ds_informes.SetItem(ds_informes.RowCount(),'cuantia_colegiado',gua)
+		ds_informes.SetItem(ds_informes.RowCount(),'t_iva',tiva)
+		ds_informes.SetItem(ds_informes.RowCount(),'impuesto_cliente',0)
+		ds_informes.SetItem(ds_informes.RowCount(),'impuesto_colegiado',gua*ivainf/100)
+
+end if
+if gup > 0 then
+		select t_iva into :tiva from csi_articulos_servicios where codigo = 'GU';
+		select porcent into :ivainf from csi_t_iva where t_iva = :tiva;
+		ds_informes.InsertRow(0)
+		ds_informes.SetItem(ds_informes.RowCount(),'id_fase',idfase)
+		ds_informes.SetItem(ds_informes.RowCount(),'id_informe',f_siguiente_numero('FASES-INFORMES',10))		                     
+		ds_informes.SetItem(ds_informes.RowCount(),'tipo_informe','GU')
+		ds_informes.SetItem(ds_informes.RowCount(),'cuantia_cliente',gup)
+		ds_informes.SetItem(ds_informes.RowCount(),'cuantia_colegiado',0)
+		ds_informes.SetItem(ds_informes.RowCount(),'t_iva',tiva)
+		ds_informes.SetItem(ds_informes.RowCount(),'impuesto_cliente',gup*ivainf/100)
+		ds_informes.SetItem(ds_informes.RowCount(),'impuesto_colegiado',0)
+
+end if
+if ita > 0 then
+		select t_iva into :tiva from csi_articulos_servicios where codigo = 'IT';
+		select porcent into :ivainf from csi_t_iva where t_iva = :tiva;
+		ds_informes.InsertRow(0)
+		ds_informes.SetItem(ds_informes.RowCount(),'id_fase',idfase)
+		ds_informes.SetItem(ds_informes.RowCount(),'id_informe',f_siguiente_numero('FASES-INFORMES',10))		                     
+		ds_informes.SetItem(ds_informes.RowCount(),'tipo_informe','IT')
+		ds_informes.SetItem(ds_informes.RowCount(),'cuantia_cliente',0)
+		ds_informes.SetItem(ds_informes.RowCount(),'cuantia_colegiado',ita)
+		ds_informes.SetItem(ds_informes.RowCount(),'t_iva',tiva)
+		ds_informes.SetItem(ds_informes.RowCount(),'impuesto_cliente',0)
+		ds_informes.SetItem(ds_informes.RowCount(),'impuesto_colegiado',ita*ivainf/100)
+end if
+if itp > 0 then
+		select t_iva into :tiva from csi_articulos_servicios where codigo = 'IT';
+		select porcent into :ivainf from csi_t_iva where t_iva = :tiva;
+		ds_informes.InsertRow(0)
+		ds_informes.SetItem(ds_informes.RowCount(),'id_fase',idfase)
+		ds_informes.SetItem(ds_informes.RowCount(),'id_informe',f_siguiente_numero('FASES-INFORMES',10))		                     
+		ds_informes.SetItem(ds_informes.RowCount(),'tipo_informe','IT')
+		ds_informes.SetItem(ds_informes.RowCount(),'cuantia_cliente',itp)
+		ds_informes.SetItem(ds_informes.RowCount(),'cuantia_colegiado',0)
+		ds_informes.SetItem(ds_informes.RowCount(),'t_iva',tiva)
+		ds_informes.SetItem(ds_informes.RowCount(),'impuesto_cliente',itp*ivainf/100)
+		ds_informes.SetItem(ds_informes.RowCount(),'impuesto_colegiado',0)
+end if
+if tua > 0 then
+		select t_iva into :tiva from csi_articulos_servicios where codigo = 'TU';
+		select porcent into :ivainf from csi_t_iva where t_iva = :tiva;
+		ds_informes.InsertRow(0)
+		ds_informes.SetItem(ds_informes.RowCount(),'id_fase',idfase)
+		ds_informes.SetItem(ds_informes.RowCount(),'id_informe',f_siguiente_numero('FASES-INFORMES',10))		                     
+		ds_informes.SetItem(ds_informes.RowCount(),'tipo_informe','TU')
+		ds_informes.SetItem(ds_informes.RowCount(),'cuantia_cliente',0)
+		ds_informes.SetItem(ds_informes.RowCount(),'cuantia_colegiado',tua)
+		ds_informes.SetItem(ds_informes.RowCount(),'t_iva',tiva)
+		ds_informes.SetItem(ds_informes.RowCount(),'impuesto_cliente',0)
+		ds_informes.SetItem(ds_informes.RowCount(),'impuesto_colegiado',tua*ivainf/100)
+end if
+if tup > 0 then
+		select t_iva into :tiva from csi_articulos_servicios where codigo = 'TU';
+		select porcent into :ivainf from csi_t_iva where t_iva = :tiva;
+		ds_informes.InsertRow(0)
+		ds_informes.SetItem(ds_informes.RowCount(),'id_fase',idfase)
+		ds_informes.SetItem(ds_informes.RowCount(),'id_informe',f_siguiente_numero('FASES-INFORMES',10))		                     
+		ds_informes.SetItem(ds_informes.RowCount(),'tipo_informe','TU')
+		ds_informes.SetItem(ds_informes.RowCount(),'cuantia_cliente',tup)
+		ds_informes.SetItem(ds_informes.RowCount(),'cuantia_colegiado',0)
+		ds_informes.SetItem(ds_informes.RowCount(),'t_iva',tiva)
+		ds_informes.SetItem(ds_informes.RowCount(),'impuesto_cliente',tup*ivainf/100)
+		ds_informes.SetItem(ds_informes.RowCount(),'impuesto_colegiado',0)
+end if
+end subroutine
+

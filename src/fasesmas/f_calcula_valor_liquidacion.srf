@@ -1,0 +1,78 @@
+HA$PBExportHeader$f_calcula_valor_liquidacion.srf
+$PBExportComments$Solo calcula la liquidacion sin hacer nada en la base de datos
+global type f_calcula_valor_liquidacion from function_object
+end type
+
+forward prototypes
+global function double f_calcula_valor_liquidacion (double cip, double musaat, double dv, double honorarios, double desplaza, string tipo_gestion)
+end prototypes
+
+global function double f_calcula_valor_liquidacion (double cip, double musaat, double dv, double honorarios, double desplaza, string tipo_gestion);double irpf
+double porc_iva, porc_iva_honos, porc_iva_dv, porc_iva_cip, porc_iva_desplaza,base_musaat,importe_liquidacion
+double iva_honos,iva_cip,iva_dv,iva_desplaza
+string aplica_honos, aplica_desplaza,aplica_dv, aplica_cip, aplica_musaat
+string t_iva, t_iva_honos, t_iva_desplaza,t_iva_dv,t_iva_cip
+
+
+irpf = g_irpf_por_defecto
+t_iva = g_t_iva_defecto
+porc_iva =  f_dame_porcent_iva(g_t_iva_defecto)
+base_musaat = musaat
+t_iva_honos = g_t_iva_00
+t_iva_desplaza = g_t_iva_00  
+t_iva_dv = g_t_iva_00
+
+// Obtenemos los tipos de iva de los distintos articulos
+SELECT t_iva
+ INTO :t_iva_cip
+ FROM csi_articulos_servicios  
+WHERE csi_articulos_servicios.codigo = :g_codigos_conceptos.cip and csi_articulos_servicios.colegio = :g_colegio;
+SELECT t_iva
+ INTO :t_iva_dv
+ FROM csi_articulos_servicios  
+WHERE csi_articulos_servicios.codigo = :g_codigos_conceptos.dv and csi_articulos_servicios.colegio = :g_colegio;
+SELECT t_iva
+ INTO :t_iva_honos
+ FROM csi_articulos_servicios  
+WHERE csi_articulos_servicios.codigo = :g_codigos_conceptos.honorarios and csi_articulos_servicios.colegio = :g_colegio;
+SELECT t_iva
+ INTO :t_iva_desplaza
+ FROM csi_articulos_servicios  
+WHERE csi_articulos_servicios.codigo = :g_codigos_conceptos.desplazamientos and csi_articulos_servicios.colegio = :g_colegio;
+
+// obtenemos el porcentaje correspondiente a los tipos de iva obtenidos
+porc_iva_honos = f_dame_porcent_iva(t_iva_honos)
+porc_iva_dv = f_dame_porcent_iva(t_iva_dv)
+porc_iva_cip = f_dame_porcent_iva(t_iva_cip)
+porc_iva_desplaza = f_dame_porcent_iva(t_iva_desplaza)
+// Aplicamos el porcentaje a los importes para saber el importe del iva de cada concepto
+iva_honos = f_aplica_t_iva(honorarios, t_iva_honos)
+iva_cip = f_aplica_t_iva(cip, t_iva_cip)
+iva_dv = f_aplica_t_iva(dv, t_iva_dv)
+iva_desplaza = f_aplica_t_iva(desplaza, t_iva_desplaza)
+
+if not(honorarios = 0 and desplaza = 0) then 
+	// Configuraci$$HEX1$$f300$$ENDHEX$$n por defecto
+	if honorarios <> 0 then aplica_honos = '0' else setnull(aplica_honos)
+	if desplaza <> 0 then aplica_desplaza = 'S' else aplica_desplaza = 'N'
+	aplica_dv = 'N'
+	aplica_cip = 'N'
+	aplica_musaat = 'N'
+	// S$$HEX1$$f300$$ENDHEX$$lo Guipuzkoa
+	if g_colegio='COAATGUI' and tipo_gestion = 'C' then aplica_dv = 'S'
+	// Y tambien en la Rioja
+	if g_colegio='COAATLR' and tipo_gestion = 'C' then aplica_dv = 'S'
+	
+
+	// IMPORTE LIQUIDACION = HONORARIOS - GASTOS
+	importe_liquidacion = - (dv+iva_dv+cip+iva_cip+musaat) // Los gastos son siempre fijos. Los horarios varian segun las cruces
+	if aplica_honos = '0' then importe_liquidacion += honorarios+iva_honos
+	if aplica_desplaza = 'S' then importe_liquidacion += desplaza+iva_desplaza
+	if aplica_dv = 'S' then importe_liquidacion += dv+iva_dv
+	if aplica_cip = 'S' then importe_liquidacion += cip+iva_cip
+	if aplica_musaat = 'S' then importe_liquidacion += musaat
+end if
+
+return importe_liquidacion
+end function
+

@@ -1,0 +1,12 @@
+HA$PBExportHeader$st_visared_poblacion.srs
+global type st_visared_poblacion from structure
+	string		cod_pos
+	string		descripcion
+	string		provincia
+	string		fichero_zip
+	string		fichero_ini
+	long		numero_cliente
+	string		cod_pob
+	string		tipo_persona
+end type
+

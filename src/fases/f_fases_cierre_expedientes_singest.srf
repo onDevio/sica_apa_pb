@@ -1,0 +1,35 @@
+HA$PBExportHeader$f_fases_cierre_expedientes_singest.srf
+global type f_fases_cierre_expedientes_singest from function_object
+end type
+
+forward prototypes
+global subroutine f_fases_cierre_expedientes ()
+global subroutine f_fases_cierre_expedientes_singest (string id_fase)
+end prototypes
+
+global subroutine f_fases_cierre_expedientes ();//
+end subroutine
+
+global subroutine f_fases_cierre_expedientes_singest (string id_fase);long num
+datetime fecha_hoy,f_tmp
+string id_expedi
+//w_fases_detalle w_ventana_fases
+
+fecha_hoy=datetime(today(),now())
+select id_expedi into :id_expedi from fases where id_fase=:id_fase;				
+
+SELECT count(*) into :num FROM fases f WHERE   f.id_expedi=:id_expedi and 
+(f.estado<>:g_fases_estados.retirado and f.estado<>:g_fases_estados.anulado);
+if num=0 then
+	select f_cierre into :f_tmp from expedientes where id_expedi=:id_expedi;
+	if IsNull(f_tmp) then
+		UPDATE expedientes  
+		SET cerrado = 'S',  f_cierre = :fecha_hoy  
+		FROM expedientes 
+		WHERE expedientes.id_expedi = :id_expedi ;
+	end if
+	
+end if
+
+end subroutine
+

@@ -1,0 +1,13 @@
+HA$PBExportHeader$f_busqueda_colegiados_asignados_1.srf
+global type f_busqueda_colegiados_asignados_1 from function_object
+end type
+
+forward prototypes
+global function string f_busqueda_colegiados_asignados_1 (string tipo_bolsa)
+end prototypes
+
+global function string f_busqueda_colegiados_asignados_1 (string tipo_bolsa);Openwithparm(w_busqueda_colegiados_asignados_1, tipo_bolsa)
+return Message.StringParm
+
+end function
+

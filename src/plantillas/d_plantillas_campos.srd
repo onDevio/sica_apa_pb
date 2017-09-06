@@ -1,0 +1,17 @@
+HA$PBExportHeader$d_plantillas_campos.srd
+release 7;
+datawindow(units=0 timer_interval=0 color=79741120 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=64 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=68 color="536870912" )
+table(column=(type=char(100) update=yes updatewhereclause=yes key=yes name=modulo dbname="plantillas_campos.modulo" )
+ column=(type=char(100) update=yes updatewhereclause=yes key=yes name=campo_formulario dbname="plantillas_campos.campo_formulario" )
+ column=(type=char(100) update=yes updatewhereclause=yes name=campo_interno dbname="plantillas_campos.campo_interno" )
+ retrieve="PBSELECT( VERSION(400) TABLE(NAME=~"plantillas_campos~" ) COLUMN(NAME=~"plantillas_campos.modulo~") COLUMN(NAME=~"plantillas_campos.campo_formulario~") COLUMN(NAME=~"plantillas_campos.campo_interno~")WHERE(    EXP1 =~"( plantillas_campos.modulo~"   OP =~"=~"    EXP2 =~":codigo )~" ) ) ARG(NAME = ~"codigo~" TYPE = string) " update="plantillas_campos" updatewhere=0 updatekeyinplace=no arguments=(("codigo", string)) )
+text(band=header alignment="2" text="Campo Formulario" border="6" color="0" x="9" y="4" height="52" width="1202"  name=campo_formulario_t  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Campo Interno" border="6" color="0" x="1230" y="4" height="52" width="1879"  name=campo_interno_t  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=10 border="5" color="0" x="9" y="8" height="56" width="1202" format="[general]"  name=campo_formulario  tag=" " edit.limit=100 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=3 alignment="0" tabsequence=20 border="5" color="0" x="1230" y="8" height="56" width="1879" format="[general]"  name=campo_interno  tag=" " edit.limit=100 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

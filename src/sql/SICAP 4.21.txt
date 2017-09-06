@@ -1,0 +1,17 @@
+// V. 4.2.1
+// TODOS (CAMBIOS INCLUIDOS EN EL DOC DE INICIO DE AÑO)
+create table dbo.musaat_desc_porc_part (desde double precision not null, hasta double precision not null, descuento double precision not null, f_desde datetime not null, f_hasta datetime not null) ;
+alter table dbo.musaat_desc_porc_part add constraint musaat_desc_porc_part_x primary key nonclustered (desde, hasta, descuento, f_desde, f_hasta) ;
+
+INSERT INTO musaat_desc_porc_part  ( desde,   hasta,   descuento,   f_desde,   f_hasta )  
+VALUES ( 0,   25,   40,   '1/1/2009',   '1/1/2050' )  ;
+INSERT INTO musaat_desc_porc_part  ( desde,   hasta,   descuento,   f_desde,   f_hasta )  
+VALUES ( 25,   34,  55,   '1/1/2009',   '1/1/2050' )  ;
+INSERT INTO musaat_desc_porc_part  ( desde,   hasta,   descuento,   f_desde,   f_hasta )  
+VALUES ( 34,  50,   80,   '1/1/2009',   '1/1/2050' )  ;
+INSERT INTO musaat_desc_porc_part  ( desde,   hasta,   descuento,   f_desde,   f_hasta )  
+VALUES ( 50,   75,  85,   '1/1/2009',   '1/1/2050' )  ;
+INSERT INTO musaat_desc_porc_part  ( desde,   hasta,   descuento,   f_desde,   f_hasta )  
+VALUES ( 75,   90,   95,   '1/1/2009',   '1/1/2050' )  ;
+INSERT INTO musaat_desc_porc_part  ( desde,   hasta,   descuento,   f_desde,   f_hasta )  
+VALUES ( 90,   100,  100,   '1/1/2009',   '1/1/2050' )  ;

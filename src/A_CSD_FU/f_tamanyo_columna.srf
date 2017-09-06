@@ -1,0 +1,29 @@
+HA$PBExportHeader$f_tamanyo_columna.srf
+global type f_tamanyo_columna from function_object
+end type
+
+forward prototypes
+global function integer f_tamanyo_columna (powerobject dw, string columna)
+end prototypes
+
+global function integer f_tamanyo_columna (powerobject dw, string columna);/*
+Devuelve el n$$HEX1$$fa00$$ENDHEX$$mero m$$HEX1$$e100$$ENDHEX$$ximo de caracteres de una columna de un datawindow.
+Si la columna no existe o no es de tipo char devolver$$HEX2$$e1002000$$ENDHEX$$-1.
+
+Par$$HEX1$$e100$$ENDHEX$$metros:
+
+	dw -> un objeto datwindow o datastore
+	columna -> nombre de la columna
+*/	
+
+string tipo_datos
+
+tipo_datos = dw.dynamic describe(columna + ".ColType")
+if LeftA(tipo_datos, 5) = "char(" then
+	return long(MidA(tipo_datos, 6, LenA(tipo_datos) - 6))
+else
+	return -1
+end if
+
+end function
+

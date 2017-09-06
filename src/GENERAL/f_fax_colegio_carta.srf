@@ -1,0 +1,11 @@
+HA$PBExportHeader$f_fax_colegio_carta.srf
+global type f_fax_colegio_carta from function_object
+end type
+
+forward prototypes
+global function string f_fax_colegio_carta ()
+end prototypes
+
+global function string f_fax_colegio_carta ();return g_fax_empresa
+end function
+

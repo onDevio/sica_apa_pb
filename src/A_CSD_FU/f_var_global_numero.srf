@@ -1,0 +1,17 @@
+HA$PBExportHeader$f_var_global_numero.srf
+global type f_var_global_numero from function_object
+end type
+
+forward prototypes
+global function integer f_var_global_numero (string nombre)
+end prototypes
+
+global function integer f_var_global_numero (string nombre);//Argumentos:		nombre : nombre del par$$HEX1$$e100$$ENDHEX$$metro a buscar en la tabla var_globales. (valor en el campo nombre)
+integer retorno
+SELECT numero INTO :retorno FROM var_globales WHERE var_globales.nombre = :nombre;
+
+return retorno
+
+
+end function
+

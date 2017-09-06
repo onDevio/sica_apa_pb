@@ -1,0 +1,19 @@
+HA$PBExportHeader$f_usuario.srf
+global type f_usuario from function_object
+end type
+
+forward prototypes
+global function string f_usuario (string cod_usuario)
+end prototypes
+
+global function string f_usuario (string cod_usuario);string nombre_usuario, dpto
+
+SELECT t_usuario.nombre_usuario, t_usuario.departamento
+INTO :nombre_usuario, :dpto
+FROM t_usuario  
+WHERE t_usuario.cod_usuario like :cod_usuario   ;
+
+return nombre_usuario
+
+end function
+

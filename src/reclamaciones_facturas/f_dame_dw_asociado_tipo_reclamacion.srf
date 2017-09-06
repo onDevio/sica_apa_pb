@@ -1,0 +1,16 @@
+HA$PBExportHeader$f_dame_dw_asociado_tipo_reclamacion.srf
+global type f_dame_dw_asociado_tipo_reclamacion from function_object
+end type
+
+forward prototypes
+global function string f_dame_dw_asociado_tipo_reclamacion (string tipo_reclamacion)
+end prototypes
+
+global function string f_dame_dw_asociado_tipo_reclamacion (string tipo_reclamacion);// Funcion que devuelve el dw a imprimir 
+string dw
+
+select dw into :dw from csi_fact_reclamaciones_tipos where tipo_reclamacion = :tipo_reclamacion;
+
+return dw
+end function
+

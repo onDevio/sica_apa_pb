@@ -1,0 +1,14 @@
+HA$PBExportHeader$f_empresa_pobla.srf
+global type f_empresa_pobla from function_object
+end type
+
+forward prototypes
+global function string f_empresa_pobla (string a_empresa)
+end prototypes
+
+global function string f_empresa_pobla (string a_empresa);string pobla_empresa 
+select poblacion into :pobla_empresa  from csi_empresas where codigo = :a_empresa;
+return pobla_empresa
+
+end function
+

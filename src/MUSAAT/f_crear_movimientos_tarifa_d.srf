@@ -1,0 +1,100 @@
+HA$PBExportHeader$f_crear_movimientos_tarifa_d.srf
+global type f_crear_movimientos_tarifa_d from function_object
+end type
+
+forward prototypes
+global function integer f_crear_movimientos_tarifa_d (string id_fase)
+end prototypes
+
+global function integer f_crear_movimientos_tarifa_d (string id_fase);String id_fases_colegiados
+boolean tiene_movi, es_sociedad, tiene_movi_asociados
+datastore ds_fases_colegiados, ds_colegiados_asociados
+st_musaat_datos  st_musaat_datos
+String id_colegiado, id_colegiado_aso
+int i, j
+
+//if f_musaat_cumple_tarifa_d(id_fase) then 
+	
+	
+	//comprobamos que los colegiados del contrato no tienen movimientos de alta de musaat en el contrato.
+	//creamos el ds de los colegiados del contrato
+
+	ds_fases_colegiados = create datastore						
+	ds_fases_colegiados.dataobject = 'd_fases_colegiados'
+	ds_fases_colegiados.settransobject(sqlca)		
+	ds_fases_colegiados.retrieve(id_fase)	
+		
+	tiene_movi = false
+	tiene_movi_asociados = false
+	es_sociedad = false
+	
+	
+	FOR i = 1 TO ds_fases_colegiados.RowCount()
+		
+		//miramos si tienen asociados
+		id_colegiado = ds_fases_colegiados.getItemString(i,'id_col')
+		es_sociedad = f_colegiado_es_sociedad (id_colegiado)	
+		if (es_sociedad)	then			
+			
+			//Si la sociedad est$$HEX2$$e1002000$$ENDHEX$$dada de alta en MUSAAT y se le debe de crear movimiento
+			if (f_colegiado_tipopersona(id_colegiado) = 'S') and (f_colegiado_src_cia(id_colegiado) = 'MU') and (f_tiene_movi_musaat(id_fase,id_colegiado_aso, false) = false)  and (f_musaat_cumple_tarifa_d (id_fase) OR f_musaat_aplica_calculo_pc_2015 (id_fase, id_colegiado) ) THEN
+				
+				st_musaat_datos = f_rellenar_datos_movimiento(id_fase,id_colegiado, false)
+				f_musaat_calcula_prima_sociedad (st_musaat_datos)
+			
+			//	Si la sociedad no est$$HEX2$$e1002000$$ENDHEX$$dada de alta en MUSAAT se comprueba si se le crea el movimiento correspondiente a los colegiados asociados. 
+			else 	
+			
+				select id_fases_colegiados into :id_fases_colegiados from fases_colegiados where id_fase = :id_fase;
+				ds_colegiados_asociados = create datastore						
+				ds_colegiados_asociados.dataobject = 'd_fases_colegiados_asociados'
+				ds_colegiados_asociados.settransobject(sqlca)		
+				ds_colegiados_asociados.retrieve(id_fases_colegiados)	
+				
+			
+				//tenemos que mirar sus asociados para ver si tienen movimientos
+				for j=1 TO ds_colegiados_asociados.rowcount()
+					id_colegiado_aso = ds_colegiados_asociados.getItemString(j,'id_col_per')
+					//comprobar que el colegiado tenga seguro
+					if (f_colegiado_src_cia(id_colegiado_aso) = 'MU') then	
+						tiene_movi_asociados = f_tiene_movi_musaat(id_fase,id_colegiado_aso, false)
+						if (tiene_movi_asociados = false) and (f_musaat_cumple_tarifa_d (id_fase) OR f_musaat_aplica_calculo_pc_2015 (id_fase, id_colegiado_aso) ) then 
+													
+							//aqui se rellena la estructura del nuevo movimiento	
+							st_musaat_datos = f_rellenar_datos_movimiento(id_fase,id_colegiado_aso, false)
+							f_musaat_calcula_prima (st_musaat_datos)
+							
+						end if						
+					end if	 
+				next
+			end if	
+		else
+			//comprobar que el colegiado tenga seguro
+			if (f_colegiado_src_cia(id_colegiado) = 'MU') then
+		
+				//miramos si contienen movimientos
+					tiene_movi = f_tiene_movi_musaat(id_fase,id_colegiado, false)	
+					if (tiene_movi = false) and (f_musaat_cumple_tarifa_d (id_fase) OR f_musaat_aplica_calculo_pc_2015 (id_fase, id_colegiado) ) then
+						
+						//aqui se rellena la estructura del nuevo movimiento	
+			
+						st_musaat_datos = f_rellenar_datos_movimiento(id_fase,id_colegiado, false)
+						
+						IF f_colegiado_tipopersona(id_colegiado) = 'S' THEN
+							f_musaat_calcula_prima_sociedad (st_musaat_datos)
+						ELSE
+							f_musaat_calcula_prima (st_musaat_datos)
+						END IF	
+					
+				end if												
+			end if
+		end if
+	NEXT	
+	
+	return 1
+	
+//end if
+
+//return -1
+end function
+

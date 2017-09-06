@@ -1,0 +1,27 @@
+HA$PBExportHeader$f_conta_dc_cuenta.srf
+global type f_conta_dc_cuenta from function_object
+end type
+
+forward prototypes
+global function string f_obtener_entidad_cuenta (string cuenta)
+global function string f_conta_dc_cuenta (string cuenta)
+end prototypes
+
+global function string f_obtener_entidad_cuenta (string cuenta);string retorno
+
+retorno = MidA(cuenta,1,4)
+
+if f_es_vacio(retorno)=true then retorno=''
+
+return retorno
+end function
+
+global function string f_conta_dc_cuenta (string cuenta);string retorno
+
+retorno = MidA(cuenta,9,2)
+
+if f_es_vacio(retorno)=true then retorno=''
+
+return retorno
+end function
+

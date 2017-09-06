@@ -1,0 +1,25 @@
+HA$PBExportHeader$d_ctrlasistencia_lista.srd
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=72 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=80 color="536870912" )
+table(column=(type=char(10) updatewhereclause=yes key=yes name=id_asistencia_fecha dbname="formacion_asist_fecha.id_asistencia_fecha" )
+ column=(type=char(10) updatewhereclause=yes name=id_curso dbname="formacion_asist_fecha.id_curso" )
+ column=(type=datetime updatewhereclause=yes name=fecha dbname="formacion_asist_fecha.fecha" )
+ column=(type=char(1) updatewhereclause=yes name=nombre_curso dbname="nombre_curso" )
+ retrieve="  SELECT formacion_asist_fecha.id_asistencia_fecha,   
+         formacion_asist_fecha.id_curso,   
+         formacion_asist_fecha.fecha,
+			'' as nombre_curso  
+    FROM formacion_asist_fecha   
+" update="formacion_asist_fecha" updatewhere=0 updatekeyinplace=no )
+text(band=header alignment="2" text="Fecha" border="6" color="0" x="9" y="8" height="52" width="549"  name=fecha_t  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="79741120" )
+text(band=header alignment="2" text="Convocatoria" border="6" color="0" x="576" y="8" height="52" width="1545"  name=nombre_curso_t  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="79741120" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="14" y="128" height="64" width="1033" format="[general]"  name=id_asistencia_fecha  tag=" " visible="1~t0" edit.limit=10 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="2158" y="8" height="64" width="238" format="[general]"  name=id_curso visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="14" y="4" height="64" width="549" format="dd/mm/yyyy"  name=fecha  tag=" " edit.limit=10 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="576" y="4" height="64" width="1545" format="[general]"  name=nombre_curso edit.limit=0 edit.case=any edit.autoselect=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

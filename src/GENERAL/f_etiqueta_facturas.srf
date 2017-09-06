@@ -1,0 +1,87 @@
+HA$PBExportHeader$f_etiqueta_facturas.srf
+global type f_etiqueta_facturas from function_object
+end type
+
+forward prototypes
+global function string f_etiqueta_facturas (string as_id_factura, string as_campo, string as_idioma)
+end prototypes
+
+global function string f_etiqueta_facturas (string as_id_factura, string as_campo, string as_idioma);
+string ls_serie, ls_empresa, ls_anyo, ls_traduccion, ls_n_fact, ls_tipo_fact, ls_serie_aux
+datetime ldt_f_emision
+int li_cantidad
+
+select n_fact, fecha, tipo_factura, empresa 
+into :ls_n_fact, :ldt_f_emision, :ls_tipo_fact, :ls_empresa
+from csi_facturas_emitidas 
+where id_factura = :as_id_factura;
+
+ls_anyo = string(year(date(ldt_f_emision)))
+
+///*** Buscamos la serie si la factura no es de tipo honorarios.  ***///
+if ls_tipo_fact <> '04' then
+	ls_serie = leftA(ls_n_fact, posA(ls_n_fact, '-') - 1)
+	
+	select count(serie) into :li_cantidad from csi_series where serie = :ls_serie and anyo =:ls_anyo and empresa = :ls_empresa;
+	///*** Si no coincide exactamente la serie se debe comprobar si el nombre de la serie fuera m$$HEX1$$e100$$ENDHEX$$s largo. 
+	if li_cantidad = 0 then
+		ls_serie_aux = ls_serie + '%'
+		select count(serie) into :li_cantidad from csi_series where serie like :ls_serie_aux and anyo =:ls_anyo and empresa = :ls_empresa;
+		///*** Si aparece m$$HEX1$$e100$$ENDHEX$$s de un resultado no se distinguir$$HEX2$$e1002000$$ENDHEX$$con seguridad las series, se introduce el gui$$HEX1$$f300$$ENDHEX$$n que ser$$HEX2$$e1002000$$ENDHEX$$el car$$HEX1$$e100$$ENDHEX$$cter comod$$HEX1$$ed00$$ENDHEX$$n ***///
+		if li_cantidad > 1 then
+			ls_serie = '-' 
+		else
+			if li_cantidad = 1 then
+				select serie into :ls_serie from csi_series where serie like :ls_serie_aux and anyo =:ls_anyo and empresa = :ls_empresa;
+			end if			
+		end if	
+	end if
+else
+	ls_serie = 'COLEGIADOS'
+end if
+
+
+///*** Nos diponemos a comprobar si hay una traducci$$HEX1$$f300$$ENDHEX$$n concreta de un campo en base a la siguiente metodolog$$HEX1$$ed00$$ENDHEX$$a *********///
+///********** Casos ***   Serie    **/**     Empresa    **/**     Anyo     **/**      Idioma     **/**     Campo  **************************///  
+///**********   1   ****** ls_serie **/**   ls_empresa **/**   ls_anyo   **/**   as_idioma **/** as_campo **************************///
+///**********   2   ****** ls_serie **/**   ls_empresa **/**   ls_anyo   **/**         %         **/** as_campo *************************///
+///**********   3   ****** ls_serie **/**   ls_empresa **/**        %         **/**         %         **/** as_campo *************************///
+///**********   4   ****** ls_serie **/**           %          **/**        %        **/**         %         **/** as_campo **************************///
+///**********   5   ******        %     **/**           %         **/**         %        **/**         %         **/** as_campo *** Caso por defecto ***///
+
+///*** Caso 1 ***///
+select texto into :ls_traduccion from csi_param_facturas 
+where campo = :as_campo and empresa = :ls_empresa and anyo =:ls_anyo and serie =:ls_serie and idioma = :as_idioma ;
+
+///*** Caso 2 ***///
+if f_es_vacio(ls_traduccion) then
+	as_idioma = '%'
+	select texto into :ls_traduccion from csi_param_facturas 
+	where campo = :as_campo and empresa = :ls_empresa and anyo =:ls_anyo and serie =:ls_serie and idioma = :as_idioma ;
+end if
+
+///*** Caso 3 ***///
+if f_es_vacio(ls_traduccion) then
+	ls_anyo = '%'
+	select texto into :ls_traduccion from csi_param_facturas 
+	where campo = :as_campo and empresa = :ls_empresa and anyo =:ls_anyo and serie =:ls_serie and idioma = :as_idioma ;
+end if
+
+///*** Caso 4 ***///
+if f_es_vacio(ls_traduccion) then
+	ls_empresa = '%'
+	select texto into :ls_traduccion from csi_param_facturas 
+	where campo = :as_campo and empresa = :ls_empresa and anyo =:ls_anyo and serie =:ls_serie and idioma = :as_idioma ;
+end if
+
+///*** Caso 5. Caso por defecto ***///
+if f_es_vacio(ls_traduccion) then
+	ls_serie = '%'
+	select texto into :ls_traduccion from csi_param_facturas 
+	where campo = :as_campo and empresa = :ls_empresa and anyo =:ls_anyo and serie =:ls_serie and idioma = :as_idioma ;
+end if
+
+return ls_traduccion
+
+end function
+

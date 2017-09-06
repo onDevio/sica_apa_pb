@@ -1,0 +1,232 @@
+HA$PBExportHeader$f_musaat_movimiento.srf
+global type f_musaat_movimiento from function_object
+end type
+
+forward prototypes
+global function integer f_musaat_movimiento (st_musaat_datos_movimiento st_musaat_datos_movimiento)
+end prototypes
+
+global function integer f_musaat_movimiento (st_musaat_datos_movimiento st_musaat_datos_movimiento);string id_movimiento, id_fase, id_col, n_contrato, n_col, id_factura, tabla, tipo_act, tipo_obra, t_visado, destino
+string nif_pagador, prefijo, num_mut, num_pol, seguridad, obra_oficial, n_contrato_ant, decenal='N', tipo_gestion
+string pagador, id_minuta, id_cli, aplica_10, obra_iniciada, nom_promotor, nif_promotor
+string colindantes2m, doble_condicion, int_forzosa, poliza_plus, cod_colegio_dest
+double honorarios, importe_cobrado, importe_pendiente, coef_k, coef_c, coef_g, presupuesto, coef_sin, coef_col, altura, coef_recargo
+double importe_vble, superficie, volumen, porcentaje, cobertura
+datetime fecha_calculo, fecha_notificacion, fecha_musaat, fecha_renuncia
+
+id_movimiento = f_siguiente_numero('ID_MOV_MUSAAT', 10)
+
+// TIpologia MUSAAT del visado
+if f_es_vacio(st_musaat_datos_movimiento.tipo_csd) then
+	t_visado = st_musaat_datos_movimiento.t_visado	
+	obra_oficial = st_musaat_datos_movimiento.obra_oficial
+else
+	// Tipo_csd guarda en la primera posicion el t_visado y en la segunta el obra_oficial
+	t_visado = LeftA(st_musaat_datos_movimiento.tipo_csd,1)
+	obra_oficial = RightA(st_musaat_datos_movimiento.tipo_csd,1)
+end if
+
+if f_es_vacio(t_visado) then t_visado =  st_musaat_datos_movimiento.t_visado	
+if f_es_vacio(obra_oficial) then obra_oficial = st_musaat_datos_movimiento.obra_oficial
+if f_es_vacio(t_visado) then t_visado = '1' // por defecto primer visado
+
+if f_es_vacio(obra_oficial) then ///ESTO HAY QUE PREGUNTARLO
+	choose case f_expedientes_administracion(id_fase)
+		case 'S'
+			if st_musaat_datos_movimiento.aplica_10 = true then
+				obra_oficial =  '1'						
+			else
+				obra_oficial =  '2'	
+			end if
+		case 'N'
+			obra_oficial =  '0'			
+		case else
+			obra_oficial =  '0'						
+	end choose
+end if
+
+if st_musaat_datos_movimiento.aplica_10 = true then
+	aplica_10 = 'S'
+else
+	aplica_10 = 'N'
+end if
+
+if st_musaat_datos_movimiento.tipo_csd = 'DE' then decenal = 'S'
+// ----------------
+id_fase = st_musaat_datos_movimiento.id_fase
+id_col = st_musaat_datos_movimiento.id_col
+n_contrato = st_musaat_datos_movimiento.n_contrato
+n_col = st_musaat_datos_movimiento.n_col
+id_factura = st_musaat_datos_movimiento.id_factura
+tabla = st_musaat_datos_movimiento.tabla
+cobertura = st_musaat_datos_movimiento.cobertura
+tipo_act = st_musaat_datos_movimiento.tipo_act
+tipo_obra = st_musaat_datos_movimiento.tipo_obra
+destino = st_musaat_datos_movimiento.destino
+nif_pagador = st_musaat_datos_movimiento.nif_pagador
+prefijo = st_musaat_datos_movimiento.prefijo
+num_mut  = st_musaat_datos_movimiento.num_mut
+num_pol = st_musaat_datos_movimiento.num_pol
+seguridad = st_musaat_datos_movimiento.seguridad
+n_contrato_ant = st_musaat_datos_movimiento.n_contrato_ant
+importe_cobrado = st_musaat_datos_movimiento.importe_cobrado
+importe_pendiente = st_musaat_datos_movimiento.importe_pendiente
+pagador = st_musaat_datos_movimiento.pagador
+id_minuta = st_musaat_datos_movimiento.id_minuta
+
+SELECT fases_minutas.tipo_gestion  INTO :tipo_gestion  FROM fases_minutas  WHERE fases_minutas.id_minuta = :id_minuta ;
+
+coef_k = st_musaat_datos_movimiento.coef_k
+coef_c = st_musaat_datos_movimiento.coef_c
+coef_g = st_musaat_datos_movimiento.coef_g
+presupuesto = st_musaat_datos_movimiento.presupuesto
+coef_sin = st_musaat_datos_movimiento.coef_sin
+coef_col = st_musaat_datos_movimiento.coef_col
+superficie = st_musaat_datos_movimiento.superficie
+volumen = st_musaat_datos_movimiento.volumen
+porcentaje = st_musaat_datos_movimiento.porcentaje
+importe_vble = st_musaat_datos_movimiento.importe_vble
+honorarios = st_musaat_datos_movimiento.honorarios
+colindantes2m= st_musaat_datos_movimiento.colindantes2m//SCP-256 Cambios Musaat 2010
+doble_condicion= st_musaat_datos_movimiento.doble_condicion
+int_forzosa= st_musaat_datos_movimiento.int_forzosa
+poliza_plus = st_musaat_datos_movimiento.poliza_plus ///*** SCP-777. Cambios Musaat 2011. Alexis. 20/12/2010 ***///
+coef_recargo = st_musaat_datos_movimiento.coef_recargo ///*** SCP-776. Cambios Musaat 2011. Jesus. 20/12/2010 ***///
+cod_colegio_dest = st_musaat_datos_movimiento.cod_colegio_dest ///*** SCP-778. Cambios Musaat 2011. Alexis. 21/12/2010 ***///
+obra_iniciada    	= st_musaat_datos_movimiento.obra_iniciada// SCP-891 Cambios Fichero Econ$$HEX1$$f300$$ENDHEX$$mico 2011
+fecha_renuncia 	= st_musaat_datos_movimiento.f_renuncia
+
+setnull(fecha_notificacion)// Datos de Entrada y/o Salida
+setnull(fecha_calculo)
+IF f_var_global('g_musaat_movi_fecha_sistema_o_factura')= 'F' AND NOT f_es_vacio(id_factura) THEN // SCP-832 El id_factura de musaat est$$HEX2$$e1002000$$ENDHEX$$almacenando el id_linea
+	SELECT F.fecha INTO :fecha_calculo FROM csi_facturas_emitidas F, csi_lineas_fact_emitidas L WHERE F.id_factura = L.id_factura AND L.id_linea = :id_factura ;
+END IF
+IF IsNull(fecha_calculo) THEN fecha_calculo = datetime(today(), now())
+
+// Para el proceso de cobro mensual de COAATLR se pone la fecha de visado en la fecha de c$$HEX1$$e100$$ENDHEX$$lculo
+if g_cobro_mensual_musaat_lr = 'S' then 
+	SELECT fases.f_visado INTO :fecha_calculo FROM fases WHERE fases.id_fase = :id_fase   ;
+end if
+
+// Fecha de musaat
+if g_no_regulariza_tres_meses = 'S' then // COAATGC
+	if f_musaat_regulariza_tres_meses(id_minuta, id_fase, st_musaat_datos_movimiento.f_pago) = 'N' then // No han pasado 3 meses
+		if t_visado = '1' then // Si es un alta cogemos la fecha de visado y sino la fecha del aviso
+			SELECT fases.f_visado INTO :fecha_musaat FROM fases WHERE fases.id_fase = :id_fase   ;
+		else
+			SELECT fases_minutas.fecha INTO :fecha_musaat FROM fases_minutas WHERE fases_minutas.id_minuta = :id_minuta   ;
+		end if
+	else
+		fecha_musaat = fecha_calculo
+	end if
+else // NO COAATGC
+	fecha_musaat = fecha_calculo	
+end if
+
+if f_es_vacio(n_contrato) then n_contrato = f_dame_n_reg(id_fase)
+if f_es_vacio(n_col) then n_col = f_colegiado_n_col(id_col)
+if isnull(cobertura) then cobertura = f_musaat_dame_cobertura_src(id_col)
+if f_es_vacio(tipo_act) then tipo_act = f_dame_fase(id_fase)
+if f_es_vacio(tipo_obra) then tipo_obra = f_dame_tipo_obra(id_fase)
+if f_es_vacio(destino) then destino = f_dame_uso_obra(id_fase)
+if f_es_vacio(pagador) then pagador = f_minutas_pagador(id_minuta)
+
+if f_es_vacio(nif_pagador) then
+// Mirar el tipo de gestion
+// CGC : si aplica_musaat --> paga cliente sino paga_colegiado
+// AUT : si aplica_musaat --> paga cliente sino paga_colegiado
+// SGC : si aplica_musaat --> paga col sino no habr$$HEX1$$ed00$$ENDHEX$$a movimiento
+// Por defecto paga colegiado
+	if g_colegio = 'COAATTFE' then
+		nif_pagador = ''
+	else
+		if tipo_gestion = 'S' then
+			choose case pagador
+				case '1' // mirar en colegiados
+					nif_pagador = f_devuelve_nif(id_col)
+					if f_colegiado_tipopersona(st_musaat_datos_movimiento.id_sociedad) = 'S' then nif_pagador = f_devuelve_nif(st_musaat_datos_movimiento.id_sociedad)
+				case '2' //empresa : mirar en el colegiado
+					nif_pagador = f_nif_empresa_col(id_col)
+				case '3' // cliente : mirar en terceros
+					id_cli = f_minutas_id_cli(id_minuta)
+					nif_pagador = f_dame_nif(id_cli)			
+			end choose
+		else
+			nif_pagador = f_devuelve_nif(id_col)
+			if f_colegiado_tipopersona(st_musaat_datos_movimiento.id_sociedad) = 'S' then nif_pagador = f_devuelve_nif(st_musaat_datos_movimiento.id_sociedad)
+			pagador = '1'
+		end if
+	end if
+end if
+
+if f_es_vacio(prefijo) then prefijo = LeftA(f_musaat_numpre(id_col),2)
+if f_es_vacio(num_mut) then num_mut = f_musaat_nummut(id_col)
+if f_es_vacio(num_pol) then num_pol = f_musaat_numpol(id_col)
+if f_es_vacio(seguridad) then seguridad = '' // en Bizkaia no usan esto
+if isnull(honorarios) then honorarios = f_fases_honorarios_contrato(id_fase) // Totales del contrato
+if f_es_vacio(n_contrato_ant) then n_contrato_ant = ''
+
+if f_es_vacio(obra_iniciada) then obra_iniciada = 'N'
+nom_promotor = f_devuelve_nom_promotor(id_fase)
+nif_promotor = f_devuelve_nif_promotor(id_fase)
+if f_es_vacio(nif_promotor) then nif_promotor = ''
+
+
+// Para GC, coversi$$HEX1$$f300$$ENDHEX$$n del tipo de obra:
+choose case tipo_obra
+	case 'C0'
+		tipo_obra = '00'
+	case 'C1'
+		tipo_obra = '71'
+	case 'C2'
+		tipo_obra = '31'
+	case 'C3'
+		tipo_obra = '31'
+	case 'C4'
+		tipo_obra = '13'
+	case 'C5'
+		tipo_obra = '81'
+	case 'C6'
+		tipo_obra = '31'
+	case 'C7'
+		tipo_obra = '71'
+	case 'C8'
+		tipo_obra = '41'
+	case 'C9'
+		tipo_obra = '00'
+	case '15'
+		tipo_obra = '11'
+end choose
+if (g_colegio = 'COAATTGN' or g_colegio = 'COAATTEB' )  and tipo_act = '76'  then	 tipo_act = '76' 
+
+datetime ldt_fecha_cfo
+
+setnull(ldt_fecha_cfo) 
+if (t_visado = '3') then ldt_fecha_cfo = f_fecha_cfo_total(id_fase)
+
+INSERT INTO musaat_movimientos  
+( id_movimiento, id_fase, id_col, n_contrato, n_col, honorarios, importe_cobrado,   
+  fecha_calculo, importe_pendiente, fecha_notificacion, id_factura, tabla, coef_k, coef_c,   
+  coef_g, presupuesto, importe_vble, superficie, cobertura, tipo_act, tipo_obra,   
+  volumen, altura, t_visado, coef_sin, destino, nif_pagador, coef_col,   
+  prefijo, num_pol, num_mut, seguridad, obra_oficial, porcentaje, n_contrato_ant,
+  pagador, id_minuta, aplica_10, anulado, tipo_csd, f_musaat, decenal, colindantes2m, doble_condicion, int_forzosa, 
+  src_poliza_plus, src_recargo, cod_colegio_dest , obra_iniciada, f_renuncia , nom_promotor , nif_promotor, fecha_cfo )  
+
+VALUES 
+( :id_movimiento, :id_fase, :id_col, :n_contrato, :n_col, :honorarios, :importe_cobrado,   
+  :fecha_calculo, :importe_pendiente, :fecha_notificacion, :id_factura, :tabla, :coef_k, :coef_c,   
+  :coef_g, :presupuesto, :importe_vble, :superficie, :cobertura, :tipo_act, :tipo_obra, 
+  :volumen, :altura, :t_visado, :coef_sin, :destino, :nif_pagador, :coef_col, 
+  :prefijo, :num_pol, :num_mut, :seguridad, :obra_oficial, :porcentaje, :n_contrato_ant,
+  :pagador, :id_minuta, :aplica_10, 'N', :t_visado + :obra_oficial, :fecha_musaat, :decenal, :colindantes2m, :doble_condicion, 
+  :int_forzosa, :poliza_plus, :coef_recargo, :cod_colegio_dest, :obra_iniciada, :fecha_renuncia, :nom_promotor, :nif_promotor, :ldt_fecha_cfo  )  ;
+		COMMIT;
+		
+gds_musaat_movimientos_a_facturar.insertrow(0)
+gds_musaat_movimientos_a_facturar.setitem(gds_musaat_movimientos_a_facturar.rowcount(), 'id_movimiento', id_movimiento)
+
+return 0
+
+end function
+

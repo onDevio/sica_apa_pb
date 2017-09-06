@@ -1,0 +1,53 @@
+HA$PBExportHeader$f_digito_control_cuenta_bancaria.srf
+$PBExportComments$SALIDA string con los dos digitos del codigo de control de la cuenta bancaria dados los otros 3 grupos de d$$HEX1$$ed00$$ENDHEX$$gitos de la cuenta bancaria
+global type f_digito_control_cuenta_bancaria from function_object
+end type
+
+forward prototypes
+global function string f_digito_control_cuenta_bancaria (string cod_banco, string cod_sucursal, string num_cuenta)
+end prototypes
+
+global function string f_digito_control_cuenta_bancaria (string cod_banco, string cod_sucursal, string num_cuenta);/*
+	ENTRADAS:
+		cod_banco = string con los 4 digitod del codigo de banco
+		cod_sucursal = string con los 4 digitos del codigo de sucursal
+		num_cuenta = string con los 10 digitos del numero de cuenta
+		
+	SALIDA
+		string con los dos digitos del codigo de control
+		
+*/
+
+
+string digito_control
+integer vector1[0 To 7]
+integer vector2[0 To 9]
+integer aux,i
+
+vector1 = {7,3,6,1,2,4,8,5}
+vector2 = {10,9,7,3,6,1,2,4,8,5}
+
+//Comprobamos la longitud de los parametros
+if LenA(cod_banco) <> 4 or LenA(cod_sucursal) <> 4 or LenA(num_cuenta) <> 10 then return ''
+
+//PRIMER DIGITO
+aux = 0
+for i = 0 to 7
+	aux = aux + vector1[i] * integer(MidA(cod_banco+cod_sucursal,i+1,1))
+next
+aux = mod(aux,11)
+if aux = 10 then aux = 1
+digito_control = string(aux)
+
+//SEGUNDO DIGITO
+aux = 0
+for i = 0 to 9
+	aux = aux + vector2[i] * integer(MidA(num_cuenta,i+1,1))
+next
+aux = mod(aux,11)
+if aux = 10 then aux = 1
+digito_control = digito_control + string(aux)
+
+return digito_control
+end function
+

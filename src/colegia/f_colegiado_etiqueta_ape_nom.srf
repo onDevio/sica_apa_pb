@@ -1,0 +1,58 @@
+HA$PBExportHeader$f_colegiado_etiqueta_ape_nom.srf
+global type f_colegiado_etiqueta_ape_nom from function_object
+end type
+
+forward prototypes
+global function string f_colegiado_etiqueta_ape_nom (string id_col)
+end prototypes
+
+global function string f_colegiado_etiqueta_ape_nom (string id_col);
+string datos_colegiado = ''
+string apell, nomb,daf,paf,nif
+
+select apellidos, nombre,domicilio_activo,poblacion_activa, nif
+	into :nomb, :apell, :daf, :paf, :nif
+	from colegiados 
+	where id_colegiado=:id_col;
+
+if f_es_vacio(nomb) then 
+	nomb=''
+else
+	if(g_colegio = 'COAATTGN' or g_colegio = 'COAATTEB' or g_colegio='COAATLL')then	
+		nomb = nomb + ', ' 
+	else
+		nomb = nomb + '' + cr
+	end if
+end if
+
+if f_es_vacio(daf) then 
+	daf=''
+else
+	daf = daf + '' + cr
+end if
+
+if f_es_vacio(paf) then 
+	paf=''
+else
+	paf = paf + '' + cr
+end if
+
+if f_es_vacio(apell) then 
+	apell=''
+else
+	apell = apell + '' + cr
+end if
+if f_es_vacio(nif) then 
+	nif=''
+else
+	if(g_colegio = 'COAATTGN' or g_colegio = 'COAATTEB' or g_colegio = 'COAATB' or g_colegio='COAATLL')then	
+		nif=''
+	else
+		nif = nif + '' + cr
+	end if
+end if
+datos_colegiado = nomb + apell + daf + paf + nif
+return datos_colegiado
+
+end function
+

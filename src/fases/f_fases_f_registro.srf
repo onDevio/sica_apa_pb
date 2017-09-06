@@ -1,0 +1,20 @@
+HA$PBExportHeader$f_fases_f_registro.srf
+global type f_fases_f_registro from function_object
+end type
+
+forward prototypes
+global function datetime f_fases_f_registro (string id_fase)
+end prototypes
+
+global function datetime f_fases_f_registro (string id_fase);datetime f_registro
+
+SELECT fases.f_entrada  
+INTO :f_registro
+FROM fases  
+WHERE fases.id_fase = :id_fase   ;
+
+if isnull(f_registro) then f_registro = datetime(date('01/01/1900'), time('00:00:00'))
+
+return f_registro
+end function
+

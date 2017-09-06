@@ -1,0 +1,4 @@
+﻿INSERT INTO messages_ca (tag, traduccion, modulo, nombre) VALUES ('fases.conciliar_pago','Conciliar Pagaments' ,'fases','conciliar_pago');	
+INSERT INTO messages_ca (tag, traduccion, modulo, nombre) VALUES ('fases.msg_datos_pagos', 'Les dades de les factures conciliades han canviat, Desitja guardar-les?' ,'fases','msg_datos_pagos');	
+INSERT INTO messages_ca (tag, traduccion, modulo, nombre) VALUES ('fases.afegir_factura','Afegir Factura' ,'fases','afegir_factura');
+INSERT INTO messages_ca (tag, traduccion, modulo, nombre) VALUES ('fases.msg_falta_datos_pagos', 'No hi ha registrat pagaments per poder adjuntar factures' ,'fases','msg_falta_datos_pagos');		

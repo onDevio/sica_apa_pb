@@ -1,0 +1,28 @@
+HA$PBExportHeader$f_abrir_pdf.srf
+global type f_abrir_pdf from function_object
+end type
+
+forward prototypes
+global function integer f_abrir_pdf (string ruta)
+end prototypes
+
+global function integer f_abrir_pdf (string ruta);string ruta_acrobat,mensaje
+
+//RegistryGet('HKEY_CLASSES_ROOT\Software\Adobe\Acrobat\Exe',"", RegString!,ruta_acrobat) 
+ruta_acrobat = g_ruta_acrobat_reader
+if f_es_vacio(ruta_acrobat) then 
+	mensaje =  'No tiene instalado ning$$HEX1$$fa00$$ENDHEX$$n ning$$HEX1$$fa00$$ENDHEX$$n visor de pdf. Debe instalar alguno para poder visualizar estos ficheros'
+	if g_usar_idioma = "S" then
+		mensaje = g_idioma.of_getmsg( "general.error_abrir_pdf", mensaje)
+	end if
+	MessageBox(g_titulo,mensaje)
+	return -1
+end if
+
+if run(ruta_acrobat+' "' + ruta + '"',maximized!) <> 1 then
+	return -1
+end if
+return 1	
+
+end function
+

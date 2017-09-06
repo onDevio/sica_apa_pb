@@ -1,0 +1,32 @@
+HA$PBExportHeader$f_regsoc_col_o_cli.srf
+global type f_regsoc_col_o_cli from function_object
+end type
+
+forward prototypes
+global function boolean f_regsoc_col_o_cli (string id_regsoc_socio)
+end prototypes
+
+global function boolean f_regsoc_col_o_cli (string id_regsoc_socio);// miramos si es colegiado o cliente por si tiene el tipo vacio
+
+long tipo
+string id_colegiado
+
+select tipo into :tipo from regsoc_socio where id_regsoc_socio=:id_regsoc_socio;
+
+
+if f_es_vacio(string(tipo)) then
+   select id_colegiado into :id_colegiado from regsoc_socio where id_regsoc_socio=:id_regsoc_socio;
+	if f_es_vacio(id_colegiado) then 
+		return false //cliente
+	else
+		return true // colegiado
+	end if
+
+else
+	if tipo=1 then return true // colegiado
+	if tipo=2 then return false // cliente
+end if
+
+return true
+end function
+

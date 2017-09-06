@@ -1,0 +1,43 @@
+HA$PBExportHeader$f_obtener_mes.srf
+global type f_obtener_mes from function_object
+end type
+
+forward prototypes
+global function string f_obtener_mes (datetime mes)
+end prototypes
+
+global function string f_obtener_mes (datetime mes);// Obtiene a partir de una variable Datetime el mes en castellano
+// Devuelve un String
+
+CHOOSE CASE month(date(mes))
+	CASE 1
+			return g_idioma.of_getmsg( "general.enero","ENERO" )
+	CASE 2
+			return g_idioma.of_getmsg( "general.febrero","FEBRERO")
+	CASE 3
+			return g_idioma.of_getmsg( "general.marzo","MARZO" )
+	CASE 4
+			return g_idioma.of_getmsg( "general.abril","ABRIL" )
+	CASE 5
+			return g_idioma.of_getmsg( "general.mayo","MAYO" )
+	CASE 6
+			return g_idioma.of_getmsg( "general.junio","JUNIO" )
+	CASE 7
+			return g_idioma.of_getmsg( "general.julio","JULIO" )
+	CASE 8
+			return g_idioma.of_getmsg( "general.agosto","AGOSTO" )
+	CASE 9
+			return g_idioma.of_getmsg( "general.septiembre","SEPTIEMBRE" )
+	CASE 10
+			return g_idioma.of_getmsg( "general.octubre","OCTUBRE" )
+	CASE 11
+			return g_idioma.of_getmsg( "general.noviembre","NOVIEMBRE" )
+	CASE 12
+			return g_idioma.of_getmsg( "general.diciembre","DICIEMBRE" )
+	CASE ELSE
+			return "Error"
+END CHOOSE
+
+
+end function
+

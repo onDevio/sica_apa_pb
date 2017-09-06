@@ -1,0 +1,28 @@
+HA$PBExportHeader$f_obtener_agrupacion_listado_peritos_tfe.srf
+global type f_obtener_agrupacion_listado_peritos_tfe from function_object
+end type
+
+forward prototypes
+global function string f_obtener_agrupacion_listado_peritos_tfe (string as_id_colegiado)
+end prototypes
+
+global function string f_obtener_agrupacion_listado_peritos_tfe (string as_id_colegiado);
+  string ls_return, ls_codigo, ls_descripcion
+  
+   
+  SELECT t_agrupaciones.descripcion
+		into :ls_descripcion	
+     FROM t_agrupaciones, agrupaciones  
+   WHERE ( t_agrupaciones.cod_agrupacion = agrupaciones.agrupacion )
+	and agrupaciones.agrupacion = '13'
+	and agrupaciones.id_colegiado = :as_id_colegiado;
+	
+	if f_es_vacio(ls_descripcion) then
+		ls_return = ''
+	else 
+		ls_return = '13 - '+ ls_descripcion
+	end if
+	
+	return ls_return
+end function
+

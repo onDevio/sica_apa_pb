@@ -1,0 +1,69 @@
+declare @colegio varchar(10)
+select @colegio = texto from var_globales where nombre = 'COLEGIO'
+
+--Los cambios de multiempresa afecta la estructura del modelo de datos de SICA, se recomienda que se realice primero un dump de la base de datos.
+
+--Todos
+-- Confirmar que el campo de empresa tenga valor y que el valor de la empresa coincida con el que se tenga en el .ini y modificar el script de abajo
+-- SE DEBE VERIFICAR SI LA TABLA REGISTRO_SERIE TIENE EL CAMPO RUTA_VIRTUAL.
+update registro_series set empresa = '01';
+-- SCRIPT SIN EL CAMPO RUTA_VIRTUAL
+-- Se cambia la clave primaria para permitir tener las mismas series para diferentes empresas
+create table dbo.registro_series2 (codigo char(10) not null, descripcion char(100) null, cod_delegacion char(2) not null, contador double precision null, tipo char(1) null, ruta_base char(255) null, tiene_anyo char(1) null, tiene_carpeta_final char(1) null, impresora char(100) null, bandeja char(2) null, cod_aplicacion char(10) null, empresa char(2) null) ;
+alter table dbo.registro_series2 add constraint pk_serie primary key nonclustered (codigo,  cod_delegacion) ;
+insert into registro_series2 select * from registro_series;
+drop table registro_series;
+create table dbo.registro_series (codigo char(10) not null, descripcion char(100) null, cod_delegacion char(2) not null, contador double precision null, tipo char(1) null, ruta_base char(255) null, tiene_anyo char(1) null, tiene_carpeta_final char(1) null, impresora char(100) null, bandeja char(2) null, cod_aplicacion char(10) null, empresa char(2) not null) ;
+alter table dbo.registro_series add constraint pk_serie primary key nonclustered (codigo, empresa, cod_delegacion) ;
+insert into registro_series select * from registro_series2;
+--SCRIPT CON EL CAMPO RUTA_VIRTUAL
+create table dbo.registro_series2 (codigo char(10) not null, descripcion char(100) null, cod_delegacion char(2) not null, contador double precision null, tipo char(1) null, ruta_base char(255) null, tiene_anyo char(1) null, tiene_carpeta_final char(1) null, impresora char(100) null, bandeja char(2) default '0' null null, cod_aplicacion char(10) null, ruta_virtual char(255) null, empresa char(2) null) ;
+alter table dbo.registro_series2 add constraint pk_serie primary key nonclustered (codigo, cod_delegacion) ;
+insert into registro_series2 select * from registro_series;
+drop table registro_series;
+create table dbo.registro_series (codigo char(10) not null, descripcion char(100) null, cod_delegacion char(2) not null, contador double precision null, tipo char(1) null, ruta_base char(255) null, tiene_anyo char(1) null, tiene_carpeta_final char(1) null, impresora char(100) null, bandeja char(2) default '0' null null, cod_aplicacion char(10) null, ruta_virtual char(255) null, empresa char(2) not null) ;
+alter table dbo.registro_series add constraint pk_serie primary key nonclustered (codigo, cod_delegacion, empresa) ;
+insert into registro_series select * from registro_series2;
+
+--Todos
+-- Confirmar que el campo de empresa tenga valor
+-- Se cambia la clave primaria para poder incluir misma serie para diferentes empresas
+create table dbo.csi_series2 (serie char(10) not null, usuarios char(255) null, cod_apli char(4) null, empresa char(2) null, contador double precision null, descripcion char(60) null, recib char(1) null, anyo char(4) not null, dataobject char(100) null, tipo char(1) null) ;
+alter table dbo.csi_series2 add constraint csi_series_x primary key nonclustered (serie, anyo) ;
+insert into csi_series2 select * from csi_series;
+drop table csi_series;
+create table dbo.csi_series (serie char(10) not null, usuarios char(255) null, cod_apli char(4) null, empresa char(2) not null, contador double precision null, descripcion char(60) null, recib char(1) null, anyo char(4) not null, dataobject char(100) null, tipo char(1) null) ;
+alter table dbo.csi_series add constraint csi_series_x primary key nonclustered (serie, anyo, empresa) ;
+insert into csi_series select * from csi_series2;
+
+-- Todos
+-- Se agrega banco por defecto por empresa
+alter table csi_empresas add banco_defecto char(10) null;
+
+--Todos
+--Se agrega el campo empresa a las remesas
+alter table remesas add empresa char(2) null;
+update remesas set empresa = '01';
+create table dbo.remesas2 (n_remesa char(10) not null, fecha datetime null, descripcion char(100) null, tipo char(1) null, anulada char(1) null, banco char(10) null, n_fact_desde char(15) null, n_fact_hasta char(15) null, cod_usuario char(10) null, referencia_tpv char(40) null, empresa char(2) null) ;
+alter table dbo.remesas2 add constraint n_remesa primary key nonclustered (n_remesa) ;
+insert into remesas2 select * from remesas;
+drop table remesas;
+create table dbo.remesas (n_remesa char(10) not null, fecha datetime null, descripcion char(100) null, tipo char(1) null, anulada char(1) null, banco char(10) null, n_fact_desde char(15) null, n_fact_hasta char(15) null, cod_usuario char(10) null, referencia_tpv char(40) null, empresa char(2) not null) ;
+alter table dbo.remesas add constraint n_remesa primary key nonclustered (n_remesa, empresa) ;
+insert into remesas select * from remesas2;
+
+
+-- Todos
+-- Se eliminan todas las tablas auxiliares creadas. Antes de eliminarse se debe verificar los valores en las tablas origenes
+--drop table registro_series2;
+--drop table csi_series2;
+--drop table remesas2;
+
+--Todos
+update var_globales set texto='20100211' where nombre='g_version_minima';
+
+--ICC-307 (SOLO DEBE SER TOMADO EN CUENTA PARA CACERES)
+INSERT INTO listados ( descripcion, dw, ventana, orden,  activo )  
+  VALUES ( 'Informe de Comprobación de Fichero MUSAAT', 'd_musaat_comprueba_fic_cc',   'w_musaat_movimientos_listados',  '0',   'S' )
+
+go

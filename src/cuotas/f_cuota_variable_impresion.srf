@@ -1,0 +1,259 @@
+HA$PBExportHeader$f_cuota_variable_impresion.srf
+global type f_cuota_variable_impresion from function_object
+end type
+
+forward prototypes
+global function n_ds f_cuota_variable_impresion (string id_fase)
+end prototypes
+
+global function n_ds f_cuota_variable_impresion (string id_fase);n_ds ds_coef_cr, ds_imp
+datawindowchild dwc_imp_cab, dwc_imp_cr, dwc_imp_cv, dwc_imp_cv_coef, dwc_imp_presup
+string trabajo_uso, desc_coef, campo_coef, valor_coef, desc_uso
+long ant_grupo_uso, ini_grupo_uso, fin_grupo_uso
+long fila_coef, colum_coef, primera_colum_coef
+boolean rehacer_cabecera
+double precio_m2, superficie, superficie_total, presup, presup_total, cuota_visado, total_cuota_visado, presup_real, presup_real_total
+string id_formula, t_iva
+long i, j
+boolean en_visared
+
+constant long MAX_COLUM_COEF = 8 // M$$HEX1$$e100$$ENDHEX$$ximo 8 coeficientes
+
+string colegio
+colegio = f_colegio()
+
+
+ds_coef_cr = create n_ds
+ds_coef_cr.dataobject = 'd_cuota_variable_impresion_aux'
+ds_coef_cr.of_settransobject(SQLCA)
+ds_coef_cr.retrieve(id_fase)
+
+ds_imp = create n_ds
+ds_imp.dataobject = 'd_cuota_variable_impresion'
+ds_imp.insertrow(0)
+
+ds_imp.getchild('dw_cab', dwc_imp_cab)
+ds_imp.getchild('dw_cr', dwc_imp_cr)
+ds_imp.getchild('dw_cv', dwc_imp_cv)
+ds_imp.getchild('dw_cv_coef', dwc_imp_cv_coef)
+ds_imp.getchild('dw_presup', dwc_imp_presup)
+
+// Comprobamos si estamos en Visared o en SICA
+string temp
+SELECT fases.tipo_actuacion, fases.destino, fases.tipo_obra INTO :temp, :temp, :temp FROM fases ;
+en_visared = SQLCA.SQLCode = 0 // Los campos tipo_actuacion, destino y tipo_obra s$$HEX1$$f300$$ENDHEX$$lo est$$HEX1$$e100$$ENDHEX$$n en Visared
+
+
+
+/**** RELLENAMOS LA CABECERA ****/
+
+dwc_imp_cab.insertrow(0)
+f_cuota_variable_impresion_cabecera(id_fase, dwc_imp_cab)
+
+
+/**** RELLENAMOS LA FICHA DE USOS ****/
+
+superficie_total = 0
+presup_total = 0
+presup_real_total = 0
+
+i = 1
+ini_grupo_uso = 0
+rehacer_cabecera = true
+primera_colum_coef = MAX_COLUM_COEF
+do while i <= ds_coef_cr.rowcount()
+
+	ant_grupo_uso = ini_grupo_uso
+	ini_grupo_uso = i
+	fin_grupo_uso = ds_coef_cr.FindGroupChange(i+1,1) - 1
+	if fin_grupo_uso < 0 then fin_grupo_uso = ds_coef_cr.rowcount()
+	
+	if i > 1 then
+		//TODO: Se deber$$HEX1$$ed00$$ENDHEX$$a tener en cuenta la fecha en d_cuota_variable_impresion_aux_coef_cr. Por ahora obviamos las filas repetidas resultantes de existir un coeficiente duplicado con distinta fecha.
+		if ds_coef_cr.getitemstring(i, 'fases_usos_id_uso') = ds_coef_cr.getitemstring(i - 1, 'fases_usos_id_uso') and &
+			ds_coef_cr.getitemstring(i, 'coeficientes_codigo') = ds_coef_cr.getitemstring(i - 1, 'coeficientes_codigo') then
+			continue
+		end if
+	
+		// Miramos si los coeficientes del uso actual son los mismos que los del uso anterior, porque en caso contrario deber$$HEX1$$ed00$$ENDHEX$$amos poner
+		// una nueva cabecera con los nuevos coeficientes
+		rehacer_cabecera = false
+		if ini_grupo_uso - ant_grupo_uso <> fin_grupo_uso - ini_grupo_uso + 1 then
+			rehacer_cabecera = true
+		else
+			for i = ini_grupo_uso to fin_grupo_uso
+				if ds_coef_cr.getitemstring(i, 'coeficientes_codigo') <> ds_coef_cr.getitemstring(i - ini_grupo_uso + ant_grupo_uso, 'coeficientes_codigo') then
+					rehacer_cabecera = true
+					exit
+				end if
+			next
+		end if
+		
+	end if
+	
+	// Ponemos la cabecera con la descripci$$HEX1$$f300$$ENDHEX$$n de los usos	
+	if rehacer_cabecera then
+		fila_coef = dwc_imp_cr.insertrow(0)
+		if fila_coef = 1 then dwc_imp_cr.SetItem(fila_coef, 'desc_uso', "USOS PROYECTADOS")
+		dwc_imp_cr.SetItem(fila_coef, 'es_cabecera', 'S')
+		
+		colum_coef = MAX_COLUM_COEF
+		for i = ini_grupo_uso to fin_grupo_uso
+			if colum_coef > 0 then
+				desc_coef = ds_coef_cr.getitemstring(i, 'coeficientes_datos_adicionales')
+				campo_coef = "coef" + string(colum_coef)
+				dwc_imp_cr.SetItem(fila_coef, campo_coef, desc_coef)
+				colum_coef --
+			end if
+			
+			dwc_imp_cr.SetItem(fila_coef, 'precio_m2', "Precio M$$HEX1$$b200$$ENDHEX$$")
+			dwc_imp_cr.SetItem(fila_coef, 'superficie', "Superf.")
+			dwc_imp_cr.SetItem(fila_coef, 'presup', "Presup. Refer.")
+		next
+		if primera_colum_coef > colum_coef then primera_colum_coef = colum_coef
+	end if
+	
+	fila_coef = dwc_imp_cr.insertrow(0)
+	
+	trabajo_uso = ds_coef_cr.getitemstring(ini_grupo_uso, 'fases_usos_trabajo')
+	// S$$HEX1$$f300$$ENDHEX$$lo funcionar$$HEX2$$e1002000$$ENDHEX$$en VISARED
+	SELECT usos_tasas.descripcion INTO :desc_uso FROM usos_tasas WHERE ( usos_tasas.c_trabajo = :trabajo_uso ) AND ( usos_tasas.colegio = :colegio ) ;
+	if (SQLCA.SqlCode <> 0 and SQLCA.SqlCode <> 100) then
+		// Funcionar$$HEX2$$e1002000$$ENDHEX$$en SICA
+		SELECT usos_tasas.descripcion INTO :desc_uso FROM usos_tasas WHERE ( usos_tasas.c_trabajo = :trabajo_uso ) ;
+	end if
+	dwc_imp_cr.SetItem(fila_coef, 'desc_uso', desc_uso)
+	
+	colum_coef = MAX_COLUM_COEF
+	for i = ini_grupo_uso to fin_grupo_uso
+		if colum_coef > 0 then
+			valor_coef = ds_coef_cr.getitemstring(i, 'coeficientes_valores_valor')
+			if isnumber(valor_coef) then valor_coef = string(round(double(valor_coef), 2)) // TODO: Aplicar m$$HEX1$$e100$$ENDHEX$$scara al valor
+			campo_coef = "coef" + string(colum_coef)
+			dwc_imp_cr.SetItem(fila_coef, campo_coef, valor_coef)
+			colum_coef --
+		end if
+	next
+	
+	precio_m2 = ds_coef_cr.getitemnumber(ini_grupo_uso, 'fases_usos_precio_m2')
+	dwc_imp_cr.SetItem(fila_coef, 'precio_m2',  string(precio_m2, "#,##0.00"))
+	
+	superficie = ds_coef_cr.getitemnumber(ini_grupo_uso, 'fases_usos_superficie')
+	dwc_imp_cr.SetItem(fila_coef, 'superficie', string(superficie, "#,##0.00"))
+	
+	presup = precio_m2 * superficie
+	dwc_imp_cr.SetItem(fila_coef, 'presup', string(presup, "#,##0.00"))
+	
+	// Si la superficie del trabajo es computable
+	if f_usos_tasas_totsuper(ds_coef_cr.getitemstring(ini_grupo_uso, 'fases_usos_trabajo')) = 'S' then
+		if not isnull(superficie) then superficie_total += superficie
+	end if
+	if not isnull(presup) then presup_total += presup
+	
+	presup_real = ds_coef_cr.getitemnumber(ini_grupo_uso, 'fases_usos_precio_real')
+	if en_visared then presup_real *= superficie // En SICA el campo precio_real ya se refiere realmente al presupuesto_real
+	if not isnull(presup_real) then presup_real_total += presup_real
+loop
+
+// A$$HEX1$$f100$$ENDHEX$$adimos una fila con los totales
+if dwc_imp_cr.rowcount() > 0 then
+	fila_coef = dwc_imp_cr.insertrow(0)
+	
+	dwc_imp_cr.SetItem(fila_coef, 'es_cola', 'S')
+	dwc_imp_cr.SetItem(fila_coef, 'desc_uso', "TOTAL:")
+	dwc_imp_cr.SetItem(fila_coef, 'superficie', string(superficie_total, "#,##0.00"))
+	dwc_imp_cr.SetItem(fila_coef, 'presup', string(presup_total, "#,##0.00"))
+end if
+
+
+for i = 1 to dwc_imp_cr.rowcount()
+	dwc_imp_cr.SetItem(i, 'num_colum', MAX_COLUM_COEF - primera_colum_coef)
+next
+
+dwc_imp_presup.insertrow(0)
+dwc_imp_presup.setitem(1, 'presup_real', presup_real_total)
+if presup_total > 0 then dwc_imp_presup.setitem(1, 'relac_presup', presup_real_total / presup_total - 1)
+
+
+/**** RELLENAMOS LA FICHA DE CUOTA VARIABLE ****/
+
+
+// Obtenemos la formula del c$$HEX1$$e100$$ENDHEX$$lculo de la Cuota Variable de la fase
+
+id_formula = ''
+
+// Solo funcionar$$HEX2$$e1002000$$ENDHEX$$en SICA
+// La ordenaci$$HEX1$$f300$$ENDHEX$$n por colegio descendente hace que se devuelvan antes las filas que tengan un c$$HEX1$$f300$$ENDHEX$$digo de colegio que las que no
+SELECT trabajos_formulas.formula INTO :id_formula
+	FROM trabajos_formulas, fases
+	WHERE fases.id_fase = :id_fase AND
+			trabajos_formulas.tipo_trabajo = fases.tipo_trabajo AND
+			trabajos_formulas.trabajo = fases.trabajo AND
+			(trabajos_formulas.colegio = :colegio or trabajos_formulas.colegio = '' or trabajos_formulas.colegio is null) order by trabajos_formulas.colegio desc ;
+
+if (SQLCA.SqlCode <> 0 and SQLCA.SqlCode <> 100) then
+	// Solo funcionar$$HEX2$$e1002000$$ENDHEX$$en VISARED
+	// La ordenaci$$HEX1$$f300$$ENDHEX$$n por colegio descendente hace que se devuelvan antes las filas que tengan un c$$HEX1$$f300$$ENDHEX$$digo de colegio que las que no
+	SELECT trabajos_formulas.formula INTO :id_formula
+		FROM trabajos_formulas, fases
+		WHERE fases.id_fase = :id_fase AND
+				trabajos_formulas.tipo_trabajo = fases.tipo_obra AND
+				trabajos_formulas.trabajo = fases.destino AND
+				(trabajos_formulas.colegio = :colegio or trabajos_formulas.colegio = '' or trabajos_formulas.colegio is null) order by trabajos_formulas.colegio desc ;
+end if
+
+
+// Obtenemos el importe de la Cuota Variable de la fase
+
+	// Solo funcionar$$HEX2$$e1002000$$ENDHEX$$en SICA
+  SELECT fases_informes.cuantia_colegiado,
+			fases_informes.cuantia_colegiado + fases_informes.impuesto_colegiado,
+			fases_informes.t_iva
+    INTO :cuota_visado,
+	 		:total_cuota_visado,
+			:t_iva
+    FROM fases_informes  
+   WHERE ( fases_informes.id_fase = :id_fase ) AND  
+         ( fases_informes.tipo_informe = 'CV' )   ;
+			
+if (SQLCA.SqlCode <> 0 and SQLCA.SqlCode <> 100) then
+	// Solo funcionar$$HEX2$$e1002000$$ENDHEX$$en VISARED
+  SELECT fases_gastos.importe,   
+         fases_gastos.t_iva,   
+         fases_gastos.total  
+    INTO :cuota_visado,
+	 		:t_iva,
+			:total_cuota_visado
+    FROM fases_gastos  
+   WHERE ( fases_gastos.id_fase = :id_fase ) AND  
+         ( fases_gastos.tipo_gasto = 'CV' )   ;
+end if
+
+dwc_imp_cv.insertrow(0)
+dwc_imp_cv.setitem(1, 'id_formula', id_formula)
+dwc_imp_cv.setitem(1, 'cuota_visado', cuota_visado)
+dwc_imp_cv.setitem(1, 'total_cuota_visado', total_cuota_visado)
+dwc_imp_cv.setitem(1, 't_iva', t_iva)
+
+dwc_imp_cv_coef.settransobject(SQLCA)
+dwc_imp_cv_coef.retrieve(id_fase)
+
+//TODO: Se deber$$HEX1$$ed00$$ENDHEX$$a tener en cuenta la fecha en d_cuota_variable_impresion_cv_coef. Por ahora borramos las filas repetidas resultantes de existir un coeficiente duplicado con distinta fecha.
+for i = 2 to dwc_imp_cv_coef.rowcount()
+	if dwc_imp_cv_coef.getitemstring(i, 'coeficientes_codigo') = dwc_imp_cv_coef.getitemstring(i - 1, 'coeficientes_codigo') then
+		dwc_imp_cv_coef.deleterow(i)
+		i --
+	else
+		valor_coef = dwc_imp_cv_coef.getitemstring(i, 'coeficientes_valores_valor')
+		if isnumber(valor_coef) then
+			valor_coef = string(round(double(valor_coef), 2)) // TODO: Aplicar m$$HEX1$$e100$$ENDHEX$$scara al valor
+			dwc_imp_cv_coef.setitem(i, 'coeficientes_valores_valor', valor_coef)
+		end if
+	end if
+next
+
+return ds_imp
+
+
+end function
+

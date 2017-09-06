@@ -1,0 +1,49 @@
+HA$PBExportHeader$d_colegiados_conceptos_domic_exta_factur.srd
+$PBExportComments$Permite recuperar de una factura los conceptos domiciliables que sean extras para poder borrarlos y que no vuelvan a ser facturados
+release 10.5;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes print.preview.outline=yes hidegrayline=no )
+header(height=140 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=84 color="536870912" )
+table(column=(type=char(10) update=yes updatewhereclause=yes name=conceptos_domiciliables_id_colegiado dbname="conceptos_domiciliables.id_colegiado" dbalias=".id_colegiado" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=conceptos_domiciliables_concepto dbname="conceptos_domiciliables.concepto" dbalias=".concepto" )
+ column=(type=char(2) update=yes updatewhereclause=yes name=conceptos_domiciliables_forma_de_pago dbname="conceptos_domiciliables.forma_de_pago" dbalias=".forma_de_pago" )
+ column=(type=char(20) update=yes updatewhereclause=yes name=conceptos_domiciliables_datos_bancarios dbname="conceptos_domiciliables.datos_bancarios" dbalias=".datos_bancarios" )
+ column=(type=char(50) update=yes updatewhereclause=yes name=conceptos_domiciliables_nombre_banco dbname="conceptos_domiciliables.nombre_banco" dbalias=".nombre_banco" )
+ column=(type=number update=yes updatewhereclause=yes name=conceptos_domiciliables_importe dbname="conceptos_domiciliables.importe" dbalias=".importe" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=conceptos_domiciliables_es_extra dbname="conceptos_domiciliables.es_extra" dbalias=".es_extra" )
+ column=(type=char(34) updatewhereclause=yes name=conceptos_domiciliables_datos_bancarios_iban dbname="conceptos_domiciliables.datos_bancarios_iban" dbalias=".datos_bancarios_iban" )
+ retrieve="PBSELECT( VERSION(400) TABLE(NAME=~"csi_lineas_fact_emitidas~" )  TABLE(NAME=~"conceptos_domiciliables~" ) COLUMN(NAME=~"conceptos_domiciliables.id_colegiado~") COLUMN(NAME=~"conceptos_domiciliables.concepto~") COLUMN(NAME=~"conceptos_domiciliables.forma_de_pago~") COLUMN(NAME=~"conceptos_domiciliables.datos_bancarios~") COLUMN(NAME=~"conceptos_domiciliables.nombre_banco~") COLUMN(NAME=~"conceptos_domiciliables.importe~") COLUMN(NAME=~"conceptos_domiciliables.es_extra~") COLUMN(NAME=~"conceptos_domiciliables.datos_bancarios_iban~")    JOIN (LEFT=~"csi_lineas_fact_emitidas.articulo~"    OP =~"=~"RIGHT=~"conceptos_domiciliables.concepto~" )WHERE(    EXP1 =~"conceptos_domiciliables.es_extra~"   OP =~"=~"    EXP2 =~"'S'~"    LOGIC =~"and~" ) WHERE(    EXP1 =~"csi_lineas_fact_emitidas.id_factura~"   OP =~"=~"    EXP2 =~":id_factura~"    LOGIC =~"and~" ) WHERE(    EXP1 =~"conceptos_domiciliables.id_colegiado~"   OP =~"=~"    EXP2 =~":id_colegiado~" ) ) ARG(NAME = ~"id_factura~" TYPE = string)  ARG(NAME = ~"id_colegiado~" TYPE = string) " arguments=(("id_factura", string),("id_colegiado", string)) )
+text(band=header alignment="2" text="Conceptos Domiciliables
+Id Colegiado" border="0" color="0" x="5" y="4" height="128" width="654" html.valueishtml="0"  name=conceptos_domiciliables_id_colegiado_t  tag="texto=colegiados.conceptos_dom" visible="1"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Conceptos Domiciliables
+Concepto" border="0" color="0" x="663" y="4" height="128" width="654" html.valueishtml="0"  name=conceptos_domiciliables_concepto_t  tag="texto=colegiados.con_dom_con" visible="1"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Conceptos Domiciliables
+Forma De Pago" border="0" color="0" x="1321" y="4" height="128" width="654" html.valueishtml="0"  name=conceptos_domiciliables_forma_de_pago_t visible="1"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="5" y="4" height="76" width="302" format="[general]" html.valueishtml="0"  name=conceptos_domiciliables_id_colegiado visible="1" edit.limit=10 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="663" y="4" height="76" width="302" format="[general]" html.valueishtml="0"  name=conceptos_domiciliables_concepto visible="1" edit.limit=10 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="1321" y="4" height="76" width="82" format="[general]" html.valueishtml="0"  name=conceptos_domiciliables_forma_de_pago visible="1" edit.limit=2 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Conceptos Domiciliables
+Nombre Banco" border="0" color="0" x="3602" y="4" height="128" width="1399" html.valueishtml="0"  name=conceptos_domiciliables_nombre_banco_t  tag="texto=colegiados.con_dom_importe" visible="1"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Conceptos Domiciliables
+Importe" border="0" color="0" x="5006" y="4" height="128" width="654" html.valueishtml="0"  name=conceptos_domiciliables_importe_t visible="1"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Conceptos Domiciliables
+Es Extra" border="0" color="0" x="5664" y="4" height="128" width="654" html.valueishtml="0"  name=conceptos_domiciliables_es_extra_t  tag="texto=con_dom_extra" visible="1"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="3602" y="4" height="76" width="1399" format="[general]" html.valueishtml="0"  name=conceptos_domiciliables_nombre_banco visible="1" edit.limit=50 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="1" tabsequence=32766 border="0" color="0" x="5006" y="4" height="76" width="329" format="[general]" html.valueishtml="0"  name=conceptos_domiciliables_importe visible="1" edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="0" x="5664" y="4" height="64" width="69" format="[general]" html.valueishtml="0"  name=conceptos_domiciliables_es_extra  tag=" " visible="1" edit.limit=1 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="0" tabsequence=0 border="0" color="0" x="1984" y="12" height="64" width="1600" html.valueishtml="0"  name=conceptos_domiciliables_datos_bancarios_iban visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Conceptos Domiciliables
+Datos Bancarios IBAN" border="0" color="0" x="1984" y="4" height="128" width="1600" html.valueishtml="0"  name=conceptos_domiciliables_datos_bancarios_t  tag="texto=colegiados.con_dom_datos_ban" visible="1"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" pagingmethod=0 generatedddwframes="1" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()
+ 

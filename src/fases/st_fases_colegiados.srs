@@ -1,0 +1,23 @@
+HA$PBExportHeader$st_fases_colegiados.srs
+global type st_fases_colegiados from structure
+	double		porcen_a
+	double		porcen_b
+	double		porcen_gastos
+	string		autor
+	string		director
+	string		cobertura
+	string		empresa
+	string		observaciones
+	string		facturado
+	boolean		modificado
+	string		id_col
+	string		renunciado
+	string		tipo_gestion
+	string		otro_seguro
+	double		coef_cm
+	string		c_geografico
+	string		situacion
+	string		id_empresa
+	string		id_fase
+end type
+

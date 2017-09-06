@@ -1,0 +1,17 @@
+HA$PBExportHeader$d_libros_fecha.srd
+release 7;
+datawindow(units=0 timer_interval=0 color=81324524 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=12 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=348 color="536870912" )
+table(column=(type=datetime updatewhereclause=yes name=f_prestamo dbname="f_prestamo" )
+ column=(type=datetime updatewhereclause=yes name=f_devolucion_prevista dbname="f_devolucion_prevista" )
+ )
+groupbox(band=detail text="Fecha"border="5" color="8388608" x="59" y="0" height="328" width="1193"  name=gb_1  font.face="MS Reference Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="81324524" )
+text(band=detail alignment="1" text="Pr$$HEX1$$e900$$ENDHEX$$stamo:" border="0" color="0" x="119" y="68" height="52" width="562"  name=t_1  font.face="MS Sans Serif" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text=" Prevista Devoluci$$HEX1$$f300$$ENDHEX$$n:" border="0" color="0" x="119" y="196" height="52" width="562"  name=t_2  font.face="MS Sans Serif" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=20 border="5" color="0" x="704" y="200" height="60" width="439" format="dd/mm/yyyy"  name=f_devolucion_prevista edit.limit=0 edit.case=any edit.autoselect=yes edit.nilisnull=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="5" color="0" x="704" y="68" height="60" width="439" format="dd/mm/yyyy"  name=f_prestamo edit.limit=0 edit.case=any edit.autoselect=yes edit.nilisnull=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

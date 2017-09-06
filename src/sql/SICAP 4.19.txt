@@ -1,0 +1,59 @@
+// V. 4.1.9
+// TODOS (AMPLIACION DEL CAMPO codigo y nivel_sup de la tabla T_REPAROS_FASES)
+create table dbo.t_reparos_fases_copy (codigo char(3) not null, descripcion char(255) not null, observaciones text null, impreso char(15) null, tipo char(2) not null, nivel_sup char(3) null, orden double precision null) ;
+insert into t_reparos_fases_copy select * from t_reparos_fases ;
+drop table t_reparos_fases ;
+create table t_reparos_fases (codigo char(10) not null, descripcion char(255) not null, observaciones text null, impreso char(15) null, tipo char(2) not null, nivel_sup char(10) null, orden double precision null) ;
+alter table dbo.t_reparos_fases add constraint pk_codigo primary key clustered (codigo) ;
+insert into t_reparos_fases select * from t_reparos_fases_copy ;
+
+// TODOS (AMPLIACION DEL CAMPO tipo_reparo de la tabla FASES_REPAROS)
+create table dbo.fases_reparos_2 (id_fase char(10) not null, id_reparo char(10) not null, tipo_reparo char(3) null, f_emision datetime null, f_subsanacion datetime null, texto text null, notificado char(1) null, usuario char(10) null, id_col char(10) null, email char(1) null, tipo char(2) null, telfax char(1) null, anulado char(1) null) ;
+insert into fases_reparos_2 select * from fases_reparos ;
+drop table fases_reparos;
+create table dbo.fases_reparos (id_fase char(10) not null, id_reparo char(10) not null, tipo_reparo char(10) null, f_emision datetime null, f_subsanacion datetime null, texto text null, notificado char(1) null, usuario char(10) null, id_col char(10) null, email char(1) null, tipo char(2) null, telfax char(1) null, anulado char(1) null) ;
+alter table dbo.fases_reparos add constraint fases_reparos primary key nonclustered (id_fase, id_reparo) ;
+create unique nonclustered index id_reparo on dbo.fases_reparos (id_reparo ) ;
+create nonclustered index id_col on dbo.fases_reparos (id_col ) ;
+create nonclustered index id_fase on dbo.fases_reparos (id_fase ) ;
+insert into fases_reparos select * from fases_reparos_2 ;
+
+// TODOS (AMPLIACION DEL CAMPO codigo_reparo de la tabla REPAROS_FICHA_LINEA)
+create table dbo.reparos_ficha_linea_2 (id_reparo_linea char(10) not null, id_reparo_ficha char(10) not null, codigo_reparo char(3) null, f_subsanacion datetime null, subsanado char(1) null, texto text null, observaciones text null) ;
+insert into reparos_ficha_linea_2 select * from reparos_ficha_linea ;
+drop table reparos_ficha_linea;
+create table dbo.reparos_ficha_linea (id_reparo_linea char(10) not null, id_reparo_ficha char(10) not null, codigo_reparo char(10) null, f_subsanacion datetime null, subsanado char(1) null, texto text null, observaciones text null) ;
+insert into reparos_ficha_linea select * from reparos_ficha_linea_2 ;
+alter table dbo.reparos_ficha_linea add constraint id_reparo_linea primary key nonclustered (id_reparo_linea) ;
+
+//TODOS
+// Se agrega campo titulación INC CGN-140
+alter table fases_arquitectos add titulacion char(3) null;
+
+CREATE TABLE titulaciones (codigo VARCHAR(3), descripcion VARCHAR(100)) ;
+CREATE UNIQUE INDEX codigo_x ON titulaciones (codigo) ;
+
+// TODOS (TABLA DE REPOSICIONES)
+create table dbo.fases_reposiciones (id_reposicion char(10) not null, id_fases_colegiado char(10) not null, n_reposicion char(15) null, id_renuncia char(10) null, f_reposicion datetime null, porcentaje double precision null) ;
+alter table dbo.fases_reposiciones add constraint pk_id_rep primary key nonclustered (id_reposicion) ;
+
+// COAAT CACERES
+insert into contadores (contador,valor,descripcion,modificable) values ('ID_REPOSICION',0,'Identificador de la Reposición','N');
+insert into contadores (contador,valor,descripcion,modificable) values ('N_REPOS_CC',0,'Nº de la Reposición Caceres','N');
+insert into contadores (contador,valor,descripcion,modificable) values ('N_REPOS_PL',0,'Nº de la Reposición Plasencia','N');
+insert into contadores (contador,valor,descripcion,modificable) values ('NUM_FICHA_REPARO',0,'Nº Ficha Reparo','N');
+insert into contadores (contador,valor,descripcion,modificable) values ('ID_FASE_RETIRADA',0,'Identificador de fases_retirada_docum','N');
+insert into registro_series(codigo,descripcion,cod_delegacion,contador,tipo,tiene_carpeta_final)
+values ('INC','Cartas de Reparos','01',0,'S','N');
+insert into registro_series(codigo,descripcion,cod_delegacion,contador,tipo,tiene_carpeta_final)
+values ('INC','Cartas de Reparos','02',0,'S','N');
+insert into registro_series(codigo,descripcion,cod_delegacion,contador,tipo,bandeja)
+values ('RENUNCIA','Cartas de Renuncias','01',0,'S','0');
+insert into registro_series(codigo,descripcion,cod_delegacion,contador,tipo,bandeja)
+values ('RENUNCIA','Cartas Renuncias','02',0,'S','0');
+INSERT INTO t_control_eventos  
+( control,   evento,   activo,   param1,   param2,   id_control,   orden,   param3,   mensaje )  
+VALUES ( 'AVISO_IMPAGO',  'FASES_COLEGIADOS_NCO',   'S',   null,   null,   'CCIMPAGO',   '25',   null,   null )  ;
+INSERT INTO var_globales  
+( nombre,   numero,   sn,   texto,   fecha,   descripcion,   ambito,   modificable )  
+VALUES ( 'g_ca_info',   1.25,   null,   null,   null,   'Coeficiente Ca a nivel informativo para el cálculo de honorarios orientativos',   null,   null )  ;

@@ -1,0 +1,11 @@
+HA$PBExportHeader$f_dame_ciudad.srf
+global type f_dame_ciudad from function_object
+end type
+
+forward prototypes
+global function string f_dame_ciudad ()
+end prototypes
+
+global function string f_dame_ciudad ();return g_col_ciudad
+end function
+

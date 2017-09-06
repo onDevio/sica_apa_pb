@@ -1,0 +1,103 @@
+HA$PBExportHeader$d_colegiado_listado_sit_resumen.srd
+release 10.5;
+datawindow(units=0 timer_interval=0 color=1073741824 processing=0 HTMLDW=no print.printername="" print.documentname="" print.orientation = 1 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes print.preview.outline=yes hidegrayline=no )
+header(height=432 color="536870912" )
+summary(height=80 color="536870912" )
+footer(height=120 color="536870912" )
+detail(height=0 color="536870912" )
+table(column=(type=char(15) updatewhereclause=yes name=csi_facturas_emitidas_n_fact dbname="csi_facturas_emitidas.n_fact" dbalias=".n_fact" )
+ column=(type=datetime updatewhereclause=yes name=csi_facturas_emitidas_fecha dbname="csi_facturas_emitidas.fecha" dbalias=".fecha" )
+ column=(type=char(15) updatewhereclause=yes name=csi_facturas_emitidas_n_col dbname="csi_facturas_emitidas.n_col" dbalias=".n_col" )
+ column=(type=char(40) updatewhereclause=yes name=csi_lineas_fact_emitidas_descripcion dbname="csi_lineas_fact_emitidas.descripcion" dbalias=".descripcion" )
+ column=(type=char(32768) updatewhereclause=no name=csi_articulos_servicios_descripcion dbname="csi_articulos_servicios.descripcion" dbalias=".descripcion" )
+ column=(type=char(2) updatewhereclause=yes name=familia dbname="csi_articulos_servicios.familia" dbalias=".familia" )
+ column=(type=char(10) updatewhereclause=yes name=articulo dbname="csi_lineas_fact_emitidas.articulo" dbalias=".articulo" )
+ column=(type=char(15) updatewhereclause=yes name=colegiados_n_colegiado dbname="colegiados.n_colegiado" dbalias=".n_colegiado" )
+ column=(type=char(80) updatewhereclause=yes name=colegiados_apellidos dbname="colegiados.apellidos" dbalias=".apellidos" )
+ column=(type=char(50) updatewhereclause=yes name=colegiados_nombre dbname="colegiados.nombre" dbalias=".nombre" )
+ column=(type=char(1) updatewhereclause=yes name=cuota_colegial dbname="cuota_colegial" )
+ column=(type=char(1) updatewhereclause=yes name=prima_fija dbname="prima_fija" )
+ column=(type=char(1) updatewhereclause=yes name=prima_fija_plazo1 dbname="prima_fija_plazo1" )
+ column=(type=char(1) updatewhereclause=yes name=prima_complementaria dbname="prima_complementaria" )
+ column=(type=char(1) updatewhereclause=yes name=cip dbname="cip" )
+ column=(type=char(1) updatewhereclause=yes name=cvv dbname="cvv" )
+ column=(type=char(1) updatewhereclause=yes name=prima_fija_plazo2 dbname="prima_fija_plazo2" )
+ column=(type=number updatewhereclause=yes name=total_linea dbname="csi_lineas_fact_emitidas.total" dbalias=".total" )
+ retrieve="  SELECT csi_facturas_emitidas.n_fact,   
+         csi_facturas_emitidas.fecha,   
+         csi_facturas_emitidas.n_col,   
+         csi_lineas_fact_emitidas.descripcion,   
+         csi_articulos_servicios.descripcion,   
+         csi_articulos_servicios.familia,   
+         csi_lineas_fact_emitidas.articulo,   
+         colegiados.n_colegiado,   
+         colegiados.apellidos,   
+         colegiados.nombre,   
+         '' as cuota_colegial,   
+         '' as prima_fija,   
+         '' as prima_fija_plazo1,   
+         '' as prima_complementaria,   
+         '' as cip,   
+         '' as cvv,   
+         '' as prima_fija_plazo2,   
+         csi_lineas_fact_emitidas.total  
+    FROM csi_articulos_servicios,   
+         csi_facturas_emitidas,   
+         csi_lineas_fact_emitidas,   
+         colegiados  
+   WHERE ( csi_facturas_emitidas.id_factura = csi_lineas_fact_emitidas.id_factura ) and  
+         ( csi_articulos_servicios.codigo = csi_lineas_fact_emitidas.articulo ) and  
+         ( colegiados.n_colegiado = csi_facturas_emitidas.n_col )   AND  
+        	( csi_facturas_emitidas.proforma = 'N' )
+"  sort="colegiados_n_colegiado A " )
+group(level=1 header.height=84 trailer.height=0 by=("colegiados_n_colegiado" ) header.color="536870912" trailer.color="536870912" )
+compute(band=header alignment="2" expression="f_poner_logo_listados_inferior (   )"border="0" color="16777215" x="0" y="68" height="52" width="434" format="[general]" html.valueishtml="0"  name=compute_6 visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15780518" )
+compute(band=header alignment="2" expression="f_poner_logo_listados_superior (   )"border="0" color="16777215" x="0" y="12" height="52" width="434" format="[general]" html.valueishtml="0"  name=compute_7 visible="1"  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15780518" )
+text(band=header alignment="0" text="" border="0" color="0" x="9" y="140" height="56" width="1111" html.valueishtml="0"  name=t_parametros visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="1" text="Cuota Colegial" border="0" color="0" x="1321" y="364" height="56" width="389" html.valueishtml="0"  name=t_11 visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Colegiado" border="0" color="0" x="50" y="356" height="56" width="626" html.valueishtml="0"  name=t_9 visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="1" text="Total" border="0" color="0" x="4261" y="364" height="56" width="398" html.valueishtml="0"  name=t_12 visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Listado Situaci$$HEX1$$f300$$ENDHEX$$n Econ$$HEX1$$f300$$ENDHEX$$mica Colegial" border="0" color="0" x="1481" y="32" height="120" width="2062" html.valueishtml="0"  name=st_titulo_listado visible="1"  font.face="Arial" font.height="-18" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="" border="0" color="0" x="1481" y="168" height="56" width="2062" html.valueishtml="0"  name=t_fecha visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="" border="0" color="0" x="1481" y="236" height="56" width="2062" html.valueishtml="0"  name=t_seleccion visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=header alignment="0" expression="sum(cc for group 1)"border="0" color="33554432" x="2194" y="480" height="56" width="183" format="[GENERAL]" html.valueishtml="0"  name=compute_13 visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+text(band=header alignment="1" text="Premaat" border="0" color="0" x="1742" y="364" height="56" width="389" html.valueishtml="0"  name=t_1 visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="1" text="Prima Fija" border="0" color="0" x="2162" y="364" height="56" width="389" html.valueishtml="0"  name=t_2 visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="1" text="P.Complement." border="0" color="0" x="2583" y="364" height="56" width="389" html.valueishtml="0"  name=t_3 visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="1" text="C. Intervenci$$HEX1$$f300$$ENDHEX$$n" border="0" color="0" x="3003" y="364" height="56" width="389" html.valueishtml="0"  name=t_4 visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="1" text="C.C. Visado" border="0" color="0" x="3424" y="364" height="56" width="393" html.valueishtml="0"  name=t_5 visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="1" text="Varios" border="0" color="0" x="3849" y="364" height="56" width="389" html.valueishtml="0"  name=t_6 visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=header.1 alignment="0" expression="colegiados_n_colegiado + ' - ' +  if(isnull( colegiados_apellidos )or  colegiados_apellidos ='',  colegiados_nombre , colegiados_apellidos + ' ' +  colegiados_nombre  )"border="0" color="33554432" x="37" y="12" height="60" width="1266" format="[GENERAL]" html.valueishtml="0"  name=compute_5 visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+compute(band=header.1 alignment="1" expression="sum(cc for group 1)"border="0" color="33554432" x="1335" y="12" height="60" width="375" format="#,##0.00" html.valueishtml="0"  name=cc_col visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+compute(band=header.1 alignment="1" expression="sum(pr for group 1)"border="0" color="33554432" x="1742" y="12" height="60" width="389" format="#,##0.00" html.valueishtml="0"  name=pr_col visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+compute(band=header.1 alignment="1" expression="cc_col+pr_col+pf_col+pc_col+cip_col+ccv_col+varios_col"border="0" color="33554432" x="4265" y="12" height="60" width="389" format="#,##0.00" html.valueishtml="0"  name=compute_18 visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+compute(band=header.1 alignment="1" expression="sum(pf for group 1)"border="0" color="33554432" x="2162" y="12" height="60" width="389" format="#,##0.00" html.valueishtml="0"  name=pf_col visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+compute(band=header.1 alignment="1" expression="sum(pc for group 1)"border="0" color="33554432" x="2583" y="12" height="60" width="389" format="#,##0.00" html.valueishtml="0"  name=pc_col visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+compute(band=header.1 alignment="1" expression="sum(cip2 for group 1)"border="0" color="33554432" x="3003" y="12" height="60" width="389" format="#,##0.00" html.valueishtml="0"  name=cip_col visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+compute(band=header.1 alignment="1" expression="sum(ccv2 for group 1)"border="0" color="33554432" x="3424" y="12" height="60" width="389" format="#,##0.00" html.valueishtml="0"  name=ccv_col visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+compute(band=header.1 alignment="1" expression="sum(varios for group 1)"border="0" color="33554432" x="3849" y="12" height="60" width="389" format="#,##0.00" html.valueishtml="0"  name=varios_col visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="0" color="33554432" x="32" y="8" height="56" width="183" format="[general]" html.valueishtml="0"  name=familia visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="33554432" x="238" y="12" height="56" width="347" format="[general]" html.valueishtml="0"  name=articulo visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+column(band=detail id=18 alignment="0" tabsequence=32766 border="0" color="33554432" x="4169" y="12" height="56" width="443" format="[general]" html.valueishtml="0"  name=total_linea visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+compute(band=detail alignment="0" expression=" if( familia='03',total_linea,0) "border="0" color="33554432" x="1353" y="12" height="56" width="183" format="[GENERAL]" html.valueishtml="0"  name=cc visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+compute(band=detail alignment="0" expression=" if( familia='02',total_linea,0) "border="0" color="33554432" x="1824" y="20" height="56" width="183" format="[GENERAL]" html.valueishtml="0"  name=pr visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+compute(band=detail alignment="0" expression="if(  articulo ='102' or articulo ='103' or articulo ='104',total_linea,0)"border="0" color="33554432" x="2286" y="20" height="56" width="183" format="[GENERAL]" html.valueishtml="0"  name=pf visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+compute(band=detail alignment="0" expression="if(  articulo ='12' ,total_linea,0)"border="0" color="33554432" x="2569" y="24" height="56" width="183" format="[GENERAL]" html.valueishtml="0"  name=pc visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+compute(band=detail alignment="0" expression="if(  articulo ='05' or articulo ='43',total_linea,0)"border="0" color="33554432" x="2999" y="12" height="56" width="183" format="[GENERAL]" html.valueishtml="0"  name=cip2 visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+compute(band=detail alignment="0" expression="if(  articulo ='02' ,total_linea,0)"border="0" color="33554432" x="3474" y="20" height="56" width="183" format="[GENERAL]" html.valueishtml="0"  name=ccv2 visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+compute(band=detail alignment="0" expression="if(  articulo <>'15' and articulo <>'02' and  articulo <>'05' and articulo <>'43' and (IsNull(familia) or (familia<>'02' and familia<>'01' and familia<>'03')),total_linea,0)"border="0" color="33554432" x="3904" y="8" height="56" width="183" format="[GENERAL]" html.valueishtml="0"  name=varios visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+text(band=summary alignment="1" text="Total Morosidad:" border="0" color="0" x="37" y="12" height="60" width="1266" html.valueishtml="0"  name=t_7 visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=footer alignment="0" text="Fecha:" border="0" color="0" x="27" y="52" height="56" width="151" html.valueishtml="0"  name=t_28 visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=footer alignment="0" expression="datetime(today(),now())"border="0" color="33554432" x="197" y="52" height="56" width="718" format="[SHORTDATE] [TIME]" html.valueishtml="0"  name=compute_8 visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+compute(band=footer alignment="1" expression="'P$$HEX1$$e100$$ENDHEX$$gina: ' + page() + ' de ' + pageCount()"border="0" color="33554432" x="2190" y="52" height="56" width="1115" format="[GENERAL]" html.valueishtml="0"  name=compute_9 visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" pagingmethod=0 generatedddwframes="1" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()
+ 

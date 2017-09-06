@@ -1,0 +1,9 @@
+HA$PBExportHeader$st_datos_superficie.srs
+global type st_datos_superficie from structure
+	double		sup_viv
+	double		sup_gar
+	double		sup_otros
+	double		sup_sob
+	double		sup_baj
+end type
+

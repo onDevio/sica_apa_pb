@@ -1,0 +1,36 @@
+HA$PBExportHeader$f_obtener_claves_publicas.srf
+global type f_obtener_claves_publicas from function_object
+end type
+
+forward prototypes
+global function string f_obtener_claves_publicas (string id_fase)
+end prototypes
+
+global function string f_obtener_claves_publicas (string id_fase);long i
+string res='',clave,id_col
+datastore ds_colegiados
+
+ds_colegiados=create datastore
+ds_colegiados.DataObject='d_fases_colegiados'
+ds_colegiados.SetTransObject(SQLCA)
+ds_colegiados.retrieve(id_fase)
+
+
+
+for i=1 to ds_colegiados.rowcount()
+	if ds_colegiados.GetItemString(i,'tipo_a')<>'S' then continue
+	id_col=ds_colegiados.GetItemString(i,'id_col')
+	select ruta into :clave from fotos_firmas_colegiados where tipo='C' and id_colegiado=:id_col;
+	if not(f_es_vacio(clave)) then
+		if f_es_vacio(res) then 
+			res+=clave
+		else
+			res+=','+clave
+		end if
+	end if
+next
+
+return res
+
+end function
+

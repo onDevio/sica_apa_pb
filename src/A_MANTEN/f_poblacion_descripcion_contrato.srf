@@ -1,0 +1,21 @@
+HA$PBExportHeader$f_poblacion_descripcion_contrato.srf
+global type f_poblacion_descripcion_contrato from function_object
+end type
+
+forward prototypes
+global function string f_poblacion_descripcion_contrato (string cod_pob)
+end prototypes
+
+global function string f_poblacion_descripcion_contrato (string cod_pob);string descrip, mopu
+
+select descripcion, pob_mopu 
+into :descrip, :mopu
+from poblaciones 
+where cod_pob = :cod_pob;
+
+if not isnull(mopu) and mopu<>'' then descrip += ' (' + mopu + ')'
+
+return descrip
+
+end function
+

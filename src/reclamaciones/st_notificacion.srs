@@ -1,0 +1,28 @@
+HA$PBExportHeader$st_notificacion.srs
+global type st_notificacion from structure
+	string		dataobject
+	string		n_expedi
+	string		n_registro
+	string		emplazamiento
+	string		fase
+	string		descripcion
+	datetime		f_entrada
+	string		clientes
+	datetime		fecha
+	string		destinatario
+	string		tipo_destinatario
+	string		direccion
+	string		poblacion
+	string		colegiados
+	string		fecn
+	string		texto1
+	string		texto2
+	string		texto3
+	string		ciudad
+	double		importe
+	datastore		detalle
+	string		id_fase
+	string		t_iva
+	string		comunicado
+end type
+

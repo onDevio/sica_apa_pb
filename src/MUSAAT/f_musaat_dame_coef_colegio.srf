@@ -1,0 +1,27 @@
+HA$PBExportHeader$f_musaat_dame_coef_colegio.srf
+global type f_musaat_dame_coef_colegio from function_object
+end type
+
+forward prototypes
+global function double f_musaat_dame_coef_colegio (string as_cod_colegio)
+end prototypes
+
+global function double f_musaat_dame_coef_colegio (string as_cod_colegio);
+
+double ld_coef
+
+Select musaat_coef_malus into :ld_coef
+from colegios where cod_colegio = :as_cod_colegio;
+
+if isnull(ld_coef) or ld_coef=0 then 
+	if isnull(g_col_coef_musaat) then	
+		return 1
+	else
+		return g_col_coef_musaat
+	end if
+else
+	return ld_coef
+end if
+
+end function
+

@@ -1,0 +1,20 @@
+HA$PBExportHeader$f_obtener_empresa_factura.srf
+global type f_obtener_empresa_factura from function_object
+end type
+
+forward prototypes
+global function string f_obtener_empresa_factura (string as_id_factura)
+end prototypes
+
+global function string f_obtener_empresa_factura (string as_id_factura);
+string  ls_cod_empresa
+
+select empresa into :ls_cod_empresa from csi_facturas_emitidas where id_factura = :as_id_factura;
+
+if f_es_vacio(ls_cod_empresa) then
+	ls_cod_empresa = g_empresa
+end if 
+
+return ls_cod_empresa
+end function
+

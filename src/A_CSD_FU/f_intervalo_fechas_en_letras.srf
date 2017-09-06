@@ -1,0 +1,67 @@
+HA$PBExportHeader$f_intervalo_fechas_en_letras.srf
+global type f_intervalo_fechas_en_letras from function_object
+end type
+
+forward prototypes
+global function string f_intervalo_fechas_en_letras (datetime fecha_ini, datetime fecha_fin)
+end prototypes
+
+global function string f_intervalo_fechas_en_letras (datetime fecha_ini, datetime fecha_fin);/*
+	Dadas dos fechas devuelve una cadena del tipo "Del 1 de febrero al 3 de marzo de 2005" 
+	Tiene en cuenta todos los casos posibles
+	Depende de: f_obtener_mes
+	
+	Andr$$HEX1$$e900$$ENDHEX$$s 17/2/2005
+*/
+
+string ls_retorno
+string ls_dia_ini,ls_dia_fin,ls_mes_ini,ls_mes_fin,ls_anyo_ini,ls_anyo_fin
+boolean lb_mes_igual=false,lb_anyo_igual=false//,lb_dia_igual=false
+
+//desgajamos las fechas
+ls_dia_ini=string(day(date(fecha_ini)))
+ls_dia_fin=string(day(date(fecha_fin)))
+
+ls_mes_ini=lower(f_obtener_mes(fecha_ini))
+ls_mes_fin=lower(f_obtener_mes(fecha_fin))
+ls_anyo_ini=string(year(date(fecha_ini)))
+ls_anyo_fin=string(year(date(fecha_fin)))
+
+if ls_mes_ini=ls_mes_fin then
+	lb_mes_igual=true
+end if
+
+if ls_anyo_ini=ls_anyo_fin then
+	lb_anyo_igual=true
+end if
+
+/*if ls_dia_ini=ls_dia_fin then
+	lb_dia_igual=true
+end if*/
+
+//Si las fechas son iguales devolvemos ya
+if fecha_ini=fecha_fin then
+	return ls_dia_ini +' de '+ls_mes_ini +' de '+ls_anyo_ini
+end if
+
+ls_retorno='Del '+ls_dia_ini+' '
+
+if lb_mes_igual=false then
+	ls_retorno+='de '+ls_mes_ini+' '
+end if 
+
+if lb_anyo_igual=false then
+   if lb_mes_igual=false then
+		ls_retorno+='de '+ls_anyo_ini+' ' 
+	else
+		ls_retorno+='de '+ls_mes_ini+' '+'de '+ls_anyo_ini+' ' 
+	end if
+end if
+
+ls_retorno+='al '+ls_dia_fin+' de '+ls_mes_fin+' de '+ls_anyo_fin
+
+return ls_retorno
+
+
+end function
+

@@ -1,0 +1,97 @@
+HA$PBExportHeader$f_calcular_cip_teb.srf
+global type f_calcular_cip_teb from function_object
+end type
+
+forward prototypes
+global function integer f_calcular_cip_teb (ref st_cip_datos st_cip_datos)
+end prototypes
+
+global function integer f_calcular_cip_teb (ref st_cip_datos st_cip_datos);string TipoAct,TipoObra,TipoDest,administracion,id_fase,tipo_gestion
+string formula,desarrollo
+double sup,porcentaje
+double coef_reduc,coef_reduc_tipoob,coef_reduc_tipodest,dip_min,dip_max,importe_base,dip_base
+double sup_viviendas,sup_otros,sup_garajes
+boolean aplica_minimo=false
+
+TipoAct = st_cip_datos.tipo_act
+TipoObra = st_cip_datos.tipo_obra
+TipoDest = st_cip_datos.destino
+administracion = st_cip_datos.admon
+sup_otros=st_cip_datos.sup_otros
+sup_viviendas=st_cip_datos.sup_viviendas
+if IsNull(sup_otros) then sup_otros=0
+if IsNull(sup_viviendas) then sup_viviendas=0
+sup =sup_viviendas + sup_otros
+porcentaje = st_cip_datos.porcentaje
+id_fase = st_cip_datos.id_fase
+tipo_gestion = st_cip_datos.tipo_gestion
+
+select coef_reduc,dip_min,dip_max into :coef_reduc,:dip_min,:dip_max from coaatteb_coef_tipo_act where tipo_act=:TipoAct;
+
+if dip_min=dip_max then
+	importe_base=dip_max
+	formula = ' Taxa Fixa x % Participaci$$HEX1$$f300$$ENDHEX$$'
+	desarrollo = '( ' + string(importe_base, '###,###,##0.00') + ' x ' + string(porcentaje, '##0.00')+ '% ) '
+	st_cip_datos.cip=f_redondea(importe_base)
+	st_cip_datos.formula=formula
+	st_cip_datos.desarrollo=desarrollo
+	
+	return 0
+end if
+
+select dip_base into :dip_base from coaatteb_dip where sup_desde<:sup and sup_hasta>=:sup;
+
+importe_base=dip_base * coef_reduc
+
+select coef_reduc into :coef_reduc_tipoob from coaatteb_coef_tipo_obra  where tipo_obra=:TipoObra;
+if IsNull(coef_reduc_tipoob) or coef_reduc_tipoob=0 then coef_reduc_tipoob=1
+importe_base=importe_base*coef_reduc_tipoob
+
+select coef_reduc into :coef_reduc_tipodest from coaatteb_coef_tipo_dest  where tipo_dest=:TipoDest;
+if IsNull(coef_reduc_tipodest) or coef_reduc_tipodest=0 then coef_reduc_tipodest=1
+importe_base=importe_base*coef_reduc_tipodest
+
+
+
+
+formula = '( DIP base x Coef T.Act x Coef.T.Obra x Coef.Dest '
+desarrollo = '( ' + string(dip_base, '###,###,##0.00') + ' x ' + string(coef_reduc, '###,###,##0.00') + ' x ' + string(coef_reduc_tipoob, '###,###,##0.00')+ &
+		' x ' + string(coef_reduc_tipodest, '###,###,##0.00')
+
+// Obras de la administracion 50%
+if administracion='S' then 
+	importe_base=importe_base * 0.5
+	formula+= ' x % Obra Administraci$$HEX1$$f300$$ENDHEX$$'
+	desarrollo+= ' x 50%'
+end if
+
+// Aplicaci$$HEX1$$f300$$ENDHEX$$n de los porcentajes de participaci$$HEX1$$f300$$ENDHEX$$n
+importe_base=importe_base*porcentaje / 100
+if importe_base<dip_min then 
+	aplica_minimo=true
+	importe_base=dip_min
+	formula = '( minim '
+	desarrollo =  '( ' + string(importe_base, '###,###,##0.00')
+end if
+
+// Incrementamos 18$$HEX2$$ac202000$$ENDHEX$$si es con gestion de cobro
+if tipo_gestion='C' then 
+	importe_base+=6
+	formula+= ' + Taxa Gesti$$HEX1$$f300$$ENDHEX$$'
+	desarrollo+= ' + 6'
+end if
+	
+if aplica_minimo then
+	desarrollo+=  ' )'
+	formula+= ' )'	
+else
+	desarrollo+=  ' ) x '+string(porcentaje, '##0.00')	+'%'
+	formula+= ' ) x % Participaci$$HEX1$$f300$$ENDHEX$$'
+end if
+
+st_cip_datos.cip=f_redondea(importe_base)
+st_cip_datos.formula=formula
+st_cip_datos.desarrollo=desarrollo
+return 0
+end function
+

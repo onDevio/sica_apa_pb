@@ -1,0 +1,18 @@
+HA$PBExportHeader$st_busqueda_facturas.srs
+global type st_busqueda_facturas from structure
+	string		n_fact
+	string		nif
+	string		nombre
+	string		id_factura
+	string		n_aviso
+	double		base_imp
+	double		iva
+	double		total
+	boolean		solo_actualiza_tablas
+	string		id_pago
+	string		agregar_datos
+	string		id_cobro_multiple
+	string		fact_contabilizada
+	string		cobro_contabilizado
+end type
+

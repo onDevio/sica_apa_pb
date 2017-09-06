@@ -1,0 +1,48 @@
+HA$PBExportHeader$f_conexion.srf
+$PBExportComments$Permite crear una nueva conexion existente en el ini!
+global type f_conexion from function_object
+end type
+
+forward prototypes
+global function integer f_conexion (string fichero, string seccion, ref transaction transaccion, boolean hablador)
+end prototypes
+
+global function integer f_conexion (string fichero, string seccion, ref transaction transaccion, boolean hablador);string autocommit,DBParm,mensaje
+
+ 
+// Obtenemos los par$$HEX1$$e100$$ENDHEX$$metros desde el fichero indicado
+autocommit = ProfileString(fichero,seccion,"AutoCommit","")
+DBParm = ProfileString(fichero,seccion,"DBParm","")
+transaccion.database=ProfileString(fichero,seccion,"Database","")
+transaccion.servername=ProfileString(fichero,seccion,"ServerName","")
+transaccion.DBMS = ProfileString(fichero,seccion,"DBMS","")
+
+
+
+// Establecemos los par$$HEX1$$e100$$ENDHEX$$metros
+IF autocommit = 'False' THEN
+	transaccion.autocommit = false
+ELSE
+	transaccion.autocommit = true
+END IF
+transaccion.DBParm = DBParm
+
+// Nos conectamos con la BD
+connect using transaccion ;
+
+
+
+if transaccion.sqlcode<>0 THEN
+	// Si queremos que saque el error lo mostramos
+	IF hablador THEN
+		mensaje = 'Error en la conexi$$HEX1$$f300$$ENDHEX$$n con la base de datos'
+		if g_usar_idioma = "S" then
+			mensaje = g_idioma.of_getmsg("general.error_conexion",mensaje)
+		end if
+		MessageBox(g_titulo, mensaje, StopSign!)
+	END IF
+	return -1
+END IF
+return 1
+end function
+

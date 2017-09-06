@@ -1,0 +1,2 @@
+Si se produce errores errores en la carga por BCP puede que al comprimir los ficheros con los datos se pierda información como los finales de linea.
+No comprimir

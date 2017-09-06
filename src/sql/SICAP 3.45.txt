@@ -1,0 +1,58 @@
+// V. 3.4.5
+
+// Visibles sólo para el COAATA
+INSERT INTO menu  
+( codigo, descripcion, objeto, visible, enabled, ventana, activo )  
+VALUES ( '0000000184', 'Cartas Control', 'm_aplic_frame.m_file.m_new.m_fases.m_cartascontrol', '0', '0', '', 'S')  ;
+
+INSERT INTO menu  
+( codigo, descripcion, objeto, visible, enabled, ventana, activo )  
+VALUES ( '0000000185', 'Importación Recibos Externos', 'm_aplic_frame.m_file.m_new.m_contabilidad0.m_importacionrecibosexternos', '0', '0', '', 'S')  ;
+
+INSERT INTO menu  
+( codigo, descripcion, objeto, visible, enabled, ventana, activo )  
+VALUES ( '0000000186', 'Importación Conceptos Facturables', 'm_aplic_frame.m_file.m_new.m_contabilidad0.m_importacionconceptosfacturables', '0', '0', '', 'S')  ;
+
+INSERT INTO menu  
+( codigo, descripcion, objeto, visible, enabled, ventana, activo )  
+VALUES ( '0000000187', 'Coeficiente IPC', 'm_aplic_frame.m_file.m_open.m_contabilidad.m_coeficienteipc', '0', '0', '', 'S')  ;
+
+// INC. 6963
+alter table bt_demandas add curriculum char (255) null;
+// Añadir en el INI
+[Bolsa Trabajo]
+g_directorio_bt=<RUTA BOLSA TRABAJO>
+
+// TODOS - INC. 6812
+INSERT INTO listados  
+( descripcion,   dw,   ventana,   orden,   activo )  
+VALUES ( "Diario de Facturación por Concepto Desglosado", "d_factu_e_listado_articulos_desglosado", "w_facturacion_emitida_listados", "00", "S" )  ;
+
+update listados
+set descripcion = "Diario de Facturación por Concepto"
+where descripcion = "Diario de Facturación por Caja" ;
+
+// COAATBU
+INSERT INTO t_control_eventos 
+( control, evento, activo, param1, param2, id_control, orden,
+param3, mensaje ) 
+VALUES ( 'AVISO_REPAROS', 'ABRIR_FASE', 'S', 'csd_reparos_pendientes', null, 'REPAROSPTES',
+null, null, null ) ;
+
+// COAATGC 
+update listados set dw = 'd_demandas_listados_colegiados_gc' where dw = 'd_demandas_listados_colegiados' ;
+update listados set dw = 'd_colegiados_listado_orientac_prof_gc' where dw = 'd_colegiados_listado_orientaciones_prof' ;
+
+// TODOS
+INSERT INTO listados  
+( descripcion,   dw,   ventana,   orden,   activo )  
+VALUES ( "Listado de Cesión de Datos", "d_colegiados_listado_cesion_datos", "w_colegiados_listados", "00", "S" )  ;
+
+// COAATGC, COAATA
+INSERT INTO t_control_eventos  
+( control, evento, activo, param1, id_control)  
+VALUES ( 'FINALIZAR_OBRA', 'FINALIZAR_OBRA', 'S', '01,02,03,04,05,11,12,13,14,15,16,17,53', 'FINALOBRA' )  ;
+
+// TODOS
+update consultas set ventana = 'w_proconta_facturas_contabiliza' 
+where ventana = 'w_proconta_facturas_contabiliza_lr' ;

@@ -1,0 +1,44 @@
+HA$PBExportHeader$f_minutas_info_honos.srf
+global type f_minutas_info_honos from function_object
+end type
+
+forward prototypes
+global function string f_minutas_info_honos (string id_fase, string id_col)
+end prototypes
+
+global function string f_minutas_info_honos (string id_fase, string id_col);double pem = 0, porc_pem = 0, honos = 0
+double porc_col = 0, porc_col_total = 0, porc_col_real = 0
+string buffer = ''
+
+SELECT fases.porc_honorarios, fases.honorarios  
+INTO :porc_pem, :honos  
+FROM fases  
+where fases.id_fase = :id_fase   ;
+
+SELECT pem  
+INTO :pem  
+FROM fases_usos
+WHERE fases_usos.id_fase = :id_fase   ;
+
+SELECT fases_colegiados.porcen_a  
+INTO :porc_col  
+FROM fases_colegiados  
+WHERE fases_colegiados.id_fase = :id_fase and fases_colegiados.id_col = :id_col  ;
+
+SELECT sum(fases_colegiados.porcen_a  )
+INTO :porc_col_total  
+FROM fases_colegiados  
+WHERE fases_colegiados.id_fase = :id_fase   ;
+
+porc_col_real = porc_col /  porc_col_total 
+	
+if isnull(porc_pem) or porc_pem = 0 then
+	buffer = 'HONORARIOS TOTALES: ' + string(honos * porc_col_real ,'###,###,###,##0.00') + '.-'
+else
+	buffer = 'HONORARIOS TOTALES: ' + string(pem,'###,###,###,##0.00') + ' x ' + string(porc_pem, '###,###,###,##0.00') + '% ' +  string(porc_col_real * 100, '###,###,###,##0.00') + '% = '+ String(honos * porc_col_real,'###,###,###,##0.00') + '.-'
+end if
+	
+
+Return buffer
+end function
+

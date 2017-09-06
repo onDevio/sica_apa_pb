@@ -1,0 +1,44 @@
+HA$PBExportHeader$f_recuperar_consulta_ventana.srf
+global type f_recuperar_consulta_ventana from function_object
+end type
+
+forward prototypes
+global subroutine f_recuperar_consulta_ventana (window ventana, string nombre_ventana, string nombre_consulta)
+end prototypes
+
+global subroutine f_recuperar_consulta_ventana (window ventana, string nombre_ventana, string nombre_consulta);/* El par$$HEX1$$e100$$ENDHEX$$metro nombre_ventana es opcional y se usa cuando se quiere cargar sobre una ventana una consulta
+de otra. T$$HEX1$$ed00$$ENDHEX$$picamente, en las ventana de listado interesa poder cargar la consulta de la ventana de consulta
+del mismo m$$HEX1$$f300$$ENDHEX$$dulo. */
+
+long i,j,k
+tab tab_actual
+userobject tabpage_actual
+datawindow dw_actual
+
+if f_es_vacio(nombre_ventana) then nombre_ventana = ventana.classname()
+
+//Recorremos todos los objetos de la ventana
+for i = 1 to UpperBound(ventana.control[])
+	//Si es DW guardamos todos los datos de ese DW
+	if TypeOf(ventana.control[i])= Datawindow! then
+		dw_actual = ventana.control[i]
+		f_recuperar_consulta_un_dw(dw_actual, nombre_ventana, nombre_consulta)
+	//Si es TAB buscamos el dw dentro de ese tab
+	elseif TypeOf(ventana.control[i])= Tab! then
+		tab_actual = ventana.control[i]
+		//Recorremos todos los tabpages del TAB
+		for j= 1 to UpperBound(tab_actual.control[])
+			tabpage_actual = tab_actual.control[j]
+			//En cada tabpage buscamos los DW que posee...
+			for k=1 to UpperBound(tabpage_actual.control[])
+				if TypeOf(tabpage_actual.control[k])=Datawindow! then
+					dw_actual = tabpage_actual.control[k]
+					f_recuperar_consulta_un_dw(dw_actual, nombre_ventana, nombre_consulta)
+				end if
+			next
+		next
+	end if
+next
+
+end subroutine
+

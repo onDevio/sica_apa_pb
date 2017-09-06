@@ -1,0 +1,51 @@
+HA$PBExportHeader$f_tot_cobrado_musaat_cli_exp_anyo_rd.srf
+global type f_tot_cobrado_musaat_cli_exp_anyo_rd from function_object
+end type
+
+forward prototypes
+global function double f_tot_cobrado_musaat_cli_exp_anyo_rd (string id_exp, string id_cli, string tipo_act, datetime fecha_anyo_musaat)
+end prototypes
+
+global function double f_tot_cobrado_musaat_cli_exp_anyo_rd (string id_exp, string id_cli, string tipo_act, datetime fecha_anyo_musaat);double musaat_cobrado = 0
+double ld_total_pagado_facturas
+string ls_f_inicio_anyo, ls_f_fin_anyo
+
+ls_f_inicio_anyo = string( Year (date(fecha_anyo_musaat))) + "/01/01"
+ls_f_fin_anyo = string( Year (date(fecha_anyo_musaat)) +1 ) + "/01/01"
+
+SELECT sum ( csi_lineas_fact_emitidas.subtotal )  
+INTO :musaat_cobrado  
+FROM csi_facturas_emitidas, csi_lineas_fact_emitidas, fases_minutas, csi_articulos_servicios, fases  
+WHERE ( csi_lineas_fact_emitidas.id_factura = csi_facturas_emitidas.id_factura ) and  
+		( csi_facturas_emitidas.id_fase = fases_minutas.id_minuta ) and  
+		( csi_lineas_fact_emitidas.articulo = csi_articulos_servicios.codigo ) and  
+		( fases.id_fase = fases_minutas.id_fase ) and
+		( ( fases.id_expedi = :id_exp ) and		
+		( csi_articulos_servicios.familia = '01' ) AND  
+		( csi_facturas_emitidas.id_persona = :id_cli ) AND  
+		( fases.fase = :tipo_act )  and
+		fases_minutas.fecha >= :ls_f_inicio_anyo and fases_minutas.fecha <= :ls_f_fin_anyo)  ;
+
+
+if isnull(musaat_cobrado) then musaat_cobrado = 0
+
+
+SELECT sum ( csi_lineas_fact_emitidas.subtotal )  
+INTO :ld_total_pagado_facturas
+FROM csi_facturas_emitidas, csi_lineas_fact_emitidas, fases_minutas, csi_articulos_servicios, fases  
+WHERE ( csi_lineas_fact_emitidas.id_factura = csi_facturas_emitidas.id_factura ) and  
+		( csi_facturas_emitidas.id_minuta = fases.id_fase ) and  
+		( csi_lineas_fact_emitidas.articulo = csi_articulos_servicios.codigo ) and  
+		( ( fases.id_expedi = :id_exp ) and		
+		( csi_articulos_servicios.familia = '01' ) AND  
+		( csi_facturas_emitidas.id_persona = :id_cli ) AND  
+		( fases.fase = :tipo_act ) and  
+		csi_facturas_emitidas.fecha > = :ls_f_inicio_anyo and csi_facturas_emitidas.fecha < :ls_f_fin_anyo )  ;
+
+if isnull(ld_total_pagado_facturas) then ld_total_pagado_facturas = 0
+
+ld_total_pagado_facturas = ld_total_pagado_facturas + musaat_cobrado
+
+return ld_total_pagado_facturas
+end function
+

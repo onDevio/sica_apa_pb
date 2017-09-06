@@ -1,0 +1,5 @@
+HA$PBExportHeader$st_musaat_consulta.srs
+global type st_musaat_consulta from structure
+	string		id_musaat
+end type
+

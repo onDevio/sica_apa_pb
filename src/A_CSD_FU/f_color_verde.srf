@@ -1,0 +1,13 @@
+HA$PBExportHeader$f_color_verde.srf
+$PBExportComments$COLORES: VERDE
+global type f_color_verde from function_object
+end type
+
+forward prototypes
+global function long f_color_verde ()
+end prototypes
+
+global function long f_color_verde ();
+return RGB(0,255,0)
+end function
+

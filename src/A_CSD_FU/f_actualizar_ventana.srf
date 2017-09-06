@@ -1,0 +1,30 @@
+HA$PBExportHeader$f_actualizar_ventana.srf
+global type f_actualizar_ventana from function_object
+end type
+
+forward prototypes
+global function integer f_actualizar_ventana (window w_ventana)
+end prototypes
+
+global function integer f_actualizar_ventana (window w_ventana);string the_class[]
+string el_tipo[]
+
+windowobject the_object[]
+integer i
+
+FOR i = 1 TO UpperBound(w_ventana.control[])
+	the_object[i] = w_ventana.control[i]
+	the_class[i]  = the_object[i].ClassName()
+	
+	CHOOSE CASE TypeOf(w_ventana.Control[i])
+	  CASE DataWindow!
+		 f_actualizar_dddw(w_ventana.Control[i])
+//	  CASE Tab!
+//		messagebox('Es una  tab !! ','')
+//		 f_actualizar_dddw_para_tabs(w_ventana.Control[i],the_object[i])
+	END CHOOSE
+NEXT
+
+return 1
+end function
+

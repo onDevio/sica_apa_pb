@@ -1,0 +1,98 @@
+HA$PBExportHeader$d_fases_lista.srd
+release 10.5;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes print.preview.outline=yes hidegrayline=no )
+header(height=68 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=60 color="536870912" height.autosize=yes )
+table(column=(type=char(10) updatewhereclause=yes name=id_fase dbname="fases.id_fase" )
+ column=(type=char(11) updatewhereclause=yes name=fases_n_registro dbname="fases.n_registro" )
+ column=(type=datetime updatewhereclause=yes name=fases_f_entrada dbname="fases.f_entrada" )
+ column=(type=char(2) updatewhereclause=yes name=fases_tipo_gestion dbname="fases.tipo_gestion" )
+ column=(type=datetime updatewhereclause=yes name=fases_f_visado dbname="fases.f_visado" )
+ column=(type=datetime updatewhereclause=yes name=fases_f_abono dbname="fases.f_abono" )
+ column=(type=char(10) updatewhereclause=yes name=fases_id_expedi dbname="fases.id_expedi" )
+ column=(type=char(3) updatewhereclause=yes name=fase dbname="fases.fase" )
+ column=(type=datetime updatewhereclause=yes name=expedientes_f_inicio dbname="expedientes.f_inicio" )
+ column=(type=char(2) updatewhereclause=yes name=estado dbname="fases.estado" )
+ column=(type=char(2) updatewhereclause=yes name=fases_tipo_via_emplazamiento dbname="fases.tipo_via_emplazamiento" )
+ column=(type=char(255) updatewhereclause=yes name=fases_emplazamiento dbname="fases.emplazamiento" )
+ column=(type=char(30) updatewhereclause=yes name=fases_n_calle dbname="fases.n_calle" )
+ column=(type=char(6) updatewhereclause=yes name=fases_poblacion dbname="fases.poblacion" )
+ column=(type=char(60) updatewhereclause=yes name=poblaciones_descripcion dbname="poblaciones.descripcion" )
+ column=(type=char(3) updatewhereclause=yes name=tipo_fase dbname="fases.tipo_fase" )
+ column=(type=char(14) updatewhereclause=yes name=expedientes_n_expedi dbname="expedientes.n_expedi" )
+ column=(type=char(255) updatewhereclause=yes name=descripcion dbname="compute_0018" )
+ column=(type=char(3) updatewhereclause=yes name=fases_tipo_trabajo dbname="fases.tipo_trabajo" )
+ column=(type=char(60) updatewhereclause=yes name=tipos_via_descripcion dbname="tipos_via.descripcion" )
+ column=(type=char(3) updatewhereclause=yes name=tipo_registro dbname="fases.tipo_registro" )
+ column=(type=char(60) updatewhereclause=yes name=fases_archivo dbname="fases.archivo" )
+ retrieve="  SELECT DISTINCT fases.id_fase,   
+         fases.n_registro,   
+         fases.f_entrada,   
+         fases.tipo_gestion,   
+         fases.f_visado,   
+         fases.f_abono,   
+         fases.id_expedi,   
+         fases.fase,   
+         expedientes.f_inicio,   
+         fases.estado,   
+         fases.tipo_via_emplazamiento,   
+         fases.emplazamiento,   
+         fases.n_calle,   
+         fases.poblacion,   
+         poblaciones.descripcion,   
+         fases.tipo_fase,   
+         expedientes.n_expedi,   
+         convert(char(255),fases.descripcion),   
+         fases.tipo_trabajo,   
+         tipos_via.descripcion,   
+         fases.tipo_registro,   
+         fases.archivo  
+    FROM fases,   
+         fases_clientes,   
+         fases_colegiados,   
+         expedientes,   
+         colegiados,   
+         poblaciones,   
+         tipos_via  
+   WHERE ( fases_colegiados.id_col = colegiados.id_colegiado ) and  
+         ( fases.id_fase = fases_colegiados.id_fase ) and  
+         ( fases.id_fase = fases_clientes.id_fase ) and  
+         ( fases.id_expedi = expedientes.id_expedi ) and  
+         ( fases.poblacion = poblaciones.cod_pob ) and  
+         ( fases.tipo_via_emplazamiento = tipos_via.cod_tipo_via )    
+"  sort="fases_f_entrada D expedientes_n_expedi D fase A " )
+text(band=header alignment="2" text="T.Act." border="6" color="0" x="357" y="8" height="52" width="197" html.valueishtml="0"  name=tipo_registro_fase_t visible="1~t0"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="80269524" )
+text(band=header alignment="2" text="T.Act." border="6" color="0" x="361" y="8" height="52" width="192" html.valueishtml="0"  name=fase_t  tag="texto=fases.t_act" visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="79416533" )
+text(band=header alignment="2" text="Tipo" border="6" color="0" x="571" y="8" height="52" width="105" html.valueishtml="0"  name=fases_tipo_trabajo_t  tag="texto=general.tipo" visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="79416533" )
+text(band=header alignment="2" text="F. Abono" border="6" color="0" x="3301" y="8" height="52" width="297" html.valueishtml="0"  name=fases_f_abono_t  tag="texto=fases.f_abono" visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="79416533" )
+text(band=header alignment="2" text="F. V$$HEX1$$ba00$$ENDHEX$$B$$HEX1$$ba00$$ENDHEX$$:" border="6" color="0" x="2990" y="8" height="52" width="297" html.valueishtml="0"  name=fases_f_visado_t  tag="texto=fases.f_visado" visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="79416533" )
+text(band=header alignment="2" text="Emplazamiento" border="6" color="0" x="2034" y="8" height="52" width="937" html.valueishtml="0"  name=compute_1_t  tag="texto=fases.emplezamiento" visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="79416533" )
+text(band=header alignment="2" text="F. Entrada" border="6" color="0" x="1047" y="8" height="52" width="283" html.valueishtml="0"  name=fases_f_entrada_t  tag="texto=fases.f_entrada" visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="79416533" )
+text(band=header alignment="2" text="Descripci$$HEX1$$f300$$ENDHEX$$n" border="6" color="0" x="1349" y="8" height="52" width="672" html.valueishtml="0"  name=descripcion_t  tag="texto=general.descripcion" visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="79416533" )
+text(band=header alignment="2" text="Expediente" border="6" color="0" x="5" y="8" height="52" width="338" html.valueishtml="0"  name=expedientes_n_expedi_t  tag="texto=fases.expediente" visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="79416533" )
+text(band=header alignment="2" text="N$$HEX2$$ba002000$$ENDHEX$$Registro" border="6" color="0" x="695" y="8" height="52" width="338" html.valueishtml="0"  name=fases_n_registro_t visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="79416533" )
+column(band=detail id=5 alignment="2" tabsequence=32766 border="0" color="0" x="2990" y="4" height="52" width="297" format="dd/mm/yyyy" html.valueishtml="0"  name=fases_f_visado visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+column(band=detail id=6 alignment="2" tabsequence=32766 border="0" color="0" x="3301" y="4" height="52" width="297" format="dd/mm/yyyy" html.valueishtml="0"  name=fases_f_abono visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+column(band=detail id=3 alignment="2" tabsequence=32766 border="0" color="0" x="1047" y="4" height="52" width="283" format="dd/mm/yyyy" html.valueishtml="0"  name=fases_f_entrada visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+column(band=detail id=18 alignment="0" tabsequence=32766 border="0" color="0" x="1349" y="4" height="52" width="672" format="[general]" html.valueishtml="0"  name=descripcion visible="1" height.autosize=yes edit.limit=0 edit.case=any edit.autoselect=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=17 alignment="0" tabsequence=32766 border="0" color="0" x="5" y="4" height="52" width="338" format="[general]" html.valueishtml="0"  name=expedientes_n_expedi visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="MS Sans Serif" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="695" y="4" height="52" width="338" format="[general]" html.valueishtml="0"  name=fases_n_registro visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+column(band=detail id=8 alignment="2" tabsequence=32766 border="0" color="0" x="361" y="4" height="52" width="192" format="[general]" html.valueishtml="0"  name=fase visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="MS Sans Serif" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+compute(band=detail alignment="2" expression="tipo_registro + '/' + fase"border="0" color="0" x="361" y="4" height="52" width="192" format="[GENERAL]" html.valueishtml="0"  name=tipo_registro_fase visible="1~t0"  font.face="MS Sans Serif" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=19 alignment="2" tabsequence=32766 border="0" color="0" x="571" y="4" height="52" width="105" format="[general]" html.valueishtml="0"  name=fases_tipo_trabajo visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="MS Sans Serif" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+compute(band=detail alignment="0" expression="poblaciones_descripcion  + ' - ' +  if (f_es_vacio(tipos_via_descripcion),'',tipos_via_descripcion) + ' ' +  fases_emplazamiento + ', ' +  if (f_es_vacio(fases_n_calle), '',  fases_n_calle )"border="0" color="0" x="2034" y="4" height="52" width="937" format="[GENERAL]" html.valueishtml="0"  name=compute_1 visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824"  height.autosize=yes)
+line(band=footer x1="119" y1="220" x2="256" y2="220"  name=l_1 visible="1" pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="1073741824" )
+
+sparse(names="expedientes_n_expedi")htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" pagingmethod=0 generatedddwframes="1" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()
+ 

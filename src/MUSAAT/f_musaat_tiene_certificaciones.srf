@@ -1,0 +1,27 @@
+HA$PBExportHeader$f_musaat_tiene_certificaciones.srf
+global type f_musaat_tiene_certificaciones from function_object
+end type
+
+forward prototypes
+global function boolean f_musaat_tiene_certificaciones (string as_id_fase)
+global function boolean f_musaat_tiene_certificaciones (string as_id_fase, string as_id_colegiado)
+end prototypes
+
+global function boolean f_musaat_tiene_certificaciones (string as_id_fase);
+
+return False
+end function
+
+global function boolean f_musaat_tiene_certificaciones (string as_id_fase, string as_id_colegiado);long ll_certificaciones
+
+// Buscamos exista un movimiento a dicho colegiado en dicho contrato que sea de Certificaci$$HEX1$$f300$$ENDHEX$$n, bien Inicial $$HEX2$$f3002000$$ENDHEX$$Siguientes, con la Administraci$$HEX1$$f300$$ENDHEX$$n (hay datos de migraci$$HEX1$$f300$$ENDHEX$$n que no tienen codificado el valor de Certificaci$$HEX1$$f300$$ENDHEX$$n Inicial, por lo que tambi$$HEX1$$e900$$ENDHEX$$n contemplamos las siguientes). Si tiene importe, es porque se inici$$HEX2$$f3002000$$ENDHEX$$con anterioridad a 2015
+
+SELECT COUNT(*) INTO :ll_certificaciones FROM musaat_movimientos
+WHERE id_fase = :as_id_fase AND id_col = :as_id_colegiado AND importe_vble > 0 AND tipo_csd IN ('11','23') ; 
+
+
+IF ll_certificaciones > 0 THEN RETURN TRUE
+
+return False
+end function
+

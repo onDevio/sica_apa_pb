@@ -1,0 +1,28 @@
+HA$PBExportHeader$f_euro_cambio.srf
+$PBExportComments$Se multiplica a todos los campos de importe por esta func. para obtener el valor que hay que grabar.
+global type f_euro_cambio from function_object
+end type
+
+forward prototypes
+global function double f_euro_cambio (character moneda_original, character moneda_presentacion)
+end prototypes
+
+global function double f_euro_cambio (character moneda_original, character moneda_presentacion);// Funcion que multiplica a los campos de importe para convertir el  valor.
+
+double retorno
+string combinacion
+
+combinacion=moneda_original+moneda_presentacion
+
+choose case combinacion
+	case 'EP'
+		retorno = 1000 / 166386
+	case 'PE' 
+		retorno = 166386 / 1000
+	case else 
+		retorno = 1
+end choose
+return retorno
+
+end function
+

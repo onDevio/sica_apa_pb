@@ -1,0 +1,143 @@
+HA$PBExportHeader$f_sql.srf
+global type f_sql from function_object
+end type
+
+forward prototypes
+global function string f_sql (string campo_en_tabla, string operador, string campo_en_dw, u_dw dw_consulta, ref string sql_orig, string bd, string parametro)
+end prototypes
+
+global function string f_sql (string campo_en_tabla, string operador, string campo_en_dw, u_dw dw_consulta, ref string sql_orig, string bd, string parametro);//Argumentos:
+//
+//1. sql_orig: REFERENCIA. string que contiene la sentencia sql original de la datawindow
+//2. dw_consulta: U_DW de consulta (par$$HEX1$$e100$$ENDHEX$$metros del usuario).
+//3. campo_en_dw: Nombre del campo en la datawindow
+//4. operador: "like", ">=", "<", etc.
+//4. campo_en_tabla: Nombre del campo en la tabla. Se podr$$HEX2$$e1002000$$ENDHEX$$prefijar el nombre de la tabla si se quiere.
+
+//5. base de datos (1:sybase, 2:access). Var del .ini
+//
+//ESTA FUNCION ACTUALIZA LA VARIABLE sql_orig CON LA NUEVA CONDICION EN LA CLAUSULA
+// WHERE DEL SQL DE LA FORMA:  select ... where <campo_en_tabla> <operador> <campo_en_dw>
+
+Boolean haywhere, HayQueModificarSQL, HayQuePonerComillas = true
+string tipo, dato
+datetime datofecha
+double datonum
+date fechatemp
+
+//Miramos si el SQL ya tiene clausula where. Si no lo hay, a$$HEX1$$f100$$ENDHEX$$adimos la clausula:
+haywhere = (PosA(upper(sql_orig), "WHERE") > 0)
+
+//Lo primero, averiguamos el tipo del campo:
+tipo=dw_consulta.Describe(campo_en_dw+".ColType")
+
+CHOOSE CASE upper(LeftA(tipo ,2))
+	CASE 'CH' 
+		// El campo es de tipo string
+		dato = dw_consulta.GetItemString(dw_consulta.GetRow(), campo_en_dw)
+		dato=f_caracter_escape(dato,"'")
+		IF isnull(dato) or  dato = '' or dato = '%' then
+			HayQueModificarSQL = false
+		else
+			HayQueModificarSQL = true
+			if PosA(upper(operador), 'LIKE') > 0  then dato = dato + '%'
+			if PosA(upper(operador), 'LIKE INSIDE') > 0  then 
+				dato = '%' + dato
+				operador = 'LIKE'
+			end if
+			
+		end if
+	CASE 'DA' 
+		// El campo es de tipo datetime
+		datofecha =  dw_consulta.GetItemDateTime(dw_consulta.GetRow(), campo_en_dw)
+		if isnull(datofecha) then
+			HayQueModificarSQL = false
+		else
+			if bd = '1' then //Sybase
+				HayQueModificarSQL = true
+				fechatemp = date(datofecha)
+				if PosA(upper(operador), '<') > 0 then 	fechatemp = relativedate(fechatemp, 1)
+				dato = string(fechatemp, "YYYYMMDD")
+			end if //Fin sybase
+			if bd = '2' then //Access
+				HayQuePonerComillas = false
+				HayQueModificarSQL = True
+				fechatemp = date(datofecha)
+				if PosA(upper(operador), '<') > 0 then 	fechatemp = relativedate(fechatemp, 1)
+				dato = string(fechatemp,"dd/mm/yyyy")
+				dato = "cdate('" +dato + "')"
+			end if // Fin access
+		end if
+	CASE 'NU'	,'RE', 'DE'
+		//Campo de tipo num$$HEX1$$e900$$ENDHEX$$rico, posiblemente con decimales
+		HayQuePonerComillas = false
+		DatoNum = dw_consulta.GetItemNumber(dw_consulta.GetRow(), campo_en_dw)
+		if Isnull(DatoNum) then
+			HayQueModificarSQL = false
+		else
+			HayQueModificarSQL = true
+			dato = string((DatoNum))
+		// Reemplazamos las comas por puntos	
+			long posicion
+			posicion = 0
+			DO
+				posicion = PosA(dato,',',posicion+1)
+				if isnull(posicion) then posicion = 0
+				if posicion > 0 then
+					dato=ReplaceA(dato,posicion, 1,".")
+				end if	
+			LOOP UNTIL posicion = 0
+		end if		
+				
+	CASE ELSE
+		//Campo de tipo num$$HEX1$$e900$$ENDHEX$$rico
+		HayQuePonerComillas = false
+		DatoNum = dw_consulta.GetItemNumber(dw_consulta.GetRow(), campo_en_dw)
+		if Isnull(DatoNum) then
+			HayQueModificarSQL = false
+		else
+			HayQueModificarSQL = true
+			dato = string(Long(DatoNum))
+		end if
+END CHOOSE
+
+if HayQueModificarSQL then
+	// Construcci$$HEX1$$f300$$ENDHEX$$n de Par$$HEX1$$e100$$ENDHEX$$metros
+	if not f_es_vacio(parametro) then
+		// Llamamos a la funci$$HEX1$$f300$$ENDHEX$$n que controlar$$HEX2$$e1002000$$ENDHEX$$el n$$HEX2$$ba002000$$ENDHEX$$de params. obtenidos advirtiendo si hay m$$HEX1$$e100$$ENDHEX$$s 
+		//	de los que se pueden visualizar completamente
+			f_controlar_num_params_listados()
+			
+		if not f_es_vacio(g_etiquetas_listados) then 
+			g_etiquetas_listados += "~r" + parametro + ':'
+			g_parametros_listados  += "~r" +  f_descripcion_parametro(parametro, dato, operador) 
+		else
+			g_etiquetas_listados += parametro + ':'
+			g_parametros_listados  += f_descripcion_parametro(parametro, dato, operador) 			
+		end if
+		
+//		if not f_es_vacio(g_parametros_listados) then g_parametros_listados  = g_parametros_listados + "~r" +  f_descripcion_parametro(parametro, dato, operador) +  "          "
+	end if	
+
+	// Construcci$$HEX1$$f300$$ENDHEX$$n de Par$$HEX1$$e100$$ENDHEX$$metros
+	if not f_es_vacio(parametro) then
+		string oper
+		oper = operador
+		if LeftA(operador,4) = 'LIKE' then oper = '='
+		g_ultima_consulta += parametro + ' ' + oper + ' ' + f_sql_ultima_consulta(campo_en_dw, dw_consulta, dato) + '; '
+	end if			
+
+	if not HayWhere then sql_orig = sql_orig + " where "
+	if HayQuePonerComillas then dato = " '"+dato+"' "	
+	if HayWhere then
+		sql_orig = sql_orig + ' and ' + campo_en_tabla + " " + operador + dato
+	else
+		sql_orig = sql_orig + campo_en_tabla + " " + operador + dato
+	end if
+
+end if
+
+return sql_orig
+
+end function
+

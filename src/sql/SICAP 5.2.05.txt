@@ -1,0 +1,76 @@
+/// Para todos. SCP-1126. Alexis
+
+alter table fases_informes add empresa char(2) null;
+
+update fases_informes set empresa = '01' where id_fase in (select id_fase from fases where f_entrada > '20080101');
+update fases_informes set empresa = '01' where id_fase in (select id_fase from fases where f_entrada > '20050101' and f_entrada <= '20080101');
+
+//\/\/\/ CAMBIAR BD SI FUESE NECESARIO \/\/\/\///
+dump tran sica with truncate_only;
+
+update fases_informes set empresa = '01' where id_fase in (select id_fase from fases where f_entrada > '20030101' and f_entrada <= '20050101');
+update fases_informes set empresa = '01' where id_fase in (select id_fase from fases where f_entrada > '20000101' and f_entrada <= '20030101');
+
+//\/\/\/ CAMBIAR BD SI FUESE NECESARIO \/\/\/\///
+dump tran sica with truncate_only;
+
+update fases_informes set empresa = '01' where id_fase in (select id_fase from fases where f_entrada > '19970101' and f_entrada <= '20000101');
+update fases_informes set empresa = '01' where id_fase in (select id_fase from fases where f_entrada > '19950101' and f_entrada <= '19970101');
+update fases_informes set empresa = '01' where id_fase in (select id_fase from fases where f_entrada > '19910101' and f_entrada <= '19950101');
+
+//\/\/\/ CAMBIAR BD SI FUESE NECESARIO \/\/\/\///
+dump tran sica with truncate_only;
+
+update fases_informes set empresa = '01' where id_fase in (select id_fase from fases where f_entrada > '19850101' and f_entrada <= '19910101');
+update fases_informes set empresa = '01' where id_fase in (select id_fase from fases where f_entrada <= '19850101') ;
+
+///\/\**** CUIDADO. INTRODUCIR EL CÓDIGO CORRECTO DE LA EMPRESA ASEGURADORA, DEPENDIENTE DEL COLEGIO ****/\/\//
+insert into var_globales (nombre,texto,descripcion) values ('g_cod_empresa_aseguradora',<codigo del la empresa aseguradora>,'Código identificativo de la empresa aseguradora.');
+
+create table dbo.csi_articulos_servicios2 (codigo char(10) not null, descripcion text null, familia char(2) null, cuenta char(10) null, cta_presupuestaria char(10) null, exp char(1) null, general char(1) null, importe double precision null, activo char(1) null, es_informe char(1) null, impuesto double precision null, orden int null, colegio char(10) not null, t_iva char(2) null, honorario char(1) null, impreso char(15) null, en_ficha_colegiado char(1) null, concepto_conta char(60) null, suplido char(1) null, grupo_gastos char(60) null, ing_gas char(1) null, incluir_347 char(1) null, tiene_irpf char(1) null, empresa char(2) not null, cta_gasto char(10) null, regularizar char(1) null) ;
+alter table dbo.csi_articulos_servicios2 add constraint csi_articulos_servicios2_x primary key nonclustered (codigo, colegio, empresa) ;
+
+insert into csi_articulos_servicios2 select codigo , descripcion, familia , cuenta , cta_presupuestaria , exp , general , importe , activo , es_informe , impuesto , orden , colegio , t_iva , honorario , impreso , en_ficha_colegiado , concepto_conta , suplido , grupo_gastos , ing_gas , incluir_347 , tiene_irpf , '01' , cta_gasto, regularizar from csi_articulos_servicios;
+drop table csi_articulos_servicios;
+
+create table dbo.csi_articulos_servicios (codigo char(10) not null, descripcion text null, familia char(2) null, cuenta char(10) null, cta_presupuestaria char(10) null, exp char(1) null, general char(1) null, importe double precision null, activo char(1) null, es_informe char(1) null, impuesto double precision null, orden int null, colegio char(10) not null, t_iva char(2) null, honorario char(1) null, impreso char(15) null, en_ficha_colegiado char(1) null, concepto_conta char(60) null, suplido char(1) null, grupo_gastos char(60) null, ing_gas char(1) null, incluir_347 char(1) null, tiene_irpf char(1) null, empresa char(2) not null, cta_gasto char(10) null, regularizar char(1) null) ;
+alter table dbo.csi_articulos_servicios add constraint csi_articulos_servicios_x primary key nonclustered (codigo, colegio, empresa) ;
+
+insert into csi_articulos_servicios select * from csi_articulos_servicios2;
+drop table csi_articulos_servicios2;
+
+Alter table csi_series add serie_por_defecto char(1) default 'N' null;
+update csi_series set serie_por_defecto = 'N';
+update csi_series set serie_por_defecto = 'S' where serie in(select texto from var_globales where nombre ='g_serie_fases');
+
+// Actualización de articulos de premaat y musaat. No lanzar sin consentimiento del colegio.
+//update csi_articulos_servicios set activo = 'N' where familia in(<familia musaat>, <familia premaat>);
+//insert into csi_articulos_servicios select codigo , descripcion, familia , cuenta , cta_presupuestaria , exp , general , importe , 'S' , es_informe , impuesto , orden , colegio , t_iva , honorario , impreso , en_ficha_colegiado , concepto_conta , suplido , grupo_gastos , ing_gas , incluir_347 , tiene_irpf , <codigo del la empresa aseguradora> , cta_gasto, regularizar from csi_articulos_servicios where familia in(<familia musaat>, <familia premaat>);
+//update var_globales set sn = 'N' where nombre = 'g_facturar_musaat_pc_serie_aparte';
+//update var_globales set sn = 'S' where nombre = 'g_activa_multiempresa';
+//Insert into csi_series (serie, empresa, contador, descripcion, recib, anyo, proforma) values('PC', <código empresa aseguradora>, 0, 'Serie para la facturación de la prima variable', 'S', '2011', 'N');
+////// Para todos. Para updatear en empresas que ya pudiese existir la serie. 
+//Update csi_series set serie_por_defecto = 'S' where serie = 'PC' and empresa = <codigo empresa aseguradora>;
+//Insert into csi_series (serie, empresa, contador, descripcion, recib, anyo, proforma) values('PF', <código empresa aseguradora>, 0, 'Serie para la facturación de otros conceptos de la empresa aseguradora', 'S', '2011', 'N');
+//Insert into csi_series (serie, empresa, contador, descripcion, recib, anyo, proforma) values('MT', <código empresa aseguradora>, 0, 'Serie para la facturación de otros conceptos de la empresa aseguradora', 'S', '2011', 'N');
+//update var_globales set texto = 'PC' where nombre = 'g_fases_serie_musaat';
+//Insert into csi_series (serie, empresa, contador, descripcion, recib, anyo, proforma) values('PROFOR', <código empresa aseguradora>, 0, 'Serie para proformas de la empresa aseguradora', 'N', '2011', 'S');
+
+
+
+alter table conceptos_domiciliables add empresa char(5) null;
+update conceptos_domiciliables set empresa=<código empresa aseguradora> where concepto in (select codigo from csi_articulos_servicios  where familia in(<familia musaat>, <familia premaat>));
+update conceptos_domiciliables  set empresa='01' where   empresa=null;
+CREATE TABLE conceptos_domiciliables_temp(id_colegiado char(10) not null,concepto char(10) not null,	forma_de_pago char(2) null ,datos_bancarios char(20) null,nombre_banco char(50) null,	importe float null,	es_extra char(1) null,	ips float null,	ccs float null,f_inicio datetime null,f_fin datetime null,	periodicidad char(2) null,	empresa char(5) not null );
+alter table dbo.conceptos_domiciliables_temp add constraint conceptos_domiciliables primary key nonclustered (id_colegiado, concepto, empresa) ;
+insert into conceptos_domiciliables_temp select * from conceptos_domiciliables;
+drop table conceptos_domiciliables;
+CREATE TABLE conceptos_domiciliables(id_colegiado char(10) not null,concepto char(10) not null,	forma_de_pago char(2) null ,datos_bancarios char(20) null,nombre_banco char(50) null,	importe float null,	es_extra char(1) null,	ips float null,	ccs float null,f_inicio datetime null,f_fin datetime null,	periodicidad char(2) null,	empresa char(5) not null );
+alter table dbo.conceptos_domiciliables add constraint conceptos_domiciliables_x primary key nonclustered (id_colegiado, concepto, empresa) ;
+insert into conceptos_domiciliables select * from conceptos_domiciliables_temp;
+
+insert into var_globales( nombre , sn , modificable ,descripcion) values ("g_borrar_empresa","N","N","Permite borrar empresa");
+
+//Se actualiza la fecha de versión
+update var_globales set texto='20110311', descripcion = 'versión v5.2.05' where nombre='g_version_minima';
+

@@ -1,0 +1,418 @@
+HA$PBExportHeader$f_musaat_calcula_prima_fecha.srf
+global type f_musaat_calcula_prima_fecha from function_object
+end type
+
+forward prototypes
+global function integer f_musaat_calcula_prima_fecha (ref st_musaat_datos st_musaat_datos)
+end prototypes
+
+global function integer f_musaat_calcula_prima_fecha (ref st_musaat_datos st_musaat_datos);// Esta funci$$HEX1$$f300$$ENDHEX$$n se utiliza exclusivamente para la ventana de c$$HEX1$$e100$$ENDHEX$$lculo de gastos
+// ya que obtiene los coeficientes teniendo en cuenta la fecha introducida
+
+// Entrada
+double pem, superficie, volumen, porcentaje, pto_contrato, pto_calculo
+string colindantes, tipo_act, tipo_obra, id_fase, id_minuta
+string id_col
+// Salida
+string tabla = ''
+double cobertura = 0, coef_c = 0, coef_g = 0, coef_k = 0, coef_cm = 1, coef_colegio = 1, minimo, prima_comp
+st_musaat_datos_movimiento st_musaat_datos_movimiento
+double porc_total = 1, porc_col , porc_col_real
+string administracion
+boolean aplicado_10, devolucion = false, modificacion = false, funcionario = false, cobro_10 = false, decenal = false
+boolean regulariza = false, certificacion = false, alta_certif = false, aplicado_min = false
+double porc_asociado = 0
+datetime f_calculo
+
+
+id_fase = st_musaat_datos.n_visado
+id_minuta = st_musaat_datos.id_minuta
+tipo_act = st_musaat_datos.tipo_act
+tipo_obra = st_musaat_datos.tipo_obra
+id_col = st_musaat_datos.id_col
+pem = st_musaat_datos.pem
+superficie = st_musaat_datos.superficie
+volumen = st_musaat_datos.volumen
+porcentaje = st_musaat_datos.porcentaje
+pto_contrato = st_musaat_datos.pto_contrato
+administracion = st_musaat_datos.administracion
+aplicado_10 = st_musaat_datos.aplicado_10
+cobertura = st_musaat_datos.cobertura
+f_calculo = st_musaat_datos.f_calculo
+
+certificacion = (LeftA(st_musaat_datos.tipo_csd, 2) = '23') or (LeftA(st_musaat_datos.tipo_csd, 2) = '25')
+modificacion = (LeftA(st_musaat_datos.tipo_csd, 2) = '20')
+devolucion = (LeftA(st_musaat_datos.tipo_csd, 1) = '6')
+funcionario = (RightA(st_musaat_datos.tipo_csd, 1) = '4') or (st_musaat_datos.funcionario = 'S')
+decenal = (st_musaat_datos.tipo_csd = 'DE')
+alta_certif = (LeftA(st_musaat_datos.tipo_csd, 2) = '13') or (LeftA(st_musaat_datos.tipo_csd, 2) = '15')
+
+cobro_10 = (st_musaat_datos.tipo_csd = '11')
+// Si no est$$HEX2$$e1002000$$ENDHEX$$dado de alta en MUSAAT devolvemos 0
+if not(f_tiene_musaat_src(id_col)) then
+	st_musaat_datos.mensaje = 'Este colegiado no est$$HEX2$$e1002000$$ENDHEX$$dado de alta en MUSAAT (SRC)'
+	st_musaat_datos.prima_comp = 0
+	return -1
+end if
+
+// Si est$$HEX2$$e1002000$$ENDHEX$$dado de alta en peritaciones y es el tipoact 72 devolvemos 0
+if (f_musaat_es_perito(id_col)) and not(devolucion) and not(modificacion) and not(certificacion) and tipo_act = '72' then
+	st_musaat_datos.mensaje = 'Este colegiado est$$HEX2$$e1002000$$ENDHEX$$dado de alta en el seguro de MUSAAT de peritaciones'
+	st_musaat_datos.prima_comp = 0
+	return -1
+end if
+
+// Meter aqui si el colegiado es funcinario
+
+// Si nos pasan el n$$HEX2$$ba002000$$ENDHEX$$de contrato entonces buscamos el resto de datos en la base de datos
+// FALTA
+if st_musaat_datos.recuperar then
+	
+	SELECT expedientes.administracion  
+	INTO :administracion  
+	FROM expedientes, fases  
+	WHERE ( expedientes.id_expedi = fases.id_expedi ) and  
+			( ( fases.id_fase = :id_fase ) )   ;
+
+	SELECT fases.fase, fases.tipo_trabajo  
+	INTO :tipo_act, :tipo_obra  
+	FROM fases  
+	WHERE ( fases.id_fase = :id_fase )    ;
+
+	SELECT fases_usos.superficie, fases_usos.pem, fases_usos.presupuesto, fases_usos.volumen  
+	INTO :superficie, :pem, :pto_contrato, :volumen
+	FROM fases_usos  
+	WHERE fases_usos.id_fase = :id_fase   ;
+
+	superficie = f_fases_usos_suma_superficies(id_fase)
+
+// Esto lo pongo porque a veces no encuentra el par$$HEX1$$e100$$ENDHEX$$metro
+	If sqlca.sqlcode <> 0 then	
+		SELECT sup_viv + sup_garage + sup_otros, pem, volumen
+		INTO :superficie, :pem, :volumen
+		FROM fases_usos
+		WHERE fases_usos.id_fase = :id_fase   ;
+	end if
+
+	IF ISNULL(porcentaje) OR porcentaje = 0 then
+		SELECT sum(porcen_a)  
+		INTO :porc_total  
+		FROM fases_colegiados  
+		WHERE fases_colegiados.id_fase = :id_fase    ;
+
+		SELECT fases_colegiados.porcen_a  
+		INTO :porc_col  
+		FROM fases_colegiados  
+		WHERE ( fases_colegiados.id_fase = :id_fase ) AND  
+				( fases_colegiados.id_col = :id_col )   ;
+				
+		porc_col_real = (porc_col / porc_total) * 100
+		porcentaje = porc_col_real
+	end if
+end if
+
+pto_calculo = pem
+
+if isnull(pto_calculo) then pto_calculo = 0
+if isnull(superficie) then superficie = 0
+if isnull(volumen) then volumen = 0
+
+// Hallamos la cobertura src del colegiado
+if cobertura = 0 or isnull(cobertura) then 
+	cobertura = f_musaat_dame_cobertura_src(id_col)
+//	messagebox('cobertura', id_col + ' ' +string(cobertura))
+end if
+st_musaat_datos.cobertura = cobertura
+
+// Entramos en la tabla C
+SELECT coef, tabla
+INTO :coef_c, :tabla
+FROM musaat_coef_c
+WHERE (tipoact = :tipo_act OR tipoact = '*' ) AND (tipoobra = :tipo_obra OR tipoobra = '*') AND 
+		(desde_sup < :superficie) AND (hasta_sup >=:superficie) AND
+		(f_desde <= :f_calculo) and (f_hasta >= :f_calculo) ;
+
+st_musaat_datos.coef_c = coef_c
+if tipo_obra = '83' then tabla = 'D'
+st_musaat_datos.tabla = tabla
+
+// Verificar que se ha encontrado la entrada
+if LeftA(tabla,1) <> 'A' AND  LeftA(tabla,1) <> 'B' AND LeftA(tabla,1) <> 'C' AND &
+LeftA(tabla, 1) <> 'D' AND LeftA(tabla, 1) <> 'E'/* AND LeftA(tabla, 1) <> 'F'*/ then 
+	st_musaat_datos.mensaje = 'No est$$HEX2$$e1002000$$ENDHEX$$la entrada en la tabla C, es decir, ~n~rfalta o el tipo de act. el tipo de obra, o la superficie o la combinacion tipo act-tipo obra no la recoge MUSAAT'
+	if (not st_musaat_datos.genera_movi) then return -1
+end if
+
+// M$$HEX1$$ed00$$ENDHEX$$nimos
+SELECT minimo
+INTO :minimo
+FROM musaat_tarifas
+WHERE tarifa = :tabla AND
+		(f_desde <= :f_calculo) and (f_hasta >= :f_calculo) ;
+
+st_musaat_datos.minimo = minimo
+// Coberturas : Entrada en la tabla G
+SELECT coef
+INTO :coef_g
+FROM musaat_coef_g
+WHERE cobertura = :cobertura AND
+		(f_desde <= :f_calculo) and (f_hasta >= :f_calculo) ;
+
+st_musaat_datos.coef_g = coef_g
+
+if isnull(coef_g) or coef_g = 0 then
+	st_musaat_datos.mensaje = 'No est$$HEX2$$e1002000$$ENDHEX$$esta actuaci$$HEX1$$f300$$ENDHEX$$n en la tabla G, es decir, falta la cobertura'
+	if (not st_musaat_datos.genera_movi) then return -1
+end if
+
+// Ya no necesitamos distinguir subtipos dentro de la tabla
+tabla = LeftA(tabla, 1)
+//messagebox('kk', tabla)
+choose case tabla
+	case 'A'
+		// Entramos por metros cuadrados
+		SELECT coef
+		INTO :coef_k
+		FROM musaat_coef_k
+		WHERE desde < :superficie  AND hasta >= :superficie AND tabla = :tabla AND
+				(f_desde <= :f_calculo) and (f_hasta >= :f_calculo) ;
+		
+		if sqlca.sqlcode <> 0 then
+			st_musaat_datos.mensaje = 'No se encuentra la entrada en la tabla A'
+			if (not st_musaat_datos.genera_movi) then return -1
+		end if
+		// Modificado David 24/01/2006 - Excepci$$HEX1$$f300$$ENDHEX$$n para los tipos de obra 31, 32 y 33 en los que no se indica superficie
+		if superficie = 0 and LeftA(tipo_obra,1) = '3' then coef_k = 0.095
+		if superficie = 0 and (tipo_obra = 'C2' or tipo_obra = 'C3' or tipo_obra = 'C6') then coef_k = 0.095 // Para COAATGC		
+		prima_comp = max( (pto_calculo * coef_k * coef_c * coef_g  / 100) , ( minimo * coef_g ) )
+		if ( minimo * coef_g ) > (pto_calculo * coef_k * coef_c * coef_g  / 100) then aplicado_min = true
+	case 'B', 'C'
+		// Entramos por presupuesto
+		SELECT coef
+		INTO :coef_k
+		FROM musaat_coef_k
+		WHERE desde < :pto_calculo  AND hasta >= :pto_calculo AND tabla = :tabla AND
+				(f_desde <= :f_calculo) and (f_hasta >= :f_calculo) ;
+				
+		if sqlca.sqlcode <> 0 then
+			st_musaat_datos.mensaje = 'No se encuentra la entrada en la tabla '+ tabla
+			if (not st_musaat_datos.genera_movi) then return -1	
+		end if		
+		prima_comp = max( (pto_calculo * coef_k * coef_c * coef_g  / 100) , ( minimo * coef_g ) )
+		if ( minimo * coef_g ) > (pto_calculo * coef_k * coef_c * coef_g  / 100) then aplicado_min = true
+	case 'D'
+		if f_dame_grupo_tipo_act(tipo_act) = '2' and f_musaat_colegiado_ha_realizado_la_direc(id_fase, id_col) then
+			prima_comp = 0		
+		else
+			prima_comp = minimo * coef_g
+		end if
+
+	case 'E'
+		double base
+		SELECT musaat_tarifa_e.importe_base  
+		INTO :base  
+		FROM musaat_tarifa_e  
+		WHERE ( musaat_tarifa_e.volumen_desde < :volumen ) AND  
+				( musaat_tarifa_e.volumen_hasta >= :volumen )   AND
+				(f_desde <= :f_calculo) and (f_hasta >= :f_calculo) ;
+		
+		if sqlca.sqlcode <> 0 then
+			st_musaat_datos.mensaje = 'No se encuentra la entrada en la tabla E'
+			if (not st_musaat_datos.genera_movi) then return -1			
+		end if
+		prima_comp = base * coef_g
+		
+	case 'F'
+		prima_comp = minimo *  coef_g
+	case else
+		CHOOSE CASE g_colegio
+			CASE 'COAATTFE'
+				// miramos el  tipo de actuacion en este caso
+				if f_dame_grupo_tipo_act(tipo_act)<>'5' then
+					st_musaat_datos.mensaje = 'No existe esta combinaci$$HEX1$$f300$$ENDHEX$$n registrada en MUSAAT'
+				end if
+			CASE ELSE
+				st_musaat_datos.mensaje = 'No existe esta combinaci$$HEX1$$f300$$ENDHEX$$n registrada en MUSAAT'
+		END CHOOSE
+		if (not st_musaat_datos.genera_movi) then return -1
+end choose
+st_musaat_datos.coef_k = coef_k
+
+// Aplicamos el coeficiente CM
+coef_cm = f_musaat_dame_coef_cm(id_col)
+st_musaat_datos.coef_cm = coef_cm
+prima_comp = prima_comp * coef_cm
+
+// Aplicamos el coeficiente del colegio
+SELECT musaat_coef_col.coef  
+INTO :coef_colegio  
+FROM musaat_coef_col  
+WHERE ( musaat_coef_col.f_desde <= :f_calculo ) AND  
+		( musaat_coef_col.f_hasta >= :f_calculo )   ;
+
+st_musaat_datos.coef_colegio = coef_colegio
+prima_comp = prima_comp * coef_colegio
+
+// Aplicamos el porcentaje del colegiado ( sino meter 100 )
+prima_comp = prima_comp * ( porcentaje /100	)
+
+// Primera minuta en obra oficial
+if (cobro_10) and ( not devolucion ) and (not modificacion) and not(certificacion) then	
+	prima_comp = ( prima_comp * 10 ) /100
+	st_musaat_datos.administracion = 'S'
+end if
+
+// Modificaciones 
+if modificacion then
+	// Si no es sociedad solo hay un movimiento con el mismo importe que pone en la minuta
+	if f_es_vacio(st_musaat_datos.id_sociedad) then
+		prima_comp = st_musaat_datos.importe_sobre_honos
+	else
+		porc_asociado = f_fases_porcentaje_colegido_sociedad(id_fase, st_musaat_datos.id_sociedad, id_col)// Modificado David 04/02/2005
+		// Aplicamos % del asociado para distribuir el importe entre los asociados
+		prima_comp =  st_musaat_datos.importe_sobre_honos * ( porc_asociado /100	)
+	end if
+end if
+
+// Certificaciones
+if certificacion then
+	// Si no es sociedad solo hay un movimiento con el mismo importe que pone en la minuta
+	if f_es_vacio(st_musaat_datos.id_sociedad) then
+		prima_comp = st_musaat_datos.importe_sobre_honos
+	else
+		porc_asociado = f_fases_porcentaje_colegido_sociedad(id_fase, st_musaat_datos.id_sociedad, id_col)// Modificado David 04/02/2005
+//		prima_comp = prima_comp * ( st_musaat_datos.porc_sobre_honos /100	)
+		prima_comp = st_musaat_datos.importe_sobre_honos * ( porc_asociado /100	)
+		// Descontamos 10 % musaat si es obra de administracion por certificaciones
+//		if st_musaat_datos.aplicado_10 then
+//			prima_comp = prima_comp * 0.9
+//		end if
+	end if
+end if
+
+// Tipos 13 y 15 no se recalcula el importe
+if alta_certif then
+	// Si no es sociedad solo hay un movimiento con el mismo importe que pone en la minuta
+	if f_es_vacio(st_musaat_datos.id_sociedad) then
+		prima_comp = st_musaat_datos.importe_sobre_honos
+	else
+		porc_asociado = f_fases_porcentaje_colegido_sociedad(id_fase, st_musaat_datos.id_sociedad, id_col)// Modificado David 04/02/2005
+		prima_comp = st_musaat_datos.importe_sobre_honos * ( porc_asociado /100	)
+	end if
+end if
+
+// Si la devoluci$$HEX1$$f300$$ENDHEX$$n es decenal no se debe generar el movimiento
+// Ahora se va a generar el movimiento pero queda marcado como decenal para tratarlo como corresponda
+//if decenal then st_musaat_datos.genera_movi = false
+
+// Anulaciones o Renuncias
+if devolucion or decenal then
+	if isnull(st_musaat_datos.porcentaje_devolucion) then st_musaat_datos.porcentaje_devolucion = 0
+	if f_es_vacio(st_musaat_datos.id_sociedad) then	
+		st_musaat_datos.porcentaje = st_musaat_datos.porcentaje_devolucion
+		porcentaje = st_musaat_datos.porcentaje_devolucion
+		prima_comp = st_musaat_datos.importe_sobre_honos
+//		messagebox('kk', string(prima_comp))
+	else
+		// Admite 0 en el %
+		st_musaat_datos.porcentaje = st_musaat_datos.porcentaje_devolucion
+		porcentaje = st_musaat_datos.porcentaje_devolucion
+		prima_comp = st_musaat_datos.importe_sobre_honos
+		// Aplicar % asociado : sino devolvera lo mismo a todos en el movimiento
+		porc_asociado = f_fases_porcentaje_colegido_sociedad(id_fase, st_musaat_datos.id_sociedad, id_col)// Modificado David 04/02/2005
+		prima_comp = prima_comp * ( porc_asociado /100	)		
+	end if	
+//	else
+//
+end if
+
+if funcionario then
+	prima_comp = 0
+//	messagebox('kk', 'funcionario')
+end if
+
+// No regularizar si han pasado menos de tres meses
+if g_no_regulariza_tres_meses = 'S' then
+	regulariza = st_musaat_datos.regulariza
+	if regulariza then
+		if f_musaat_regulariza_tres_meses(id_minuta, id_fase, st_musaat_datos.f_pago) = 'N' then 
+			prima_comp = st_musaat_datos.importe_sobre_honos
+		end if		
+	end if
+end if
+
+
+// Si no se desea regularizaci$$HEX1$$f300$$ENDHEX$$n se toma el importe del aviso directamente
+if g_no_regulariza_nunca = 'S' then
+	regulariza = st_musaat_datos.regulariza
+	if regulariza then
+		if f_es_vacio(st_musaat_datos.id_sociedad) then
+			prima_comp = st_musaat_datos.importe_sobre_honos
+		else
+			porc_asociado = f_fases_porcentaje_colegido_sociedad(id_fase, st_musaat_datos.id_sociedad, id_col)// Modificado ricardo 2004-12-14
+			// Aplicamos % del asociado para distribuir el importe entre los asociados
+			prima_comp =  st_musaat_datos.importe_sobre_honos * ( porc_asociado /100 )
+		end if		
+	end if
+end if
+
+
+// Redondeamos
+prima_comp = f_redondea(prima_comp)
+//messagebox('prima', string(prima_comp))
+st_musaat_datos.prima_comp = prima_comp
+// La F$$HEX1$$f300$$ENDHEX$$rmula y Desarrollo aplicados
+choose case tabla
+	case 'A', 'B', 'C'
+		st_musaat_datos.formula = '( PEM x Coef. K x Coef. C x  Coef. G / 100 ) x Coef. Cm x Coef. Colegio x % Participaci$$HEX1$$f300$$ENDHEX$$n'
+		st_musaat_datos.desarrollo = '( ' + string(pto_calculo, '###,###,##0.00') + ' x ' + string(coef_k) + ' x ' + string(coef_c) + &
+		' x ' + string(coef_g) + ' / 100 ) x ' + string(coef_cm) + ' x ' + string(coef_colegio) + ' x ' + string(porcentaje/100, '##0.00')
+	case 'D', 'F'
+		st_musaat_datos.formula = 'MINIMO x Coef. G x Coef. Cm x Coef. Colegio x % Participaci$$HEX1$$f300$$ENDHEX$$n'
+		st_musaat_datos.desarrollo = string(minimo) + ' x ' + string(coef_g) + ' x ' + string(coef_cm) + ' x ' + &
+		string(coef_colegio) + ' x ' + string(porcentaje/100, '##0.00')
+	case 'E'
+		st_musaat_datos.formula = string(base,'###,###,##0.00') + ' x  Coef. G x Coef. Cm x Coef. Colegio x % Participaci$$HEX1$$f300$$ENDHEX$$n'
+		st_musaat_datos.desarrollo = string(base, '###,###,##0.00') + ' x ' + string(coef_g) + ' x ' + string(coef_cm) + ' x ' + &
+		string(coef_colegio) + ' x ' + string(porcentaje/100, '##0.00')
+end choose
+//if minimo <> 0 then
+//	st_musaat_datos.formula += '~r~rMINIMO = ' +  string(minimo,'###,###,##0.00')
+//end if
+if aplicado_min then
+	st_musaat_datos.desarrollo += ' (m$$HEX1$$ed00$$ENDHEX$$nimo)'
+end if
+if not funcionario and porcentaje=0 then
+st_musaat_datos.genera_movi=false
+end if
+if st_musaat_datos.genera_movi then 
+	st_musaat_datos_movimiento.id_fase = id_fase
+	st_musaat_datos_movimiento.id_minuta = id_minuta
+	st_musaat_datos_movimiento.id_col = id_col
+	st_musaat_datos_movimiento.tabla = tabla
+	// Le paso el tipo del movimiento
+	st_musaat_datos_movimiento.tipo_csd = st_musaat_datos.tipo_csd
+	
+	st_musaat_datos_movimiento.cobertura = cobertura
+	st_musaat_datos_movimiento.coef_k = coef_k
+	st_musaat_datos_movimiento.coef_c = coef_c
+	st_musaat_datos_movimiento.coef_g = coef_g
+	st_musaat_datos_movimiento.presupuesto = pto_calculo
+	st_musaat_datos_movimiento.coef_sin = coef_cm
+	st_musaat_datos_movimiento.coef_col = coef_colegio
+	st_musaat_datos_movimiento.superficie = superficie
+	st_musaat_datos_movimiento.volumen = volumen
+	st_musaat_datos_movimiento.porcentaje = porcentaje
+	st_musaat_datos_movimiento.importe_vble = prima_comp
+//	messagebox('movi',string(prima_comp))
+	st_musaat_datos_movimiento.obra_oficial = administracion
+	st_musaat_datos_movimiento.aplica_10 = cobro_10
+	st_musaat_datos_movimiento.n_contrato_ant = st_musaat_datos.n_contrato_ant
+	st_musaat_datos_movimiento.f_pago = st_musaat_datos.f_pago
+	st_musaat_datos_movimiento.id_sociedad = st_musaat_datos.id_sociedad
+	
+	f_musaat_movimiento(st_musaat_datos_movimiento)
+end if
+return 0
+end function
+

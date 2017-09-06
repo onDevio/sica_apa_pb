@@ -1,0 +1,38 @@
+HA$PBExportHeader$ds_listado_fact_l_g_c_conceptos_factura.srd
+release 10.5;
+datawindow(units=0 timer_interval=0 color=67108864 processing=0 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes print.preview.outline=yes hidegrayline=no )
+header(height=0 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=56 color="536870912" height.autosize=yes )
+table(column=(type=number updatewhereclause=yes name=csi_lineas_fact_emitidas_subtotal_iva dbname="csi_lineas_fact_emitidas.subtotal_iva" )
+ column=(type=number updatewhereclause=yes name=csi_lineas_fact_emitidas_total dbname="csi_lineas_fact_emitidas.total" )
+ column=(type=char(255) updatewhereclause=yes name=csi_lineas_fact_emitidas_descripcion_larga dbname="csi_lineas_fact_emitidas.descripcion_larga" )
+ column=(type=number updatewhereclause=yes name=csi_lineas_fact_emitidas_importe_dto dbname="csi_lineas_fact_emitidas.importe_dto" )
+ column=(type=number updatewhereclause=yes name=csi_lineas_fact_emitidas_subtotal dbname="csi_lineas_fact_emitidas.subtotal" )
+ retrieve="SELECT   csi_lineas_fact_emitidas.subtotal_iva,   
+         csi_lineas_fact_emitidas.total,   
+         csi_lineas_fact_emitidas.descripcion_larga,
+	    csi_lineas_fact_emitidas.importe_dto,
+	    csi_lineas_fact_emitidas.subtotal 
+    FROM csi_facturas_emitidas,
+		csi_lineas_fact_emitidas
+   WHERE( csi_facturas_emitidas.id_factura = csi_lineas_fact_emitidas.id_factura ) and   
+			csi_facturas_emitidas.id_factura = :id_factura" arguments=(("id_factura", string)) )
+text(band=detail alignment="0" text="Dto:" border="0" color="33554432" x="1701" y="64" height="44" width="82" html.valueishtml="0"  name=t_1 visible="1~tIF (Isnull(csi_lineas_fact_emitidas_importe_dto) OR  csi_lineas_fact_emitidas_importe_dto = 0, 0,1)"  font.face="Arial" font.height="-6" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" font.italic="1" background.mode="1" background.color="553648127" )
+column(band=detail id=4 alignment="1" tabsequence=32766 border="0" color="0" x="1806" y="64" height="48" width="283" format="#,##0.00" html.valueishtml="0"  name=csi_lineas_fact_emitidas_importe_dto visible="1~tIF (Isnull(csi_lineas_fact_emitidas_importe_dto) OR  csi_lineas_fact_emitidas_importe_dto = 0, 0,1)" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-6" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" font.italic="1" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="823" y="4" height="48" width="1271" format="[general]" html.valueishtml="0"  name=csi_lineas_fact_emitidas_descripcion_larga visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-6" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" font.italic="1" background.mode="1" background.color="553648127" )
+column(band=detail id=5 alignment="1" tabsequence=32766 border="0" color="0" x="2112" y="4" height="48" width="283" format="#,##0.00" html.valueishtml="0"  name=csi_lineas_fact_emitidas_subtotal visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-6" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" font.italic="1" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="1" tabsequence=32766 border="0" color="0" x="2414" y="4" height="48" width="283" format="#,##0.00" html.valueishtml="0"  name=csi_lineas_fact_emitidas_subtotal_iva visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-6" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" font.italic="1" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="1" tabsequence=32766 border="0" color="0" x="2944" y="4" height="48" width="283" format="#,##0.00" html.valueishtml="0"  name=csi_lineas_fact_emitidas_total visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-6" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" font.italic="1" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" pagingmethod=0 generatedddwframes="1" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()
+ 

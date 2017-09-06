@@ -1,0 +1,55 @@
+HA$PBExportHeader$f_dame_provincia.srf
+global type f_dame_provincia from function_object
+end type
+
+forward prototypes
+global function string f_dame_provincia (string cp)
+end prototypes
+
+global function string f_dame_provincia (string cp);////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Esta funci$$HEX1$$f300$$ENDHEX$$n obtiene, dado un c$$HEX1$$f300$$ENDHEX$$digo postal, la pronvincia a la que pertenece
+// 
+// Datos de entrada:
+//             				cp: es el c$$HEX1$$f300$$ENDHEX$$digo postal del que se quiere obtener la pronvincia a la que pertenece
+//
+// Datos de salida:
+// 						Se devolver$$HEX2$$e1002000$$ENDHEX$$la pronvia a la que pertenece el cp introducido
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+string codigo
+
+// Obtenemos el c$$HEX1$$f300$$ENDHEX$$digo de provincia del c$$HEX1$$f300$$ENDHEX$$digo postal introducido
+cp = LeftA(cp,3)
+
+// Comprobamos que no sea ni CEUTA ni MELILLA
+IF cp = '117' THEN
+	Return '053'  // Ceuta
+ELSE
+	IF cp='298' THEN
+		Return '052'  // Melilla
+	// Resto de provincias
+	ELSE 
+		cp = '%' + LeftA(cp,2)
+		
+		// Obtenemos la pronvincia
+		SELECT provincias.codigo  
+		INTO :codigo  
+		FROM provincias  
+		WHERE provincias.codigo like :cp   ;
+
+		IF SQLCA.sqlcode = 0 THEN		
+			Return codigo
+		ELSE
+			Return '-1'   // Error
+		END IF
+	END IF
+END IF
+			
+		
+
+
+
+
+
+end function
+

@@ -1,0 +1,84 @@
+HA$PBExportHeader$d_cobros_listado_caja_resumen.srd
+$PBExportComments$Agrupado por centro, por banco y por forma de pago
+release 10.5;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes print.preview.outline=yes hidegrayline=no )
+header(height=180 color="536870912" )
+summary(height=412 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=0 color="536870912" )
+table(column=(type=char(10) updatewhereclause=yes name=csi_cobros_centro dbname="csi_cobros.centro" )
+ column=(type=number updatewhereclause=yes name=csi_cobros_importe dbname="csi_cobros.importe" )
+ column=(type=char(2) updatewhereclause=yes name=csi_cobros_forma_pago dbname="csi_cobros.forma_pago" )
+ column=(type=char(60) updatewhereclause=yes name=csi_formas_de_pago_descripcion dbname="csi_formas_de_pago.descripcion" )
+ column=(type=char(1) updatewhereclause=yes name=csi_formas_de_pago_tipo dbname="csi_formas_de_pago.tipo" )
+ column=(type=char(10) updatewhereclause=yes name=csi_cobros_banco dbname="csi_cobros.banco" )
+ column=(type=char(40) updatewhereclause=yes name=csi_bancos_nombre dbname="csi_bancos.nombre" )
+ column=(type=char(1) updatewhereclause=yes name=csi_formas_de_pago_hay_ingreso dbname="csi_formas_de_pago.hay_ingreso" )
+ column=(type=char(40) updatewhereclause=yes name=csi_centros_descripcion dbname="csi_centros.descripcion" )
+ retrieve="  SELECT csi_cobros.centro,   
+         csi_cobros.importe,   
+         csi_cobros.forma_pago,   
+         csi_formas_de_pago.descripcion,   
+         csi_formas_de_pago.tipo,   
+         csi_cobros.banco,   
+	    csi_bancos.nombre, 
+         csi_formas_de_pago.hay_ingreso,   
+         csi_centros.descripcion
+    FROM csi_cobros,   
+               csi_formas_de_pago,   
+      	  	csi_centros  ,
+			csi_bancos
+   WHERE
+         ( csi_cobros.forma_pago = csi_formas_de_pago.tipo_pago ) and  
+         ( csi_cobros.centro = csi_centros.centro ) and  
+			( csi_cobros.banco = csi_bancos.codigo)
+
+"  sort="csi_cobros_centro A csi_cobros_banco A csi_cobros_forma_pago A " )
+group(level=1 header.height=200 trailer.height=168 by=("csi_cobros_centro" ) header.color="536870912" trailer.color="536870912" )
+group(level=2 header.height=200 trailer.height=144 by=("csi_cobros_banco" ) header.color="536870912" trailer.color="536870912" )
+group(level=3 header.height=0 trailer.height=64 by=("csi_cobros_forma_pago" ) header.color="536870912" trailer.color="536870912" )
+text(band=header alignment="0" text="Resumen de Caja" border="0" color="0" x="137" y="12" height="100" width="2587" html.valueishtml="0"  name=st_titulo_listado  tag="texto=cobros.resumen_caja" visible="1"  font.face="Arial" font.height="-16" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="1" background.color="536870912" )
+column(band=header.1 id=9 alignment="0" tabsequence=32766 border="0" color="0" x="27" y="52" height="64" width="1083" format="[general]" html.valueishtml="0"  name=csi_centros_descripcion visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=header.2 id=7 alignment="0" tabsequence=32766 border="4" color="0" x="174" y="8" height="56" width="3054" format="[general]" html.valueishtml="0"  name=csi_bancos_nombre visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header.2 alignment="2" text="Forma Pago" border="4" color="0" x="462" y="132" height="56" width="1650" html.valueishtml="0"  name=csi_formas_de_pago_descripcion_t  tag="texto=cobros.forma_pago" visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header.2 alignment="2" text="Ingresado" border="4" color="0" x="2697" y="132" height="56" width="526" html.valueishtml="0"  name=ingresado_por_forma_pago_t  tag="texto=cobros.ingresado" visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+compute(band=detail alignment="0" expression="'Comentada por Ricardo'/*f_dame_tipo_factura (  csi_facturas_emitidas_tipo_factura )*/"border="0" color="0" x="805" y="188" height="56" width="315" format="[GENERAL]" html.valueishtml="0"  name=compute_10 visible="1~t0"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912"  height.autosize=yes)
+compute(band=detail alignment="1" expression="ingresado *  csi_cobros_importe "border="0" color="0" x="1632" y="96" height="56" width="306" format="#,##0.00" html.valueishtml="0"  name=importe_ingresado visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="0" expression="if(  csi_formas_de_pago_hay_ingreso = 'S',1,0)"border="0" color="0" x="1573" y="96" height="56" width="183" format="[GENERAL]" html.valueishtml="0"  name=ingresado visible="1~t0"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="1" tabsequence=32766 border="0" color="0" x="1289" y="96" height="56" width="329" format="#,##0.00" html.valueishtml="0"  name=csi_cobros_importe visible="1" edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="0" color="0" x="946" y="96" height="56" width="334" format="[general]" html.valueishtml="0"  name=csi_cobros_banco_1 visible="1" height.autosize=yes dddw.name=d_dddw_csi_bancos dddw.displaycolumn=nombre dddw.datacolumn=codigo dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=trailer.3 id=4 alignment="0" tabsequence=32766 border="0" color="0" x="462" y="4" height="56" width="1650" format="[general]" html.valueishtml="0"  name=csi_formas_de_pago_descripcion visible="1" height.autosize=yes edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=trailer.3 alignment="1" expression="sum(ingresado *  csi_cobros_importe  for group 3)"border="0" color="0" x="2697" y="4" height="56" width="526" format="#,##0.00" html.valueishtml="0"  name=ingresado_por_forma_pago visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=trailer.2 alignment="0" text="N$$HEX2$$ba002000$$ENDHEX$$de cobros :" border="0" color="0" x="64" y="48" height="56" width="347" html.valueishtml="0"  name=t_8  tag="texto=cobros.n_cobros" visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=trailer.2 alignment="1" expression="sum( if(importe_ingresado <> 0, 1, 0) for group 2)"border="0" color="0" x="434" y="48" height="56" width="224" format="#,##0" html.valueishtml="0"  name=compute_4 visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+text(band=trailer.2 alignment="0" text="Total" border="0" color="0" x="1751" y="44" height="56" width="183" html.valueishtml="0"  name=t_1  tag="texto=cobros.total" visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=trailer.2 x1="73" y1="128" x2="3227" y2="128"  name=l_6 visible="1" pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="1073741824" )
+line(band=trailer.2 x1="2670" y1="16" x2="3223" y2="16"  name=l_3 visible="1" pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="1073741824" )
+compute(band=trailer.2 alignment="1" expression="sum(ingresado *  csi_cobros_importe  for group 2)"border="0" color="0" x="2697" y="44" height="56" width="526" format="#,##0.00" html.valueishtml="0"  name=compute_1 visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=trailer.2 id=6 alignment="0" tabsequence=32766 border="0" color="0" x="1947" y="44" height="56" width="736" format="[general]" html.valueishtml="0"  name=csi_cobros_banco visible="1" dddw.name=d_dddw_csi_bancos dddw.displaycolumn=nombre dddw.datacolumn=codigo dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=trailer.1 alignment="0" text="N$$HEX2$$ba002000$$ENDHEX$$de cobros por Centro:" border="0" color="0" x="64" y="40" height="56" width="622" html.valueishtml="0"  name=t_9  tag="texto=cobros.n_cobros_centro:" visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=trailer.1 alignment="1" expression="sum( if(importe_ingresado <> 0, 1, 0) for group 1)"border="0" color="0" x="704" y="40" height="56" width="224" format="#,##0" html.valueishtml="0"  name=compute_5 visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+line(band=trailer.1 x1="73" y1="148" x2="3227" y2="148"  name=l_7 visible="1" pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="1073741824" )
+compute(band=trailer.1 alignment="1" expression="sum(ingresado *  csi_cobros_importe  for group 1)"border="0" color="0" x="2697" y="48" height="56" width="526" format="#,##0.00" html.valueishtml="0"  name=compute_2 visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=trailer.1 x1="2670" y1="16" x2="3223" y2="16"  name=l_4 visible="1" pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="1073741824" )
+text(band=trailer.1 alignment="0" text="Total Centro.............................................." border="0" color="0" x="1746" y="40" height="56" width="942" html.valueishtml="0"  name=t_6  tag="texto=cobros.total_centro" visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=summary alignment="0" text="N$$HEX2$$ba002000$$ENDHEX$$de cobros para todos los Centros:" border="0" color="0" x="41" y="108" height="56" width="928" html.valueishtml="0"  name=t_10  tag="texto=cobros.n_cobros_todos_centros:" visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="sum( if(importe_ingresado <> 0, 1, 0) for all)"border="0" color="0" x="1019" y="108" height="56" width="224" format="#,##0" html.valueishtml="0"  name=compute_9 visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+compute(band=summary alignment="1" expression="sum(ingresado *  csi_cobros_importe  for all)"border="0" color="0" x="2697" y="108" height="56" width="526" format="#,##0.00" html.valueishtml="0"  name=compute_3 visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=summary x1="2670" y1="84" x2="3223" y2="84"  name=l_5 visible="1" pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="1073741824" )
+text(band=summary alignment="0" text="Total Colegio............................................" border="0" color="0" x="1746" y="108" height="56" width="933" html.valueishtml="0"  name=t_5  tag="texto=cobros.total_colegio" visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=footer alignment="0" expression="datetime(today(),now())"border="0" color="0" x="261" y="40" height="56" width="544" format="dd/mm/yyyy     hh:mm:ss" html.valueishtml="0"  name=compute_8 visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=footer alignment="0" text="Fecha:" border="0" color="0" x="73" y="40" height="56" width="178" html.valueishtml="0"  name=t_7 visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+compute(band=footer alignment="1" expression="'P$$HEX1$$e100$$ENDHEX$$gina: ' + page() + ' de ' + pageCount()"border="0" color="0" x="2528" y="40" height="56" width="699" format="[general]" html.valueishtml="0"  name=page_1 visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+line(band=footer x1="73" y1="16" x2="3227" y2="12"  name=l_2 visible="1" pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="1073741824" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" pagingmethod=0 generatedddwframes="1" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()
+ 

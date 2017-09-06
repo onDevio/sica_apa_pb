@@ -1,0 +1,40 @@
+HA$PBExportHeader$f_cobro_multiple_dame_facturas.srf
+global type f_cobro_multiple_dame_facturas from function_object
+end type
+
+forward prototypes
+global function string f_cobro_multiple_dame_facturas (string id_cobro_multiple)
+end prototypes
+
+global function string f_cobro_multiple_dame_facturas (string id_cobro_multiple);
+string retorno,  n_fact
+datastore ds_cobro_multiple 
+int i
+
+ds_cobro_multiple = create datastore
+ds_cobro_multiple.dataobject= "d_cobros_multiples_cobros_relacion_lista"
+ds_cobro_multiple.settransobject( SQLCA )
+
+ds_cobro_multiple.retrieve(id_cobro_multiple)
+
+retorno = ""
+
+for i=1 to ds_cobro_multiple.RowCount()
+	n_fact =ds_cobro_multiple.getitemstring(i, 'csi_facturas_emitidas_n_fact')
+	if f_es_vacio (n_fact) then 
+		continue
+	else
+		if f_es_vacio(retorno) then
+			retorno = n_fact
+		else
+			retorno += ', '+n_fact
+		end if
+	end if
+next
+return retorno
+
+
+
+
+end function
+

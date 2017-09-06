@@ -1,0 +1,57 @@
+HA$PBExportHeader$f_colegiado_ha_realizado_la_direc.srf
+global type f_colegiado_ha_realizado_la_direc from function_object
+end type
+
+forward prototypes
+global function boolean f_musaat_colegiado_ha_realizado_la_direccion (string n_expediente, string n_col)
+global function string f_colegiado_ha_realizado_la_direc (string id_fase, string id_col)
+end prototypes
+
+global function boolean f_musaat_colegiado_ha_realizado_la_direccion (string n_expediente, string n_col);return false
+end function
+
+global function string f_colegiado_ha_realizado_la_direc (string id_fase, string id_col);string id_expedi, tipo_act
+long cuantos
+
+id_expedi = f_fases_id_expedi(id_fase)
+
+  SELECT fases.fase  
+    INTO :tipo_act  
+    FROM expedientes,   
+         fases,   
+         t_fases,   
+         fases_colegiados  
+   WHERE ( expedientes.id_expedi = fases.id_expedi ) and  
+         ( fases.fase = t_fases.c_t_fase ) and  
+         ( fases.id_fase = fases_colegiados.id_fase ) and  
+         ( ( expedientes.id_expedi = :id_expedi ) AND  
+         ( t_fases.c_t_fase in ('11','13','14','16', '17')) 
+//			AND  
+//         ( fases_colegiados.id_col = :id_col )   
+         )   ;
+if not isnull(tipo_act) then return tipo_act
+
+if cuantos = 0 then
+	SELECT fases.fase  
+    INTO :tipo_act  
+    FROM expedientes,   
+         fases,   
+         t_fases,   
+         fases_colegiados_asociados  
+   WHERE ( expedientes.id_expedi = fases.id_expedi ) and  
+         ( fases.fase = t_fases.c_t_fase ) and  
+         ( fases.id_fase = fases_colegiados_asociados.id_fase ) and  
+         ( ( expedientes.id_expedi = :id_expedi ) AND  
+         ( t_fases.c_t_fase in ('11','13','14','16', '17'))
+//			AND  
+//         ( fases_colegiados_asociados.id_col_per = :id_col )   
+         )   ;
+	if isnull(tipo_act) then cuantos = 0
+end if
+
+if cuantos = 0  then tipo_act = '-1'
+
+return tipo_act
+
+end function
+

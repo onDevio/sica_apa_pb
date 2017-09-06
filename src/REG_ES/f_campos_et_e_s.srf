@@ -1,0 +1,28 @@
+HA$PBExportHeader$f_campos_et_e_s.srf
+global type f_campos_et_e_s from function_object
+end type
+
+forward prototypes
+global function string f_campos_et_e_s (string campo)
+end prototypes
+
+global function string f_campos_et_e_s (string campo);string label
+
+CHOOSE CASE g_colegio
+	CASE ''
+		// 	
+	CASE ELSE
+		//Etiquetas con que se mostrar$$HEX1$$e100$$ENDHEX$$n los tipos de Registro en otros colegios
+		// ... Por definir ...
+		CHOOSE CASE campo
+			CASE 'interno_t'
+				label='Interno:'
+			CASE 'oficial_t'
+				label='Oficial:'
+		END CHOOSE		
+END CHOOSE
+
+return label
+
+end function
+

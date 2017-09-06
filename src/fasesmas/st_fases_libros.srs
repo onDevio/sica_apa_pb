@@ -1,0 +1,15 @@
+HA$PBExportHeader$st_fases_libros.srs
+global type st_fases_libros from structure
+	string		id_docu
+	string		id_fase
+	string		tipo
+	string		n_libro
+	datetime		fecha
+	datetime		fecha_ret
+	string		registro
+	string		visado
+	string		municipio
+	string		colegiado[]
+	integer		n_col
+end type
+

@@ -1,0 +1,58 @@
+declare @colegio varchar(10)
+select @colegio = texto from var_globales where nombre = 'COLEGIO'
+
+if @colegio= 'COAATLL'
+begin
+
+ //SCP-1104
+ insert into var_globales (nombre,texto,descripcion) values ('g_dw_etiquetas_visado','d_etiquetas_visado_impresion_ll','DW de impresion de etiquetas de visado TGN/TEB/LL')
+ 
+ ///SCP-1092. Alexis. Se modifica la var global que guarda el informe de liquidación para lleida
+ update var_globales set texto = 'd_informe_liquidacion_lle' where nombre = 'g_hoja_liquidacion'
+ update var_globales set texto = 'd_informe_liquidacion_lle' where nombre = 'g_hoja_liquidacion_manual'
+ 
+ //SCP-1096
+ insert into Listados(descripcion,dw,ventana,activo) values ('Factures Detallades per Col·legiat','d_listado_facturas_det_colegiado_lle','w_facturacion_emitida_listados','S')
+ 
+ //SCP-1102
+ update listados set activo='N' where dw like 'd_renuncia%'
+ insert into listados(descripcion,dw,ventana,orden,activo) values ('Carta Ayuntamiento','d_renuncias_carta_ayto_lle','w_renuncias_impresos','00','S')
+ insert into listados(descripcion,dw,ventana,orden,activo) values ('Carta Col. Arq.','d_renuncias_carta_colarq_lle','w_renuncias_impresos','00','S')
+ insert into listados(descripcion,dw,ventana,orden,activo) values ('Carta Colegiado','d_renuncias_carta_colegiado_lle','w_renuncias_impresos','00','S')
+ insert into listados(descripcion,dw,ventana,orden,activo) values ('Carta Promotor','d_renuncias_carta_promotor_lle','w_renuncias_impresos','00','S')
+ insert into listados(descripcion,dw,ventana,orden,activo) values ('Carta Propietario','d_renuncias_carta_propietario_lle','w_renuncias_impresos','00','S')
+ insert into listados(descripcion,dw,ventana,orden,activo) values ('Carta Trabajo','d_renuncias_carta_trabajo_lle','w_renuncias_impresos','00','S')
+ update t_control_eventos set activo='S' where id_control='RENGUADA'
+
+end
+
+if @colegio= 'COAATLL','COAATTGN','COAATTEB'
+
+ //SCP-1103 Traducción cartas de reclamación.
+ update csi_fact_reclamaciones_tipos set dw='d_reclamaciones_facturas_1a_recla_lle' where tipo_reclamacion='02' or tipo_reclamacion='10'
+ update csi_fact_reclamaciones_tipos set dw='d_reclamaciones_facturas_2a_recla_lle' where tipo_reclamacion='03' or tipo_reclamacion='11'
+ update csi_fact_reclamaciones_tipos set dw='d_reclamaciones_facturas_3a_recla_lle' where tipo_reclamacion='04' or tipo_reclamacion='12'
+ update csi_fact_reclamaciones_tipos set dw='d_reclamaciones_facturas_4a_recla_lle' where tipo_reclamacion='05' or tipo_reclamacion='13'
+ update csi_fact_reclamaciones_tipos set dw='d_reclamaciones_facturas_agrup_lle' where tipo_reclamacion='50' or tipo_reclamacion='51'
+ 
+ //SCP-1101. Actualizamos algunas traducciones que no estaban bien o añadimos algunas que no estaban
+ INSERT INTO messages_ca (tag, traduccion, modulo, nombre) VALUES ('colegiados.tipo_seguro','Tipus','colegiados','tipo_seguro')
+ UPDATE messages_ca set traduccion ='Cancel.la' where tag='general.cancelar'
+ INSERT INTO messages_ca (tag, traduccion, modulo, nombre) VALUES ('colegiados.pestanya_premaat','PREMAAT','colegiados','premaat_pestanya')
+
+end
+
+/// TODOS. SCP-1092. alexis. Se aprovecha para dinamizar el parámetro. 
+insert into var_globales (nombre,sn,descripcion) values ('g_hoja_liq_referencia','R','Variable para ver cual es el nº de referencia en las hojas de liquidacion. R=Nº registro, V=Nºvisado/salida, E=NºExpediente');
+
+if @colegio= 'COAATLR'
+begin
+ ///SCP-1092. Alexis. Para la Rioja se respeta que usaban el nº de expediente
+ update var_globales set sn = 'E' where nombre = 'g_hoja_liq_referencia'
+end
+
+///***SCP-1219. Cambios en t_control eventos para activar el evento de añadir conceptos domiciliables de forma automática que se desactivo en la anterior versión. Alexis. 24-03/2011***///
+Update t_control_eventos set activo = 'S', param3 = '01' where control = 'CONCEPTO_DOMIC';
+
+//TODOS SCP-1091 Para impresion de talones
+insert into var_globales (nombre,texto,descripcion, modificable) values ('g_imprimir_talon_multiples','S','Cuando esta activada permite imprimir varios talones en la misma pagina' ,'S');

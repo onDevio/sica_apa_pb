@@ -1,0 +1,68 @@
+HA$PBExportHeader$f_convertir_cuenta_abrev.srf
+global type f_convertir_cuenta_abrev from function_object
+end type
+
+forward prototypes
+global function string f_convertir_cuenta_abrev (u_dw dw_1, long fila, string columna)
+end prototypes
+
+global function string f_convertir_cuenta_abrev (u_dw dw_1, long fila, string columna);//Script que dado una cuenta en forma 43.1 $$HEX2$$f3002000$$ENDHEX$$43,1 la transforma a su forma normal rellenando tantos 
+// ceros hasta longitud de la cadena cuenta llegue al valor g_num_digitos
+
+string cuenta_abrev,cuenta_final,izda_punto,dcha_punto
+string mensaje=''
+long pos_punto,long_izda,long_dcha, pos_pto_ant
+int num_ceros
+
+//Comprobamos validez del valor de cuenta
+//if  not(isvalid(dw_1.object.columna)) then return ''
+//nombre_columna = data_w.Describe("#" + string(n) +".Name")
+
+cuenta_abrev=dw_1.getitemstring(fila,columna)
+
+//Comprobamos entradas correctas de forma abreviada
+pos_punto=PosA(cuenta_abrev,'.')
+
+// Modif. 29/05/02
+//No se encuentra el '.'
+if pos_punto=0 then 
+	// Buscamos ',' por si est$$HEX2$$e1002000$$ENDHEX$$utilizando la conf. con la coma como s$$HEX1$$ed00$$ENDHEX$$mbolo decimal
+	pos_punto=PosA(cuenta_abrev,',')
+	if pos_punto = 0 then mensaje+='La cuenta '+cuenta_abrev+ 'no existe'+cr	
+end if
+// Fin Modif. 29/05/02
+	
+//El '.' se encuentra en 1a posicion: Entrada no permitida
+if pos_punto=1 then 
+	mensaje+='La cuenta '+cuenta_abrev+ 'no existe'+cr
+elseif pos_punto>1 then
+	if pos_punto<LenA(cuenta_abrev) then
+	//Obtenemos longitud parte izda del punto en la cuenta
+	pos_pto_ant=pos_punto - 1
+	izda_punto=LeftA(cuenta_abrev,pos_pto_ant)
+	long_izda=LenA(izda_punto)
+	//Parte derecha
+	dcha_punto=RightA(cuenta_abrev,LenA(cuenta_abrev)-pos_punto)
+	long_dcha=LenA(dcha_punto)
+	//concatenamos los ceros faltantes
+	if RightA(columna,14) = 'presupuestaria' then
+		num_ceros =g_num_digitos_presup - (long_izda+long_dcha)
+	else
+		num_ceros=g_num_digitos - (long_izda+long_dcha)
+	end if
+	cuenta_final=ReplaceA(cuenta_abrev,pos_punto,1,FillA('0',num_ceros))
+	return cuenta_final
+else 
+	//El '.' colocado en la ultima posicion
+	mensaje+='La cuenta '+cuenta_abrev+ 'no existe'+cr
+end if
+end if
+	
+if mensaje<>'' then 
+	return ''
+else 
+	return ''
+end if
+
+end function
+

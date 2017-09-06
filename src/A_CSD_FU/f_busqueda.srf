@@ -1,0 +1,13 @@
+HA$PBExportHeader$f_busqueda.srf
+global type f_busqueda from function_object
+end type
+
+forward prototypes
+global function string f_busqueda ()
+end prototypes
+
+global function string f_busqueda ();open(w_busqueda)
+return Message.StringParm
+
+end function
+

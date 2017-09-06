@@ -1,0 +1,44 @@
+HA$PBExportHeader$f_musaat_coberturas_src.srf
+$PBExportComments$Dado un colegiado devuelve sus datos de coberturas de musaat
+global type f_musaat_coberturas_src from function_object
+end type
+
+forward prototypes
+global function string f_musaat_coberturas_src (string id_col)
+end prototypes
+
+global function string f_musaat_coberturas_src (string id_col);//Esta funci$$HEX1$$f300$$ENDHEX$$n devuelve los datos de coberturas src
+//que le corresponden al colegiado indicado por ID_COL
+
+string cobertura_cod,cobertura,fecha,observaciones,retorno
+double cobertura_aux
+long i
+datastore ds_coberturas
+
+retorno = ''
+ds_coberturas = create datastore
+ds_coberturas.dataobject ='d_musaat_coberturas'
+ds_coberturas.SetTransObject(SQLCA)
+
+ds_coberturas.Retrieve(id_col)
+
+FOR i=1 TO ds_coberturas.rowcount()
+	cobertura_cod = ds_coberturas.getitemstring(i, 'codigo')
+	select prima into :cobertura_aux from musaat_cober_src where codigo = :cobertura_cod;
+	cobertura = string(cobertura_aux)
+	fecha = string(ds_coberturas.getitemdatetime(i, 'fecha'))
+	observaciones = ds_coberturas.getitemstring(i, 'observaciones')
+	
+	if f_es_vacio(cobertura) then cobertura = ''
+	if f_es_vacio(fecha) then fecha = ''
+	if f_es_vacio(observaciones) then observaciones = ''
+	
+	retorno = retorno + 'Cobertura: ' + cobertura + '~t' + 'Fecha: ' + fecha + '~t' + 'Observaciones: ' + observaciones + cr
+NEXT
+
+
+destroy ds_coberturas
+
+return retorno
+end function
+

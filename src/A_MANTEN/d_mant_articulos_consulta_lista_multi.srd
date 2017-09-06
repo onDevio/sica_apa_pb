@@ -1,0 +1,85 @@
+HA$PBExportHeader$d_mant_articulos_consulta_lista_multi.srd
+release 10.5;
+datawindow(units=0 timer_interval=0 color=79741120 processing=0 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 97 print.margin.bottom = 97 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes print.preview.outline=yes hidegrayline=no )
+header(height=72 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=72 color="536870912" height.autosize=yes )
+table(column=(type=char(10) updatewhereclause=yes name=codigo dbname="csi_articulos_servicios.codigo" dbalias=".codigo" )
+ column=(type=char(10) updatewhereclause=yes name=cuenta dbname="csi_articulos_servicios.cuenta" dbalias=".cuenta" )
+ column=(type=char(10) updatewhereclause=yes name=cta_presupuestaria dbname="csi_articulos_servicios.cta_presupuestaria" dbalias=".cta_presupuestaria" )
+ column=(type=char(1) updatewhereclause=yes name=exp dbname="csi_articulos_servicios.exp" dbalias=".exp" initial="N" values="	S/	N" )
+ column=(type=char(1) updatewhereclause=yes name=general dbname="csi_articulos_servicios.general" dbalias=".general" initial="N" values="	S/	N" )
+ column=(type=number updatewhereclause=yes name=importe dbname="csi_articulos_servicios.importe" dbalias=".importe" initial="0" )
+ column=(type=char(1) updatewhereclause=yes name=activo dbname="csi_articulos_servicios.activo" dbalias=".activo" initial="S" values="	S/	N" )
+ column=(type=char(1) updatewhereclause=yes name=es_informe dbname="csi_articulos_servicios.es_informe" dbalias=".es_informe" initial="N" values="	S/	N" )
+ column=(type=number updatewhereclause=yes name=impuesto dbname="csi_articulos_servicios.impuesto" dbalias=".impuesto" initial="0" )
+ column=(type=long updatewhereclause=yes name=orden dbname="csi_articulos_servicios.orden" dbalias=".orden" )
+ column=(type=char(10) updatewhereclause=yes name=colegio dbname="csi_articulos_servicios.colegio" dbalias=".colegio" )
+ column=(type=char(2) updatewhereclause=yes name=t_iva dbname="csi_articulos_servicios.t_iva" dbalias=".t_iva" initial="00" )
+ column=(type=char(32768) updatewhereclause=yes name=descripcion dbname="csi_articulos_servicios.descripcion" dbalias=".descripcion" )
+ column=(type=char(15) updatewhereclause=yes name=impreso dbname="csi_articulos_servicios.impreso" dbalias=".impreso" )
+ column=(type=char(1) updatewhereclause=yes name=honorario dbname="csi_articulos_servicios.honorario" dbalias=".honorario" initial="N" values="	S/	N" )
+ column=(type=char(1) updatewhereclause=yes name=en_ficha_colegiado dbname="csi_articulos_servicios.en_ficha_colegiado" dbalias=".en_ficha_colegiado" initial="N" values="	S/	0" )
+ column=(type=char(60) updatewhereclause=yes name=concepto_conta dbname="csi_articulos_servicios.concepto_conta" dbalias=".concepto_conta" )
+ column=(type=char(1) updatewhereclause=yes name=suplido dbname="csi_articulos_servicios.suplido" dbalias=".suplido" initial="N" values="	S/	N" )
+ column=(type=char(1) updatewhereclause=yes name=tiene_irpf dbname="csi_articulos_servicios.tiene_irpf" dbalias=".tiene_irpf" initial="N" values="	S/	N" )
+ column=(type=char(1) updatewhereclause=yes name=ing_gas dbname="csi_articulos_servicios.ing_gas" dbalias=".ing_gas" initial="N" values="	S/	N" )
+ column=(type=char(1) updatewhereclause=yes name=incluir_347 dbname="csi_articulos_servicios.incluir_347" dbalias=".incluir_347" initial="N" values="	S/	N" )
+ column=(type=char(2) updatewhereclause=yes name=empresa dbname="csi_articulos_servicios.empresa" dbalias=".empresa" )
+ column=(type=char(2) updatewhereclause=yes name=familia dbname="csi_articulos_servicios.familia" dbalias=".familia" )
+ retrieve="  SELECT csi_articulos_servicios.codigo,   
+         csi_articulos_servicios.cuenta,   
+         csi_articulos_servicios.cta_presupuestaria,   
+         csi_articulos_servicios.exp,   
+         csi_articulos_servicios.general,   
+         csi_articulos_servicios.importe,   
+         csi_articulos_servicios.activo,   
+         csi_articulos_servicios.es_informe,   
+         csi_articulos_servicios.impuesto,   
+         csi_articulos_servicios.orden,   
+         csi_articulos_servicios.colegio,   
+         csi_articulos_servicios.t_iva,   
+         csi_articulos_servicios.descripcion,   
+         csi_articulos_servicios.impreso,   
+         csi_articulos_servicios.honorario,   
+         csi_articulos_servicios.en_ficha_colegiado,   
+         csi_articulos_servicios.concepto_conta,   
+         csi_articulos_servicios.suplido,   
+         csi_articulos_servicios.tiene_irpf,   
+         csi_articulos_servicios.ing_gas,   
+         csi_articulos_servicios.incluir_347,   
+         csi_articulos_servicios.empresa,   
+         csi_articulos_servicios.familia  
+    FROM csi_articulos_servicios   where  ( csi_articulos_servicios.activo = 'S' ) AND  
+         ( csi_articulos_servicios.es_informe = 'S' ) AND  
+         ( csi_articulos_servicios.exp = 'S' )    
+" filter=" activo ='S'")
+text(band=header alignment="2" text="Orden" border="6" color="0" x="297" y="12" height="52" width="151" html.valueishtml="0"  name=orden_t visible="0"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="79741120" )
+text(band=header alignment="2" text="C$$HEX1$$f300$$ENDHEX$$digo" border="6" color="0" x="9" y="12" height="52" width="270" html.valueishtml="0"  name=codigo_t  tag="texto=general.codigo" visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="79741120" )
+text(band=header alignment="2" text="Descripci$$HEX1$$f300$$ENDHEX$$n" border="6" color="0" x="297" y="12" height="52" width="2130" html.valueishtml="0"  name=descripcion_t  tag="texto=general.descripcion" visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="79741120" )
+text(band=header alignment="2" text="Activo" border="6" color="0" x="3333" y="12" height="52" width="165" html.valueishtml="0"  name=activo_t  tag="texto=general.activo" visible="0"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="79741120" )
+text(band=header alignment="2" text="Empresa" border="6" color="0" x="2446" y="12" height="52" width="352" html.valueishtml="0"  name=t_2 visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="79741120" )
+text(band=header alignment="2" text="Importe" border="6" color="0" x="2816" y="12" height="52" width="302" html.valueishtml="0"  name=importe_t visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="79741120" )
+text(band=header alignment="2" text="IVA/IGIC" border="6" color="0" x="3145" y="12" height="52" width="247" html.valueishtml="0"  name=t_iva_t visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="79741120" )
+text(band=header alignment="2" text="Impuesto" border="6" color="0" x="3410" y="12" height="52" width="261" html.valueishtml="0"  name=impuesto_t  tag="texto=general.impuestos" visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="79741120" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="5" color="0" x="9" y="8" height="56" width="270" format="[general]" html.valueishtml="0"  name=codigo visible="1" edit.limit=10 edit.case=upper edit.autoselect=yes edit.displayonly=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+column(band=detail id=13 alignment="0" tabsequence=32766 border="5" color="0" x="297" y="8" height="56" width="2130" format="[general]" html.valueishtml="0"  name=descripcion visible="1" edit.limit=32000 edit.case=upper edit.autoselect=yes edit.nilisnull=yes edit.autohscroll=yes edit.displayonly=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+column(band=detail id=7 alignment="2" tabsequence=32766 border="0" color="0" x="3333" y="8" height="56" width="165" format="[general]" html.valueishtml="0"  name=activo visible="0" checkbox.text="" checkbox.on="S" checkbox.off="N" checkbox.scale=no checkbox.threed=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="79741120" )
+column(band=detail id=22 alignment="0" tabsequence=32766 border="5" color="0" x="2459" y="8" height="52" width="334" format="[general]" html.valueishtml="0"  name=empresa visible="1" dddw.name=d_dddw_csi_empresas dddw.displaycolumn=nombre_corto dddw.datacolumn=codigo dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+column(band=detail id=6 alignment="1" tabsequence=32766 border="5" color="0" x="2816" y="8" height="56" width="302" format="#,##0.00" html.valueishtml="0"  name=importe visible="1" editmask.mask="###,##0.00" editmask.focusrectangle=no  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+compute(band=detail alignment="2" expression="String(f_dame_porcent_iva (  t_iva )) +  '%'"border="0" color="0" x="3145" y="12" height="56" width="224" format="[GENERAL]" html.valueishtml="0"  name=compute_1 visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="79741120" )
+column(band=detail id=9 alignment="1" tabsequence=32766 border="5" color="0" x="3406" y="8" height="56" width="261" format="#,##0.00" html.valueishtml="0"  name=impuesto visible="1" editmask.mask="###,##0.00" editmask.focusrectangle=no  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="79741120" )
+text(band=detail alignment="2" text="Cuenta" border="6" color="0" x="2976" y="64" height="52" width="315" html.valueishtml="0"  name=cuenta_t  tag="texto=general.cuenta" visible="0"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="79741120" )
+column(band=footer id=2 alignment="0" tabsequence=32766 border="5" color="0" x="2976" y="0" height="56" width="315" format="[general]" html.valueishtml="0"  name=cuenta visible="0" edit.limit=10 edit.case=any edit.autoselect=yes edit.displayonly=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" pagingmethod=0 generatedddwframes="1" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()
+ 

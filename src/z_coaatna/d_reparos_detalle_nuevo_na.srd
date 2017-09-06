@@ -1,0 +1,65 @@
+HA$PBExportHeader$d_reparos_detalle_nuevo_na.srd
+release 10.5;
+datawindow(units=0 timer_interval=0 color=1073741824 processing=0 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 347 print.margin.right = 261 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes print.preview.outline=yes hidegrayline=no )
+header(height=1016 color="536870912" )
+summary(height=8 color="536870912" )
+footer(height=168 color="536870912" )
+detail(height=316 color="536870912" height.autosize=yes )
+table(column=(type=char(32768) updatewhereclause=no name=texto dbname="reparos_ficha_linea.texto" dbalias=".texto" )
+ column=(type=long updatewhereclause=yes name=reparos_ficha_linea_orden dbname="reparos_ficha_linea.orden" dbalias=".orden" )
+ column=(type=char(1) updatewhereclause=yes name=reparos_ficha_apto dbname="reparos_ficha.apto" dbalias=".apto" )
+ column=(type=datetime updatewhereclause=yes name=reparos_ficha_f_envio dbname="reparos_ficha.f_envio" dbalias=".f_envio" )
+ column=(type=datetime updatewhereclause=yes name=reparos_ficha_f_subsanacion dbname="reparos_ficha.f_subsanacion" dbalias=".f_subsanacion" )
+ column=(type=char(255) updatewhereclause=yes name=t_reparos_fases_descripcion dbname="t_reparos_fases.descripcion" dbalias=".descripcion" )
+ column=(type=datetime updatewhereclause=yes name=f_subsanacion dbname="reparos_ficha_linea.f_subsanacion" dbalias=".f_subsanacion" )
+ column=(type=char(14) updatewhereclause=yes name=expedientes_n_expedi dbname="expedientes.n_expedi" dbalias=".n_expedi" )
+ column=(type=char(10) updatewhereclause=yes name=reparos_ficha_n_ficha dbname="reparos_ficha.n_ficha" dbalias=".n_ficha" )
+ column=(type=char(32768) updatewhereclause=no name=reparos_ficha_linea_observaciones dbname="reparos_ficha_linea.observaciones" dbalias=".observaciones" )
+ retrieve="  SELECT reparos_ficha_linea.texto,   
+        reparos_ficha_linea.orden, 
+        reparos_ficha.apto,   
+         reparos_ficha.f_envio,   
+         reparos_ficha.f_subsanacion,   
+         t_reparos_fases.descripcion,   
+         reparos_ficha_linea.f_subsanacion,   
+         expedientes.n_expedi,   
+         reparos_ficha.n_ficha,
+	reparos_ficha_linea.observaciones
+    FROM reparos_ficha_linea,   
+         reparos_ficha,   
+         t_reparos_fases,   
+         fases,   
+         expedientes  
+   WHERE ( reparos_ficha_linea.id_reparo_ficha = reparos_ficha.id_reparo_ficha ) and  
+         ( reparos_ficha_linea.codigo_reparo = t_reparos_fases.codigo ) and  
+         ( reparos_ficha.id_fase = fases.id_fase ) and  
+         ( fases.id_expedi = expedientes.id_expedi ) and  
+         ( ( reparos_ficha_linea.id_reparo_ficha = :id_ficha ) )    
+ORDER BY orden" arguments=(("id_ficha", string)) )
+rectangle(band=header x="407" y="308" height="120" width="137"  name=r_2 visible="1" brush.hatch="6" brush.color="33554431" pen.style="0" pen.width="5" pen.color="1090519039"  background.mode="2" background.color="33554431" )
+text(band=header alignment="0" text="Colegio Oficial de Aparejadores, Arquitectos T$$HEX1$$e900$$ENDHEX$$cnicos e Ingenieros de Edificaci$$HEX1$$f300$$ENDHEX$$n de Navarra $$HEX2$$13202000$$ENDHEX$$Nafarroako Aparailari, Arkitekto Tekniko eta Eraikuntza Ingeniarien Elkargo Ofiziala." border="0" color="134217745" x="46" y="884" height="112" width="2775" html.valueishtml="0"  name=t_3 visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+rectangle(band=header x="0" y="780" height="76" width="2834"  name=r_1 visible="1" brush.hatch="6" brush.color="12632256" pen.style="0" pen.width="5" pen.color="1090519039"  background.mode="2" background.color="12632256" )
+text(band=header alignment="2" text="~tif( reparos_ficha_apto= 'A','APTO' ,if(reparos_ficha_apto='R','APTO con RECOMENDACION', 'NO  APTO' ))" border="0" color="33554432" x="1682" y="24" height="276" width="1207" html.valueishtml="0"  name=t_1 visible="1"  font.face="Arial Black" font.height="-22" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912"  height.autosize=yes)
+bitmap(band=header filename=".\imagenes\logo_coaatna.JPG" x="82" y="112" height="656" width="475" border="0"  name=p_1 visible="1" )
+rectangle(band=header x="1755" y="336" height="292" width="1074"  name=r_3 visible="1" brush.hatch="6" brush.color="33554431" pen.style="0" pen.width="9" pen.color="134217735"  background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="servicio de visado" border="0" color="33554432" x="1778" y="344" height="92" width="1029" html.valueishtml="0"  name=t_2 visible="1"  font.face="Arial Black" font.height="-12" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=header alignment="2" expression=" f_anyadir_dia_semana_a_fecha(reparos_ficha_f_envio)"border="0" color="0" x="1746" y="668" height="80" width="1070" format="[GENERAL]" html.valueishtml="0"  name=compute_5 visible="1"  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+text(band=header alignment="0" text="Ficha n$$HEX1$$ba00$$ENDHEX$$:" border="0" color="33554432" x="1929" y="448" height="64" width="288" html.valueishtml="0"  name=t_5 visible="1"  font.face="Century Gothic" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Expte. n$$HEX1$$ba00$$ENDHEX$$:" border="0" color="33554432" x="1925" y="536" height="68" width="293" html.valueishtml="0"  name=t_4 visible="1"  font.face="Century Gothic" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=header id=9 alignment="0" tabsequence=32766 border="0" color="33554432" x="2240" y="448" height="68" width="558" format="[general]" html.valueishtml="0"  name=reparos_ficha_n_ficha visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Century Gothic" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=header id=8 alignment="0" tabsequence=32766 border="0" color="33554432" x="2240" y="536" height="68" width="558" format="[general]" html.valueishtml="0"  name=expedientes_n_expedi visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Century Gothic" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="0" expression="getrow() + '.'"border="0" color="33554432" x="32" y="68" height="84" width="114" format="[General]" html.valueishtml="0"  name=compute_2 visible="1"  font.face="Century Gothic" font.height="-11" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="0" color="0" x="169" y="68" height="84" width="2651" format="[general]" html.valueishtml="0"  name=t_reparos_fases_descripcion visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Century Gothic" font.height="-11" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+compute(band=footer alignment="1" expression="'P$$HEX1$$e100$$ENDHEX$$gina ' + page() + ' de ' + pageCount()"border="0" color="0" x="1943" y="48" height="80" width="901" format="[General]" html.valueishtml="0"  name=compute_3 visible="1"  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+column(band=detail id=10 alignment="0" tabsequence=0 border="0" color="33554432" x="155" y="192" height="64" width="2670" html.valueishtml="0"  name=reparos_ficha_linea_observaciones visible="1" height.autosize=yes edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Century Gothic" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" pagingmethod=0 generatedddwframes="1" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()
+ 

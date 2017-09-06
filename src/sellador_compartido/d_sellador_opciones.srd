@@ -1,0 +1,17 @@
+HA$PBExportHeader$d_sellador_opciones.srd
+release 7;
+datawindow(units=0 timer_interval=0 color=80269524 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=260 color="536870912" )
+table(column=(type=char(1) updatewhereclause=no name=desactivar_ocx dbname="desactivar_ocx" initial="N" values="Desactivar visor PDF:	S/Desactivar visor PDF:	N" )
+ column=(type=char(1) updatewhereclause=no name=desactivar_vista_previa dbname="desactivar_vista_previa" initial="N" values="Desactivar vista previa:	S/Desactivar vista previa:	N" )
+ column=(type=char(1) updatewhereclause=no name=ver_documentos dbname="ver_documentos" initial="T" values="Todos	T/S$$HEX1$$f300$$ENDHEX$$lo documentos	D/S$$HEX1$$f300$$ENDHEX$$lo documentos FIRMADOS	F/S$$HEX1$$f300$$ENDHEX$$lo documentos SIN FIRMAR	S/S$$HEX1$$f300$$ENDHEX$$lo documentos POR FIRMAR	P/" )
+ column=(type=char(500) updatewhereclause=no name=texto_aviso dbname="name_1" )
+ )
+column(band=detail id=2 alignment="0" tabsequence=10 border="0" color="0" x="27" y="16" height="56" width="585" format="[general]"  name=desactivar_vista_previa checkbox.text="Desactivar vista previa:" checkbox.on="S" checkbox.off="N" checkbox.lefttext=yes checkbox.scale=no checkbox.threed=yes  font.face="Microsoft Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=20 border="0" color="0" x="64" y="104" height="56" width="549" format="[general]"  name=desactivar_ocx checkbox.text="Desactivar visor PDF:" checkbox.on="S" checkbox.off="N" checkbox.lefttext=yes checkbox.scale=no checkbox.threed=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=detail alignment="1" text="Mostrar documentos:" border="0" color="0" x="55" y="192" height="52" width="475"  name=t_1  font.face="Microsoft Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=3 alignment="0" tabsequence=30 border="5" color="0" x="562" y="192" height="52" width="585" format="[general]"  name=ver_documentos ddlb.limit=0 ddlb.allowedit=no ddlb.case=any ddlb.autohscroll=yes ddlb.vscrollbar=yes ddlb.useasborder=yes  font.face="Microsoft Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

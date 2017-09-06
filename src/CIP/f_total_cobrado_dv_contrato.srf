@@ -1,0 +1,21 @@
+HA$PBExportHeader$f_total_cobrado_dv_contrato.srf
+global type f_total_cobrado_dv_contrato from function_object
+end type
+
+forward prototypes
+global function double f_total_cobrado_dv_contrato (string id_fase)
+end prototypes
+
+global function double f_total_cobrado_dv_contrato (string id_fase);double dv_cobrado = 0
+
+  SELECT sum(base_dv)  
+    INTO :dv_cobrado  
+    FROM fases_minutas  
+   WHERE fases_minutas.id_fase = :id_fase   and
+           fases_minutas.anulada <> 'S' and fases_minutas.fecha_pago <> null;
+
+if isnull(dv_cobrado) then dv_cobrado = 0
+
+return dv_cobrado
+end function
+

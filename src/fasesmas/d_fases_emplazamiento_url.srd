@@ -1,0 +1,14 @@
+HA$PBExportHeader$d_fases_emplazamiento_url.srd
+release 7;
+datawindow(units=0 timer_interval=0 color=81324524 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=576 color="536870912" )
+table(column=(type=char(10) update=yes updatewhereclause=yes key=yes name=id_fase dbname="fases_otros_datos.id_fase" )
+ column=(type=char(255) update=yes updatewhereclause=yes name=emplazamiento_url dbname="fases_otros_datos.emplazamiento_url" )
+ retrieve="PBSELECT( VERSION(400) TABLE(NAME=~"fases_otros_datos~" ) COLUMN(NAME=~"fases_otros_datos.id_fase~") COLUMN(NAME=~"fases_otros_datos.emplazamiento_url~")WHERE(    EXP1 =~"id_fase~"   OP =~"=~"    EXP2 =~":id_fase~" ) ) ARG(NAME = ~"id_fase~" TYPE = string) " update="fases_otros_datos" updatewhere=0 updatekeyinplace=no arguments=(("id_fase", string)) )
+column(band=detail id=2 alignment="0" tabsequence=10 border="5" color="0" x="41" y="176" height="356" width="2185" format="[general]"  name=emplazamiento_url  tag=" " edit.limit=255 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.nilisnull=yes edit.autovscroll=yes edit.vscrollbar=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+text(band=detail alignment="0" text="Pulse el icono para visualizar el mapa en su navegador. En caso de no encontrar la situaci$$HEX1$$f300$$ENDHEX$$n, puede buscarla manualmente y pegar la direcci$$HEX1$$f300$$ENDHEX$$n en el campo de texto." border="0" color="128" x="41" y="32" height="116" width="2185"  name=t_1  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+button(band=detail text=""filename=".\imagenes\google.bmp"action="0" border="0" color="0" x="2263" y="472" height="72" width="87" vtextalign="0" htextalign="0"  name=b_1  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="67108864" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

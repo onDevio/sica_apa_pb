@@ -1,0 +1,21 @@
+HA$PBExportHeader$f_colegiado_factura_subvencion_musaat.srf
+global type f_colegiado_factura_subvencion_musaat from function_object
+end type
+
+forward prototypes
+global function string f_colegiado_factura_subvencion_musaat (string id_col)
+end prototypes
+
+global function string f_colegiado_factura_subvencion_musaat (string id_col);// Funci$$HEX1$$f300$$ENDHEX$$n que devuelve si se va a generar la factura aparte con la subvenci$$HEX1$$f300$$ENDHEX$$n de Musaat
+string subv_musaat
+
+SELECT s_n  
+INTO :subv_musaat  
+FROM otros_datos_colegiado  
+WHERE id_colegiado = :id_col  and cod_caracteristica = '06' ;
+
+
+return subv_musaat
+
+end function
+

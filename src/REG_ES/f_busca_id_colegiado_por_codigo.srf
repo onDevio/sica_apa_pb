@@ -1,0 +1,23 @@
+HA$PBExportHeader$f_busca_id_colegiado_por_codigo.srf
+global type f_busca_id_colegiado_por_codigo from function_object
+end type
+
+forward prototypes
+global function string f_busca_id_colegiado_por_codigo (string codigo)
+end prototypes
+
+global function string f_busca_id_colegiado_por_codigo (string codigo);//
+// Funcion que devuelve el id_colegiado desde el n_colegiado
+//
+string id_col = ''
+
+select id_colegiado into :id_col from colegiados where n_colegiado=:codigo;		
+
+if f_es_vacio(id_col) then
+	return ''
+else
+	return id_col
+end if
+
+end function
+

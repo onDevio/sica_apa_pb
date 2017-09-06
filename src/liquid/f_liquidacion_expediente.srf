@@ -1,0 +1,48 @@
+HA$PBExportHeader$f_liquidacion_expediente.srf
+global type f_liquidacion_expediente from function_object
+end type
+
+forward prototypes
+global function string f_liquidacion_expediente (string id_liquidacion)
+end prototypes
+
+global function string f_liquidacion_expediente (string id_liquidacion);string n_expedi = '', n_registro, n_salida_contrato
+
+  SELECT fases.n_expedi  ,
+  			fases.n_registro,
+			  fases.archivo
+    INTO :n_expedi  ,
+	 	 :n_registro,
+		  :n_salida_contrato
+    FROM fases,   
+         fases_minutas,   
+         fases_liquidaciones  
+   WHERE ( fases_liquidaciones.id_fase = fases_minutas.id_minuta ) and  
+         ( fases_minutas.id_fase = fases.id_fase ) and  
+         ( ( fases_liquidaciones.id_liquidacion = :id_liquidacion ) )   ;
+
+///*** SCP-1092. Alexis se va a cambiar para que en las liquidaciones no muestre el n$$HEX1$$fa00$$ENDHEX$$mero de visado. que sea dependiente ***///	
+//CHOOSE CASE g_colegio
+//	CASE 'COAATTFE'
+//		// Devolvemos el registro para el colegio de tenerife
+//		return n_registro
+//
+//	CASE 'COAATZ', 'COAATGU', 'COAATLE', 'COAATAVI', 'COAATA', 'COAATNA',  'COAATTGN', 'COAATTEB', 'COAATTER', 'COAATLL'
+//		// Se toma el numero de salida de contrato, es su referencia
+//		return n_salida_contrato
+//	CASE ELSE
+//		// Devolvemos el expediente para el resto de coles
+//		return n_expedi
+//END CHOOSE
+
+CHOOSE CASE g_hoja_liq_referencia
+	CASE 'E'
+		return n_expedi		
+	CASE 'V'
+		return n_salida_contrato
+	CASE else
+		return n_registro
+END CHOOSE
+
+end function
+

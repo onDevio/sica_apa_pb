@@ -1,0 +1,20 @@
+HA$PBExportHeader$f_colegiado_src_cobertura.srf
+global type f_colegiado_src_cobertura from function_object
+end type
+
+forward prototypes
+global function string f_colegiado_src_cobertura (string id_col)
+end prototypes
+
+global function string f_colegiado_src_cobertura (string id_col);string src_cobertura
+
+SELECT src_cober
+INTO :src_cobertura  
+FROM musaat  
+WHERE ( id_col = :id_col ) ;
+
+if isnull(src_cobertura) then src_cobertura= ''
+
+return src_cobertura
+end function
+

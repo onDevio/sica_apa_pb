@@ -1,0 +1,18 @@
+HA$PBExportHeader$f_dame_tipo_factura.srf
+global type f_dame_tipo_factura from function_object
+end type
+
+forward prototypes
+global function string f_dame_tipo_factura (string tipo)
+end prototypes
+
+global function string f_dame_tipo_factura (string tipo);string retorno
+
+  SELECT tipos_facturas.descripcion  
+    INTO :retorno  
+    FROM tipos_facturas  
+   WHERE tipos_facturas.codigo = :tipo   ;
+
+return retorno
+end function
+

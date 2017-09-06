@@ -1,0 +1,33 @@
+HA$PBExportHeader$st_calculo_honorarios.srs
+global type st_calculo_honorarios from structure
+	string		id_fase
+	string		tarifa
+	string		contenido
+	string		formula
+	string		desarrollo
+	double		importe
+	double		p1
+	double		p2
+	double		p3
+	double		p4
+	double		p5
+	double		pem_min
+	double		presupuesto
+	double		superficie
+	double		coef_a
+	double		coef_b
+	double		coef_c
+	string		formula_cip
+	string		desarrollo_cip
+	double		importe_cip
+	double		importe_hon_min
+	string		admon
+	string		modo_oculto
+	datetime		fecha
+	double		altura
+	double		volumen
+	double		medianeras
+	double		ca
+	string		legalizacion
+end type
+

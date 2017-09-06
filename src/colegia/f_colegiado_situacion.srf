@@ -1,0 +1,17 @@
+HA$PBExportHeader$f_colegiado_situacion.srf
+$PBExportComments$Funcion que regresa los datos del colegiado
+global type f_colegiado_situacion from function_object
+end type
+
+forward prototypes
+global function string f_colegiado_situacion (string id_col)
+end prototypes
+
+global function string f_colegiado_situacion (string id_col);string retorno
+
+select situacion into :retorno from colegiados where id_colegiado=:id_col;
+
+return retorno
+
+end function
+

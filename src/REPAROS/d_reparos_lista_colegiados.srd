@@ -1,0 +1,11 @@
+HA$PBExportHeader$d_reparos_lista_colegiados.srd
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=84 color="536870912" )
+table(column=(type=char(10) updatewhereclause=yes name=id_col dbname="fases_colegiados.id_col" )
+ retrieve="PBSELECT( VERSION(400) TABLE(NAME=~"fases_colegiados~" ) COLUMN(NAME=~"fases_colegiados.id_col~")WHERE(    EXP1 =~"fases_colegiados.id_fase~"   OP =~"=~"    EXP2 =~":id_fase~" ) ) ARG(NAME = ~"id_fase~" TYPE = string) " arguments=(("id_fase", string)) )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="5" y="4" height="64" width="238" format="[general]"  name=id_col  tag=" " edit.limit=10 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

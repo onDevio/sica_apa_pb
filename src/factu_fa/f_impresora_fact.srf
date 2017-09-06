@@ -1,0 +1,34 @@
+HA$PBExportHeader$f_impresora_fact.srf
+global type f_impresora_fact from function_object
+end type
+
+forward prototypes
+global subroutine f_impresora_fact (string tipo, ref string impresora, ref string bandeja)
+end prototypes
+
+global subroutine f_impresora_fact (string tipo, ref string impresora, ref string bandeja);string band, nombre
+  
+  
+  SELECT t_impresoras.impresora,t_impresoras.bandeja
+    INTO :nombre,   
+         :band  
+    FROM tipos_facturas,t_impresoras
+   WHERE tipos_facturas.codigo = :tipo and tipos_facturas.impresora=t_impresoras.codigo and t_impresoras.cod_delegacion=:g_cod_delegacion
+	using sqlca;
+	
+//  SELECT tipos_facturas.impresora,   
+//         tipos_facturas.bandeja  
+//    INTO :nombre,   
+//         :band  
+//    FROM tipos_facturas  
+//   WHERE tipos_facturas.codigo = :tipo  
+//	using sqlca;
+	
+	
+if isnull(nombre) then nombre = ''
+if isnull(band) then band = ''
+
+impresora 	= nombre
+bandeja		= band
+end subroutine
+

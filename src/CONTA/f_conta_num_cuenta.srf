@@ -1,0 +1,17 @@
+HA$PBExportHeader$f_conta_num_cuenta.srf
+global type f_conta_num_cuenta from function_object
+end type
+
+forward prototypes
+global function string f_conta_num_cuenta (string cuenta)
+end prototypes
+
+global function string f_conta_num_cuenta (string cuenta);string retorno
+
+retorno = MidA(cuenta,11,10)
+
+if f_es_vacio(retorno)=true then retorno=''
+
+return retorno
+end function
+

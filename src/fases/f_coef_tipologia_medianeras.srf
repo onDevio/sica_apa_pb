@@ -1,0 +1,37 @@
+HA$PBExportHeader$f_coef_tipologia_medianeras.srf
+global type f_coef_tipologia_medianeras from function_object
+end type
+
+forward prototypes
+global function double f_coef_tipologia_medianeras (string colindantes, string tipoobra, double volumen)
+end prototypes
+
+global function double f_coef_tipologia_medianeras (string colindantes, string tipoobra, double volumen);// Funci$$HEX1$$f300$$ENDHEX$$n que devuelve el coeficiente de la tipolog$$HEX1$$ed00$$ENDHEX$$a a partir del tipo de obra, el volumen y las medianeras/colindantes
+double coef
+setnull(coef)
+
+if f_es_vacio(colindantes) then return coef
+
+if colindantes='02' OR colindantes='03' then
+	coef = 1
+else
+	if colindantes='01' and (TipoObra='91' or TipoObra='93') then
+		coef = 0.8
+	else
+		choose case volumen
+			case is <= 5000
+				coef = 0.7		
+			case 5001 to 10000
+				coef = 0.6
+			case 10001 to 20000
+				coef = 0.5
+			case is >= 20001
+				coef = 0.4
+		end choose
+	end if
+end if
+
+return coef
+
+end function
+

@@ -1,0 +1,12 @@
+declare @colegio varchar(10)
+select @colegio = texto from var_globales where nombre = 'COLEGIO'
+
+//SCP-492
+
+if_colegio= 'COAATMCA' 
+update csi_param_sigescon set valor_exto='4140000100' where nombre='g_conta_pago_prestaciones';
+
+if colegio= 'COAATMCA' or colegio= 'COAATCC' then
+
+insert into t_control_eventos(control,evento,activo,param1,id_control) values('CONTA_COLEGIADOS',CONTA_PRESTA','S','1','PRESTA1');
+

@@ -1,0 +1,21 @@
+HA$PBExportHeader$f_apunte_id_interno.srf
+global type f_apunte_id_interno from function_object
+end type
+
+forward prototypes
+global function string f_apunte_id_interno (string id)
+end prototypes
+
+global function string f_apunte_id_interno (string id);//Devuelde el id interno de un apunte dado su id_apunte
+string ret
+
+SELECT id_interno INTO :ret
+FROM apuntes
+WHERE id_apunte = :id
+using bd_ejercicio;
+
+if f_es_vacio(ret) then ret = ''
+
+return ret
+end function
+

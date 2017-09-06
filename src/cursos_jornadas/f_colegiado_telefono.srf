@@ -1,0 +1,37 @@
+HA$PBExportHeader$f_colegiado_telefono.srf
+global type f_colegiado_telefono from function_object
+end type
+
+forward prototypes
+global function string f_colegiado_telefono (string id_col)
+end prototypes
+
+global function string f_colegiado_telefono (string id_col);//Esta funcion devuelve el tel$$HEX1$$e900$$ENDHEX$$fono de un colegiado
+
+//Modificado Andr$$HEX1$$e900$$ENDHEX$$s 9/3/2005
+//Ahora cogemos el tel$$HEX1$$e900$$ENDHEX$$fono de colegiados.telefono_1 en vez de un domicilio
+
+string datos_colegiado = ''
+string tel
+
+/*
+  SELECT domicilios.tel  
+    INTO :tel  
+    FROM domicilios  
+   WHERE ( domicilios.id_colegiado = :id_col ) AND  
+         ( domicilios.comercial = 'S' )   
+           ;
+*/
+
+select colegiados.telefono_1 into :tel from colegiados where colegiados.id_colegiado=:id_col;
+
+if isnull(tel) or tel= '' then 
+	tel=''
+end if
+
+datos_colegiado = tel
+
+return datos_colegiado
+
+end function
+

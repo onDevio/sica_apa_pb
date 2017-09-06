@@ -1,0 +1,32 @@
+// ****** SE COMENTAN LAS SENTENCIAS HASTA LA LÍNEA 15 YA QUE SE LANZARON CON EL BRANCH v5.2.02a ****** 
+
+declare @colegio varchar(10)
+select @colegio = texto from var_globales where nombre = 'COLEGIO'
+
+//if @colegio= 'COAATTFE' or @colegio= 'COAATGU'
+//begin
+//insert into var_globales(nombre,texto,descripcion,modificable) values('g_visar_al_facturar','2','Variable que marca si al generar facturas se pone numero de visado,fecha visado y cambia estado 0 No se realiza 1 Se realiza independientemente del tipo de tramite 2 Se realiza de manera que solo visa para los tipos de tramite validos', 'S');
+//end 
+////Todos
+//update fases_renuncias set obra_iniciada = 'N';
+//update musaat_movimientos set obra_iniciada = 'N' where fecha_calculo > '20101231';
+//update musaat_movimientos set obra_iniciada = 'N' where fecha_calculo > '20091231' and fecha_calculo <= '20110101';
+//update musaat_movimientos set obra_iniciada = 'N' where fecha_calculo > '20081231' and fecha_calculo <= '20100101';
+//update musaat_movimientos set obra_iniciada = 'N' where fecha_calculo > '20061231' and fecha_calculo <= '20090101';
+update musaat_movimientos set obra_iniciada = 'N' where fecha_calculo > '20001231' and fecha_calculo <= '20070101';
+update musaat_movimientos set obra_iniciada = 'N' where fecha_calculo <= '20001231';
+update musaat_movimientos set obra_iniciada = 'N' where fecha_calculo = null;
+
+//SCP-1018. Alexis. Se añade la var_global para que se vea el año del ejercicio en el titulo de la aplicación
+insert into var_globales (nombre,sn,descripcion) values ('g_titulo_anyo_ejer','S','Variable para ver el año del ejercicio en el título');
+
+
+//SCP-909. Se parametriza el proceso de contabilizacion para que Bizkaia pruebe el proceso nuevo de contabilización. De querer cambiarse, se pondrá esta variable a 'N' y se gastará el proceso antiguo.
+if @colegio = 'COAATB'
+begin
+INSERT INTO var_globales (nombre,sn,descripcion) VALUES ('g_contabil_antigua','S','Variable para usar el proceso de contabilización antiguo (valor "S") o el moderno (valor "N")')
+end
+
+//SCP-1014. Correción en el formato del nº de renuncia.
+UPDATE t_control_eventos SET param1='aa-nnnnnnn' WHERE control = 'NUMERO_RENUNCIA' and evento = 'NUMERO_RENUNCIA';
+

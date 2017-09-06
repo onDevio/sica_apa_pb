@@ -1,0 +1,20 @@
+HA$PBExportHeader$f_es_cuenta_empresa.srf
+global type f_es_cuenta_empresa from function_object
+end type
+
+forward prototypes
+global function integer f_es_cuenta_empresa (string cuenta)
+end prototypes
+
+global function integer f_es_cuenta_empresa (string cuenta);//Funci$$HEX1$$f300$$ENDHEX$$n que devuelve 0 en caso de que la cuenta pertenezca a la empresa, y -1 en caso que no
+int num
+
+select count(*) into :num from cuentas where cuenta= :cuenta and empresa='S' using bd_ejercicio;
+
+if num = 0 then
+	return -1
+else
+	return 0
+end if
+end function
+

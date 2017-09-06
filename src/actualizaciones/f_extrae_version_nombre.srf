@@ -1,0 +1,32 @@
+HA$PBExportHeader$f_extrae_version_nombre.srf
+global type f_extrae_version_nombre from function_object
+end type
+
+forward prototypes
+global function string f_extrae_version_nombre (string fichero)
+end prototypes
+
+global function string f_extrae_version_nombre (string fichero);//Funci$$HEX1$$f300$$ENDHEX$$n que extrae el la versi$$HEX1$$f300$$ENDHEX$$n del nombre del fichero,
+//seg$$HEX1$$fa00$$ENDHEX$$n el tipo de fichero
+string ls_extension, ls_version
+
+ls_extension = RightA(fichero,3)
+
+choose case ls_extension
+	case 'exe'
+		ls_version = reverse(LeftA(reverse(LeftA(fichero,PosA(fichero,".exe")-1)),4))
+	case 'sql'
+		//Coincide con el nombre del fichero, cogemos los 9
+		//primeros car$$HEX1$$e100$$ENDHEX$$cteres porque es una fecha
+		ls_version = LeftA(fichero,8)
+	case 'txt'
+		//Coincide con los 9 primeros car$$HEX1$$e100$$ENDHEX$$cteres del fichero,
+		//porque son una fecha
+		ls_version = LeftA(fichero,8)
+	case else
+		
+end choose
+
+return ls_version
+end function
+

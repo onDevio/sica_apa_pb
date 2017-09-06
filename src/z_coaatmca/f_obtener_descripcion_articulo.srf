@@ -1,0 +1,14 @@
+HA$PBExportHeader$f_obtener_descripcion_articulo.srf
+global type f_obtener_descripcion_articulo from function_object
+end type
+
+forward prototypes
+global function string f_obtener_descripcion_articulo (string articulo)
+end prototypes
+
+global function string f_obtener_descripcion_articulo (string articulo);string descrip
+select descripcion into :descrip from csi_articulos_servicios where codigo=:articulo;
+
+return descrip
+end function
+

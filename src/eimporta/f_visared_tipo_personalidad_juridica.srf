@@ -1,0 +1,18 @@
+HA$PBExportHeader$f_visared_tipo_personalidad_juridica.srf
+global type f_visared_tipo_personalidad_juridica from function_object
+end type
+
+forward prototypes
+global function string f_visared_tipo_personalidad_juridica (string codigo)
+end prototypes
+
+global function string f_visared_tipo_personalidad_juridica (string codigo);string retorno
+
+select d_personalidad into :retorno from personalidad_juridica where c_personalidad = :codigo;
+
+if f_es_vacio(retorno) then retorno = 'DESCONOCIDO'
+
+return retorno
+
+end function
+

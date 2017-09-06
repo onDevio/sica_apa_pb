@@ -1,0 +1,22 @@
+HA$PBExportHeader$f_minutas_pagador.srf
+global type f_minutas_pagador from function_object
+end type
+
+forward prototypes
+global function string f_minutas_pagador (string id_minuta)
+end prototypes
+
+global function string f_minutas_pagador (string id_minuta);//  1-Colegiado, 2-Empresa, 3-Cliente
+string pagador
+ 
+SELECT fases_minutas.pagador  
+INTO :pagador  
+FROM fases_minutas  
+WHERE fases_minutas.id_minuta = :id_minuta   ;
+
+if f_es_vacio(pagador) then pagador = '1' // Por defecto pagador es el colegiado
+
+return pagador
+
+end function
+

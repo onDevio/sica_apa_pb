@@ -1,0 +1,23 @@
+HA$PBExportHeader$calculateportservice.srx
+$PBExportComments$Proxy imported from Web service using Web Service Proxy Generator.
+global type CalculatePortService from NonVisualObject
+end type
+
+type variables
+Protected:
+        string pbws_ver = ".NET"
+        string cs_namespace = "WebService"
+        string cs_class = "CalculatePortService"
+        string cs_assembly = "calculateportservice.dll"
+        string pb_prefix = ""
+        string pb_target = "c:\proyectos\sicap"
+        string calculateRequest = "calculateRequest(System.String colegio,System.String articulo,System.Double porcentaje,System.String tramite,System.String tipo_solicitud,System.String tipo_intervencion,System.String tipo_obra,System.Double pem,System.Double superficie,System.Double volumen,System.Int32 num_viv,System.Boolean visared,System.Boolean obra_oficial,System.Int32 num_participantes)"
+        string KeyValue = "KeyValue(System.String key,System.String value)"
+end variables
+
+forward prototypes
+public:
+function any calculate(  calculateRequest calculateRequest) alias for "<method name='calculate' ns='WebService' pbname='calculate'><return name='returnvalue' type='WebService.KeyValue' isRef='False' ArrayDim='1' IsNullableType='False' /><param name='calculateRequest' type='WebService.calculateRequest' pos='0' dir='in' ArrayDim='0' IsNullableType='False'/></method>"
+subroutine CancelAsync (  any userState) alias for "<method name='CancelAsync' ns='WebService' pbname='CancelAsync'><param name='userState' type='System.Object' pos='0' dir='in' ArrayDim='0' IsNullableType='False'/></method>"
+end prototypes
+

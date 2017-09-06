@@ -1,0 +1,6 @@
+HA$PBExportHeader$st_control_eventos_modificaciones.srs
+global type st_control_eventos_modificaciones from structure
+	string		id
+	string		modulo
+end type
+

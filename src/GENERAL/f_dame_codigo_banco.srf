@@ -1,0 +1,20 @@
+HA$PBExportHeader$f_dame_codigo_banco.srf
+global type f_dame_codigo_banco from function_object
+end type
+
+forward prototypes
+global function string f_dame_codigo_banco (string banco)
+end prototypes
+
+global function string f_dame_codigo_banco (string banco);string codigo_banco
+ 
+  SELECT codigo
+    INTO :codigo_banco  
+    FROM csi_bancos
+   WHERE nombre = :banco;
+
+if f_es_vacio(codigo_banco) then codigo_banco = ''
+
+return codigo_banco
+end function
+

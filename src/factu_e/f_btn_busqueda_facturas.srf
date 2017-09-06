@@ -1,0 +1,107 @@
+HA$PBExportHeader$f_btn_busqueda_facturas.srf
+global type f_btn_busqueda_facturas from function_object
+end type
+
+forward prototypes
+global function integer f_btn_busqueda_facturas (datawindow dw, string nombre_campo, integer fila)
+end prototypes
+
+global function integer f_btn_busqueda_facturas (datawindow dw, string nombre_campo, integer fila);string id_persona,cuenta, id_factura
+// C$$HEX1$$f300$$ENDHEX$$digo a ejecutar cuando se pincha sobre el btn de B$$HEX1$$fa00$$ENDHEX$$squeda asociado a la persona a la que
+//  se le ha emitido la factura
+
+CHOOSE CASE nombre_campo
+	CASE 'b_busqueda_colegiados'
+			g_busqueda.titulo="B$$HEX1$$fa00$$ENDHEX$$squeda r$$HEX1$$e100$$ENDHEX$$pida de Colegiados"
+			g_busqueda.dw="d_lista_busqueda_colegiados"
+			id_persona=f_busqueda_colegiados()
+			//Comprobamos que el colegiado existe
+			if id_persona="-1" then
+				//dw.deleterow(row)
+				// Borramos los datos de la persona al cambiar el tipo de factura
+					f_limpiar_datos_persona(dw, fila)
+				messagebox(g_titulo,'Debe introducir un n$$HEX1$$fa00$$ENDHEX$$mero de colegiado v$$HEX1$$e100$$ENDHEX$$lido.')
+				dw.setfocus()
+				return -1
+			else
+				if not f_es_vacio(id_persona) then
+					dw.SetItem(fila,'id_persona',id_persona)
+					dw.SetItem(fila,'n_col',f_colegiado_n_col(id_persona))
+					dw.SetItem(fila,'nif',f_devuelve_nif(id_persona))
+					dw.SetItem(fila,'nombre',f_colegiado_apellido(id_persona))
+					dw.SetItem(fila,'domicilio',f_domicilio_fiscal(id_persona))
+					dw.SetItem(fila,'domicilio_largo',f_domicilio_fiscal(id_persona))					
+					dw.SetItem(fila,'poblacion',f_poblacion_fiscal(id_persona))
+					dw.SetItem(fila,'cuenta',f_devuelve_cuenta(id_persona))
+					if f_colegiado_es_moroso(id_persona) then MessageBox(g_titulo,g_idioma.of_getmsg('factura_e.colegiado_moroso','El colegiado seleccionado es moroso'),Exclamation!, OK!,1)	
+				end if
+			end if
+		CASE 'b_busqueda_emisor'
+			g_busqueda.titulo="B$$HEX1$$fa00$$ENDHEX$$squeda r$$HEX1$$e100$$ENDHEX$$pida de Colegiados"
+			g_busqueda.dw="d_lista_busqueda_colegiados"
+			id_persona=f_busqueda_colegiados()
+			//Comprobamos que el colegiado existe
+			if id_persona="-1" then
+				// Borramos los datos de la persona al cambiar el tipo de factura
+					f_limpiar_datos_persona(dw, fila)
+				messagebox(g_titulo,'Debe introducir un n$$HEX1$$fa00$$ENDHEX$$mero de colegiado v$$HEX1$$e100$$ENDHEX$$lido.')
+				dw.setfocus()
+				return -1
+			else
+				if not f_es_vacio(id_persona) then
+					dw.SetItem(fila,'emisor',id_persona)
+					dw.SetItem(fila,'n_emisor',f_colegiado_n_col(id_persona))
+					if f_colegiado_es_moroso(id_persona) then MessageBox(g_titulo,g_idioma.of_getmsg('factura_e.colegiado_moroso','El colegiado seleccionado es moroso'),Exclamation!, OK!,1)	
+				end if
+			end if
+			
+		CASE 'b_busqueda_clientes_exp'
+			g_busqueda.titulo="B$$HEX1$$fa00$$ENDHEX$$squeda r$$HEX1$$e100$$ENDHEX$$pida de Clientes de Expedientes"
+			g_busqueda.dw="d_lista_busqueda_clientes_cta_contable"
+			id_persona=f_busqueda_clientes_exp()
+		
+			if id_persona="-1" then
+				// Borramos los datos de la persona al cambiar el tipo de factura
+					f_limpiar_datos_persona(dw, fila)	
+				messagebox(g_titulo,'Debe introducir un n$$HEX1$$fa00$$ENDHEX$$mero de cliente v$$HEX1$$e100$$ENDHEX$$lido.')
+				dw.setfocus()
+				return -1
+			else
+				if not f_es_vacio(id_persona) then
+					dw.SetItem(fila,'id_persona',id_persona)
+					dw.SetItem(fila,'n_col',f_clientes_n_cliente(id_persona))
+					dw.SetItem(fila,'nif',f_dame_nif(id_persona))
+					dw.SetItem(fila,'nombre',f_dame_cliente(id_persona))
+					dw.SetItem(fila,'domicilio',f_dame_domicilio(id_persona))
+					dw.SetItem(fila,'domicilio_largo',f_dame_domicilio(id_persona))					
+					dw.SetItem(fila,'poblacion',f_retorna_poblacion(id_persona))
+				end if
+			end if
+			
+		CASE 'b_busqueda_pagador'
+			g_busqueda.titulo="B$$HEX1$$fa00$$ENDHEX$$squeda r$$HEX1$$e100$$ENDHEX$$pida del pagador externo"
+			g_busqueda.dw="d_lista_busqueda_clientes_cta_contable"
+			id_persona=f_busqueda_clientes_exp()
+		
+			if id_persona="-1" then
+				dw.setfocus()
+				return -1
+			else
+				if not f_es_vacio(id_persona) then
+					dw.SetItem(fila,'id_cliente_pagador',id_persona)
+					dw.SetItem(fila,'nif_pagador',f_dame_nif(id_persona))
+					dw.SetItem(1,'nombre_pagador',f_dame_cliente(id_persona))
+					dw.SetItem(1,'domicilio_pagador',f_dame_domicilio(id_persona))
+					dw.SetItem(1,'domicilio_pagador_largo',f_dame_domicilio(id_persona))					
+					dw.SetItem(1,'poblacion_pagador',f_retorna_poblacion(id_persona))		
+				end if
+			end if		
+		CASE 'b_datos_pagador'
+			id_factura = dw.getitemstring(1, 'id_factura')
+
+			openwithparm(w_facturacion_emitida_datos_pagador, id_factura)
+	end choose
+
+RETURN 1
+end function
+

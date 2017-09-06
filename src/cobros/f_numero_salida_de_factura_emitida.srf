@@ -1,0 +1,33 @@
+HA$PBExportHeader$f_numero_salida_de_factura_emitida.srf
+global type f_numero_salida_de_factura_emitida from function_object
+end type
+
+forward prototypes
+global function string f_numero_salida_de_factura_emitida (string id_factura)
+end prototypes
+
+global function string f_numero_salida_de_factura_emitida (string id_factura);// MODIFICADA RICARDO 2005-03-08
+
+string archivo = '', id_fase
+
+SELECT fases.archivo, csi_facturas_emitidas.id_fase  
+INTO :archivo, :id_fase
+FROM csi_facturas_emitidas, fases, fases_minutas  
+WHERE ( fases_minutas.id_fase = fases.id_fase ) and  
+      ( csi_facturas_emitidas.id_fase = fases_minutas.id_minuta ) and  
+      ( ( csi_facturas_emitidas.id_factura = :id_factura ) )   ;
+
+if f_es_vacio(id_fase) then
+	// Miramos si est$$HEX2$$e1002000$$ENDHEX$$enganchada directamente
+	SELECT fases.archivo
+	INTO :archivo
+	FROM csi_facturas_emitidas, fases
+	WHERE ( csi_facturas_emitidas.id_minuta = fases.id_fase ) and  
+			( ( csi_facturas_emitidas.id_factura = :id_factura ) )   ;
+end if
+
+
+return archivo
+
+end function
+

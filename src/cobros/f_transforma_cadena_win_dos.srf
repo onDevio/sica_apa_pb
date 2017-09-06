@@ -1,0 +1,29 @@
+HA$PBExportHeader$f_transforma_cadena_win_dos.srf
+global type f_transforma_cadena_win_dos from function_object
+end type
+
+forward prototypes
+global function string f_transforma_cadena_win_dos (string cadena)
+end prototypes
+
+global function string f_transforma_cadena_win_dos (string cadena);long i,n
+string resultado,letra
+
+n=LenA(cadena)
+resultado=""
+for i=1 to n
+  letra=MidA(cadena,i,1)
+  choose case letra
+    case "$$HEX1$$d100$$ENDHEX$$"
+      letra=CharA(165)
+    case "$$HEX1$$aa00$$ENDHEX$$"
+      letra=CharA(166)
+    case "$$HEX1$$ba00$$ENDHEX$$"
+      letra=CharA(167)
+  end choose
+  resultado=resultado+letra
+next
+
+return resultado
+end function
+

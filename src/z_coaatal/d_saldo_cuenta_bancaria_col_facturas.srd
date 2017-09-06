@@ -1,0 +1,64 @@
+HA$PBExportHeader$d_saldo_cuenta_bancaria_col_facturas.srd
+release 10.5;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes print.preview.outline=yes hidegrayline=no )
+header(height=72 color="536870912" )
+summary(height=140 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=68 color="536870912" )
+table(column=(type=number updatewhereclause=yes name=base_imp dbname="csi_facturas_emitidas.base_imp" dbalias=".base_imp" )
+ column=(type=datetime updatewhereclause=yes name=fecha dbname="csi_facturas_emitidas.fecha" dbalias=".fecha" )
+ column=(type=number updatewhereclause=yes name=iva dbname="csi_facturas_emitidas.iva" dbalias=".iva" )
+ column=(type=number updatewhereclause=yes name=importe_reten dbname="csi_facturas_emitidas.importe_reten" dbalias=".importe_reten" )
+ column=(type=number updatewhereclause=yes name=total dbname="csi_facturas_emitidas.total" dbalias=".total" )
+ column=(type=char(40) updatewhereclause=yes name=nombre dbname="csi_facturas_emitidas.nombre" dbalias=".nombre" )
+ column=(type=char(15) updatewhereclause=yes name=n_fact dbname="csi_facturas_emitidas.n_fact" dbalias=".n_fact" )
+ column=(type=char(15) updatewhereclause=yes key=yes name=csi_facturas_emitidas_id_factura dbname="csi_facturas_emitidas.id_factura" dbalias=".id_factura" )
+ column=(type=char(200) updatewhereclause=yes name=csi_facturas_emitidas_asunto dbname="csi_facturas_emitidas.asunto" dbalias=".asunto" )
+ retrieve="  SELECT csi_facturas_emitidas.base_imp,   
+         csi_facturas_emitidas.fecha,   
+         csi_facturas_emitidas.iva,   
+         csi_facturas_emitidas.importe_reten,   
+         csi_facturas_emitidas.total,   
+         csi_facturas_emitidas.nombre,   
+         csi_facturas_emitidas.n_fact,   
+         csi_facturas_emitidas.id_factura,   
+         csi_facturas_emitidas.asunto  
+    FROM csi_facturas_emitidas  
+   WHERE ( csi_facturas_emitidas.tipo_factura = '03' ) AND  
+         ( csi_facturas_emitidas.id_persona = :id_col ) AND  
+         ( csi_facturas_emitidas.fecha >= :df ) AND  
+         ( csi_facturas_emitidas.fecha < :hf ) AND  
+         ( csi_facturas_emitidas.tipo_persona = 'C' ) AND  
+         ( csi_facturas_emitidas.contabilizada like :contabilizada ) AND  
+         ( csi_facturas_emitidas.formadepago like :forma_pago ) AND  
+         ( csi_facturas_emitidas.pagado = 'S' )   AND
+		( csi_facturas_emitidas.proforma = 'N') 
+" update="csi_facturas_emitidas" updatewhere=0 updatekeyinplace=no arguments=(("id_col", string),("df", datetime),("hf", datetime),("forma_pago", string),("contabilizada", string))  sort="fecha A n_fact A " )
+text(band=header alignment="2" text="Fecha" border="0" color="16777215" x="18" y="8" height="56" width="293" html.valueishtml="0"  name=fecha_t visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="8421504" )
+text(band=header alignment="2" text="IRPF" border="0" color="16777215" x="2629" y="8" height="56" width="297" html.valueishtml="0"  name=importe_reten_t visible="1~t0"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="8421504" )
+text(band=header alignment="2" text="Total" border="0" color="16777215" x="2597" y="8" height="56" width="352" html.valueishtml="0"  name=total_t visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="8421504" )
+text(band=header alignment="2" text="IVA/IGIC" border="0" color="16777215" x="2295" y="8" height="56" width="283" html.valueishtml="0"  name=iva_t visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="8421504" )
+text(band=header alignment="2" text="Base Imp." border="0" color="16777215" x="1915" y="8" height="56" width="361" html.valueishtml="0"  name=base_imp_t visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="8421504" )
+text(band=header alignment="2" text="Asunto / Concepto" border="0" color="16777215" x="850" y="8" height="56" width="1047" html.valueishtml="0"  name=nombre_t visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="8421504" )
+text(band=header alignment="2" text="N$$HEX1$$fa00$$ENDHEX$$m. Fact." border="0" color="16777215" x="329" y="8" height="56" width="503" html.valueishtml="0"  name=t_5 visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="8421504" )
+column(band=detail id=4 alignment="1" tabsequence=32766 border="0" color="0" x="2610" y="80" height="56" width="297" format="#,##0.00" html.valueishtml="0"  name=importe_reten visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="2" tabsequence=32766 border="0" color="0" x="18" y="4" height="60" width="293" format="dd/mm/yyyy" html.valueishtml="0"  name=fecha visible="1" edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="1" tabsequence=32766 border="0" color="0" x="2597" y="4" height="60" width="352" format="#,##0.00" html.valueishtml="0"  name=total visible="1" edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="1" tabsequence=32766 border="0" color="0" x="1915" y="4" height="60" width="361" format="#,##0.00" html.valueishtml="0"  name=base_imp visible="1" edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=9 alignment="0" tabsequence=32766 border="0" color="0" x="850" y="4" height="60" width="1047" format="[general]" html.valueishtml="0"  name=csi_facturas_emitidas_asunto visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="1" tabsequence=32766 border="0" color="0" x="2295" y="4" height="60" width="283" format="#,##0.00" html.valueishtml="0"  name=iva visible="1" edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="0" x="329" y="4" height="60" width="503" format="[general]" html.valueishtml="0"  name=n_fact visible="1" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="sum(importe_reten for all)"border="0" color="0" x="2629" y="24" height="60" width="297" format="#,##0.00" html.valueishtml="0"  name=honor_irpf visible="1~t0"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+compute(band=summary alignment="1" expression="sum(total for all) * (-1)"border="0" color="0~tif(  compute_1 < 0, f_color_rojo(), f_color_azul())" x="2597" y="24" height="60" width="352" format="#,##0.00" html.valueishtml="0"  name=compute_1 visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+text(band=summary alignment="1" text="Total Facturas :" border="0" color="0" x="2153" y="24" height="60" width="425" html.valueishtml="0"  name=t_6 visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" pagingmethod=0 generatedddwframes="1" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()
+ 

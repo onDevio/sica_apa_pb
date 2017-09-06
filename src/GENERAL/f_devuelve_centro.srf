@@ -1,0 +1,19 @@
+HA$PBExportHeader$f_devuelve_centro.srf
+global type f_devuelve_centro from function_object
+end type
+
+forward prototypes
+global function string f_devuelve_centro (string delegacion)
+end prototypes
+
+global function string f_devuelve_centro (string delegacion);string centro
+
+  SELECT delegaciones.centro  
+    INTO :centro  
+    FROM delegaciones  
+   WHERE delegaciones.cod_delegacion = :delegacion ;
+
+if f_es_vacio(centro) then centro= g_centro_por_defecto
+return centro
+end function
+

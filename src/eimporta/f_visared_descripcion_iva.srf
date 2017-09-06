@@ -1,0 +1,17 @@
+HA$PBExportHeader$f_visared_descripcion_iva.srf
+global type f_visared_descripcion_iva from function_object
+end type
+
+forward prototypes
+global function string f_visared_descripcion_iva (string codigo)
+end prototypes
+
+global function string f_visared_descripcion_iva (string codigo);string retorno
+
+select descripcion into :retorno from csi_t_iva where t_iva=:codigo;
+
+if f_es_vacio(retorno) then retorno="IVA no encontrado"
+
+return retorno
+end function
+

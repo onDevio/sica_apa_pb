@@ -1,0 +1,18 @@
+HA$PBExportHeader$f_email_cargar_dw_destinatarios.srf
+global type f_email_cargar_dw_destinatarios from function_object
+end type
+
+forward prototypes
+global subroutine f_email_cargar_dw_destinatarios (ref u_dw dw_destinatarios, datastore ds_direcciones)
+end prototypes
+
+global subroutine f_email_cargar_dw_destinatarios (ref u_dw dw_destinatarios, datastore ds_direcciones);// Carga en el datawindow, el datastore que se ha pasado como parametro
+long i,fila
+
+for i=1 to ds_direcciones.rowcount()
+	fila=dw_destinatarios.insertrow(0)
+	dw_destinatarios.SetItem(fila,'nombre',ds_direcciones.GetItemString(i,'nombre'))	
+	dw_destinatarios.SetItem(fila,'direccion',ds_direcciones.GetItemString(i,'direccion'))	
+next
+end subroutine
+

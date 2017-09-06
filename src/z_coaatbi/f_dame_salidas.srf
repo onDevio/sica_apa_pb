@@ -1,0 +1,22 @@
+HA$PBExportHeader$f_dame_salidas.srf
+$PBExportComments$Informe de ingresos y gastos
+global type f_dame_salidas from function_object
+end type
+
+forward prototypes
+global function double f_dame_salidas (string colegiado, datetime desde, datetime hasta)
+end prototypes
+
+global function double f_dame_salidas (string colegiado, datetime desde, datetime hasta);double salidas = 0
+
+select sum(csi_lineas_fact_emitidas.subtotal) into :salidas from csi_lineas_fact_emitidas, csi_facturas_emitidas
+where 
+csi_lineas_fact_emitidas.id_factura =  csi_facturas_emitidas.id_factura
+and csi_facturas_emitidas.emisor = :colegiado and csi_lineas_fact_emitidas.articulo = '62' and csi_lineas_fact_emitidas.aplica_irpf_colegio = 'S' and  csi_facturas_emitidas.solo_pagos = 'N' and 
+csi_lineas_fact_emitidas.t_iva > '00' and csi_facturas_emitidas.fecha between :desde and :hasta ;
+
+if isnull(salidas) then salidas = 0
+
+return salidas
+end function
+

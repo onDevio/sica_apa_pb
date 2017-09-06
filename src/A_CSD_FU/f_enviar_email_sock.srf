@@ -1,0 +1,155 @@
+HA$PBExportHeader$f_enviar_email_sock.srf
+global type f_enviar_email_sock from function_object
+end type
+
+forward prototypes
+global subroutine f_enviar_email_sock (st_mail datos)
+end prototypes
+
+global subroutine f_enviar_email_sock (st_mail datos);string ls_filename, texto,mensaje
+long i,posicion_coma
+st_login datos_login
+// Objeto de envio de mails
+n_smtp in_smtp
+string is_mensaje,is_asunto
+// Configuracion cuenta correo
+string is_servidor_smtp,is_servidor_pop
+string is_direccion,is_nombre,is_login,is_password,is_recordar
+// Opciones de configuracion
+boolean ib_confirmacion_lectura,ib_compresion,ib_html,ib_plantilla
+// Esta opcion indica la fase, en caso de que el mail se tenga que rellenar con los 
+// datos de ella (como pasa en el sellador). En otros casos, sera nulo.
+string is_id_fase
+
+
+// Cargar preferencias (Obtencion de los datos del .ini)
+n_cst_encrypt encriptacion
+encriptacion=create n_cst_encrypt
+
+is_servidor_smtp=ProfileString(g_dir_aplicacion+"sica.ini","CORREO","servidor_smtp", "")
+is_servidor_pop=ProfileString(g_dir_aplicacion+"sica.ini","CORREO","servidor_pop", "")
+is_direccion=ProfileString(g_dir_aplicacion+"sica.ini","CORREO","direccion", "")
+is_nombre=ProfileString(g_dir_aplicacion+"sica.ini","CORREO","nombre", "")
+is_recordar=Upper(ProfileString(g_dir_aplicacion+"sica.ini","CORREO","recordar", "N"))
+//tab_2.tabpage_6.sle_cco.text=ProfileString(g_dir_aplicacion+"sica.ini","CORREO","direccion_copia", "")
+
+if is_recordar='S' then
+	is_login=ProfileString(g_dir_aplicacion+"sica.ini","CORREO","login", "")
+	is_password=encriptacion.of_decrypt(ProfileString(g_dir_aplicacion+"sica.ini","CORREO","password", ""))
+	
+else
+	is_login=""
+	is_password=""
+end if
+// Fin cargar preferencias
+
+is_mensaje=datos.mensaje
+is_asunto=datos.asunto
+
+//// Aplicamos la plantilla
+//if ib_plantilla then 
+//	f_email_aplicar_plantilla(is_mensaje,is_asunto,is_id_fase,idw_opciones.GetItemString(1,'plantilla'))
+//end if
+
+// Opciones de envio.
+in_smtp.of_SetReceipt(ib_confirmacion_lectura)
+in_smtp.of_SetServer(is_servidor_smtp)
+in_smtp.of_SetFrom(is_direccion,is_nombre)
+in_smtp.of_SetSubject(is_asunto)
+in_smtp.of_SetBody(is_mensaje, ib_html)
+
+if f_es_vacio(is_login) or f_es_vacio(is_password) then
+	Open(w_email_login)
+	datos_login=Message.PowerObjectParm
+	if f_es_vacio(datos_login.login) or f_es_vacio(datos_login.password) then
+		mensaje = "No ha introducido password para el usuario "+is_login
+		if g_usar_idioma = "S" then
+			mensaje = "No ha introducido password para el usuario %s"
+			mensaje = g_idioma.of_getmsg( "mail.password_mal", {is_login},mensaje)
+		end if
+		MessageBox(g_titulo,mensaje,StopSign!)
+		return
+	else
+		Setprofilestring(g_dir_aplicacion+"sica.ini","CORREO","login", datos_login.login)
+		Setprofilestring(g_dir_aplicacion+"sica.ini","CORREO","recordar", datos_login.recordar)
+		if datos_login.recordar='S' then
+			Setprofilestring(g_dir_aplicacion+"sica.ini","CORREO","password",  encriptacion.of_encrypt(datos_login.password))
+		end if
+		is_login=datos_login.login
+		is_password=datos_login.password				
+	end if
+end if	
+
+in_smtp.of_SetLogin(is_login,is_password)	
+in_smtp.of_Reset()
+
+
+in_smtp.of_AddTo(datos.direccion)
+
+//// Obtenemos la lista de destinatarios
+//texto=isle_destino.text
+//posicion_coma=1
+//do while posicion_coma<>0 
+//	posicion_coma=pos(texto,',')
+//	if posicion_coma<>0 then
+//		in_smtp.of_AddTo(trim(mid(texto,1,posicion_coma - 1)))
+//	else
+//		in_smtp.of_AddTo(trim(mid(texto,1)))
+//	end if
+//	texto=mid(texto,posicion_coma+1)
+//loop
+
+//// Obtenemos la lista de destinatarios con copia
+//texto=isle_cc.text
+//if Not(IsNull(texto)) and (trim(texto)<>"") then
+//	posicion_coma=1
+//	do while posicion_coma<>0 
+//		posicion_coma=pos(texto,',')
+//		if posicion_coma<>0 then
+//			in_smtp.of_Addcc(trim(mid(texto,1,posicion_coma - 1)))
+//		else
+//			in_smtp.of_Addcc(trim(mid(texto,1)))
+//		end if
+//		texto=mid(texto,posicion_coma+1)
+//	loop
+//end if
+
+//// Obtenemos la lista de destinatarios con copia oculta
+//texto=isle_cco.text
+//if Not(IsNull(texto)) and (trim(texto)<>"") then
+//	posicion_coma=1
+//	do while posicion_coma<>0 
+//		posicion_coma=pos(texto,',')
+//		if posicion_coma<>0 then
+//			in_smtp.of_Addbcc(trim(mid(texto,1,posicion_coma - 1)))
+//		else
+//			in_smtp.of_Addbcc(trim(mid(texto,1)))
+//		end if
+//		texto=mid(texto,posicion_coma+1)
+//	loop
+//end if
+
+//// A$$HEX1$$f100$$ENDHEX$$adimos los adjuntos. Si tenemos que comprimir, comprimimos y enviamos el adjunto.
+//if ib_compresion then
+//	this.event csd_comprimir_zip()
+//else
+//	For i = 1 To idw_adjuntos.rowcount()
+//		ls_filename = idw_adjuntos.GetItemString(i,'nombre_fichero')
+//		in_smtp.of_AddFile(ls_filename)
+//	Next
+//end if
+
+// Enviar el mensaje
+if in_smtp.of_SendMail() then
+//	st_status_bar.text="El mensaje fue enviado correctamente"
+//	st_status_bar.textcolor=rgb(0,196,0)
+//	MessageBox(g_titulo, "El mensaje fue enviado correctamente")
+//	cb_close.triggerevent(clicked!)
+else
+//	st_status_bar.text="No se pudo enviar el mensaje"
+//	st_status_bar.textcolor=rgb(255,0,0)
+//	MessageBox(g_titulo, "No se pudo enviar el mensaje",Exclamation!)
+end if
+
+end subroutine
+

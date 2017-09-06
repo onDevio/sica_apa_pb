@@ -1,0 +1,5 @@
+HA$PBExportHeader$st_fases_tipo_reparo.srs
+global type st_fases_tipo_reparo from structure
+	string		gu
+end type
+

@@ -1,0 +1,15 @@
+HA$PBExportHeader$st_fases_inicio.srs
+global type st_fases_inicio from structure
+	string		tipo_act
+	string		tipo_obra
+	string		destino
+	string		emplaz
+	string		tipo_via
+	string		poblacion
+	string		tipo_registro
+	string		colegiado
+	string		id_cliente
+	string		estado
+	string		tipo_promotor
+end type
+

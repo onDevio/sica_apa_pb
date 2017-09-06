@@ -1,0 +1,13 @@
+HA$PBExportHeader$f_busqueda_colegiados.srf
+global type f_busqueda_colegiados from function_object
+end type
+
+forward prototypes
+global function string f_busqueda_colegiados ()
+end prototypes
+
+global function string f_busqueda_colegiados ();open(w_busqueda_colegiados)
+return Message.StringParm
+
+end function
+

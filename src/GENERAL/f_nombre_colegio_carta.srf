@@ -1,0 +1,11 @@
+HA$PBExportHeader$f_nombre_colegio_carta.srf
+global type f_nombre_colegio_carta from function_object
+end type
+
+forward prototypes
+global function string f_nombre_colegio_carta ()
+end prototypes
+
+global function string f_nombre_colegio_carta ();return g_nombre_colegio_carta
+end function
+

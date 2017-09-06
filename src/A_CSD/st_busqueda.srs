@@ -1,0 +1,10 @@
+HA$PBExportHeader$st_busqueda.srs
+$PBExportComments$Estructura para buscar datos en tablas con muchas filas.
+global type st_busqueda from structure
+	string		titulo
+	string		dw
+	boolean		solo_despliega_texto
+	string		param1
+	string		param2
+end type
+

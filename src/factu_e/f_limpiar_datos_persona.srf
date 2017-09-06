@@ -1,0 +1,22 @@
+HA$PBExportHeader$f_limpiar_datos_persona.srf
+global type f_limpiar_datos_persona from function_object
+end type
+
+forward prototypes
+global subroutine f_limpiar_datos_persona (datawindow dw, integer fila)
+end prototypes
+
+global subroutine f_limpiar_datos_persona (datawindow dw, integer fila);
+// Borramos los datos de la persona al cambiar el tipo de factura
+	dw.SetItem(fila,'id_persona','')
+	dw.SetItem(fila,'n_col','')
+	dw.SetItem(fila,'nif','')
+	dw.SetItem(fila,'nombre','')
+	dw.SetItem(fila,'domicilio','')
+	dw.SetItem(fila,'domicilio_largo','')	
+	dw.SetItem(fila,'poblacion','')
+	dw.SetItem(fila,'cuenta','')
+	dw.SetItem(fila,'emisor','') // Modificado Ricardo 03-12-12
+
+end subroutine
+

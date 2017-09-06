@@ -1,0 +1,11 @@
+HA$PBExportHeader$f_actualizo_cuenta_cliente_tercero.srf
+global type f_actualizo_cuenta_cliente_tercero from function_object
+end type
+
+forward prototypes
+global subroutine f_actualizo_cuenta_cliente_tercero (string codigo, string cuenta_contable)
+end prototypes
+
+global subroutine f_actualizo_cuenta_cliente_tercero (string codigo, string cuenta_contable);update clientes set cuenta_contable = :cuenta_contable where id_cliente = :codigo;
+end subroutine
+

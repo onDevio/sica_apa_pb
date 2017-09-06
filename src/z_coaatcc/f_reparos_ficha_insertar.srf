@@ -1,0 +1,27 @@
+HA$PBExportHeader$f_reparos_ficha_insertar.srf
+global type f_reparos_ficha_insertar from function_object
+end type
+
+forward prototypes
+global function string f_reparos_ficha_insertar (string id_fase)
+end prototypes
+
+global function string f_reparos_ficha_insertar (string id_fase);string id_reparo_ficha, n_ficha, id_colegiado   
+datetime fecha
+
+id_reparo_ficha = 	f_siguiente_numero('ID_REPARO_FICHA',10)
+n_ficha = 'I' + RightA(g_anyo_numeracion,2) +  f_siguiente_numero('NUM_FICHA_REPARO',5) + f_delegacion_siglas(g_cod_delegacion)
+fecha = datetime(today(),now())
+
+INSERT INTO reparos_ficha  
+( id_reparo_ficha,   n_ficha,   fecha,   f_subsanacion,   apto,   sms,   email,   web,   carta,   anulado,   id_usuario,   id_colegiado,   id_fase,   f_envio,   notificado )  
+VALUES ( :id_reparo_ficha,   :n_ficha,   :fecha,   null,   'N',   'N',   'N',   'N',   'N',   'N',   :g_usuario,   null,   :id_fase,   :fecha,   'S' )  ;
+
+if SQLCA.sqlcode >= 0 then 
+	return id_reparo_ficha
+else
+	return '-1'
+end if
+
+end function
+

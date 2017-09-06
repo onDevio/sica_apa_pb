@@ -1,0 +1,24 @@
+HA$PBExportHeader$f_escuela_practica_juridica.srf
+global type f_escuela_practica_juridica from function_object
+end type
+
+forward prototypes
+global function string f_escuela_practica_juridica (string n_colegiado)
+end prototypes
+
+global function string f_escuela_practica_juridica (string n_colegiado);string es,encontrado
+
+SELECT n_colegiado
+INTO :encontrado
+FROM alumnos
+WHERE n_colegiado=:n_colegiado;
+
+if encontrado='' or isnull(encontrado) then
+	es='N'
+else
+	es='S'
+end if
+
+return es
+end function
+

@@ -1,0 +1,19 @@
+HA$PBExportHeader$f_factura_dame_empresa.srf
+global type f_factura_dame_empresa from function_object
+end type
+
+forward prototypes
+global function string f_factura_dame_empresa (string as_id_factura)
+end prototypes
+
+global function string f_factura_dame_empresa (string as_id_factura);string ls_codigo_empresa
+
+select empresa into :ls_codigo_empresa from csi_facturas_emitidas  where id_factura = :as_id_factura;
+
+if f_es_vacio(ls_codigo_empresa) then
+	return g_empresa
+else 
+	return ls_codigo_empresa
+end if	
+end function
+

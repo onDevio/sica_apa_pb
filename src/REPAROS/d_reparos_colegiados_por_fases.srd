@@ -1,0 +1,16 @@
+HA$PBExportHeader$d_reparos_colegiados_por_fases.srd
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=136 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=84 color="536870912" )
+table(column=(type=char(10) update=yes updatewhereclause=yes key=yes name=id_col dbname="fases_colegiados.id_col" )
+ column=(type=char(10) update=yes updatewhereclause=yes key=yes name=id_fase dbname="fases_colegiados.id_fase" )
+ retrieve="PBSELECT( VERSION(400) DISTINCT ()TABLE(NAME=~"fases_colegiados~" ) COLUMN(NAME=~"fases_colegiados.id_col~") COLUMN(NAME=~"fases_colegiados.id_fase~")WHERE(    EXP1 =~"( fases_colegiados.id_fase~"   OP =~"=~"    EXP2 =~":id_fase)~"    LOGIC =~"and~" ) WHERE(    EXP1 =~"(fases_colegiados.id_col~"   OP =~"<>~"    EXP2 =~":id_col)~"    LOGIC =~"and~" ) WHERE(    EXP1 =~"( fases_colegiados.id_col~"   OP =~"not in~"    EXP2 =~"(select distinct fases_reparos.id_col from fases_reparos where fases_reparos.id_fase = :id_fase and fases_reparos.tipo_reparo= :t_reparo) )~" ) ) ARG(NAME = ~"id_fase~" TYPE = string)  ARG(NAME = ~"id_col~" TYPE = string)  ARG(NAME = ~"t_reparo~" TYPE = string) " update="fases_colegiados" updatewhere=0 updatekeyinplace=no arguments=(("id_fase", string),("id_col", string),("t_reparo", string)) )
+text(band=header alignment="2" text="Fases Colegiados
+Id Col" border="0" color="0" x="5" y="4" height="128" width="475"  name=fases_colegiados_id_col_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="585" y="4" height="64" width="443" format="[general]"  name=id_col  tag=" " edit.limit=10 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="14" y="4" height="64" width="507" format="[general]"  name=id_fase edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

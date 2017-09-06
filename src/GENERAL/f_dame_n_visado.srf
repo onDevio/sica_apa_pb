@@ -1,0 +1,17 @@
+HA$PBExportHeader$f_dame_n_visado.srf
+global type f_dame_n_visado from function_object
+end type
+
+forward prototypes
+global function string f_dame_n_visado (string id_fase)
+end prototypes
+
+global function string f_dame_n_visado (string id_fase);string n_visado
+
+SELECT fases.archivo INTO :n_visado   FROM fases  WHERE fases.id_fase = :id_fase;
+
+	
+if f_es_vacio(n_visado) then n_visado = ''
+return n_visado
+end function
+

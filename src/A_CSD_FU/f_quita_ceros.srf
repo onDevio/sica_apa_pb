@@ -1,0 +1,15 @@
+HA$PBExportHeader$f_quita_ceros.srf
+global type f_quita_ceros from function_object
+end type
+
+forward prototypes
+global function string f_quita_ceros (string cadena)
+end prototypes
+
+global function string f_quita_ceros (string cadena);if isnumber(cadena) then
+	return string(double(cadena))
+else
+	return cadena
+end if
+end function
+

@@ -1,0 +1,27 @@
+HA$PBExportHeader$st_apunte.srs
+$PBExportComments$Estructura general del apunte
+global type st_apunte from structure
+	string		id_apunte
+	string		cuenta
+	datetime		fecha
+	string		concepto
+	double		debe
+	double		haber
+	string		t_asiento
+	string		n_asiento
+	string		n_apunte
+	string		centro
+	string		proyecto
+	string		n_doc
+	string		id_interno
+	string		t_doc
+	string		diario
+	string		cta_presupuestaria
+	string		nif
+	string		nombre
+	double		base_imp
+	string		t_iva
+	string		orden_apunte
+	string		contrapartida
+end type
+

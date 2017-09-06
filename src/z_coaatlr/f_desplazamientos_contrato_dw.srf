@@ -1,0 +1,21 @@
+HA$PBExportHeader$f_desplazamientos_contrato_dw.srf
+$PBExportComments$Calcula el total de desplazamientos para un contrato determinado
+global type f_desplazamientos_contrato_dw from function_object
+end type
+
+forward prototypes
+global function double f_desplazamientos_contrato_dw (datawindow idw_fases_informes)
+end prototypes
+
+global function double f_desplazamientos_contrato_dw (datawindow idw_fases_informes);int i
+double desplaza_contrato = 0, desplaza_linea = 0
+for i = 1 to idw_fases_informes.rowcount()
+	if idw_fases_informes.getitemstring(i, 'tipo_informe') = g_codigos_conceptos.desplazamientos then
+		desplaza_linea = idw_fases_informes.getitemnumber(i, 'cuantia_colegiado')
+		desplaza_contrato += desplaza_linea
+	end if
+next
+if isnull(desplaza_contrato) then desplaza_contrato = 0
+return desplaza_contrato
+end function
+

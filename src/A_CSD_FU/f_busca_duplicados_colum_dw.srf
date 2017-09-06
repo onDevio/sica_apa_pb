@@ -1,0 +1,214 @@
+HA$PBExportHeader$f_busca_duplicados_colum_dw.srf
+$PBExportComments$Comprueba si el valor de una fila est$$HEX2$$e1002000$$ENDHEX$$duplicado
+global type f_busca_duplicados_colum_dw from function_object
+end type
+
+forward prototypes
+global function long f_busca_duplicados_colum_dw (datawindow dw, string nomcolumna, integer numfila)
+end prototypes
+
+global function long f_busca_duplicados_colum_dw (datawindow dw, string nomcolumna, integer numfila);//////////////////////////////////////////////////////////////////////////////
+//	Funci$$HEX1$$f300$$ENDHEX$$n:  f_busca_duplicados_colum_dw
+//
+//	Argumentos:
+//	dw								El datawindow sobre el que 
+//									aplicamos la funci$$HEX1$$f300$$ENDHEX$$n
+//
+// nomcolumna					El nombre de la columna
+//									del datawindows en el que
+//									vamos  a buscar duplicados
+//
+//	numfila						Es el n$$HEX1$$fa00$$ENDHEX$$mero de la fila que queremos 
+//									saber si su valor est$$HEX2$$e1002000$$ENDHEX$$duplicado en alguna 
+//									de las restantes filas de la columna indicada 
+//
+//	Devuelve:	Long
+//					0 si no hay ninguna fila con el mismo valor
+//					-1 si el tipo de datos de la columna no es v$$HEX1$$e100$$ENDHEX$$lido
+//					Un n$$HEX1$$fa00$$ENDHEX$$mero mayor que 0 indicando el n$$HEX1$$fa00$$ENDHEX$$mero de la fila que tambi$$HEX1$$e900$$ENDHEX$$n tiene ese valor 
+//
+//	Descripci$$HEX1$$f300$$ENDHEX$$n:	Busca en una columna de un datawindow para detectar si existe al 
+//					menos un duplicado del valor de la celda seleccionada, devolviendo
+//					0 si no hay duplicados, el valor de la fila que lo contiene
+//					o -1 si el tipo de datos no es v$$HEX1$$e100$$ENDHEX$$lido.
+//					Los tipos contemplados para la columna son los siguientes:
+//						Char(n), Date, DateTime, Decimal(n), Int, Long, Number, Real, Time, ULong
+//					
+//////////////////////////////////////////////////////////////////////////////
+//
+//	Fecha Creaci$$HEX1$$f300$$ENDHEX$$n 
+//	Martes 8 Junio 1999   Versi$$HEX1$$f300$$ENDHEX$$n Inicial
+//
+//////////////////////////////////////////////////////////////////////////////
+
+//Declaracion de Variables
+long i,num_fila_duplicada
+string tipo_colum,eschar
+boolean hay_duplicado
+	
+
+// Inicializamos a falso la variable que nos indicara si detectamos un duplicado 
+	hay_duplicado=false
+
+//Obtenemos el tipo de datos de la columna 
+      tipo_colum=dw.Describe(nomcolumna+".ColType")
+
+// Si el tipo de datos es char(n) o decimal(n), donde n es un valor que puede variar  n=1,2,3,...
+// siendo el tipo de datos decimal(1),decimal(2), o char(2),...,char(10),...,char(40)
+// lo truncamos a sus tres primeras letras: 
+// 		cha, para el tipo char
+// 		dec, para el tipo decimal
+//	para poderlo comparar eficazmente en 
+	eschar=LeftA(tipo_colum,3)
+	IF ((eschar="cha") OR (eschar="dec")) THEN tipo_colum=LeftA(tipo_colum,3)
+
+
+	CHOOSE CASE tipo_colum
+
+      // CAMPOS CARACTER
+		CASE "cha"
+		////////////////////////////////////   ////////////////////////////////////
+				  IF (dw.RowCount()>0) THEN
+					  // Recorremos la columna hasta el final 
+							FOR i = 1 to dw.RowCount()
+								IF i <> numfila THEN 
+									// Comprobamos si el valor de la fila actual eliminando los espacios en blanco anteriores y posteriores es igual 
+									// al valor de la fila seleccionada tambi$$HEX1$$e900$$ENDHEX$$n sin espacios 
+										IF trim(dw.GetItemString(i,nomcolumna)) = trim(dw.GetItemString(numfila,nomcolumna))  THEN
+											num_fila_duplicada = i
+											hay_duplicado = true
+											EXIT    // Nos interesa el primer duplicado, si lo detectamos salimos del for
+									END IF // fin del if que comprueba si hay algun duplicado
+								END IF // fin del if que comprueba si la fila actual es distinta a la que comparamos
+							NEXT  // fin del for que recorre las filas 
+				 END IF
+ 	
+					IF (hay_duplicado=true) THEN
+								return num_fila_duplicada 
+							ELSE 
+								return 0   //no hay duplicados
+					END IF
+
+    // CAMPOS NUMERICOS, MENOS EL DECIMAL
+		CASE "int","long","number","real","ulong"
+			  IF (dw.RowCount()>0) THEN
+					  // Recorremos la columna hasta el final 
+							FOR i = 1 to dw.RowCount()
+								IF i <> numfila THEN 
+								// Comprobamos si el valor de la fila actual es igual al valor de la fila a comparar		
+									IF dw.GetItemNumber(i,nomcolumna) = dw.GetItemNumber(numfila,nomcolumna)  THEN
+											num_fila_duplicada = i
+											hay_duplicado = true
+											EXIT    // Nos interesa el primer duplicado, si lo detectamos salimos del for
+									END IF // fin del if que comprueba si hay algun duplicado
+								END IF // fin del if que comprueba si la fila actual es distinta a la que comparamos
+							NEXT  // fin del for que recorre las filas 
+				 END IF
+ 	
+	 			// Devolvemos el valor correspondiente
+					IF (hay_duplicado=true) THEN
+								return num_fila_duplicada 
+							ELSE
+								return 0   //no hay duplicados
+					END IF
+		
+  //CAMPO DECIMAL
+		CASE "dec" 
+				  IF (dw.RowCount()>0) THEN
+					  // Recorremos la columna hasta el final 
+							FOR i = 1 to dw.RowCount()
+								IF i <> numfila THEN 
+								// Comprobamos si el valor de la fila actual es igual al valor de la fila a comparar	
+									IF dw.GetItemDecimal(i,nomcolumna) = dw.GetItemDecimal(numfila,nomcolumna)  THEN
+											num_fila_duplicada = i
+											hay_duplicado = true
+											EXIT    // Nos interesa el primer duplicado, si lo detectamos salimos del for
+									END IF // fin del if que comprueba si hay algun duplicado
+								END IF // fin del if que comprueba si la fila actual es distinta a la que comparamos
+							NEXT  // fin del for que recorre las filas 
+				 END IF
+ 	
+	 			// Devolvemos el valor correspondiente
+				 	IF (hay_duplicado=true) THEN
+								return num_fila_duplicada 
+							ELSE 
+								return 0   //no hay duplicados
+					END IF
+
+  //CAMPO DATE
+		CASE "date"
+			  IF (dw.RowCount()>0) THEN
+					  // Recorremos la columna hasta el final 
+							FOR i = 1 to dw.RowCount()
+								IF i <> numfila THEN
+									// Comprobamos si el valor de la fila actual es igual al valor de la fila a comparar		
+										IF dw.GetItemDate(i,nomcolumna) = dw.GetItemDate(numfila,nomcolumna)  THEN
+											num_fila_duplicada = i
+											hay_duplicado = true
+											EXIT    // Nos interesa el primer duplicado, si lo detectamos salimos del for
+									END IF // fin del if que comprueba si hay algun duplicado
+								END IF // fin del if que comprueba si la fila actual es distinta a la que comparamos
+							NEXT  // fin del for que recorre las filas 
+				 END IF
+ 	
+	 			// Devolvemos el valor correspondiente
+					IF (hay_duplicado=true) THEN
+								return num_fila_duplicada 
+							ELSE 
+								return 0   //no hay duplicados
+					END IF
+					
+  //CAMPO DATETIME	
+		CASE "datetime"
+				  IF (dw.RowCount()>0) THEN
+						  // Recorremos la columna hasta el final 
+							FOR i = 1 to dw.RowCount()
+								IF i <> numfila THEN 
+									// Comprobamos si el valor de la fila actual es igual al valor de la fila a comparar		
+										IF dw.GetItemDateTime(i,nomcolumna) = dw.GetItemDateTime(numfila,nomcolumna)  THEN
+											num_fila_duplicada = i
+											hay_duplicado = true
+											EXIT    // Nos interesa el primer duplicado, si lo detectamos salimos del for
+									END IF // fin del if que comprueba si hay algun duplicado
+								END IF // fin del if que comprueba si la fila actual es distinta a la que comparamos
+							NEXT  // fin del for que recorre las filas 
+				 END IF
+ 	
+	 			// Devolvemos el valor correspondiente
+					IF (hay_duplicado=true) THEN
+								return num_fila_duplicada 
+							ELSE 
+								return 0   //no hay duplicados
+					END IF
+
+  //CAMPO TIME	
+		CASE "time"
+			  IF (dw.RowCount()>0) THEN
+					  // Recorremos la columna hasta el final 
+							FOR i = 1 to dw.RowCount()
+								IF i <> numfila THEN 
+									// Comprobamos si el valor de la fila actual es igual al valor de la fila a comparar		
+										IF dw.GetItemTime(i,nomcolumna) = dw.GetItemTime(numfila,nomcolumna)  THEN
+											num_fila_duplicada = i
+											hay_duplicado = true
+											EXIT    // Nos interesa el primer duplicado, si lo detectamos salimos del for
+									END IF // fin del if que comprueba si hay algun duplicado
+								END IF // fin del if que comprueba si la fila actual es distinta a la que comparamos
+							NEXT  // fin del for que recorre las filas 
+				 END IF
+ 	
+	 			// Devolvemos el valor correspondiente
+					IF (hay_duplicado=true) THEN
+								return num_fila_duplicada 
+							ELSE  
+								return 0   //no hay duplicados
+					END IF
+
+	CASE ELSE
+			return -1 // El tipo de datos de la columna no es v$$HEX1$$e100$$ENDHEX$$lido
+	END CHOOSE
+	
+	
+
+end function
+

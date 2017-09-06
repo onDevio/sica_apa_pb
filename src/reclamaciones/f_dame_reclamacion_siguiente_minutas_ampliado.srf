@@ -1,0 +1,129 @@
+HA$PBExportHeader$f_dame_reclamacion_siguiente_minutas_ampliado.srf
+global type f_dame_reclamacion_siguiente_minutas_ampliado from function_object
+end type
+
+forward prototypes
+global function string f_dame_reclamacion_siguiente_minutas_ampliado (string id_minuta, datetime fecha, string ultima_carta_generada, string tipo_gestion, string carta_consulta)
+global function string f_dame_reclamacion_siguiente_minutas_ampliado (string id_minuta, datetime fecha, string ultima_carta_generada, string tipo_gestion, string carta_consulta, string t_min)
+end prototypes
+
+global function string f_dame_reclamacion_siguiente_minutas_ampliado (string id_minuta, datetime fecha, string ultima_carta_generada, string tipo_gestion, string carta_consulta);// Devolveremos la siguiente reclamacion que se debe realizar para esa minuta
+long n_reg, n_dias
+string tipo_reclamacion, toca_carta
+
+
+// Si no tienen cartas hechas... 
+if f_es_vacio(ultima_carta_generada) then
+	// Ahora es cuando hay que buscar la primera a generar
+	select count(*) into :n_reg from notificaciones where es_primera = 'S' and tipo_gestion = :tipo_gestion;
+	if n_reg = 1 then
+		// Solo hay 1 primera
+		select codigo into :tipo_reclamacion from notificaciones where es_primera = 'S' and tipo_gestion = :tipo_gestion;
+		if isnull(tipo_reclamacion) then tipo_reclamacion = 'NO'
+	else
+		// Hay mas de una o 0 (:O). Usamos la fecha.
+		n_dias = daysafter(date(fecha), today())
+		select codigo into :tipo_reclamacion from notificaciones where es_primera = 'S' and tipo_gestion = :tipo_gestion and ciclo in (select max(ciclo) from notificaciones where ciclo<:n_dias and es_primera = 'S' and tipo_gestion = :tipo_gestion);
+		
+		if isnull(tipo_reclamacion) then tipo_reclamacion = 'NO'
+	end if
+else
+	// Devolvemos la siguiente a la ultima generada, si hay
+	n_dias = daysafter(date(fecha), today())
+	
+	select sig_carta into :tipo_reclamacion from notificaciones where tipo_gestion = :tipo_gestion and codigo = :ultima_carta_generada;
+	
+	// David - 28/9/2006 - El ciclo cambia a partir de la 2$$HEX2$$aa002000$$ENDHEX$$carta dependiendo del tipo de minuta (inicial, parcial o final)
+	// Contratos (I) - Ciclo: primera, segunda, segunda bis, tercera. (cuarta opcional)
+	// Minutas (P $$HEX2$$f3002000$$ENDHEX$$F) - Ciclo: primera, segunda, tercera, cuarta.
+	if g_colegio = 'COAATGU' and tipo_gestion = 'C' then
+		string t_minuta
+		
+		SELECT fases_minutas.t_minuta  INTO :t_minuta  FROM fases_minutas  WHERE fases_minutas.id_minuta = :id_minuta   ;
+		
+		if ultima_carta_generada = '2' and t_minuta = 'I' then tipo_reclamacion = '9' ; // En los contratos se introduce esta carta
+		if ultima_carta_generada = '3' and t_minuta = 'I' then tipo_reclamacion = 'X' ; // Se mete un c$$HEX1$$f300$$ENDHEX$$digo de carta que no existe para que se pueda sacar manualmente la cuarta
+	end if
+	// Fin 28/9/2006
+	
+	if tipo_reclamacion <> '@@' then
+		toca_carta = tipo_reclamacion
+		tipo_reclamacion = '' // Lo volvemos a vaciar pq ahora lo buscamos nuevamente, mirando si han pasado suficientes dias
+		select codigo into :tipo_reclamacion from notificaciones where tipo_gestion = :tipo_gestion and codigo = :toca_carta and ciclo < :n_dias;
+		// Miramos si es un codigo valido, sino devolveremos un 'NO'
+		select count(*) into :n_reg from notificaciones where codigo = :tipo_reclamacion;
+		if n_reg = 0 then setnull(tipo_reclamacion)
+		if isnull(tipo_reclamacion) then tipo_reclamacion = 'NO'
+	end if
+end if
+
+// (codigo que asegura que no devuelve nunca un null) Si es nula devolvemos que no hay tipo de reclamacion
+if f_es_vacio(tipo_reclamacion) then tipo_reclamacion = 'NO'
+
+return tipo_reclamacion
+
+end function
+
+global function string f_dame_reclamacion_siguiente_minutas_ampliado (string id_minuta, datetime fecha, string ultima_carta_generada, string tipo_gestion, string carta_consulta, string t_min);// Devolveremos la siguiente reclamacion que se debe realizar para esa minuta
+long n_reg, n_dias
+string tipo_reclamacion, toca_carta
+string tipo
+
+if t_min='I' then
+	tipo='1'
+else
+	tipo='2'
+end if
+
+// Si no tienen cartas hechas... 
+if f_es_vacio(ultima_carta_generada) then
+	// Ahora es cuando hay que buscar la primera a generar
+	select count(*) into :n_reg from notificaciones where es_primera = 'S' and tipo_gestion = :tipo_gestion and (tipo_minuta=:tipo or tipo_minuta='%');
+	if n_reg = 1 then
+		// Solo hay 1 primera
+		select codigo into :tipo_reclamacion from notificaciones where es_primera = 'S' and tipo_gestion = :tipo_gestion  and (tipo_minuta=:tipo or tipo_minuta='%');
+		if isnull(tipo_reclamacion) then tipo_reclamacion = 'NO'
+	else
+		// Hay mas de una o 0 (:O). Usamos la fecha.
+		n_dias = daysafter(date(fecha), today())
+		select codigo into :tipo_reclamacion from notificaciones where es_primera = 'S' and tipo_gestion = :tipo_gestion and (tipo_minuta=:tipo or tipo_minuta='%') and ciclo in (select max(ciclo) from notificaciones where ciclo<:n_dias and es_primera = 'S' and tipo_gestion = :tipo_gestion  and (tipo_minuta=:tipo or tipo_minuta='%'));
+		
+		if isnull(tipo_reclamacion) then tipo_reclamacion = 'NO'
+	end if
+else
+	// Devolvemos la siguiente a la ultima generada, si hay
+	n_dias = daysafter(date(fecha), today())
+	
+	select sig_carta into :tipo_reclamacion from notificaciones where tipo_gestion = :tipo_gestion and codigo = :ultima_carta_generada  and (tipo_minuta=:tipo or tipo_minuta='%');
+	
+	// David - 28/9/2006 - El ciclo cambia a partir de la 2$$HEX2$$aa002000$$ENDHEX$$carta dependiendo del tipo de minuta (inicial, parcial o final)
+	// Contratos (I) - Ciclo: primera, segunda, segunda bis, tercera. (cuarta opcional)
+	// Minutas (P $$HEX2$$f3002000$$ENDHEX$$F) - Ciclo: primera, segunda, tercera, cuarta.
+	if g_colegio = 'COAATGU' and tipo_gestion = 'C' then
+		string t_minuta
+		
+		SELECT fases_minutas.t_minuta  INTO :t_minuta  FROM fases_minutas  WHERE fases_minutas.id_minuta = :id_minuta   ;
+		
+		if ultima_carta_generada = '2' and t_minuta = 'I' then tipo_reclamacion = '9' ; // En los contratos se introduce esta carta
+		if ultima_carta_generada = '3' and t_minuta = 'I' then tipo_reclamacion = 'X' ; // Se mete un c$$HEX1$$f300$$ENDHEX$$digo de carta que no existe para que se pueda sacar manualmente la cuarta
+	end if
+	// Fin 28/9/2006
+	
+	if tipo_reclamacion <> '@@' then
+		toca_carta = tipo_reclamacion
+		tipo_reclamacion = '' // Lo volvemos a vaciar pq ahora lo buscamos nuevamente, mirando si han pasado suficientes dias
+		select codigo into :tipo_reclamacion from notificaciones where tipo_gestion = :tipo_gestion and codigo = :toca_carta and ciclo < :n_dias  and (tipo_minuta=:tipo or tipo_minuta='%');
+		// Miramos si es un codigo valido, sino devolveremos un 'NO'
+		select count(*) into :n_reg from notificaciones where codigo = :tipo_reclamacion;
+		if n_reg = 0 then setnull(tipo_reclamacion)
+		if isnull(tipo_reclamacion) then tipo_reclamacion = 'NO'
+	end if
+end if
+
+// (codigo que asegura que no devuelve nunca un null) Si es nula devolvemos que no hay tipo de reclamacion
+if f_es_vacio(tipo_reclamacion) then tipo_reclamacion = 'NO'
+
+return tipo_reclamacion
+
+end function
+

@@ -1,0 +1,923 @@
+create table dbo.csi_param_facturas (serie char(10) default "%" not null, empresa char(2) default "%" not null , anyo char(4) default "%" not null, idioma char(2) default "%" not null, campo char(20) not null, texto text null); 
+alter table dbo.csi_param_facturas add constraint csi_param_factura_x primary key nonclustered (serie, empresa, anyo, campo, idioma) ;
+update var_globales set sn='S' where nombre='g_clientes_utiliza_multiempresa';
+declare @colegio varchar(10)
+select @colegio = texto from var_globales where nombre = 'COLEGIO'
+
+///SENTENCIA COAATGUI
+if @colegio= 'COAATGUI'
+begin
+
+	//// Para la cabecera
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, 'ES', 'Cabecera', 'FACTURA DE GASTOS COLEGIALES' 
+	from csi_series where recib = 'N' and proforma = 'N' and empresa = '01'
+
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, 'VA', 'Cabecera', 'ELKARGO-GASTUEN FAKTURA' 
+	from csi_series where recib = 'N' and proforma = 'N' and empresa = '01'
+
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, 'ES', 'Cabecera', 'FACTURA' 
+	from csi_series where recib = 'N' and proforma = 'N' and empresa <> '01'
+
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, 'VA', 'Cabecera', 'FAKTURA' 
+	from csi_series where recib = 'N' and proforma = 'N' and empresa <> '01'
+
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, 'ES', 'Cabecera', 'PROFORMA' 
+	from csi_series where proforma = 'S' and empresa = '01'
+
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, 'VA', 'Cabecera', 'ELKARGO-GASTUEN PROFORMA' 
+	from csi_series where recib = 'N' and proforma = 'S' and empresa = '01'
+
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, '%', 'Cabecera', 'PROFORMA' 
+	from csi_series where recib = 'N' and proforma = 'S' and empresa <> '01'
+
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, '%', 'Cabecera', 'RECIBO' 
+	from csi_series where recib = 'S' and proforma = 'N'
+
+	////POR DEFECTO
+	insert into csi_param_facturas values('%', '%', '%', '%', 'Cabecera', 'FACTURA')
+
+	//// Para el título N_fact
+
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, '%', 'N_fact', 'FACTURA Nº /FAKTURA Zk' 
+	from csi_series where recib = 'N' and proforma = 'N'
+
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, '%', 'N_fact', 'PROFORMA Nº' 
+	from csi_series where proforma = 'S'
+
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, '%', 'N_fact', 'RECIBO Nº' 
+	from csi_series where recib = 'S' and proforma = 'N'
+
+	////POR DEFECTO
+	insert into csi_param_facturas values('%', '%', '%', '%', 'N_fact', 'FACTURA Nº /FAKTURA Zk')
+
+	//// Para la etiqueta con los totales.
+
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, '%', 'Total_fact', 'TOTAL FACTURA / FAKTURA GUZTIRA' 
+	from csi_series where recib = 'N' and proforma = 'N'
+
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, '%', 'Total_fact', 'TOTAL PROFORMA' 
+	from csi_series where proforma = 'S'
+
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, '%', 'Total_fact', 'TOTAL RECIBO' 
+	from csi_series where recib = 'S' and proforma = 'N'
+
+	////POR DEFECTO
+	insert into csi_param_facturas values('%', '%', '%', '%', 'Total_fact', 'TOTAL FACTURA / FAKTURA GUZTIRA')
+end
+
+/// PARA Tarragona y Terres.
+if @colegio= 'COAATTG' or @colegio= 'COAATTEB'
+begin
+
+	//// Para la cabecera
+
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, '%', 'Cabecera', '   Rebut / Factura ' 
+	from csi_series where recib = 'N' and proforma = 'N' 
+
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, '%', 'Cabecera', 'Proforma' 
+	from csi_series where proforma = 'S'
+
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, '%', 'Cabecera', 'Rebut' 
+	from csi_series where recib = 'S' and proforma = 'N' 
+
+	////POR DEFECTO
+	insert into csi_param_facturas values('%', '%', '%', '%', 'Cabecera', '   Rebut / Factura ')
+
+	//// Para el título N_fact
+
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, '%', 'N_fact', 'Nº REBUT / FACTURA' 
+	from csi_series where recib = 'N' and proforma = 'N'
+
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, '%', 'N_fact', 'Nº PROFORMA' 
+	from csi_series where proforma = 'S'
+
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, '%', 'N_fact', 'Nº REBUT' 
+	from csi_series where recib = 'S' and proforma = 'N'
+
+	////POR DEFECTO
+	insert into csi_param_facturas values('%', '%', '%', '%', 'N_fact', 'Nº REBUT / FACTURA')
+
+	//// Para la etiqueta con los totales.
+
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, '%', 'Total_fact', 'TOTAL PROFORMA' 
+	from csi_series where proforma = 'S' 
+
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, '%', 'Total_fact', 'TOTAL REBUT' 
+	from csi_series where recib = 'S' and proforma = 'N'
+
+	////POR DEFECTO
+	insert into csi_param_facturas values('%', '%', '%', '%', 'Total_fact', 'TOTAL REBUT')
+end 
+
+
+
+///Para Caceres.
+if @colegio= 'COAATCC'
+begin
+	//// Para la cabecera
+
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, '%', 'Cabecera', 'FACTURA ' 
+	from csi_series where proforma = 'N' 
+
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, '%', 'Cabecera', 'PROFORMA' 
+	from csi_series where proforma = 'S'
+
+
+	////POR DEFECTO
+	insert into csi_param_facturas values('%', '%', '%', '%', 'Cabecera', 'FACTURA')
+
+	//// Para el título N_fact
+
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, '%', 'N_fact', 'FACTURA Nº' 
+	from csi_series where recib = 'N' and proforma = 'N'
+
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, '%', 'N_fact', 'PROFORMA Nº' 
+	from csi_series where proforma = 'S'
+
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, '%', 'N_fact', 'RECIBO Nº' 
+	from csi_series where recib = 'S' and proforma = 'N'
+
+	////POR DEFECTO
+	insert into csi_param_facturas values('%', '%', '%', '%', 'N_fact', 'FACTURA Nº')
+
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, '%', 'Total_fact', 'TOTAL PROFORMA' 
+	from csi_series where proforma = 'S' 
+
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, '%', 'Total_fact', 'TOTAL FACTURA' 
+	from csi_series where recib = 'N' and proforma = 'N'
+
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, '%', 'Total_fact', 'TOTAL RECIBO' 
+	from csi_series where recib = 'S' and proforma = 'N'
+
+	insert into csi_param_facturas values('%', '%', '%', '%', 'Total_fact', 'TOTAL FACTURA')
+end
+
+
+
+
+
+
+///Para Zaragoza, Navarra, Alicante, Guadalajara
+if @colegio= 'COAATZ' or @colegio= 'COAATNA' or @colegio= 'COAATA' or @colegio= 'COAATGU'
+begin
+	//// Para la cabecera
+
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, '%', 'Cabecera', 'FACTURA DE GASTOS COLEGIALES' 
+	from csi_series where recib = 'N' and proforma = 'N' and empresa = '01' 
+
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, '%', 'Cabecera', 'FACTURA ' 
+	from csi_series where recib = 'N' and proforma = 'N' and empresa <> '01'
+	
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, '%', 'Cabecera', 'RECIBO ' 
+	from csi_series where recib = 'S' and proforma = 'N'
+
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, '%', 'Cabecera', 'PROFORMA' 
+	from csi_series where proforma = 'S'
+
+
+	////POR DEFECTO
+	insert into csi_param_facturas values('%', '%', '%', '%', 'Cabecera', 'FACTURA')
+
+	//// Para el título N_fact
+
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, '%', 'N_fact', 'FACTURA Nº' 
+	from csi_series where recib = 'N' and proforma = 'N'
+
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, '%', 'N_fact', 'PROFORMA Nº' 
+	from csi_series where proforma = 'S'
+
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, '%', 'N_fact', 'RECIBO Nº' 
+	from csi_series where recib = 'S' and proforma = 'N'
+
+	////POR DEFECTO
+	insert into csi_param_facturas values('%', '%', '%', '%', 'N_fact', 'FACTURA Nº')
+
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, '%', 'Total_fact', 'TOTAL PROFORMA' 
+	from csi_series where proforma = 'S' 
+
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, '%', 'Total_fact', 'TOTAL FACTURA' 
+	from csi_series where recib = 'N' and proforma = 'N'
+
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, '%', 'Total_fact', 'TOTAL RECIBO' 
+	from csi_series where recib = 'S' and proforma = 'N'
+
+	insert into csi_param_facturas values('%', '%', '%', '%', 'Total_fact', 'TOTAL FACTURA')
+end 
+
+
+
+
+///Para Cuenca, Murcia, Burgos
+if @colegio= 'COAATCU' or @colegio= 'COAATMU' or @colegio= 'COAATBU'
+begin
+	//// Para la cabecera
+
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, '%', 'Cabecera', 'FACTURA DE GASTOS COLEGIALES' 
+	from csi_series where proforma = 'N' and empresa = '01' 
+
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, '%', 'Cabecera', 'FACTURA ' 
+	from csi_series where proforma = 'N' and empresa <> '01' 
+
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, '%', 'Cabecera', 'PROFORMA DE GASTOS COLEGIALES' 
+	from csi_series where proforma = 'S' and empresa = '01' 
+
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, '%', 'Cabecera', 'PROFORMA' 
+	from csi_series where proforma = 'S' and empresa <> '01' 
+
+	////POR DEFECTO
+	insert into csi_param_facturas values('%', '%', '%', '%', 'Cabecera', 'FACTURA')
+
+
+	//// Para el título N_fact
+
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, '%', 'N_fact', 'Nº FACTURA' 
+	from csi_series where proforma = 'N'
+
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, '%', 'N_fact', 'Nº PROFORMA' 
+	from csi_series where proforma = 'S'
+
+	////POR DEFECTO
+	insert into csi_param_facturas values('%', '%', '%', '%', 'N_fact', 'Nº FACTURA')
+
+	// Para el total
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, '%', 'Total_fact', 'TOTAL PROFORMA' 
+	from csi_series where proforma = 'S' 
+
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, '%', 'Total_fact', 'TOTAL FACTURA' 
+	from csi_series where proforma = 'N'
+
+	insert into csi_param_facturas values('%', '%', '%', '%', 'Total_fact', 'TOTAL FACTURA')
+end
+
+
+
+///Para Teruel
+if @colegio= 'COAATTER'
+
+	//// Para la cabecera
+	 
+
+	 
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, 'ES', 'Cabecera', 'FACTURA DE GASTOS COLEGIALES' 
+	from csi_series where recib = 'N' and proforma = 'N'and empresa='01' ;
+
+
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, 'ES', 'Cabecera', 'FACTURA' 
+	from csi_series where recib = 'N' and proforma = 'N'and empresa<>'01' ;
+
+
+
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, 'ES', 'Cabecera','PROFORMA DE GASTOS COLEGIALES' 
+	from csi_series where recib = 'N' and proforma = 'S' and empresa='01' ;
+
+
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, 'ES', 'Cabecera','PROFORMA' 
+	from csi_series where recib = 'N' and proforma = 'S' and empresa<>'01' ;
+
+
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, '%', 'Cabecera', 'RECIBO' 
+	from csi_series where recib = 'S' and proforma = 'N';
+
+
+
+	////POR DEFECTO
+	insert into csi_param_facturas values('%', '%', '%', '%', 'Cabecera', 'FACTURA');
+
+
+
+	//// Para el título N_fact
+
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, '%', 'N_fact', 'FACTURA Nº' 
+	from csi_series where recib = 'N' and proforma = 'N';
+	 
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, '%', 'N_fact', 'PROFORMA Nº' 
+	from csi_series where proforma = 'S';
+	 
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, '%', 'N_fact', 'RECIBO Nº' 
+	from csi_series where recib = 'S' and proforma = 'N';
+	 
+	////POR DEFECTO
+	insert into csi_param_facturas values('%', '%', '%', '%', 'N_fact', 'FACTURA Nº');
+
+
+
+	//// Para la etiqueta con los totales.
+	 
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, '%', 'Total_fact', 'TOTAL FACTURA' 
+	from csi_series where recib = 'N' and proforma = 'N';
+	 
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, '%', 'Total_fact', 'TOTAL PROFORMA' 
+	from csi_series where proforma = 'S';
+	 
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, '%', 'Total_fact', 'TOTAL RECIBO' 
+	from csi_series where recib = 'S' and proforma = 'N';
+	 
+	////POR DEFECTO
+	insert into csi_param_facturas values('%', '%', '%', '%', 'Total_fact', 'TOTAL FACTURA');
+
+
+
+
+
+end
+
+///Para LEON
+if @colegio= 'COAATLE'
+
+	///Para la parte superior
+
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, 'ES', 'Cabecera_sup', 'FACTURA' 
+	from csi_series where recib = 'N' and proforma = 'N';
+
+
+
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, 'ES', 'Cabecera_sup','PROFORMA' 
+	from csi_series where recib = 'N' and proforma = 'S' ;
+
+
+
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, '%', 'Cabecera_sup', 'RECIBO' 
+	from csi_series where recib = 'S' and proforma = 'N';
+
+
+
+	////POR DEFECTO
+	insert into csi_param_facturas values('%', '%', '%', '%', 'Cabecera_sup', 'FACTURA');
+
+
+	//// Para la cabecera
+
+	 
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, 'ES', 'Cabecera', 'FACTURA DE GASTOS COLEGIALES' 
+	from csi_series where recib = 'N' and proforma = 'N'and empresa='01' ;
+
+
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, 'ES', 'Cabecera', 'FACTURA' 
+	from csi_series where recib = 'N' and proforma = 'N'and empresa<>'01' ;
+
+
+
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, 'ES', 'Cabecera','PROFORMA DE GASTOS COLEGIALES' 
+	from csi_series where recib = 'N' and proforma = 'S' and empresa='01' ;
+
+
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, 'ES', 'Cabecera','PROFORMA' 
+	from csi_series where recib = 'N' and proforma = 'S' and empresa<>'01' ;
+
+
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, '%', 'Cabecera', 'RECIBO' 
+	from csi_series where recib = 'S' and proforma = 'N';
+
+
+
+	////POR DEFECTO
+	insert into csi_param_facturas values('%', '%', '%', '%', 'Cabecera', 'FACTURA');
+
+
+
+	//// Para el título N_fact
+
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, '%', 'N_fact', 'FACTURA Nº' 
+	from csi_series where recib = 'N' and proforma = 'N';
+	 
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, '%', 'N_fact', 'PROFORMA Nº' 
+	from csi_series where proforma = 'S';
+	 
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, '%', 'N_fact', 'RECIBO Nº' 
+	from csi_series where recib = 'S' and proforma = 'N';
+	 
+	////POR DEFECTO
+	insert into csi_param_facturas values('%', '%', '%', '%', 'N_fact', 'FACTURA Nº');
+
+	//// Para la etiqueta con los totales.
+	 
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, '%', 'Total_fact', 'TOTAL FACTURA' 
+	from csi_series where recib = 'N' and proforma = 'N';
+	 
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, '%', 'Total_fact', 'TOTAL PROFORMA' 
+	from csi_series where proforma = 'S';
+	 
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, '%', 'Total_fact', 'TOTAL RECIBO' 
+	from csi_series where recib = 'S' and proforma = 'N';
+	 
+	////POR DEFECTO
+	insert into csi_param_facturas values('%', '%', '%', '%', 'Total_fact', 'TOTAL FACTURA');
+
+
+
+
+end
+///Para La rioja
+if @colegio= 'COAATLR' 
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, 'ES', 'Cabecera', 'FACTURA DE GASTOS COLEGIALES' 
+	from csi_series where recib = 'N' and proforma = 'N'and empresa='01' ;
+
+
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, 'ES', 'Cabecera', 'FACTURA' 
+	from csi_series where recib = 'N' and proforma = 'N'and empresa<>'01' ;
+
+
+
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, 'ES', 'Cabecera','PROFORMA DE GASTOS COLEGIALES' 
+	from csi_series where recib = 'N' and proforma = 'S' and empresa='01' ;
+
+
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, 'ES', 'Cabecera','PROFORMA' 
+	from csi_series where recib = 'N' and proforma = 'S' and empresa<>'01' ;
+
+
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, '%', 'Cabecera', 'RECIBO' 
+	from csi_series where recib = 'S' and proforma = 'N';
+
+
+
+	////POR DEFECTO
+	insert into csi_param_facturas values('%', '%', '%', '%', 'Cabecera', 'FACTURA');
+
+
+	//// Para el título N_fact
+
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, '%', 'N_fact', 'FACTURA Nº' 
+	from csi_series where recib = 'N' and proforma = 'N';
+	 
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, '%', 'N_fact', 'PROFORMA Nº' 
+	from csi_series where proforma = 'S';
+	 
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, '%', 'N_fact', 'RECIBO Nº' 
+	from csi_series where recib = 'S' and proforma = 'N';
+	 
+	////POR DEFECTO
+	insert into csi_param_facturas values('%', '%', '%', '%', 'N_fact', 'FACTURA Nº');
+
+
+	//// Para la etiqueta con los totales.
+	 
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, '%', 'Total_fact', 'TOTAL FACTURA' 
+	from csi_series where recib = 'N' and proforma = 'N';
+	 
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, '%', 'Total_fact', 'TOTAL PROFORMA' 
+	from csi_series where proforma = 'S';
+	 
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, '%', 'Total_fact', 'TOTAL RECIBO' 
+	from csi_series where recib = 'S' and proforma = 'N';
+	 
+	////POR DEFECTO
+	insert into csi_param_facturas values('%', '%', '%', '%', 'Total_fact', 'TOTAL FACTURA');
+
+
+	//Para la coletilla
+
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, '%', 'Coletilla_fact', ' de la presente factura-, efectuará el abono de la misma'
+	from csi_series where recib = 'N' and proforma = 'N';
+	 
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, '%', 'Coletilla_fact', ' de la presente proforma-, efectuará el abono de la misma'
+	from csi_series where proforma = 'S';
+	 
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, '%', 'Coletilla_fact', ' del presente recibo-, efectuará el abono del mismo'
+	from csi_series where recib = 'S' and proforma = 'N';
+	 
+	////POR DEFECTO
+	insert into csi_param_facturas values('%', '%', '%', '%', 'Coletilla_fact', ' de la presente factura-, efectuará el abono de la misma');
+
+
+
+
+end
+///Para Tenerife
+if @colegio= 'COAATTFE' 
+
+
+
+
+	//// Para la cabecera
+	 
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, 'ES', 'Cabecera', 'FACTURA' 
+	from csi_series where recib = 'N' and proforma = 'N' ;
+
+
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, 'ES', 'Cabecera', 'PROFORMA' 
+	from csi_series where recib = 'N' and proforma = 'S' ;
+
+
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, '%', 'Cabecera', 'RECIBO' 
+	from csi_series where recib = 'S' and proforma = 'N';
+
+
+
+	////POR DEFECTO
+	insert into csi_param_facturas values('%', '%', '%', '%', 'Cabecera', 'FACTURA');
+
+
+
+
+
+
+
+	//// Para el título N_fact
+	 
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, '%', 'N_fact', 'Nº FACTURA' 
+	from csi_series where recib = 'N' and proforma = 'N';
+	 
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, '%', 'N_fact', 'Nº PROFORMA' 
+	from csi_series where proforma = 'S';
+	 
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, '%', 'N_fact', 'Nº RECIBO' 
+	from csi_series where recib = 'S' and proforma = 'N';
+	 
+	////POR DEFECTO
+	insert into csi_param_facturas values('%', '%', '%', '%', 'N_fact', 'FACTURA Nº');
+	 
+
+
+
+
+	//// Para la etiqueta con los totales.
+	 
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, '%', 'Total_fact', 'Total de la factura' 
+	from csi_series where recib = 'N' and proforma = 'N';
+	 
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, '%', 'Total_fact', 'Total de la proforma' 
+	from csi_series where proforma = 'S';
+	 
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, '%', 'Total_fact', 'Total del recibo' 
+	from csi_series where recib = 'S' and proforma = 'N';
+	 
+	////POR DEFECTO
+	insert into csi_param_facturas values('%', '%', '%', '%', 'Total_fact', 'TOTAL FACTURA');
+
+
+
+
+end
+///Para Bizkaia
+if @colegio= 'COAATB' 
+
+
+	//// Para la cabecera
+	 
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, 'ES', 'Cabecera', 'FACTURA DE GASTOS COLEGIALES' 
+	from csi_series where recib = 'N' and proforma = 'N'and empresa='01' ;
+
+
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, 'ES', 'Cabecera', 'FACTURA' 
+	from csi_series where recib = 'N' and proforma = 'N'and empresa<>'01' ;
+
+
+
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, 'ES', 'Cabecera','PROFORMA DE GASTOS COLEGIALES' 
+	from csi_series where recib = 'N' and proforma = 'S' and empresa='01';
+
+
+
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, 'ES', 'Cabecera', 'PROFORMA' 
+	from csi_series where recib = 'N' and proforma = 'S' and empresa<>'01';
+
+
+
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, '%', 'Cabecera', 'RECIBO' 
+	from csi_series where recib = 'S' and proforma = 'N';
+
+
+
+	////POR DEFECTO
+	insert into csi_param_facturas values('%', '%', '%', '%', 'Cabecera', 'FACTURA');
+
+
+
+
+
+
+
+	//// Para el título N_fact
+	 
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, '%', 'N_fact', 'FACTURA Nº' 
+	from csi_series where recib = 'N' and proforma = 'N';
+	 
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, '%', 'N_fact', 'PROFORMA Nº' 
+	from csi_series where proforma = 'S';
+	 
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, '%', 'N_fact', 'RECIBO Nº' 
+	from csi_series where recib = 'S' and proforma = 'N';
+	 
+	////POR DEFECTO
+	insert into csi_param_facturas values('%', '%', '%', '%', 'N_fact', 'FACTURA Nº');
+	 
+
+
+
+
+	//// Para la etiqueta con los totales.
+	 
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, '%', 'Total_fact', 'TOTAL FACTURA' 
+	from csi_series where recib = 'N' and proforma = 'N';
+	 
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, '%', 'Total_fact', 'TOTAL PROFORMA' 
+	from csi_series where proforma = 'S';
+	 
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, '%', 'Total_fact', 'TOTAL RECIBO' 
+	from csi_series where recib = 'S' and proforma = 'N';
+	 
+	////POR DEFECTO
+	insert into csi_param_facturas values('%', '%', '%', '%', 'Total_fact', 'TOTAL FACTURA');
+
+
+
+	//Para la coletilla
+
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, '%', 'Coletilla_fact', ' de la presente factura-, efectuará el abono de la misma'
+	from csi_series where recib = 'N' and proforma = 'N';
+	 
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, '%', 'Coletilla_fact', ' de la presente proforma-, efectuará el abono de la misma'
+	from csi_series where proforma = 'S';
+	 
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, '%', 'Coletilla_fact', ' del presente recibo-, efectuará el abono del mismo'
+	from csi_series where recib = 'S' and proforma = 'N';
+	 
+	////POR DEFECTO
+	insert into csi_param_facturas values('%', '%', '%', '%', 'Coletilla_fact', ' de la presente factura-, efectuará el abono de la misma');
+
+
+
+end
+///Para Avila
+if @colegio= 'COAATAVI'
+
+
+	//// Para la cabecera
+	 
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, 'ES', 'Cabecera', 'FACTURA DE GASTOS COLEGIALES' 
+	from csi_series where recib = 'N' and proforma = 'N' and  empresa='01';
+
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, 'ES', 'Cabecera', 'FACTURA' 
+	from csi_series where recib = 'N' and proforma = 'N' and  empresa<>'01';
+
+
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, 'ES', 'Cabecera', 'PROFORMA' 
+	from csi_series where recib = 'N' and proforma = 'S' ;
+
+
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, '%', 'Cabecera', 'RECIBO' 
+	from csi_series where recib = 'S' and proforma = 'N';
+
+
+
+	////POR DEFECTO
+	insert into csi_param_facturas values('%', '%', '%', '%', 'Cabecera', 'FACTURA');
+
+
+
+
+
+
+
+	//// Para el título N_fact
+	 
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, '%', 'N_fact', 'FACTURA Nº' 
+	from csi_series where recib = 'N' and proforma = 'N';
+	 
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, '%', 'N_fact', 'PROFORMA Nº' 
+	from csi_series where proforma = 'S';
+	 
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, '%', 'N_fact', 'RECIBO Nº' 
+	from csi_series where recib = 'S' and proforma = 'N';
+	 
+	////POR DEFECTO
+	insert into csi_param_facturas values('%', '%', '%', '%', 'N_fact', 'FACTURA Nº');
+	 
+
+
+
+
+	//// Para la etiqueta con los totales.
+	 
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, '%', 'Total_fact', 'TOTAL FACTURA' 
+	from csi_series where recib = 'N' and proforma = 'N';
+	 
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, '%', 'Total_fact', 'TOTAL PROFORMA' 
+	from csi_series where proforma = 'S';
+	 
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, '%', 'Total_fact',  'TOTAL RECIBO' 
+	from csi_series where recib = 'S' and proforma = 'N';
+	 
+	////POR DEFECTO
+	insert into csi_param_facturas values('%', '%', '%', '%', 'Total_fact', 'TOTAL FACTURA');
+
+
+	//// Para la coletilla
+
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, '%', 'Coletilla_fact', ' de la presente factura-, efectuará el abono de la misma'
+	from csi_series where recib = 'N' and proforma = 'N';
+	 
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, '%', 'Coletilla_fact', ' de la presente proforma-, efectuará el abono de la misma'
+	from csi_series where proforma = 'S';
+	 
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, '%', 'Coletilla_fact', ' del presente recibo-, efectuará el abono del mismo'
+	from csi_series where recib = 'S' and proforma = 'N';
+	 
+	////POR DEFECTO
+	insert into csi_param_facturas values('%', '%', '%', '%', 'Coletilla_fact', ' de la presente factura-, efectuará el abono de la misma');
+	 
+
+
+end
+///Para Mallorca
+if @colegio= 'COAATMCA' 
+
+	//// Para la cabecera
+	 
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, 'ES', 'Cabecera', 'FACTURA DE GASTOS COLEGIALES' 
+	from csi_series where recib = 'N' and proforma = 'N' and  empresa='01';
+
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, 'ES', 'Cabecera', 'FACTURA' 
+	from csi_series where recib = 'N' and proforma = 'N' and  empresa<>'01';
+
+
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, 'ES', 'Cabecera', 'PROFORMA' 
+	from csi_series where recib = 'N' and proforma = 'S' ;
+
+
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, '%', 'Cabecera', 'RECIBO' 
+	from csi_series where recib = 'S' and proforma = 'N';
+
+
+
+	////POR DEFECTO
+	insert into csi_param_facturas values('%', '%', '%', '%', 'Cabecera', 'FACTURA');
+
+
+
+
+
+
+
+	//// Para el título N_fact
+	 
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, '%', 'N_fact', 'FACTURA Nº' 
+	from csi_series where recib = 'N' and proforma = 'N';
+	 
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, '%', 'N_fact', 'PROFORMA Nº' 
+	from csi_series where proforma = 'S';
+	 
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, '%', 'N_fact', 'RECIBO Nº' 
+	from csi_series where recib = 'S' and proforma = 'N';
+	 
+	////POR DEFECTO
+	insert into csi_param_facturas values('%', '%', '%', '%', 'N_fact', 'FACTURA Nº');
+	 
+
+
+
+
+	//// Para la etiqueta con los totales.
+	 
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, '%', 'Total_fact', 'TOTAL FACTURA' 
+	from csi_series where recib = 'N' and proforma = 'N';
+	 
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, '%', 'Total_fact', 'TOTAL PROFORMA' 
+	from csi_series where proforma = 'S';
+	 
+	insert into csi_param_facturas (serie, empresa, anyo, idioma, campo, texto) 
+	select serie, empresa, anyo, '%', 'Total_fact',  'TOTAL RECIBO' 
+	from csi_series where recib = 'S' and proforma = 'N';
+	 
+	////POR DEFECTO
+	insert into csi_param_facturas values('%', '%', '%', '%', 'Total_fact', 'TOTAL FACTURA');
+
+
+end
+go
+
+//Se actualiza la fecha de versión
+update var_globales set texto='20110316', descripcion = 'versión v5.2.07' where nombre='g_version_minima';

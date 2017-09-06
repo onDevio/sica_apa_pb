@@ -1,0 +1,36 @@
+HA$PBExportHeader$f_calcular_dv_cu.srf
+$PBExportComments$Calcula el total de dv para cuenca
+global type f_calcular_dv_cu from function_object
+end type
+
+forward prototypes
+global function integer f_calcular_dv_cu (ref st_dv_datos st_dv_datos)
+end prototypes
+
+global function integer f_calcular_dv_cu (ref st_dv_datos st_dv_datos);double importe_total, honorarios
+int retorno
+
+if isnull(st_dv_datos.porcentaje) then st_dv_datos.porcentaje  = 100
+
+honorarios = st_dv_datos.hon_teor
+
+SELECT dv_sobre_honos.importe
+INTO :importe_total
+FROM dv_sobre_honos
+WHERE dv_sobre_honos.hon_desde <= :honorarios AND
+		dv_sobre_honos.hon_hasta >= :honorarios ;
+
+if sqlca.sqlcode <> 0 then
+	st_dv_datos.dv = 0
+	return -1
+end if
+if isnull(importe_total) then importe_total = 0
+
+importe_total = f_redondea(importe_total * st_dv_datos.porcentaje / 100 )
+
+st_dv_datos.dv = importe_total
+
+return 0
+
+end function
+

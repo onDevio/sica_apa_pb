@@ -1,0 +1,11 @@
+HA$PBExportHeader$f_colegio.srf
+global type f_colegio from function_object
+end type
+
+forward prototypes
+global function string f_colegio ()
+end prototypes
+
+global function string f_colegio ();return g_colegio
+end function
+

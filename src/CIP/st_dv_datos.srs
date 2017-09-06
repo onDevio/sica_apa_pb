@@ -1,0 +1,23 @@
+HA$PBExportHeader$st_dv_datos.srs
+global type st_dv_datos from structure
+	double		pto_contrato
+	double		porcentaje
+	boolean		administracion
+	double		dv
+	string		id_expediente
+	string		tipoact
+	string		tipoobra
+	double		pem
+	string		id_fase
+	datetime		fecha
+	double		superficie
+	double		hon_teor
+	string		regularizacion
+	string		visared
+	string		tarifa
+	string		contenido
+	double		pres_seguridad
+	string		formula
+	string		desarrollo
+end type
+
