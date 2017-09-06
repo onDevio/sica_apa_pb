@@ -1,0 +1,227 @@
+A         	01	2007	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+SEGURO    	01	2007	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+GRAL      	01	2007	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+MUTUA     	01	2007	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+TASADO    	01	2007	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+RECTIF    	01	2007	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+CURSOS    	01	2007	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+CUOTA     	01	2008	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+A         	01	2008	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+SEGURO    	01	2008	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+GRAL      	01	2008	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+TASADO    	01	2008	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+RECTIF    	01	2008	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+CURSOS    	01	2008	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+I. FINANC.	01	2008	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+CUOTA     	01	2009	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+A         	01	2009	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+SEGURO    	01	2009	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+MUTUA     	01	2009	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+TASADO    	01	2009	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+CURSOS    	01	2009	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+FINANC.   	01	2009	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+CUOTA     	01	2010	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+A         	01	2010	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+SEGURO    	01	2010	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+GRAL      	01	2010	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+MUTUA     	01	2010	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+TASADO    	01	2010	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+RECTIF    	01	2010	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+CURSOS    	01	2010	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+FINANC.   	01	2010	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+CUOTA     	01	2011	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+A         	01	2011	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+SEGURO    	01	2011	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+GRAL      	01	2011	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+MUTUA     	01	2011	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+TASADO    	01	2011	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+RECTIF    	01	2011	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+CURSOS    	01	2011	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+FINANC    	01	2011	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+CUOTA     	01	2007	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+MUTUA     	01	2008	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+RECTIF    	01	2009	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+GRAL      	01	2009	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+EXPEDI    	01	2007	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+EXPEDI    	01	2008	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+EXPEDI    	01	2009	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+EXPEDI    	01	2010	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+EXPEDI    	01	2011	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+PC        	02	2011	% 	Cabecera            	FACTURA 
+PF        	02	2011	% 	Cabecera            	FACTURA 
+MT        	02	2011	% 	Cabecera            	FACTURA 
+RECTIF    	02	2011	% 	Cabecera            	FACTURA 
+%         	% 	%   	% 	Cabecera            	FACTURA
+A         	01	2007	% 	N_fact              	Nº FACTURA
+SEGURO    	01	2007	% 	N_fact              	Nº FACTURA
+GRAL      	01	2007	% 	N_fact              	Nº FACTURA
+MUTUA     	01	2007	% 	N_fact              	Nº FACTURA
+TASADO    	01	2007	% 	N_fact              	Nº FACTURA
+RECTIF    	01	2007	% 	N_fact              	Nº FACTURA
+CURSOS    	01	2007	% 	N_fact              	Nº FACTURA
+CUOTA     	01	2008	% 	N_fact              	Nº FACTURA
+A         	01	2008	% 	N_fact              	Nº FACTURA
+SEGURO    	01	2008	% 	N_fact              	Nº FACTURA
+GRAL      	01	2008	% 	N_fact              	Nº FACTURA
+TASADO    	01	2008	% 	N_fact              	Nº FACTURA
+RECTIF    	01	2008	% 	N_fact              	Nº FACTURA
+CURSOS    	01	2008	% 	N_fact              	Nº FACTURA
+I. FINANC.	01	2008	% 	N_fact              	Nº FACTURA
+CUOTA     	01	2009	% 	N_fact              	Nº FACTURA
+A         	01	2009	% 	N_fact              	Nº FACTURA
+SEGURO    	01	2009	% 	N_fact              	Nº FACTURA
+MUTUA     	01	2009	% 	N_fact              	Nº FACTURA
+TASADO    	01	2009	% 	N_fact              	Nº FACTURA
+CURSOS    	01	2009	% 	N_fact              	Nº FACTURA
+FINANC.   	01	2009	% 	N_fact              	Nº FACTURA
+CUOTA     	01	2010	% 	N_fact              	Nº FACTURA
+A         	01	2010	% 	N_fact              	Nº FACTURA
+SEGURO    	01	2010	% 	N_fact              	Nº FACTURA
+GRAL      	01	2010	% 	N_fact              	Nº FACTURA
+MUTUA     	01	2010	% 	N_fact              	Nº FACTURA
+TASADO    	01	2010	% 	N_fact              	Nº FACTURA
+RECTIF    	01	2010	% 	N_fact              	Nº FACTURA
+CURSOS    	01	2010	% 	N_fact              	Nº FACTURA
+FINANC.   	01	2010	% 	N_fact              	Nº FACTURA
+CUOTA     	01	2011	% 	N_fact              	Nº FACTURA
+A         	01	2011	% 	N_fact              	Nº FACTURA
+SEGURO    	01	2011	% 	N_fact              	Nº FACTURA
+GRAL      	01	2011	% 	N_fact              	Nº FACTURA
+MUTUA     	01	2011	% 	N_fact              	Nº FACTURA
+TASADO    	01	2011	% 	N_fact              	Nº FACTURA
+RECTIF    	01	2011	% 	N_fact              	Nº FACTURA
+CURSOS    	01	2011	% 	N_fact              	Nº FACTURA
+FINANC    	01	2011	% 	N_fact              	Nº FACTURA
+CUOTA     	01	2007	% 	N_fact              	Nº FACTURA
+MUTUA     	01	2008	% 	N_fact              	Nº FACTURA
+RECTIF    	01	2009	% 	N_fact              	Nº FACTURA
+GRAL      	01	2009	% 	N_fact              	Nº FACTURA
+EXPEDI    	01	2007	% 	N_fact              	Nº FACTURA
+EXPEDI    	01	2008	% 	N_fact              	Nº FACTURA
+EXPEDI    	01	2009	% 	N_fact              	Nº FACTURA
+EXPEDI    	01	2010	% 	N_fact              	Nº FACTURA
+EXPEDI    	01	2011	% 	N_fact              	Nº FACTURA
+PC        	02	2011	% 	N_fact              	Nº FACTURA
+PF        	02	2011	% 	N_fact              	Nº FACTURA
+MT        	02	2011	% 	N_fact              	Nº FACTURA
+RECTIF    	02	2011	% 	N_fact              	Nº FACTURA
+%         	% 	%   	% 	N_fact              	Nº FACTURA
+A         	01	2007	% 	Total_fact          	TOTAL FACTURA
+SEGURO    	01	2007	% 	Total_fact          	TOTAL FACTURA
+GRAL      	01	2007	% 	Total_fact          	TOTAL FACTURA
+MUTUA     	01	2007	% 	Total_fact          	TOTAL FACTURA
+TASADO    	01	2007	% 	Total_fact          	TOTAL FACTURA
+RECTIF    	01	2007	% 	Total_fact          	TOTAL FACTURA
+CURSOS    	01	2007	% 	Total_fact          	TOTAL FACTURA
+CUOTA     	01	2008	% 	Total_fact          	TOTAL FACTURA
+A         	01	2008	% 	Total_fact          	TOTAL FACTURA
+SEGURO    	01	2008	% 	Total_fact          	TOTAL FACTURA
+GRAL      	01	2008	% 	Total_fact          	TOTAL FACTURA
+TASADO    	01	2008	% 	Total_fact          	TOTAL FACTURA
+RECTIF    	01	2008	% 	Total_fact          	TOTAL FACTURA
+CURSOS    	01	2008	% 	Total_fact          	TOTAL FACTURA
+I. FINANC.	01	2008	% 	Total_fact          	TOTAL FACTURA
+CUOTA     	01	2009	% 	Total_fact          	TOTAL FACTURA
+A         	01	2009	% 	Total_fact          	TOTAL FACTURA
+SEGURO    	01	2009	% 	Total_fact          	TOTAL FACTURA
+MUTUA     	01	2009	% 	Total_fact          	TOTAL FACTURA
+TASADO    	01	2009	% 	Total_fact          	TOTAL FACTURA
+CURSOS    	01	2009	% 	Total_fact          	TOTAL FACTURA
+FINANC.   	01	2009	% 	Total_fact          	TOTAL FACTURA
+CUOTA     	01	2010	% 	Total_fact          	TOTAL FACTURA
+A         	01	2010	% 	Total_fact          	TOTAL FACTURA
+SEGURO    	01	2010	% 	Total_fact          	TOTAL FACTURA
+GRAL      	01	2010	% 	Total_fact          	TOTAL FACTURA
+MUTUA     	01	2010	% 	Total_fact          	TOTAL FACTURA
+TASADO    	01	2010	% 	Total_fact          	TOTAL FACTURA
+RECTIF    	01	2010	% 	Total_fact          	TOTAL FACTURA
+CURSOS    	01	2010	% 	Total_fact          	TOTAL FACTURA
+FINANC.   	01	2010	% 	Total_fact          	TOTAL FACTURA
+CUOTA     	01	2011	% 	Total_fact          	TOTAL FACTURA
+A         	01	2011	% 	Total_fact          	TOTAL FACTURA
+SEGURO    	01	2011	% 	Total_fact          	TOTAL FACTURA
+GRAL      	01	2011	% 	Total_fact          	TOTAL FACTURA
+MUTUA     	01	2011	% 	Total_fact          	TOTAL FACTURA
+TASADO    	01	2011	% 	Total_fact          	TOTAL FACTURA
+RECTIF    	01	2011	% 	Total_fact          	TOTAL FACTURA
+CURSOS    	01	2011	% 	Total_fact          	TOTAL FACTURA
+FINANC    	01	2011	% 	Total_fact          	TOTAL FACTURA
+CUOTA     	01	2007	% 	Total_fact          	TOTAL FACTURA
+MUTUA     	01	2008	% 	Total_fact          	TOTAL FACTURA
+RECTIF    	01	2009	% 	Total_fact          	TOTAL FACTURA
+GRAL      	01	2009	% 	Total_fact          	TOTAL FACTURA
+EXPEDI    	01	2007	% 	Total_fact          	TOTAL FACTURA
+EXPEDI    	01	2008	% 	Total_fact          	TOTAL FACTURA
+EXPEDI    	01	2009	% 	Total_fact          	TOTAL FACTURA
+EXPEDI    	01	2010	% 	Total_fact          	TOTAL FACTURA
+EXPEDI    	01	2011	% 	Total_fact          	TOTAL FACTURA
+PC        	02	2011	% 	Total_fact          	TOTAL FACTURA
+PF        	02	2011	% 	Total_fact          	TOTAL FACTURA
+MT        	02	2011	% 	Total_fact          	TOTAL FACTURA
+RECTIF    	02	2011	% 	Total_fact          	TOTAL FACTURA
+%         	% 	%   	% 	Total_fact          	TOTAL FACTURA
+MT        	02	2011	% 	N_emisor2           	Agencia de Seguros Exclusiva de MUSAAT, Mutua de Seguros a Prima Fija, con nº de registro: M0368B73682452
+PC        	02	2011	% 	N_emisor2           	Agencia de Seguros Exclusiva de MUSAAT, Mutua de Seguros a Prima Fija, con nº de registro: M0368B73682452
+PF        	02	2011	% 	N_emisor2           	Agencia de Seguros Exclusiva de MUSAAT, Mutua de Seguros a Prima Fija, con nº de registro: M0368B73682452
+RECTIF    	02	2011	% 	N_emisor2           	Agencia de Seguros Exclusiva de MUSAAT, Mutua de Seguros a Prima Fija, con nº de registro: M0368B73682452
+PROFOR    	02	2011	% 	Cabecera            	PROFORMA
+PROFOR    	01	2011	% 	Cabecera            	PROFORMA DE GASTOS COLEGIALES
+PROFOR    	01	2010	% 	Cabecera            	PROFORMA DE GASTOS COLEGIALES
+PROFOR    	02	2011	% 	N_fact              	Nº PROFORMA
+PROFOR    	01	2011	% 	N_fact              	Nº PROFORMA
+PROFOR    	01	2010	% 	N_fact              	Nº PROFORMA
+PROFOR    	02	2011	% 	Total_fact          	TOTAL PROFORMA
+PROFOR    	01	2011	% 	Total_fact          	TOTAL PROFORMA
+PROFOR    	01	2010	% 	Total_fact          	TOTAL PROFORMA
+CUOTA     	01	2012	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+A         	01	2012	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+SEGURO    	01	2012	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+GRAL      	01	2012	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+MUTUA     	01	2012	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+TASADO    	01	2012	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+RECTIF    	01	2012	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+CURSOS    	01	2012	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+FINANC    	01	2012	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+EXPEDI    	01	2012	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+PC        	02	2012	% 	Cabecera            	FACTURA 
+PF        	02	2012	% 	Cabecera            	FACTURA 
+MT        	02	2012	% 	Cabecera            	FACTURA 
+RECTIF    	02	2012	% 	Cabecera            	FACTURA 
+CUOTA     	01	2012	% 	N_fact              	Nº FACTURA
+A         	01	2012	% 	N_fact              	Nº FACTURA
+SEGURO    	01	2012	% 	N_fact              	Nº FACTURA
+GRAL      	01	2012	% 	N_fact              	Nº FACTURA
+MUTUA     	01	2012	% 	N_fact              	Nº FACTURA
+TASADO    	01	2012	% 	N_fact              	Nº FACTURA
+RECTIF    	01	2012	% 	N_fact              	Nº FACTURA
+CURSOS    	01	2012	% 	N_fact              	Nº FACTURA
+FINANC    	01	2012	% 	N_fact              	Nº FACTURA
+EXPEDI    	01	2012	% 	N_fact              	Nº FACTURA
+PC        	02	2012	% 	N_fact              	Nº FACTURA
+PF        	02	2012	% 	N_fact              	Nº FACTURA
+MT        	02	2012	% 	N_fact              	Nº FACTURA
+RECTIF    	02	2012	% 	N_fact              	Nº FACTURA
+CUOTA     	01	2012	% 	Total_fact          	TOTAL FACTURA
+A         	01	2012	% 	Total_fact          	TOTAL FACTURA
+SEGURO    	01	2012	% 	Total_fact          	TOTAL FACTURA
+GRAL      	01	2012	% 	Total_fact          	TOTAL FACTURA
+MUTUA     	01	2012	% 	Total_fact          	TOTAL FACTURA
+TASADO    	01	2012	% 	Total_fact          	TOTAL FACTURA
+RECTIF    	01	2012	% 	Total_fact          	TOTAL FACTURA
+CURSOS    	01	2012	% 	Total_fact          	TOTAL FACTURA
+FINANC    	01	2012	% 	Total_fact          	TOTAL FACTURA
+EXPEDI    	01	2012	% 	Total_fact          	TOTAL FACTURA
+PC        	02	2012	% 	Total_fact          	TOTAL FACTURA
+PF        	02	2012	% 	Total_fact          	TOTAL FACTURA
+MT        	02	2012	% 	Total_fact          	TOTAL FACTURA
+RECTIF    	02	2012	% 	Total_fact          	TOTAL FACTURA
+MT        	02	2012	% 	N_emisor2           	Agencia de Seguros Exclusiva de MUSAAT, Mutua de Seguros a Prima Fija, con nº de registro: M0368B73682452
+PC        	02	2012	% 	N_emisor2           	Agencia de Seguros Exclusiva de MUSAAT, Mutua de Seguros a Prima Fija, con nº de registro: M0368B73682452
+PF        	02	2012	% 	N_emisor2           	Agencia de Seguros Exclusiva de MUSAAT, Mutua de Seguros a Prima Fija, con nº de registro: M0368B73682452
+RECTIF    	02	2012	% 	N_emisor2           	Agencia de Seguros Exclusiva de MUSAAT, Mutua de Seguros a Prima Fija, con nº de registro: M0368B73682452
+PROFOR    	02	2012	% 	Cabecera            	PROFORMA
+PROFOR    	01	2012	% 	Cabecera            	PROFORMA DE GASTOS COLEGIALES
+PROFOR    	02	2012	% 	N_fact              	Nº PROFORMA
+PROFOR    	01	2012	% 	N_fact              	Nº PROFORMA
+PROFOR    	02	2012	% 	Total_fact          	TOTAL PROFORMA
+PROFOR    	01	2012	% 	Total_fact          	TOTAL PROFORMA

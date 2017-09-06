@@ -1,0 +1,56 @@
+00	NINGUNO                                                     			
+56	COAAT DE LANZAROTE                                          			1.0
+55	COAAT DE TERRES DE L'EBRE                                   		COAATTEB	
+52	COAAT DE ZARAGOZA                                           		COAATZ	1.03
+51	COAAT DE ZAMORA                                             			.97999999999999998
+49	COAAT DE VALLADOLID                                         			1.0
+48	COAAT DE VALENCIA                                           			1.0600000000000001
+47	COAAT DE TOLEDO                                             			.90000000000000002
+46	COAAT DE TERUEL                                             		COAATTER	1.0
+44	COAAT DE TARRAGONA                                          		COAATTGN	1.0
+43	COAAT DE SORIA                                              			.80000000000000004
+42	COAAT DE SEVILLA                                            			1.0
+40	COAAT DE SALAMANCA                                          			.90000000000000002
+39	COAAT DE PONTEVEDRA                                         			1.1299999999999999
+38	COAAT DE PALENCIA                                           			1.05
+37	COAAT DE ORENSE                                             			1.0700000000000001
+36	COAAT DE NAVARRA                                            		COAATN	.90000000000000002
+35	COAAT DE MURCIA                                             		COAATMU	1.0
+34	COAAT DE MENORCA                                            			1.0
+31	COAAT DE MADRID                                             			1.05
+30	COAAT DE LUGO                                               			1.0
+29	COAAT DE LERIDA                                             		COAATLL	1.0
+28	COAAT DE LEON                                               		COAATLE	1.0
+27	COAAT DE GRAN CANARIA                                       		COAATGC	1.05
+26	COAAT DE LA RIOJA                                           		COAATLR	1.0
+24	COOAT DE JAEN                                               			1.0
+23	COAAT DE IBIZA - FORMENTERA                                 			1.0
+22	COAAT DE HUESCA                                             			.90000000000000002
+21	COAAT DE HUELVA                                             			.90000000000000002
+20	COAAT DE GUIPUZCOA                                          		COAATGUI	.93000000000000005
+19	COAAT DE GUADALAJARA                                        		COAATGU	.84999999999999998
+18	COAAT DE GRANADA                                            			1.0700000000000001
+17	COAAT DE GERONA                                             			1.03
+16	COAAT DE CUENCA                                             		COAATCU	.84999999999999998
+14	COAAT DE CIUDAD REAL                                        			1.03
+13	COAAT DE CASTELLON                                          			1.0
+12	COAAT DE CANTABRIA                                          			1.1100000000000001
+11	COAAT DE CADIZ                                              			1.0
+10	COAAT DE CACERES                                            		COAATCC	1.05
+09	COAAT DE BURGOS                                             		COAATBU	1.0
+08	COAAT DE BARCELONA                                          			1.0700000000000001
+07	COAAT DE BADAJOZ                                            			1.0
+06	COAAT DE AVILA                                              		COAATAVI	1.0
+04	COAAT DE ALMERIA                                            			1.0
+03	COAAT DE ALICANTE                                           		COAATA	1.0900000000000001
+02	COAAT DE ALBACETE                                           			.93000000000000005
+01	COAAT DE ALAVA                                              			.80000000000000004
+41	COAAT DE SEGOVIA                                            			.90000000000000002
+50	COAAT DE VIZCAYA                                            		COAATB	1.05
+05	COAAT DE ASTURIAS                                           			1.0700000000000001
+33	COAAT DE MALLORCA                                           		COAATMCA	1.0800000000000001
+45	COAAT DE STA CRUZ DE TENERIFE                               		COAATTFE	1.0
+32	COAAT DE MALAGA                                             			1.0
+25	COAAT DE LA CORUÑA                                          			1.0
+15	COAAT DE CORDOBA                                            			1.0
+96	COAAT DE FUERTEVENTURA                                      			1.0

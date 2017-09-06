@@ -1,0 +1,228 @@
+COLEGIADOS	01	2008	% 	Cabecera            	   Rebut / Factura 
+RECTIF    	01	2008	% 	Cabecera            	   Rebut / Factura 
+CENDOC    	01	2008	% 	Cabecera            	   Rebut / Factura 
+CITAM     	01	2008	% 	Cabecera            	   Rebut / Factura 
+DINAM     	01	2008	% 	Cabecera            	   Rebut / Factura 
+MANTEN    	01	2008	% 	Cabecera            	   Rebut / Factura 
+SECRE     	01	2008	% 	Cabecera            	   Rebut / Factura 
+AULA      	01	2008	% 	Cabecera            	   Rebut / Factura 
+CEET      	01	2008	% 	Cabecera            	   Rebut / Factura 
+ESPEC     	01	2008	% 	Cabecera            	   Rebut / Factura 
+PLOT      	01	2008	% 	Cabecera            	   Rebut / Factura 
+TOPOG     	01	2008	% 	Cabecera            	   Rebut / Factura 
+DTE       	01	2008	% 	Cabecera            	   Rebut / Factura 
+MUS       	01	2008	% 	Cabecera            	   Rebut / Factura 
+DTE       	01	XX  	% 	Cabecera            	   Rebut / Factura 
+MUS       	01	XX  	% 	Cabecera            	   Rebut / Factura 
+ARRES     	01	XX  	% 	Cabecera            	   Rebut / Factura 
+QUOTES    	01	XX  	% 	Cabecera            	   Rebut / Factura 
+QUOTES    	01	2008	% 	Cabecera            	   Rebut / Factura 
+ARRES     	01	2008	% 	Cabecera            	   Rebut / Factura 
+COLEGIADOS	01	2009	% 	Cabecera            	   Rebut / Factura 
+RECTIF    	01	2009	% 	Cabecera            	   Rebut / Factura 
+CENDOC    	01	2009	% 	Cabecera            	   Rebut / Factura 
+CITAM     	01	2009	% 	Cabecera            	   Rebut / Factura 
+DINAM     	01	2009	% 	Cabecera            	   Rebut / Factura 
+MANTEN    	01	2009	% 	Cabecera            	   Rebut / Factura 
+SEREX     	01	2009	% 	Cabecera            	   Rebut / Factura 
+SISINF    	01	2009	% 	Cabecera            	   Rebut / Factura 
+AULA      	01	2009	% 	Cabecera            	   Rebut / Factura 
+CEET      	01	2009	% 	Cabecera            	   Rebut / Factura 
+TOPOG     	01	2009	% 	Cabecera            	   Rebut / Factura 
+DTE       	01	2009	% 	Cabecera            	   Rebut / Factura 
+MUS       	01	2009	% 	Cabecera            	   Rebut / Factura 
+QUOTES    	01	2009	% 	Cabecera            	   Rebut / Factura 
+ARRES     	01	2009	% 	Cabecera            	   Rebut / Factura 
+SECRE     	01	2009	% 	Cabecera            	   Rebut / Factura 
+ESPEC     	01	2009	% 	Cabecera            	   Rebut / Factura 
+RSEREX    	01	2009	% 	Cabecera            	   Rebut / Factura 
+RDINAM    	01	2009	% 	Cabecera            	   Rebut / Factura 
+SISINF    	01	XX  	% 	Cabecera            	   Rebut / Factura 
+MANTEN    	01	XX  	% 	Cabecera            	   Rebut / Factura 
+SECRE     	01	XX  	% 	Cabecera            	   Rebut / Factura 
+SEREX     	01	XX  	% 	Cabecera            	   Rebut / Factura 
+AULA      	01	XX  	% 	Cabecera            	   Rebut / Factura 
+CEET      	01	XX  	% 	Cabecera            	   Rebut / Factura 
+RCOAT     	01	2009	% 	Cabecera            	   Rebut / Factura 
+COLEGIADOS	01	2010	% 	Cabecera            	   Rebut / Factura 
+RECTIF    	01	2010	% 	Cabecera            	   Rebut / Factura 
+CITAM     	01	2010	% 	Cabecera            	   Rebut / Factura 
+DINAM     	01	2010	% 	Cabecera            	   Rebut / Factura 
+MANTEN    	01	2010	% 	Cabecera            	   Rebut / Factura 
+SEREX     	01	2010	% 	Cabecera            	   Rebut / Factura 
+SISINF    	01	2010	% 	Cabecera            	   Rebut / Factura 
+AULA      	01	2010	% 	Cabecera            	   Rebut / Factura 
+CEET      	01	2010	% 	Cabecera            	   Rebut / Factura 
+PLOT      	01	2010	% 	Cabecera            	   Rebut / Factura 
+TOPOG     	01	2010	% 	Cabecera            	   Rebut / Factura 
+DTE       	01	2010	% 	Cabecera            	   Rebut / Factura 
+MUS       	01	2010	% 	Cabecera            	   Rebut / Factura 
+QUOTES    	01	2010	% 	Cabecera            	   Rebut / Factura 
+ARRES     	01	2010	% 	Cabecera            	   Rebut / Factura 
+SECRE     	01	2010	% 	Cabecera            	   Rebut / Factura 
+ESPEC     	01	2010	% 	Cabecera            	   Rebut / Factura 
+RSEREX    	01	2010	% 	Cabecera            	   Rebut / Factura 
+RDINAM    	01	2010	% 	Cabecera            	   Rebut / Factura 
+RCOAT     	01	2010	% 	Cabecera            	   Rebut / Factura 
+SISINF    	01	2008	% 	Cabecera            	   Rebut / Factura 
+PLOT      	01	2009	% 	Cabecera            	   Rebut / Factura 
+CENDOC    	01	2010	% 	Cabecera            	   Rebut / Factura 
+COLEGIADOS	01	2011	% 	Cabecera            	   Rebut / Factura 
+RECTIF    	01	2011	% 	Cabecera            	   Rebut / Factura 
+CITAM     	01	2011	% 	Cabecera            	   Rebut / Factura 
+DINAM     	01	2011	% 	Cabecera            	   Rebut / Factura 
+MANTEN    	01	2011	% 	Cabecera            	   Rebut / Factura 
+SEREX     	01	2011	% 	Cabecera            	   Rebut / Factura 
+SISINF    	01	2011	% 	Cabecera            	   Rebut / Factura 
+AULA      	01	2011	% 	Cabecera            	   Rebut / Factura 
+CEET      	01	2011	% 	Cabecera            	   Rebut / Factura 
+PLOT      	01	2011	% 	Cabecera            	   Rebut / Factura 
+TOPOG     	01	2011	% 	Cabecera            	   Rebut / Factura 
+DTE       	01	2011	% 	Cabecera            	   Rebut / Factura 
+MUS       	01	2011	% 	Cabecera            	   Rebut / Factura 
+QUOTES    	01	2011	% 	Cabecera            	   Rebut / Factura 
+ARRES     	01	2011	% 	Cabecera            	   Rebut / Factura 
+SECRE     	01	2011	% 	Cabecera            	   Rebut / Factura 
+ESPEC     	01	2011	% 	Cabecera            	   Rebut / Factura 
+RSEREX    	01	2011	% 	Cabecera            	   Rebut / Factura 
+RDINAM    	01	2011	% 	Cabecera            	   Rebut / Factura 
+RCOAT     	01	2011	% 	Cabecera            	   Rebut / Factura 
+CENDOC    	01	2011	% 	Cabecera            	   Rebut / Factura 
+SUPL      	01	2011	% 	Cabecera            	   Rebut / Factura 
+SEREX     	01	2008	% 	Cabecera            	   Rebut / Factura 
+DINAM     	01	XX  	% 	Cabecera            	   Rebut / Factura 
+F         	01	2008	% 	Cabecera            	   Rebut / Factura 
+F         	01	2009	% 	Cabecera            	   Rebut / Factura 
+F         	01	2010	% 	Cabecera            	   Rebut / Factura 
+F         	01	2011	% 	Cabecera            	   Rebut / Factura 
+PROFOR    	01	2010	% 	Cabecera            	Proforma
+PROFOR    	01	2011	% 	Cabecera            	Proforma
+R         	01	2008	% 	Cabecera            	Rebut
+R         	01	2009	% 	Cabecera            	Rebut
+RINF      	01	2009	% 	Cabecera            	Rebut
+R         	01	2010	% 	Cabecera            	Rebut
+RINF      	01	2010	% 	Cabecera            	Rebut
+R         	01	2011	% 	Cabecera            	Rebut
+RINF      	01	2011	% 	Cabecera            	Rebut
+%         	% 	%   	% 	Cabecera            	   Rebut / Factura 
+COLEGIADOS	01	2008	% 	N_fact              	Nº REBUT / FACTURA
+RECTIF    	01	2008	% 	N_fact              	Nº REBUT / FACTURA
+CENDOC    	01	2008	% 	N_fact              	Nº REBUT / FACTURA
+CITAM     	01	2008	% 	N_fact              	Nº REBUT / FACTURA
+DINAM     	01	2008	% 	N_fact              	Nº REBUT / FACTURA
+MANTEN    	01	2008	% 	N_fact              	Nº REBUT / FACTURA
+SECRE     	01	2008	% 	N_fact              	Nº REBUT / FACTURA
+AULA      	01	2008	% 	N_fact              	Nº REBUT / FACTURA
+CEET      	01	2008	% 	N_fact              	Nº REBUT / FACTURA
+ESPEC     	01	2008	% 	N_fact              	Nº REBUT / FACTURA
+PLOT      	01	2008	% 	N_fact              	Nº REBUT / FACTURA
+TOPOG     	01	2008	% 	N_fact              	Nº REBUT / FACTURA
+DTE       	01	2008	% 	N_fact              	Nº REBUT / FACTURA
+MUS       	01	2008	% 	N_fact              	Nº REBUT / FACTURA
+DTE       	01	XX  	% 	N_fact              	Nº REBUT / FACTURA
+MUS       	01	XX  	% 	N_fact              	Nº REBUT / FACTURA
+ARRES     	01	XX  	% 	N_fact              	Nº REBUT / FACTURA
+QUOTES    	01	XX  	% 	N_fact              	Nº REBUT / FACTURA
+QUOTES    	01	2008	% 	N_fact              	Nº REBUT / FACTURA
+ARRES     	01	2008	% 	N_fact              	Nº REBUT / FACTURA
+COLEGIADOS	01	2009	% 	N_fact              	Nº REBUT / FACTURA
+RECTIF    	01	2009	% 	N_fact              	Nº REBUT / FACTURA
+CENDOC    	01	2009	% 	N_fact              	Nº REBUT / FACTURA
+CITAM     	01	2009	% 	N_fact              	Nº REBUT / FACTURA
+DINAM     	01	2009	% 	N_fact              	Nº REBUT / FACTURA
+MANTEN    	01	2009	% 	N_fact              	Nº REBUT / FACTURA
+SEREX     	01	2009	% 	N_fact              	Nº REBUT / FACTURA
+SISINF    	01	2009	% 	N_fact              	Nº REBUT / FACTURA
+AULA      	01	2009	% 	N_fact              	Nº REBUT / FACTURA
+CEET      	01	2009	% 	N_fact              	Nº REBUT / FACTURA
+TOPOG     	01	2009	% 	N_fact              	Nº REBUT / FACTURA
+DTE       	01	2009	% 	N_fact              	Nº REBUT / FACTURA
+MUS       	01	2009	% 	N_fact              	Nº REBUT / FACTURA
+QUOTES    	01	2009	% 	N_fact              	Nº REBUT / FACTURA
+ARRES     	01	2009	% 	N_fact              	Nº REBUT / FACTURA
+SECRE     	01	2009	% 	N_fact              	Nº REBUT / FACTURA
+ESPEC     	01	2009	% 	N_fact              	Nº REBUT / FACTURA
+RSEREX    	01	2009	% 	N_fact              	Nº REBUT / FACTURA
+RDINAM    	01	2009	% 	N_fact              	Nº REBUT / FACTURA
+SISINF    	01	XX  	% 	N_fact              	Nº REBUT / FACTURA
+MANTEN    	01	XX  	% 	N_fact              	Nº REBUT / FACTURA
+SECRE     	01	XX  	% 	N_fact              	Nº REBUT / FACTURA
+SEREX     	01	XX  	% 	N_fact              	Nº REBUT / FACTURA
+AULA      	01	XX  	% 	N_fact              	Nº REBUT / FACTURA
+CEET      	01	XX  	% 	N_fact              	Nº REBUT / FACTURA
+RCOAT     	01	2009	% 	N_fact              	Nº REBUT / FACTURA
+COLEGIADOS	01	2010	% 	N_fact              	Nº REBUT / FACTURA
+RECTIF    	01	2010	% 	N_fact              	Nº REBUT / FACTURA
+CITAM     	01	2010	% 	N_fact              	Nº REBUT / FACTURA
+DINAM     	01	2010	% 	N_fact              	Nº REBUT / FACTURA
+MANTEN    	01	2010	% 	N_fact              	Nº REBUT / FACTURA
+SEREX     	01	2010	% 	N_fact              	Nº REBUT / FACTURA
+SISINF    	01	2010	% 	N_fact              	Nº REBUT / FACTURA
+AULA      	01	2010	% 	N_fact              	Nº REBUT / FACTURA
+CEET      	01	2010	% 	N_fact              	Nº REBUT / FACTURA
+PLOT      	01	2010	% 	N_fact              	Nº REBUT / FACTURA
+TOPOG     	01	2010	% 	N_fact              	Nº REBUT / FACTURA
+DTE       	01	2010	% 	N_fact              	Nº REBUT / FACTURA
+MUS       	01	2010	% 	N_fact              	Nº REBUT / FACTURA
+QUOTES    	01	2010	% 	N_fact              	Nº REBUT / FACTURA
+ARRES     	01	2010	% 	N_fact              	Nº REBUT / FACTURA
+SECRE     	01	2010	% 	N_fact              	Nº REBUT / FACTURA
+ESPEC     	01	2010	% 	N_fact              	Nº REBUT / FACTURA
+RSEREX    	01	2010	% 	N_fact              	Nº REBUT / FACTURA
+RDINAM    	01	2010	% 	N_fact              	Nº REBUT / FACTURA
+RCOAT     	01	2010	% 	N_fact              	Nº REBUT / FACTURA
+SISINF    	01	2008	% 	N_fact              	Nº REBUT / FACTURA
+PLOT      	01	2009	% 	N_fact              	Nº REBUT / FACTURA
+CENDOC    	01	2010	% 	N_fact              	Nº REBUT / FACTURA
+COLEGIADOS	01	2011	% 	N_fact              	Nº REBUT / FACTURA
+RECTIF    	01	2011	% 	N_fact              	Nº REBUT / FACTURA
+CITAM     	01	2011	% 	N_fact              	Nº REBUT / FACTURA
+DINAM     	01	2011	% 	N_fact              	Nº REBUT / FACTURA
+MANTEN    	01	2011	% 	N_fact              	Nº REBUT / FACTURA
+SEREX     	01	2011	% 	N_fact              	Nº REBUT / FACTURA
+SISINF    	01	2011	% 	N_fact              	Nº REBUT / FACTURA
+AULA      	01	2011	% 	N_fact              	Nº REBUT / FACTURA
+CEET      	01	2011	% 	N_fact              	Nº REBUT / FACTURA
+PLOT      	01	2011	% 	N_fact              	Nº REBUT / FACTURA
+TOPOG     	01	2011	% 	N_fact              	Nº REBUT / FACTURA
+DTE       	01	2011	% 	N_fact              	Nº REBUT / FACTURA
+MUS       	01	2011	% 	N_fact              	Nº REBUT / FACTURA
+QUOTES    	01	2011	% 	N_fact              	Nº REBUT / FACTURA
+ARRES     	01	2011	% 	N_fact              	Nº REBUT / FACTURA
+SECRE     	01	2011	% 	N_fact              	Nº REBUT / FACTURA
+ESPEC     	01	2011	% 	N_fact              	Nº REBUT / FACTURA
+RSEREX    	01	2011	% 	N_fact              	Nº REBUT / FACTURA
+RDINAM    	01	2011	% 	N_fact              	Nº REBUT / FACTURA
+RCOAT     	01	2011	% 	N_fact              	Nº REBUT / FACTURA
+CENDOC    	01	2011	% 	N_fact              	Nº REBUT / FACTURA
+SUPL      	01	2011	% 	N_fact              	Nº REBUT / FACTURA
+SEREX     	01	2008	% 	N_fact              	Nº REBUT / FACTURA
+DINAM     	01	XX  	% 	N_fact              	Nº REBUT / FACTURA
+F         	01	2008	% 	N_fact              	Nº REBUT / FACTURA
+F         	01	2009	% 	N_fact              	Nº REBUT / FACTURA
+F         	01	2010	% 	N_fact              	Nº REBUT / FACTURA
+F         	01	2011	% 	N_fact              	Nº REBUT / FACTURA
+PROFOR    	01	2010	% 	N_fact              	Nº PROFORMA
+PROFOR    	01	2011	% 	N_fact              	Nº PROFORMA
+R         	01	2008	% 	N_fact              	Nº REBUT
+R         	01	2009	% 	N_fact              	Nº REBUT
+RINF      	01	2009	% 	N_fact              	Nº REBUT
+R         	01	2010	% 	N_fact              	Nº REBUT
+RINF      	01	2010	% 	N_fact              	Nº REBUT
+R         	01	2011	% 	N_fact              	Nº REBUT
+RINF      	01	2011	% 	N_fact              	Nº REBUT
+%         	% 	%   	% 	N_fact              	Nº REBUT / FACTURA
+PROFOR    	01	2010	% 	Total_fact          	TOTAL PROFORMA
+PROFOR    	01	2011	% 	Total_fact          	TOTAL PROFORMA
+R         	01	2008	% 	Total_fact          	TOTAL REBUT
+R         	01	2009	% 	Total_fact          	TOTAL REBUT
+RINF      	01	2009	% 	Total_fact          	TOTAL REBUT
+R         	01	2010	% 	Total_fact          	TOTAL REBUT
+RINF      	01	2010	% 	Total_fact          	TOTAL REBUT
+R         	01	2011	% 	Total_fact          	TOTAL REBUT
+RINF      	01	2011	% 	Total_fact          	TOTAL REBUT
+%         	% 	%   	% 	Total_fact          	TOTAL REBUT
+MT        	03	2011	% 	N_emisor2           	AGENCIA DE SEGUROS EXCLUSIVA DE MUSAAT, MUTUA DE SEGUROS A PRIMA FIJA, CON NÚMERO DE REGISTRO:  DGS M0368B55521371
+PC        	03	2011	% 	N_emisor2           	AGENCIA DE SEGUROS EXCLUSIVA DE MUSAAT, MUTUA DE SEGUROS A PRIMA FIJA, CON NÚMERO DE REGISTRO: DGS M0368B55521371
+PF        	03	2011	% 	N_emisor2           	AGENCIA DE SEGUROS EXCLUSIVA DE MUSAAT, MUTUA DE SEGUROS A PRIMA FIJA, CON NÚMERO DE REGISTRO:  DGS M0368B55521371
+PROFOR    	03	2011	% 	N_emisor2           	AGENCIA DE SEGUROS EXCLUSIVA DE MUSAAT, MUTUA DE SEGUROS A PRIMA FIJA, CON NÚMERO DE REGISTRO: 

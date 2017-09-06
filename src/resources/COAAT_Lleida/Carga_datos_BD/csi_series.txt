@@ -1,0 +1,35 @@
+RECTIF    	neg		01	0.0	Facturas rectificativas	N	2010		S		N	N
+A         			01	0.0	Albaranes	S	2010	d_factu_gastos_lle	S		N	N
+PROFOR    			01	0.0	Facturas Proforma	N	2010			PROFOR	S	N
+RECTIF    	neg		01	45.0	Facturas rectificativas	N	2011		S		N	N
+A         			01	1.0	Albaranes	S	2011	d_factu_gastos_lle	S		N	N
+PROFOR    			01	2.0	Facturas Proforma	N	2011			PROFOR	S	N
+V         			01	0.0	fact	N	2011				N	N
+F         			01	6135.0	Facturas Emitidas por el Colegio	N	2010	d_csi_factura_lle	S		N	S
+F         			01	4419.0	Facturas Emitidas por el Colegio	N	2011	 	S		N	S
+SRC       			01	5.0	Factura SRC	S	2011		S		N	N
+F         			01	6284.0	Facturas Emitidas por el Colegio	N	2009	d_csi_factura_lle	S		N	N
+F         			01	6922.0	Facturas Emitidas por el Colegio	N	2008	d_csi_factura_lle	S		N	N
+PC        			02	2342.0	Serie para la facturación de la prima variable	S	2011				N	S
+PF        			02	0.0	Serie para la facturación de otros conceptos de la empresa a	S	2011				N	N
+MT        			02	1.0	Serie para la facturación de otros conceptos de la empresa a	S	2011				N	N
+PROFOR    			02	0.0	Serie para proformas de la empresa aseguradora	N	2011				S	N
+RECTIF    			02	24.0	Serie rectificativa de la empresa aseguradora	S	2011				N	N
+PREMAAT   			01	0.0	Rebuts de quotes de PREMAAT	S	2011		S		N	N
+PREMAAT   			02	0.0	Serie para los recibos de la cuota de premaat	S	2011				N	N
+Q         			01	3063.0	Factures Quotes	N	2011				N	N
+RECTIF    			01	17.0	Facturas rectificativas	N	2012		S		N	N
+A         			01	0.0	Albaranes	S	2012	d_factu_gastos_lle	S		N	N
+PROFOR    			01	0.0	Facturas Proforma	N	2012			PROFOR	S	N
+V         			01	0.0	fact	N	2012				N	N
+F         			01	667.0	Facturas Emitidas por el Colegio	N	2012	 	S		N	S
+SRC       			01	0.0	Factura SRC	S	2012		S		N	N
+PC        			02	632.0	Serie para la facturación de la prima variable	S	2012				N	S
+PF        			02	0.0	Serie para la facturación de otros conceptos de la empresa a	S	2012				N	N
+MT        			02	0.0	Serie para la facturación de otros conceptos de la empresa a	S	2012				N	N
+PROFOR    			02	0.0	Serie para proformas de la empresa aseguradora	N	2012				S	N
+RECTIF    			02	16.0	Serie rectificativa de la empresa aseguradora	S	2012				N	N
+PREMAAT   			01	0.0	Rebuts de quotes de PREMAAT	S	2012		S		N	N
+PREMAAT   			02	254.0	Serie para los recibos de la cuota de premaat	S	2012				N	N
+Q         			01	766.0	Factures Quotes	N	2012				N	N
+AB        			01	0.0	Abonament factura	N	2012				N	N

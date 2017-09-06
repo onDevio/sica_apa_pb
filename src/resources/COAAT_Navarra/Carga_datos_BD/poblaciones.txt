@@ -1,0 +1,1672 @@
+2     	31178 	ABARZUZA                                                    	00031	002	 	 	F	 	000
+3     	31178 	ANDERAZ                                                     	00031	002	 	 	F	 	000
+4     	31178 	IRANZU                                                      	00031	002	 	 	F	 	000
+5     	31692 	ABAURREA ALTA                                               	00031	003	ABAURREGAINA	 	F	 	000
+6     	31692 	ABAURREA BAJA                                               	00031	004	ABAURREPEA	 	F	 	000
+7     	31264 	ABERIN                                                      	00031	005	 	 	F	 	000
+8     	31292 	ARINZANO                                                    	00031	005	 	 	F	 	000
+9     	31264 	ECHAVARRI DE LA SOLANA                                      	00031	005	 	 	F	 	000
+10    	31264 	MUNIAIN DE LA SOLANA                                        	00031	005	 	 	F	 	000
+11    	31523 	ABLITAS                                                     	00031	006	 	 	F	 	000
+12    	31153 	ADIOS                                                       	00031	007	 	 	F	 	000
+13    	31228 	AGUILAR DE CODES                                            	00031	008	 	 	F	 	000
+14    	31460 	AIBAR                                                       	00031	009	OIBAR	 	F	 	000
+15    	31800 	ALSASUA                                                     	00031	010	ALTSASU	 	F	 	000
+17    	31290 	AMILLANO                                                    	00031	011	 	 	F	 	000
+18    	31290 	ARAMENDIA                                                   	00031	011	 	 	F	 	000
+19    	31241 	ARBEIZA                                                     	00031	011	 	 	F	 	000
+20    	31290 	ARTAVIA                                                     	00031	011	 	 	F	 	000
+21    	31290 	ECHAVARRI DE ALLIN                                          	00031	011	 	 	F	 	000
+22    	31290 	EULZ                                                        	00031	011	 	 	F	 	000
+23    	31290 	GALDEANO                                                    	00031	011	 	 	F	 	000
+24    	31290 	LARRION                                                     	00031	011	 	 	F	 	000
+25    	31290 	MUNETA                                                      	00031	011	 	 	F	 	000
+26    	31241 	ZUBIELQUI                                                   	00031	011	 	 	F	 	000
+27    	31262 	ALLO                                                        	00031	012	 	 	F	 	000
+28    	31272 	ARTAZA                                                      	00031	013	 	 	F	 	000
+29    	31272 	BAQUEDANO                                                   	00031	013	 	 	F	 	000
+30    	31272 	BARINDANO                                                   	00031	013	 	 	F	 	000
+31    	31272 	ECALA                                                       	00031	013	 	 	F	 	000
+32    	31272 	GOLLANO                                                     	00031	013	 	 	F	 	000
+33    	31272 	SAN MARTIN                                                  	00031	013	 	 	F	 	000
+34    	31272 	URRA                                                        	00031	013	 	 	F	 	000
+35    	31272 	ZUDAIRE                                                     	00031	013	 	 	F	 	000
+37    	31280 	MENDILIBARRI                                                	00031	014	 	 	F	 	000
+38    	31261 	ANDOSILLA                                                   	00031	015	 	 	F	 	000
+39    	31195 	AÑEZCAR                                                     	00031	902	 	 	F	 	000
+41    	31013 	ANSOAIN                                                     	00031	016	 	 	F	 	000
+43    	31195 	BALLARIAIN                                                  	00031	902	 	 	F	 	000
+44    	31195 	BERRIOPLANO                                                 	00031	902	 	 	F	 	000
+45    	31195 	BERRIOSUSO                                                  	00031	902	 	 	F	 	000
+46    	31013 	BERRIOZAR                                                   	00031	903	 	 	F	 	000
+47    	31195 	ELCARTE                                                     	00031	902	 	 	F	 	000
+48    	31195 	LARRAGUETA                                                  	00031	902	 	 	F	 	000
+49    	31195 	LOZA                                                        	00031	902	 	 	F	 	000
+50    	31195 	OTEIZA (ANSOAIN)                                            	00031	902	 	 	F	 	000
+51    	31798 	ARITZU                                                      	00031	017	 	 	F	 	000
+52    	31798 	BURUTAIN                                                    	00031	017	 	 	F	 	000
+53    	31798 	EGOZKUE                                                     	00031	017	EGOZKUE	 	F	 	000
+54    	31798 	ETSAIN                                                      	00031	017	 	 	F	 	000
+55    	31798 	ETULAIN                                                     	00031	017	 	 	F	 	000
+56    	31798 	LEAZKUE                                                     	00031	017	LEAZKUE	 	F	 	000
+57    	31798 	OLAGUE                                                      	00031	017	 	 	F	 	000
+58    	31154 	AÑORBE                                                      	00031	018	 	 	F	 	000
+59    	31430 	AOIZ                                                        	00031	019	AGOITZ	 	F	 	000
+60    	31891 	ARRIBE-ATALLU                                               	00031	020	 	 	F	 	000
+61    	31891 	ATALLO(NO UTILIZAR)                                         	00031	020	 	 	F	 	000
+62    	31891 	AZKARATE                                                    	00031	020	AZKARATE	 	F	 	000
+63    	31891 	GAINTZA                                                     	00031	020	GAINTZA	 	F	 	000
+64    	31891 	INTZA                                                       	00031	020	INTZA	 	F	 	000
+65    	31891 	UZTEGI                                                      	00031	020	 	 	F	 	000
+66    	31271 	ARANARACHE                                                  	00031	021	 	 	F	 	000
+67    	31790 	ARANTZA                                                     	00031	022	ARANTZA	 	F	 	000
+68    	31192 	ARANGUREN                                                   	00031	023	 	 	F	 	000
+69    	31192 	GONGORA                                                     	00031	023	 	 	F	 	000
+70    	31192 	ILUNDAIN                                                    	00031	023	 	 	F	 	000
+71    	31192 	LABIANO                                                     	00031	023	 	 	F	 	000
+72    	31192 	LAQUIDAIN                                                   	00031	023	 	 	F	 	000
+73    	31192 	MUTILVA ALTA                                                	00031	023	 	 	F	 	000
+74    	31192 	MUTILVA BAJA                                                	00031	023	MUTILOA BEITI	 	F	 	000
+75    	31192 	TAJONAR                                                     	00031	023	TAXOARE	 	F	 	000
+76    	31192 	ZOLINA                                                      	00031	023	 	 	F	 	000
+77    	31880 	ARANO                                                       	00031	024	 	 	F	 	000
+78    	31867 	AIZKORBE                                                    	00031	025	AIZKORBE	 	F	 	000
+79    	31868 	EKAI                                                        	00031	025	EKAI (ARAKIL)	 	F	 	000
+80    	31868 	ETXARREN                                                    	00031	025	ETXARREN	 	F	 	000
+81    	31868 	ETXEBERRI                                                   	00031	025	ETXEBERRI	 	F	 	000
+82    	31868 	EGIARRETA                                                   	00031	025	 	 	F	 	000
+83    	31868 	ERROTZ                                                      	00031	025	 	 	F	 	000
+84    	31860 	IRURTZUN                                                    	00031	904	IRURTZUN	 	F	 	000
+85    	31868 	IZURDIAGA                                                   	00031	025	 	 	F	 	000
+86    	31849 	MURGINDUETA                                                 	00031	025	 	 	F	 	000
+87    	31850 	SATRUSTEGI                                                  	00031	025	 	 	F	 	000
+88    	31868 	URRITZOLA                                                   	00031	025	 	 	F	 	000
+89    	31850 	HIRIBERRI/VILLANUEVA                                        	00031	025	HIRIBERRI	 	F	 	000
+90    	31850 	IHABAR                                                      	00031	025	IHABAR	 	F	 	000
+91    	31868 	ZUHATZU                                                     	00031	025	ZUHATZU	 	F	 	000
+92    	31239 	ARAS                                                        	00031	026	 	 	F	 	000
+93    	31867 	IRIBERRI                                                    	00031	040	 	 	F	 	000
+94    	31839 	ARBIZU                                                      	00031	027	 	 	F	 	000
+95    	31438 	ARCE                                                        	00031	028	 	 	F	 	000
+96    	31438 	ARRIETA                                                     	00031	028	 	 	F	 	000
+97    	31439 	EQUIZA                                                      	00031	028	 	 	F	 	000
+98    	31439 	AZPARREN                                                    	00031	028	 	 	F	 	000
+99    	31620 	GORRAIZ                                                     	00031	086	 	 	F	 	000
+100   	31438 	LUSARRETA                                                   	00031	028	 	 	F	 	000
+101   	31438 	NAGORE                                                      	00031	028	 	 	F	 	000
+102   	31438 	SARAGÜETA                                                   	00031	028	 	 	F	 	000
+103   	31438 	URIZ                                                        	00031	028	 	 	F	 	000
+104   	31438 	VILLANUEVA DE ARCE                                          	00031	028	 	 	F	 	000
+105   	31438 	ZANDUETA                                                    	00031	028	 	 	F	 	000
+106   	31210 	LOS ARCOS                                                   	00031	029	 	 	F	 	000
+107   	31263 	ARELLANO                                                    	00031	030	 	 	F	 	000
+108   	31876 	ARESO                                                       	00031	031	 	 	F	 	000
+109   	31513 	ARGUEDAS                                                    	00031	032	 	 	F	 	000
+110   	31671 	ARIA                                                        	00031	033	 	 	F	 	000
+111   	31671 	ARIVE                                                       	00031	034	 	 	F	 	000
+112   	31228 	ARMAÑANZAS                                                  	00031	035	 	 	F	 	000
+113   	31243 	ARRONIZ                                                     	00031	036	 	 	F	 	000
+114   	31840 	ARRUAZU                                                     	00031	037	 	 	F	 	000
+115   	31140 	ARTAJONA                                                    	00031	038	 	 	F	 	000
+116   	31109 	ARTAZU                                                      	00031	039	 	 	F	 	000
+118   	31867 	BERASAIN                                                    	00031	040	 	 	F	 	000
+119   	31867 	BEUNZA                                                      	00031	040	 	 	F	 	000
+121   	31867 	CIGANDA                                                     	00031	040	 	 	F	 	000
+122   	31193 	EGUARAS                                                     	00031	040	 	 	F	 	000
+123   	31867 	EGUILLOR                                                    	00031	040	 	 	F	 	000
+124   	31867 	ERICE                                                       	00031	040	 	 	F	 	000
+125   	31240 	AYEGUI                                                      	00031	041	 	 	F	 	000
+126   	31208 	IRACHE                                                      	00031	041	 	 	F	 	000
+127   	31560 	AZAGRA                                                      	00031	042	 	 	F	 	000
+128   	31228 	AZUELO                                                      	00031	043	 	 	F	 	000
+129   	31810 	BAKAIKU                                                     	00031	044	BAKAIKU	 	F	 	000
+130   	31395 	BARASOAIN                                                   	00031	045	 	 	F	 	000
+131   	31243 	BARBARIN                                                    	00031	046	 	 	F	 	000
+132   	31229 	BARGOTA                                                     	00031	047	 	 	F	 	000
+133   	31523 	BARILLAS                                                    	00031	048	 	 	F	 	000
+134   	31866 	ARRARATS                                                    	00031	049	ARRARATS	 	F	 	000
+135   	31869 	BERAMENDI                                                   	00031	049	 	 	F	 	000
+136   	31866 	BERUETE                                                     	00031	049	 	 	F	 	000
+137   	31866 	ERBITI                                                      	00031	049	 	 	F	 	000
+138   	31866 	GARTZARON                                                   	00031	049	GARTZARON	 	F	 	000
+139   	31869 	ITSASO                                                      	00031	049	ITSASO	 	F	 	000
+140   	31866 	IGOA                                                        	00031	049	 	 	F	 	000
+141   	31866 	JAUNTSARATS                                                 	00031	049	JAUNTSARATS	 	F	 	000
+142   	31866 	OROKIETA                                                    	00031	049	OROKIETA	 	F	 	000
+143   	31869 	UDABE                                                       	00031	049	 	 	F	 	000
+144   	31869 	IHABEN                                                      	00031	049	IHABEN	 	F	 	000
+145   	31866 	AIZAROTZ                                                    	00031	049	 	 	F	 	000
+146   	31796 	ALMANDOZ                                                    	00031	050	 	 	F	 	000
+147   	31796 	ANIZ                                                        	00031	050	 	 	F	 	000
+148   	31713 	ARIZKUN                                                     	00031	050	ARIZKUN	 	F	 	000
+149   	31794 	ARRAIOZ                                                     	00031	050	ARRAIOZ	 	F	 	000
+150   	31715 	AZPILKUETA                                                  	00031	050	 	 	F	 	000
+151   	31796 	BERROETA                                                    	00031	050	 	 	F	 	000
+152   	31796 	ZIGA                                                        	00031	050	ZIGA	 	F	 	000
+153   	31700 	ELIZONDO                                                    	00031	050	 	 	F	 	000
+154   	31700 	ELBETE                                                      	00031	050	 	 	F	 	000
+155   	31714 	ERRATZU                                                     	00031	050	ERRATZU	 	F	 	000
+156   	31730 	GARTZAIN                                                    	00031	050	GARTZAIN	 	F	 	000
+157   	31730 	IRURITA                                                     	00031	050	 	 	F	 	000
+158   	31795 	LEKAROZ                                                     	00031	050	LEKAROZ	 	F	 	000
+159   	31715 	AMAIUR/MAYA                                                 	00031	050	 	 	F	 	000
+160   	31720 	MUGAIRI                                                     	00031	050	 	 	F	 	000
+161   	31794 	OHARRIZ                                                     	00031	050	 	 	F	 	000
+162   	31720 	ORONOZ                                                      	00031	050	 	 	F	 	000
+165   	31393 	BEIRE                                                       	00031	051	 	 	F	 	000
+166   	31174 	BELASCOAIN                                                  	00031	052	 	 	F	 	000
+167   	31252 	BERBINZANA                                                  	00031	053	 	 	F	 	000
+168   	31792 	LEGASA                                                      	00031	054	 	 	F	 	000
+169   	31793 	NARBARTE                                                    	00031	054	NARBARTE	 	F	 	000
+170   	31720 	OIEREGI                                                     	00031	054	OIEREGI	 	F	 	000
+171   	31720 	SEÑORIO DE BERTIZ                                           	00031	054	 	 	F	 	000
+172   	31890 	BETELU                                                      	00031	055	 	 	F	 	000
+173   	31398 	BIURRUN                                                     	00031	056	 	 	F	 	000
+174   	31398 	OLCOZ                                                       	00031	056	 	 	F	 	000
+175   	31540 	BUÑUEL                                                      	00031	057	 	 	F	 	000
+176   	31640 	AURITZ-BURGUETE                                             	00031	058	AURITZ	 	F	 	000
+177   	31412 	BURGUI                                                      	00031	059	 	 	F	 	000
+178   	31600 	BURLADA                                                     	00031	060	 	 	F	 	000
+179   	31229 	EL BUSTO                                                    	00031	061	 	 	F	 	000
+180   	31511 	CABANILLAS                                                  	00031	062	 	 	F	 	000
+181   	31227 	CABREDO                                                     	00031	063	 	 	F	 	000
+182   	31515 	CADREITA                                                    	00031	064	 	 	F	 	000
+183   	31380 	CAPARROSO                                                   	00031	065	 	 	F	 	000
+184   	31579 	CARCAR                                                      	00031	066	 	 	F	 	000
+185   	31310 	CARCASTILLO                                                 	00031	067	 	 	F	 	000
+186   	31311 	FIGAROL                                                     	00031	067	 	 	F	 	000
+187   	31310 	LA OLIVA (MONASTERIO)                                       	00031	067	 	 	F	 	000
+188   	31520 	CASCANTE                                                    	00031	068	 	 	F	 	000
+190   	31312 	SAN ISIDRO DEL PINAR                                        	00031	069	 	 	F	 	000
+191   	31590 	CASTEJON                                                    	00031	070	 	 	F	 	000
+192   	31454 	CASTILLONUEVO                                               	00031	071	 	 	F	 	000
+193   	31592 	CINTRUENIGO                                                 	00031	072	 	 	F	 	000
+194   	31809 	CIORDIA*                                                    	00031	073	ZIORDIA	 	F	 	000
+195   	31131 	CIRAUQUI                                                    	00031	074	 	 	F	 	000
+196   	31174 	CIRIZA                                                      	00031	075	 	 	F	 	000
+197   	31174 	ELIO                                                        	00031	075	 	 	F	 	000
+198   	31190 	ASTRAIN                                                     	00031	076	 	 	F	 	000
+199   	31180 	ZIZUR MAYOR                                                 	00031	907	ZIZUR NAGUSIA	 	F	 	000
+200   	31190 	CIZUR MENOR                                                 	00031	076	 	 	F	 	000
+201   	31174 	ERIETE                                                      	00031	076	 	 	F	 	000
+202   	31190 	GAZOLAZ                                                     	00031	076	 	 	F	 	000
+203   	31174 	LARRAYA                                                     	00031	076	 	 	F	 	000
+204   	31190 	MURU-ASTRAIN                                                	00031	076	 	 	F	 	000
+205   	31190 	PATERNAIN                                                   	00031	076	 	 	F	 	000
+206   	31190 	SAGÜES                                                      	00031	076	 	 	F	 	000
+207   	31190 	UNDIANO                                                     	00031	076	 	 	F	 	000
+208   	31190 	ZARIQUIEGUI                                                 	00031	076	 	 	F	 	000
+209   	31591 	CORELLA                                                     	00031	077	 	 	F	 	000
+210   	31530 	CORTES                                                      	00031	078	 	 	F	 	000
+211   	31229 	DESOJO                                                      	00031	079	 	 	F	 	000
+212   	31263 	DICASTILLO                                                  	00031	080	 	 	F	 	000
+213   	31750 	DONAMARIA                                                   	00031	081	 	 	F	 	000
+214   	31750 	GAZTELU                                                     	00031	081	 	 	F	 	000
+215   	31760 	ETXALAR                                                     	00031	082	 	 	F	 	000
+216   	31243 	LURRIZTI                                                    	00031	082	 	 	F	 	000
+217   	31760 	LACAIN-APEZBORRO                                            	00031	082	 	 	F	 	000
+218   	31820 	ETXARRI ARANATZ                                             	00031	084	ETXARRI ARANATZ	 	F	 	000
+220   	31820 	LIZARRAGABENGOA                                             	00031	084	 	 	F	 	000
+221   	31174 	ETXAURI                                                     	00031	085	ETXAURI	 	F	 	000
+222   	31174 	OTAZU                                                       	00031	085	 	 	F	 	000
+223   	31486 	ALZUZA                                                      	00031	086	 	 	F	 	000
+224   	31192 	ARDANAZ DE EGUES                                            	00031	086	 	 	F	 	000
+225   	31486 	AZPA                                                        	00031	086	 	 	F	 	000
+226   	31192 	BADOSTAIN                                                   	00031	086	 	 	F	 	000
+227   	31486 	ECHALAZ                                                     	00031	086	 	 	F	 	000
+228   	31621 	SARRIGUREN (EGÜES)                                          	00031	086	 	 	F	 	000
+229   	31486 	EGULBATI                                                    	00031	086	 	 	F	 	000
+230   	31486 	ELCANO                                                      	00031	086	 	 	F	 	000
+231   	31486 	ELIA                                                        	00031	086	 	 	F	 	000
+232   	31486 	ERANSUS                                                     	00031	086	 	 	F	 	000
+233   	31486 	IBIRICU DE EGÜES                                            	00031	086	 	 	F	 	000
+235   	31620 	OLAZ                                                        	00031	086	 	 	F	 	000
+236   	31486 	SAGASETA                                                    	00031	086	 	 	F	 	000
+238   	31486 	USTARROZ                                                    	00031	086	 	 	F	 	000
+239   	31744 	ELGORRIAGA                                                  	00031	087	 	 	F	 	000
+240   	31470 	ELORZ                                                       	00031	088	 	 	F	 	000
+241   	31119 	GUERENDIAIN DE ELORZ                                        	00031	088	 	 	F	 	000
+242   	31119 	IMARCOAIN                                                   	00031	088	 	 	F	 	000
+243   	31110 	NOAIN                                                       	00031	088	 	 	F	 	000
+244   	31119 	ORIZ                                                        	00031	088	 	 	F	 	000
+245   	31470 	OTANO                                                       	00031	088	 	 	F	 	000
+246   	31470 	YARNOZ                                                      	00031	088	 	 	F	 	000
+247   	31470 	ZABALEGUI                                                   	00031	088	 	 	F	 	000
+248   	31470 	ZULUETA                                                     	00031	088	 	 	F	 	000
+249   	31119 	TORRES DE ELORZ                                             	00031	088	 	 	F	 	000
+250   	31153 	ENERIZ                                                      	00031	089	 	 	F	 	000
+251   	31748 	ERATSUN                                                     	00031	090	 	 	F	 	000
+252   	31829 	LIZARRAGA DE ERGOYENA                                       	00031	091	 	 	F	 	000
+253   	31829 	TORRANO                                                     	00031	091	DORRAO	 	F	 	000
+254   	31829 	UNANUA*                                                     	00031	091	UNANU	 	F	 	000
+255   	31697 	ARDAIZ                                                      	00031	092	 	 	F	 	000
+256   	31639 	CILBETI*                                                    	00031	092	ZILBETI	 	F	 	000
+257   	31697 	ERRO                                                        	00031	092	 	 	F	 	000
+258   	31697 	ESNOZ                                                       	00031	092	 	 	F	 	000
+259   	31694 	ESPINAL                                                     	00031	092	AURIZBERRI	 	F	 	000
+260   	31696 	LINTZOAIN                                                   	00031	092	LINTZOAIN	 	F	 	000
+261   	31697 	LOIZU                                                       	00031	092	 	 	F	 	000
+262   	31695 	MEZQUIRIZ*                                                  	00031	092	MEZKIRITZ	 	F	 	000
+263   	31481 	OLAVERRI                                                    	00031	092	 	 	F	 	000
+264   	31697 	ORONDRITZ                                                   	00031	092	ORONDRITZ	 	F	 	000
+265   	31695 	URETA                                                       	00031	092	 	 	F	 	000
+266   	31697 	URNIZA                                                      	00031	092	 	 	F	 	000
+267   	31695 	VISCARRET                                                   	00031	092	BISKARRET	 	F	 	000
+268   	31697 	AINTZIOA                                                    	00031	092	 	 	F	 	000
+269   	31690 	EZCAROZ                                                     	00031	093	EZKAROZE	 	F	 	000
+270   	31494 	ESLAVA                                                      	00031	094	 	 	F	 	000
+271   	31453 	ESPARZA DE SALAZAR                                          	00031	095	ESPARTZA ZARAITZU	 	F	 	000
+272   	31228 	ESPRONCEDA                                                  	00031	096	 	 	F	 	000
+273   	31200 	ESTELLA                                                     	00031	097	LIZARRA	 	F	 	000
+274   	31639 	AGORRETA                                                    	00031	098	 	 	F	 	000
+275   	31698 	AQUERRETA*                                                  	00031	098	AKERRETA	 	F	 	000
+276   	31699 	ARLETA                                                      	00031	098	 	 	F	 	000
+277   	31698 	ERREA                                                       	00031	098	 	 	F	 	000
+278   	31698 	ESQUIROZ DE ESTERIBAR                                       	00031	098	 	 	F	 	000
+279   	31638 	EUGUI                                                       	00031	098	 	 	F	 	000
+280   	31271 	EULATE                                                      	00031	098	 	 	F	 	000
+281   	31699 	GUENDULAIN DE ESTERIBAR                                     	00031	098	 	 	F	 	000
+282   	31698 	IDOY                                                        	00031	098	 	 	F	 	000
+283   	31698 	ILARRAZ                                                     	00031	098	 	 	F	 	000
+284   	31699 	ILURDOZ                                                     	00031	098	 	 	F	 	000
+285   	31698 	IMBULUZQUETA                                                	00031	098	 	 	F	 	000
+286   	31639 	IRAGUI                                                      	00031	098	 	 	F	 	000
+287   	31699 	IROZ*                                                       	00031	098	IROTZ	 	F	 	000
+288   	31698 	IRURE                                                       	00031	098	 	 	F	 	000
+289   	31698 	LARRASOAÑA                                                  	00031	098	 	 	F	 	000
+290   	31639 	LERANOTZ                                                    	00031	098	LERANOTZ	 	F	 	000
+291   	31699 	OLLOKI                                                      	00031	098	 	 	F	 	000
+292   	31630 	OSTERIZ*                                                    	00031	098	OSTERITZ	 	F	 	000
+293   	31639 	SAIGOS*                                                     	00031	098	SAIGOTS	 	F	 	000
+294   	31698 	SARASIBAR                                                   	00031	098	 	 	F	 	000
+295   	31698 	SETUAIN                                                     	00031	098	 	 	F	 	000
+296   	31698 	URDANIZ                                                     	00031	098	URDAITZ	 	F	 	000
+297   	31639 	URTASUN                                                     	00031	098	 	 	F	 	000
+298   	31639 	USECHI*                                                     	00031	098	USETXI	 	F	 	000
+299   	31699 	ZABALDICA*                                                  	00031	098	ZABALDIKA	 	F	 	000
+300   	31630 	ZUBIRI                                                      	00031	098	 	 	F	 	000
+301   	31699 	ZURIAIN                                                     	00031	098	 	 	F	 	000
+302   	31699 	ANCHORIZ*                                                   	00031	098	ANTXORITZ	 	F	 	000
+303   	31281 	ETAYO                                                       	00031	099	 	 	F	 	000
+304   	31281 	LEARZA                                                      	00031	099	 	 	F	 	000
+305   	31194 	ADERIZ                                                      	00031	101	 	 	F	 	000
+306   	31799 	ANOZ(EZCABARTE)                                             	00031	101	 	 	F	 	000
+307   	31194 	ARRE                                                        	00031	101	 	 	F	 	000
+308   	31194 	AZOZ                                                        	00031	101	 	 	F	 	000
+309   	31194 	CILDOZ                                                      	00031	101	 	 	F	 	000
+310   	31194 	EUSA                                                        	00031	101	 	 	F	 	000
+311   	31194 	EZCABA                                                      	00031	101	 	 	F	 	000
+312   	31194 	GARRUES                                                     	00031	101	 	 	F	 	000
+313   	31194 	MAQUIRRIAIN (EZCABARTE)                                     	00031	101	 	 	F	 	000
+314   	31194 	ORICAIN                                                     	00031	101	 	 	F	 	000
+315   	31194 	ORRIO                                                       	00031	101	 	 	F	 	000
+316   	31194 	SORAUREN                                                    	00031	101	 	 	F	 	000
+317   	31749 	EZKURRA                                                     	00031	102	EZKURRA	 	F	 	000
+318   	31492 	AYESA                                                       	00031	103	 	 	F	 	000
+319   	31491 	MORIONES                                                    	00031	103	 	 	F	 	000
+320   	31370 	FALCES                                                      	00031	104	 	 	F	 	000
+321   	31593 	FITERO                                                      	00031	105	 	 	F	 	000
+322   	31512 	EL BOCAL                                                    	00031	106	 	 	F	 	000
+323   	31512 	FONTELLAS                                                   	00031	106	 	 	F	 	000
+324   	31360 	FUNES                                                       	00031	107	 	 	F	 	000
+325   	31510 	FUSTIÑANA                                                   	00031	108	 	 	F	 	000
+326   	31191 	ARLEGUI                                                     	00031	109	 	 	F	 	000
+327   	31191 	BARBATAIN                                                   	00031	109	 	 	F	 	000
+328   	31191 	BERIAIN                                                     	00031	905	 	 	F	 	000
+329   	31191 	CORDOVILLA                                                  	00031	109	 	 	F	 	000
+330   	31191 	ESPARZA DE GALAR                                            	00031	109	 	 	F	 	000
+331   	31191 	ESQUIROZ DE GALAR                                           	00031	109	 	 	F	 	000
+332   	31191 	GALAR                                                       	00031	109	 	 	F	 	000
+333   	31191 	OLAZ SUBIZA                                                 	00031	109	 	 	F	 	000
+334   	31120 	POBLADO DE POTASAS                                          	00031	905	 	 	F	 	000
+335   	31191 	SALINAS DE PAMPLONA                                         	00031	109	 	 	F	 	000
+336   	31191 	SUBIZA                                                      	00031	109	 	 	F	 	000
+337   	31493 	GALLIPIENZO                                                 	00031	110	 	 	F	 	000
+338   	31451 	GALLUES                                                     	00031	111	 	 	F	 	000
+339   	31451 	ICIZ                                                        	00031	111	 	 	F	 	000
+340   	31451 	IZAL                                                        	00031	111	 	 	F	 	000
+341   	31451 	USCARRES                                                    	00031	111	 	 	F	 	000
+342   	31692 	GARAIOA                                                     	00031	112	GARAIOA	 	F	 	000
+343   	31414 	GARDE                                                       	00031	113	 	 	F	 	000
+344   	31395 	GARINOAIN                                                   	00031	114	 	 	F	 	000
+345   	31693 	GARRALDA                                                    	00031	115	 	 	F	 	000
+346   	31227 	GENEVILLA                                                   	00031	116	 	 	F	 	000
+347   	31754 	GOIZUETA                                                    	00031	117	 	 	F	 	000
+348   	31172 	AIZPUN                                                      	00031	118	 	 	F	 	000
+349   	31172 	AZANZA                                                      	00031	118	 	 	F	 	000
+350   	31172 	GOÑI                                                        	00031	118	 	 	F	 	000
+351   	31172 	MUNARRIZ                                                    	00031	118	 	 	F	 	000
+352   	31172 	URDANOZ                                                     	00031	118	 	 	F	 	000
+353   	31452 	GUESA                                                       	00031	119	 	 	F	 	000
+354   	31452 	IGAL                                                        	00031	119	 	 	F	 	000
+355   	31452 	RIPALDA                                                     	00031	119	 	 	F	 	000
+356   	31176 	ARGUIÑANO                                                   	00031	120	 	 	F	 	000
+357   	31291 	ARZOZ                                                       	00031	120	 	 	F	 	000
+358   	31291 	ESTENOZ                                                     	00031	120	 	 	F	 	000
+359   	31291 	GARISOAIN                                                   	00031	120	 	 	F	 	000
+360   	31176 	GUEMBE                                                      	00031	120	 	 	F	 	000
+361   	31176 	IRUJO                                                       	00031	120	 	 	F	 	000
+362   	31291 	IRURRE                                                      	00031	120	 	 	F	 	000
+363   	31176 	ITURGOYEN                                                   	00031	120	 	 	F	 	000
+364   	31175 	IZURZU                                                      	00031	120	 	 	F	 	000
+365   	31291 	LERATE                                                      	00031	120	 	 	F	 	000
+366   	31176 	MUEZ                                                        	00031	120	 	 	F	 	000
+367   	31175 	MUNIAIN DE GUESALAZ                                         	00031	120	 	 	F	 	000
+368   	31291 	MUZQUI                                                      	00031	120	 	 	F	 	000
+369   	31176 	VIDAURRE                                                    	00031	120	 	 	F	 	000
+370   	31291 	VIGURIA                                                     	00031	120	 	 	F	 	000
+371   	31174 	ARGUIÑARIZ                                                  	00031	121	 	 	F	 	000
+372   	31291 	ECHARREN (GUIRGUILLANO)                                     	00031	121	 	 	F	 	000
+373   	31291 	GUIRGUILLANO                                                	00031	121	 	 	F	 	000
+374   	31620 	HUARTE                                                      	00031	122	UHARTE	 	F	 	000
+375   	31840 	UHARTE-ARAKIL                                               	00031	123	UHARTE ARAKIL	 	F	 	000
+376   	31473 	ABINZANO                                                    	00031	124	 	 	F	 	000
+377   	31473 	CELIGUETA                                                   	00031	124	 	 	F	 	000
+378   	31473 	IDOCIN                                                      	00031	124	 	 	F	 	000
+379   	31473 	IZCO                                                        	00031	124	 	 	F	 	000
+380   	31473 	LECAUN                                                      	00031	124	 	 	F	 	000
+381   	31472 	SALINAS DE IBARGOITI                                        	00031	124	 	 	F	 	000
+382   	31473 	SENGARIZ                                                    	00031	124	 	 	F	 	000
+383   	31472 	ZABALZA (IBARGOITI)                                         	00031	124	 	 	F	 	000
+384   	31241 	AZQUETA                                                     	00031	125	 	 	F	 	000
+385   	31241 	IGUZQUIZA                                                   	00031	125	 	 	F	 	000
+386   	31241 	LABEAGA                                                     	00031	125	 	 	F	 	000
+387   	31243 	URBIOLA                                                     	00031	125	 	 	F	 	000
+388   	31869 	ETXALEKU                                                    	00031	126	ETXALEKU	 	F	 	000
+389   	31869 	ERASO                                                       	00031	126	 	 	F	 	000
+390   	31869 	GOLDARAZ*                                                   	00031	126	GOLDARATZ	 	F	 	000
+391   	31869 	LATASA (IMOZ)                                               	00031	126	 	 	F	 	000
+392   	31869 	OSCOZ*                                                      	00031	126	OSKOTZ	 	F	 	000
+393   	31869 	URRIZA                                                      	00031	126	 	 	F	 	000
+394   	31869 	ZARRANZ*                                                    	00031	126	ZARRATZ	 	F	 	000
+395   	31867 	MUZQUIZ*                                                    	00031	126	MUSKITZ	 	F	 	000
+396   	31849 	IRAÑETA                                                     	00031	127	 	 	F	 	000
+397   	31417 	ISABA                                                       	00031	128	 	 	F	 	000
+398   	31745 	ITUREN                                                      	00031	129	 	 	F	 	000
+399   	31810 	ITURMENDI                                                   	00031	130	 	 	F	 	000
+400   	31867 	AGUINAGA                                                    	00031	131	 	 	F	 	000
+401   	31892 	ALDABA                                                      	00031	131	 	 	F	 	000
+403   	31892 	ARIZ                                                        	00031	131	 	 	F	 	000
+404   	31868 	ATONDO                                                      	00031	131	 	 	F	 	000
+405   	31867 	CIA                                                         	00031	131	 	 	F	 	000
+406   	31892 	ERICE DE IZA                                                	00031	131	 	 	F	 	000
+407   	31867 	GULINA                                                      	00031	131	 	 	F	 	000
+408   	31170 	IZA                                                         	00031	131	 	 	F	 	000
+409   	31892 	LARUMBE                                                     	00031	131	 	 	F	 	000
+410   	31172 	LETE                                                        	00031	131	 	 	F	 	000
+411   	31892 	OCHOVI                                                      	00031	131	 	 	F	 	000
+412   	31892 	SARASA                                                      	00031	131	 	 	F	 	000
+413   	31892 	SARASATE                                                    	00031	131	 	 	F	 	000
+414   	31892 	ZUASTI (IZA)                                                	00031	131	 	 	F	 	000
+415   	31421 	ARDANAZ DE IZAGAONDOA                                       	00031	132	 	 	F	 	000
+416   	31421 	BEROIZ                                                      	00031	132	 	 	F	 	000
+417   	31421 	IDOATE                                                      	00031	132	 	 	F	 	000
+418   	31421 	INDURAIN                                                    	00031	132	 	 	F	 	000
+419   	31421 	IRISO                                                       	00031	132	 	 	F	 	000
+420   	31421 	LIZARRAGA IZAGAONDOA                                        	00031	132	 	 	F	 	000
+421   	31421 	RETA                                                        	00031	132	 	 	F	 	000
+50294 	0     	AGUILAR DE CAMPOO                                           	00034	000	 	 	F	 	000
+422   	31421 	TURRILLAS                                                   	00031	132	 	 	F	 	000
+423   	31421 	URBICAIN                                                    	00031	132	 	 	F	 	000
+424   	31421 	ZUAZU (IZAGAONDOA)                                          	00031	132	 	 	F	 	000
+425   	31689 	IZALZU                                                      	00031	133	 	 	F	 	000
+426   	31691 	JAURRIETA                                                   	00031	134	 	 	F	 	000
+427   	31411 	JAVIER                                                      	00031	135	 	 	F	 	000
+428   	31892 	ARISTREGUI                                                  	00031	136	 	 	F	 	000
+429   	31193 	BELZUNCE                                                    	00031	136	 	 	F	 	000
+430   	31193 	BEORBURU                                                    	00031	136	 	 	F	 	000
+431   	31193 	GARCIRIAIN                                                  	00031	136	 	 	F	 	000
+432   	31193 	LARRAYOZ                                                    	00031	136	 	 	F	 	000
+433   	31193 	MARCALAIN                                                   	00031	136	 	 	F	 	000
+434   	31193 	NAVAZ                                                       	00031	136	 	 	F	 	000
+435   	31193 	OLLACARIZQUETA                                              	00031	136	 	 	F	 	000
+436   	31193 	OSACAR                                                      	00031	136	 	 	F	 	000
+437   	31892 	OSINAGA                                                     	00031	136	 	 	F	 	000
+438   	31194 	UNZU                                                        	00031	136	 	 	F	 	000
+439   	31193 	USI                                                         	00031	136	 	 	F	 	000
+440   	31193 	NUIN                                                        	00031	136	 	 	F	 	000
+441   	31753 	BEINTZA-LABAIEN                                             	00031	137	BEINTZA-LABAIEN	 	F	 	000
+442   	31830 	LAKUNTZA                                                    	00031	138	LAKUNTZA	 	F	 	000
+443   	31283 	GALBARRA                                                    	00031	139	 	 	F	 	000
+444   	31283 	GASTIAIN                                                    	00031	139	 	 	F	 	000
+445   	31283 	NARCUE                                                      	00031	139	 	 	F	 	000
+446   	31283 	ULIBARRI                                                    	00031	139	 	 	F	 	000
+447   	31283 	VILORIA                                                     	00031	139	 	 	F	 	000
+448   	31798 	LANTZ                                                       	00031	140	LANTZ	 	F	 	000
+449   	31227 	LAPOBLACION                                                 	00031	141	 	 	F	 	000
+450   	31227 	MEANO                                                       	00031	141	 	 	F	 	000
+451   	31251 	LARRAGA                                                     	00031	142	 	 	F	 	000
+452   	31270 	LARRAONA                                                    	00031	143	 	 	F	 	000
+453   	31877 	ALBIASU                                                     	00031	144	 	 	F	 	000
+454   	31878 	ALDATZ                                                      	00031	144	ALDATZ	 	F	 	000
+455   	31879 	ALLI                                                        	00031	144	 	 	F	 	000
+456   	31878 	ARRUITZ                                                     	00031	144	 	 	F	 	000
+457   	31879 	ASTIZ                                                       	00031	144	 	 	F	 	000
+458   	31891 	AZPIROZ*                                                    	00031	144	AZPIROTZ	 	F	 	000
+459   	31878 	ETXARRI LARRAUN                                             	00031	144	ETXARRI LARRAUN	 	F	 	000
+460   	31877 	GORRITI                                                     	00031	144	 	 	F	 	000
+461   	31877 	HUICI                                                       	00031	144	 	 	F	 	000
+462   	31879 	IRIBAS                                                      	00031	144	 	 	F	 	000
+463   	31870 	LEKUNBERRI                                                  	00031	908	LEKUNBERRI	 	F	 	000
+464   	31891 	LEZAETA                                                     	00031	144	 	 	F	 	000
+465   	31879 	MADOZ*                                                      	00031	144	MADOTZ	 	F	 	000
+466   	31878 	MUGIRO                                                      	00031	144	MUGIRO	 	F	 	000
+467   	31879 	ODERIZ*                                                     	00031	144	ODERITZ	 	F	 	000
+468   	31879 	BARAIBAR                                                    	00031	144	 	 	F	 	000
+469   	31891 	ERRAZKIN                                                    	00031	144	ERRAZKIN	 	F	 	000
+470   	31588 	LAZAGURRIA                                                  	00031	145	 	 	F	 	000
+471   	31460 	LEACHE                                                      	00031	146	 	 	F	 	000
+472   	31133 	LEGARDA                                                     	00031	147	 	 	F	 	000
+473   	31281 	LEGARIA                                                     	00031	148	 	 	F	 	000
+474   	31880 	LEITZA                                                      	00031	149	LEITZA	 	F	 	000
+475   	31395 	AMATRIAIN                                                   	00031	150	 	 	F	 	000
+476   	31395 	AMUNARRIZQUETA                                              	00031	150	 	 	F	 	000
+477   	31395 	ARTARIAIN                                                   	00031	150	 	 	F	 	000
+478   	31395 	BENEGORRI                                                   	00031	150	 	 	F	 	000
+479   	31395 	BEZQUIZ                                                     	00031	150	 	 	F	 	000
+480   	31395 	IRACHETA                                                    	00031	150	 	 	F	 	000
+481   	31395 	LEOZ                                                        	00031	150	 	 	F	 	000
+482   	31395 	MAQUIRRIAIN (LEOZ)                                          	00031	150	 	 	F	 	000
+483   	31494 	OLLETA                                                      	00031	150	 	 	F	 	000
+484   	31395 	SANSOMAIN                                                   	00031	150	 	 	F	 	000
+485   	31395 	UZQUITA                                                     	00031	150	 	 	F	 	000
+486   	31494 	LERGA                                                       	00031	151	 	 	F	 	000
+487   	31260 	LERIN                                                       	00031	152	 	 	F	 	000
+488   	31789 	ENDARLAZA                                                   	00031	153	 	 	F	 	000
+489   	31770 	LESAKA                                                      	00031	153	LESAKA	 	F	 	000
+490   	31789 	ZALAIN                                                      	00031	153	 	 	F	 	000
+491   	31789 	ALKAIAGA                                                    	00031	153	 	 	F	 	000
+492   	31177 	LEZAUN                                                      	00031	154	 	 	F	 	000
+493   	31487 	LIEDENA                                                     	00031	155	 	 	F	 	000
+494   	31483 	BEORTEGUI                                                   	00031	156	 	 	F	 	000
+495   	31484 	GALDUROZ                                                    	00031	156	 	 	F	 	000
+496   	31483 	JANARIZ                                                     	00031	156	 	 	F	 	000
+497   	31482 	LERRUZ                                                      	00031	156	 	 	F	 	000
+498   	31483 	LEYUN                                                       	00031	156	 	 	F	 	000
+499   	31482 	LIZOAIN                                                     	00031	156	 	 	F	 	000
+500   	31485 	MENDIOROZ                                                   	00031	156	 	 	F	 	000
+501   	31483 	OSCARIZ                                                     	00031	156	 	 	F	 	000
+502   	31482 	REDIN                                                       	00031	156	 	 	F	 	000
+503   	31485 	UROZ                                                        	00031	156	 	 	F	 	000
+504   	31484 	URRICELQUI                                                  	00031	156	 	 	F	 	000
+505   	31485 	YELZ                                                        	00031	156	 	 	F	 	000
+506   	31484 	ZALBA                                                       	00031	156	 	 	F	 	000
+507   	31484 	ZALDAIZ                                                     	00031	156	 	 	F	 	000
+508   	31484 	ZUNZARREN                                                   	00031	156	 	 	F	 	000
+509   	31580 	LODOSA                                                      	00031	157	 	 	F	 	000
+511   	31481 	ACOTAIN                                                     	00031	158	 	 	F	 	000
+512   	31481 	AOS                                                         	00031	158	 	 	F	 	000
+513   	31481 	ARTAJO                                                      	00031	158	 	 	F	 	000
+514   	31481 	AYANZ                                                       	00031	158	 	 	F	 	000
+515   	31481 	ECAY (LONGUIDA)                                             	00031	158	 	 	F	 	000
+516   	31481 	ERDOZAIN                                                    	00031	158	 	 	F	 	000
+517   	31438 	ITOIZ                                                       	00031	158	 	 	F	 	000
+518   	31481 	LARRANGOZ                                                   	00031	158	 	 	F	 	000
+519   	31481 	LIBERRI                                                     	00031	158	 	 	F	 	000
+520   	31481 	MEOZ                                                        	00031	158	 	 	F	 	000
+521   	31481 	MURILLO DE LONGUIDA                                         	00031	158	 	 	F	 	000
+522   	31438 	ORBAIZ                                                      	00031	158	 	 	F	 	000
+523   	31481 	VILLANUEVA DE LONGUIDA                                      	00031	158	 	 	F	 	000
+524   	31481 	VILLAVETA                                                   	00031	158	 	 	F	 	000
+525   	31481 	ZUASTI (LONGUIDA)                                           	00031	158	 	 	F	 	000
+526   	31440 	LUMBIER                                                     	00031	159	 	 	F	 	000
+527   	31243 	LUQUIN                                                      	00031	160	 	 	F	 	000
+528   	31130 	MAÑERU                                                      	00031	161	 	 	F	 	000
+529   	31227 	MARAÑON                                                     	00031	162	 	 	F	 	000
+530   	31340 	MARCILLA                                                    	00031	163	 	 	F	 	000
+531   	31382 	MELIDA                                                      	00031	164	 	 	F	 	000
+532   	31587 	MENDAVIA                                                    	00031	165	 	 	F	 	000
+533   	31282 	ACEDO                                                       	00031	166	 	 	F	 	000
+534   	31282 	ASARTA                                                      	00031	166	 	 	F	 	000
+535   	31282 	MENDAZA                                                     	00031	166	 	 	F	 	000
+536   	31219 	UBAGO                                                       	00031	166	 	 	F	 	000
+537   	31150 	MENDIGORRIA                                                 	00031	167	 	 	F	 	000
+538   	31241 	ARTEAGA                                                     	00031	168	 	 	F	 	000
+539   	31241 	GANUZA                                                      	00031	168	 	 	F	 	000
+540   	31241 	METAUTEN                                                    	00031	168	 	 	F	 	000
+541   	31241 	OLLOBARREN                                                  	00031	168	 	 	F	 	000
+542   	31241 	OLLOGOYEN                                                   	00031	168	 	 	F	 	000
+543   	31241 	ZUFIA                                                       	00031	168	 	 	F	 	000
+544   	31320 	MILAGRO                                                     	00031	169	 	 	F	 	000
+545   	31219 	MIRAFUENTES                                                 	00031	170	 	 	F	 	000
+546   	31253 	MIRANDA DE ARGA                                             	00031	171	 	 	F	 	000
+547   	31254 	VERGALIJO                                                   	00031	171	 	 	F	 	000
+548   	31471 	MONREAL                                                     	00031	172	 	 	F	 	000
+549   	31522 	MONTEAGUDO                                                  	00031	173	 	 	F	 	000
+550   	31264 	MORENTIN                                                    	00031	174	 	 	F	 	000
+551   	31219 	CABREGA                                                     	00031	175	 	 	F	 	000
+552   	31219 	MUES                                                        	00031	175	 	 	F	 	000
+553   	31521 	MURCHANTE                                                   	00031	176	 	 	F	 	000
+554   	31280 	MURIETA                                                     	00031	177	 	 	F	 	000
+555   	31391 	MURILLO EL CUENDE                                           	00031	178	 	 	F	 	000
+556   	31383 	RADA                                                        	00031	178	 	 	F	 	000
+557   	31315 	TRAIBUENAS                                                  	00031	178	 	 	F	 	000
+558   	31313 	MURILLO EL FRUTO                                            	00031	179	 	 	F	 	000
+559   	31152 	MURUZABAL                                                   	00031	180	 	 	F	 	000
+560   	31454 	ASPURZ                                                      	00031	181	 	 	F	 	000
+561   	31450 	NAVASCUES                                                   	00031	181	 	 	F	 	000
+562   	31451 	USTES                                                       	00031	181	 	 	F	 	000
+563   	31282 	NAZAR                                                       	00031	182	 	 	F	 	000
+564   	31151 	OBANOS                                                      	00031	183	 	 	F	 	000
+565   	31281 	OCO                                                         	00031	184	 	 	F	 	000
+566   	31680 	OCHAGAVIA                                                   	00031	185	OTSAGABIA	 	F	 	000
+567   	31799 	ANOCIBAR                                                    	00031	186	 	 	F	 	000
+568   	31799 	CIAURRIZ                                                    	00031	186	 	 	F	 	000
+569   	31867 	GASCUE                                                      	00031	186	 	 	F	 	000
+570   	31867 	GUELBENZU                                                   	00031	186	 	 	F	 	000
+571   	31799 	GUENDULAIN DE ODIETA                                        	00031	186	 	 	F	 	000
+572   	31799 	LATASA (ODIETA)                                             	00031	186	 	 	F	 	000
+573   	31799 	OSTIZ                                                       	00031	186	 	 	F	 	000
+574   	31799 	RIPA                                                        	00031	186	 	 	F	 	000
+575   	31751 	OITZ                                                        	00031	187	OITZ	 	F	 	000
+576   	31799 	BERAIZ                                                      	00031	188	 	 	F	 	000
+577   	31799 	ENDERIZ                                                     	00031	188	 	 	F	 	000
+578   	31799 	OLAIZ                                                       	00031	188	 	 	F	 	000
+579   	31799 	OLAVE                                                       	00031	188	 	 	F	 	000
+580   	31799 	OSACAIN                                                     	00031	188	 	 	F	 	000
+581   	31799 	ZANDIO                                                      	00031	188	 	 	F	 	000
+582   	31809 	OLAZTI/OLAZAGUTIA                                           	00031	189	OLAZTI	 	F	 	000
+583   	31281 	OLEJUA                                                      	00031	190	 	 	F	 	000
+584   	31390 	OLITE                                                       	00031	191	 	 	F	 	000
+585   	31396 	BARIAIN                                                     	00031	192	 	 	F	 	000
+586   	31396 	ECHAGUE                                                     	00031	192	 	 	F	 	000
+587   	31395 	MENDIVIL                                                    	00031	192	 	 	F	 	000
+588   	31396 	OLORIZ                                                      	00031	192	 	 	F	 	000
+589   	31396 	ORICIN                                                      	00031	192	 	 	F	 	000
+590   	31395 	SOLCHAGA                                                    	00031	192	 	 	F	 	000
+591   	31170 	ARAZURI                                                     	00031	193	 	 	F	 	000
+592   	31173 	ARTAZCOZ                                                    	00031	193	 	 	F	 	000
+593   	31171 	ASIAIN                                                      	00031	193	 	 	F	 	000
+594   	31173 	IBERO                                                       	00031	193	 	 	F	 	000
+595   	31173 	IZCUE                                                       	00031	193	 	 	F	 	000
+596   	31173 	IZU                                                         	00031	193	 	 	F	 	000
+597   	31171 	LIZASOAIN                                                   	00031	193	 	 	F	 	000
+598   	31171 	OLZA                                                        	00031	193	 	 	F	 	000
+599   	31160 	ORKOIEN                                                     	00031	906	ORKOIEN	 	F	 	000
+600   	31171 	ORORBIA                                                     	00031	193	 	 	F	 	000
+601   	31172 	ANOZ*                                                       	00031	194	ANOTZ	 	F	 	000
+602   	31172 	ARTETA                                                      	00031	194	 	 	F	 	000
+603   	31172 	BEASOAIN                                                    	00031	194	 	 	F	 	000
+604   	31172 	EGUILLOR (OLLO)                                             	00031	194	 	 	F	 	000
+605   	31172 	ILZARBE                                                     	00031	194	 	 	F	 	000
+606   	31172 	OLLO                                                        	00031	194	 	 	F	 	000
+607   	31172 	SALDISE                                                     	00031	194	 	 	F	 	000
+608   	31172 	SENOSIAIN                                                   	00031	194	 	 	F	 	000
+609   	31172 	ULZURRUN                                                    	00031	194	 	 	F	 	000
+610   	31670 	ORBAICETA                                                   	00031	195	ORBAITZETA	 	F	 	000
+611   	31671 	ORBARA                                                      	00031	196	 	 	F	 	000
+612   	31395 	ORISOAIN                                                    	00031	197	 	 	F	 	000
+613   	31451 	ORONZ                                                       	00031	198	ORONTZE	 	F	 	000
+614   	31439 	OROZ-BETELU                                                 	00031	199	 	 	F	 	000
+615   	31250 	OTEIZA DE LA SOLANA                                         	00031	200	 	 	F	 	000
+616   	31000 	PAMPLONA                                                    	00031	201	IRUÑA	 	F	 	000
+617   	31350 	PERALTA                                                     	00031	202	 	 	F	 	000
+618   	20214 	SEGURA                                                      	00020	000	 	 	F	 	000
+619   	50686 	PETILLA DE ARAGON                                           	00050	203	 	 	F	 	000
+620   	31219 	PIEDRAMILLERA                                               	00031	204	 	 	F	 	000
+621   	31392 	PITILLAS                                                    	00031	205	 	 	F	 	000
+622   	28046 	MADRID                                                      	00028	000	 	 	F	 	000
+623   	31100 	PUENTE LA REINA                                             	00031	206	GARES	 	F	 	000
+624   	31100 	SEÑORIO DE SARRIA                                           	00031	206	 	 	F	 	000
+625   	31394 	PUEYO                                                       	00031	207	 	 	F	 	000
+626   	31550 	RIBAFORADA                                                  	00031	208	 	 	F	 	000
+627   	31454 	ARBONIES                                                    	00031	209	 	 	F	 	000
+628   	31454 	BIGUEZAL                                                    	00031	209	 	 	F	 	000
+629   	31454 	DOMEÑO                                                      	00031	209	 	 	F	 	000
+630   	31454 	MURILLO BERROYA                                             	00031	209	 	 	F	 	000
+631   	31454 	NAPAL                                                       	00031	209	 	 	F	 	000
+632   	31454 	USUN                                                        	00031	209	 	 	F	 	000
+633   	31415 	RONCAL                                                      	00031	210	 	 	F	 	000
+634   	31650 	RONCESVALLES                                                	00031	211	ORREAGA	 	F	 	000
+635   	31491 	SADA                                                        	00031	212	 	 	F	 	000
+636   	31747 	SALDIAS                                                     	00031	213	 	 	F	 	000
+637   	31175 	SALINAS DE ORO                                              	00031	214	 	 	F	 	000
+638   	31570 	SAN ADRIAN                                                  	00031	215	 	 	F	 	000
+639   	31409 	GABARDERAL                                                  	00031	216	 	 	F	 	000
+640   	31409 	ROCAFORTE                                                   	00031	216	 	 	F	 	000
+641   	31400 	SANGÜESA                                                    	00031	216	 	 	F	 	000
+642   	31495 	SAN MARTIN DE UNX                                           	00031	217	 	 	F	 	000
+643   	31220 	SANSOL                                                      	00031	219	 	 	F	 	000
+644   	31314 	SANTACARA                                                   	00031	220	 	 	F	 	000
+645   	31740 	DONEZTEBE/SANTESTEBAN                                       	00031	221	DOMEZTEBE	 	F	 	000
+646   	31451 	IBILCIETA                                                   	00031	222	 	 	F	 	000
+647   	31451 	SARRIES                                                     	00031	222	 	 	F	 	000
+648   	31589 	SARTAGUDA                                                   	00031	223	 	 	F	 	000
+649   	31293 	SESMA                                                       	00031	224	 	 	F	 	000
+650   	31219 	SORLADA                                                     	00031	225	 	 	F	 	000
+651   	31791 	SUNBILLA                                                    	00031	226	SUNBILLA	 	F	 	000
+652   	31300 	TAFALLA                                                     	00031	227	 	 	F	 	000
+653   	31397 	CAMPANAS                                                    	00031	228	 	 	F	 	000
+654   	31398 	TIEBAS                                                      	00031	228	 	 	F	 	000
+655   	31398 	MURUARTE DE RETA                                            	00031	228	 	 	F	 	000
+656   	31154 	TIRAPU                                                      	00031	229	 	 	F	 	000
+657   	31219 	OTIÑANO                                                     	00031	230	 	 	F	 	000
+658   	31228 	TORRALBA DEL RIO                                            	00031	230	 	 	F	 	000
+659   	31229 	TORRES DEL RIO                                              	00031	231	 	 	F	 	000
+660   	31500 	TUDELA                                                      	00031	232	 	 	F	 	000
+661   	31522 	TULEBRAS                                                    	00031	233	 	 	F	 	000
+662   	31154 	UCAR                                                        	00031	234	 	 	F	 	000
+663   	31496 	UJUE                                                        	00031	235	 	 	F	 	000
+664   	31797 	ALKOTZ                                                      	00031	236	ALKOTZ	 	F	 	000
+665   	31797 	ARRAIZT-ORKIN                                               	00031	236	ARRAIZT-ORKIN	 	F	 	000
+666   	31797 	AUZA                                                        	00031	236	 	 	F	 	000
+667   	31799 	CENOZ*                                                      	00031	236	ZENOTZ	 	F	 	000
+668   	31799 	ELTSO                                                       	00031	236	 	 	F	 	000
+669   	31797 	ELZABURU*                                                   	00031	236	ELTZABURU	 	F	 	000
+670   	31799 	GORRONZ-OLANO                                               	00031	236	 	 	F	 	000
+671   	31799 	GUERENDIAIN DE ULZAMA                                       	00031	236	 	 	F	 	000
+672   	31797 	ILARREGUI                                                   	00031	236	 	 	F	 	000
+673   	31797 	IRAIZOTZ                                                    	00031	236	IRAIZOTZ	 	F	 	000
+674   	31797 	JUARBE                                                      	00031	236	 	 	F	 	000
+675   	31797 	LARRAINTZAR                                                 	00031	236	LARRAINTZAR	 	F	 	000
+676   	31799 	LIZASO                                                      	00031	236	 	 	F	 	000
+677   	31799 	URRIZOLA (ULZAMA)(GALAIN)                                   	00031	236	 	 	F	 	000
+678   	31472 	ALZORRIZ                                                    	00031	237	 	 	F	 	000
+679   	31422 	ARTAIZ                                                      	00031	237	 	 	F	 	000
+680   	31422 	CEMBORAIN                                                   	00031	237	 	 	F	 	000
+681   	31422 	NAJURIETA                                                   	00031	237	 	 	F	 	000
+682   	31422 	UNCITI                                                      	00031	237	 	 	F	 	000
+683   	31422 	ZABALCETA                                                   	00031	237	 	 	F	 	000
+684   	31422 	ZOROQUIAIN                                                  	00031	237	 	 	F	 	000
+685   	31398 	CARRASCAL                                                   	00031	238	 	 	F	 	000
+686   	31396 	UNZUE                                                       	00031	238	 	 	F	 	000
+687   	31712 	DANCHARINEA                                                 	00031	239	 	 	F	 	000
+688   	31711 	URDAX                                                       	00031	239	URDAZUBI	 	F	 	000
+689   	31810 	URDIAIN                                                     	00031	240	 	 	F	 	000
+690   	31448 	ADOAIN                                                      	00031	241	 	 	F	 	000
+691   	31448 	AYECHU                                                      	00031	241	 	 	F	 	000
+692   	31448 	ELCOAZ                                                      	00031	241	 	 	F	 	000
+693   	31448 	EPAROZ                                                      	00031	241	 	 	F	 	000
+694   	31448 	IMIRIZALDU                                                  	00031	241	 	 	F	 	000
+695   	31448 	IRUROZQUI                                                   	00031	241	 	 	F	 	000
+696   	31448 	JACOISTI                                                    	00031	241	 	 	F	 	000
+697   	31448 	ONGOZ                                                       	00031	241	 	 	F	 	000
+698   	31448 	OZCOIDI                                                     	00031	241	 	 	F	 	000
+699   	31448 	SANTA FE                                                    	00031	241	 	 	F	 	000
+700   	31448 	ZABALZA (URRAUL ALTO)                                       	00031	241	 	 	F	 	000
+701   	31449 	NARDUES ALDUNATE                                            	00031	242	 	 	F	 	000
+702   	31480 	ARTIEDA                                                     	00031	242	 	 	F	 	000
+703   	31480 	GREZ                                                        	00031	242	 	 	F	 	000
+705   	31448 	NARDUES-ANDURRA                                             	00031	242	 	 	F	 	000
+706   	31448 	RIPODAS                                                     	00031	242	 	 	F	 	000
+707   	31448 	SAN VICENTE                                                 	00031	242	 	 	F	 	000
+708   	31448 	SANSOAIN (URRAUL BAJO)                                      	00031	242	 	 	F	 	000
+709   	31449 	TABAR                                                       	00031	242	 	 	F	 	000
+710   	31420 	URROZ VILLA                                                 	00031	243	 	 	F	 	000
+711   	31752 	URROTZ                                                      	00031	244	 	 	F	 	000
+712   	31416 	URZAINQUI                                                   	00031	245	URZAINKI	 	F	 	000
+713   	31133 	UTERGA                                                      	00031	246	 	 	F	 	000
+714   	31418 	UZTARROZ                                                    	00031	247	 	 	F	 	000
+715   	31669 	AZOLETA                                                     	00031	248	 	 	F	 	000
+716   	31669 	GAINDOLA                                                    	00031	248	 	 	F	 	000
+717   	31669 	PECOCHETA                                                   	00031	248	 	 	F	 	000
+718   	31660 	VALCARLOS                                                   	00031	248	LUZAIDE	 	F	 	000
+719   	31669 	GAÑECOLETA                                                  	00031	248	 	 	F	 	000
+720   	31514 	VALTIERRA                                                   	00031	249	 	 	F	 	000
+721   	31780 	BERA                                                        	00031	250	BERA	 	F	 	000
+722   	31230 	VIANA                                                       	00031	251	 	 	F	 	000
+723   	31413 	VIDANGOZ                                                    	00031	252	 	 	F	 	000
+724   	31174 	BIDAURRETA                                                  	00031	253	BIDAURRETA	 	F	 	000
+725   	31330 	VILLAFRANCA                                                 	00031	254	 	 	F	 	000
+726   	31242 	VILLAMAYOR DE MONJARDIN                                     	00031	255	 	 	F	 	000
+727   	31671 	VILLANUEVA DE AEZKOA                                        	00031	256	HIRIBERRI AEZKOA	 	F	 	000
+728   	31292 	LEGARDETA                                                   	00031	257	 	 	F	 	000
+729   	31132 	VILLATUERTA                                                 	00031	257	 	 	F	 	000
+730   	31610 	VILLAVA                                                     	00031	258	ATARRABIA	 	F	 	000
+731   	31790 	IGANTZI                                                     	00031	259	IGANTZI	 	F	 	000
+732   	31292 	ALLOZ                                                       	00031	260	ALLOTZ	 	F	 	000
+733   	31292 	ARANDIGOYEN                                                 	00031	260	 	 	F	 	000
+734   	31177 	ARIZALA                                                     	00031	260	 	 	F	 	000
+735   	31177 	ARIZALETA                                                   	00031	260	 	 	F	 	000
+736   	31177 	AZCONA                                                      	00031	260	 	 	F	 	000
+737   	31179 	BEARIN                                                      	00031	260	 	 	F	 	000
+738   	31290 	ERAUL                                                       	00031	260	 	 	F	 	000
+739   	31292 	GROCIN                                                      	00031	260	 	 	F	 	000
+740   	31177 	IBIRICU DE YERRI                                            	00031	260	IBIRIKU DEIERRI	 	F	 	000
+741   	31177 	IRUÑUELA                                                    	00031	260	 	 	F	 	000
+742   	31292 	LACAR                                                       	00031	260	LAKAR	 	F	 	000
+743   	31292 	LORCA                                                       	00031	260	LORKA	 	F	 	000
+744   	31292 	MURILLO DE YERRI                                            	00031	260	MURELU DEIERRI	 	F	 	000
+745   	31292 	MURUGARREN                                                  	00031	260	 	 	F	 	000
+746   	31176 	RIEZU                                                       	00031	260	 	 	F	 	000
+747   	31177 	UGAR                                                        	00031	260	 	 	F	 	000
+748   	31176 	VILLANUEVA (YERRI)                                          	00031	260	HIRIBERRI DEIERRI	 	F	 	000
+749   	31292 	ZABAL                                                       	00031	260	 	 	F	 	000
+750   	31292 	ZURUCUAIN                                                   	00031	260	ZURUKUAIN	 	F	 	000
+751   	31410 	LEYRE                                                       	00031	261	 	 	F	 	000
+752   	31410 	YESA                                                        	00031	261	 	 	F	 	000
+753   	31174 	ARRAIZA                                                     	00031	262	 	 	F	 	000
+754   	31174 	UBANI                                                       	00031	262	 	 	F	 	000
+755   	31174 	ZABALZA                                                     	00031	262	 	 	F	 	000
+756   	31746 	ZUBIETA                                                     	00031	263	 	 	F	 	000
+757   	31710 	ZUGARRAMURDI                                                	00031	264	 	 	F	 	000
+758   	31284 	ZUÑIGA                                                      	00031	265	 	 	F	 	000
+759   	3130  	SANTA POLA                                                  	00003	000	 	 	F	 	000
+760   	31850 	HIRIBERRI-ARAQUIL                                           	00031	265	 	 	F	 	000
+761   	31700 	ELBETE (BAZTAN)                                             	00031	265	 	 	F	 	000
+764   	31195 	AIZOAIN                                                     	00031	902	 	 	F	 	000
+766   	50008 	ZARAGOZA                                                    	00050	000	 	 	F	 	000
+767   	31001 	PAMPLONA                                                    	00031	201	IRUÑA	 	F	 	000
+768   	31014 	PAMPLONA                                                    	00031	201	IRUÑA	 	F	 	000
+769   	31007 	PAMPLONA                                                    	00031	201	IRUÑA	 	F	 	000
+770   	31008 	PAMPLONA                                                    	00031	201	IRUÑA	 	F	 	000
+771   	31015 	PAMPLONA                                                    	00031	201	IRUÑA	 	F	 	000
+773   	31002 	PAMPLONA                                                    	00031	201	IRUÑA	 	F	 	000
+774   	31006 	PAMPLONA                                                    	00031	201	IRUÑA	 	F	 	000
+775   	31004 	PAMPLONA                                                    	00031	201	IRUÑA	 	F	 	000
+776   	31012 	PAMPLONA                                                    	00031	201	IRUÑA	 	F	 	000
+777   	31009 	PAMPLONA                                                    	00031	201	IRUÑA	 	F	 	000
+778   	31011 	PAMPLONA                                                    	00031	201	IRUÑA	 	F	 	000
+780   	31003 	PAMPLONA                                                    	00031	201	IRUÑA	 	F	 	000
+781   	31012 	PAMPLONA                                                    	00031	201	IRUÑA	 	F	 	000
+782   	31005 	PAMPLONA                                                    	00031	201	IRUÑA	 	F	 	000
+785   	31010 	PAMPLONA                                                    	00031	201	IRUÑA	 	F	 	000
+787   	31016 	PAMPLONA                                                    	00031	201	IRUÑA	 	F	 	000
+789   	28033 	MADRID                                                      	00028	000	 	 	F	 	000
+790   	28013 	MADRID                                                      	00028	000	 	 	F	 	000
+791   	28002 	MADRID                                                      	00028	000	 	 	F	 	000
+792   	28037 	MADRID                                                      	00028	000	 	 	F	 	000
+794   	26540 	ALFARO                                                      	00026	000	 	 	F	 	000
+796   	1008  	VITORIA-GASTEIZ                                             	00001	000	GAZTEIZ	 	F	 	000
+797   	2005  	ALBACETE                                                    	00002	000	 	 	F	 	000
+798   	3005  	ALICANTE                                                    	00003	000	 	 	F	 	000
+799   	4001  	ALMERIA                                                     	00004	000	 	 	F	 	000
+800   	33007 	OVIEDO                                                      	00033	000	 	 	F	 	000
+801   	5001  	AVILA                                                       	00005	000	 	 	F	 	000
+802   	6004  	BADAJOZ                                                     	00006	000	 	 	F	 	000
+803   	8021  	BARCELONA                                                   	00008	000	 	 	F	 	000
+804   	9005  	BURGOS                                                      	00009	000	 	 	F	 	000
+805   	10004 	CACERES                                                     	00010	000	 	 	F	 	000
+806   	11009 	CADIZ                                                       	00011	000	 	 	F	 	000
+807   	39001 	SANTANDER                                                   	00039	000	 	 	F	 	000
+808   	12001 	CASTELLON DE LA PLANA                                       	00012	000	 	 	F	 	000
+809   	13001 	CIUDAD REAL                                                 	00013	000	 	 	F	 	000
+810   	14001 	CORDOBA                                                     	00014	000	 	 	F	 	000
+811   	16004 	CUENCA                                                      	00016	000	 	 	F	 	000
+812   	17005 	GIRONA                                                      	00017	000	 	 	F	 	000
+813   	18009 	GRANADA                                                     	00018	000	 	 	F	 	000
+814   	19003 	GUADALAJARA                                                 	00019	000	 	 	F	 	000
+816   	21003 	HUELVA                                                      	00021	000	 	 	F	 	000
+817   	22003 	HUESCA                                                      	00022	000	 	 	F	 	000
+818   	7800  	IBIZA                                                       	00007	000	 	 	F	 	000
+819   	23008 	JAEN                                                        	00023	000	 	 	F	 	000
+820   	15001 	A CORUÑA                                                    	00015	000	 	 	F	 	000
+821   	26004 	LOGROÑO                                                     	00026	000	 	 	F	 	000
+822   	35004 	LAS PALMAS                                                  	00035	000	 	 	F	 	000
+824   	25006 	LLEIDA                                                      	00025	000	 	 	F	 	000
+825   	27002 	LUGO                                                        	00027	000	 	 	F	 	000
+826   	29016 	MALAGA                                                      	00029	000	 	 	F	 	000
+827   	7014  	PALMA DE MALLORCA                                           	00059	000	 	 	F	 	000
+828   	7701  	MAHÓN                                                       	00007	000	 	 	F	 	000
+829   	30005 	MURCIA                                                      	00030	000	 	 	F	 	000
+830   	32003 	OURENSE                                                     	00032	000	 	 	F	 	000
+831   	34001 	PALENCIA                                                    	00034	000	 	 	F	 	000
+832   	36001 	VIGO                                                        	00036	000	 	 	F	 	000
+833   	37003 	SALAMANCA                                                   	00037	000	 	 	F	 	000
+834   	40002 	SEGOVIA                                                     	00040	000	 	 	F	 	000
+835   	41013 	SEVILLA                                                     	00041	000	 	 	F	 	000
+836   	42001 	SORIA                                                       	00042	000	 	 	F	 	000
+837   	43005 	TARRAGONA                                                   	00043	000	 	 	F	 	000
+838   	38001 	SANTA CRUZ DE TENERIFE                                      	00038	000	 	 	F	 	000
+839   	43500 	TORTOSA                                                     	00043	000	 	 	F	 	000
+840   	44001 	TERUEL                                                      	00044	000	 	 	F	 	000
+841   	45001 	TOLEDO                                                      	00045	000	 	 	F	 	000
+842   	46004 	VALENCIA                                                    	00046	000	 	 	F	 	000
+844   	48009 	BILBAO                                                      	00048	000	 	 	F	 	000
+845   	49004 	ZAMORA                                                      	00049	000	 	 	F	 	000
+846   	50001 	ZARAGOZA                                                    	00050	000	 	 	F	 	000
+847   	20750 	ZUMAIA                                                      	00020	000	 	 	F	 	000
+848   	20008 	SAN SEBASTIAN                                               	00020	000	DONOSTI	 	F	 	000
+849   	28006 	MADRID                                                      	00028	000	 	 	F	 	000
+850   	20500 	MONDRAGON                                                   	00020	000	ARRASATE	 	F	 	000
+851   	1013  	VITORIA-GASTEIZ                                             	00001	000	GAZTEIZ	 	F	 	000
+852   	20200 	BEASAIN                                                     	00020	000	 	 	F	 	000
+854   	20009 	SAN SEBASTIAN                                               	00020	000	DONOSTI	 	F	 	000
+856   	20013 	SAN SEBASTIAN                                               	00020	000	DONOSTI	 	F	 	000
+857   	20017 	SAN SEBASTIAN                                               	00020	000	DONOSTI	 	F	 	000
+858   	48990 	BERANGO                                                     	00048	000	 	 	F	 	000
+860   	20800 	ZARAUTZ                                                     	00020	000	ZARAUTZ	 	F	 	000
+861   	28016 	MADRID                                                      	00028	000	 	 	F	 	000
+863   	28001 	MADRID                                                      	00028	000	 	 	F	 	000
+864   	50550 	MALLEN                                                      	00050	000	 	 	F	 	000
+865   	20130 	URNIETA                                                     	00020	000	 	 	F	 	000
+868   	20100 	LEZO                                                        	00020	000	 	 	F	 	000
+869   	28020 	MADRID                                                      	00028	000	 	 	F	 	000
+870   	32150 	VILANOVA                                                    	00032	000	 	 	F	 	000
+871   	20003 	SAN SEBASTIAN                                               	00020	000	DONOSTI	 	F	 	000
+872   	26006 	LOGROÑO                                                     	00026	000	 	 	F	 	000
+876   	20007 	SAN SEBASTIAN                                               	00020	000	DONOSTI	 	F	 	000
+877   	26144 	CORERA                                                      	00026	000	 	 	F	 	000
+878   	20240 	ORDIZIA                                                     	00020	000	 	 	F	 	000
+880   	48014 	BILBAO                                                      	00048	000	 	 	F	 	000
+50293 	3501  	BENIDORM                                                    	00003	000	 	 	F	 	000
+881   	28034 	MADRID                                                      	00028	000	 	 	F	 	000
+883   	20140 	ANDOAIN                                                     	00020	000	 	 	F	 	000
+884   	8022  	BARCELONA                                                   	00008	000	 	 	F	 	000
+885   	28029 	MADRID                                                      	00028	000	 	 	F	 	000
+886   	28015 	MADRID                                                      	00028	000	 	 	F	 	000
+887   	26002 	LOGROÑO                                                     	00026	000	 	 	F	 	000
+888   	20005 	SAN SEBASTIAN                                               	00020	000	DONOSTI	 	F	 	000
+889   	20150 	VILLABONA                                                   	00020	000	 	 	F	 	000
+890   	1004  	VITORIA-GASTEIZ                                             	00001	000	GAZTEIZ	 	F	 	000
+891   	6001  	BADAJOZ                                                     	00006	000	 	 	F	 	000
+892   	48910 	SESTAO                                                      	00048	000	 	 	F	 	000
+893   	28028 	MADRID                                                      	00028	000	 	 	F	 	000
+894   	20004 	SAN SEBASTIAN                                               	00020	000	DONOSTI	 	F	 	000
+896   	20600 	EIBAR                                                       	00020	000	 	 	F	 	000
+898   	20006 	SAN SEBASTIAN                                               	00020	000	DONOSTI	 	F	 	000
+899   	48008 	BILBAO                                                      	00048	000	 	 	F	 	000
+900   	8030  	BARCELONA                                                   	00008	000	 	 	F	 	000
+901   	28012 	MADRID                                                      	00028	000	 	 	F	 	000
+902   	20300 	IRUN                                                        	00020	000	 	 	F	 	000
+903   	48013 	BILBAO                                                      	00048	000	 	 	F	 	000
+904   	48860 	ZALLA                                                       	00048	000	 	 	F	 	000
+905   	26500 	CALAHORRA                                                   	00026	000	 	 	F	 	000
+906   	1010  	VITORIA-GASTEIZ                                             	00001	000	GAZTEIZ	 	F	 	000
+907   	3122  	ALICANTE                                                    	00003	000	 	 	F	 	000
+908   	31389 	CARRASCAL                                                   	00031	000	 	 	F	 	000
+909   	39007 	SANTANDER                                                   	00039	000	 	 	F	 	000
+910   	48903 	BARAKALDO                                                   	00048	000	BARAKALDO	 	F	 	000
+911   	20015 	SAN SEBASTIAN                                               	00020	000	DONOSTI	 	F	 	000
+912   	20170 	USURBIL                                                     	00020	000	 	 	F	 	000
+915   	26580 	ARNEDO                                                      	00026	000	 	 	F	 	000
+916   	20001 	SAN SEBASTIAN                                               	00020	000	DONOSTI	 	F	 	000
+917   	48390 	BARROETA                                                    	00048	000	 	 	F	 	000
+918   	50007 	ZARAGOZA                                                    	00050	000	 	 	F	 	000
+919   	26001 	LOGROÑO                                                     	00026	000	 	 	F	 	000
+920   	43850 	CAMBRILS                                                    	00043	000	 	 	F	 	000
+921   	1003  	VITORIA-GASTEIZ                                             	00001	000	GAZTEIZ	 	F	 	000
+922   	1012  	VITORIA-GASTEIZ                                             	00001	000	GAZTEIZ	 	F	 	000
+923   	48010 	BILBAO                                                      	00048	000	 	 	F	 	000
+924   	20550 	IZURIETA                                                    	00020	000	 	 	F	 	000
+926   	46003 	VALENCIA                                                    	00046	000	 	 	F	 	000
+928   	48011 	BILBAO                                                      	00048	000	 	 	F	 	000
+930   	50005 	ZARAGOZA                                                    	00050	000	 	 	F	 	000
+931   	48230 	ELORRIO                                                     	00048	000	 	 	F	 	000
+932   	8840  	VILADECANS                                                  	00008	000	 	 	F	 	000
+933   	26003 	LOGROÑO                                                     	00026	000	 	 	F	 	000
+934   	48012 	BILBAO                                                      	00048	000	 	 	F	 	000
+935   	20160 	LASARTE ORIA                                                	00020	000	 	 	F	 	000
+936   	75007 	                                                            	00075	000	 	 	F	 	000
+937   	28014 	MADRID                                                      	00028	000	 	 	F	 	000
+941   	50002 	ZARAGOZA                                                    	00050	000	 	 	F	 	000
+942   	50003 	ZARAGOZA                                                    	00050	000	 	 	F	 	000
+944   	28008 	MADRID                                                      	00028	000	 	 	F	 	000
+945   	50630 	ALAGON                                                      	00050	000	 	 	F	 	000
+946   	50006 	ZARAGOZA                                                    	00050	000	 	 	F	 	000
+947   	1002  	VITORIA-GASTEIZ                                             	00001	000	GAZTEIZ	 	F	 	000
+948   	50620 	CASETAS                                                     	00050	000	 	 	F	 	000
+950   	9200  	MIRANDA DE EBRO                                             	00009	000	 	 	F	 	000
+952   	28036 	MADRID                                                      	00028	000	 	 	F	 	000
+953   	20493 	ELDUA                                                       	00020	000	 	 	F	 	000
+955   	31486 	EGÜES                                                       	00031	086	 	 	F	 	000
+956   	31080 	PAMPLONA                                                    	00031	000	IRUÑA	 	F	 	000
+957   	48610 	ELORTZA                                                     	00048	000	 	 	F	 	000
+958   	8023  	BARCELONA                                                   	00008	000	 	 	F	 	000
+961   	20010 	SAN SEBASTIAN                                               	00020	000	DONOSTI	 	F	 	000
+965   	48930 	GUECHO                                                      	00048	000	GETXO	 	F	 	000
+969   	50830 	VILLANUEVA DE GALLEGO                                       	00050	000	 	 	F	 	000
+970   	8950  	ESPLUGES DE LLOBREGAT                                       	00008	000	 	 	F	 	000
+972   	26005 	LOGROÑO                                                     	00026	000	 	 	F	 	000
+973   	28043 	MADRID                                                      	00028	000	 	 	F	 	000
+974   	50014 	ZARAGOZA                                                    	00050	000	 	 	F	 	000
+975   	48001 	BILBAO                                                      	00048	000	 	 	F	 	000
+976   	28039 	MADRID                                                      	00028	000	 	 	F	 	000
+977   	48260 	ERMUA                                                       	00048	000	 	 	F	 	000
+978   	20400 	TOLOSA                                                      	00020	000	 	 	F	 	000
+979   	1006  	VITORIA-GASTEIZ                                             	00001	000	GAZTEIZ	 	F	 	000
+980   	8003  	BARCELONA                                                   	00008	000	 	 	F	 	000
+981   	1200  	SALVATIERRA                                                 	00001	000	 	 	F	 	000
+982   	20808 	GUETARIA                                                    	00020	000	GETARIA	 	F	 	000
+983   	3107  	ALICANTE                                                    	00003	000	 	 	F	 	000
+985   	48005 	BILBAO                                                      	00048	000	 	 	F	 	000
+988   	8013  	BARCELONA                                                   	00008	000	 	 	F	 	000
+989   	28660 	BOADILLA DEL MONTE                                          	00028	000	 	 	F	 	000
+993   	28040 	MADRID                                                      	00028	000	 	 	F	 	000
+994   	28700 	SAN SEBASTIAN DE LOS REYES                                  	00028	000	 	 	F	 	000
+995   	48700 	ONDARROA                                                    	00048	000	 	 	F	 	000
+996   	8338  	PREMIA DEL DALT                                             	00008	000	 	 	F	 	000
+997   	20230 	LEGAZPI                                                     	00020	000	 	 	F	 	000
+998   	1005  	VITORIA-GASTEIZ                                             	00001	000	GAZTEIZ	 	F	 	000
+1000  	28035 	MADRID                                                      	00028	000	 	 	F	 	000
+1003  	50511 	MALON                                                       	00050	000	 	 	F	 	000
+1004  	1007  	VITORIA-GASTEIZ                                             	00001	000	GAZTEIZ	 	F	 	000
+1005  	48990 	GUECHO                                                      	00048	000	GETXO	 	F	 	000
+1006  	50004 	ZARAGOZA                                                    	00050	000	 	 	F	 	000
+1007  	48950 	ERANDIO                                                     	00048	000	 	 	F	 	000
+1009  	20180 	OIARTZUN                                                    	00020	000	 	 	F	 	000
+1010  	22002 	HUESCA                                                      	00022	000	 	 	F	 	000
+1011  	50689 	UNDUES DE LERDA                                             	00050	000	 	 	F	 	000
+1012  	20280 	FUENTERRABIA                                                	00020	000	HONDARRIBIA	 	F	 	000
+1013  	48006 	BILBAO                                                      	00048	000	 	 	F	 	000
+1014  	20129 	ARANO                                                       	00020	000	 	 	F	 	000
+1015  	8027  	BARCELONA                                                   	00008	000	 	 	F	 	000
+1016  	1028  	VITORIA-GASTEIZ                                             	00001	000	GAZTEIZ	 	F	 	000
+1017  	9006  	BURGOS                                                      	00009	000	 	 	F	 	000
+1018  	28003 	MADRID                                                      	00028	000	 	 	F	 	000
+1021  	28038 	MADRID                                                      	00028	000	 	 	F	 	000
+1022  	50009 	ZARAGOZA                                                    	00050	000	 	 	F	 	000
+1025  	48007 	BILBAO                                                      	00048	000	 	 	F	 	000
+1028  	8025  	BARCELONA                                                   	00008	000	 	 	F	 	000
+1031  	20830 	MUTRIKU                                                     	00020	000	 	 	F	 	000
+1032  	26146 	EL REDAL                                                    	00026	000	 	 	F	 	000
+1033  	39700 	CASTRO URDIALES                                             	00039	000	 	 	F	 	000
+1034  	28023 	MADRID                                                      	00028	000	 	 	F	 	000
+1035  	48015 	BILBAO                                                      	00048	000	 	 	F	 	000
+1036  	20570 	BERGARA                                                     	00020	000	 	 	F	 	000
+1037  	28940 	FUENLABRADA                                                 	00028	000	 	 	F	 	000
+1038  	8031  	BARCELONA                                                   	00008	000	 	 	F	 	000
+1039  	1194  	ARETXABALETA                                                	00001	000	 	 	F	 	000
+1040  	43006 	TARRAGONA                                                   	00043	000	 	 	F	 	000
+1041  	48220 	ABADIANO                                                    	00048	000	 	 	F	 	000
+1042  	20740 	ZESTOA                                                      	00020	000	 	 	F	 	000
+1043  	28004 	MADRID                                                      	00028	000	 	 	F	 	000
+1044  	8228  	TERRASSA                                                    	00008	000	 	 	F	 	000
+1045  	20215 	ZEGAMA                                                      	00020	000	 	 	F	 	000
+1047  	75010 	                                                            	00075	000	 	 	F	 	000
+1049  	1320  	OYON                                                        	00001	000	 	 	F	 	000
+1051  	8026  	BARCELONA                                                   	00008	000	 	 	F	 	000
+1052  	8190  	SANT CUGAT DEL VALLES                                       	00008	000	 	 	F	 	000
+1053  	48143 	AREATZA                                                     	00048	000	 	 	F	 	000
+1055  	20110 	PASAJES DE SAN PEDRO                                        	00020	000	 	 	F	 	000
+1058  	3100  	ALICANTE                                                    	00003	000	 	 	F	 	000
+1060  	48370 	BERMEO                                                      	00048	000	 	 	F	 	000
+1061  	2011  	ALBACETE                                                    	00002	000	 	 	F	 	000
+1063  	20490 	LIZARTZA                                                    	00020	000	 	 	F	 	000
+1064  	21005 	HUELVA                                                      	00021	000	 	 	F	 	000
+1065  	50012 	ZARAGOZA                                                    	00050	000	 	 	F	 	000
+1066  	28009 	MADRID                                                      	00028	000	 	 	F	 	000
+1067  	3102  	ALICANTE                                                    	00003	000	 	 	F	 	000
+1068  	48940 	LEIOA                                                       	00048	000	 	 	F	 	000
+1070  	1011  	VITORIA-GASTEIZ                                             	00001	000	GAZTEIZ	 	F	 	000
+1071  	26550 	RINCON DE SOTO                                              	00026	000	 	 	F	 	000
+1073  	10001 	CACERES                                                     	00010	000	 	 	F	 	000
+1074  	8291  	RIPOLLET                                                    	00008	000	 	 	F	 	000
+1075  	8303  	MATARO                                                      	00008	000	 	 	F	 	000
+1076  	31198 	BIURRUN                                                     	00031	000	 	 	F	 	000
+1078  	8015  	BARCELONA                                                   	00008	000	 	 	F	 	000
+1080  	41006 	SEVILLA                                                     	00041	000	 	 	F	 	000
+1082  	28010 	MADRID                                                      	00028	000	 	 	F	 	000
+1083  	37001 	SALAMANCA                                                   	00037	000	 	 	F	 	000
+1084  	15142 	PEDREIRA                                                    	00015	000	 	 	F	 	000
+1085  	8009  	BARCELONA                                                   	00008	000	 	 	F	 	000
+1086  	1009  	VITORIA-GASTEIZ                                             	00001	000	GAZTEIZ	 	F	 	000
+1088  	20749 	ETXABE                                                      	00020	000	 	 	F	 	000
+1090  	50010 	ZARAGOZA                                                    	00050	000	 	 	F	 	000
+1092  	48970 	BASAURI                                                     	00048	000	 	 	F	 	000
+1094  	8028  	BARCELONA                                                   	00008	000	 	 	F	 	000
+1097  	21730 	ALMONTE                                                     	00021	000	 	 	F	 	000
+1099  	48960 	GALDAKAO                                                    	00048	000	 	 	F	 	000
+1102  	28934 	MOSTOLES                                                    	00028	000	 	 	F	 	000
+1103  	26510 	PRADEJON                                                    	00026	000	 	 	F	 	000
+1105  	8227  	TERRASSA                                                    	00008	000	 	 	F	 	000
+1107  	50015 	ZARAGOZA                                                    	00050	000	 	 	F	 	000
+1108  	22700 	JACA                                                        	00022	000	 	 	F	 	000
+1110  	43201 	TARROGONA                                                   	00043	000	 	 	F	 	000
+1111  	33001 	OVIEDO                                                      	00033	000	 	 	F	 	000
+1112  	28007 	MADRID                                                      	00028	000	 	 	F	 	000
+1113  	28027 	MADRID                                                      	00028	000	 	 	F	 	000
+1114  	3007  	ALICANTE                                                    	00003	000	 	 	F	 	000
+1115  	3001  	ALICANTE                                                    	00003	000	 	 	F	 	000
+1118  	21001 	HUELVA                                                      	00021	000	 	 	F	 	000
+1119  	20250 	LEGORRETA                                                   	00020	000	 	 	F	 	000
+1120  	20120 	HERNANI                                                     	00020	000	 	 	F	 	000
+1125  	26559 	ALDEANUEVA DE EBRO                                          	00026	000	 	 	F	 	000
+1126  	20018 	SAN SEBASTIAN                                               	00020	000	DONOSTI	 	F	 	000
+1132  	13500 	PUERTO LLANO                                                	00013	000	 	 	F	 	000
+1135  	30290 	CARTAGENA                                                   	00030	000	 	 	F	 	000
+1137  	46780 	OLIVA                                                       	00046	000	 	 	F	 	000
+1142  	15142 	ARTEIXO                                                     	00015	000	 	 	F	 	000
+1143  	20115 	ASTIGARRAGA                                                 	00020	000	 	 	F	 	000
+1144  	28850 	TORREJON DE ARDOZ                                           	00028	000	 	 	F	 	000
+1146  	31715 	MAYA                                                        	00031	000	 	 	F	 	000
+1147  	20014 	SAN SEBASTIAN                                               	00020	000	DONOSTI	 	F	 	000
+1149  	8010  	BARCELONA                                                   	00008	000	 	 	F	 	000
+1150  	20700 	ZUMARRAGA                                                   	00020	000	 	 	F	 	000
+1156  	1212  	SANTA CRUZ DE CAMPEZO                                       	00001	000	 	 	F	 	000
+1157  	31176 	VIDAURRE GUESALAZ                                           	00031	000	 	 	F	 	000
+1162  	48340 	AMOREBIETA                                                  	00048	000	 	 	F	 	000
+1163  	20012 	SAN SEBASTIAN                                               	00020	000	DONOSTI	 	F	 	000
+1167  	24005 	LEON                                                        	00024	000	 	 	F	 	000
+1180  	16003 	CUENCA                                                      	00016	000	 	 	F	 	000
+1184  	17002 	GIRONA                                                      	00017	000	 	 	F	 	000
+1190  	26527 	RINCON DE OLIVEDO                                           	00026	000	 	 	F	 	000
+1191  	20700 	URRETXU                                                     	00020	000	 	 	F	 	000
+1193  	31753 	LABAIEN                                                     	00031	137	 	 	F	 	000
+1195  	17300 	BLANES                                                      	00017	000	 	 	F	 	000
+1197  	48160 	DERIO                                                       	00048	000	 	 	F	 	000
+1198  	50190 	GARRAPINILLOS                                               	00050	000	 	 	F	 	000
+1201  	50500 	TARAZONA                                                    	00050	000	 	 	F	 	000
+1203  	48250 	ZALDIBAR                                                    	00048	000	 	 	F	 	000
+1205  	48980 	SANTURCE                                                    	00048	000	 	 	F	 	000
+1206  	50561 	BISEMBRE                                                    	00050	000	 	 	F	 	000
+1208  	20011 	SAN SEBASTIAN                                               	00020	000	DONOSTI	 	F	 	000
+1212  	8020  	BARCELONA                                                   	00008	000	 	 	F	 	000
+1213  	25197 	LLEIDA                                                      	00025	000	 	 	F	 	000
+1215  	46010 	VALENCIA                                                    	00046	000	 	 	F	 	000
+1216  	3500  	BENIDORM                                                    	00003	000	 	 	F	 	000
+1221  	20577 	ANTZUOLA                                                    	00020	000	 	 	F	 	000
+1222  	20270 	ANOETA                                                      	00020	000	 	 	F	 	000
+1230  	1001  	VITORIA-GASTEIZ                                             	00001	000	GAZTEIZ	 	F	 	000
+1231  	20210 	LAZKAO                                                      	00020	000	 	 	F	 	000
+1234  	8029  	BARCELONA                                                   	00008	000	 	 	F	 	000
+1244  	26525 	IGEA                                                        	00026	000	 	 	F	 	000
+1245  	20002 	SAN SEBASTIAN                                               	00020	000	DONOSTI	 	F	 	000
+1246  	50680 	SOS DEL REY CATOLICO                                        	00050	000	 	 	F	 	000
+1248  	46111 	ROCAFORT                                                    	00046	000	 	 	F	 	000
+1251  	50540 	BORJA                                                       	00050	000	 	 	F	 	000
+1254  	7012  	PALMA DE MALLORCA                                           	00059	000	 	 	F	 	000
+1255  	48004 	BILBAO                                                      	00048	000	 	 	F	 	000
+1257  	8922  	SANTA COLOMA DE GRAMAVET                                    	00008	000	 	 	F	 	000
+1262  	8014  	BARCELONA                                                   	00008	000	 	 	F	 	000
+1267  	33409 	AVILES                                                      	00033	000	 	 	F	 	000
+1269  	48830 	SODUPE                                                      	00048	000	 	 	F	 	000
+1273  	28022 	MADRID                                                      	00028	000	 	 	F	 	000
+1278  	9001  	BURGOS                                                      	00009	000	 	 	F	 	000
+1279  	8940  	CORNELLA DE LLOBREGAT                                       	00008	000	 	 	F	 	000
+1280  	3570  	VILLAJOYOSA                                                 	00003	000	 	 	F	 	000
+1282  	0     	PARIS                                                       	0000 	000	 	 	F	 	000
+1283  	39300 	TORRELAVEGA                                                 	00039	000	 	 	F	 	000
+1287  	48002 	BILBAO                                                      	00048	000	 	 	F	 	000
+1290  	6400  	DON BENITO                                                  	00006	000	 	 	F	 	000
+1291  	3690  	SAN VECIENTE DE RASPEIG                                     	00003	000	 	 	F	 	000
+1296  	28011 	MADRID                                                      	00028	000	 	 	F	 	000
+1298  	28017 	MADRID                                                      	00028	000	 	 	F	 	000
+1299  	48480 	ARRIGORRIAGA                                                	00048	000	 	 	F	 	000
+1300  	28803 	ALCALA DE HENARES                                           	00028	000	 	 	F	 	000
+1301  	8251  	SANTPEDOR                                                   	00008	000	 	 	F	 	000
+1304  	46009 	VALENCIA                                                    	00046	000	 	 	F	 	000
+1305  	13009 	MARSELLA                                                    	00013	000	 	 	F	 	000
+1306  	42110 	OLVEGA                                                      	00042	000	 	 	F	 	000
+1308  	3202  	AGRES                                                       	00003	000	 	 	F	 	000
+1310  	14520 	CORDOBA                                                     	00014	000	 	 	F	 	000
+1311  	42000 	SORIA                                                       	00042	000	 	 	F	 	000
+1312  	20100 	RENTERIA                                                    	00020	000	 	 	F	 	000
+1313  	50153 	VILLANUEVA DE HUERVA                                        	00050	000	 	 	F	 	000
+1317  	35500 	LAS PALMAS                                                  	00035	000	 	 	F	 	000
+1319  	28230 	LAS ROZAS                                                   	00028	000	 	 	F	 	000
+1320  	22005 	HUESCA                                                      	00022	000	 	 	F	 	000
+1323  	28041 	MADRID                                                      	00028	000	 	 	F	 	000
+1325  	8191  	RUBI                                                        	00008	000	 	 	F	 	000
+1326  	50800 	ZUERA                                                       	00050	000	 	 	F	 	000
+1330  	20820 	DEBA                                                        	00020	000	 	 	F	 	000
+1331  	20492 	BERASTEGI                                                   	00020	000	 	 	F	 	000
+1332  	28080 	MADRID                                                      	00028	000	 	 	F	 	000
+1334  	50250 	ILLUECA                                                     	00050	000	 	 	F	 	000
+1335  	6002  	BAJAJOZ                                                     	00006	000	 	 	F	 	000
+1336  	8017  	BARCELONA                                                   	00008	000	 	 	F	 	000
+1338  	46005 	VALENCIA                                                    	00046	000	 	 	F	 	000
+1340  	6700  	BADAJOZ                                                     	00006	000	 	 	F	 	000
+1342  	75015 	PARIS                                                       	00075	000	 	 	F	 	000
+1344  	39011 	SANTANDER                                                   	00039	000	 	 	F	 	000
+1346  	28044 	MADRID                                                      	00028	000	 	 	F	 	000
+1348  	33430 	CANDAS                                                      	00033	000	 	 	F	 	000
+1349  	0     	BLOOMFIELD HILLS -USA                                       	0000 	000	 	 	F	 	000
+1350  	38296 	LA LAGUNA                                                   	00038	000	 	 	F	 	000
+1355  	50660 	TAUSTE                                                      	00050	000	 	 	F	 	000
+1356  	48300 	GUERNICA                                                    	00048	000	 	 	F	 	000
+1357  	50297 	BARBOLES                                                    	00050	000	 	 	F	 	000
+1359  	28019 	MADRID                                                      	00028	000	 	 	F	 	000
+1360  	3205  	DENIA                                                       	00003	000	 	 	F	 	000
+1361  	26512 	TUDELILLA                                                   	00026	000	 	 	F	 	000
+1362  	28018 	MADRID                                                      	00028	000	 	 	F	 	000
+1365  	48080 	ALGORTA                                                     	00048	000	 	 	F	 	000
+1367  	48200 	DURANGO                                                     	00048	000	 	 	F	 	000
+1368  	26250 	SANTO DOMINGO DE LA CALZADA                                 	00026	000	 	 	F	 	000
+1369  	15310 	TEIXEIRO                                                    	00015	000	 	 	F	 	000
+1371  	39200 	REINOSA                                                     	00039	000	 	 	F	 	000
+1374  	35212 	LA GARITA - TELDE                                           	00035	000	 	 	F	 	000
+1376  	79102 	FRIBURGO (ALEMANIA)                                         	0000 	000	 	 	F	 	000
+1377  	33012 	OVIEDO                                                      	00033	000	 	 	F	 	000
+1378  	28031 	MADRID                                                      	00028	000	 	 	F	 	000
+1380  	28691 	VILLANUEVA DE LA CAÑADA                                     	00028	000	 	 	F	 	000
+1381  	28005 	MADRID                                                      	00028	000	 	 	F	 	000
+1385  	28024 	MADRID                                                      	00028	000	 	 	F	 	000
+1387  	42200 	ALMAZAN                                                     	00042	000	 	 	F	 	000
+1388  	26375 	ENTRENA                                                     	00026	000	 	 	F	 	000
+1389  	1140  	ECHAVARRI VIÑA                                              	00001	000	 	 	F	 	000
+1391  	42300 	BURGO DE OSMA                                               	00042	000	 	 	F	 	000
+1392  	46022 	VALENCIA                                                    	00046	000	 	 	F	 	000
+1393  	9193  	CASTRILLO DEL VAL                                           	00009	000	 	 	F	 	000
+1395  	28030 	MADRID                                                      	00028	000	 	 	F	 	000
+1396  	42191 	LOS RABANOS                                                 	00042	000	 	 	F	 	000
+1397  	8290  	CERDAYOLA DEL VALLES                                        	00008	000	 	 	F	 	000
+1398  	24009 	LEON                                                        	00024	000	 	 	F	 	000
+1399  	28026 	MADRID                                                      	00028	000	 	 	F	 	000
+1400  	39006 	SANTANDER                                                   	00039	000	 	 	F	 	000
+1402  	17003 	GERONA                                                      	00017	000	 	 	F	 	000
+1405  	26338 	SAN VICENTE S.                                              	00026	000	 	 	F	 	000
+1406  	28042 	MADRID                                                      	00028	000	 	 	F	 	000
+1407  	36212 	VIGO                                                        	00036	000	 	 	F	 	000
+1408  	26300 	NAJERA                                                      	00026	000	 	 	F	 	000
+1409  	20730 	AZPEITIA                                                    	00020	000	AZPEITIA	 	F	 	000
+1410  	44200 	CALAMOCHA                                                   	00044	000	 	 	F	 	000
+1411  	28250 	TORRELODONES                                                	00028	000	 	 	F	 	000
+1413  	20810 	ORIO                                                        	00020	000	 	 	F	 	000
+1415  	8037  	BARCELONA                                                   	00008	000	 	 	F	 	000
+1416  	20400 	IBARRA                                                      	00020	000	 	 	F	 	000
+1418  	20491 	BELAUNTZA                                                   	00020	000	 	 	F	 	000
+1419  	26560 	AUTOL                                                       	00026	000	 	 	F	 	000
+1420  	26122 	PRADILLO                                                    	00026	000	 	 	F	 	000
+1421  	26007 	LOGROÑO                                                     	00026	000	 	 	F	 	000
+1423  	37002 	SALAMANCA                                                   	00037	000	 	 	F	 	000
+1429  	25230 	MOLLERUSSA                                                  	00025	000	 	 	F	 	000
+1430  	28340 	VALDEMORO                                                   	00028	000	 	 	F	 	000
+1434  	39316 	TANOS                                                       	00039	000	 	 	F	 	000
+1436  	6011  	BADAJOZ                                                     	00006	000	 	 	F	 	000
+1437  	29680 	MARBELLA                                                    	00029	000	 	 	F	 	000
+1439  	28914 	LEGANES                                                     	00028	000	 	 	F	 	000
+1441  	8392  	SANT ANDREU DE LLAVANERS                                    	00008	000	 	 	F	 	000
+1442  	28229 	VILLANUEBA DEL PARDILLO                                     	00028	000	 	 	F	 	000
+1444  	48100 	MUNGIA                                                      	00048	000	 	 	F	 	000
+1445  	28025 	MADRID                                                      	00028	000	 	 	F	 	000
+1446  	28921 	ALCORCON                                                    	00028	000	 	 	F	 	000
+1447  	8912  	BADALONA                                                    	00008	000	 	 	F	 	000
+1454  	42108 	AÑAVIEJA                                                    	00042	000	 	 	F	 	000
+1456  	39719 	ENTRAMBASAGUAS                                              	00039	000	 	 	F	 	000
+1459  	5000  	AVILA                                                       	00005	000	 	 	F	 	000
+1461  	9556  	CIGUENZA                                                    	00009	000	 	 	F	 	000
+1462  	20160 	VILLAFRANCA DE ORIA                                         	00020	000	 	 	F	 	000
+1464  	1195  	SUBIJANA                                                    	00001	000	 	 	F	 	000
+1465  	44450 	PUEBLA DE VALVERDE                                          	00044	000	 	 	F	 	000
+1466  	22001 	HUESCA                                                      	00022	000	 	 	F	 	000
+1468  	6000  	BADAJOZ                                                     	00006	000	 	 	F	 	000
+1470  	47520 	CASTRUÑO                                                    	00047	000	 	 	F	 	000
+1475  	9216  	ALBAINA                                                     	00009	000	 	 	F	 	000
+1478  	0     	CARACAS                                                     	0000 	000	 	 	F	 	000
+1484  	26313 	URUÑUELA                                                    	00026	000	 	 	F	 	000
+1485  	34258 	PERAL DE ARLANZA                                            	00034	000	 	 	F	 	000
+1486  	41001 	SEVILLA                                                     	00041	000	 	 	F	 	000
+1487  	37337 	CORDOVILLA                                                  	00037	000	 	 	F	 	000
+1488  	20000 	ARECHAVALETA                                                	00020	000	 	 	F	 	000
+1491  	26587 	MURO DE AGUAS                                               	00026	000	 	 	F	 	000
+1493  	49800 	TORO                                                        	00049	000	 	 	F	 	000
+1494  	37500 	CIUDAD RODRIGO                                              	00037	000	 	 	F	 	000
+1497  	0     	URUGUAY                                                     	0000 	000	 	 	F	 	000
+1498  	8000  	BARCELONA                                                   	00008	000	 	 	F	 	000
+1499  	10500 	VALENCIA DE ALCANTARA                                       	00010	000	 	 	F	 	000
+1500  	33640 	UJO                                                         	00033	000	 	 	F	 	000
+1501  	17600 	FIGUERAS                                                    	00017	000	 	 	F	 	000
+1502  	4800  	ALBOX                                                       	00004	000	 	 	F	 	000
+1504  	23000 	BENATAE                                                     	00023	000	 	 	F	 	000
+1505  	26121 	CASTAÑARES                                                  	00026	000	 	 	F	 	000
+1506  	23000 	CAZORLA                                                     	00023	000	 	 	F	 	000
+1507  	15315 	EL FERROL                                                   	00015	000	 	 	F	 	000
+1514  	24172 	SAHELICES DEL RIO                                           	00024	000	 	 	F	 	000
+1515  	11400 	JEREZ DE LA FRONTERA                                        	00011	000	 	 	F	 	000
+1516  	39592 	REQUEJO                                                     	00039	000	 	 	F	 	000
+1517  	0     	BAYONA                                                      	0000 	000	 	 	F	 	000
+1518  	9540  	TRESPADERNE                                                 	00009	000	 	 	F	 	000
+1525  	29001 	MALAGA                                                      	00029	000	 	 	F	 	000
+1526  	33580 	LIERES SIERO                                                	00033	000	 	 	F	 	000
+1527  	8200  	SABADELL                                                    	00008	000	 	 	F	 	000
+1529  	22436 	BENAVENTE                                                   	00022	000	 	 	F	 	000
+1533  	8200  	SABADELL                                                    	00008	000	 	 	F	 	000
+1535  	0     	GAZA                                                        	0000 	000	 	 	F	 	000
+1537  	26211 	TIRGO                                                       	00026	000	 	 	F	 	000
+1540  	0     	VILLA MASUIKA                                               	0000 	000	 	 	F	 	000
+1548  	0     	RIGUEIRO FOZADO                                             	0000 	000	 	 	F	 	000
+1549  	25001 	LLEIDA                                                      	00025	000	 	 	F	 	000
+1554  	41610 	PARADAS                                                     	00041	000	 	 	F	 	000
+1556  	24001 	LEON                                                        	00024	000	 	 	F	 	000
+1559  	13350 	MORAL DE CALATRAVA                                          	00013	000	 	 	F	 	000
+1565  	31010 	BARAÑAIN                                                    	00031	901	 	 	F	 	000
+1566  	0     	BONN                                                        	0000 	000	 	 	F	 	000
+1568  	18001 	GRANADA                                                     	00018	000	 	 	F	 	000
+1571  	0     	CORRAL DE ALMAGUER                                          	0000 	000	 	 	F	 	000
+1572  	0     	VILLAR TORRE                                                	0000 	000	 	 	F	 	000
+1576  	46250 	L'ALCUDIA                                                   	00046	000	 	 	F	 	000
+1593  	22728 	ANSO                                                        	00022	000	 	 	F	 	000
+1597  	31698 	SAN MIGUEL DE ARALAR                                        	00031	000	 	 	F	 	000
+1602  	31454 	CASTILLONUEVO                                               	00031	071	 	 	F	 	000
+1609  	31194 	EZCABARTE                                                   	00031	101	 	 	F	 	000
+1641  	45097 	ERRO                                                        	00045	000	 	 	F	 	000
+1658  	39008 	SANTANDER                                                   	00039	000	 	 	F	 	000
+1662  	8007  	BARCELONA                                                   	00008	000	 	 	F	 	000
+1663  	15009 	A CORUÑA                                                    	00015	000	 	 	F	 	000
+1664  	22002 	HUESCA                                                      	00022	000	 	 	F	 	000
+1665  	17001 	GIRONA                                                      	00017	000	 	 	F	 	000
+1666  	24540 	CACABELOS                                                   	00024	000	 	 	F	 	000
+1667  	28280 	EL ESCORIAL                                                 	00028	000	 	 	F	 	000
+1668  	36202 	VIGO                                                        	00036	000	 	 	F	 	000
+1669  	28760 	TRES CANTOS                                                 	00028	000	 	 	F	 	000
+1675  	7500  	MANACOR                                                     	00007	000	 	 	F	 	000
+1676  	26200 	HARO                                                        	00026	000	 	 	F	 	000
+1678  	28045 	MADRID                                                      	00028	000	 	 	F	 	000
+1679  	28290 	LAS MATAS                                                   	00028	000	 	 	F	 	000
+1680  	45860 	LILLO                                                       	00045	000	 	 	F	 	000
+1681  	33560 	RIBADESELLA                                                 	00033	000	 	 	F	 	000
+1684  	43420 	SANTA COLOMA DE QUERALT                                     	00043	000	 	 	F	 	000
+1685  	50013 	ZARAGOZA                                                    	00050	000	 	 	F	 	000
+1687  	26143 	MURILLO DE RIO LEZA                                         	00026	000	 	 	F	 	000
+1689  	50017 	ZARAGOZA                                                    	00050	000	 	 	F	 	000
+1692  	8001  	BARCELONA                                                   	00008	000	 	 	F	 	000
+1694  	9007  	BURGOS                                                      	00009	000	 	 	F	 	000
+1696  	48510 	VALLE DE TRAPAGA                                            	00048	000	 	 	F	 	000
+1698  	20590 	SORALUCE                                                    	00020	000	 	 	F	 	000
+1700  	4720  	AGUADULCE                                                   	00004	000	 	 	F	 	000
+1701  	42003 	SORIA                                                       	00042	000	 	 	F	 	000
+1706  	50171 	LA PUEBLA DE ALFIDEN                                        	00050	000	 	 	F	 	000
+1708  	9240  	BRIVIESCA                                                   	00009	000	 	 	F	 	000
+1710  	45191 	NAMBROCA                                                    	00045	000	 	 	F	 	000
+1711  	1080  	VITORIA-GASTEIZ                                             	00001	000	GAZTEIZ	 	F	 	000
+1712  	39480 	GUARNIZO                                                    	00039	000	 	 	F	 	000
+1713  	39600 	REVILLA DE CAMARGO                                          	00039	000	 	 	F	 	000
+1714  	20016 	SAN SEBASTIAN                                               	00020	000	DONOSTI	 	F	 	000
+1715  	3016  	ALICANTE                                                    	00003	000	 	 	F	 	000
+1716  	28223 	POZUELO DE ALARCON                                          	00028	000	 	 	F	 	000
+1717  	47004 	VALLADOLID                                                  	00047	000	 	 	F	 	000
+1718  	33202 	GIJON                                                       	00033	000	 	 	F	 	000
+1719  	22512 	SAN ESTEBAN DE LITERA                                       	00022	000	 	 	F	 	000
+1722  	8036  	BARCELONA                                                   	00008	000	 	 	F	 	000
+1723  	42292 	LOS LLAMOSOS                                                	00042	000	 	 	F	 	000
+1724  	20213 	IDIAZABAL                                                   	00020	000	 	 	F	 	000
+1725  	42100 	AGREDA                                                      	00042	000	 	 	F	 	000
+1729  	50011 	ZARAGOZA                                                    	00050	000	 	 	F	 	000
+1730  	8012  	BARCELONA                                                   	00008	000	 	 	F	 	000
+1732  	28108 	ALCOBENDAS                                                  	00028	000	 	 	F	 	000
+1734  	1208  	LARREA                                                      	00001	000	 	 	F	 	000
+1735  	4700  	ALVARAENS                                                   	00053	000	 	 	F	 	000
+1737  	1193  	ERENTXUN                                                    	00001	000	 	 	F	 	000
+1800  	44233 	ODON                                                        	00044	000	 	 	F	 	000
+1900  	3313  	ORIHUELA                                                    	00003	000	 	 	F	 	000
+7410  	7410  	PUERTO ALCUDIA - MALLORCA                                   	00007	000	 	 	F	 	000
+8002  	8002  	BARCELONA                                                   	00008	000	 	 	F	 	000
+8032  	8032  	BARCELONA                                                   	00008	000	 	 	F	 	000
+8034  	8034  	BARCELONA                                                   	00008	000	 	 	F	 	000
+8820  	8820  	EL PRAT DE LLOBREGAT                                        	00008	000	 	 	F	 	000
+8870  	8870  	SITGES                                                      	00008	000	 	 	F	 	000
+9009  	8008  	BARCELONA                                                   	00008	000	 	 	F	 	000
+9010  	1470  	AMURRIO                                                     	00001	000	 	 	F	 	000
+50295 	48500 	GALLARTA                                                    	00048	000	 	 	F	 	000
+9995  	3690  	CASTELLET                                                   	00003	000	 	 	F	 	000
+17019 	20870 	ELGOIBAR                                                    	00020	000	 	 	F	 	000
+17411 	47013 	VALLADOLID                                                  	00047	000	 	 	F	 	000
+17464 	17464 	SANT JORDI DESVALLS                                         	00017	000	 	 	F	 	000
+17466 	50420 	CADRETE                                                     	00050	000	 	 	F	 	000
+17467 	31799 	OLAIBAR                                                     	00031	188	 	 	F	 	000
+17469 	22600 	SABIÑANIGO                                                  	00022	000	 	 	F	 	000
+17472 	26570 	QUEL                                                        	00026	000	 	 	F	 	000
+17473 	20560 	OÑATE                                                       	00020	000	OÑATI	 	F	 	000
+17474 	1220  	ARMIÑON                                                     	00001	000	 	 	F	 	000
+17475 	20709 	EZKIO-ITSASO                                                	00020	000	 	 	F	 	000
+17476 	22640 	FORMIGAL                                                    	00022	000	 	 	F	 	000
+17477 	50180 	UTEBO                                                       	00050	000	 	 	F	 	000
+17478 	50820 	SAN JUAN MOZARRIFAR                                         	00050	000	 	 	F	 	000
+17479 	9146  	CORTIGUERA                                                  	00009	000	 	 	F	 	000
+17480 	42004 	SORIA                                                       	00042	000	 	 	F	 	000
+17481 	8005  	BARCELONA                                                   	00008	000	 	 	F	 	000
+17482 	33700 	LUARCA                                                      	00033	000	 	 	F	 	000
+17483 	46980 	PATERNA                                                     	00046	000	 	 	F	 	000
+17485 	3150  	DOLORES                                                     	00003	000	 	 	F	 	000
+17487 	3660  	NOVEL DE ALICANTE                                           	00003	000	 	 	F	 	000
+17488 	26320 	BAÑOS DE RIO TOBIA                                          	00026	000	 	 	F	 	000
+17489 	49009 	ZAMORA                                                      	00049	000	 	 	F	 	000
+20159 	20159 	ASTEASU                                                     	00020	000	 	 	F	 	000
+20800 	25616 	MONTGAI                                                     	00025	000	 	 	F	 	000
+26140 	26140 	LARDERO                                                     	00026	000	 	 	F	 	000
+26260 	28260 	GALAPAGAR                                                   	00028	000	 	 	F	 	000
+29719 	29719 	BENAMOCARRA                                                 	00029	000	 	 	F	 	000
+39002 	39002 	SANTANDER                                                   	00039	000	 	 	F	 	000
+46007 	46007 	VALENCIA                                                    	00046	000	 	 	F	 	000
+48240 	48240 	BERRIZ                                                      	00048	000	 	 	F	 	000
+48269 	48269 	MALLABIA                                                    	00048	000	 	 	F	 	000
+48270 	94261 	FRESNES/CEDEX                                               	00075	000	 	 	F	 	000
+48280 	48280 	LEKEITIO                                                    	00048	000	 	 	F	 	000
+50150 	50150 	HERRERA DE LOS NAVARRO                                      	00050	000	 	 	F	 	000
+50151 	8551  	TONA                                                        	00008	000	 	 	F	 	000
+50152 	20493 	BERROBI                                                     	00020	000	 	 	F	 	000
+50154 	41005 	SEVILLA                                                     	00041	000	 	 	F	 	000
+50155 	11640 	BORNOS                                                      	00011	000	 	 	F	 	000
+50156 	50679 	LAYANA                                                      	00050	000	 	 	F	 	000
+50157 	8902  	HOSPITALET DE LLOBREGAT                                     	00008	000	 	 	F	 	000
+50158 	26520 	VALVERDE                                                    	00026	000	 	 	F	 	000
+50159 	32901 	SAN CIBRAO DAS VIÑAS                                        	00032	000	 	 	F	 	000
+50161 	40003 	SEGOVIA                                                     	00040	000	 	 	F	 	000
+50162 	50690 	PEDROLA                                                     	00050	000	 	 	F	 	000
+50164 	22640 	SALLENT DE GALLEGO                                          	00022	000	 	 	F	 	000
+50165 	46540 	PLAYA DEL PUIG                                              	00046	000	 	 	F	 	000
+50166 	46015 	VALENCIA                                                    	00046	000	 	 	F	 	000
+50167 	0     	AARAU (SUIZA)                                               	0000 	000	 	 	F	 	000
+50172 	9002  	BURGOS                                                      	00009	000	 	 	F	 	000
+50173 	22870 	VILLANUA                                                    	00022	000	 	 	F	 	000
+50174 	0     	GRENADE-ADOUR                                               	0000 	000	 	 	F	 	000
+50177 	7609  	LLUCMAJOR                                                   	00007	000	 	 	F	 	000
+50178 	7004  	PALMA DE MALLORCA                                           	00059	000	 	 	F	 	000
+50179 	50530 	NOVILLAS                                                    	00050	000	 	 	F	 	000
+50180 	8018  	BARCELONA                                                   	00008	000	 	 	F	 	000
+50181 	8011  	BARCELONA                                                   	00008	000	 	 	F	 	000
+50183 	39609 	CAMARGO                                                     	00039	000	 	 	F	 	000
+50184 	50684 	SALVATIERRA DE ESCA                                         	00050	000	 	 	F	 	000
+50185 	1110  	SANTA CRUZ DE CAMPEZO                                       	00001	000	 	 	F	 	000
+50186 	1208  	SAN MILLAN                                                  	00001	000	 	 	F	 	000
+50187 	8185  	LLIÇÀ DE VALL                                               	00008	000	 	 	F	 	000
+50188 	39620 	SARON                                                       	00039	000	 	 	F	 	000
+50190 	1440  	IZARRA                                                      	00001	000	 	 	F	 	000
+50192 	28991 	TORREJON DE LA CALZADA                                      	00028	000	 	 	F	 	000
+50193 	28980 	PARLA                                                       	00028	000	 	 	F	 	000
+50194 	20540 	ESKORIATZA                                                  	00020	000	 	 	F	 	000
+50195 	64700 	HENDAYA                                                     	00075	000	 	 	F	 	000
+50196 	8903  	HOSPITALET DE LLOBREGAT                                     	00008	000	 	 	F	 	000
+50198 	15004 	A CORUÑA                                                    	00015	000	 	 	F	 	000
+50200 	31013 	NUEVO ARTICA-BERRIOPLANO                                    	00031	902	 	 	F	 	000
+50201 	8860  	CASTELLDEFELS                                               	00008	000	 	 	F	 	000
+50202 	14012 	CORDOBA                                                     	00014	000	 	 	F	 	000
+50203 	28529 	RIVAS                                                       	00028	000	 	 	F	 	000
+50204 	8243  	MANRESA                                                     	00008	000	 	 	F	 	000
+50205 	8295  	SANT SALVADOR DE GUARDIOLA                                  	00008	000	 	 	F	 	000
+50206 	39470 	RENEDO DE PIELAGOS                                          	00039	000	 	 	F	 	000
+50208 	8203  	SABADELL                                                    	00008	000	 	 	F	 	000
+50209 	22006 	HUESCA                                                      	00022	000	 	 	F	 	000
+50210 	20493 	ELDUAIN                                                     	00020	000	 	 	F	 	000
+50211 	35300 	SANTA BRIGIDA LAS PALMAS                                    	00035	000	 	 	F	 	000
+50212 	20211 	ATAUN                                                       	00020	000	 	 	F	 	000
+50216 	9320  	COGOLOS                                                     	00009	000	 	 	F	 	000
+50218 	18100 	ARMILLA                                                     	00018	000	 	 	F	 	000
+50219 	18004 	GRANADA                                                     	00018	000	 	 	F	 	000
+50221 	46006 	VALENCIA                                                    	00046	000	 	 	F	 	000
+50222 	46002 	VALENCIA                                                    	00046	000	 	 	F	 	000
+50223 	48500 	ABANTO-CIERVANA                                             	00048	000	 	 	F	 	000
+50224 	28722 	EL VELLON                                                   	00028	000	 	 	F	 	000
+50225 	43007 	TARRAGONA                                                   	00043	000	 	 	F	 	000
+50226 	31700 	ZOZAIA                                                      	00031	050	 	 	F	 	000
+50227 	50016 	ZARAGOZA                                                    	00050	000	 	 	F	 	000
+50228 	50059 	MONTAÑANA                                                   	00050	000	 	 	F	 	000
+50230 	20271 	IRURA                                                       	00020	000	IRURA	 	F	 	000
+50231 	19171 	CABANILLAS DEL CAMPO                                        	00019	000	 	 	F	 	000
+50233 	7015  	PALMA DE MALLORCA                                           	00059	000	 	 	F	 	000
+50234 	48620 	PLENTZIA                                                    	00048	000	 	 	F	 	000
+50235 	8110  	MONTCADA I REIXAC                                           	00008	000	 	 	F	 	000
+50236 	46008 	VALENCIA                                                    	00046	000	 	 	F	 	000
+50238 	26141 	ALBERITE                                                    	00026	000	 	 	F	 	000
+50240 	5500  	CIUDAD DE MENDOZA - MENDOZA (ARGENTINA)                     	0000 	000	 	 	F	 	000
+50241 	39710 	SOLARES                                                     	00039	000	 	 	F	 	000
+50242 	42330 	SAN ESTEBAN DE GORMAZ                                       	00042	000	 	 	F	 	000
+50243 	26360 	FUENMAYOR                                                   	00026	000	 	 	F	 	000
+50244 	50109 	ALPARTIR                                                    	00050	000	 	 	F	 	000
+50245 	22004 	HUESCA                                                      	00022	000	 	 	F	 	000
+50246 	26100 	TORRECILLA EN CAMEROS                                       	00026	000	 	 	F	 	000
+50247 	64700 	BEHOBIE                                                     	00075	000	 	 	F	 	000
+50249 	43750 	FLIX                                                        	00043	000	 	 	F	 	000
+50252 	1510  	MIÑANO                                                      	00001	000	 	 	F	 	000
+50253 	36205 	VIGO                                                        	00036	000	 	 	F	 	000
+50254 	64600 	ANGLET                                                      	00075	000	 	 	F	 	000
+50255 	28050 	MADRID                                                      	00028	000	 	 	F	 	000
+50257 	12560 	BENICASIM                                                   	00012	000	 	 	F	 	000
+50258 	1400  	LLODIO                                                      	00001	000	 	 	F	 	000
+50259 	15300 	BETANZOS                                                    	00015	000	 	 	F	 	000
+50261 	48180 	LOIU                                                        	00048	000	 	 	F	 	000
+50262 	50300 	CALATAYUD                                                   	00050	000	 	 	F	 	000
+50263 	36540 	VILLABOA                                                    	00036	000	 	 	F	 	000
+50264 	15179 	ESPIÑO                                                      	00015	000	 	 	F	 	000
+50265 	15189 	CULLEREDO                                                   	00015	000	 	 	F	 	000
+50267 	48600 	SOPELANA                                                    	00048	000	 	 	F	 	000
+50268 	20809 	AIA                                                         	00020	000	 	 	F	 	000
+50269 	6800  	MERIDA                                                      	00006	000	 	 	F	 	000
+50270 	28210 	VALDEMORILLO                                                	00028	000	 	 	F	 	000
+50272 	26370 	NAVARRETE                                                   	00026	000	 	 	F	 	000
+50273 	26315 	MANJARRES LA RIOJA                                          	00026	000	 	 	F	 	000
+50275 	8004  	BARCELONA                                                   	00008	000	 	 	F	 	000
+50276 	39478 	ORUÑA DE PIELAGOS                                           	00039	000	 	 	F	 	000
+50277 	39525 	ALFOZ DE LLOREDO                                            	00039	000	 	 	F	 	000
+50279 	8016  	BARCELONA                                                   	00008	000	 	 	F	 	000
+50281 	47012 	VALLADOLID                                                  	00047	000	 	 	F	 	000
+50282 	31797 	LOZEN                                                       	00031	236	 	 	F	 	000
+50283 	8201  	SABADELL                                                    	00008	000	 	 	F	 	000
+50284 	29006 	MÁLAGA                                                      	00029	000	 	 	F	 	000
+50285 	31174 	ECHARRI                                                     	00031	083	 	 	F	 	000
+50288 	48220 	AMADIÑO                                                     	00048	000	 	 	F	 	000
+50289 	46340 	REQUENA                                                     	00046	000	 	 	F	 	000
+50290 	25241 	GOLMES                                                      	00025	000	 	 	F	 	000
+50291 	31013 	ARTICA                                                      	00031	902	 	 	F	 	000
+90000 	20720 	AZKOITIA                                                    	00020	000	 	 	F	 	000
+90001 	0     	CHANTELOUP-LES VIGNES                                       	00081	000	 	 	F	 	000
+90003 	9004  	BURGOS                                                      	00009	000	 	 	F	 	000
+90008 	0     	ROMA                                                        	0000 	000	 	 	F	 	000
+90009 	20150 	ADUNA                                                       	00020	000	 	 	F	 	000
+90010 	28750 	SAN AGUSTIN DE GUADALIX                                     	00028	000	 	 	F	 	000
+90103 	46018 	VALENCIA                                                    	00046	000	 	 	F	 	000
+99002 	1650  	BERRSEL - BELGICA                                           	0000 	000	 	 	F	 	000
+99089 	48289 	MENDEXA                                                     	00048	000	 	 	F	 	000
+99877 	28021 	MADRID                                                      	00028	000	 	 	F	 	000
+99878 	28100 	MADRID                                                      	00028	000	 	 	F	 	000
+99880 	1170  	LEGUTIANO                                                   	00001	000	 	 	F	 	000
+99901 	99517 	ANCHORAGE - ALASKA (EE.UU.)                                 	0000 	000	 	 	F	 	000
+99902 	1650  	BEERSEL (BÉGICA)                                            	0000 	000	 	 	F	 	000
+99967 	8750  	MOLINS DE REI                                               	00008	000	 	 	F	 	000
+99968 	67450 	MUNDOLSHEIM (FRANCIA)                                       	0000 	000	 	 	F	 	000
+99969 	8181  	SENTMENAT                                                   	00008	000	 	 	F	 	000
+99970 	29680 	ESTEPONA                                                    	00029	000	 	 	F	 	000
+99972 	1120  	SABANDO                                                     	00001	000	 	 	F	 	000
+99974 	25007 	LLEIDA                                                      	00025	000	 	 	F	 	000
+99975 	26110 	NESTARES LA RIOJA                                           	00026	000	 	 	F	 	000
+99976 	46100 	BURJASSOT                                                   	00046	000	 	 	F	 	000
+99978 	12592 	CHILCHES                                                    	00012	000	 	 	F	 	000
+99979 	50770 	QUINTO DE EBRO                                              	00050	000	 	 	F	 	000
+99980 	48902 	SAN VICENTE DE BARAKALDO                                    	00048	000	 	 	F	 	000
+99981 	11007 	CADIZ                                                       	00011	000	 	 	F	 	000
+99982 	49017 	ZAMORA                                                      	00049	000	 	 	F	 	000
+99983 	49014 	ZAMORA                                                      	00049	000	 	 	F	 	000
+99985 	20550 	ARETXABALETA                                                	00020	000	 	 	F	 	000
+99986 	1160  	ARAMAIO                                                     	00001	000	 	 	F	 	000
+99987 	22423 	ESTADILLA                                                   	00022	000	 	 	F	 	000
+99988 	0     	ASCAIN                                                      	00075	000	 	 	F	 	000
+99990 	33003 	OVIEDO                                                      	00033	000	 	 	F	 	000
+99991 	28071 	MADRID                                                      	00028	000	 	 	F	 	000
+99992 	12550 	ALZAMORA                                                    	00012	000	 	 	F	 	000
+99993 	64700 	HENDAYE                                                     	00075	000	 	 	F	 	000
+99996 	10300 	NAVALMORAL DE LA MATA                                       	00010	000	 	 	F	 	000
+99997 	10910 	MALPARTIDA DE CACERES                                       	00010	000	 	 	F	 	000
+50292 	8041  	BARCELONA                                                   	00008	000	 	 	F	 	000
+50296 	20304 	IRUN                                                        	00020	000	 	 	F	 	000
+50297 	28770 	COLMENAR VIEJO                                              	00028	000	 	 	F	 	000
+50298 	20140 	SAN SEBASTIAN                                               	00020	000	DONOSTIA	 	F	 	000
+50299 	1206  	OZAETA                                                      	00001	000	 	 	F	 	000
+50300 	26290 	BRIÑAS                                                      	00026	000	 	 	F	 	000
+50301 	47014 	VALLADOLID                                                  	00047	000	 	 	F	 	000
+50302 	7829  	CALA DE BOU                                                 	00007	000	 	 	F	 	000
+50304 	31868 	VALLE DE ARAKIL                                             	00031	025	VALLE DE ARAKIL	 	F	 	000
+50305 	3202  	ELCHE                                                       	00003	000	 	 	F	 	000
+50306 	3206  	ELCHE                                                       	00003	000	 	 	F	 	000
+50307 	3003  	ALICANTE                                                    	00003	000	 	 	F	 	000
+50308 	33011 	OVIEDO                                                      	00033	000	 	 	F	 	000
+50309 	1260  	EGINO                                                       	00001	000	 	 	F	 	000
+50310 	8035  	BARCELONA                                                   	00008	000	 	 	F	 	000
+50311 	7620  	PALMA DE MALLORCA                                           	00059	000	 	 	F	 	000
+50312 	48392 	MUXICA                                                      	00048	000	 	 	F	 	000
+50313 	20302 	IRUN                                                        	00020	000	 	 	F	 	000
+50314 	48930 	LAS ARENAS                                                  	00048	000	 	 	F	 	000
+50315 	48991 	ALGORTA                                                     	00048	000	 	 	F	 	000
+50316 	24524 	LA PORTELA DE VALCARCE                                      	00024	000	 	 	F	 	000
+50317 	48500 	ABANTO-CIERBENA                                             	00048	000	 	 	F	 	000
+50318 	43877 	SANT JAUME D´ENVEJA                                         	00043	000	 	 	F	 	000
+50319 	48220 	ABADIÑO-ZELAIETA                                            	00048	000	 	 	F	 	000
+50320 	48990 	KARRANTZA                                                   	00048	000	KARRANTZA	 	F	 	000
+50321 	39600 	MALIAÑO-CAMARGO                                             	00039	000	 	 	F	 	000
+50322 	50640 	LUCENI                                                      	00050	000	 	 	F	 	000
+50323 	26589 	PREJANO                                                     	00026	000	 	 	F	 	000
+50324 	28006 	MADRID                                                      	00028	000	 	 	F	 	000
+50325 	28350 	CIEMPOZUELOS                                                	00028	000	 	 	F	 	000
+50326 	20159 	ZIZURKIL                                                    	00020	000	 	 	F	 	000
+50327 	28224 	POZUELO DE ALCORCON                                         	00028	000	 	 	F	 	000
+1     	31280 	ABAIGAR                                                     	00031	001	 	 	F	 	000
+36    	31281 	ANCIN                                                       	00031	014	 	 	F	 	000
+117   	31867 	AROSTEGUI                                                   	00031	040	 	 	F	 	000
+189   	31490 	CASEDA                                                      	00031	069	 	 	F	 	000
+823   	24004 	LEON                                                        	00024	000	 	 	F	 	000
+843   	47001 	VALLADOLID                                                  	00047	000	 	 	F	 	000
+879   	8160  	MONTMELO                                                    	00008	000	 	 	F	 	000
+925   	48003 	BILBAO                                                      	00048	000	 	 	F	 	000
+949   	25003 	LLEIDA                                                      	00025	000	 	 	F	 	000
+986   	8006  	BARCELONA                                                   	00008	000	 	 	F	 	000
+1002  	28220 	MAJADAHONDA                                                 	00028	000	 	 	F	 	000
+1048  	48920 	PORTUGALETE                                                 	00048	000	 	 	F	 	000
+1072  	7400  	ALCUDIA                                                     	00007	000	 	 	F	 	000
+1104  	2060  	ALBACETE                                                    	00002	000	 	 	F	 	000
+1136  	50600 	EJEA DE LOS CABALLEROS                                      	00050	000	 	 	F	 	000
+1196  	46013 	VALENCIA                                                    	00046	000	 	 	F	 	000
+1247  	39770 	LAREDO                                                      	00039	000	 	 	F	 	000
+1307  	42002 	SORIA                                                       	00042	000	 	 	F	 	000
+1341  	8222  	TERRASSA                                                    	00008	000	 	 	F	 	000
+1375  	40297 	SANCHONUÑO                                                  	00040	000	 	 	F	 	000
+1404  	20212 	OLABERRIA                                                   	00020	000	 	 	F	 	000
+1428  	24010 	LEON                                                        	00024	000	 	 	F	 	000
+1476  	11500 	PUERTO SANTA MARIA                                          	00011	000	 	 	F	 	000
+1510  	26142 	VILLAMEDIANA DE IREGUA                                      	00026	000	 	 	F	 	000
+1564  	33727 	CASTRILLON                                                  	00033	000	 	 	F	 	000
+1670  	20204 	LEGAZPIA                                                    	00020	000	 	 	F	 	000
+1705  	28070 	MADRID                                                      	00028	000	 	 	F	 	000
+1733  	50018 	ZARAGOZA                                                    	00050	000	 	 	F	 	000
+17468 	94024 	LOS ALTOS                                                   	00052	000	 	 	F	 	000
+28110 	28110 	ALGUETE                                                     	00028	000	 	 	F	 	000
+50163 	27400 	MONFORTE DE LEMOS                                           	00027	000	 	 	F	 	000
+50191 	28420 	LA NAVATA                                                   	00028	000	 	 	F	 	000
+50217 	1308  	LANCIEGO                                                    	00001	000	 	 	F	 	000
+50239 	20269 	ABALTZISKETA                                                	00020	000	 	 	F	 	000
+50266 	15008 	A CORUÑA                                                    	00015	000	 	 	F	 	000
+50287 	1015  	VITORIA-GASTEIZ                                             	00001	000	GAZTEIZ	 	F	 	000
+99973 	8082  	BARCELONA                                                   	00008	000	 	 	F	 	000
+99999 	0     	B.P.76 1002 TUNIS (TUNEZ)                                   	0000 	000	 	 	F	 	000
+50303 	20303 	IRUN                                                        	00020	000	 	 	F	 	000
+47314 	47314 	MANZANILLO                                                  	00047	000					000
+09132 	09132 	VILLANUEVA DE ARGAÑO                                        	00009	000					000
+8019  	8019  	BARCELONA                                                   	00008	000					000
+08197 	08197 	VALLDOREIX                                                  	00008	000					000
+90141 	90141 	PALERMO                                                     	00076	000					000
+40170 	40170 	SEGOVIA                                                     	00040	000					000
+00022 	22740 	EMBUN                                                       	00022	000					000
+00023 	30120 	EL PALMAR                                                   	00030	000					000
+43002 	43002 	TARRAGONA                                                   	00043	000					000
+46900 	46900 	TORRENT                                                     	00046	000					000
+06300 	06300 	ZAFRA                                                       	00006	000					000
+31192 	31192 	RIPAGAINA                                                   	00031	101					000
+28450 	28450 	COLLADO MEDIANO                                             	00028	000					000
+261400	26140 	LOGROÑO                                                     	00026	000					000
+13640 	13640 	HERENCIA                                                    	00013	000					000
+08190 	08190 	SAN CUGAT DEL VALLÉS                                        	00008	000					000
+31013 	31013 	PAMPLONA                                                    	00031	201					000
+33400 	33400 	SALINAS (CASTRILLON)                                        	00033	000					000
+26559 	26559 	ALDEANUEVA DE EBRO                                          	00026	000					000
+01139 	01139 	AMETZAGA (ZUYA)                                             	00001	000					000
+06720 	06720 	VALDIVIA                                                    	00006	000					000
+01200 	01200 	AGURAIN                                                     	00001	000					000
+06140 	06140 	TALAVERA LA REAL                                            	00006	000					000
+28760 	28760 	TRES CANTOS                                                 	00028	000					000
+45600 	45600 	TALAVERA DE LA REINA                                        	00045	000					000
+28500 	28500 	ARGANDA DEL REY                                             	00028	000					000
+31797 	31797 	VENTAS DE ARRAIZ                                            	00031	236					000
+08520 	08520 	LES FRANQUESES DEL VALLÈS                                   	00008	000					000
+08233 	08233 	VACARISSES                                                  	00008	000					000
+06400 	06400 	DON BENITO                                                  	00006	000					000
+46220 	46220 	PICASSENT                                                   	00046	000					000
+25008 	25008 	LLEIDA                                                      	00025	000					000
+06380 	06380 	JEREZ DE LOS CABALLEROS                                     	00006	000					000
+22240 	22240 	TARDIENTA                                                   	00022	000					000
+20305 	20305 	IRUN                                                        	00020	000					000
+33300 	33300 	BORDEAUX                                                    	00075	000					000
+64500 	64500 	ZIBURU (CIBOURE)                                            	00075	000					000
+48150 	48150 	SONDIKA                                                     	00048	000					000
+36600 	36600 	VILLAGARCIA DE AROSA                                        	00036	000					000
+01307 	01307 	VILLABUENA DE ALAVA                                         	00001	000					000
+48930 	48930 	GETXO                                                       	00048	000					000
+09400 	09400 	ARANDA DE DUERO                                             	00009	000					000
+48213 	48213 	IZURZA                                                      	00048	000					000
+02001 	02001 	ALBACETE                                                    	00002	000					000
+26530 	26530 	AGUILAR DEL RIO ALHAMA                                      	00026	000					000
+50197 	50196 	LA MUELA                                                    	00050	000					000
+01160 	01160 	IBARRA-ARAMAIONA                                            	00001	000					000
+36415 	36415 	MOS                                                         	00036	000					000
+28430 	28430 	ALPEDRETE                                                   	00028	000					000
+50213 	50213 	CIMBALLA                                                    	00050	000					000
+35560 	35660 	LA OLIVA                                                    	00035	000					000
+47008 	47008 	VALLADOLID                                                  	00047	000					000
+35600 	35600 	PUERTO DEL ROSARIO                                          	00054	000					000
+35500 	35500 	ARRECIFE                                                    	00056	000					000
+08105 	08105 	SANT FOST DE CAMPSENTELLES                                  	00008	000					000
+39004 	39004 	SANTANDER                                                   	00039	000					000
+30008 	30008 	MURCIA                                                      	00030	000					000
+41012 	41012 	SEVILLA                                                     	00041	000					000
+12004 	12004 	CASTELLON                                                   	00012	000					000
+39479 	39479 	VIONO                                                       	00039	000					000
+46912 	46912 	MONSERRAT                                                   	00008	000					000
+33199 	33199 	COLLOTO                                                     	00033	000					000
+20495 	20495 	ALBIZTUR                                                    	00020	000				G	000
+39696 	39696 	SELAYA                                                      	00039	000				G	000
+46210 	46210 	PICANYA                                                     	00046	000					000
+46100 	46100 	BURJASSOT                                                   	00046	000					000
+31409 	31409 	TORRE DE PEÑA                                               	00031	216					000
+48070 	48070 	BILBAO                                                      	00048	000					000
+09600 	09600 	SALAS DE LOS INFANTES                                       	00009	000					000
+01208 	01208 	NARVAJA                                                     	00001	000					000
+28905 	28905 	GETAFE                                                      	00028	000				 	000
+39003 	39003 	SANTANDER                                                   	00039	000					000
+39477 	39477 	ORUÑA                                                       	00039	000					000
+25230 	25230 	MOLLERUSA                                                   	00025	000					000
+08960 	08960 	SANT JUST DESVERN                                           	00008	000					000
+31713 	31713 	AINTZIALDE                                                  	00031	050					000
+29640 	29640 	FUENGIROLA                                                  	00029	000					000
+1801  	31790 	AIENTSA                                                     	00031	022					000
+1802  	31790 	AZKILARREA                                                  	00031	022					000
+1803  	31790 	BORDALARREA                                                 	00031	022					000
+1804  	31790 	EGUZKIALDEA                                                 	00031	022					000
+50410 	50410 	CUARTE DE HUERVA                                            	00050	000					000
+22250 	22250 	LANAJA                                                      	00022	000					000
+40500 	31439 	GORRAIZ DE ARCE                                             	00031	028					000
+40501 	31439 	LACABE                                                      	00031	028					000
+40502 	31438 	ESPOZ                                                       	00031	028					000
+40503 	31438 	GURPEGUI                                                    	00031	028					000
+40504 	31439 	IMIZCOZ                                                     	00031	028					000
+40505 	31439 	MUNIAIN DE ARCE                                             	00031	028					000
+40506 	31438 	OSA                                                         	00031	028					000
+40507 	31481 	ULI ALTO                                                    	00031	028					000
+40508 	31438 	URDIROZ                                                     	00031	028					000
+40509 	31439 	USOZ                                                        	00031	028					000
+40510 	31438 	ARIZCUREN                                                   	00031	028					000
+48992 	48992 	ALGORTA                                                     	00048	000					000
+15007 	15007 	A CORUÑA                                                    	00015	000					000
+09550 	09550 	VILLARCAYO                                                  	00009	000					000
+08490 	08490 	TORDERA                                                     	00008	000					000
+36700 	36700 	TUI                                                         	00036	000					000
+31272 	31272 	AMESCOA BAJA                                                	00031	013					000
+28990 	28990 	TORREJON DE VELASCO                                         	00028	 					000
+06200 	06200 	ALMENDALEJO                                                 	00006	 					000
+50430 	50430 	MARIA DE HUERVA                                             	00050	 					000
+43480 	43480 	VILA-SECA                                                   	00043	 					000
+15175 	15172 	PERILLO, OLEIROS                                            	00015	 					000
+2001  	31193 	AMAILAIN                                                    	00031	040					000
+2000  	31867 	BEUNZA-LARREA                                               	00031	040					000
+31867 	31867 	LABASO                                                      	00031	040					000
+2002  	31866 	OROKIETA-ERBITI                                             	00031	049					000
+2003  	31866 	OLA                                                         	00031	049					000
+2004  	31869 	UDABE-BERAMENDI                                             	00031	049					000
+2010  	31730 	AITZANO                                                     	00031	050					000
+2011  	31700 	ANTZANBORDA                                                 	00031	050					000
+2012  	31715 	APAIOA                                                      	00031	050					000
+2013  	31730 	ARIZTEGI                                                    	00031	050					000
+2014  	31794 	AROZTEGIA                                                   	00031	050					000
+2015  	31715 	ARRIBILTOA                                                  	00031	050					000
+2016  	31710 	AZKAR                                                       	00031	050					000
+2017  	31700 	BAZTAN                                                      	00031	050					000
+2018  	31700 	BEARTZUN                                                    	00031	050					000
+2019  	31700 	BERRO                                                       	00031	050					000
+2020  	31713 	BOZATE                                                      	00031	050					000
+2021  	31700 	ETXAIDE                                                     	00031	050					000
+2022  	31710 	ETXARTEA                                                    	00031	050					000
+2023  	31730 	ETXERRI                                                     	00031	050					000
+2024  	31714 	GOROSTAPOLO                                                 	00031	050					000
+2025  	31714 	IÑARBIL                                                     	00031	050					000
+2026  	31710 	MADARIA                                                     	00031	050					000
+2028  	31794 	MARDEA                                                      	00031	050					000
+2029  	31710 	OLAZUR                                                      	00031	050					000
+2030  	31710 	ORDOKI                                                      	00031	050					000
+2031  	31713 	PERTALATS                                                   	00031	050					000
+2032  	31639 	QUINTO REAL (BAZTAN)                                        	00031	050					000
+2033  	31794 	UHARTE (BAZTAN)                                             	00031	050					000
+2034  	31715 	URRASUN                                                     	00031	050					000
+2035  	31796 	ZIGAURRE                                                    	00031	050					000
+2036  	31715 	ZUAZTOI                                                     	00031	050					000
+2040  	31792 	SANTALOKADIA                                                	00031	054					000
+2041  	31793 	TIPULATZE                                                   	00031	054					000
+2042  	31792 	ZEBERI                                                      	00031	054					000
+2045  	31590 	GIRALDELLI                                                  	00031	070					000
+0000  	42110 	OLVEGA                                                      	00042	000					000

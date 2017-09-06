@@ -1,0 +1,10 @@
+AYTO      	Carta del Ayuntamiento	% 	0.0	S	X:\SICA-COMPARTIDO\documentos_fases\	S	N			%		01
+COLEGIA   	Certificados y Resumenes economicos	% 	0.0	S	X:\SICA-COMPARTIDO\documentos_fases\	S	N			%		01
+LIQUID    	Hojas de Liquidaciones	% 	0.0	S	X:\SICA-COMPARTIDO\liquidaciones\	S	N			%		01
+RE        	Registro de Entrada	% 	574.0	E			N			%		01
+RECLAM_EXP	Cartas de reclamaciones de Expedientes	% 	0.0	S	X:\SICA-COMPARTIDO\reclamaciones\expedientes\	S	N			%		01
+RECLAM_FAS	Cartas de reclamaciones de Fases	% 	0.0	S	X:\SICA-COMPARTIDO\reclamaciones\fases\	S	N			%		01
+REPARO    	Cartas de Reparos	% 	0.0	S			N			%		01
+RS        	Registro de Salida	% 	2036.0	S			N			%		01
+ECON      	Resumenes Economicos	% 	0.0	S	X:\SICA-COMPARTIDO\economicos\	S	N			%		01
+LISTADOS  	Listados	% 	0.0	S	X:\SICA-COMPARTIDO\listados\	S	N			%		01

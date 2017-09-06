@@ -1,0 +1,373 @@
+COLEGIADOS	01	2007	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+CLIEN     	01	2007	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+TECNIC    	01	2007	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+ABOGAD    	01	2007	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+MUSICA    	01	2007	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+VARIOS    	01	2007	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+CUOTA     	01	2007	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+SEGURO    	01	2007	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+RECTIF    	01	2007	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+COLEGIADOS	01	2008	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+TECNIC    	01	2008	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+ABOGAD    	01	2008	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+MUSICA    	01	2008	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+CUOTA     	01	2008	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+SEGURO    	01	2008	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+RECTIF    	01	2008	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+COLEGIADOS	01	2009	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+CLIEN     	01	2009	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+TECNIC    	01	2009	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+ABOGAD    	01	2009	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+MUSICA    	01	2009	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+VARIOS    	01	2009	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+CUOTA     	01	2009	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+SEGURO    	01	2009	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+RECTIF    	01	2009	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+COLEGIADOS	01	2010	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+PREMAA    	01	2010	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+TECNIC    	01	2010	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+ABOGAD    	01	2010	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+MUSICA    	01	2010	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+VARIOS    	01	2010	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+CUOTA     	01	2010	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+RECTIF    	01	2010	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+VARIOS    	01	2008	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+PREMAA    	01	2009	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+SEGURO    	01	2010	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+COLEGIADOS	01	2011	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+CLIEN     	01	2011	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+PREMAA    	01	2011	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+TECNIC    	01	2011	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+ABOGAD    	01	2011	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+MUSICA    	01	2011	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+VARIOS    	01	2011	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+CUOTA     	01	2011	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+RECTIF    	01	2011	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+SEGURO    	01	2011	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+CLIEN     	01	2008	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+CLIEN     	01	2010	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+EXPEDI    	01	2007	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+EXPEDI    	01	2008	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+EXPEDI    	01	2009	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+EXPEDI    	01	2010	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+EXPEDI    	01	2011	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+COLEGIADOS	01	2007	VA	Cabecera            	ELKARGO-GASTUEN FAKTURA
+CLIEN     	01	2007	VA	Cabecera            	ELKARGO-GASTUEN FAKTURA
+TECNIC    	01	2007	VA	Cabecera            	ELKARGO-GASTUEN FAKTURA
+ABOGAD    	01	2007	VA	Cabecera            	ELKARGO-GASTUEN FAKTURA
+MUSICA    	01	2007	VA	Cabecera            	ELKARGO-GASTUEN FAKTURA
+VARIOS    	01	2007	VA	Cabecera            	ELKARGO-GASTUEN FAKTURA
+CUOTA     	01	2007	VA	Cabecera            	ELKARGO-GASTUEN FAKTURA
+SEGURO    	01	2007	VA	Cabecera            	ELKARGO-GASTUEN FAKTURA
+RECTIF    	01	2007	VA	Cabecera            	ELKARGO-GASTUEN FAKTURA
+COLEGIADOS	01	2008	VA	Cabecera            	ELKARGO-GASTUEN FAKTURA
+TECNIC    	01	2008	VA	Cabecera            	ELKARGO-GASTUEN FAKTURA
+ABOGAD    	01	2008	VA	Cabecera            	ELKARGO-GASTUEN FAKTURA
+MUSICA    	01	2008	VA	Cabecera            	ELKARGO-GASTUEN FAKTURA
+CUOTA     	01	2008	VA	Cabecera            	ELKARGO-GASTUEN FAKTURA
+SEGURO    	01	2008	VA	Cabecera            	ELKARGO-GASTUEN FAKTURA
+RECTIF    	01	2008	VA	Cabecera            	ELKARGO-GASTUEN FAKTURA
+COLEGIADOS	01	2009	VA	Cabecera            	ELKARGO-GASTUEN FAKTURA
+CLIEN     	01	2009	VA	Cabecera            	ELKARGO-GASTUEN FAKTURA
+TECNIC    	01	2009	VA	Cabecera            	ELKARGO-GASTUEN FAKTURA
+ABOGAD    	01	2009	VA	Cabecera            	ELKARGO-GASTUEN FAKTURA
+MUSICA    	01	2009	VA	Cabecera            	ELKARGO-GASTUEN FAKTURA
+VARIOS    	01	2009	VA	Cabecera            	ELKARGO-GASTUEN FAKTURA
+CUOTA     	01	2009	VA	Cabecera            	ELKARGO-GASTUEN FAKTURA
+SEGURO    	01	2009	VA	Cabecera            	ELKARGO-GASTUEN FAKTURA
+RECTIF    	01	2009	VA	Cabecera            	ELKARGO-GASTUEN FAKTURA
+COLEGIADOS	01	2010	VA	Cabecera            	ELKARGO-GASTUEN FAKTURA
+PREMAA    	01	2010	VA	Cabecera            	ELKARGO-GASTUEN FAKTURA
+TECNIC    	01	2010	VA	Cabecera            	ELKARGO-GASTUEN FAKTURA
+ABOGAD    	01	2010	VA	Cabecera            	ELKARGO-GASTUEN FAKTURA
+MUSICA    	01	2010	VA	Cabecera            	ELKARGO-GASTUEN FAKTURA
+VARIOS    	01	2010	VA	Cabecera            	ELKARGO-GASTUEN FAKTURA
+CUOTA     	01	2010	VA	Cabecera            	ELKARGO-GASTUEN FAKTURA
+RECTIF    	01	2010	VA	Cabecera            	ELKARGO-GASTUEN FAKTURA
+VARIOS    	01	2008	VA	Cabecera            	ELKARGO-GASTUEN FAKTURA
+PREMAA    	01	2009	VA	Cabecera            	ELKARGO-GASTUEN FAKTURA
+SEGURO    	01	2010	VA	Cabecera            	ELKARGO-GASTUEN FAKTURA
+COLEGIADOS	01	2011	VA	Cabecera            	ELKARGO-GASTUEN FAKTURA
+CLIEN     	01	2011	VA	Cabecera            	ELKARGO-GASTUEN FAKTURA
+PREMAA    	01	2011	VA	Cabecera            	ELKARGO-GASTUEN FAKTURA
+TECNIC    	01	2011	VA	Cabecera            	ELKARGO-GASTUEN FAKTURA
+ABOGAD    	01	2011	VA	Cabecera            	ELKARGO-GASTUEN FAKTURA
+MUSICA    	01	2011	VA	Cabecera            	ELKARGO-GASTUEN FAKTURA
+VARIOS    	01	2011	VA	Cabecera            	ELKARGO-GASTUEN FAKTURA
+CUOTA     	01	2011	VA	Cabecera            	ELKARGO-GASTUEN FAKTURA
+RECTIF    	01	2011	VA	Cabecera            	ELKARGO-GASTUEN FAKTURA
+SEGURO    	01	2011	VA	Cabecera            	ELKARGO-GASTUEN FAKTURA
+CLIEN     	01	2008	VA	Cabecera            	ELKARGO-GASTUEN FAKTURA
+CLIEN     	01	2010	VA	Cabecera            	ELKARGO-GASTUEN FAKTURA
+EXPEDI    	01	2007	VA	Cabecera            	ELKARGO-GASTUEN FAKTURA
+EXPEDI    	01	2008	VA	Cabecera            	ELKARGO-GASTUEN FAKTURA
+EXPEDI    	01	2009	VA	Cabecera            	ELKARGO-GASTUEN FAKTURA
+EXPEDI    	01	2010	VA	Cabecera            	ELKARGO-GASTUEN FAKTURA
+EXPEDI    	01	2011	VA	Cabecera            	ELKARGO-GASTUEN FAKTURA
+PROFOR    	01	2010	ES	Cabecera            	PROFORMA
+PROFOR    	01	2011	ES	Cabecera            	PROFORMA
+PROFOR    	01	2010	VA	Cabecera            	ELKARGO-GASTUEN PROFORMA
+PROFOR    	01	2011	VA	Cabecera            	ELKARGO-GASTUEN PROFORMA
+PROFOR    	02	2011	% 	Cabecera            	PROFORMA
+PREMAA    	01	2007	ES	Cabecera            	RECIBO
+PREMAA    	01	2008	ES	Cabecera            	RECIBO
+MUSAAT    	01	2008	ES	Cabecera            	RECIBO
+MUSAAT    	01	2009	ES	Cabecera            	RECIBO
+MUSAAT    	01	2010	ES	Cabecera            	RECIBO
+MUSAAT    	01	2007	ES	Cabecera            	RECIBO
+MUSAAT    	01	2011	ES	Cabecera            	RECIBO
+PC        	02	2011	ES	Cabecera            	RECIBO
+PF        	02	2011	ES	Cabecera            	RECIBO
+MT        	02	2011	ES	Cabecera            	RECIBO
+RECTIF    	02	2011	ES	Cabecera            	RECIBO
+%         	% 	%   	% 	Cabecera            	FACTURA
+COLEGIADOS	01	2007	% 	N_fact              	FACTURA Nº /FAKTURA Zk
+CLIEN     	01	2007	% 	N_fact              	FACTURA Nº /FAKTURA Zk
+TECNIC    	01	2007	% 	N_fact              	FACTURA Nº /FAKTURA Zk
+ABOGAD    	01	2007	% 	N_fact              	FACTURA Nº /FAKTURA Zk
+MUSICA    	01	2007	% 	N_fact              	FACTURA Nº /FAKTURA Zk
+VARIOS    	01	2007	% 	N_fact              	FACTURA Nº /FAKTURA Zk
+CUOTA     	01	2007	% 	N_fact              	FACTURA Nº /FAKTURA Zk
+SEGURO    	01	2007	% 	N_fact              	FACTURA Nº /FAKTURA Zk
+RECTIF    	01	2007	% 	N_fact              	FACTURA Nº /FAKTURA Zk
+COLEGIADOS	01	2008	% 	N_fact              	FACTURA Nº /FAKTURA Zk
+TECNIC    	01	2008	% 	N_fact              	FACTURA Nº /FAKTURA Zk
+ABOGAD    	01	2008	% 	N_fact              	FACTURA Nº /FAKTURA Zk
+MUSICA    	01	2008	% 	N_fact              	FACTURA Nº /FAKTURA Zk
+CUOTA     	01	2008	% 	N_fact              	FACTURA Nº /FAKTURA Zk
+SEGURO    	01	2008	% 	N_fact              	FACTURA Nº /FAKTURA Zk
+RECTIF    	01	2008	% 	N_fact              	FACTURA Nº /FAKTURA Zk
+COLEGIADOS	01	2009	% 	N_fact              	FACTURA Nº /FAKTURA Zk
+CLIEN     	01	2009	% 	N_fact              	FACTURA Nº /FAKTURA Zk
+TECNIC    	01	2009	% 	N_fact              	FACTURA Nº /FAKTURA Zk
+ABOGAD    	01	2009	% 	N_fact              	FACTURA Nº /FAKTURA Zk
+MUSICA    	01	2009	% 	N_fact              	FACTURA Nº /FAKTURA Zk
+VARIOS    	01	2009	% 	N_fact              	FACTURA Nº /FAKTURA Zk
+CUOTA     	01	2009	% 	N_fact              	FACTURA Nº /FAKTURA Zk
+SEGURO    	01	2009	% 	N_fact              	FACTURA Nº /FAKTURA Zk
+RECTIF    	01	2009	% 	N_fact              	FACTURA Nº /FAKTURA Zk
+COLEGIADOS	01	2010	% 	N_fact              	FACTURA Nº /FAKTURA Zk
+PREMAA    	01	2010	% 	N_fact              	FACTURA Nº /FAKTURA Zk
+TECNIC    	01	2010	% 	N_fact              	FACTURA Nº /FAKTURA Zk
+ABOGAD    	01	2010	% 	N_fact              	FACTURA Nº /FAKTURA Zk
+MUSICA    	01	2010	% 	N_fact              	FACTURA Nº /FAKTURA Zk
+VARIOS    	01	2010	% 	N_fact              	FACTURA Nº /FAKTURA Zk
+CUOTA     	01	2010	% 	N_fact              	FACTURA Nº /FAKTURA Zk
+RECTIF    	01	2010	% 	N_fact              	FACTURA Nº /FAKTURA Zk
+VARIOS    	01	2008	% 	N_fact              	FACTURA Nº /FAKTURA Zk
+PREMAA    	01	2009	% 	N_fact              	FACTURA Nº /FAKTURA Zk
+SEGURO    	01	2010	% 	N_fact              	FACTURA Nº /FAKTURA Zk
+COLEGIADOS	01	2011	% 	N_fact              	FACTURA Nº /FAKTURA Zk
+CLIEN     	01	2011	% 	N_fact              	FACTURA Nº /FAKTURA Zk
+PREMAA    	01	2011	% 	N_fact              	FACTURA Nº /FAKTURA Zk
+TECNIC    	01	2011	% 	N_fact              	FACTURA Nº /FAKTURA Zk
+ABOGAD    	01	2011	% 	N_fact              	FACTURA Nº /FAKTURA Zk
+MUSICA    	01	2011	% 	N_fact              	FACTURA Nº /FAKTURA Zk
+VARIOS    	01	2011	% 	N_fact              	FACTURA Nº /FAKTURA Zk
+CUOTA     	01	2011	% 	N_fact              	FACTURA Nº /FAKTURA Zk
+RECTIF    	01	2011	% 	N_fact              	FACTURA Nº /FAKTURA Zk
+SEGURO    	01	2011	% 	N_fact              	FACTURA Nº /FAKTURA Zk
+CLIEN     	01	2008	% 	N_fact              	FACTURA Nº /FAKTURA Zk
+CLIEN     	01	2010	% 	N_fact              	FACTURA Nº /FAKTURA Zk
+EXPEDI    	01	2007	% 	N_fact              	FACTURA Nº /FAKTURA Zk
+EXPEDI    	01	2008	% 	N_fact              	FACTURA Nº /FAKTURA Zk
+EXPEDI    	01	2009	% 	N_fact              	FACTURA Nº /FAKTURA Zk
+EXPEDI    	01	2010	% 	N_fact              	FACTURA Nº /FAKTURA Zk
+EXPEDI    	01	2011	% 	N_fact              	FACTURA Nº /FAKTURA Zk
+PROFOR    	01	2010	% 	N_fact              	PROFORMA Nº
+PROFOR    	01	2011	% 	N_fact              	PROFORMA Nº
+PROFOR    	02	2011	% 	N_fact              	PROFORMA Nº
+PREMAA    	01	2007	% 	N_fact              	RECIBO Nº
+PREMAA    	01	2008	% 	N_fact              	RECIBO Nº
+MUSAAT    	01	2008	% 	N_fact              	RECIBO Nº
+MUSAAT    	01	2009	% 	N_fact              	RECIBO Nº
+MUSAAT    	01	2010	% 	N_fact              	RECIBO Nº
+MUSAAT    	01	2007	% 	N_fact              	RECIBO Nº
+MUSAAT    	01	2011	% 	N_fact              	RECIBO Nº
+PC        	02	2011	% 	N_fact              	RECIBO Nº
+PF        	02	2011	% 	N_fact              	RECIBO Nº
+MT        	02	2011	% 	N_fact              	RECIBO Nº
+RECTIF    	02	2011	% 	N_fact              	RECIBO Nº
+%         	% 	%   	% 	N_fact              	FACTURA Nº /FAKTURA Zk
+COLEGIADOS	01	2007	% 	Total_fact          	TOTAL FACTURA / FAKTURA GUZTIRA
+CLIEN     	01	2007	% 	Total_fact          	TOTAL FACTURA / FAKTURA GUZTIRA
+TECNIC    	01	2007	% 	Total_fact          	TOTAL FACTURA / FAKTURA GUZTIRA
+ABOGAD    	01	2007	% 	Total_fact          	TOTAL FACTURA / FAKTURA GUZTIRA
+MUSICA    	01	2007	% 	Total_fact          	TOTAL FACTURA / FAKTURA GUZTIRA
+VARIOS    	01	2007	% 	Total_fact          	TOTAL FACTURA / FAKTURA GUZTIRA
+CUOTA     	01	2007	% 	Total_fact          	TOTAL FACTURA / FAKTURA GUZTIRA
+SEGURO    	01	2007	% 	Total_fact          	TOTAL FACTURA / FAKTURA GUZTIRA
+RECTIF    	01	2007	% 	Total_fact          	TOTAL FACTURA / FAKTURA GUZTIRA
+COLEGIADOS	01	2008	% 	Total_fact          	TOTAL FACTURA / FAKTURA GUZTIRA
+TECNIC    	01	2008	% 	Total_fact          	TOTAL FACTURA / FAKTURA GUZTIRA
+ABOGAD    	01	2008	% 	Total_fact          	TOTAL FACTURA / FAKTURA GUZTIRA
+MUSICA    	01	2008	% 	Total_fact          	TOTAL FACTURA / FAKTURA GUZTIRA
+CUOTA     	01	2008	% 	Total_fact          	TOTAL FACTURA / FAKTURA GUZTIRA
+SEGURO    	01	2008	% 	Total_fact          	TOTAL FACTURA / FAKTURA GUZTIRA
+RECTIF    	01	2008	% 	Total_fact          	TOTAL FACTURA / FAKTURA GUZTIRA
+COLEGIADOS	01	2009	% 	Total_fact          	TOTAL FACTURA / FAKTURA GUZTIRA
+CLIEN     	01	2009	% 	Total_fact          	TOTAL FACTURA / FAKTURA GUZTIRA
+TECNIC    	01	2009	% 	Total_fact          	TOTAL FACTURA / FAKTURA GUZTIRA
+ABOGAD    	01	2009	% 	Total_fact          	TOTAL FACTURA / FAKTURA GUZTIRA
+MUSICA    	01	2009	% 	Total_fact          	TOTAL FACTURA / FAKTURA GUZTIRA
+VARIOS    	01	2009	% 	Total_fact          	TOTAL FACTURA / FAKTURA GUZTIRA
+CUOTA     	01	2009	% 	Total_fact          	TOTAL FACTURA / FAKTURA GUZTIRA
+SEGURO    	01	2009	% 	Total_fact          	TOTAL FACTURA / FAKTURA GUZTIRA
+RECTIF    	01	2009	% 	Total_fact          	TOTAL FACTURA / FAKTURA GUZTIRA
+COLEGIADOS	01	2010	% 	Total_fact          	TOTAL FACTURA / FAKTURA GUZTIRA
+PREMAA    	01	2010	% 	Total_fact          	TOTAL FACTURA / FAKTURA GUZTIRA
+TECNIC    	01	2010	% 	Total_fact          	TOTAL FACTURA / FAKTURA GUZTIRA
+ABOGAD    	01	2010	% 	Total_fact          	TOTAL FACTURA / FAKTURA GUZTIRA
+MUSICA    	01	2010	% 	Total_fact          	TOTAL FACTURA / FAKTURA GUZTIRA
+VARIOS    	01	2010	% 	Total_fact          	TOTAL FACTURA / FAKTURA GUZTIRA
+CUOTA     	01	2010	% 	Total_fact          	TOTAL FACTURA / FAKTURA GUZTIRA
+RECTIF    	01	2010	% 	Total_fact          	TOTAL FACTURA / FAKTURA GUZTIRA
+VARIOS    	01	2008	% 	Total_fact          	TOTAL FACTURA / FAKTURA GUZTIRA
+PREMAA    	01	2009	% 	Total_fact          	TOTAL FACTURA / FAKTURA GUZTIRA
+SEGURO    	01	2010	% 	Total_fact          	TOTAL FACTURA / FAKTURA GUZTIRA
+COLEGIADOS	01	2011	% 	Total_fact          	TOTAL FACTURA / FAKTURA GUZTIRA
+CLIEN     	01	2011	% 	Total_fact          	TOTAL FACTURA / FAKTURA GUZTIRA
+PREMAA    	01	2011	% 	Total_fact          	TOTAL FACTURA / FAKTURA GUZTIRA
+TECNIC    	01	2011	% 	Total_fact          	TOTAL FACTURA / FAKTURA GUZTIRA
+ABOGAD    	01	2011	% 	Total_fact          	TOTAL FACTURA / FAKTURA GUZTIRA
+MUSICA    	01	2011	% 	Total_fact          	TOTAL FACTURA / FAKTURA GUZTIRA
+VARIOS    	01	2011	% 	Total_fact          	TOTAL FACTURA / FAKTURA GUZTIRA
+CUOTA     	01	2011	% 	Total_fact          	TOTAL FACTURA / FAKTURA GUZTIRA
+RECTIF    	01	2011	% 	Total_fact          	TOTAL FACTURA / FAKTURA GUZTIRA
+SEGURO    	01	2011	% 	Total_fact          	TOTAL FACTURA / FAKTURA GUZTIRA
+CLIEN     	01	2008	% 	Total_fact          	TOTAL FACTURA / FAKTURA GUZTIRA
+CLIEN     	01	2010	% 	Total_fact          	TOTAL FACTURA / FAKTURA GUZTIRA
+EXPEDI    	01	2007	% 	Total_fact          	TOTAL FACTURA / FAKTURA GUZTIRA
+EXPEDI    	01	2008	% 	Total_fact          	TOTAL FACTURA / FAKTURA GUZTIRA
+EXPEDI    	01	2009	% 	Total_fact          	TOTAL FACTURA / FAKTURA GUZTIRA
+EXPEDI    	01	2010	% 	Total_fact          	TOTAL FACTURA / FAKTURA GUZTIRA
+EXPEDI    	01	2011	% 	Total_fact          	TOTAL FACTURA / FAKTURA GUZTIRA
+PROFOR    	01	2010	% 	Total_fact          	TOTAL PROFORMA
+PROFOR    	01	2011	% 	Total_fact          	TOTAL PROFORMA
+PROFOR    	02	2011	% 	Total_fact          	TOTAL PROFORMA
+PREMAA    	01	2007	% 	Total_fact          	TOTAL RECIBO
+PREMAA    	01	2008	% 	Total_fact          	TOTAL RECIBO
+MUSAAT    	01	2008	% 	Total_fact          	TOTAL RECIBO
+MUSAAT    	01	2009	% 	Total_fact          	TOTAL RECIBO
+MUSAAT    	01	2010	% 	Total_fact          	TOTAL RECIBO
+MUSAAT    	01	2007	% 	Total_fact          	TOTAL RECIBO
+MUSAAT    	01	2011	% 	Total_fact          	TOTAL RECIBO
+PC        	02	2011	% 	Total_fact          	TOTAL RECIBO
+PF        	02	2011	% 	Total_fact          	TOTAL RECIBO
+MT        	02	2011	% 	Total_fact          	TOTAL RECIBO
+RECTIF    	02	2011	% 	Total_fact          	TOTAL RECIBO
+%         	% 	%   	% 	Total_fact          	TOTAL FACTURA / FAKTURA GUZTIRA
+MT        	02	2011	% 	N_emisor2           	AGENCIA DE SEGUROS EXCLUSIVA DE MUSAAT, MUTUA DE SEGUROS A PRIMA FIJA, CON NUMERO DE REGISTRO: M0368B75031898
+PC        	02	2011	% 	N_emisor2           	AGENCIA DE SEGUROS EXCLUSIVA DE MUSAAT, MUTUA DE SEGUROS A PRIMA FIJA, CON NUMERO DE REGISTRO: M0368B75031898
+PF        	02	2011	% 	N_emisor2           	AGENCIA DE SEGUROS EXCLUSIVA DE MUSAAT, MUTUA DE SEGUROS A PRIMA FIJA, CON NUMERO DE REGISTRO: M0368B75031898
+PROFOR    	02	2011	% 	N_emisor2           	AGENCIA DE SEGUROS EXCLUSIVA DE MUSAAT, MUTUA DE SEGUROS A PRIMA FIJA, CON NUMERO DE REGISTRO: M0368B75031898
+RECTIF    	02	2011	% 	N_emisor2           	AGENCIA DE SEGUROS EXCLUSIVA DE MUSAAT, MUTUA DE SEGUROS A PRIMA FIJA, CON NUMERO DE REGISTRO: M0368B75031898
+PREMAA    	01	2007	VA	Cabecera            	ORDAINAGIRIA
+PREMAA    	01	2008	VA	Cabecera            	ORDAINAGIRIA
+MUSAAT    	01	2008	VA	Cabecera            	ORDAINAGIRIA
+MUSAAT    	01	2009	VA	Cabecera            	ORDAINAGIRIA
+MUSAAT    	01	2010	VA	Cabecera            	ORDAINAGIRIA
+MUSAAT    	01	2007	VA	Cabecera            	ORDAINAGIRIA
+MUSAAT    	01	2011	VA	Cabecera            	ORDAINAGIRIA
+PC        	02	2011	VA	Cabecera            	ORDAINAGIRIA
+PF        	02	2011	VA	Cabecera            	ORDAINAGIRIA
+MT        	02	2011	VA	Cabecera            	ORDAINAGIRIA
+RECTIF    	02	2011	VA	Cabecera            	ORDAINAGIRIA
+PROFOR    	01	2011	ES	cuenta_pago         	Para su comodidad le rogamos efectúe el pago de la presente Proforma en cualquiera de las cuentas bancarias de KUTXA Nº 2101 0007 99 00000 14944 o CAJA LABORAL Nº 3035 0128 52 12800 00126.
+PROFOR    	01	2011	VA	cuenta_pago         	Erosoagoa izan dakizun, arren eskatzen dizugu Proforma honen ordainketa egitea, KUTXA Nº 2101 0007 99 00000 14944 edo EUSKADIKO KUTXAKO Nº 3035 0128 52 12800 00126 edozein sukurtsaletan.
+PROFOR    	01	2011	ES	pago_oficinas       	Igualmente el pago podrá realizarse en las mismas oficinas colegiales en horario de lunes a viernes de 8 a 14 horas, de lunes a jueves de 15:30 a 18 horas, mediante cheque conformado
+PROFOR    	01	2011	VA	pago_oficinas       	Nahi izanez gero, Elkargoko bulegoetan ere egin daiteke ordainketa, astelehenetik ostiralera, 8:00etatik 14:00ak arte, astelehenetik ostegunera, 15:30etatik 18:00ak arte, txeke adostu baten bidez
+PROFOR    	02	2011	ES	cuenta_pago         	Para su comodidad le rogamos efectúe el pago de la presente Proforma en cualquiera de las cuentas bancarias de KUTXA Nº 2101 0007 99 00126 84718.
+PROFOR    	02	2011	VA	cuenta_pago         	Erosoagoa izan dakizun, arren eskatzen dizugu Proforma honen ordainketa egitea, KUTXA Nº 2101 0007 99 00126 84718.
+PROFOR    	02	2011	ES	pago_oficinas       	Igualmente el pago podrá realizarse en las mismas oficinas colegiales en horario de lunes a viernes de 8 a 14 horas, de lunes a jueves de 15:30 a 18 horas, mediante cheque conformado
+PROFOR    	02	2011	VA	pago_oficinas       	Nahi izanez gero, Elkargoko bulegoetan ere egin daiteke ordainketa, astelehenetik ostiralera, 8:00etatik 14:00ak arte, astelehenetik ostegunera, 15:30etatik 18:00ak arte, txeke adostu baten bidez
+%         	01	%   	% 	pie_pag_1           	Paseo Arbol de Gernika, 21 accesorio - 20006 DONOSTIA-SAN SEBASTIAN, Tel:943471616-943461431 Fax:943455776
+%         	01	%   	% 	pie_pag_2           	CIF: Q2075002B
+%         	01	%   	% 	pie_pag_3           	email: colegio@coaatg.org internet: http://www.coaatg.org
+%         	02	%   	% 	pie_pag_1           	Paseo Arbol de Gernika, 21 accesorio - 20006 DONOSTIA-SAN SEBASTIAN, Tel:943471616-943461431 Fax:943455776
+%         	02	%   	% 	pie_pag_2           	CIF:  B75031898
+%         	02	%   	% 	pie_pag_3           	email: acatie@coaatg.org
+COLEGIADOS	01	2012	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+CLIEN     	01	2012	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+PREMAA    	01	2012	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+TECNIC    	01	2012	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+ABOGAD    	01	2012	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+MUSICA    	01	2012	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+VARIOS    	01	2012	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+CUOTA     	01	2012	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+RECTIF    	01	2012	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+SEGURO    	01	2012	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+EXPEDI    	01	2012	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+COLEGIADOS	01	2012	VA	Cabecera            	ELKARGO-GASTUEN FAKTURA
+CLIEN     	01	2012	VA	Cabecera            	ELKARGO-GASTUEN FAKTURA
+PREMAA    	01	2012	VA	Cabecera            	ELKARGO-GASTUEN FAKTURA
+TECNIC    	01	2012	VA	Cabecera            	ELKARGO-GASTUEN FAKTURA
+ABOGAD    	01	2012	VA	Cabecera            	ELKARGO-GASTUEN FAKTURA
+MUSICA    	01	2012	VA	Cabecera            	ELKARGO-GASTUEN FAKTURA
+VARIOS    	01	2012	VA	Cabecera            	ELKARGO-GASTUEN FAKTURA
+CUOTA     	01	2012	VA	Cabecera            	ELKARGO-GASTUEN FAKTURA
+RECTIF    	01	2012	VA	Cabecera            	ELKARGO-GASTUEN FAKTURA
+SEGURO    	01	2012	VA	Cabecera            	ELKARGO-GASTUEN FAKTURA
+EXPEDI    	01	2012	VA	Cabecera            	ELKARGO-GASTUEN FAKTURA
+PROFOR    	01	2012	ES	Cabecera            	PROFORMA
+PROFOR    	01	2012	VA	Cabecera            	ELKARGO-GASTUEN PROFORMA
+PROFOR    	02	2012	% 	Cabecera            	PROFORMA
+MUSAAT    	01	2012	ES	Cabecera            	RECIBO
+PC        	02	2012	ES	Cabecera            	RECIBO
+PF        	02	2012	ES	Cabecera            	RECIBO
+MT        	02	2012	ES	Cabecera            	RECIBO
+RECTIF    	02	2012	ES	Cabecera            	RECIBO
+COLEGIADOS	01	2012	% 	N_fact              	FACTURA Nº /FAKTURA Zk
+CLIEN     	01	2012	% 	N_fact              	FACTURA Nº /FAKTURA Zk
+PREMAA    	01	2012	% 	N_fact              	FACTURA Nº /FAKTURA Zk
+TECNIC    	01	2012	% 	N_fact              	FACTURA Nº /FAKTURA Zk
+ABOGAD    	01	2012	% 	N_fact              	FACTURA Nº /FAKTURA Zk
+MUSICA    	01	2012	% 	N_fact              	FACTURA Nº /FAKTURA Zk
+VARIOS    	01	2012	% 	N_fact              	FACTURA Nº /FAKTURA Zk
+CUOTA     	01	2012	% 	N_fact              	FACTURA Nº /FAKTURA Zk
+RECTIF    	01	2012	% 	N_fact              	FACTURA Nº /FAKTURA Zk
+SEGURO    	01	2012	% 	N_fact              	FACTURA Nº /FAKTURA Zk
+EXPEDI    	01	2012	% 	N_fact              	FACTURA Nº /FAKTURA Zk
+PROFOR    	01	2012	% 	N_fact              	PROFORMA Nº
+PROFOR    	02	2012	% 	N_fact              	PROFORMA Nº
+MUSAAT    	01	2012	% 	N_fact              	RECIBO Nº
+PC        	02	2012	% 	N_fact              	RECIBO Nº
+PF        	02	2012	% 	N_fact              	RECIBO Nº
+MT        	02	2012	% 	N_fact              	RECIBO Nº
+RECTIF    	02	2012	% 	N_fact              	RECIBO Nº
+COLEGIADOS	01	2012	% 	Total_fact          	TOTAL FACTURA / FAKTURA GUZTIRA
+CLIEN     	01	2012	% 	Total_fact          	TOTAL FACTURA / FAKTURA GUZTIRA
+PREMAA    	01	2012	% 	Total_fact          	TOTAL FACTURA / FAKTURA GUZTIRA
+TECNIC    	01	2012	% 	Total_fact          	TOTAL FACTURA / FAKTURA GUZTIRA
+ABOGAD    	01	2012	% 	Total_fact          	TOTAL FACTURA / FAKTURA GUZTIRA
+MUSICA    	01	2012	% 	Total_fact          	TOTAL FACTURA / FAKTURA GUZTIRA
+VARIOS    	01	2012	% 	Total_fact          	TOTAL FACTURA / FAKTURA GUZTIRA
+CUOTA     	01	2012	% 	Total_fact          	TOTAL FACTURA / FAKTURA GUZTIRA
+RECTIF    	01	2012	% 	Total_fact          	TOTAL FACTURA / FAKTURA GUZTIRA
+SEGURO    	01	2012	% 	Total_fact          	TOTAL FACTURA / FAKTURA GUZTIRA
+EXPEDI    	01	2012	% 	Total_fact          	TOTAL FACTURA / FAKTURA GUZTIRA
+PROFOR    	01	2012	% 	Total_fact          	TOTAL PROFORMA
+PROFOR    	02	2012	% 	Total_fact          	TOTAL PROFORMA
+MUSAAT    	01	2012	% 	Total_fact          	TOTAL RECIBO
+PC        	02	2012	% 	Total_fact          	TOTAL RECIBO
+PF        	02	2012	% 	Total_fact          	TOTAL RECIBO
+MT        	02	2012	% 	Total_fact          	TOTAL RECIBO
+RECTIF    	02	2012	% 	Total_fact          	TOTAL RECIBO
+MT        	02	2012	% 	N_emisor2           	AGENCIA DE SEGUROS EXCLUSIVA DE MUSAAT, MUTUA DE SEGUROS A PRIMA FIJA, CON NUMERO DE REGISTRO: M0368B75031898
+PC        	02	2012	% 	N_emisor2           	AGENCIA DE SEGUROS EXCLUSIVA DE MUSAAT, MUTUA DE SEGUROS A PRIMA FIJA, CON NUMERO DE REGISTRO: M0368B75031898
+PF        	02	2012	% 	N_emisor2           	AGENCIA DE SEGUROS EXCLUSIVA DE MUSAAT, MUTUA DE SEGUROS A PRIMA FIJA, CON NUMERO DE REGISTRO: M0368B75031898
+PROFOR    	02	2012	% 	N_emisor2           	AGENCIA DE SEGUROS EXCLUSIVA DE MUSAAT, MUTUA DE SEGUROS A PRIMA FIJA, CON NUMERO DE REGISTRO: M0368B75031898
+RECTIF    	02	2012	% 	N_emisor2           	AGENCIA DE SEGUROS EXCLUSIVA DE MUSAAT, MUTUA DE SEGUROS A PRIMA FIJA, CON NUMERO DE REGISTRO: M0368B75031898
+MUSAAT    	01	2012	VA	Cabecera            	ORDAINAGIRIA
+PC        	02	2012	VA	Cabecera            	ORDAINAGIRIA
+PF        	02	2012	VA	Cabecera            	ORDAINAGIRIA
+MT        	02	2012	VA	Cabecera            	ORDAINAGIRIA
+RECTIF    	02	2012	VA	Cabecera            	ORDAINAGIRIA
+PROFOR    	01	2012	ES	cuenta_pago         	Para su comodidad le rogamos efectúe el pago de la presente Proforma en cualquiera de las cuentas bancarias de KUTXA Nº 2101 0007 99 00000 14944 o CAJA LABORAL Nº 3035 0128 52 12800 00126.
+PROFOR    	01	2012	VA	cuenta_pago         	Erosoagoa izan dakizun, arren eskatzen dizugu Proforma honen ordainketa egitea, KUTXA Nº 2101 0007 99 00000 14944 edo EUSKADIKO KUTXAKO Nº 3035 0128 52 12800 00126 edozein sukurtsaletan.
+PROFOR    	01	2012	ES	pago_oficinas       	Igualmente el pago podrá realizarse en las mismas oficinas colegiales en horario de lunes a viernes de 8 a 14 horas, de lunes a jueves de 15:30 a 18 horas, mediante cheque conformado
+PROFOR    	01	2012	VA	pago_oficinas       	Nahi izanez gero, Elkargoko bulegoetan ere egin daiteke ordainketa, astelehenetik ostiralera, 8:00etatik 14:00ak arte, astelehenetik ostegunera, 15:30etatik 18:00ak arte, txeke adostu baten bidez
+PROFOR    	02	2012	ES	cuenta_pago         	Para su comodidad le rogamos efectúe el pago de la presente Proforma en cualquiera de las cuentas bancarias de KUTXA Nº 2101 0007 99 00126 84718.
+PROFOR    	02	2012	VA	cuenta_pago         	Erosoagoa izan dakizun, arren eskatzen dizugu Proforma honen ordainketa egitea, KUTXA Nº 2101 0007 99 00126 84718.
+PROFOR    	02	2012	ES	pago_oficinas       	Igualmente el pago podrá realizarse en las mismas oficinas colegiales en horario de lunes a viernes de 8 a 14 horas, de lunes a jueves de 15:30 a 18 horas, mediante cheque conformado
+PROFOR    	02	2012	VA	pago_oficinas       	Nahi izanez gero, Elkargoko bulegoetan ere egin daiteke ordainketa, astelehenetik ostiralera, 8:00etatik 14:00ak arte, astelehenetik ostegunera, 15:30etatik 18:00ak arte, txeke adostu baten bidez

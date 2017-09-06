@@ -1,0 +1,54 @@
+12 	PROYECTO                                                    		3	
+13 	DIRECCION DE OBRA                                           		3	
+14 	DIRECCION DE LA EJEC. MAT.                                  		3	
+15 	PROY. LEGALIZ. OBRAS                                        		3	
+16 	LEGAL. DIR. OBRA                                            		3	
+17 	LEGAL. DIR. EJEC. MAT.                                      		3	
+01 	C.PROY. ESTUDIO SEGURIDAD                                   		1	
+02 	C.PROY.EST.BASICO SEGURIDAD                                 		1	
+03 	COORD. SEGURIDAD EJECUCION                                  		1	
+04 	ESTUDIO Y COORD.EJECUCION                                   		1	
+05 	EST.BASICO Y COORD.EJECUCION                                		1	
+21 	ESTUDIO APROB.SEGUIMIENTO (ANT                              		4	
+22 	ESTUDIO Y SEGUIMIENTO (ANT)                                 		4	
+23 	PLAN SEGURIDAD (ANT)                                        		4	
+24 	SEGUIMIENTO PLAN (ANT)                                      		4	
+25 	ESTUDIO SEGURIDAD (ANT)                                     		4	
+26 	PLAN Y SEGUIMIENTO (ANT)                                    		4	
+27 	APROBA.SEGUIMIENTO (ANT)                                    		4	
+28 	E.S., PLAN Y SEGUIM. (ANT)                                  		4	
+31 	ESTUDIO DE PROG. C.C. Y SEG.                                		2	
+32 	ESTUDIO DE PROG. DEL C.C.                                   		2	
+33 	SEGUIMIENTO DE PROG. DE CALID.                              		2	
+41 	PROYECTOS DE ACTIVIDAD                                      		4	
+42 	PLANES DE EMERGENCIA                                        		4	
+43 	PROGRAMA Y SEGUIMIENTO                                      		4	
+44 	PROGRAMACIÓN                                                		4	
+45 	SEGUIM. DE LA PROGRAMACIÓN                                  		4	
+51 	PROY. Y DIRECC. PARCELACION                                 		4	
+52 	PROYECTO PARCELACION                                        		4	
+53 	DIRECCION PARCELACION                                       		4	
+54 	REPARCELACION                                               		4	
+61 	ESTUDIO Y COMPARACION DE OFERT                              		4	
+62 	RELACIONES VALORADAS                                        		4	
+63 	MEMORIAS VALORADAS                                          		4	
+64 	REV. PRECIOS Y AJUSTE DE PRES.                              		4	
+65 	VALORACION DE INMUEBLES                                     		4	
+66 	VALOR. TERRENOS Y SOLARES                                   		4	
+71 	INFORMES, RECONOC., DICTAM.                                 		4	
+72 	ACTUACIONES PERICIALES                                      		4	
+73 	CERTIFICADOS                                                		4	
+74 	CERTIF. PARA ESPECTACULOS                                   		4	
+75 	CERTIF. PARA ANDAMIOS                                       		4	
+81 	COLABORACIONES TECNICAS                                     		4	
+82 	CONSULTAS TECNICAS                                          		4	
+83 	ASESORAMIENTO Y GESTIÓN ECONOM                              		4	
+91 	MEDICION EDIFICACION                                        		4	
+92 	MEDICION TERRENOS Y SOLARES                                 		4	
+93 	DESLINDE Y/O REPLANTEO EDIF.                                		4	
+94 	DESL.Y/O REPL. TERRENO O SOLAR                              		4	
+95 	MEDCION UDES. OBRA                                          		4	
+00 	VARIOS                                                      		4	
+11 	PROYECTO Y DIRECCION                                        		3	
+76 	INSPECCIONES TÉCNICAS DE EDIFICIOS (ITE)                    		4	
+77 	CÉDULA DE HABITABILIDAD                                     		4	

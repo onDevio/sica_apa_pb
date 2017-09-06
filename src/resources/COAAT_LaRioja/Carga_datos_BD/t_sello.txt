@@ -1,0 +1,10 @@
+4	Sello Largo NUEVO                                           	sello_largo.xml
+5	Sello Corto NUEVO                                           	sello_peq.xml
+6	Sello corto un colegiado                                    	sello_pequncole.xml
+9	Sello ANULADO                                               	sello_anulado.xml
+7	CD-Final de Obra                                            	sello_FinalObra.xml
+8	Pegatina Final Obra                                         	sello_FOPapel.xml
+3	REGISTRO_CORTO                                              	sello_registrado.xml
+1	REGISTRO_LARGO                                              	sello_largo_registrado.xml
+2	Sello Largo Un colegiado                                    	sello_largouncole.xml
+0	Sello Corto Un Colegiado                                    	sello_cortouncole.xml

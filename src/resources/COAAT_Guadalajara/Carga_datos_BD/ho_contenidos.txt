@@ -1,0 +1,18 @@
+P         	Proyecto, exclusivamente
+PD        	Proyecto y Dirección de las Obras
+D         	Dirección, exclusivamente
+440       	01 - Estudio Seguridad
+441       	02 - Estudio Básico Seguridad
+442       	03 - Coordinador en Fase de Ejecución de Obra
+443       	04 - Estudio y Coordinación en Ejecución
+444       	05 - Estudio Básico y Coordinación en Ejecución
+445       	Asesoramiento Redacción Plan Sobre Estudio Básico
+446       	Asesoramiento Redacción Plan Sobre Estudio
+447       	Coordinación en Proyecto y Redacción Estudio
+448       	Coordinación en Proyecto (Únicamente)
+RS        	Redacción y Seguimiento del Proyecto
+R         	Redacción del Proyecto, exclusivamente
+S         	Seguimiento del Proyecto, exclusivamente
+TE        	Terrenos
+SO        	Solares
+ED        	Edificaciones

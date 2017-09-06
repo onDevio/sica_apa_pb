@@ -1,0 +1,12 @@
+AYTO      	Carta del Ayuntamiento	% 	0.0	S	\\coaatg-srv\SICA-compartido\documentos_fases\	S	N		0			01
+COLEGIA   	Certificados y Resumenes economicos	% 	0.0	S	\\coaatg-srv\SICA-compartido\documentos_fases\	S	N		0			01
+LIQUID    	Hojas de Liquidaciones	% 	0.0	S	\\coaatg-srv\SICA-compartido\liquidaciones\	S	N		0			01
+RECLAM_EXP	Cartas de reclamaciones de Expedientes	% 	0.0	S	\\coaatg-srv\SICA-compartido\reclamaciones\expedientes\	S	N		0			01
+RECLAM_FAS	Cartas de reclamaciones de Fases	% 	0.0	S	\\coaatg-srv\SICA-compartido\reclamaciones\fases\	S	N		0			01
+REPARO    	Cartas de Reparos	% 	0.0	S			N		0			01
+ECON      	Resumenes Economicos	% 	0.0	S	\\coaatg-srv\SICA-compartido\economicos\	S	N		0			01
+LISTADOS  	Listados	% 	0.0	S	\\coaatg-srv\SICA-compartido\listados\	S	N		0			01
+RE        	RE COAATG	% 	16.0	E	 	S	N	 	 	 		01
+RS        	RS COAATG	% 	0.0	S	 	S	N	 	 	 		01
+RE        	RE	% 	0.0	E	 	S	N	 	 	 		02
+RS        	RS	% 	0.0	S	 	S	N	 	 	 		02

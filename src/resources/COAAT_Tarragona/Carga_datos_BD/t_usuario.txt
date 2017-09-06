@@ -1,0 +1,476 @@
+0000000001	 	fdf       	csd                 		0000100306		Jan  1 2020 12:00:00:000AM	0		
+1         	Marcel Ramírez Vives	coatCOAT1 	marcel              	04			Aug  7 2009 12:00:00:000AM	0	informatica@apatgn.org	
+10        	Eva Larraz Holguin	andrea2008	eva                 	03			Jan 27 2012 12:00:00:000AM	0	evalarraz@apatgn.org	
+11        	Oscar Franch	260692    	oscar               	03			Feb 18 2012 12:00:00:000AM	0	delegacio_vendrell@apatgn.org	
+12        	Carme Vallverdú Arbós	oscar     	carme               	03			Jan 27 2012 12:00:00:000AM	0	visats@apatgn.org	
+13        	Josep Anguera Cubells	1104      	josep               	08			Jan 27 2012 12:00:00:000AM	0	josep@apatgn.org	
+14        	Dora Fernàndez Llaberia	4312901   	dora                	01			Jan  1 2012 12:00:00:000AM	0	dfernandez@apatgn.org	
+15        	Meritxell Gispert	coaatt    	meritxell           	06			Jan  6 2012 12:00:00:000AM	0	mgispert@apatgn.org	
+16        	Angelina Guspí Dalmau	praga09   	angelina            	12			Feb 11 2012 12:00:00:000AM	0	aguspi@apatgn.org	
+17        	Alexandra Fortuny Gonzàlez	alex25    	alexandra           	10			Jan 27 2012 12:00:00:000AM	0	biblioteca@apatgn.org	
+18        	Oscar Franch	1234      	oscar2              	03			Aug 30 2011 12:00:00:000AM	0	delegacio_vendrell@apatgn.org	
+19        	Reus	coatCOAT1 	reus                	03			Dec  1 2008 12:00:00:000AM	0		
+20        	Ramon Rebollo Martin	fascinante	ramon               	08			Jan 20 2012 12:00:00:000AM	0	rmrebollo@apatgn.org	
+21        	Carme Vidal Romeu	coatCOAT1 	vidal               	06			Jul 17 2009 12:00:00:000AM	0	serveisexterns@apatgn.org	
+22        	Jaume Cabré	0007      	jaume               	04	 		Jan 13 2012 12:00:00:000AM	0	jaume@apatgn.org	
+24        	Marisa Rujano Gómez	coatCOAT1 	marisa              	D			Dec  1 2008 12:00:00:000AM	0	formacio@apatgn.org	
+25        	Pablo F. de Caleya Dalmau	20002004  	pablo               	01			Jan  7 2012 12:00:00:000AM	0	pfcaleya@apatgn.org	
+26        	Cesca Toledano Arias	coatCOAT1 	cesca               	A			Dec  1 2008 12:00:00:000AM	0	assegurances@apatgn.org	
+27        	Lluis Roig	lra1054   	lluis               	08			Aug  2 2010 12:00:00:000AM	0	lluis@apatgn.org	
+28        	Joan M. Sáenz Ortega	12345     	joan                	07			Feb 10 2012 12:00:00:000AM	0	joansaenz@apatgn.org	
+29        	Àngels Recuero Budesca	coatCOAT1 	lines               	01			Aug  7 2009 12:00:00:000AM	0	comptabilitat@apatgn.org	
+30        	Mercè Obiol Monné	coatCOAT1 	merce               	01			Jul 10 2009 12:00:00:000AM	0	merceobiol@apatgn.org	
+31        	Miriam Ferrer Fernàndez	170109    	miriam              	01			Feb 10 2012 12:00:00:000AM	0	secretaria@apatgn.org	
+32        	Emma Pons	coatCOAT1 	emma2               	03			Jul  6 2009 12:00:00:000AM	1	delegacio_reus@apatgn.org	
+33        	Emma Pons	coatCOAT1 	emma                	03			May  8 2009 12:00:00:000AM	0	delegacio_reus@apatgn.org	
+34        	Nancy Aryspe	coatCOAT1 	nancy               	SE			Dec  1 2008 12:00:00:000AM	0	tarragonaunida@apatgn.org	
+4         	Admin	coatCOAT1 	admin               	04			Dec  1 2008 12:00:00:000AM	0		
+69        	 	0070      	jaume2              	03	 		Jan  2 2012 12:00:00:000AM	0	jaume@apatgn.org	
+70        	Yolanda	8860coatCO	yolanda             	01			Jul  2 2011 12:00:00:000AM	0	yolanda@apatgn.org	
+8         	Ana Almansa Hernàndez	coatCOAT1 	ana                 	SE			Apr 15 2011 12:00:00:000AM	0	aalmansa@apatgn.org	
+9         	Katia Pesare Garcia	coatCOAT1 	cati                	03			Aug  7 2009 12:00:00:000AM	0	kpesare@apatgn.org	
+0000100057	ROVIRA ROCA, RAMON	281948    	39633731Q           		615		Dec 23 2008 12:00:00:000AM	0	ramonrovi@yahoo.es	
+0000100060	SUAREZ REINA, JOSE LUIS	1954      	39646203E           		2513				akinawe_9@hotmail.com	
+0000100062	PROUS MASDEU, JOAN	jupromas  	39816887T           		613					
+0000100064	ANGUERA CUBELLS, JOSE	11031103  	39850224X           		68					
+0000100066	Gabriel	1234      	gabriel             	01			Feb 13 2012 12:00:00:000AM	0		
+0000100068	LLORENS GUAL, FRANCISCO JAVIER	4g6j8     	39699381R           		324				fxllorens@llorensiassociats.com	
+0000100069	LLORENS I ASSOCIATS PROJECTCONSTRUCTION MANAGEMENT	4g6j8     	B43898550           		1176286391				fxllorens@llorensiassociats.com	
+0000100070	ADAM ANDREU, ROMA JORDI	TARRAGONA 	39652973F           		62				jordi.adam@apatgn.cat	
+0000100072	MUÑOZ MADUEÑO, MONTSERRAT	alejandro 	40966250F           		16				montse.munoz@wanadoo.es	
+0000100073	SOLE VIDAL, MARIA TERESA	teresasole	39683116C           		282				tsole@gesob.es	
+0000100074	MARSAL SANS, JOSEP	josepmaria	39862691B           		224				jmarsals@tinet.org	
+0000100075	QUETCUTI CARCELLER, ADOLFO	aq4966    	39649138J           		178				aqc@tinet.org	
+0000100076	MORENO MARTOS, JESUS	elfornas  	77782458T           		78				jmoreno@tinet.org	
+0000100077	BAIXAULI CULLARE, JULIO	baix      	39622818M           		2777				julio.baixauli@apatgn.net	
+0000100081	REBOLLO MARTIN, RAMON	COAATT    	39868637T           		454				rmrebollo@apatgn.org	
+0000100260	BOADA FUSTE, EUGENI	claraR27  	39619264Q           		2279				nidafer@gmail.com	
+0000100261	JARDI HERNANDEZ, JESUS	amanida   	39805426Q           		2757				jesjardi@yahoo.es	
+0000100262	CAÑAS FIGUERAS, JOAN	1060      	39616924E           		2871				joan.canyes@hotmail.com	
+0000100263	MAGRE CARDONA, JUAN	1914      	39618865P           		541				jmagre@tinet.org	
+0000100264	ROCA ROSICH, JOSEP	alcover   	39825086B           		544				toproca@yahoo.es	
+0000100265	ROYO BIETO, JORDI	351       	39828367A           		649				jordi@royo.cat	
+0000100266	ITURGOYEN SABANDO, CARLOS	750400    	39835985P           		700				carlos.iturgoyen@premorsa.es	
+0000100267	SOLDEVILA COTS, JOSEP	masmel    	37580744D           		1176				gabinettarraco@yahoo.es	
+0000100268	GABINET TARRACO S.V., S.L.P.	masmel    	B43713916           		6				gabinettarraco@yahoo.es	
+0000100269	LAFUENTE BARTRA, ANTONI	gaudi     	39646232M           		2775				alafuente@domus12.com	
+0000100270	JUNCOSA ARAGONES, JOSEP MARIA	jmjuncosa 	77830702J           		2781				jmjuncosa@terra.es	
+0000100271	IBAÑEZ SANTANDER, JOSEP MIQUEL	34781956  	39651743L           		2853				info@arquitecturamajor23.com	
+0000100272	MARZO MARTINEZ, JOSE RAMON	paula     	16513283L           		2911				atmarzo@yahoo.es	
+0000100274	DOMENECH GRAU, PERE	n2x74a90  	39660023L           		196				pere.domenech@apatgn.cat	
+0000100275	FLORIT CORDERO, MONTSERRAT	mf4843    	37251416H           		2				montseflorit@telefonica.net	
+0000100276	LLAURADO DE GRAU, F. XAVIER	15101960  	39853667A           		21				frllaurado@yahoo.es	
+0000100277	MADRUGA SERRANO, MIGUEL	97764371  	50270825R           		59				miguel.madruga@apatgn.net	
+0000100278	DE DALMAU MOMMERTZ, JORDI C.	21622162  	39854088X           		82				jordidedalmau@gmail.com	
+0000100279	TORRENS TORRENS, MONTSERRAT	mt2549    	43393945Y           		116				montse.torrens@apatgn.cat	
+0000100280	CORTADA MIQUEL, ANTONIO	1606      	39860195E           		137				antoncortada@hotmail.com	
+0000100071	HERNANDEZ OSMA, JOSE LUIS	0506      	39677884D           		164				jlho@tinet.fut.es	
+0000100281	CAÑIZ CHICA, JOAQUIN S.	SALOU1    	39823739K           		168				j.caniz@apatgn.es	
+0000100282	CANALS JULIAN, RICARD	rc4843    	37714169B           		228				ricardcanals@telefonica.net	
+0000100283	MATA GASSO, MANEL	1198      	39672143H           		234				manelmata@masiesdetarragona.com	
+0000100284	TARRACO ARQUITECTES ASSOCIATS SL	1198      	B43520378           		92				manelmata@masiesdetarragona.com	
+0000100285	NAVARRETE FERNANDEZ, JOSEP A.	TENEPER   	39866364G           		235				navarrete777@telefonica.net	
+0000100286	ROIG RODAMILANS, JORDI	jororo    	40886569K           		239				jrr1964@hotmail.com	
+0000100287	ROFES MESTRE, RAFAEL	r.rofes   	39866531X           		241				977341338@telefonica.net	
+0000100288	ORCALLA GIMENEZ, MIGUEL ANGEL	mgl12     	36975133B           		249				morcalla@gmail.com	
+0000100289	CAPDEVILA GORRIZ, SERGI	scapdevila	77833012T           		264				sergi.capdevila@apatgn.cat	
+0000100290	OLLE ODENA, JAUME	5221      	39877186Q           		265				jolle@tinet.fut.es	
+0000100291	CARCAMO LOPEZ, M. CARMEN	ulises    	13297939Y           		269				carmen.carcamo@apatgn.cat	
+0000100293	RODRIGUEZ GONZALEZ, JOSE M.	aring     	39875830V           		289				rodri-aring@telefonica.net	
+0000100294	TORREDEMER TOMAS, SANTIAGO	santiago  	39882942E           		294				storredemer@terra.es	
+0000100295	VIVES PAPIOL, JOAN MANEL	ATvives   	77784504E           		307				jm.vives@apatgn.cat	
+0000100296	FERNANDEZ VAZQUEZ, YOLANDA	221073    	26486138M           		309				seguretat@telefonica.net	
+0000100297	ROCA PALAU, ELIES	4394453   	39702698Y           		320				elies.roca@apatgn.cat	
+0000100299	RECASENS JUNCOSA, JAUME	jmj140892 	39667503R           		325				jaume.recasens@apatgn.cat	
+0000100300	GAYA PEDROLA, YOLANDA	i15191519 	39884685V           		328				iolandagaya@msn.com	
+0000100301	ANGUERA ESPASA, MONTSERRAT	prades    	39880093W           		333				montseae@gmail.com	
+0000100302	PENALBA SERRA, EVA MARIA	nilson    	39719999B           		352				didarq@hotmail.com	
+0000100303	CANALS GALOFRE, ALBERT	67021     	39730109R           		364				albert.canals@apatgn.cat	
+0000100065	ROYUELA SEGURANA, ANA M.	royuela   	46136527E           		369				tomasana@tinet.org	
+0000100305	DIAZ DE ARGANDOÑA VECIANA, HECTOR	birdie    	39729046L           		375				hectorveciana@yahoo.es	
+0000100306	PEREZ ARESTE, ALBERTO M.	29132913  	39702124F           		378				albertperez@ya.com	
+0000100307	DALMAU CARTAÑA, JOSEP	2727      	39873237T           		383				jdalmauc@gmail.com	
+0000100308	VILLACAMPA VILLACAMPA, XAVI	xavix     	39718579V           		395				xavix@tinet.org	
+0000100310	GISPERT BARDOLET, MERITXELL	COAATT    	39709624D           		416				mgispert@ono.com	
+0000100311	MONLLEO FREIXES, XAVIER	davinci   	39886119W           		420				xavimonlleo@hotmail.com	
+0000100312	AGUILAR ALSINA, JORDI	roc       	38108172R           		422				aguilarjordi@hotmail.com	
+0000100313	PELEGRI BRULL, RAFAEL	418044    	77834819J           		436				rafael.pelegri@teleline.es	
+0000100314	MASDEU CAÑELLAS, PERE	PERE1972  	39880274E           		446				pmasdeuc@hotmail.com	
+0000100315	BALAÑA PRATS, MARC	39897930Z 	39897930Z           		457				marcbpr@hotmail.com	
+0000100316	FERNANDEZ LORENZANA, RAQUEL	TERADE3   	46126050X           		468				terade3@yahoo.es	
+0000100317	FERRE CASAPRIMA, FERRAN	1161      	39715340K           		483				ferranferre@yahoo.es	
+0000100318	MARIN HERAS, SERGI	F2;N3T=R  	39698098Y           		485				smh.atecnic@gmail.com	
+0000100319	GUTIERREZ GONZALO, ANTONI	4350      	39717802E           		486				antoni307@hotmail.com	
+0000100320	GATELL ANGLES, DAVID	rrlesdjq  	39706616Z           		487				david.gatell@apatgn.cat	
+0000100321	FABREGAT MUR, M. DELS ANGELS	3734      	77834538P           		495				angelsfabregat@gmail.com	
+0000100322	SALSENCH FERNANDEZ, DAVID	falset00  	39907435C           		504				delta04@telefonica.net	
+0000100323	CASAS ROCA, YOLANDA	YOLANDA   	39736018E           		3165				yolycr2@hotmail.com	
+0000100324	BESORA BALAÑA, ADAM	190377    	39897275A           		3265				adambesora@arquired.es	
+0000100325	ROIG DALMAU, SERGI	75007500  	39713064E           		1128073451				sergiroigdalmau@telefonica.net	
+0000100326	CALVET BORONAT, JOSEP M.	furgol    	39735313F           		1139828313				josepm_calvet_boronat@yahoo.es	
+0000100327	SORO SANAHUJA, MIREIA	11111     	39712878C           		1144220917				artecmi@hotmail.com	
+0000100328	GIL PERELLO, MARC	MARC      	39900956G           		1697531154				marcgilvila@hotmail.com	
+0000100329	CUGAT PEREZ, LIDIA	17111979  	78581873G           		1152684728				vecutec@gmail.com	
+0000100330	SANCHEZ LOPEZ, NURIA	1063      	39734349D           		1703877209				nuria.sanchez@apatgn.es	
+0000100331	CARDIEL RULL, CECILIA	oliver    	39871478N           		85170086				cecilia_cardiel@hotmail.com	
+0000100332	MUÑOZ CAVERO, IVAN	ivanmc81  	39721099F           		1158054630				ivan@arquitectetecnic.info	
+0000100333	RIOS BARENYS, MERCE	mercerb   	39916861Q           		1965989907				mrios@seare.es	
+0000100334	MARTI DURAN, JOSEP MARIA	19781978  	39891814Q           		1656960342				marti@invall.com	
+0000100335	VIDIELLA CEREZUELA, XAVIER	cambrils  	39883886T           		1171272293				xavier1972@telefonica.net	
+0000100336	ANGUELA QUERALT, MARC	1807      	47758800J           		1449543815				m_anguela@hotmail.com	
+0000100337	ALCALA CRESPO, CARLOS	1533      	39722749R           		1185868671				carlosalcalacrespo@hotmail.com	
+0000100338	SALGADO VECIANA, LLUIS	19821982  	39914907V           		1193123052				lluis.salgado@gmail.com	
+0000100339	VIEYRA, ROLANDO ARIEL	coatCOAT1 	39951957Z           		122073694				arielvieyra@hotmail.com	
+0000100340	ARNO SARDA, SANTIAGO	0879      	39731773D           		0000100493				santiarno@hotmail.com	
+0000100341	CASAS FABREGAS, ANTONIO	26gener195	37644225X           		0000100517				acf@acf.cat	
+0000100342	TREICH ULLDEMOLINS, MONTSERRAT	talecaTGN 	47625632S           		0000100537				montse_tre@hotmail.com	
+0000100343	ALFONSO CASTELLNOU, XAVIER	x001977   	39901116A           		0000100549				xavi@centrifugat.com	
+0000100344	JORDI ROYO SCP	10351     	G43585660           		206				jordi@royo.cat	
+0000100345	C&C TECNICOS ASOCIADOS CB	iñaki     	E43523943           		107				jose_cacho_cervello@hotmail.com	
+0000100346	C&C SERVICIO Y GESTION ARQUITECTURA TECNICA INTEGR	iñaki     	B43873165           		1128254658				jose_cacho_cervello@hotmail.com	
+0000100347	CACHO CERVELLO, JOSE IGNACIO	iñaki     	39717062H           		342				jose_cacho_cervello@hotmail.com	
+0000100348	GOMEZ LOPEZ, CRISTINA	11061971  	25159702W           		293				cglopez@telefonica.net	
+0000100349	GALLEGO SOTERAS, JAIME	jaime59   	39659670B           		193				jgallego59@yahoo.es	
+0000100351	ESCODA CABRE, MARIA	12101978  	39904795W           		477					
+0000100352	CLARASO SEGARRA, ALBERTO	1180      	39624850J           		438				albert.claraso@apatgn.cat	
+0000100353	CAMACHO CABAÑA, JUAN ANTONIO	abc59610  	39900072V           		474				juancama@gmail.com	
+0000100354	TRENCHS LOPEZ, JOANA	u1026276  	45479140K           		506				joanatrenchsl@hotmail.com	
+0000100355	RAVENTOS OLIVELLA, DAVID	1113      	39727456Q           		443				davidraventos@gmail.com	
+0000100357	COAAT DE BARCELONA	barcelona 	Q0875009C           							
+0000100358	COAAT DE LLEIDA	lleida    	Q2575003E           						caatlleida@caatlleida.cat	
+0000100359	COAAT TERRES	terres    	Q9355283D           							
+0000100360	COAAT DE GIRONA	girona    	Q1775005J           							
+0000100363	PIZARRO NUÑEZ DE ARENAS, JOSE M.	jotajota  	39884572L           		385				josepizarro@ya.com	
+0000100364	DOMENECH BRU, ISIDRE	paleta    	39808405M           		627				tdamelero@tdanet.net	
+0000100365	DIAZ BURGUEÑO, DAVID	julia     	39869301C           		286				ddiaz@sbgrup.com	
+0000100366	ARMORA CASADO, JOSEP MARIA	05062005  	39707427C           		314				jmacat1271@yahoo.es	
+0000100368	VALENCIA MILIAN, OSCAR	oscar     	39889649J           		440				oscarvmilian@hotmail.com	
+0000100369	GASQUE VILANOVA, SERGI	365214    	47762186H           		496				sergi.gasque@apatgn.cat	
+0000100370	DESCARREGA SOLE, ALEXANDRA	606060    	47856656G           		0000100562				ads_858@hotmail.com	
+0000100373	LLASAT ROIG, JOSEP MARIA	1953      	39644938E           		837				jmllasat@yahoo.es	
+0000100374	ESCUTE GOMEZ, MAR	thomyorke 	39882727Z           		348				marescute@gmail.com	
+0000100375	GARCIA ELIAS, OSCAR	000770    	40996652A           		450				ogarciaelias@hotmail.com	
+0000100376	BUQUERAS BACH, JOSEP MARIA	0300      	39817909X           		606				buqueras@tinet.org	
+0000100377	ARMENGOL TUA, ANTON	tulcis    	39630408M           		659				anton.armengol@apatgn.cat	
+0000100378	OLIVE OLESTI, FRANCESC	francesc  	39892977Y           		362				foliveolesti@gmail.com	
+0000100379	RAFECAS RIBAS, EULALIA	3003271984	77786655B           		1170840896				marttres@gmail.com	
+0000100380	SANTOS RUPEREZ, PEDRO	psr       	39742502C           		648				pedro.santos@apatgn.cat	
+0000100382	SOLER PEREZ, MARCOS	2525      	40909025Y           		2887				marcossoler@ya.com	
+0000100383	ESCAMILLA RODRIGUEZ, FRANCISCO	COLEGI2009	39715202K           		503				esca_rodri_fran@terra.es	
+0000100384	MUÑOZ MARTINEZ, CARLOS	1493      	46131639X           		418609985					
+0000100386	SOLANAS DALMAU, AGUSTI	cargol    	39618034M           		1228				asolanas@tinet.org	
+0000100387	TERUEL SANCHEZ, JOSE ANTONIO	1972      	39648865Q           		2787				terudip@gmail.com	
+0000100388	RUIZ FERNANDEZ, ANTONI	ANNA      	46005808N           		2802					
+0000100389	CURULL CERON, ANTONIO	acc       	39655860L           		2934				antoni_curull@terra.es	
+0000100390	DIAZ ALVAREZ, JUAN ANTONIO	persei    	39633017S           		182				jada@tinet.fut.es	
+0000100391	DUCH MARTORELL, F. XAVIER	XAVIERD   	39643071H           		392				xavierd@tinet.org	
+0000100392	VIDAL DOMENECH, DANIEL	dvd       	47757818C           		414				dani.lariera@dvd.cat	
+0000100393	FRANCH ALSINA, OSCAR	260692    	43424011B           		1137408229				oscaryevam@hotmail.com	
+0000100394	PLAZA SANCHEZ, HUMBERTO	eduxus    	39882720F           		161966072				hplaza@gmail.com	
+0000100395	DIPROJECT TARRACO - 21 SLP UNIPERSONAL	1972      	B43989607           		0000100534				terudip@gmail.com	
+0000100396	EST. DIR. Y CONT. DE OBRAS,S.L	persei    	B43433515           		66					
+0000100397	MERCADE PORTA, JOAN	443       	39635796B           		679				mercartec50@hotmail.com	
+0000100398	VALLS FIGUEROLA, ERNEST	ERNEST52  	39641834T           		1955				ernest_valls@terra.es	
+0000100399	SERRA MORLA, RAMON	BONSOL    	39650045T           		2826				ramon.serra@apatgn.cat	
+0000100400	BETLINSKI MARCO, AYMON	123456    	47637491Y           		444080620				abm@aymonbetlinski.com	
+0000100401	MANRUBIA MIRETE, AURELIO	LOSSETOS  	39552365R           		527				amanrubia@hotmail.com	
+0000100402	VIÑAS CIURANA, ALBERT	1943      	40004962G           		1755				albert.vciurana@apatgn.cat	
+0000100403	TRINCHAN VIÑES, CARLOS J.	39875863  	39875863G           		301				carmiq@tinet.org	
+0000100404	DESCARREGA CASTELLVI, JOSEP M.	DESCA     	39898664N           		432				jm.descarrega@apatgn.cat	
+0000100407	MARTI HUGUET, FRANCESC XAVIER	2729      	39878186G           		360				viemarti@hotmail.com	
+0000100408	ZORNOZA DE SOLINIS, CARLOS	33129_czs 	39733129P           		363				carlos.zornoza@apatgn.es	
+0000100409	GUARDIA CATALAN, ANTONIO	tochana   	39621586S           		629				ANTONIGC@yahoo.es	
+0000100410	MARTI RISCO, JOAN LLUIS	1022961   	39736472Q           		444				joanlluismarti@hotmail.com	
+0000100411	MIRO RUFA, JOSEP MARIA	ARMIRO    	39640502W           		2886				arinsa@coac.net	
+0000100412	JIMENEZ NAVARRO, RUBEN	311331    	77784963K           		3261				ruben.jimenez@apatgn.net	
+0000100413	ARINSA ARQ.INT.Y SERVICIOS A.,SLP	ARMIRO    	B61986576           		56				arinsa@coac.net	
+0000100414	COPETE MARAVER, RAUL	rcopete   	47755213Z           		1191495886				raul.copete@apatgn.es	
+0000100415	AZNAR CORBELLA, DANIEL	sardana   	52439615Y           		1154343473				danarquit@hotmail.com	
+0000100416	DE FRANCISCO MARTINEZ, M. PAU	pau123    	39865676Y           		308				mpfco@priorat.cat	
+0000100417	SEGICONS FV, SLP	221073    	B43744846           		102				yolandafernandez@segicons.com	
+0000100418	SERRAMIA FONOLL, JOSEP M.	123treball	39669083V           		133				jmserramia@hotmail.com	
+0000100419	SABIDO FORASTER, MATIAS	minicooper	39735696E           		1191403165				matias.arquitectura@gmail.com	
+0000100420	PORRES BLANQUET, CONCHITA	cuqui     	78579871A           		374				cporresblanquet@hotmail.com	
+0000100421	HERRERA LANZA, FCO. JOSE	39957024  	39724059T           		409				franherreralanza@hotmail.com	
+0000100422	TORRES GAVIN, JORDI	qp854     	39852015F           		39				jordit@tinet.fut.es	
+0000100423	GINESTA BENAGES, JOSEP ANDREU	reus40    	77831500Y           		9				aginesta@tinet.cat	
+0000100424	CEPERUELO MALLAFRE, JOAN	joan1234  	39732855X           		1300250911				joan@adfirma.com	
+0000100427	BORRAS OBRADO, JOSEP	pep3314   	39860112P           		226				jb@jbap.net	
+0000100428	ROSELLO SANS, CRISTINA	projectes 	39709611L           		413				estudiarquitectura@tinet.cat	
+0000100438	CABA VANDELLOS, OSCAR	40680ARWC9	39903300W           		1142413423				oscar.caau@gmail.com	
+0000100439	JUBETE ANDREU, JAUME	1956FBL   	36960470E           		2898				jaume.jubete@apatgn.cat	
+0000100440	SEVIL FERRER, AGUSTIN	1089      	39656777Q           		50				assl@arrakis.es	
+0000100446	JUBETE ARQUITECTURA, SLP	1956FBL   	B43961176           		1222243471				jaume.jubete@apatgn.cat	es
+0000100450	PORTA BANUS, MARTA	dWYn.0mx  	39708397R           		337				mportabanus@gmail.com	es
+0000100451	ALEGRET SARIÑENA, PLACIDO	p10839ea  	39845002D           		2824				isabel@estudialegret.com	es
+0000100452	VILELLA SUAZO, JOSEP MARIA	TRAGINER  	39820951Q           		605				vilellasuazo@yahoo.es	es
+0000100453	BENEDICTO GRAGERA, RAMON	tarragona 	77782832Y           		112				r.bened@apatgn.cat	es
+0000100454	PARDO VERGES, ANTON M.	AP        	39851177C           		40				anton.pardo@terra.es	es
+0000100455	ARQUITECTURA TECNICA JAIME GALLEGO SLP	jaime59   	B43932144           		1197964944				jgallego59@yahoo.es	es
+0000100456	BAIGES GISPERT, ARMAND	7777      	39844275H           		15				armandbaiges@arquidomsxxi.com	es
+0000100458	SOLE MUNTANER, ROMÀ	260777    	39891360E           		490				sm_roma@hotmail.com	es
+0000100459	ESCUTE BROCAS, JORDI	tarragona 	39884538P           		507				jordiescute@yahoo.es	es
+0000100460	MATEO CERDA, VICTOR	Mcestudi  	17866863A           		76				victormateo@hotmail.fr	es
+0000100461	GAVALDA SOBREPERE, ROSER	blau5     	39736428H           		0000100508				rgavalda@valverdeat.com	es
+0000100462	CANALS SALAS, M. CARME	ccs       	39691173G           		272				carmecanals@vicsan.com	es
+0000100463	SAEZ GARCIA, JOSE LUIS	coatCOAT1 	39712542Y           		340				jlsaez34@gmail.com	es
+0000100464	FICTICIO, O	coat      	ficti               		0000100306					es
+0000100467	CABOS ARELLANO, JOSE	1973      	39818293A           		531				lta@coac.net	es
+0000100468	CASANOVAS RIPOLL, ENRIQUE	enriccr   	39688149Q           		227				ecasanovas@coac.net	es
+0000100469	SANCHEZ CODINA, CARLES	rebeca    	44005548Q           		353				carlescodina.k1@gmail.com	es
+0000100470	PORTA PRAT, RAMON	ramon1364 	46350403K           		412				ramon@barenysgestio.com	es
+0000100473	ANDRES PUEYO, FRANCISCO JAVIER	ja1037    	39648234Y           		208				javier.andres@apatgn.net	es
+0000100475	ARROYO GARCIA, ANTONIO	@#gratis  	47772237H           		0000100597				antnoio@gmail.com	es
+0000100477	FERRAN LOPEZ, LIDIA	coatCOAT1 	39699676C           		106298939				lidiaferran@yahoo.es	es
+0000100478	PELLICER CASAJUANA, ELENA	20111999  	39906337A           		0000100598				elena.pellicer@apatgn.cat	es
+0000100479	ALONSO GIMENEZ, JOAN	jag779    	39840945T           		2759				alonsoprat@terra.es	es
+0000100481	GUELL VIRGILI, MANUEL	2712      	39657688F           		2784				mguell09@gmail.com	es
+0000100482	CARA BARBERO, DANIEL	4228349   	46961056R           		1214899771				daniel.cara.barbero@gmail.com	es
+0000100483	SERVEIS TECNICS 2008 SLP	2712      	B43936939           		763021929				mguell09@gmail.com	es
+0000100486	SUAREZ SOLER, ENRIC	essoler   	39812841W           		519				sualmost@telefonica.net	es
+0000100487	ROSADO PALLISE, MANUEL	120848    	39632093B           		618				mrp@tinet.fut.es	es
+0000100488	GRANDE RODRIGUEZ, TOMAS	claudia·&$	39862124L           		140				tgraparejador@gmail.com	es
+0000100489	VILANOVA CARALT, JOSEP M.	1348      	39691424W           		396				jmvcat@gmail.com	es
+0000100490	CARRASCO CHINCHILLA, JAVIER	669448427 	39914663A           		0000100596				javierdecarrasco@hotmail.com	es
+0000100491	OLLE REPRESA, JOSEP MARIA	221184337B	39908956T           		0000100498				josepmolle@gmail.com	es
+0000100492	REBOLLO IGLESIAS, LAURA	7419635   	77786162R           		1817366961				laura_arqtec@yahoo.es	es
+0000100493	VALIENTE DELGADO, JESUS	doko      	39649118Q           		2792				jesus.valiente@apatgn.cat	es
+0000100496	JOAN BAUTISTA, SOFIA	8860coatCO	b39919891X          		1956118139				sjb_tpd@hotmail.com	es
+0000100497	ALEGRE RUBIO, CARLOS	coatCOAT1 	47758312P           		413134328				c_alegre03@hotmail.com	es
+0000100498	SERRANO PUNYED, EDUARDO	victoria  	39612077M           		691				eserrano@tinet.org	es
+0000100499	CARRION POLO, ANTONIO	TARRAGONA 	39653941D           		2830				acarrionsl@yahoo.es	es
+0000100500	PORTA COMINO, JOSE MARIA	026610    	39846725F           		210				jmp@promocions.com	es
+0000100501	ROVIRA DIAZ, LLUIS	lluis1618 	46329810J           		55				arquitectura@lluisrovira.com	es
+0000100502	RODRIGUEZ SABATE, JUAN J.	random    	77835104E           		811285011				starduster71@hotmail.com	es
+0000100504	ARIAS BALTA, JOSEP	verdeazul 	43408741J           		327				joseparias@ono.com	es
+0000100505	FORCADES MARGALEF, MONTSERRAT	remei0103 	39878212F           		271				montserrat.forcades@apatgn.cat	es
+0000100506	SANZ SERRANO, PILAR	1234      	39697425T           		274				p.sanz@teleline.es	es
+0000100507	ROMAN MARTIN, FRANCISCO JAVIER	quico     	39680606V           		315				qroman@hotmail.com	es
+0000100508	MAGRANE UNDA, ANTONIO	unela     	39657645X           		332				amagrane@valls.cat	es
+0000100509	FERRE RUIZ, JOAN MANEL	pimpamnet 	39184191B           		384				jmanel.ferre@apatgn.cat	es
+0000100510	SANCHEZ CANO, BENITA	488448    	39738661C           		473				bsanchez@coragasa.com	es
+0000100511	CABRE BELTRI, JOAN  B.	850300    	39896632G           		3328				tiste79@hotmail.com	es
+0000100512	CACHINERO TAMAYO, TOMAS	exclusive 	77787213V           		1130928823				tomascachinero@hotmail.com	es
+0000100513	ROURES FOLCH, MERCE	merces    	39726095N           		1158574688				merce_rofo@yahoo.es	es
+0000100514	BLANCH DALMAU, GEMMA	2112      	39716480B           		386				gemma.blanch@apatgn.com	es
+0000100515	TORNE SANS, JOSEP MARIA	missmi    	39692299A           		3445				jtorans@gmail.com	es
+0000100516	CORT VIVES, ALEIX	1313      	39851212D           		115				aleix.cort@terra.es	es
+0000100517	DE RIQUER VILA, ENRIQUE	levante   	38943003R           		2930				claraderiquer@yahoo.es	es
+0000100518	ALOY DE RIERA, ROSA  MARIA	riera     	39634293A           		117				rosa.aloy@apatgn.cat	es
+0000100519	MATEU SORIANO, ANTONIO GERMAN	agms      	39636496K           		1564				agmateu@gmail.com	es
+0000100520	BLADE RECHA, ANTONIO	abr1954   	39838976D           		1756				antoniblade@yahoo.es	es
+0000100521	NAVARRO GARCIA, JOSEP M.	miarnau   	39676418S           		89				nasasl2006@hotmail.com	es
+0000100522	SAGASTI CAMIRUAGA, JUAN JOSE	1296      	16036297F           		359				juanjo-sagasti@pgp.cat	es
+0000100523	FORNOS FABREGUES, REGINA	wrs341    	39695004V           		447				reginafornos@gencat.cat	es
+0000100525	HERRANZ MATEO, OSCAR	herranz   	50088929N           		470				oscar.herranz@terra.es	es
+0000100526	BAYONA BORDAS, CARLOS J.	1112      	39876241Z           		288				carlos.bayona@apatgn.cat	es
+0000100527	FERNANDEZ CABRE, JUAN MARIA	6966      	39666116V           		86				ferca.db@terra.es	es
+0000100529	GAZQUEZ MARTINEZ, JOSE	1053      	77625896E           		4				jogazquez@telefonica.net	es
+0000100531	ALVAREZ ESCOLANO, JESUS M.	5A3A4     	39669167D           		88				jesusmalvarez@wanadoo.es	es
+0000100532	FLORENCIO CHAVERO, LAURA	7078      	39899673D           		482				laura.florencio@live.com	es
+0000100533	CERRO LLURBA, MARC	7501045   	39913668C           		3322					es
+0000100534	GONZALEZ GARCIA, ANTONIO B.	cbsalou   	39910424L           		478				toni.gonzalez@apatgn.cat	es
+0000100535	GARRIGA BARBERA, JOSEP LLUIS	garriga380	39831815R           		657				jlgarriga@constecnia.com	es
+0000100536	RUBIO LLANEZA, ORLANDO	T5%&6Y    	38116051Z           		331				o.rubio@ymail.com	es
+0000100537	ROVIROSA FORTUNY, ALBERT	rovirosa  	39727577E           		1110467253				rovirosafortuny@gmail.com	es
+0000100538	ROVIROSA JANE, JAUME	rovirosa  	39646324M           		1626				jaume.rovirosa@terra.es	es
+0000100539	JAUME ROVIROSA SL PROFESSIONAL	rovirosa  	B43709963           		12				jaume.rovirosa@terra.es	es
+0000100540	CANELA BALLESTEROS, JUAN I.	040747    	37246808X           		617				canela.juanig@telefonica.net	es
+0000100063	MILA ROVIRA, JOAN	joule     	39631804K           		622				joanmila@gmail.com	
+0000100542	GUARDIA GRAMAGE, M. CARME	prehistori	39659194H           		177				carmeguardia@tinet.cat	es
+0000100543	BUJALANCE LOPEZ, ALBERTO	39709615  	39709615T           		449				bujalance5@gmail.com	es
+0000100544	JORDI ROYO SCP	30351     	J43585660           		0000100611				jordi@royo.cat	es
+0000100545	ORTEGA GOMEZ, AMELIA	1566      	39919834E           		0000100363				amelia-ortega@hotmail.com	es
+0000100546	GALVEZ PEDRET, FRANCESC	FG5201300 	39694715G           		347				fgalvezpedret@mail.st-tasacion.es	es
+0000100547	CAMPOS CASASAYAS, MIREIA	8860coatCO	b39882291S          		489				mireia2006@hotmail.com	es
+0000100548	MC SEGENTEC 2007 SL	ivanmc81  	B43877877           		1541604825				info@segentec.com	es
+0000100549	GOMEZ LASO, JOSE ANTONIO	enric1    	39684265L           		232				joseantonio.gomez@urv.cat	es
+0000100550	GARCIAPONS LLORENS, JOSEP	1152      	77880208T           		742				jgarciapons@anacnv.com	es
+0000100551	SABATE ROCAMORA, HERMENEGILDO	herme     	77830379N           		2793				hsabate@gmail.com	es
+0000100552	LLAURADO VALLS, JOSEP MARIA	270254    	39644486F           		2872				consbauer@hotmail.com	es
+0000100553	GUASCH BOVE, JOSEP M.	mmc2409   	39687666Q           		157				josepm@gmarquitectura.com	es
+0000100554	SOLE ARQUE, MARC	liasole   	52158189P           		441				arq.sole.arque@telefonica.net	es
+0000100555	NUET JAUMEJOAN, ANNA	1442      	39700891Q           		493				annanuet@hotmail.com	es
+0000100556	LARA SANCHEZ, JOAN	1234      	39651641D           		2851				joan@cosomar.com	es
+0000100557	ANGLES BRU, MERITXELL	150893    	39705698Q           		421				meritxell.angles@apatgn.cat	es
+0000100558	BORONAT MERCADE, ARCADI	50.40.20  	47755928Q           		1159773503				arcadiboronat@hotmail.com	es
+0000100559	PRAT FILELLA, CRISTINA	cristina16	39698269Q           		437				cpratf@telefonica.net	es
+0000100560	MAYANS RIERA, OCTAVI	150453    	39642865L           		64				octavimay@hotmail.com	es
+0000100561	ACIDRES PONS, CRISTINA	tatodelta 	39885497R           		467				cacidres@gmail.com	es
+0000100562	CASTILLO BARCENA, NURIA	39703429  	39703429R           		509				nuricastillo@telefonica.net	es
+0000100563	OROS GONZALEZ, MARTA	26042007  	17720794F           		1212390234				luna260407@gmail.com	es
+0000100564	RODRIGUEZ GOMEZ, MANUEL	MRG953    	26435903W           		848				mrodrig@tinet.org	es
+0000100565	DOMINGUEZ SANCHEZ, SERGI	sergid0   	39694822L           		424				sergids@apabcn.cat	es
+0000100566	ESCARRE AROCA, JOSEP M.	josep1979 	39896348L           		966917698				josepescarre@gmail.com	es
+0000100567	CARBASSE ALUJA, ALBERT	CARBA222E 	39875710N           		361				acarbasse@hotmail.com	es
+0000100568	TOLDRA RILLO, JORDI	679343    	39717735R           		417				jorditoldra@gmail.com	es
+0000100569	SEGURA MARTINEZ, DANIEL	at1350    	39861146F           		398				dsegura@cambrilsciutat.org	es
+0000100570	DAROCA FERRAN, MONTSERRAT	montda1354	39872458A           		402				montdafe@gmail.com	es
+0000100571	ALVAREZ CARRERAS, DAVID	99999999X 	46058196Y           		1199875503				davidworld@hotmail.com	es
+0000100572	ARTAL FEBRER, XENIA	xeniaxenia	46364163G           		1743629795				xeniarfe@gmail.com	es
+0000100573	NUALART LABARTA, F. XAVIER	151087    	39688668Y           		242				xavi@gilsplana.com	es
+0000100577	VALVERDE MATILLAS, NURIA	sirenita  	43498537V           		165				nvalmat@valverdeat.com	es
+0000100578	MILA ZARAGOZA, DANIEL	1200      	39699009C           		321				daniel.mila@apatgn.cat	es
+0000100579	BELMONTE CASTELLO, JOAN ALBERT	7501095   	39724851X           		656887910				abc1535@yahoo.es	es
+0000100581	DEL RIO LOPEZ DE ALDA, DAVID	michigan  	39705412Y           		978300885				colloniall@hotmail.com	es
+0000100583	SORIANO LOPEZ, RAUL	coatCOAT1 	39920147J           		0000100375				raulsorianolopez@gmail.com	es
+0000100585	SERRA DAURA, NURIA	7797      	40934457T           		296				nuria.serra@apatgn.net	es
+0000100586	MELLADO DALMASES, LAURA	782905    	39738727V           		462				lauramellado@hotmail.com	es
+0000100587	NAVARRETE ACOSTA, DANIEL	coatCOAT1 	47762252S           		0000100496				navarrete.dani@hotmail.com	es
+0000100588	RIERA ARBOS, MARC	1409      	52424970N           		458				rierarbos@yahoo.es	es
+0000100589	MARZA SOLER, JOSE	jms574    	18677903V           		2843				jmarza@tinet.org	es
+0000100590	SIRISI CASTELLVI, JAUME	jsirisi   	39818901J           		630				jaume.sirisi@apatgn.cat	es
+0000100591	TOMAS FERRE, JOAN M.	joan2222  	39701148C           		336				joanmtf@tinet.cat	es
+0000100592	OLIVER SALADRIGAS, JUAN	1702      	38706252N           		2794				joanoliver@hotmail.com	es
+0000100593	AMOROS ALBIOL, PERE	VINYOLS   	39870084K           		268				pamoros@telefonica.net	es
+0000100596	SAÑUDO SANTOS, ANTONIO	antonio   	39647051L           		1891				a.sanudo@terra.es	es
+0000100597	FEIJOO VEYRET, VICTOR HUGO	coatCOAT1 	X4511588T           		0000100678				hfeijooveyret@hotmail.com	es
+0000100598	OBRADO SANFELIU, JORDI	Jo081258  	39848281E           		170				jobrado@concadebarbera.cat	es
+0000100599	ESTRELLA GARRIDO, ANTONIO	cod1151   	35009257Z           		195				anesga@telefonica.net	es
+0000100600	AGUADE BENET, ABDON	@bd0n@    	39694586J           		250				abdonicori@yahoo.es	es
+0000100601	RUBIO MORENO, EUGENIA	977662815 	39720423K           		415				erm.arq@ya.com	es
+0000100602	GUASCH SANCHEZ, F. XAVIER	x24286    	39901951X           		494					es
+0000100603	GIBERT BONASTRE, FRANCESC	000000    	39903008D           		0000100410				francesc.gibert@hotmail.com	es
+0000100604	CAMPOS SANCHEZ, ANDRES	aparejata 	39882872K           		471				camposandres@hotmail.com	es
+0000100606	BERENGUE RECASENS, FRANCESC	2828      	39824798E           		616				fberenguer@closberenguer.com	es
+0000100607	CAMPO BRIA, JOSE MANUEL	josemanuel	38053150H           		277				jmcampob@gmail.com	es
+0000100608	SANCHEZ ROMERO, JONATAN	COLEGIADO 	52624322T           		311				josanch@telefonica.net	es
+0000100609	LIMONES LOPEZ, JONATHAN	15JOLILO31	47678888A           		1181117315				jlimones@arquired.es	es
+0000100611	ROIG ALONSO, LLUIS	COAT1054  	39658160L           		5				lluis@apatgn.org	es
+0000100613	GRIFOLL VAQUERO, MIQUEL	39850742  	39850742E           		1134558107				mgrifollvaquero@hotmail.com	es
+0000100614	BURILLO PUIG, JORDI	cactus    	39711408E           		435				jordibp@tinet.org	es
+0000100615	SANCHEZ RALLA, PATRICIA	1375      	39729122A           		423				patricia@gestoresdelavivienda.com	es
+0000100616	SANGUINO SANGUINO, DAVID	7502396   	39905613S           		1207039159				david.sanguino@apatgn.cat	es
+0000100617	SANZ VICENTE, MARIA	2658      	71263570W           		1194345313				maria@vendrellestil.com	es
+0000100618	BORRAS CALVO, LUIS	pinchu    	39621399N           		637				llborrasc@hotmail.es	es
+0000100619	GRANADOS CASALS, DANIEL	coatCOAT1 	39734574G           		1207035488				dgranados@dgc.jazztel.es	es
+0000100620	MARTINEZ AREVALO, SUSANA	mercurio  	39733342Z           		479				susmare@hotmail.com	es
+0000100621	LOPEZ DE LA FRANCA NOLLA, JORDI	Aminama69 	39885932E           		404				jlopez@empreninnova.com	es
+0000100623	GUIRAO MESTRES, MARIA PINEDA	1481      	39893104H           		1125915491				pineda@topmail.com	es
+0000100625	SANZ CAPDEVILA, ALEIX	capdevil  	39880282F           		498				aleix.mrm@terra.es	es
+0000100626	MAÑE SENTIS, EDUARD	15021983  	39734946P           		1160121609				edumanye@gmail.com	es
+0000100627	CARRAS MARTIN, SERGIO	101082    	47757460F           		0000100563				scm@coac.net	es
+0000100628	FARRAS TOMAS, JOAN	joanmagí22	39831103W           		685				dvera@becsa.es	es
+0000100629	VERA ROLDAN, DANIEL	CARLOTA   	39727747P           		469				dvera@becsa.es	es
+0000100632	GENOVES MUNTE, ESTEBAN	saloumar  	39741186S           		512				estevege@hotmail.com	es
+0000100638	LOPEZ GALLEGO, PATRICIA	adealtarri	53329243V           		0000100516				patricialoga@gmail.com	es
+0000100639	MOR BONO, JORDI	2004      	39804429P           		551				jmot@tinet.fut.es	es
+0000100640	FERNANDEZ PALAU, JORDI	1505      	39697547F           		310				977663270@terra.es	es
+0000100641	AGUSTIN SALORT, JOSEP RAMON	coatCOAT1 	39721650Y           		502				jras78@hotmail.com	es
+0000100642	MARCO MIRALLAS, JOSE ANTONIO	OCRAM     	39691592D           		297				jamarcom@gmail.com	es
+0000100644	FORTINO VIADE, XAVIER	viavia    	39107227M           		263				xfortinoviade@wanadoo.es	es
+0000100645	FERRANDO CANELLAS, JOSEP	Josep     	39887567R           		3430				josepferca@eresmas.com	es
+0000100646	ESCUDERO ALBERICH, ALBERT	8719      	39727346K           		0000100480				albertescu@hotmail.com	es
+0000100647	OFICINA TECNICA TOMAS-ROIG ASSOCIATS SLP	ofitectr  	B43901883           		923677040				joanmtf@tinet.cat	es
+0000100653	ARAGONES ROC, ANNA ISABEL	secret    	39879806Z           		1208799351				annaragones@terra.es	es
+0000100654	MARTIN ZALDIVAR, MARIA DEL MAR	15871587  	50727658P           		0000100622				marmartinzal@gmail.com	es
+0000100673	TORRENTE TORRENTE, JUAN	coatCOAT1 	39657363G           		452				jtorrente@tarragona.cat	es
+0000100674	RODRIGUEZ ALEGRE, DANIEL	coatCOAT1 	47767294C           		0000100729				daniel.rodale@yahoo.es	es
+0000100676	CAPDEVILA RODRIGUEZ, XAVIER	florida   	39895287Q           		430				xcaro4@gmail.com	es
+0000100677	CAMACHO CABAÑAS, LEONOR M.	lcamacho  	39904297X           		484				leonor.camacho@gmail.com	es
+0000100678	SANCHEZ LOPEZ, JOAN	25051954  	39022681F           		2818				tao2500@gmail.com	es
+0000100680	CUESTA NICOLAS, MAURO	Moxcucick1	39722321X           		389				mauro@dxf.cat	es
+0000100681	CLARAMUNT ESTRADE, JOSEP M.	123abc    	39840691E           		255				josepmclaramunt@hotmail.com	es
+0000100682	CASTELLVI BUQUERAS, JORDI	annamarta 	39869799N           		304				jordi.castellvi@hotmail.com	es
+0000100683	TRIQUELL IBORRA, VANESSA	v45t1gem  	39889803Y           		399				vtriquell@terra.es	es
+0000100684	USUARI PROVES, COL·LEGI	coat      	00000000A           		0000100756				jaume@apatgn.org	CA
+0000100685	COLL MARTINEZ-CARRASCO, MARIA C.	coatCOAT1 	39679894H           		262				marycamen.coll@gmail.com	es
+0000100686	BLAVI SANS, JOSEP	1J7B1S4   	39653733P           		2834				jblavi@tinet.cat	es
+0000100687	GALIMANY PORTA, M. ANTONIA	123456    	39656988C           		223				arquiastre@telefonica.net	es
+0000100690	NOGUES RODRIGUEZ, JOAN MARIA	jmnr1049  	39648093A           		221				nogues@cfcyp.com	es
+0000100691	QUERO LOPEZ, JOSE CARLOS	gatero    	52501846E           		300				carlos@quero.c.telefonica.net	es
+0000100692	ALCEDA BABIA, MARCELINO	german    	17820042X           		2068				marcelinoalceda@hotmail.com	es
+0000100693	SAN PEDRO ROMEU, DAVID	543210    	39894253V           		3398				sanpedrod@terra.es	es
+0000100698	LOPEZ SOLER, JOSE LUIS	SOZJO     	39877061Y           		397				tados@live.com	es
+0000100699	LLOVELL PIQUE, JOSEP MARIA	JmllP     	39629617L           		628				llovell@tinet.cat	es
+0000100700	LOPEZ REVERTE, VICENÇ	01234     	39694469B           		252				vicens@tinet.org	es
+0000100702	RIBES GIMENEZ, XAVIER	XRibes21  	39652928P           		2760				xribes@triarq.net	es
+0000100703	TRIANGLE ARQUITECTONIC, SLP	XRibes21  	B43418284           		28				triarq@triarq.net	es
+0000100707	RAMIREZ MACIAS, DIEGO	3ihulat   	46676169S           		1147942669				drm_at@yahoo.es	es
+0000100708	PLANA ESTIL.LES, PERE NOLASC	0003      	39652882P           		2905				pereplana@tinet.org	es
+0000100709	COLET CREUS, GUIFRE	ccreus    	39666826Z           		69				gcolet@terra.es	es
+0000100710	MERCADE BELTRAN, ALBERT	albert07  	39657254X           		2899				amercade@reus.cat	es
+0000100712	FELIU BORRELL, TON	472720    	39638581J           		701				eva.tonfeliu@gmail.com	es
+0000100713	ARTIGOT ZUBIRIA, MARIA	1485      	47767709K           		1989278653				martigot@tracnet.com	es
+0000100714	PONS SORA, ALBERT	ALPO041020	39891396N           		371				apons@concadebarbera.cat	es
+0000100715	RODRIGUEZ ROURE, JORDI	WRE2RGW8  	46784105N           		0000100790				jordicat_87@hotmail.com	es
+0000100716	GARCIA PATRICIO, MARI CARMEN	mamen05068	39912353Q           		1222845007				mamen_salou@hotmail.com	es
+0000100717	MONTERO ARNAL, JONATHAN	222444    	39728363A           		756488341				jonarnal@gmail.com	es
+0000100718	ALONSO FIGUERAS, JESUS	catars    	39721124D           		338				jalonso@amc5.es	es
+0000100725	LILLO PRIETO, JOSE MANUEL	jmtgn2010 	21506272F           		0000100800				jmlpval@hotmail.com	es
+0000100726	MARTIN CASTAÑO, FRANCESC	000tae    	39732404L           		0000100801				info@taeconsultors.com	es
+0000100727	COLL FERRE, DAVID	39898015F 	39898015F           		0000100789				davidcoll76@gmail.com	es
+0000100728	BALANYA FORT, JOSEP MARIA	3512      	39852827Z           		57				jmbfort@terra.es	es
+0000100729	SUCH SEGU, NARCIS	coatCOAT1 	47763431K           		959624078				narcissuch@gmail.com	es
+0000100734	CIVIT GOMIS, JOSEP MARIA	elburguet 	39887361W           		0000100487				j_kiwit2001@yahoo.es	es
+0000100735	JUNCOSA BONFILL, GEMMA	jun159    	39880024W           		472				gjuncosab@hotmail.com	es
+0000100736	ROCA JORDI, ANTONI	jordi     	36542744E           		3151				antonirocajordi@hotmail.com	es
+0000100738	DOMINGO RUIZ, BLANCA ROSA	APAREJADOR	13167162F           		3330				brdomingo@gmail.com	es
+0000100740	PEDROLA RULLO, EDUARD	EPR       	39843927S           		2364					es
+0000100741	QUERALT VELA, EVA	47757120N 	47757120N           		740030022				eva.queraltvela@gmail.com	es
+0000100742	CORT CIURANA, ELENA	zacarias  	39674180P           		167				elt.tinsa@gmail.com	es
+0000100753	CREUS BORONAT, XAVIER	nyiuqje7cr	77787300N           		488				xcreus7@hotmail.com	es
+0000100754	PEREZ ESPINOSA, VIRGINIA	0726isaias	77787043P           		1202210644				virginia_p_e@hotmail.com	es
+0000100755	SOCIETAT DE PROVES	coat      	00000000B           		0000100836				jaume@apatgn.org	es
+0000100766	ABELLO BORRAS, AGUSTI	eng-edif  	39887861L           		433				agusti@adtasaciones.net	es
+0000100767	MAS GISPERT, LLUIS	LLUIS1456 	39908584L           		1196247768				lmasgispert@gmail.com	es
+0000100768	MESTRE SUÑE, JOAN JOSEP	kf95gd75  	39716251N           		0000100813				jmestre@lenardbcn.com	es
+0000100769	DURAN GARCIA, VICTOR MANUEL	vmdurang84	39732545E           		1149675184				vmdg84@gmail.com	es
+0000100770	DI PIZZO, FERNANDO	FDP6197822	X4702343Q           		0000100839				fdipizzo@gmail.com	es
+0000100771	BALCELLS ARQUITECTES SL	aq4966    	B43652817           		65				balcells-arq@balcells-arq.com	es
+0000100773	CARDONA PASCUAL, FREDERIC	20010208  	39906713B           		3153				frederic.cardona@gmail.com	es
+0000100774	MARSAL ENGINYERS INTEGRALS SLP	josepmaria	B55530828           		0000100841				jmarsals@tinet.org	es
+0000100775	CASTELLO MARTINEZ, RAQUEL	CAST2011  	39714185Q           		411				rcm@tinet.org	es
+0000100776	FERRER CALZADA, OSCAR	australia 	33936748H           		434				oscarferrer@hotmail.com	es
+0000100777	VALMAT ARQUITECTURA TECNICA SLP	sirenita  	B43868223           		1169709820				nvalmat@valverdeat.com	es
+0000100778	GAZQUEZ ROIG, JOAN RAMON	soci00    	39872218Q           		303				jrgr@tinet.org	es
+0000100780	SASPLUGAS DEU, JORDI	241F2238  	38143685W           		400				jsasplugas@hotmail.com	es
+0000100781	BALSELLS TRAVE, SERGI JORDI	2010      	39896067Z           		464				info@sbalsells.com	es
+0000100782	CORTES BONELL, MONTSERRAT	MONTSE1599	47759900D           		0000100840				montse.cortes.bonell@gmail.com	es
+0000100783	GAMEZ CANDELAS, REYES	Candelas10	77782925F           		100				reyesgaca@hotmail.com	es
+0000100784	VIVES BORONAT, XAVIER	160283    	47763909Q           		0000100784				xavi1vives@gmail.com	es
+0000100785	BOIRA COSTA, MANEL	coatCOAT1 	36530247Z           		460				mboira@teyco.es	es
+0000100786	VALLS VALKANA, AGUSTI	VALKANA102	39700150B           		261				avalls@vandellos-hospitalet.cat	es
+0000100787	CRESPO ALVAREZ, JOSE MARIA	Scootty   	17852340Q           		2786				josemariaeulogio@yahoo.es	es
+0000100788	MONTORO PERELLO, MARIÀ	joanet    	39653055C           		2756				mmontoro@tinet.cat	es
+0000100793	POY AGUADE, MARC	2515FXV   	39725317Q           		3213				marcpoyarquitectetecnic@live.com	es
+0000100796	FERNANDEZ JORNET, VERONIC	micona1   	39889969B           		368				veronic.fernandez@wanadoo.es	es
+0000100797	VALLS BAUSA, RAMON	020447    	37622881X           		30				ramon.valls@apatgn.cat	es
+0000100798	SOL ROSA, CRISTINA	JUJOCLA   	46140343C           		401				cristinasol@spgaudi.com	es
+0000100799	ALMIRALL MONTSERRAT, JOSEP	1953      	39624832H           		1436				almiralltecnics@hotmail.com	es
+0000100800	SION TECNICS S.L.	1953      	B43649607           		179				almiralltecnics@hotmail.com	es
+0000100801	ALMIRALL TECNICS, SL PROFESSIONAL	1953      	B43801794           		3415				almiralltecnics@hotmail.com	es
+0000100802	CASAS SANCHEZ, ANGEL	legnasasac	39633959Z           		611				angelcasas@arquired.es	es
+0000100808	AGUILERA MORENO, ROBERTO	unplugged 	39892852L           		0000100865				roberto_aguilera83@hotmail.com	es
+0000100810	QUERALT PIE, JOSEP RAMON	39629681Z 	39629681Z           		2701				jrqpie@terra.es	es
+0000100811	COCA TORRELL, MARIA PILAR	nitdereis 	39840979B           		2565				pilar.coca@gmail.com	es
+0000100813	LAMIEL CAÑADAS, JUAN JOSE	awa2011   	39697277J           		406				jjlamiel@gmail.com	es
+0000100814	PEDROLA RULLO, ALBERT	060760    	39851598G1          		445				albert.pedrola@apatgn.cat	es
+0000100816	INSA GRACIA, CONCEPCION	cinsa2    	39710741E           		365				cinsa2@hotmail.com	es
+0000100818	CASAS ROCA, CRISTINA	xukineti  	39736020R           		500928980				criscr2@hotmail.com	es
+0000100819	PLISSONNEAU, BERENGER	08068486BP	X7289286B           		0000100880				berenger8@hotmail.com	es
+0000100820	BORJA PORTA, DANIEL	naufra77go	39900434B           		0000100882				danibp77@hotmail.com	es
+0000100821	TELL VALLVERDU, GABRIEL	19962000  	39854046Z           		70				gtell2011@hotmail.com	es
+0000100822	SEGUES VIEJO, VICENS	04091981  	53287643R           		1307296654				s.vicens@gmail.com	es
+0000100823	VALLE SERRANO, MIGUEL	311982    	39720853Z           		0000100780				cerrosdeubeda@gmail.com	es
+0000100824	FORCADA FORNES, ANTONIO	af        	39635232E           		663				antoniforcada@gmail.com	es
+0000100828	SANCHEZ BERNALTE, MIGUEL	011208    	71222180N           		0000100850				miguelsanchezbernalte@gmail.com	es
+0000100829	HORTONEDA MOIX, ALBERT	39918997  	39918997J           		0000100888				albert.hortoneda@hotmail.com	es
+0000100841	ALEGRET VIDAL, JOAN	78PR6XFC  	77777279L           		548				promysaga@promysa.com	es
+0000100842	ESTUDI ALEGRET SLP	p10839ea  	B43595602           		43				isabel@estudialegret.com	es
+0000100845	CONS - BAUER SL PROFESSIONAL UNIPERSONAL	270254    	B43426535           		53				consbauer@hotmail.com	es
+0000100847	BLANCO SANTOS, ALBERT	310819888 	39729166R           		0000100886				albertblancos@gmail.com	es
+35        	Joan M. Sáenz (Comptabilitat)	12345     	joan1               	07			Oct  7 2011 12:00:00:000AM	0	comptabilitat@apatgn.org	
+0000100848	FERRE VILA, NEUS	ferrevila 	39921789E           		0000100907				neus.ferre.vila@hotmail.com	es
+0000100849	GOMIS REVERTE, GEMMA	u2191982  	39717695F           		2061877858				gemma_gom@hotmail.com	es
+0000100851	COLL PALACIN, JAUME	1,2,3,4,5,	39032012T           		313				jaumecoll@ctv.es	es
+0000100853	MECA QUIROS, XAVIER	at17862   	44196066W           		0000100911				xmeca@msn.com	es
+0000100854	PARRA VALLVERDU, OSCAR	gizmo_tgn 	47769247H           		0000100914				oscartgn@gmail.com	es
+0000100856	MOLINA ADAN, LLUIS MIQUEL	villalta  	exemple             		2707					es
+0000100857	SANCHEZ SOLSONA, JORDI	jordi558  	39113974J           		1309				pilar@taxarq.com	es
+0000100858	TRAIN BUQUERAS, MARC	0651      	39914037K           		9439280				marc.train.buqueras@gmail.com	es
+0000100861	ROCHE REBOLLO, MARC	$gatito$  	46343311J           		0000100462				markusroche@hotmail.com	es
+0000100862	RAFOLS JIMENEZ, ANGEL LUIS	folder    	47601757Z           		1213943882				arafols@concadebarbera.cat	es
+0000100863	ANGLES PASCUAL, MARC	marcanpa20	39891026X           		0000100921				marcanpa2.0@gmail.com	es
+0000100864	CRUSET BENAVENT, JOAN F.	cabirol   	39844087Z           		94				jcrusetb@tinet.org	es
+0000100872	CORTASA VIDAL, ADRIANA PABLA	enriqueta 	39854741L           		119				acortasa@altcamp.cat	es

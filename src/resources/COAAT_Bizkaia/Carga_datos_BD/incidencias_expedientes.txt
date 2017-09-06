@@ -1,0 +1,66 @@
+00.1.A    	RETENIDO		S
+00.1.B    	OBSERVACIONES		S
+00.2.A    	00.2.A - No se incluye Pliego de Condiciones		S
+00.2.B    	00.2.B - Falta firma en el Pliego de Condiciones		S
+00.3.A    	00.3.A - No se especifican precios unitarios en el Presupuesto		S
+00.3.B    	00.3.B - Faltan partidas en el Presupuesto		S
+00.3.C    	00.3.C - Falta la firma del Presupuesto		S
+00.4.B    	00.4.B - No incluye planta tipo protecciones colectivas		S
+00.4.C    	00.4.C - No incluye planta de cubierta con protecciones colectivas		S
+00.4.D    	00.4.D - No incluye planta del solar con acopios, etc		S
+00.4.E    	00.4.E - Falta firmas en los planos		S
+01.1.A    	01.1.A - Acta de aprobaci¢n Incompleta		S
+01.2.A    	01.2.A - No se menciona el autor en el Plan		S
+01.2.B    	01.2.B - Acta sin planos mencionar que estudio y plan tienen que estar unidos		S
+01.2.C    	01.2.C - Falta la firma en el plan		S
+30.1.A    	30.1.A - Incoherencia memoria / presupuesto en Prog. de C.C.		S
+30.1.B    	30.1.B - Falta la medic. de los mat. a ensayar en la memoria del Prog. de C.C.		S
+30.1.C    	30.1.C - Falta la firma en la memoria del Prog. de C.C.		S
+31.1.A    	31.1.A - No incluyen las fichas de registro de resultados en el Libro de C.C.		S
+31.1.B    	31.1.B - Fichas sin firmar en el Libro de C.C.		S
+31.1.C    	31.1.C - Fichas sin rellenar en el Libro de C.C.		S
+31.1.D    	31.1.D - No incluye el certificado del laboratorio en el Libro de C.C.		S
+31.2.A    	31.2.A - Texto no viegente del C.C.C.		S
+31.2.B    	31.2.B - Faltan datos del arquitecto en el C.C.C.		S
+31.2.C    	31.2.C - Falta firma del arquitecto en el C.C.C.		S
+12.1.A    	11.1.A - No incluye descripci¢n de la obra en la Memoria del Proyecto		S
+12.1.B    	11.1.B - No incluye descripci¢n de lo materiales en la Memoria del Proyecto		S
+12.1.C    	11.1.C - No incluye justificaci¢n normativa en la Memoria del Proyecto		S
+12.1.D    	11.1.D - No incluye memoria de calculo en la Memoria del Proyecto		S
+12.1.F    	11.1.F - Falta la firma en la Memoria del Proyecto		S
+12.2.A    	12.2.A - El pliego de condiciones no coincide con el tipo de obra		S
+12.2.B    	12.2.B - No se incluye Pliego de Condiciones		S
+12.2.C    	12.2.C - Falta la firma en el Pliego de Condiciones		S
+12.3.A    	12.3.A - Presupeusto sin desglosar por capitulos		S
+12.3.B    	12.3.B - Faltan unidades de obra en el presupuesto		S
+12.3.C    	12.3.C - Precios excesivamente bajos en el presupuesto		S
+12.3.D    	12.3.D - No incluye precios unitarios en el presupuesto		S
+12.3.E    	12.3.E - No incluye las mediciones en el presupuesto		S
+12.3.F    	12.3.F - Falta la firma en el presupuesto		S
+12.4.A    	12.4.A - No incluye plano de situaci¢n en el proyecto		S
+12.4.C    	12.4.C - No incluye plano actual en el proyecto		S
+12.4.D    	12.3.E - No incluye plano de estructura con su cajet¡n en el proyecto		S
+12.4.E    	12.4.E - Planos sin escala en el proyecto		S
+12.4.F    	12.4.F - Falta la firma en los planos del proyecto		S
+12.5.A    	12.5.A - No se incluye E.B.S.S.		S
+12.5.B    	12.5.B - No se especifica riesgos evitables y no eliminables en el E.B.S.S.		S
+41.1.A    	41.1.A - No incluye descripci¢n de la actividad en la memoria del Pr. de Activ.		S
+41.1.B    	41.1.B - No incluye justificaci¤on normativa en la memoria del Proy. de Activid.		S
+41.1.C    	41.1.C - No es coherente con los planos la memoria del proyecto de actividad		S
+41.1.D    	41.1.D - Sobra el presupuesto en el proyecto de Actividad		S
+41.1.E    	41.1.E - Sobra el pliego de condiciones en el proyecto de actividad		S
+41.2.A    	41.2.A - No incluye plano de situaci¢n en el Proyecto de actividad		S
+41.2.B    	41.2.B - No incluye plano de instalaciones en el proyecto de actividad		S
+41.2.C    	41.2.C - Planos sin escala en el proyecto de actividad		S
+41.2.D    	41.2.D - Faltan firmas en los planos del proyecto de actividad		S
+900       	Falta Hoja(s) de minuta		S
+901       	Falta Certificado Habilitaci¢n		S
+00.4.A    	00.4.A - No incluye Plano de Situaci¢n		S
+30.2.A    	30.2.A - Falta la firma del presupuesto en Prog. de C.C.		S
+12.1.E    	11.1.E - La memoria del proyecto no es coherente con el resto del proyecto		S
+12.4.B    	12.4.B - No incluye plano de instalaciones en el proyecto		S
+41.1.F    	41.1.F - Falta la firma en la memoria del proyecto de actividad		S
+902       	FALTA LA FIRMA EN EL FINAL DE OBRA		S
+903       	RENUNCIA DE COLEGIADO		S
+00.0.A    	¡¡¡ OJO!!! FRA. DE REGISTRO, DAR A REYES O JAVI.		S
+00.0.B    	¡¡¡ OJO!!! FRA. DE GASTOS DAR A REYES O JAVI		S

@@ -1,0 +1,4 @@
+OR	S	C		Reclamante
+EX	S	C		Expediente
+RE	S	C		Responsable
+CA	s	C		Cargo

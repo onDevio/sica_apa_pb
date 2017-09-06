@@ -1,0 +1,2518 @@
+1         	7	cuenta	 	472000016	0000000007	1
+2         	7	notas	 	S/F.Nº	0000000007	1
+3         	7	formadepago	 	A	0000000007	1
+4         	7	numero_lineas	 	3	0000000007	1
+5         	8	numero_lineas	 	3	0000000008	1
+6         	9	numero_lineas	 	3	0000000009	1
+7         	14	numero_lineas	 	3	0000000014	1
+8         	15	numero_lineas	 	3	0000000015	1
+9         	17	formadepago	 	A	0000000017	1
+10        	17	numero_lineas	 	3	0000000017	1
+11        	21	formadepago	 	A	0000000021	1
+12        	21	numero_lineas	 	3	0000000021	1
+13        	31	numero_lineas	 	3	0000000031	1
+14        	36	numero_lineas	 	3	0000000036	1
+15        	37	numero_lineas	 	3	0000000037	1
+16        	38	numero_lineas	 	3	0000000038	1
+17        	39	numero_lineas	 	3	0000000039	1
+18        	40	numero_lineas	 	3	0000000040	1
+19        	41	formadepago	 	A	0000000041	1
+20        	41	numero_lineas	 	3	0000000041	1
+21        	42	numero_lineas	 	3	0000000042	1
+22        	43	formadepago	 	A	0000000043	1
+23        	43	numero_lineas	 	3	0000000043	1
+24        	76	numero_lineas	 	3	0000000076	1
+26        	1	numero_lineas	 	22	0000000001	2
+27        	1	centro	N	T	0000000001	2
+28        	1	proyecto	 	01	0000000001	2
+29        	1	concepto	 	MOVIMENTS DIARIS	0000000001	2
+30        	1	debe	 		0000000001	2
+31        	1	fecha	S	fecha_ultimo_asiento	0000000001	2
+32        	1	t_doc	 	V	0000000001	2
+33        	1	cuenta	 	419000001	0000000001	2
+34        	1	haber	 		0000000001	3
+35        	1	fecha	S	fecha_ultimo_asiento	0000000001	3
+36        	1	t_doc	 	A	0000000001	3
+37        	1	cuenta	 	707000001	0000000001	3
+38        	1	haber	 		0000000001	4
+39        	1	fecha	S	fecha_ultimo_asiento	0000000001	4
+40        	1	t_doc	 	A	0000000001	4
+41        	1	contrapartida	 	430000000	0000000001	4
+42        	1	cuenta	 	477000002	0000000001	4
+43        	1	haber	 		0000000001	5
+44        	1	fecha	S	fecha_ultimo_asiento	0000000001	5
+45        	1	t_doc	 	A	0000000001	5
+46        	1	cuenta	 	701000001	0000000001	5
+47        	1	haber	 		0000000001	6
+48        	1	fecha	S	fecha_ultimo_asiento	0000000001	6
+49        	1	t_doc	 	A	0000000001	6
+50        	1	contrapartida	 	430000000	0000000001	6
+51        	1	cuenta	 	477000008	0000000001	6
+52        	1	haber	 		0000000001	7
+53        	1	fecha	S	fecha_ultimo_asiento	0000000001	7
+54        	1	t_doc	 	A	0000000001	7
+55        	1	cuenta	 	412000001	0000000001	7
+56        	1	concepto	 	TARGETES MOV.DIA	0000000001	8
+57        	1	debe	 		0000000001	8
+58        	1	fecha	S	fecha_ultimo_asiento	0000000001	8
+59        	1	t_doc	 	A	0000000001	8
+60        	1	cuenta	 	572000027	0000000001	8
+61        	1	concepto	 	LIQ.Nº 240	0000000001	9
+62        	1	haber	 		0000000001	9
+63        	1	fecha	S	fecha_ultimo_asiento	0000000001	9
+64        	1	t_doc	 	A	0000000001	9
+65        	1	cuenta	 	572100001	0000000001	9
+66        	1	concepto	 	LIQ.Nº 240	0000000001	10
+67        	1	haber	 		0000000001	10
+68        	1	fecha	S	fecha_ultimo_asiento	0000000001	10
+69        	1	t_doc	 	A	0000000001	10
+70        	1	cuenta	 	572100001	0000000001	10
+71        	1	concepto	 	LIQ.Nº 240	0000000001	11
+72        	1	haber	 		0000000001	11
+73        	1	fecha	S	fecha_ultimo_asiento	0000000001	11
+74        	1	t_doc	 	A	0000000001	11
+75        	1	cuenta	 	572100001	0000000001	11
+76        	1	concepto	 	LIQ.Nº 240	0000000001	12
+77        	1	haber	 		0000000001	12
+78        	1	fecha	S	fecha_ultimo_asiento	0000000001	12
+79        	1	t_doc	 	A	0000000001	12
+80        	1	cuenta	 	572100001	0000000001	12
+81        	1	concepto	 	LIQ.Nº 240	0000000001	13
+82        	1	haber	 		0000000001	13
+83        	1	fecha	S	fecha_ultimo_asiento	0000000001	13
+84        	1	t_doc	 	A	0000000001	13
+85        	1	cuenta	 	572100001	0000000001	13
+86        	1	concepto	 	ING.XEC/ EFECTIU	0000000001	14
+87        	1	debe	 		0000000001	14
+88        	1	fecha	S	fecha_ultimo_asiento	0000000001	14
+89        	1	t_doc	 	A	0000000001	14
+90        	1	cuenta	 	572	0000000001	14
+91        	1	debe	 		0000000001	15
+92        	1	fecha	S	fecha_ultimo_asiento	0000000001	15
+93        	1	t_doc	 	A	0000000001	15
+94        	1	cuenta	 	572	0000000001	15
+95        	1	debe	 		0000000001	16
+96        	1	fecha	S	fecha_ultimo_asiento	0000000001	16
+97        	1	t_doc	 	A	0000000001	16
+98        	1	cuenta	 	572	0000000001	16
+99        	1	debe	 		0000000001	17
+100       	1	fecha	S	fecha_ultimo_asiento	0000000001	17
+101       	1	t_doc	 	A	0000000001	17
+102       	1	cuenta	 	572	0000000001	17
+103       	1	debe	 		0000000001	18
+104       	1	fecha	S	fecha_ultimo_asiento	0000000001	18
+105       	1	t_doc	 	A	0000000001	18
+106       	1	cuenta	 	572	0000000001	18
+107       	1	debe	 		0000000001	19
+108       	1	fecha	S	fecha_ultimo_asiento	0000000001	19
+109       	1	t_doc	 	A	0000000001	19
+110       	1	cuenta	 	572	0000000001	19
+111       	1	debe	 		0000000001	20
+112       	1	fecha	S	fecha_ultimo_asiento	0000000001	20
+113       	1	t_doc	 	A	0000000001	20
+114       	1	cuenta	 	572	0000000001	20
+115       	1	debe	 		0000000001	21
+116       	1	fecha	S	fecha_ultimo_asiento	0000000001	21
+117       	1	t_doc	 	A	0000000001	21
+118       	1	cuenta	 	572	0000000001	21
+119       	1	debe	 		0000000001	22
+120       	1	fecha	S	fecha_ultimo_asiento	0000000001	22
+121       	1	t_doc	 	A	0000000001	22
+122       	1	cuenta	 	572	0000000001	22
+123       	1	debe	 		0000000001	23
+124       	1	fecha	S	fecha_ultimo_asiento	0000000001	23
+125       	1	t_doc	 	A	0000000001	23
+126       	1	cuenta	 	572	0000000001	23
+127       	2	numero_lineas	 	5	0000000002	1
+128       	2	centro	N	T	0000000002	1
+129       	2	proyecto	 	01	0000000002	1
+130       	2	concepto	 	INGR.XEC	0000000002	1
+131       	2	debe	 		0000000002	1
+132       	2	fecha	S	fecha_ultimo_asiento	0000000002	1
+133       	2	t_doc	 	V	0000000002	1
+134       	2	cuenta	 	572000025	0000000002	1
+135       	2	concepto	 	MOV.DIARI DELEG.	0000000002	2
+136       	2	haber	 		0000000002	2
+137       	2	fecha	S	fecha_ultimo_asiento	0000000002	2
+138       	2	t_doc	 	A	0000000002	2
+140       	2	haber	 		0000000002	3
+141       	2	fecha	S	fecha_ultimo_asiento	0000000002	3
+142       	2	t_doc	 	A	0000000002	3
+143       	2	contrapartida	 	430000000	0000000002	3
+144       	2	cuenta	 	477000008	0000000002	3
+145       	2	haber	 		0000000002	4
+146       	2	fecha	S	fecha_ultimo_asiento	0000000002	4
+147       	2	t_doc	 	A	0000000002	4
+148       	2	cuenta	 	412000001	0000000002	4
+149       	2	concepto	 	TARGETA DELEG.	0000000002	5
+150       	2	debe	 		0000000002	5
+151       	2	fecha	S	fecha_ultimo_asiento	0000000002	5
+152       	2	t_doc	 	A	0000000002	5
+153       	2	cuenta	 	572000027	0000000002	5
+154       	3	numero_lineas	 	6	0000000003	1
+155       	3	centro	N	T	0000000003	1
+156       	3	proyecto	 	01	0000000003	1
+157       	3	concepto	 	ING.MOV.DIARI	0000000003	1
+158       	3	haber	 		0000000003	1
+159       	3	fecha	S	fecha_ultimo_asiento	0000000003	1
+160       	3	t_doc	 	V	0000000003	1
+161       	3	cuenta	 	570	0000000003	1
+162       	3	concepto	 	ING.MOVIM.DIA DELEGACIO	0000000003	2
+163       	3	debe	 		0000000003	2
+164       	3	fecha	S	fecha_ultimo_asiento	0000000003	2
+165       	3	t_doc	 	A	0000000003	2
+166       	3	cuenta	 	572	0000000003	2
+167       	3	debe	 		0000000003	3
+168       	3	fecha	S	fecha_ultimo_asiento	0000000003	3
+169       	3	t_doc	 	A	0000000003	3
+170       	3	cuenta	 	572	0000000003	3
+171       	3	debe	 		0000000003	4
+172       	3	fecha	S	fecha_ultimo_asiento	0000000003	4
+173       	3	t_doc	 	A	0000000003	4
+174       	3	cuenta	 	572	0000000003	4
+175       	3	debe	 		0000000003	5
+176       	3	fecha	S	fecha_ultimo_asiento	0000000003	5
+177       	3	t_doc	 	A	0000000003	5
+178       	3	cuenta	 	572	0000000003	5
+179       	3	debe	 		0000000003	6
+180       	3	fecha	S	fecha_ultimo_asiento	0000000003	6
+181       	3	t_doc	 	A	0000000003	6
+182       	3	cuenta	 	572	0000000003	6
+183       	4	numero_lineas	 	33	0000000004	1
+184       	4	centro	N	T	0000000004	1
+185       	4	proyecto	 	01	0000000004	1
+186       	4	concepto	 	QUOTES MENSUALS RESIDENTS	0000000004	1
+187       	4	haber	 		0000000004	1
+188       	4	fecha	S	fecha_ultimo_asiento	0000000004	1
+189       	4	t_doc	 	V	0000000004	1
+190       	4	cuenta	 	705100001	0000000004	1
+191       	4	concepto	 	QUOTES MENSUALS MUTUA	0000000004	2
+192       	4	haber	 		0000000004	2
+193       	4	fecha	S	fecha_ultimo_asiento	0000000004	2
+194       	4	t_doc	 	A	0000000004	2
+195       	4	cuenta	 	413000001	0000000004	2
+196       	4	concepto	 	QUOTES MENSUALS MUSAAT	0000000004	3
+197       	4	haber	 		0000000004	3
+198       	4	fecha	S	fecha_ultimo_asiento	0000000004	3
+199       	4	t_doc	 	A	0000000004	3
+200       	4	cuenta	 	444000001	0000000004	3
+201       	4	concepto	 	QUOTES MENSUALS VIDA/ACC.	0000000004	4
+202       	4	haber	 		0000000004	4
+203       	4	fecha	S	fecha_ultimo_asiento	0000000004	4
+204       	4	t_doc	 	A	0000000004	4
+205       	4	cuenta	 	440100002	0000000004	4
+206       	4	concepto	 	QUOTES MENSUALS SUBV.MUT.	0000000004	5
+207       	4	debe	 		0000000004	5
+208       	4	fecha	S	fecha_ultimo_asiento	0000000004	5
+209       	4	t_doc	 	A	0000000004	5
+210       	4	cuenta	 	629500004	0000000004	5
+211       	4	concepto	 	QUOTES MENSUALS PREST.PLA	0000000004	6
+212       	4	haber	 	4,07	0000000004	6
+213       	4	fecha	S	fecha_ultimo_asiento	0000000004	6
+214       	4	t_doc	 	A	0000000004	6
+215       	4	cuenta	 	443000001	0000000004	6
+216       	4	haber	 	6,61	0000000004	7
+217       	4	fecha	S	fecha_ultimo_asiento	0000000004	7
+218       	4	t_doc	 	A	0000000004	7
+219       	4	cuenta	 	443000006	0000000004	7
+220       	4	haber	 	3,10	0000000004	8
+221       	4	fecha	S	fecha_ultimo_asiento	0000000004	8
+222       	4	t_doc	 	A	0000000004	8
+223       	4	cuenta	 	443000003	0000000004	8
+224       	4	haber	 	3,16	0000000004	9
+225       	4	fecha	S	fecha_ultimo_asiento	0000000004	9
+226       	4	t_doc	 	A	0000000004	9
+227       	4	cuenta	 	443000004	0000000004	9
+228       	4	haber	 	3,01	0000000004	10
+229       	4	fecha	S	fecha_ultimo_asiento	0000000004	10
+230       	4	t_doc	 	A	0000000004	10
+231       	4	cuenta	 	443000005	0000000004	10
+232       	4	haber	 	6,61	0000000004	11
+233       	4	fecha	S	fecha_ultimo_asiento	0000000004	11
+234       	4	t_doc	 	A	0000000004	11
+235       	4	cuenta	 	443000007	0000000004	11
+236       	4	haber	 	3,49	0000000004	12
+237       	4	fecha	S	fecha_ultimo_asiento	0000000004	12
+238       	4	t_doc	 	A	0000000004	12
+239       	4	cuenta	 	443000008	0000000004	12
+240       	4	haber	 	7,72	0000000004	13
+241       	4	fecha	S	fecha_ultimo_asiento	0000000004	13
+242       	4	t_doc	 	A	0000000004	13
+243       	4	cuenta	 	443000009	0000000004	13
+244       	4	haber	 	3,23	0000000004	14
+245       	4	fecha	S	fecha_ultimo_asiento	0000000004	14
+246       	4	t_doc	 	A	0000000004	14
+247       	4	cuenta	 	443000010	0000000004	14
+248       	4	haber	 	3,56	0000000004	15
+249       	4	fecha	S	fecha_ultimo_asiento	0000000004	15
+250       	4	t_doc	 	A	0000000004	15
+251       	4	cuenta	 	443000011	0000000004	15
+252       	4	haber	 	4,83	0000000004	16
+253       	4	fecha	S	fecha_ultimo_asiento	0000000004	16
+254       	4	t_doc	 	A	0000000004	16
+255       	4	cuenta	 	443000016	0000000004	16
+256       	4	haber	 	4,46	0000000004	17
+257       	4	fecha	S	fecha_ultimo_asiento	0000000004	17
+258       	4	t_doc	 	A	0000000004	17
+259       	4	cuenta	 	443000019	0000000004	17
+260       	4	haber	 	3,01	0000000004	18
+261       	4	fecha	S	fecha_ultimo_asiento	0000000004	18
+262       	4	t_doc	 	A	0000000004	18
+263       	4	cuenta	 	443000022	0000000004	18
+264       	4	haber	 	4,78	0000000004	19
+265       	4	fecha	S	fecha_ultimo_asiento	0000000004	19
+266       	4	t_doc	 	A	0000000004	19
+267       	4	cuenta	 	443000023	0000000004	19
+268       	4	haber	 	4,32	0000000004	20
+269       	4	fecha	S	fecha_ultimo_asiento	0000000004	20
+270       	4	t_doc	 	A	0000000004	20
+271       	4	cuenta	 	443000025	0000000004	20
+272       	4	haber	 	3,01	0000000004	21
+273       	4	fecha	S	fecha_ultimo_asiento	0000000004	21
+274       	4	t_doc	 	A	0000000004	21
+275       	4	cuenta	 	443000026	0000000004	21
+276       	4	haber	 	3,01	0000000004	22
+277       	4	fecha	S	fecha_ultimo_asiento	0000000004	22
+278       	4	t_doc	 	A	0000000004	22
+279       	4	cuenta	 	443000027	0000000004	22
+280       	4	haber	 	3,01	0000000004	23
+281       	4	fecha	S	fecha_ultimo_asiento	0000000004	23
+282       	4	t_doc	 	A	0000000004	23
+283       	4	cuenta	 	443000032	0000000004	23
+284       	4	haber	 	3,01	0000000004	24
+285       	4	fecha	S	fecha_ultimo_asiento	0000000004	24
+286       	4	t_doc	 	A	0000000004	24
+287       	4	cuenta	 	443000033	0000000004	24
+288       	4	haber	 	3,01	0000000004	25
+289       	4	fecha	S	fecha_ultimo_asiento	0000000004	25
+290       	4	t_doc	 	A	0000000004	25
+291       	4	cuenta	 	443000039	0000000004	25
+292       	4	haber	 	3,01	0000000004	26
+293       	4	fecha	S	fecha_ultimo_asiento	0000000004	26
+294       	4	t_doc	 	A	0000000004	26
+295       	4	cuenta	 	443000041	0000000004	26
+296       	4	haber	 	3,01	0000000004	27
+297       	4	fecha	S	fecha_ultimo_asiento	0000000004	27
+298       	4	t_doc	 	A	0000000004	27
+299       	4	cuenta	 	443000043	0000000004	27
+300       	4	concepto	 	QUOTES MENSUALS SUBV.COL.	0000000004	28
+301       	4	debe	 		0000000004	28
+302       	4	fecha	S	fecha_ultimo_asiento	0000000004	28
+303       	4	t_doc	 	A	0000000004	28
+304       	4	cuenta	 	629500003	0000000004	28
+305       	4	concepto	 	QUOTES MENSUALS MUT.GR.AM	0000000004	29
+306       	4	haber	 		0000000004	29
+307       	4	fecha	S	fecha_ultimo_asiento	0000000004	29
+308       	4	t_doc	 	A	0000000004	29
+309       	4	cuenta	 	413000001	0000000004	29
+310       	4	concepto	 	QUOTES MENSUALS ATR.MUTUA	0000000004	30
+311       	4	haber	 		0000000004	30
+312       	4	fecha	S	fecha_ultimo_asiento	0000000004	30
+313       	4	t_doc	 	A	0000000004	30
+314       	4	cuenta	 	413000001	0000000004	30
+315       	4	concepto	 	QUOTES MENSUALS SUBV.2000	0000000004	31
+316       	4	debe	 		0000000004	31
+317       	4	fecha	S	fecha_ultimo_asiento	0000000004	31
+318       	4	t_doc	 	A	0000000004	31
+319       	4	cuenta	 	629500004	0000000004	31
+320       	4	concepto	 	QUOTES MENSUALS NO RESID.	0000000004	32
+321       	4	haber	 		0000000004	32
+322       	4	fecha	S	fecha_ultimo_asiento	0000000004	32
+323       	4	t_doc	 	A	0000000004	32
+324       	4	cuenta	 	705100002	0000000004	32
+325       	4	concepto	 	REMESA QUOTES MENSUALS	0000000004	33
+326       	4	debe	 		0000000004	33
+327       	4	fecha	S	fecha_ultimo_asiento	0000000004	33
+328       	4	t_doc	 	A	0000000004	33
+329       	4	cuenta	 	572000022	0000000004	33
+330       	5	numero_lineas	 	5	0000000005	1
+331       	5	centro	N	T	0000000005	1
+332       	5	proyecto	 	01	0000000005	1
+333       	5	concepto	 	Leasing	0000000005	1
+334       	5	debe	 	125624,03	0000000005	1
+335       	5	fecha	S	fecha_ultimo_asiento	0000000005	1
+336       	5	t_doc	 	F	0000000005	1
+337       	5	contrapartida	 	173	0000000005	1
+338       	5	cuenta	 	21	0000000005	1
+339       	5	haber	 	125624,03	0000000005	2
+340       	5	fecha	S	fecha_ultimo_asiento	0000000005	2
+341       	5	t_doc	 	A	0000000005	2
+342       	5	concepto	 	Traspaso a Efectos Comer	0000000005	3
+343       	5	debe	 	125624,03	0000000005	3
+344       	5	fecha	S	fecha_ultimo_asiento	0000000005	3
+345       	5	t_doc	 	A	0000000005	3
+346       	5	concepto	 	Deuda a CP	0000000005	4
+347       	5	haber	 	28005,63	0000000005	4
+348       	5	fecha	S	fecha_ultimo_asiento	0000000005	4
+349       	5	t_doc	 	A	0000000005	4
+350       	5	cuenta	 	5250000	0000000005	4
+351       	5	concepto	 	Traspaso deuda LP	0000000005	5
+352       	5	haber	 		0000000005	5
+353       	5	fecha	S	fecha_ultimo_asiento	0000000005	5
+354       	5	t_doc	 	A	0000000005	5
+355       	5	cuenta	 	1750000	0000000005	5
+356       	6	numero_lineas	 	3	0000000006	1
+357       	6	centro	N	T	0000000006	1
+358       	6	proyecto	 	01	0000000006	1
+359       	6	concepto	 	Pago Cuota Periodo	0000000006	1
+360       	6	debe	 	2333,80	0000000006	1
+361       	6	fecha	S	fecha_ultimo_asiento	0000000006	1
+362       	6	t_doc	 	F	0000000006	1
+363       	6	contrapartida	 	5720000	0000000006	1
+364       	6	cuenta	 	5250000	0000000006	1
+365       	6	debe	 	2333,80*16/100	0000000006	2
+366       	6	fecha	S	fecha_ultimo_asiento	0000000006	2
+367       	6	t_doc	 	F	0000000006	2
+368       	6	cuenta	 	4720016	0000000006	2
+369       	6	haber	 		0000000006	3
+370       	6	fecha	S	fecha_ultimo_asiento	0000000006	3
+371       	6	t_doc	 	F	0000000006	3
+372       	7	numero_lineas	 	3	0000000007	1
+373       	7	centro	N	T	0000000007	1
+374       	7	proyecto	 	01	0000000007	1
+375       	7	debe	 		0000000007	1
+376       	7	fecha	S	fecha_ultimo_asiento	0000000007	1
+377       	7	t_doc	 	V	0000000007	1
+378       	7	cuenta	 	6	0000000007	1
+379       	7	haber	 		0000000007	2
+380       	7	fecha	S	fecha_ultimo_asiento	0000000007	2
+381       	7	t_doc	 	A	0000000007	2
+382       	7	cuenta	 	4	0000000007	2
+383       	8	numero_lineas	 	3	0000000008	1
+384       	8	centro	N	T	0000000008	1
+385       	8	proyecto	 	01	0000000008	1
+386       	8	debe	 		0000000008	1
+387       	8	fecha	S	fecha_ultimo_asiento	0000000008	1
+388       	8	t_doc	 	V	0000000008	1
+389       	8	cuenta	 	6	0000000008	1
+390       	8	haber	 		0000000008	2
+391       	8	fecha	S	fecha_ultimo_asiento	0000000008	2
+392       	8	t_doc	 	A	0000000008	2
+393       	8	cuenta	 	4	0000000008	2
+394       	9	numero_lineas	 	3	0000000009	1
+395       	9	centro	N	T	0000000009	1
+396       	9	proyecto	 	01	0000000009	1
+397       	9	debe	 		0000000009	1
+398       	9	fecha	S	fecha_ultimo_asiento	0000000009	1
+399       	9	t_doc	 	V	0000000009	1
+400       	9	cuenta	 	6	0000000009	1
+401       	9	haber	 		0000000009	2
+402       	9	fecha	S	fecha_ultimo_asiento	0000000009	2
+403       	9	t_doc	 	A	0000000009	2
+404       	9	cuenta	 	4	0000000009	2
+405       	10	numero_lineas	 	29	0000000010	1
+406       	10	centro	N	T	0000000010	1
+407       	10	proyecto	 	01	0000000010	1
+408       	10	concepto	 	PAG.PREST.PREM.	0000000010	1
+409       	10	debe	 	6142,80	0000000010	1
+410       	10	fecha	S	fecha_ultimo_asiento	0000000010	1
+411       	10	t_doc	 	V	0000000010	1
+412       	10	cuenta	 	413000001	0000000010	1
+413       	10	haber	 	156,48	0000000010	2
+414       	10	fecha	S	fecha_ultimo_asiento	0000000010	2
+415       	10	t_doc	 	A	0000000010	2
+416       	10	cuenta	 	572000022	0000000010	2
+417       	10	haber	 	113,34	0000000010	3
+418       	10	fecha	S	fecha_ultimo_asiento	0000000010	3
+419       	10	t_doc	 	A	0000000010	3
+420       	10	cuenta	 	572000022	0000000010	3
+421       	10	haber	 	282,08	0000000010	4
+422       	10	fecha	S	fecha_ultimo_asiento	0000000010	4
+423       	10	t_doc	 	A	0000000010	4
+424       	10	cuenta	 	572000022	0000000010	4
+425       	10	haber	 	61,82	0000000010	5
+426       	10	fecha	S	fecha_ultimo_asiento	0000000010	5
+427       	10	t_doc	 	A	0000000010	5
+428       	10	cuenta	 	572000022	0000000010	5
+429       	10	haber	 	248,85	0000000010	6
+430       	10	fecha	S	fecha_ultimo_asiento	0000000010	6
+431       	10	t_doc	 	A	0000000010	6
+432       	10	cuenta	 	572000022	0000000010	6
+433       	10	haber	 	245,15	0000000010	7
+434       	10	fecha	S	fecha_ultimo_asiento	0000000010	7
+435       	10	t_doc	 	A	0000000010	7
+436       	10	cuenta	 	572000022	0000000010	7
+437       	10	haber	 	193,92	0000000010	8
+438       	10	fecha	S	fecha_ultimo_asiento	0000000010	8
+439       	10	t_doc	 	A	0000000010	8
+440       	10	cuenta	 	572000022	0000000010	8
+441       	10	haber	 	200,02	0000000010	9
+442       	10	fecha	S	fecha_ultimo_asiento	0000000010	9
+443       	10	t_doc	 	A	0000000010	9
+444       	10	cuenta	 	572000022	0000000010	9
+445       	10	haber	 	174,27	0000000010	10
+446       	10	fecha	S	fecha_ultimo_asiento	0000000010	10
+447       	10	t_doc	 	A	0000000010	10
+448       	10	cuenta	 	572000022	0000000010	10
+449       	10	haber	 	282,27	0000000010	11
+450       	10	fecha	S	fecha_ultimo_asiento	0000000010	11
+451       	10	t_doc	 	A	0000000010	11
+452       	10	cuenta	 	572000022	0000000010	11
+453       	10	haber	 	109,91	0000000010	12
+454       	10	fecha	S	fecha_ultimo_asiento	0000000010	12
+455       	10	t_doc	 	A	0000000010	12
+456       	10	cuenta	 	572000022	0000000010	12
+457       	10	haber	 	298,12	0000000010	13
+458       	10	fecha	S	fecha_ultimo_asiento	0000000010	13
+459       	10	t_doc	 	A	0000000010	13
+460       	10	cuenta	 	572000022	0000000010	13
+461       	10	haber	 	98,61	0000000010	14
+462       	10	fecha	S	fecha_ultimo_asiento	0000000010	14
+463       	10	t_doc	 	A	0000000010	14
+464       	10	cuenta	 	572000022	0000000010	14
+465       	10	haber	 	199,73	0000000010	15
+466       	10	fecha	S	fecha_ultimo_asiento	0000000010	15
+467       	10	t_doc	 	A	0000000010	15
+468       	10	cuenta	 	572000022	0000000010	15
+469       	10	haber	 	252,46	0000000010	16
+470       	10	fecha	S	fecha_ultimo_asiento	0000000010	16
+471       	10	t_doc	 	A	0000000010	16
+472       	10	cuenta	 	572000022	0000000010	16
+473       	10	haber	 	291,81	0000000010	17
+474       	10	fecha	S	fecha_ultimo_asiento	0000000010	17
+475       	10	t_doc	 	A	0000000010	17
+476       	10	cuenta	 	572000022	0000000010	17
+477       	10	haber	 	142,52	0000000010	18
+478       	10	fecha	S	fecha_ultimo_asiento	0000000010	18
+479       	10	t_doc	 	A	0000000010	18
+480       	10	cuenta	 	572000022	0000000010	18
+481       	10	haber	 	145,18	0000000010	19
+482       	10	fecha	S	fecha_ultimo_asiento	0000000010	19
+483       	10	t_doc	 	A	0000000010	19
+484       	10	cuenta	 	572000022	0000000010	19
+485       	10	haber	 	321,82	0000000010	20
+486       	10	fecha	S	fecha_ultimo_asiento	0000000010	20
+487       	10	t_doc	 	A	0000000010	20
+488       	10	cuenta	 	572000022	0000000010	20
+489       	10	haber	 	359,32	0000000010	21
+490       	10	fecha	S	fecha_ultimo_asiento	0000000010	21
+491       	10	t_doc	 	A	0000000010	21
+492       	10	cuenta	 	572000022	0000000010	21
+493       	10	haber	 	160,33	0000000010	22
+494       	10	fecha	S	fecha_ultimo_asiento	0000000010	22
+495       	10	t_doc	 	A	0000000010	22
+496       	10	cuenta	 	572000022	0000000010	22
+497       	10	haber	 	154,92	0000000010	23
+498       	10	fecha	S	fecha_ultimo_asiento	0000000010	23
+499       	10	t_doc	 	A	0000000010	23
+500       	10	cuenta	 	572000022	0000000010	23
+501       	10	haber	 	562,64	0000000010	24
+502       	10	fecha	S	fecha_ultimo_asiento	0000000010	24
+503       	10	t_doc	 	A	0000000010	24
+504       	10	cuenta	 	572000022	0000000010	24
+505       	10	haber	 	336,05	0000000010	25
+506       	10	fecha	S	fecha_ultimo_asiento	0000000010	25
+507       	10	t_doc	 	A	0000000010	25
+508       	10	cuenta	 	572000022	0000000010	25
+509       	10	haber	 	154,25	0000000010	26
+510       	10	fecha	S	fecha_ultimo_asiento	0000000010	26
+511       	10	t_doc	 	A	0000000010	26
+512       	10	cuenta	 	572000022	0000000010	26
+513       	10	haber	 	351,56	0000000010	27
+514       	10	fecha	S	fecha_ultimo_asiento	0000000010	27
+515       	10	t_doc	 	A	0000000010	27
+516       	10	cuenta	 	572000022	0000000010	27
+517       	10	haber	 	142,15	0000000010	28
+518       	10	fecha	S	fecha_ultimo_asiento	0000000010	28
+519       	10	t_doc	 	A	0000000010	28
+520       	10	cuenta	 	572000022	0000000010	28
+521       	10	haber	 		0000000010	29
+522       	10	fecha	S	fecha_ultimo_asiento	0000000010	29
+523       	10	t_doc	 	A	0000000010	29
+524       	10	cuenta	 	572000022	0000000010	29
+525       	11	numero_lineas	 	2	0000000011	1
+526       	11	centro	N	T	0000000011	1
+527       	11	proyecto	 	01	0000000011	1
+528       	11	concepto	 	Intereses diferidos Perio	0000000011	1
+529       	11	debe	 		0000000011	1
+530       	11	fecha	S	fecha_ultimo_asiento	0000000011	1
+531       	11	t_doc	 	F	0000000011	1
+532       	11	contrapartida	 	5250000	0000000011	1
+533       	11	cuenta	 	662	0000000011	1
+534       	11	haber	 		0000000011	2
+535       	11	fecha	S	fecha_ultimo_asiento	0000000011	2
+536       	11	t_doc	 	F	0000000011	2
+537       	12	numero_lineas	 	13	0000000012	1
+538       	12	centro	N	T	0000000012	1
+539       	12	proyecto	 	01	0000000012	1
+540       	12	concepto	 	PAG.LIQUID.Nº 26000	0000000012	1
+541       	12	debe	 		0000000012	1
+542       	12	fecha	S	fecha_ultimo_asiento	0000000012	1
+543       	12	t_doc	 	V	0000000012	1
+544       	12	cuenta	 	572100001	0000000012	1
+545       	12	concepto	 	PAG.LIQUID.Nº 2600	0000000012	2
+546       	12	debe	 		0000000012	2
+547       	12	fecha	S	fecha_ultimo_asiento	0000000012	2
+548       	12	t_doc	 	A	0000000012	2
+549       	12	cuenta	 	572100001	0000000012	2
+550       	12	concepto	 	PAG.LIQUID.Nº 2600	0000000012	3
+551       	12	debe	 		0000000012	3
+552       	12	fecha	S	fecha_ultimo_asiento	0000000012	3
+553       	12	t_doc	 	A	0000000012	3
+554       	12	cuenta	 	572100001	0000000012	3
+555       	12	concepto	 	PAG.LIQUID.Nº 2600	0000000012	4
+556       	12	debe	 		0000000012	4
+557       	12	fecha	S	fecha_ultimo_asiento	0000000012	4
+558       	12	t_doc	 	A	0000000012	4
+559       	12	cuenta	 	572100001	0000000012	4
+560       	12	concepto	 	PAG.LIQUID.Nº 2600	0000000012	5
+561       	12	debe	 		0000000012	5
+562       	12	fecha	S	fecha_ultimo_asiento	0000000012	5
+563       	12	t_doc	 	A	0000000012	5
+564       	12	cuenta	 	572100001	0000000012	5
+565       	12	concepto	 	PAG.LIQUID.Nº 2600	0000000012	6
+566       	12	debe	 		0000000012	6
+567       	12	fecha	S	fecha_ultimo_asiento	0000000012	6
+568       	12	t_doc	 	A	0000000012	6
+569       	12	cuenta	 	572100001	0000000012	6
+570       	12	concepto	 	PAG.LIQUID.Nº 2600	0000000012	7
+571       	12	debe	 		0000000012	7
+572       	12	fecha	S	fecha_ultimo_asiento	0000000012	7
+573       	12	t_doc	 	A	0000000012	7
+574       	12	cuenta	 	572100001	0000000012	7
+575       	12	concepto	 	PAG.LIQUID.Nº 2600	0000000012	8
+576       	12	debe	 		0000000012	8
+577       	12	fecha	S	fecha_ultimo_asiento	0000000012	8
+578       	12	t_doc	 	A	0000000012	8
+579       	12	cuenta	 	572100001	0000000012	8
+580       	12	concepto	 	PAG.LIQUID.Nº 2600	0000000012	9
+581       	12	debe	 		0000000012	9
+582       	12	fecha	S	fecha_ultimo_asiento	0000000012	9
+583       	12	t_doc	 	A	0000000012	9
+585       	12	concepto	 	PAG.LIQUID.Nº 2600	0000000012	10
+586       	12	debe	 		0000000012	10
+587       	12	fecha	S	fecha_ultimo_asiento	0000000012	10
+588       	12	t_doc	 	A	0000000012	10
+589       	12	cuenta	 	572100001	0000000012	10
+590       	12	concepto	 	PAG.LIQUID.Nº 2600	0000000012	11
+591       	12	debe	 		0000000012	11
+592       	12	fecha	S	fecha_ultimo_asiento	0000000012	11
+593       	12	t_doc	 	A	0000000012	11
+594       	12	cuenta	 	572100001	0000000012	11
+595       	12	concepto	 	PAG.LIQUID.Nº 2600	0000000012	12
+596       	12	debe	 		0000000012	12
+597       	12	fecha	S	fecha_ultimo_asiento	0000000012	12
+598       	12	t_doc	 	A	0000000012	12
+599       	12	cuenta	 	572100001	0000000012	12
+600       	12	concepto	 	PAG.LIQUID.VARIES	0000000012	13
+601       	12	haber	 		0000000012	13
+602       	12	fecha	S	fecha_ultimo_asiento	0000000012	13
+603       	12	t_doc	 	A	0000000012	13
+604       	12	cuenta	 	572000008	0000000012	13
+605       	13	numero_lineas	 	2	0000000013	1
+606       	13	centro	N	T	0000000013	1
+607       	13	proyecto	 	01	0000000013	1
+608       	13	concepto	 	T/	0000000013	1
+609       	13	debe	 		0000000013	1
+610       	13	fecha	S	fecha_ultimo_asiento	0000000013	1
+611       	13	t_doc	 	V	0000000013	1
+612       	13	cuenta	 	4	0000000013	1
+613       	13	haber	 		0000000013	2
+614       	13	fecha	S	fecha_ultimo_asiento	0000000013	2
+615       	13	t_doc	 	A	0000000013	2
+616       	13	cuenta	 	572000026	0000000013	2
+617       	14	numero_lineas	 	3	0000000014	1
+618       	14	centro	N	T	0000000014	1
+619       	14	proyecto	 	01	0000000014	1
+620       	14	haber	 		0000000014	1
+621       	14	fecha	S	fecha_ultimo_asiento	0000000014	1
+622       	14	t_doc	 	V	0000000014	1
+623       	14	cuenta	 	7591	0000000014	1
+624       	14	debe	 		0000000014	2
+625       	14	fecha	S	fecha_ultimo_asiento	0000000014	2
+626       	14	t_doc	 	A	0000000014	2
+627       	15	numero_lineas	 	6	0000000015	1
+628       	15	centro	N	T	0000000015	1
+629       	15	proyecto	 	01	0000000015	1
+630       	15	concepto	 	CURS HUMITAT.-	0000000015	1
+631       	15	haber	 		0000000015	1
+632       	15	fecha	S	fecha_ultimo_asiento	0000000015	1
+633       	15	t_doc	 	V	0000000015	1
+634       	15	cuenta	 	7591	0000000015	1
+635       	15	concepto	 	ANTIVIRUS.-	0000000015	2
+636       	15	haber	 		0000000015	2
+637       	15	fecha	S	fecha_ultimo_asiento	0000000015	2
+638       	15	t_doc	 	V	0000000015	2
+639       	15	cuenta	 	705	0000000015	2
+640       	15	debe	 		0000000015	3
+641       	15	fecha	S	fecha_ultimo_asiento	0000000015	3
+642       	15	t_doc	 	A	0000000015	3
+643       	15	debe	 		0000000015	4
+644       	15	fecha	S	fecha_ultimo_asiento	0000000015	4
+645       	15	t_doc	 	A	0000000015	4
+646       	16	numero_lineas	 	31	0000000016	1
+647       	16	centro	N	T	0000000016	1
+648       	16	proyecto	 	01	0000000016	1
+649       	16	concepto	 	DIETES J.BAIXAULI -	0000000016	1
+650       	16	debe	 	767,73	0000000016	1
+651       	16	fecha	S	fecha_ultimo_asiento	0000000016	1
+652       	16	t_doc	 	V	0000000016	1
+653       	16	cuenta	 	659000001	0000000016	1
+654       	16	debe	 	413,04	0000000016	2
+655       	16	fecha	S	fecha_ultimo_asiento	0000000016	2
+656       	16	t_doc	 	A	0000000016	2
+657       	16	cuenta	 	659000006	0000000016	2
+658       	16	concepto	 	DIETES A.QUETCUTI.-	0000000016	3
+659       	16	debe	 	605,26	0000000016	3
+660       	16	fecha	S	fecha_ultimo_asiento	0000000016	3
+661       	16	t_doc	 	A	0000000016	3
+662       	16	cuenta	 	659000007	0000000016	3
+663       	16	debe	 	325,63	0000000016	4
+664       	16	fecha	S	fecha_ultimo_asiento	0000000016	4
+665       	16	t_doc	 	A	0000000016	4
+666       	16	cuenta	 	659000006	0000000016	4
+667       	16	concepto	 	DIETES M.MUÑOZ -	0000000016	5
+668       	16	debe	 	592,58	0000000016	5
+669       	16	fecha	S	fecha_ultimo_asiento	0000000016	5
+670       	16	t_doc	 	A	0000000016	5
+671       	16	cuenta	 	659000002	0000000016	5
+672       	16	debe	 	318,81	0000000016	6
+673       	16	fecha	S	fecha_ultimo_asiento	0000000016	6
+674       	16	t_doc	 	A	0000000016	6
+675       	16	cuenta	 	659000006	0000000016	6
+676       	16	concepto	 	DIETES T.SOLE.-	0000000016	7
+677       	16	debe	 	542,47	0000000016	7
+678       	16	fecha	S	fecha_ultimo_asiento	0000000016	7
+679       	16	t_doc	 	A	0000000016	7
+680       	16	cuenta	 	659000003	0000000016	7
+681       	16	debe	 	291,85	0000000016	8
+682       	16	fecha	S	fecha_ultimo_asiento	0000000016	8
+683       	16	t_doc	 	A	0000000016	8
+684       	16	cuenta	 	659000006	0000000016	8
+685       	16	concepto	 	DIETES J.ADAM.-	0000000016	9
+686       	16	debe	 	542,47	0000000016	9
+687       	16	fecha	S	fecha_ultimo_asiento	0000000016	9
+688       	16	t_doc	 	A	0000000016	9
+689       	16	cuenta	 	659000004	0000000016	9
+690       	16	debe	 	291,85	0000000016	10
+691       	16	fecha	S	fecha_ultimo_asiento	0000000016	10
+692       	16	t_doc	 	A	0000000016	10
+693       	16	cuenta	 	659000006	0000000016	10
+694       	16	concepto	 	DIETES J.MARSAL -	0000000016	11
+695       	16	debe	 	478,11	0000000016	11
+696       	16	fecha	S	fecha_ultimo_asiento	0000000016	11
+697       	16	t_doc	 	A	0000000016	11
+698       	16	cuenta	 	659000005	0000000016	11
+699       	16	debe	 	257,22	0000000016	12
+700       	16	fecha	S	fecha_ultimo_asiento	0000000016	12
+701       	16	t_doc	 	A	0000000016	12
+702       	16	cuenta	 	659000006	0000000016	12
+703       	16	concepto	 	DIETES F.X.LLORENS.-	0000000016	13
+704       	16	debe	 	478,11	0000000016	13
+705       	16	fecha	S	fecha_ultimo_asiento	0000000016	13
+706       	16	t_doc	 	A	0000000016	13
+707       	16	cuenta	 	659000005	0000000016	13
+708       	16	debe	 	257,22	0000000016	14
+709       	16	fecha	S	fecha_ultimo_asiento	0000000016	14
+710       	16	t_doc	 	A	0000000016	14
+711       	16	cuenta	 	659000006	0000000016	14
+712       	16	concepto	 	DIETES J.FERRE.-	0000000016	15
+713       	16	debe	 	478,11	0000000016	15
+714       	16	fecha	S	fecha_ultimo_asiento	0000000016	15
+715       	16	t_doc	 	A	0000000016	15
+716       	16	cuenta	 	659000005	0000000016	15
+717       	16	debe	 	257,22	0000000016	16
+718       	16	fecha	S	fecha_ultimo_asiento	0000000016	16
+719       	16	t_doc	 	A	0000000016	16
+720       	16	cuenta	 	659000006	0000000016	16
+721       	16	concepto	 	DIETES J.L.HDEZ OSMA-	0000000016	17
+722       	16	debe	 	478,11	0000000016	17
+723       	16	fecha	S	fecha_ultimo_asiento	0000000016	17
+724       	16	t_doc	 	A	0000000016	17
+725       	16	cuenta	 	659000005	0000000016	17
+726       	16	concepto	 	DIETES J.MORENO.-	0000000016	18
+727       	16	debe	 	478,11	0000000016	18
+728       	16	fecha	S	fecha_ultimo_asiento	0000000016	18
+729       	16	t_doc	 	A	0000000016	18
+730       	16	cuenta	 	659000005	0000000016	18
+731       	16	concepto	 	RETENC. DIETA J.BAIXAULI	0000000016	19
+732       	16	haber	 	413,04	0000000016	19
+733       	16	fecha	S	fecha_ultimo_asiento	0000000016	19
+734       	16	t_doc	 	A	0000000016	19
+735       	16	cuenta	 	475100003	0000000016	19
+736       	16	concepto	 	RETENC.DIETA A.QUETCUTI	0000000016	20
+737       	16	haber	 	325,63	0000000016	20
+738       	16	fecha	S	fecha_ultimo_asiento	0000000016	20
+739       	16	t_doc	 	A	0000000016	20
+740       	16	cuenta	 	475100003	0000000016	20
+741       	16	concepto	 	RETENC.DIETA M.MUÑOZ	0000000016	21
+742       	16	haber	 	318,81	0000000016	21
+743       	16	fecha	S	fecha_ultimo_asiento	0000000016	21
+744       	16	t_doc	 	A	0000000016	21
+745       	16	cuenta	 	475100003	0000000016	21
+746       	16	concepto	 	RETENC.DIETA T.SOLE	0000000016	22
+747       	16	haber	 	291,85	0000000016	22
+748       	16	fecha	S	fecha_ultimo_asiento	0000000016	22
+749       	16	t_doc	 	A	0000000016	22
+750       	16	cuenta	 	475100003	0000000016	22
+751       	16	concepto	 	RETENC.DIETA J.ADAM	0000000016	23
+752       	16	haber	 	291,85	0000000016	23
+753       	16	fecha	S	fecha_ultimo_asiento	0000000016	23
+754       	16	t_doc	 	A	0000000016	23
+755       	16	cuenta	 	475100003	0000000016	23
+756       	16	concepto	 	RETENC.DIETA J.MARSAL	0000000016	24
+757       	16	haber	 	257,22	0000000016	24
+758       	16	fecha	S	fecha_ultimo_asiento	0000000016	24
+759       	16	t_doc	 	A	0000000016	24
+760       	16	cuenta	 	475100003	0000000016	24
+761       	16	concepto	 	RETENC.DIETA F.X.LLORENS	0000000016	25
+762       	16	haber	 	257,22	0000000016	25
+763       	16	fecha	S	fecha_ultimo_asiento	0000000016	25
+764       	16	t_doc	 	A	0000000016	25
+765       	16	cuenta	 	475100003	0000000016	25
+766       	16	concepto	 	RETENC.DIETA J.FERRE	0000000016	26
+767       	16	haber	 	257,22	0000000016	26
+768       	16	fecha	S	fecha_ultimo_asiento	0000000016	26
+769       	16	t_doc	 	A	0000000016	26
+770       	16	cuenta	 	475100003	0000000016	26
+771       	16	concepto	 	RETENC.DIETA HDEZ OSMA	0000000016	27
+772       	16	haber	 	257,22	0000000016	27
+773       	16	fecha	S	fecha_ultimo_asiento	0000000016	27
+774       	16	t_doc	 	A	0000000016	27
+775       	16	cuenta	 	475100003	0000000016	27
+776       	16	concepto	 	RETENC.DIETA J.MORENO	0000000016	28
+777       	16	haber	 	257,22	0000000016	28
+778       	16	fecha	S	fecha_ultimo_asiento	0000000016	28
+779       	16	t_doc	 	A	0000000016	28
+780       	16	cuenta	 	475100003	0000000016	28
+781       	16	concepto	 	TRANSF. DIETES	0000000016	29
+782       	16	haber	 		0000000016	29
+783       	16	fecha	S	fecha_ultimo_asiento	0000000016	29
+784       	16	t_doc	 	A	0000000016	29
+785       	16	cuenta	 	572000026	0000000016	29
+786       	16	debe	 	257,22	0000000016	30
+787       	16	fecha	S	fecha_ultimo_asiento	0000000016	30
+788       	16	t_doc	 	A	0000000016	30
+789       	16	cuenta	 	659000006	0000000016	30
+790       	16	debe	 	257,22	0000000016	31
+791       	16	fecha	S	fecha_ultimo_asiento	0000000016	31
+792       	16	t_doc	 	A	0000000016	31
+793       	16	cuenta	 	659000006	0000000016	31
+794       	17	numero_lineas	 	5	0000000017	1
+795       	17	centro	N	T	0000000017	1
+796       	17	proyecto	 	01	0000000017	1
+797       	17	concepto	 	"SEG.ESTR."-	0000000017	1
+798       	17	haber	 		0000000017	1
+799       	17	fecha	S	fecha_ultimo_asiento	0000000017	1
+800       	17	t_doc	 	V	0000000017	1
+801       	17	cuenta	 	759100003	0000000017	1
+802       	17	concepto	 	DESP.ENV.-	0000000017	2
+803       	17	haber	 		0000000017	2
+804       	17	fecha	S	fecha_ultimo_asiento	0000000017	2
+805       	17	t_doc	 	A	0000000017	2
+806       	17	cuenta	 	624000001	0000000017	2
+807       	17	debe	 		0000000017	3
+808       	17	fecha	S	fecha_ultimo_asiento	0000000017	3
+809       	17	t_doc	 	A	0000000017	3
+810       	18	numero_lineas	 	2	0000000018	1
+811       	18	centro	N	T	0000000018	1
+812       	18	proyecto	 	01	0000000018	1
+813       	18	concepto	 	DOTAC.FONS OBR.SOC.	0000000018	1
+814       	18	debe	 	2500,00	0000000018	1
+815       	18	fecha	S	fecha_ultimo_asiento	0000000018	1
+816       	18	t_doc	 	V	0000000018	1
+818       	18	haber	 		0000000018	2
+819       	18	fecha	S	fecha_ultimo_asiento	0000000018	2
+820       	18	t_doc	 	A	0000000018	2
+821       	18	cuenta	 	101000003	0000000018	2
+822       	19	numero_lineas	 	3	0000000019	1
+823       	19	centro	N	T	0000000019	1
+824       	19	proyecto	 	01	0000000019	1
+825       	19	concepto	 	INT.INV.CAIXA TGNA 50 MIL	0000000019	1
+826       	19	haber	 	1064,15	0000000019	1
+827       	19	fecha	S	fecha_ultimo_asiento	0000000019	1
+828       	19	t_doc	 	V	0000000019	1
+829       	19	cuenta	 	761000002	0000000019	1
+830       	19	debe	 	191,55	0000000019	2
+831       	19	fecha	S	fecha_ultimo_asiento	0000000019	2
+832       	19	t_doc	 	A	0000000019	2
+833       	19	cuenta	 	473000001	0000000019	2
+834       	19	debe	 		0000000019	3
+835       	19	fecha	S	fecha_ultimo_asiento	0000000019	3
+836       	19	t_doc	 	A	0000000019	3
+837       	19	cuenta	 	572000015	0000000019	3
+838       	20	numero_lineas	 	4	0000000020	1
+839       	20	centro	N	T	0000000020	1
+840       	20	proyecto	 	01	0000000020	1
+841       	20	concepto	 	INTER.572.15 MENSUAL	0000000020	1
+842       	20	haber	 		0000000020	1
+843       	20	fecha	S	fecha_ultimo_asiento	0000000020	1
+844       	20	t_doc	 	V	0000000020	1
+845       	20	cuenta	 	761000001	0000000020	1
+846       	20	debe	 		0000000020	2
+847       	20	fecha	S	fecha_ultimo_asiento	0000000020	2
+848       	20	t_doc	 	A	0000000020	2
+849       	20	cuenta	 	473000001	0000000020	2
+850       	20	concepto	 	COMIS.MENS.C.TARRAGONA	0000000020	3
+851       	20	debe	 	1,33	0000000020	3
+852       	20	fecha	S	fecha_ultimo_asiento	0000000020	3
+853       	20	t_doc	 	A	0000000020	3
+854       	20	cuenta	 	626000001	0000000020	3
+855       	20	concepto	 	INTER.572.15 MENSUAL	0000000020	4
+856       	20	debe	 		0000000020	4
+857       	20	fecha	S	fecha_ultimo_asiento	0000000020	4
+858       	20	t_doc	 	A	0000000020	4
+859       	20	cuenta	 	572000015	0000000020	4
+860       	21	numero_lineas	 	3	0000000021	1
+861       	21	centro	N	T	0000000021	1
+862       	21	proyecto	 	01	0000000021	1
+863       	21	concepto	 	DICT.GEN.CAT.CTR-	0000000021	1
+864       	21	haber	 		0000000021	1
+865       	21	fecha	S	fecha_ultimo_asiento	0000000021	1
+866       	21	t_doc	 	V	0000000021	1
+867       	21	cuenta	 	759100006	0000000021	1
+868       	21	debe	 		0000000021	2
+869       	21	fecha	S	fecha_ultimo_asiento	0000000021	2
+870       	21	t_doc	 	A	0000000021	2
+871       	21	cuenta	 	430300038	0000000021	2
+872       	22	numero_lineas	 	2	0000000022	1
+873       	22	centro	N	T	0000000022	1
+874       	22	proyecto	 	01	0000000022	1
+875       	22	concepto	 	Leasing Amortiz. Periodo	0000000022	1
+876       	22	debe	 	1674,98	0000000022	1
+877       	22	fecha	S	fecha_ultimo_asiento	0000000022	1
+878       	22	t_doc	 	F	0000000022	1
+879       	22	contrapartida	 	281	0000000022	1
+880       	22	cuenta	 	681	0000000022	1
+881       	22	haber	 		0000000022	2
+882       	22	fecha	S	fecha_ultimo_asiento	0000000022	2
+883       	22	t_doc	 	F	0000000022	2
+884       	23	numero_lineas	 	2	0000000023	1
+885       	23	centro	N	T	0000000023	1
+886       	23	proyecto	 	01	0000000023	1
+887       	23	concepto	 	S.GERM.-	0000000023	1
+888       	23	debe	 		0000000023	1
+889       	23	fecha	S	fecha_ultimo_asiento	0000000023	1
+890       	23	t_doc	 	V	0000000023	1
+891       	23	contrapartida	 	759000003	0000000023	1
+892       	23	cuenta	 	570000002	0000000023	1
+893       	23	haber	 		0000000023	2
+894       	23	fecha	S	fecha_ultimo_asiento	0000000023	2
+895       	23	t_doc	 	A	0000000023	2
+896       	23	cuenta	 	627000002	0000000023	2
+897       	24	numero_lineas	 	2	0000000024	1
+898       	24	centro	N	T	0000000024	1
+899       	24	proyecto	 	01	0000000024	1
+900       	24	concepto	 	Traspaso Cuota LP a CP	0000000024	1
+901       	24	debe	 	2333,80	0000000024	1
+902       	24	fecha	S	fecha_ultimo_asiento	0000000024	1
+903       	24	t_doc	 	F	0000000024	1
+904       	24	contrapartida	 	5250000	0000000024	1
+905       	24	cuenta	 	1750000	0000000024	1
+906       	24	haber	 		0000000024	2
+907       	24	fecha	S	fecha_ultimo_asiento	0000000024	2
+908       	24	t_doc	 	F	0000000024	2
+909       	25	numero_lineas	 	3	0000000025	1
+910       	25	centro	N	T	0000000025	1
+911       	25	proyecto	 	01	0000000025	1
+912       	25	concepto	 	s/Factura	0000000025	1
+913       	25	debe	 		0000000025	1
+914       	25	fecha	S	fecha_ultimo_asiento	0000000025	1
+915       	25	t_doc	 	V	0000000025	1
+916       	25	contrapartida	 	400	0000000025	1
+917       	25	cuenta	 	600	0000000025	1
+918       	25	debe	 	N1*16/100	0000000025	2
+919       	25	fecha	S	fecha_ultimo_asiento	0000000025	2
+920       	25	t_doc	 	A	0000000025	2
+921       	25	cuenta	 	4720016	0000000025	2
+922       	25	haber	 		0000000025	3
+923       	25	fecha	S	fecha_ultimo_asiento	0000000025	3
+924       	25	t_doc	 	A	0000000025	3
+925       	26	numero_lineas	 	5	0000000026	1
+926       	26	centro	N	T	0000000026	1
+927       	26	proyecto	 	01	0000000026	1
+928       	26	concepto	 	s/Factura	0000000026	1
+929       	26	debe	 		0000000026	1
+930       	26	fecha	S	fecha_ultimo_asiento	0000000026	1
+931       	26	t_doc	 	V	0000000026	1
+932       	26	contrapartida	 	400	0000000026	1
+933       	26	cuenta	 	600	0000000026	1
+934       	26	debe	 	N1*16/100	0000000026	2
+935       	26	fecha	S	fecha_ultimo_asiento	0000000026	2
+936       	26	t_doc	 	A	0000000026	2
+937       	26	cuenta	 	4720016	0000000026	2
+938       	26	haber	 		0000000026	3
+939       	26	fecha	S	fecha_ultimo_asiento	0000000026	3
+940       	26	t_doc	 	A	0000000026	3
+941       	26	concepto	 	Pago s/ Factura	0000000026	4
+942       	26	haber	 	N1+N1*16/100	0000000026	4
+943       	26	fecha	S	fecha_ultimo_asiento	0000000026	4
+944       	26	t_doc	 	A	0000000026	4
+945       	26	cuenta	 	57	0000000026	4
+946       	26	debe	 	N1+N1*16/100	0000000026	5
+947       	26	fecha	S	fecha_ultimo_asiento	0000000026	5
+948       	26	t_doc	 	A	0000000026	5
+949       	27	numero_lineas	 	2	0000000027	1
+950       	27	centro	N	T	0000000027	1
+951       	27	proyecto	 	01	0000000027	1
+952       	27	concepto	 	APORT.CONSEJO GRAL-	0000000027	1
+953       	27	debe	 	2044,62	0000000027	1
+954       	27	fecha	S	fecha_ultimo_asiento	0000000027	1
+955       	27	t_doc	 	V	0000000027	1
+956       	27	contrapartida	 	410000012	0000000027	1
+957       	27	cuenta	 	629500001	0000000027	1
+958       	27	haber	 		0000000027	2
+959       	27	fecha	S	fecha_ultimo_asiento	0000000027	2
+960       	27	t_doc	 	A	0000000027	2
+961       	28	numero_lineas	 	4	0000000028	1
+962       	28	centro	N	T	0000000028	1
+963       	28	proyecto	 	01	0000000028	1
+964       	28	concepto	 	DEV.QUOT.	0000000028	1
+965       	28	debe	 		0000000028	1
+966       	28	fecha	S	fecha_ultimo_asiento	0000000028	1
+967       	28	t_doc	 	V	0000000028	1
+968       	28	contrapartida	 	572000022	0000000028	1
+969       	28	cuenta	 	442	0000000028	1
+970       	28	haber	 		0000000028	2
+971       	28	fecha	S	fecha_ultimo_asiento	0000000028	2
+972       	28	t_doc	 	A	0000000028	2
+973       	28	cuenta	 	572000026	0000000028	2
+974       	28	concepto	 	COMIS.DEV.QUOTA	0000000028	3
+975       	28	debe	 	6,23	0000000028	3
+976       	28	fecha	S	fecha_ultimo_asiento	0000000028	3
+977       	28	t_doc	 	A	0000000028	3
+978       	28	contrapartida	 	626000001	0000000028	3
+979       	28	cuenta	 	442	0000000028	3
+980       	28	haber	 		0000000028	4
+981       	28	fecha	S	fecha_ultimo_asiento	0000000028	4
+982       	28	t_doc	 	A	0000000028	4
+983       	28	cuenta	 	626000001	0000000028	4
+984       	29	numero_lineas	 	2	0000000029	1
+985       	29	centro	N	T	0000000029	1
+986       	29	proyecto	 	01	0000000029	1
+987       	29	concepto	 	DEV.MUSAAT-	0000000029	1
+988       	29	debe	 		0000000029	1
+989       	29	fecha	S	fecha_ultimo_asiento	0000000029	1
+990       	29	t_doc	 	V	0000000029	1
+991       	29	contrapartida	 	572100001	0000000029	1
+992       	29	cuenta	 	412000001	0000000029	1
+993       	29	concepto	 	LIQ.Nº 230	0000000029	2
+994       	29	haber	 		0000000029	2
+995       	29	fecha	S	fecha_ultimo_asiento	0000000029	2
+996       	29	t_doc	 	A	0000000029	2
+997       	29	cuenta	 	572100001	0000000029	2
+998       	30	numero_lineas	 	2	0000000030	1
+999       	30	centro	N	T	0000000030	1
+1000      	30	proyecto	 	01	0000000030	1
+1001      	30	concepto	 	DIF.MUSAAT-	0000000030	1
+1002      	30	debe	 		0000000030	1
+1003      	30	fecha	S	fecha_ultimo_asiento	0000000030	1
+1004      	30	t_doc	 	V	0000000030	1
+1005      	30	contrapartida	 	412000001	0000000030	1
+1006      	30	cuenta	 	440500001	0000000030	1
+1007      	30	haber	 		0000000030	2
+1008      	30	fecha	S	fecha_ultimo_asiento	0000000030	2
+1009      	30	t_doc	 	A	0000000030	2
+1010      	30	cuenta	 	412000001	0000000030	2
+1011      	31	numero_lineas	 	4	0000000031	1
+1012      	31	centro	N	T	0000000031	1
+1013      	31	proyecto	 	01	0000000031	1
+1014      	31	concepto	 	LLOG.	0000000031	1
+1015      	31	haber	 		0000000031	1
+1016      	31	fecha	S	fecha_ultimo_asiento	0000000031	1
+1017      	31	t_doc	 	V	0000000031	1
+1018      	31	contrapartida	 	433000001	0000000031	1
+1019      	31	cuenta	 	752000001	0000000031	1
+1020      	31	debe	 		0000000031	2
+1021      	31	fecha	S	fecha_ultimo_asiento	0000000031	2
+1022      	31	t_doc	 	A	0000000031	2
+1023      	31	cuenta	 	473000004	0000000031	2
+1024      	31	debe	 		0000000031	3
+1025      	31	fecha	S	fecha_ultimo_asiento	0000000031	3
+1026      	31	t_doc	 	A	0000000031	3
+1027      	31	cuenta	 	433000001	0000000031	3
+1028      	32	numero_lineas	 	2	0000000032	1
+1029      	32	centro	N	T	0000000032	1
+1030      	32	proyecto	 	01	0000000032	1
+1031      	32	concepto	 	IBI.-	0000000032	1
+1032      	32	debe	 		0000000032	1
+1033      	32	fecha	S	fecha_ultimo_asiento	0000000032	1
+1034      	32	t_doc	 	V	0000000032	1
+1035      	32	contrapartida	 	572000022	0000000032	1
+1036      	32	cuenta	 	631000001	0000000032	1
+1037      	32	haber	 		0000000032	2
+1038      	32	fecha	S	fecha_ultimo_asiento	0000000032	2
+1039      	32	t_doc	 	A	0000000032	2
+1040      	32	cuenta	 	572000022	0000000032	2
+1041      	33	numero_lineas	 	2	0000000033	1
+1042      	33	centro	N	T	0000000033	1
+1043      	33	proyecto	 	01	0000000033	1
+1044      	33	concepto	 	PROV.FONS EXTR.-	0000000033	1
+1045      	33	debe	 		0000000033	1
+1046      	33	fecha	S	fecha_ultimo_asiento	0000000033	1
+1047      	33	t_doc	 	V	0000000033	1
+1048      	33	cuenta	 	629600001	0000000033	1
+1049      	33	haber	 		0000000033	2
+1050      	33	fecha	S	fecha_ultimo_asiento	0000000033	2
+1051      	33	t_doc	 	A	0000000033	2
+1052      	33	cuenta	 	572000022	0000000033	2
+1053      	34	numero_lineas	 	4	0000000034	1
+1054      	34	centro	N	T	0000000034	1
+1055      	34	proyecto	 	01	0000000034	1
+1056      	34	concepto	 	AMORT.PREST.CITAM-	0000000034	1
+1057      	34	debe	 		0000000034	1
+1058      	34	fecha	S	fecha_ultimo_asiento	0000000034	1
+1059      	34	t_doc	 	V	0000000034	1
+1060      	34	cuenta	 	572	0000000034	1
+1061      	34	haber	 		0000000034	2
+1062      	34	fecha	S	fecha_ultimo_asiento	0000000034	2
+1063      	34	t_doc	 	A	0000000034	2
+1064      	34	cuenta	 	532300001	0000000034	2
+1065      	34	debe	 		0000000034	3
+1066      	34	fecha	S	fecha_ultimo_asiento	0000000034	3
+1067      	34	t_doc	 	A	0000000034	3
+1068      	34	cuenta	 	473000000	0000000034	3
+1069      	34	haber	 		0000000034	4
+1070      	34	fecha	S	fecha_ultimo_asiento	0000000034	4
+1071      	34	t_doc	 	A	0000000034	4
+1072      	34	cuenta	 	762000001	0000000034	4
+1073      	35	numero_lineas	 	5	0000000035	1
+1074      	35	centro	N	T	0000000035	1
+1075      	35	proyecto	 	01	0000000035	1
+1076      	35	concepto	 	s/Factura	0000000035	1
+1077      	35	debe	 		0000000035	1
+1078      	35	fecha	S	fecha_ultimo_asiento	0000000035	1
+1079      	35	t_doc	 	V	0000000035	1
+1080      	35	contrapartida	 	41	0000000035	1
+1081      	35	cuenta	 	6	0000000035	1
+1082      	35	debe	 	N1*16/100	0000000035	2
+1083      	35	fecha	S	fecha_ultimo_asiento	0000000035	2
+1084      	35	t_doc	 	A	0000000035	2
+1085      	35	cuenta	 	4720016	0000000035	2
+1086      	35	haber	 		0000000035	3
+1087      	35	fecha	S	fecha_ultimo_asiento	0000000035	3
+1088      	35	t_doc	 	A	0000000035	3
+1089      	35	concepto	 	Pago s/Factura	0000000035	4
+1090      	35	debe	 	N1+N1*16/100	0000000035	4
+1091      	35	fecha	S	fecha_ultimo_asiento	0000000035	4
+1092      	35	t_doc	 	A	0000000035	4
+1093      	35	contrapartida	 	57	0000000035	4
+1094      	35	haber	 	N1+N1*16/100	0000000035	5
+1095      	35	fecha	S	fecha_ultimo_asiento	0000000035	5
+1096      	35	t_doc	 	A	0000000035	5
+1097      	36	numero_lineas	 	3	0000000036	1
+1098      	36	centro	N	T	0000000036	1
+1099      	36	proyecto	 	01	0000000036	1
+1100      	36	concepto	 	TEDI VARIS .- GENCAT	0000000036	1
+1101      	36	haber	 		0000000036	1
+1102      	36	fecha	S	fecha_ultimo_asiento	0000000036	1
+1103      	36	t_doc	 	V	0000000036	1
+1104      	36	cuenta	 	759100006	0000000036	1
+1105      	36	debe	 		0000000036	2
+1106      	36	fecha	S	fecha_ultimo_asiento	0000000036	2
+1107      	36	t_doc	 	A	0000000036	2
+1108      	36	cuenta	 	430300038	0000000036	2
+1109      	37	numero_lineas	 	6	0000000037	1
+1110      	37	centro	N	T	0000000037	1
+1111      	37	proyecto	 	01	0000000037	1
+1112      	37	concepto	 	COMIS.Rº Bº VISATS	0000000037	1
+1113      	37	debe	 		0000000037	1
+1114      	37	fecha	S	fecha_ultimo_asiento	0000000037	1
+1115      	37	t_doc	 	V	0000000037	1
+1116      	37	cuenta	 	626000001	0000000037	1
+1117      	37	haber	 		0000000037	2
+1118      	37	fecha	S	fecha_ultimo_asiento	0000000037	2
+1119      	37	t_doc	 	A	0000000037	2
+1120      	37	cuenta	 	400000025	0000000037	2
+1121      	37	concepto	 	PAG.F.	0000000037	3
+1122      	37	debe	 		0000000037	3
+1123      	37	fecha	S	fecha_ultimo_asiento	0000000037	3
+1124      	37	t_doc	 	A	0000000037	3
+1125      	37	cuenta	 	400000025	0000000037	3
+1126      	37	haber	 		0000000037	4
+1127      	37	fecha	S	fecha_ultimo_asiento	0000000037	4
+1128      	37	t_doc	 	A	0000000037	4
+1129      	37	cuenta	 	572	0000000037	4
+1130      	37	haber	 		0000000037	5
+1131      	37	fecha	S	fecha_ultimo_asiento	0000000037	5
+1132      	37	t_doc	 	A	0000000037	5
+1133      	37	cuenta	 	572	0000000037	5
+1134      	38	numero_lineas	 	6	0000000038	1
+1135      	38	centro	N	T	0000000038	1
+1136      	38	proyecto	 	01	0000000038	1
+1137      	38	concepto	 	DEV.RºBº VISATS	0000000038	1
+1138      	38	debe	 		0000000038	1
+1139      	38	fecha	S	fecha_ultimo_asiento	0000000038	1
+1140      	38	t_doc	 	V	0000000038	1
+1141      	38	cuenta	 	626000001	0000000038	1
+1142      	38	haber	 		0000000038	2
+1143      	38	fecha	S	fecha_ultimo_asiento	0000000038	2
+1144      	38	t_doc	 	A	0000000038	2
+1145      	38	cuenta	 	400000025	0000000038	2
+1146      	38	concepto	 	PAG.F.	0000000038	3
+1147      	38	debe	 		0000000038	3
+1148      	38	fecha	S	fecha_ultimo_asiento	0000000038	3
+1149      	38	t_doc	 	A	0000000038	3
+1150      	38	cuenta	 	400000025	0000000038	3
+1151      	38	haber	 		0000000038	4
+1152      	38	fecha	S	fecha_ultimo_asiento	0000000038	4
+1153      	38	t_doc	 	A	0000000038	4
+1154      	38	cuenta	 	572	0000000038	4
+1155      	38	haber	 		0000000038	5
+1156      	38	fecha	S	fecha_ultimo_asiento	0000000038	5
+1157      	38	t_doc	 	A	0000000038	5
+1158      	38	cuenta	 	572	0000000038	5
+1159      	39	numero_lineas	 	6	0000000039	1
+1160      	39	centro	N	T	0000000039	1
+1161      	39	proyecto	 	01	0000000039	1
+1162      	39	concepto	 	COMIS.Rº Bº FACTURACIO	0000000039	1
+1163      	39	debe	 		0000000039	1
+1164      	39	fecha	S	fecha_ultimo_asiento	0000000039	1
+1165      	39	t_doc	 	V	0000000039	1
+1166      	39	cuenta	 	626000001	0000000039	1
+1167      	39	haber	 		0000000039	2
+1168      	39	fecha	S	fecha_ultimo_asiento	0000000039	2
+1169      	39	t_doc	 	A	0000000039	2
+1170      	39	cuenta	 	400000025	0000000039	2
+1171      	39	concepto	 	PAG.F.	0000000039	3
+1172      	39	debe	 		0000000039	3
+1173      	39	fecha	S	fecha_ultimo_asiento	0000000039	3
+1174      	39	t_doc	 	A	0000000039	3
+1175      	39	cuenta	 	400000025	0000000039	3
+1176      	39	haber	 		0000000039	4
+1177      	39	fecha	S	fecha_ultimo_asiento	0000000039	4
+1178      	39	t_doc	 	A	0000000039	4
+1179      	39	cuenta	 	572000022	0000000039	4
+1180      	39	haber	 		0000000039	5
+1181      	39	fecha	S	fecha_ultimo_asiento	0000000039	5
+1182      	39	t_doc	 	A	0000000039	5
+1183      	39	cuenta	 	572000022	0000000039	5
+1184      	40	numero_lineas	 	6	0000000040	1
+1185      	40	centro	N	T	0000000040	1
+1186      	40	proyecto	 	01	0000000040	1
+1187      	40	concepto	 	CURS EHE.-	0000000040	1
+1188      	40	haber	 		0000000040	1
+1189      	40	fecha	S	fecha_ultimo_asiento	0000000040	1
+1190      	40	t_doc	 	V	0000000040	1
+1191      	40	cuenta	 	7591	0000000040	1
+1192      	40	concepto	 	CURS HABITAT.-	0000000040	2
+1193      	40	haber	 		0000000040	2
+1194      	40	fecha	S	fecha_ultimo_asiento	0000000040	2
+1195      	40	t_doc	 	V	0000000040	2
+1196      	40	cuenta	 	7591	0000000040	2
+1197      	40	debe	 		0000000040	3
+1198      	40	fecha	S	fecha_ultimo_asiento	0000000040	3
+1199      	40	t_doc	 	A	0000000040	3
+1200      	40	debe	 		0000000040	4
+1201      	40	fecha	S	fecha_ultimo_asiento	0000000040	4
+1202      	40	t_doc	 	A	0000000040	4
+1203      	41	numero_lineas	 	5	0000000041	1
+1204      	41	centro	N	T	0000000041	1
+1205      	41	proyecto	 	01	0000000041	1
+1206      	41	concepto	 	COMIS.Rº Bº VISATS	0000000041	1
+1207      	41	debe	 		0000000041	1
+1208      	41	fecha	S	fecha_ultimo_asiento	0000000041	1
+1209      	41	t_doc	 	V	0000000041	1
+1210      	41	cuenta	 	626000001	0000000041	1
+1211      	41	haber	 		0000000041	2
+1212      	41	fecha	S	fecha_ultimo_asiento	0000000041	2
+1213      	41	t_doc	 	A	0000000041	2
+1214      	41	cuenta	 	400000005	0000000041	2
+1215      	41	concepto	 	PAG.F.	0000000041	3
+1216      	41	debe	 		0000000041	3
+1217      	41	fecha	S	fecha_ultimo_asiento	0000000041	3
+1218      	41	t_doc	 	A	0000000041	3
+1219      	41	cuenta	 	400000005	0000000041	3
+1220      	41	haber	 		0000000041	4
+1221      	41	fecha	S	fecha_ultimo_asiento	0000000041	4
+1222      	41	t_doc	 	A	0000000041	4
+1223      	41	cuenta	 	572000025	0000000041	4
+1224      	42	numero_lineas	 	6	0000000042	1
+1225      	42	centro	N	T	0000000042	1
+1226      	42	proyecto	 	01	0000000042	1
+1227      	42	concepto	 	CURS CAP OBRA.-	0000000042	1
+1228      	42	haber	 		0000000042	1
+1229      	42	fecha	S	fecha_ultimo_asiento	0000000042	1
+1230      	42	t_doc	 	V	0000000042	1
+1231      	42	cuenta	 	7591	0000000042	1
+1232      	42	concepto	 	CURS HUMITAT.-	0000000042	2
+1233      	42	haber	 		0000000042	2
+1234      	42	fecha	S	fecha_ultimo_asiento	0000000042	2
+1235      	42	t_doc	 	V	0000000042	2
+1236      	42	cuenta	 	7591	0000000042	2
+1237      	42	debe	 		0000000042	3
+1238      	42	fecha	S	fecha_ultimo_asiento	0000000042	3
+1239      	42	t_doc	 	A	0000000042	3
+1240      	42	debe	 		0000000042	4
+1241      	42	fecha	S	fecha_ultimo_asiento	0000000042	4
+1242      	42	t_doc	 	A	0000000042	4
+1243      	43	numero_lineas	 	3	0000000043	1
+1244      	43	centro	N	T	0000000043	1
+1245      	43	proyecto	 	01	0000000043	1
+1246      	43	concepto	 	INFORM.TEDI	0000000043	1
+1247      	43	debe	 		0000000043	1
+1248      	43	fecha	S	fecha_ultimo_asiento	0000000043	1
+1249      	43	t_doc	 	V	0000000043	1
+1250      	43	cuenta	 	629600008	0000000043	1
+1251      	43	haber	 		0000000043	2
+1252      	43	fecha	S	fecha_ultimo_asiento	0000000043	2
+1253      	43	t_doc	 	A	0000000043	2
+1254      	43	cuenta	 	410	0000000043	2
+1255      	44	numero_lineas	 	3	0000000044	1
+1256      	44	centro	N	T	0000000044	1
+1257      	44	proyecto	 	01	0000000044	1
+1258      	44	haber	 		0000000044	1
+1259      	44	fecha	S	fecha_ultimo_asiento	0000000044	1
+1260      	44	t_doc	 	A	0000000044	1
+1261      	44	cuenta	 	4770016	0000000044	1
+1262      	44	haber	 	N1/1,16	0000000044	2
+1263      	44	fecha	S	fecha_ultimo_asiento	0000000044	2
+1264      	44	t_doc	 	A	0000000044	2
+1265      	44	concepto	 	n/Factura	0000000044	3
+1266      	44	debe	 		0000000044	3
+1267      	44	fecha	S	fecha_ultimo_asiento	0000000044	3
+1268      	44	t_doc	 	V	0000000044	3
+1269      	44	contrapartida	 	700	0000000044	3
+1270      	44	cuenta	 	430	0000000044	3
+1271      	45	numero_lineas	 	5	0000000045	1
+1272      	45	centro	N	T	0000000045	1
+1273      	45	proyecto	 	01	0000000045	1
+1274      	45	haber	 	N1/1,16	0000000045	1
+1275      	45	fecha	S	fecha_ultimo_asiento	0000000045	1
+1276      	45	t_doc	 	A	0000000045	1
+1277      	45	haber	 		0000000045	2
+1278      	45	fecha	S	fecha_ultimo_asiento	0000000045	2
+1279      	45	t_doc	 	A	0000000045	2
+1280      	45	cuenta	 	4770016	0000000045	2
+1281      	45	haber	 	 N1	0000000045	3
+1282      	45	fecha	S	fecha_ultimo_asiento	0000000045	3
+1283      	45	t_doc	 	A	0000000045	3
+1284      	45	concepto	 	n/Factura	0000000045	4
+1285      	45	debe	 		0000000045	4
+1286      	45	fecha	S	fecha_ultimo_asiento	0000000045	4
+1287      	45	t_doc	 	V	0000000045	4
+1288      	45	contrapartida	 	700	0000000045	4
+1289      	45	cuenta	 	430	0000000045	4
+1290      	45	concepto	 	Cobro n/Factura	0000000045	5
+1291      	45	debe	 	 N1	0000000045	5
+1292      	45	fecha	S	fecha_ultimo_asiento	0000000045	5
+1293      	45	t_doc	 	A	0000000045	5
+1294      	45	cuenta	 	57	0000000045	5
+1295      	46	numero_lineas	 	5	0000000046	1
+1296      	46	centro	N	T	0000000046	1
+1297      	46	proyecto	 	01	0000000046	1
+1298      	46	haber	 	 N1	0000000046	1
+1299      	46	fecha	S	fecha_ultimo_asiento	0000000046	1
+1300      	46	t_doc	 	A	0000000046	1
+1301      	46	haber	 	N1/1,16	0000000046	2
+1302      	46	fecha	S	fecha_ultimo_asiento	0000000046	2
+1303      	46	t_doc	 	A	0000000046	2
+1304      	46	haber	 		0000000046	3
+1305      	46	fecha	S	fecha_ultimo_asiento	0000000046	3
+1306      	46	t_doc	 	A	0000000046	3
+1307      	46	cuenta	 	4770016	0000000046	3
+1308      	46	concepto	 	n/Factura	0000000046	4
+1309      	46	debe	 		0000000046	4
+1310      	46	fecha	S	fecha_ultimo_asiento	0000000046	4
+1311      	46	t_doc	 	V	0000000046	4
+1312      	46	contrapartida	 	700	0000000046	4
+1313      	46	cuenta	 	430	0000000046	4
+1314      	46	concepto	 	Recepción de Efectos	0000000046	5
+1315      	46	debe	 	 N1	0000000046	5
+1316      	46	fecha	S	fecha_ultimo_asiento	0000000046	5
+1317      	46	t_doc	 	A	0000000046	5
+1318      	46	cuenta	 	431	0000000046	5
+1319      	47	numero_lineas	 	2	0000000047	1
+1320      	47	centro	N	T	0000000047	1
+1321      	47	proyecto	 	01	0000000047	1
+1322      	47	concepto	 	s/entrega Efectos Acept.	0000000047	1
+1323      	47	debe	 		0000000047	1
+1324      	47	fecha	S	fecha_ultimo_asiento	0000000047	1
+1325      	47	t_doc	 	F	0000000047	1
+1326      	47	contrapartida	 	430	0000000047	1
+1327      	47	cuenta	 	4310	0000000047	1
+1328      	47	haber	 		0000000047	2
+1329      	47	fecha	S	fecha_ultimo_asiento	0000000047	2
+1330      	47	t_doc	 	A	0000000047	2
+1331      	48	numero_lineas	 	6	0000000048	1
+1332      	48	centro	N	T	0000000048	1
+1333      	48	proyecto	 	01	0000000048	1
+1334      	48	concepto	 	Dto. Remesa. Traspaso	0000000048	1
+1335      	48	debe	 		0000000048	1
+1336      	48	fecha	S	fecha_ultimo_asiento	0000000048	1
+1337      	48	t_doc	 	F	0000000048	1
+1338      	48	contrapartida	 	4310	0000000048	1
+1339      	48	cuenta	 	4311	0000000048	1
+1340      	48	haber	 	N1	0000000048	2
+1341      	48	fecha	S	fecha_ultimo_asiento	0000000048	2
+1342      	48	t_doc	 	F	0000000048	2
+1343      	48	concepto	 	Riesgo Curso Dto. Remesa	0000000048	3
+1344      	48	haber	 	N1	0000000048	3
+1345      	48	fecha	S	fecha_ultimo_asiento	0000000048	3
+1346      	48	t_doc	 	F	0000000048	3
+1347      	48	contrapartida	 	572	0000000048	3
+1348      	48	cuenta	 	5208	0000000048	3
+1349      	48	concepto	 	Intereses Descuento Remes	0000000048	4
+1350      	48	debe	 		0000000048	4
+1351      	48	fecha	S	fecha_ultimo_asiento	0000000048	4
+1352      	48	t_doc	 	F	0000000048	4
+1353      	48	cuenta	 	665	0000000048	4
+1354      	48	concepto	 	Comisione y Gastos Remesa	0000000048	5
+1355      	48	debe	 		0000000048	5
+1356      	48	fecha	S	fecha_ultimo_asiento	0000000048	5
+1357      	48	t_doc	 	F	0000000048	5
+1358      	48	cuenta	 	669	0000000048	5
+1359      	48	concepto	 	Líquido remesa	0000000048	6
+1360      	48	debe	 		0000000048	6
+1361      	48	fecha	S	fecha_ultimo_asiento	0000000048	6
+1362      	48	t_doc	 	F	0000000048	6
+1363      	49	numero_lineas	 	2	0000000049	1
+1364      	49	centro	N	T	0000000049	1
+1365      	49	proyecto	 	01	0000000049	1
+1366      	49	concepto	 	Bajas Riesgo Dto. Remesas	0000000049	1
+1367      	49	debe	 		0000000049	1
+1368      	49	fecha	S	fecha_ultimo_asiento	0000000049	1
+1369      	49	t_doc	 	F	0000000049	1
+1370      	49	contrapartida	 	4311	0000000049	1
+1371      	49	cuenta	 	5208	0000000049	1
+1372      	49	haber	 		0000000049	2
+1373      	49	fecha	S	fecha_ultimo_asiento	0000000049	2
+1374      	49	t_doc	 	F	0000000049	2
+1375      	50	numero_lineas	 	5	0000000050	1
+1376      	50	centro	N	T	0000000050	1
+1377      	50	proyecto	 	01	0000000050	1
+1378      	50	concepto	 	Baja Riesgo por Impagado	0000000050	1
+1379      	50	debe	 		0000000050	1
+1380      	50	fecha	S	fecha_ultimo_asiento	0000000050	1
+1381      	50	t_doc	 	F	0000000050	1
+1382      	50	contrapartida	 	57	0000000050	1
+1383      	50	cuenta	 	5208	0000000050	1
+1384      	50	concepto	 	Gastos Impagado	0000000050	2
+1385      	50	debe	 		0000000050	2
+1386      	50	fecha	S	fecha_ultimo_asiento	0000000050	2
+1387      	50	t_doc	 	F	0000000050	2
+1388      	50	cuenta	 	626	0000000050	2
+1389      	50	concepto	 	Impgado y Gastos	0000000050	3
+1390      	50	haber	 		0000000050	3
+1391      	50	fecha	S	fecha_ultimo_asiento	0000000050	3
+1392      	50	t_doc	 	F	0000000050	3
+1393      	50	concepto	 	Importe Impgado	0000000050	4
+1394      	50	debe	 	N1	0000000050	4
+1395      	50	fecha	S	fecha_ultimo_asiento	0000000050	4
+1396      	50	t_doc	 	F	0000000050	4
+1397      	50	contrapartida	 	4311	0000000050	4
+1398      	50	cuenta	 	4315	0000000050	4
+1399      	50	haber	 	N1	0000000050	5
+1400      	50	fecha	S	fecha_ultimo_asiento	0000000050	5
+1401      	50	t_doc	 	F	0000000050	5
+1402      	51	numero_lineas	 	5	0000000051	1
+1403      	51	centro	N	T	0000000051	1
+1404      	51	proyecto	 	01	0000000051	1
+1405      	51	concepto	 	Liquido Cobrado	0000000051	1
+1406      	51	debe	 		0000000051	1
+1407      	51	fecha	S	fecha_ultimo_asiento	0000000051	1
+1408      	51	t_doc	 	F	0000000051	1
+1409      	51	contrapartida	 	4312	0000000051	1
+1410      	51	cuenta	 	57	0000000051	1
+1411      	51	concepto	 	Nominal Efectos Cobrado	0000000051	2
+1412      	51	haber	 		0000000051	2
+1413      	51	fecha	S	fecha_ultimo_asiento	0000000051	2
+1414      	51	t_doc	 	F	0000000051	2
+1415      	51	concepto	 	Gastos Cobro Efectos. IVA	0000000051	3
+1416      	51	debe	 		0000000051	3
+1417      	51	fecha	S	fecha_ultimo_asiento	0000000051	3
+1418      	51	t_doc	 	F	0000000051	3
+1419      	51	cuenta	 	626	0000000051	3
+1420      	51	debe	 	N3*16/100	0000000051	4
+1421      	51	fecha	S	fecha_ultimo_asiento	0000000051	4
+1422      	51	t_doc	 	F	0000000051	4
+1423      	51	cuenta	 	4720016	0000000051	4
+1424      	51	concepto	 	Otrs Gastos bancarios	0000000051	5
+1425      	51	debe	 		0000000051	5
+1426      	51	fecha	S	fecha_ultimo_asiento	0000000051	5
+1427      	51	t_doc	 	F	0000000051	5
+1428      	51	cuenta	 	629	0000000051	5
+1429      	52	numero_lineas	 	2	0000000052	1
+1430      	52	centro	N	T	0000000052	1
+1431      	52	proyecto	 	01	0000000052	1
+1432      	52	concepto	 	n/ Ingreso	0000000052	1
+1433      	52	debe	 		0000000052	1
+1434      	52	fecha	S	fecha_ultimo_asiento	0000000052	1
+1435      	52	t_doc	 	F	0000000052	1
+1436      	52	contrapartida	 	572	0000000052	1
+1437      	52	cuenta	 	570	0000000052	1
+1438      	52	haber	 		0000000052	2
+1439      	52	fecha	S	fecha_ultimo_asiento	0000000052	2
+1440      	52	t_doc	 	A	0000000052	2
+1441      	53	numero_lineas	 	6	0000000053	1
+1442      	53	centro	N	T	0000000053	1
+1443      	53	proyecto	 	01	0000000053	1
+1444      	53	concepto	 	Nómina mes corriente	0000000053	1
+1445      	53	debe	 		0000000053	1
+1446      	53	fecha	S	fecha_ultimo_asiento	0000000053	1
+1447      	53	t_doc	 	F	0000000053	1
+1448      	53	contrapartida	 	465	0000000053	1
+1449      	53	cuenta	 	640	0000000053	1
+1450      	53	concepto	 	Retenciones practicadas	0000000053	2
+1451      	53	haber	 		0000000053	2
+1452      	53	fecha	S	fecha_ultimo_asiento	0000000053	2
+1453      	53	t_doc	 	F	0000000053	2
+1454      	53	cuenta	 	475	0000000053	2
+1455      	53	concepto	 	Retenido por SS.SS.	0000000053	3
+1456      	53	haber	 		0000000053	3
+1457      	53	fecha	S	fecha_ultimo_asiento	0000000053	3
+1458      	53	t_doc	 	F	0000000053	3
+1459      	53	cuenta	 	476	0000000053	3
+1460      	53	concepto	 	Líquido a pagar	0000000053	4
+1461      	53	haber	 		0000000053	4
+1462      	53	fecha	S	fecha_ultimo_asiento	0000000053	4
+1463      	53	t_doc	 	F	0000000053	4
+1464      	53	concepto	 	Pago Nómina mes cte	0000000053	5
+1465      	53	debe	 	N1-N2-N3	0000000053	5
+1466      	53	fecha	S	fecha_ultimo_asiento	0000000053	5
+1467      	53	t_doc	 	F	0000000053	5
+1468      	53	contrapartida	 	57	0000000053	5
+1469      	53	haber	 	N1-N2-N3	0000000053	6
+1470      	53	fecha	S	fecha_ultimo_asiento	0000000053	6
+1471      	53	t_doc	 	F	0000000053	6
+1472      	54	numero_lineas	 	2	0000000054	1
+1473      	54	centro	N	T	0000000054	1
+1474      	54	proyecto	 	01	0000000054	1
+1475      	54	concepto	 	Seguridad Social mes cte	0000000054	1
+1476      	54	debe	 		0000000054	1
+1477      	54	fecha	S	fecha_ultimo_asiento	0000000054	1
+1478      	54	t_doc	 	F	0000000054	1
+1479      	54	contrapartida	 	476	0000000054	1
+1480      	54	cuenta	 	642	0000000054	1
+1481      	54	haber	 		0000000054	2
+1482      	54	fecha	S	fecha_ultimo_asiento	0000000054	2
+1483      	54	t_doc	 	F	0000000054	2
+1484      	55	numero_lineas	 	2	0000000055	1
+1485      	55	centro	N	T	0000000055	1
+1486      	55	proyecto	 	01	0000000055	1
+1487      	55	concepto	 	Traspaso Cto, LP a CP	0000000055	1
+1488      	55	debe	 		0000000055	1
+1489      	55	fecha	S	fecha_ultimo_asiento	0000000055	1
+1490      	55	t_doc	 	V	0000000055	1
+1491      	55	contrapartida	 	523	0000000055	1
+1492      	55	cuenta	 	173	0000000055	1
+1493      	55	haber	 		0000000055	2
+1494      	55	fecha	S	fecha_ultimo_asiento	0000000055	2
+1495      	55	t_doc	 	A	0000000055	2
+1496      	56	numero_lineas	 	5	0000000056	1
+1497      	56	centro	N	T	0000000056	1
+1498      	56	proyecto	 	01	0000000056	1
+1499      	56	concepto	 	s/Factura	0000000056	1
+1500      	56	debe	 		0000000056	1
+1501      	56	fecha	S	fecha_ultimo_asiento	0000000056	1
+1502      	56	t_doc	 	V	0000000056	1
+1503      	56	contrapartida	 	410	0000000056	1
+1504      	56	cuenta	 	6	0000000056	1
+1505      	56	debe	 	N1*16/100	0000000056	2
+1506      	56	fecha	S	fecha_ultimo_asiento	0000000056	2
+1507      	56	t_doc	 	A	0000000056	2
+1508      	56	cuenta	 	4720016	0000000056	2
+1509      	56	haber	 		0000000056	3
+1510      	56	fecha	S	fecha_ultimo_asiento	0000000056	3
+1511      	56	t_doc	 	A	0000000056	3
+1512      	56	concepto	 	Cobro s/Factura	0000000056	4
+1513      	56	debe	 	N1+N1*16/100	0000000056	4
+1514      	56	fecha	S	fecha_ultimo_asiento	0000000056	4
+1515      	56	t_doc	 	A	0000000056	4
+1516      	56	contrapartida	 	411	0000000056	4
+1517      	56	haber	 	N1+N1*16/100	0000000056	5
+1518      	56	fecha	S	fecha_ultimo_asiento	0000000056	5
+1519      	56	t_doc	 	A	0000000056	5
+1520      	57	numero_lineas	 	4	0000000057	1
+1521      	57	centro	N	T	0000000057	1
+1522      	57	proyecto	 	01	0000000057	1
+1523      	57	concepto	 	s/Factura	0000000057	1
+1524      	57	debe	 		0000000057	1
+1525      	57	fecha	S	fecha_ultimo_asiento	0000000057	1
+1526      	57	t_doc	 	V	0000000057	1
+1527      	57	contrapartida	 	410	0000000057	1
+1528      	57	cuenta	 	6	0000000057	1
+1529      	57	debe	 	N1*16/100	0000000057	2
+1530      	57	fecha	S	fecha_ultimo_asiento	0000000057	2
+1531      	57	t_doc	 	A	0000000057	2
+1532      	57	cuenta	 	4720016	0000000057	2
+1533      	57	haber	 	N1*18/100	0000000057	3
+1534      	57	fecha	S	fecha_ultimo_asiento	0000000057	3
+1535      	57	t_doc	 	A	0000000057	3
+1536      	57	cuenta	 	4751	0000000057	3
+1537      	57	haber	 		0000000057	4
+1538      	57	fecha	S	fecha_ultimo_asiento	0000000057	4
+1539      	57	t_doc	 	A	0000000057	4
+1540      	58	numero_lineas	 	6	0000000058	1
+1541      	58	centro	N	T	0000000058	1
+1542      	58	proyecto	 	01	0000000058	1
+1543      	58	concepto	 	s/Factura	0000000058	1
+1544      	58	debe	 		0000000058	1
+1545      	58	fecha	S	fecha_ultimo_asiento	0000000058	1
+1546      	58	t_doc	 	V	0000000058	1
+1547      	58	contrapartida	 	410	0000000058	1
+1548      	58	cuenta	 	6	0000000058	1
+1549      	58	debe	 	N1*16/100	0000000058	2
+1550      	58	fecha	S	fecha_ultimo_asiento	0000000058	2
+1551      	58	t_doc	 	A	0000000058	2
+1552      	58	cuenta	 	4720016	0000000058	2
+1553      	58	haber	 	N1*18/100	0000000058	3
+1554      	58	fecha	S	fecha_ultimo_asiento	0000000058	3
+1555      	58	t_doc	 	A	0000000058	3
+1556      	58	cuenta	 	4751	0000000058	3
+1557      	58	haber	 		0000000058	4
+1558      	58	fecha	S	fecha_ultimo_asiento	0000000058	4
+1559      	58	t_doc	 	A	0000000058	4
+1560      	58	concepto	 	Pago s/Factura	0000000058	5
+1561      	58	debe	 	N1+(N1*16/100)-(N1*18/100)	0000000058	5
+1562      	58	fecha	S	fecha_ultimo_asiento	0000000058	5
+1563      	58	t_doc	 	A	0000000058	5
+1564      	58	contrapartida	 	57	0000000058	5
+1565      	58	haber	 	N1+(N1*16/100)-(N1*18/100)	0000000058	6
+1566      	58	fecha	S	fecha_ultimo_asiento	0000000058	6
+1567      	58	t_doc	 	A	0000000058	6
+1568      	59	numero_lineas	 	6	0000000059	1
+1569      	59	centro	N	T	0000000059	1
+1570      	59	proyecto	 	01	0000000059	1
+1571      	59	concepto	 	s/Factura	0000000059	1
+1572      	59	debe	 		0000000059	1
+1573      	59	fecha	S	fecha_ultimo_asiento	0000000059	1
+1574      	59	t_doc	 	V	0000000059	1
+1575      	59	contrapartida	 	70	0000000059	1
+1576      	59	cuenta	 	430	0000000059	1
+1577      	59	haber	 	N1/(1+(16-18)/100)	0000000059	2
+1578      	59	fecha	S	fecha_ultimo_asiento	0000000059	2
+1579      	59	t_doc	 	A	0000000059	2
+1580      	59	haber	 	N1/(1+(16-18)/100)*16/100	0000000059	3
+1581      	59	fecha	S	fecha_ultimo_asiento	0000000059	3
+1582      	59	t_doc	 	A	0000000059	3
+1583      	59	cuenta	 	4770016	0000000059	3
+1584      	59	debe	 		0000000059	4
+1585      	59	fecha	S	fecha_ultimo_asiento	0000000059	4
+1586      	59	t_doc	 	A	0000000059	4
+1587      	59	cuenta	 	473	0000000059	4
+1588      	59	concepto	 	Cobro Factura en Efectos	0000000059	5
+1589      	59	debe	 	N1	0000000059	5
+1590      	59	fecha	S	fecha_ultimo_asiento	0000000059	5
+1591      	59	t_doc	 	F	0000000059	5
+1592      	59	cuenta	 	431	0000000059	5
+1593      	59	haber	 	N1	0000000059	6
+1594      	59	fecha	S	fecha_ultimo_asiento	0000000059	6
+1595      	59	t_doc	 	F	0000000059	6
+1596      	60	numero_lineas	 	4	0000000060	1
+1597      	60	centro	N	T	0000000060	1
+1598      	60	proyecto	 	01	0000000060	1
+1599      	60	concepto	 	s/Factura	0000000060	1
+1600      	60	debe	 		0000000060	1
+1601      	60	fecha	S	fecha_ultimo_asiento	0000000060	1
+1602      	60	t_doc	 	V	0000000060	1
+1603      	60	contrapartida	 	70	0000000060	1
+1604      	60	cuenta	 	430	0000000060	1
+1605      	60	haber	 	N1/(1+(16-18)/100)	0000000060	2
+1606      	60	fecha	S	fecha_ultimo_asiento	0000000060	2
+1607      	60	t_doc	 	A	0000000060	2
+1608      	60	haber	 	N1/(1+(16-18)/100)*16/100	0000000060	3
+1609      	60	fecha	S	fecha_ultimo_asiento	0000000060	3
+1610      	60	t_doc	 	A	0000000060	3
+1611      	60	cuenta	 	4770016	0000000060	3
+1612      	60	debe	 		0000000060	4
+1613      	60	fecha	S	fecha_ultimo_asiento	0000000060	4
+1614      	60	t_doc	 	A	0000000060	4
+1615      	60	cuenta	 	473	0000000060	4
+1616      	61	numero_lineas	 	4	0000000061	1
+1617      	61	centro	N	T	0000000061	1
+1618      	61	proyecto	 	01	0000000061	1
+1619      	61	concepto	 	s/Factura	0000000061	1
+1620      	61	debe	 		0000000061	1
+1621      	61	fecha	S	fecha_ultimo_asiento	0000000061	1
+1622      	61	t_doc	 	V	0000000061	1
+1623      	61	contrapartida	 	70	0000000061	1
+1624      	61	cuenta	 	430	0000000061	1
+1625      	61	haber	 	N1/(1+(16+4)/100)	0000000061	2
+1626      	61	fecha	S	fecha_ultimo_asiento	0000000061	2
+1627      	61	t_doc	 	A	0000000061	2
+1628      	61	haber	 	N1/(1+(16+4)/100)*16/100	0000000061	3
+1629      	61	fecha	S	fecha_ultimo_asiento	0000000061	3
+1630      	61	t_doc	 	A	0000000061	3
+1631      	61	cuenta	 	4770416	0000000061	3
+1632      	61	haber	 		0000000061	4
+1633      	61	fecha	S	fecha_ultimo_asiento	0000000061	4
+1634      	61	t_doc	 	A	0000000061	4
+1635      	61	cuenta	 	4750004	0000000061	4
+1636      	62	numero_lineas	 	2	0000000062	1
+1637      	62	centro	N	T	0000000062	1
+1638      	62	proyecto	 	01	0000000062	1
+1639      	62	haber	 		0000000062	1
+1640      	62	fecha	S	fecha_ultimo_asiento	0000000062	1
+1641      	62	t_doc	 	A	0000000062	1
+1642      	62	concepto	 	Remesa en Gestión de Cobr	0000000062	2
+1643      	62	debe	 		0000000062	2
+1644      	62	fecha	S	fecha_ultimo_asiento	0000000062	2
+1645      	62	t_doc	 	F	0000000062	2
+1646      	62	contrapartida	 	4310	0000000062	2
+1647      	62	cuenta	 	4312	0000000062	2
+1648      	63	numero_lineas	 	2	0000000063	1
+1649      	63	centro	N	T	0000000063	1
+1650      	63	proyecto	 	01	0000000063	1
+1651      	63	haber	 		0000000063	1
+1652      	63	fecha	S	fecha_ultimo_asiento	0000000063	1
+1653      	63	t_doc	 	A	0000000063	1
+1654      	63	debe	 		0000000063	2
+1655      	63	fecha	S	fecha_ultimo_asiento	0000000063	2
+1656      	63	t_doc	 	F	0000000063	2
+1657      	63	contrapartida	 	572	0000000063	2
+1658      	63	cuenta	 	47	0000000063	2
+1659      	64	numero_lineas	 	3	0000000064	1
+1660      	64	centro	N	T	0000000064	1
+1661      	64	proyecto	 	01	0000000064	1
+1662      	64	debe	 		0000000064	1
+1663      	64	fecha	S	fecha_ultimo_asiento	0000000064	1
+1664      	64	t_doc	 	V	0000000064	1
+1665      	64	contrapartida	 	4	0000000064	1
+1666      	64	cuenta	 	6	0000000064	1
+1667      	64	debe	 	0	0000000064	2
+1668      	64	fecha	S	fecha_ultimo_asiento	0000000064	2
+1669      	64	t_doc	 	A	0000000064	2
+1670      	64	cuenta	 	4729999	0000000064	2
+1671      	64	haber	 		0000000064	3
+1672      	64	fecha	S	fecha_ultimo_asiento	0000000064	3
+1673      	64	t_doc	 	A	0000000064	3
+1674      	65	numero_lineas	 	3	0000000065	1
+1675      	65	centro	N	T	0000000065	1
+1676      	65	proyecto	 	01	0000000065	1
+1677      	65	concepto	 	Factura de	0000000065	1
+1678      	65	debe	 		0000000065	1
+1679      	65	fecha	S	fecha_ultimo_asiento	0000000065	1
+1680      	65	t_doc	 	V	0000000065	1
+1681      	65	contrapartida	 	7	0000000065	1
+1682      	65	cuenta	 	43	0000000065	1
+1683      	65	debe	 	0	0000000065	2
+1684      	65	fecha	S	fecha_ultimo_asiento	0000000065	2
+1685      	65	t_doc	 	A	0000000065	2
+1686      	65	cuenta	 	4779999	0000000065	2
+1687      	65	haber	 		0000000065	3
+1688      	65	fecha	S	fecha_ultimo_asiento	0000000065	3
+1689      	65	t_doc	 	A	0000000065	3
+1690      	66	numero_lineas	 	5	0000000066	1
+1691      	66	centro	N	T	0000000066	1
+1692      	66	proyecto	 	01	0000000066	1
+1693      	66	concepto	 	s/Factura	0000000066	1
+1694      	66	debe	 	N1/1,16	0000000066	1
+1695      	66	fecha	S	fecha_ultimo_asiento	0000000066	1
+1696      	66	t_doc	 	V	0000000066	1
+1697      	66	contrapartida	 	410	0000000066	1
+1698      	66	cuenta	 	6	0000000066	1
+1699      	66	debe	 	(N1/1,16)*16/100	0000000066	2
+1700      	66	fecha	S	fecha_ultimo_asiento	0000000066	2
+1701      	66	t_doc	 	A	0000000066	2
+1702      	66	cuenta	 	4720016	0000000066	2
+1703      	66	haber	 		0000000066	3
+1704      	66	fecha	S	fecha_ultimo_asiento	0000000066	3
+1705      	66	t_doc	 	A	0000000066	3
+1706      	66	concepto	 	n/Pago Factura	0000000066	4
+1707      	66	debe	 	N1	0000000066	4
+1708      	66	fecha	S	fecha_ultimo_asiento	0000000066	4
+1709      	66	t_doc	 	A	0000000066	4
+1710      	66	contrapartida	 	57	0000000066	4
+1711      	66	haber	 		0000000066	5
+1712      	66	fecha	S	fecha_ultimo_asiento	0000000066	5
+1713      	66	t_doc	 	A	0000000066	5
+1714      	67	numero_lineas	 	3	0000000067	1
+1715      	67	centro	N	T	0000000067	1
+1716      	67	proyecto	 	01	0000000067	1
+1717      	67	concepto	 	n/transferencia	0000000067	1
+1718      	67	debe	 		0000000067	1
+1719      	67	fecha	S	fecha_ultimo_asiento	0000000067	1
+1720      	67	t_doc	 	F	0000000067	1
+1721      	67	contrapartida	 	572	0000000067	1
+1722      	67	cuenta	 	4	0000000067	1
+1723      	67	concepto	 	Gastos Transferencia	0000000067	2
+1724      	67	debe	 		0000000067	2
+1725      	67	fecha	S	fecha_ultimo_asiento	0000000067	2
+1726      	67	t_doc	 	A	0000000067	2
+1727      	67	cuenta	 	626	0000000067	2
+1728      	67	concepto	 	Transferencia	0000000067	3
+1729      	67	haber	 		0000000067	3
+1730      	67	fecha	S	fecha_ultimo_asiento	0000000067	3
+1731      	67	t_doc	 	A	0000000067	3
+1732      	68	numero_lineas	 	5	0000000068	1
+1733      	68	centro	N	T	0000000068	1
+1734      	68	proyecto	 	01	0000000068	1
+1735      	68	concepto	 	Alquiler	0000000068	1
+1736      	68	debe	 		0000000068	1
+1737      	68	fecha	S	fecha_ultimo_asiento	0000000068	1
+1738      	68	t_doc	 	V	0000000068	1
+1739      	68	contrapartida	 	41	0000000068	1
+1740      	68	cuenta	 	62	0000000068	1
+1741      	68	concepto	 	IVA alquiler	0000000068	2
+1742      	68	debe	 	N1*16/100	0000000068	2
+1743      	68	fecha	S	fecha_ultimo_asiento	0000000068	2
+1744      	68	t_doc	 	A	0000000068	2
+1745      	68	cuenta	 	4720016	0000000068	2
+1746      	68	concepto	 	IRPF Alquileres	0000000068	3
+1747      	68	haber	 	N1*18/100	0000000068	3
+1748      	68	fecha	S	fecha_ultimo_asiento	0000000068	3
+1749      	68	t_doc	 	A	0000000068	3
+1750      	68	cuenta	 	4751	0000000068	3
+1751      	68	concepto	 	Gastos de	0000000068	4
+1752      	68	debe	 		0000000068	4
+1753      	68	fecha	S	fecha_ultimo_asiento	0000000068	4
+1754      	68	t_doc	 	A	0000000068	4
+1755      	68	cuenta	 	62	0000000068	4
+1756      	68	concepto	 	Factura Alquiler	0000000068	5
+1757      	68	haber	 		0000000068	5
+1758      	68	fecha	S	fecha_ultimo_asiento	0000000068	5
+1759      	68	t_doc	 	A	0000000068	5
+1760      	69	numero_lineas	 	2	0000000069	1
+1761      	69	centro	N	T	0000000069	1
+1762      	69	proyecto	 	01	0000000069	1
+1763      	69	concepto	 	n/entrega Efectos Acept.	0000000069	1
+1764      	69	debe	 		0000000069	1
+1765      	69	fecha	S	fecha_ultimo_asiento	0000000069	1
+1766      	69	t_doc	 	F	0000000069	1
+1767      	69	contrapartida	 	401	0000000069	1
+1768      	69	cuenta	 	400	0000000069	1
+1769      	69	haber	 		0000000069	2
+1770      	69	fecha	S	fecha_ultimo_asiento	0000000069	2
+1771      	69	t_doc	 	A	0000000069	2
+1772      	70	numero_lineas	 	2	0000000070	1
+1773      	70	centro	N	T	0000000070	1
+1774      	70	proyecto	 	01	0000000070	1
+1775      	70	concepto	 	s/factura	0000000070	1
+1776      	70	haber	 		0000000070	1
+1777      	70	fecha	S	fecha_ultimo_asiento	0000000070	1
+1778      	70	t_doc	 	V	0000000070	1
+1779      	70	contrapartida	 	600	0000000070	1
+1780      	70	cuenta	 	4004000	0000000070	1
+1781      	70	debe	 		0000000070	2
+1782      	70	fecha	S	fecha_ultimo_asiento	0000000070	2
+1783      	70	t_doc	 	A	0000000070	2
+1784      	71	numero_lineas	 	2	0000000071	1
+1785      	71	centro	N	T	0000000071	1
+1786      	71	proyecto	 	01	0000000071	1
+1787      	71	concepto	 	Pago su factura	0000000071	1
+1788      	71	debe	 		0000000071	1
+1789      	71	fecha	S	fecha_ultimo_asiento	0000000071	1
+1790      	71	t_doc	 	V	0000000071	1
+1791      	71	contrapartida	 	572	0000000071	1
+1792      	71	cuenta	 	4004000	0000000071	1
+1793      	71	haber	 		0000000071	2
+1794      	71	fecha	S	fecha_ultimo_asiento	0000000071	2
+1795      	71	t_doc	 	A	0000000071	2
+1796      	72	numero_lineas	 	3	0000000072	1
+1797      	72	centro	N	T	0000000072	1
+1798      	72	proyecto	 	01	0000000072	1
+1799      	72	concepto	 	s/factura	0000000072	1
+1800      	72	debe	 		0000000072	1
+1801      	72	fecha	S	fecha_ultimo_asiento	0000000072	1
+1802      	72	t_doc	 	V	0000000072	1
+1803      	72	contrapartida	 	173	0000000072	1
+1804      	72	cuenta	 	20	0000000072	1
+1805      	72	debe	 	N1*16/100	0000000072	2
+1806      	72	fecha	S	fecha_ultimo_asiento	0000000072	2
+1807      	72	t_doc	 	A	0000000072	2
+1808      	72	cuenta	 	4720016	0000000072	2
+1809      	72	haber	 		0000000072	3
+1810      	72	fecha	S	fecha_ultimo_asiento	0000000072	3
+1811      	72	t_doc	 	A	0000000072	3
+1812      	73	numero_lineas	 	4	0000000073	1
+1813      	73	centro	N	T	0000000073	1
+1814      	73	proyecto	 	01	0000000073	1
+1815      	73	concepto	 	Efectos Aceptados CP	0000000073	1
+1816      	73	debe	 		0000000073	1
+1817      	73	fecha	S	fecha_ultimo_asiento	0000000073	1
+1818      	73	t_doc	 	F	0000000073	1
+1819      	73	contrapartida	 	525	0000000073	1
+1820      	73	cuenta	 	173	0000000073	1
+1821      	73	haber	 	N1	0000000073	2
+1822      	73	fecha	S	fecha_ultimo_asiento	0000000073	2
+1823      	73	t_doc	 	F	0000000073	2
+1824      	73	concepto	 	Efectos Aceptados LP	0000000073	3
+1825      	73	debe	 		0000000073	3
+1826      	73	fecha	S	fecha_ultimo_asiento	0000000073	3
+1827      	73	t_doc	 	F	0000000073	3
+1828      	73	contrapartida	 	175	0000000073	3
+1829      	73	haber	 		0000000073	4
+1830      	73	fecha	S	fecha_ultimo_asiento	0000000073	4
+1831      	73	t_doc	 	F	0000000073	4
+1832      	74	numero_lineas	 	2	0000000074	1
+1833      	74	centro	N	T	0000000074	1
+1834      	74	proyecto	 	01	0000000074	1
+1835      	74	concepto	 	Traspaso Cto, LP a CP	0000000074	1
+1836      	74	debe	 		0000000074	1
+1837      	74	fecha	S	fecha_ultimo_asiento	0000000074	1
+1838      	74	t_doc	 	F	0000000074	1
+1839      	74	contrapartida	 	525	0000000074	1
+1840      	74	cuenta	 	523	0000000074	1
+1841      	74	haber	 		0000000074	2
+1842      	74	fecha	S	fecha_ultimo_asiento	0000000074	2
+1843      	74	t_doc	 	F	0000000074	2
+1844      	75	numero_lineas	 	3	0000000075	1
+1845      	75	centro	N	T	0000000075	1
+1846      	75	proyecto	 	01	0000000075	1
+1847      	75	concepto	 	s/Factura	0000000075	1
+1848      	75	debe	 		0000000075	1
+1849      	75	fecha	S	fecha_ultimo_asiento	0000000075	1
+1850      	75	t_doc	 	V	0000000075	1
+1851      	75	contrapartida	 	173	0000000075	1
+1852      	75	cuenta	 	21	0000000075	1
+1853      	75	debe	 	N1*16/100	0000000075	2
+1854      	75	fecha	S	fecha_ultimo_asiento	0000000075	2
+1855      	75	t_doc	 	A	0000000075	2
+1856      	75	cuenta	 	4720016	0000000075	2
+1857      	75	haber	 		0000000075	3
+1858      	75	fecha	S	fecha_ultimo_asiento	0000000075	3
+1859      	75	t_doc	 	A	0000000075	3
+1860      	76	numero_lineas	 	7	0000000076	1
+1861      	76	centro	N	T	0000000076	1
+1862      	76	proyecto	 	01	0000000076	1
+1863      	76	debe	 	N1*16/100	0000000076	1
+1864      	76	fecha	S	fecha_ultimo_asiento	0000000076	1
+1865      	76	t_doc	 	A	0000000076	1
+1866      	76	cuenta	 	4720016	0000000076	1
+1867      	76	haber	 	N1+N1*16/100	0000000076	2
+1868      	76	fecha	S	fecha_ultimo_asiento	0000000076	2
+1869      	76	t_doc	 	A	0000000076	2
+1870      	76	concepto	 	TRASPSO A EFECTOS COMERC.	0000000076	3
+1871      	76	debe	 		0000000076	3
+1872      	76	fecha	S	fecha_ultimo_asiento	0000000076	3
+1873      	76	t_doc	 	A	0000000076	3
+1874      	76	contrapartida	 	525	0000000076	3
+1875      	76	haber	 	N2	0000000076	4
+1876      	76	fecha	S	fecha_ultimo_asiento	0000000076	4
+1877      	76	t_doc	 	A	0000000076	4
+1878      	76	concepto	 	TRASPSO A EFECTOS COMERC.	0000000076	5
+1879      	76	debe	 		0000000076	5
+1880      	76	fecha	S	fecha_ultimo_asiento	0000000076	5
+1881      	76	t_doc	 	F	0000000076	5
+1882      	76	contrapartida	 	175	0000000076	5
+1883      	76	haber	 		0000000076	6
+1884      	76	fecha	S	fecha_ultimo_asiento	0000000076	6
+1885      	76	t_doc	 	F	0000000076	6
+1886      	77	numero_lineas	 	6	0000000077	1
+1887      	77	centro	N	T	0000000077	1
+1888      	77	proyecto	 	01	0000000077	1
+1889      	77	concepto	 	s/Factura	0000000077	1
+1890      	77	debe	 		0000000077	1
+1891      	77	fecha	S	fecha_ultimo_asiento	0000000077	1
+1892      	77	t_doc	 	V	0000000077	1
+1893      	77	contrapartida	 	410	0000000077	1
+1894      	77	cuenta	 	6	0000000077	1
+1895      	77	debe	 	N1*16/100	0000000077	2
+1896      	77	fecha	S	fecha_ultimo_asiento	0000000077	2
+1897      	77	t_doc	 	A	0000000077	2
+1898      	77	cuenta	 	4720016	0000000077	2
+1899      	77	haber	 	N1*18/100	0000000077	3
+1900      	77	fecha	S	fecha_ultimo_asiento	0000000077	3
+1901      	77	t_doc	 	A	0000000077	3
+1902      	77	cuenta	 	4751	0000000077	3
+1903      	77	haber	 		0000000077	4
+1904      	77	fecha	S	fecha_ultimo_asiento	0000000077	4
+1905      	77	t_doc	 	A	0000000077	4
+1906      	77	concepto	 	Pago s/Factura	0000000077	5
+1907      	77	debe	 	N1+(N1*16/100)-(N1*18/100)	0000000077	5
+1908      	77	fecha	S	fecha_ultimo_asiento	0000000077	5
+1909      	77	t_doc	 	A	0000000077	5
+1910      	77	contrapartida	 	411	0000000077	5
+1911      	77	haber	 	N1+(N1*16/100)-(N1*18/100)	0000000077	6
+1912      	77	fecha	S	fecha_ultimo_asiento	0000000077	6
+1913      	77	t_doc	 	A	0000000077	6
+1914      	78	numero_lineas	 	5	0000000078	1
+1915      	78	centro	N	T	0000000078	1
+1916      	78	proyecto	 	01	0000000078	1
+1917      	78	concepto	 	s/Factura	0000000078	1
+1918      	78	debe	 		0000000078	1
+1919      	78	fecha	S	fecha_ultimo_asiento	0000000078	1
+1920      	78	t_doc	 	V	0000000078	1
+1921      	78	contrapartida	 	400	0000000078	1
+1922      	78	cuenta	 	600	0000000078	1
+1923      	78	debe	 	N1*16/100	0000000078	2
+1924      	78	fecha	S	fecha_ultimo_asiento	0000000078	2
+1925      	78	t_doc	 	A	0000000078	2
+1926      	78	cuenta	 	4720016	0000000078	2
+1927      	78	haber	 		0000000078	3
+1928      	78	fecha	S	fecha_ultimo_asiento	0000000078	3
+1929      	78	t_doc	 	A	0000000078	3
+1930      	78	concepto	 	n/entrega Efectos	0000000078	4
+1931      	78	debe	 	N1+N1*16/100	0000000078	4
+1932      	78	fecha	S	fecha_ultimo_asiento	0000000078	4
+1933      	78	t_doc	 	A	0000000078	4
+1934      	78	contrapartida	 	401	0000000078	4
+1935      	78	haber	 	N1+N1*16/100	0000000078	5
+1936      	78	fecha	S	fecha_ultimo_asiento	0000000078	5
+1937      	78	t_doc	 	A	0000000078	5
+1938      	79	numero_lineas	 	3	0000000079	1
+1939      	79	centro	N	T	0000000079	1
+1940      	79	proyecto	 	01	0000000079	1
+1941      	79	concepto	 	s/Factura	0000000079	1
+1942      	79	debe	 		0000000079	1
+1943      	79	fecha	S	fecha_ultimo_asiento	0000000079	1
+1944      	79	t_doc	 	V	0000000079	1
+1945      	79	contrapartida	 	410	0000000079	1
+1946      	79	cuenta	 	6	0000000079	1
+1947      	79	debe	 	N1*0,16	0000000079	2
+1948      	79	fecha	S	fecha_ultimo_asiento	0000000079	2
+1949      	79	t_doc	 	A	0000000079	2
+1950      	79	cuenta	 	4720016	0000000079	2
+1951      	79	haber	 		0000000079	3
+1952      	79	fecha	S	fecha_ultimo_asiento	0000000079	3
+1953      	79	t_doc	 	A	0000000079	3
+1954      	80	numero_lineas	 	3	0000000080	1
+1955      	80	centro	N	T	0000000080	1
+1956      	80	proyecto	 	01	0000000080	1
+1957      	80	concepto	 	Pago su factura	0000000080	1
+1958      	80	debe	 		0000000080	1
+1959      	80	fecha	S	fecha_ultimo_asiento	0000000080	1
+1960      	80	t_doc	 	V	0000000080	1
+1961      	80	contrapartida	 	572	0000000080	1
+1962      	80	cuenta	 	4004000	0000000080	1
+1963      	80	debe	 		0000000080	2
+1964      	80	fecha	S	fecha_ultimo_asiento	0000000080	2
+1965      	80	t_doc	 	V	0000000080	2
+1966      	80	cuenta	 	4004000	0000000080	2
+1967      	80	haber	 		0000000080	3
+1968      	80	fecha	S	fecha_ultimo_asiento	0000000080	3
+1969      	80	t_doc	 	A	0000000080	3
+1970      	80	cuenta	 	5720000	0000000080	3
+1971      	81	numero_lineas	 	2	0000000081	1
+1972      	81	centro	N	T	0000000081	1
+1973      	81	proyecto	 	01	0000000081	1
+1974      	81	concepto	 	s/factura	0000000081	1
+1975      	81	debe	 		0000000081	1
+1976      	81	fecha	S	fecha_ultimo_asiento	0000000081	1
+1977      	81	t_doc	 	V	0000000081	1
+1978      	81	contrapartida	 	700	0000000081	1
+1979      	81	cuenta	 	4304000	0000000081	1
+1980      	81	haber	 		0000000081	2
+1981      	81	fecha	S	fecha_ultimo_asiento	0000000081	2
+1982      	81	t_doc	 	A	0000000081	2
+1983      	82	numero_lineas	 	2	0000000082	1
+1984      	82	centro	N	T	0000000082	1
+1985      	82	proyecto	 	01	0000000082	1
+1986      	82	concepto	 	Pago su factura	0000000082	1
+1987      	82	haber	 		0000000082	1
+1988      	82	fecha	S	fecha_ultimo_asiento	0000000082	1
+1989      	82	t_doc	 	V	0000000082	1
+1990      	82	contrapartida	 	572	0000000082	1
+1991      	82	cuenta	 	4304000	0000000082	1
+1992      	82	debe	 		0000000082	2
+1993      	82	fecha	S	fecha_ultimo_asiento	0000000082	2
+1994      	82	t_doc	 	A	0000000082	2
+1995      	83	numero_lineas	 	3	0000000083	1
+1996      	83	centro	N	T	0000000083	1
+1997      	83	proyecto	 	01	0000000083	1
+1998      	83	concepto	 	Pago su factura	0000000083	1
+1999      	83	haber	 		0000000083	1
+2000      	83	fecha	S	fecha_ultimo_asiento	0000000083	1
+2001      	83	t_doc	 	V	0000000083	1
+2002      	83	contrapartida	 	572	0000000083	1
+2003      	83	cuenta	 	4304000	0000000083	1
+2004      	83	haber	 		0000000083	2
+2005      	83	fecha	S	fecha_ultimo_asiento	0000000083	2
+2006      	83	t_doc	 	V	0000000083	2
+2007      	83	cuenta	 	4304000	0000000083	2
+2008      	83	debe	 		0000000083	3
+2009      	83	fecha	S	fecha_ultimo_asiento	0000000083	3
+2010      	83	t_doc	 	A	0000000083	3
+2011      	83	cuenta	 	5720000	0000000083	3
+2012      	84	numero_lineas	 	2	0000000084	1
+2013      	84	centro	N	T	0000000084	1
+2014      	84	proyecto	 	01	0000000084	1
+2015      	84	concepto	 	Compra Divisas	0000000084	1
+2016      	84	debe	 		0000000084	1
+2017      	84	fecha	S	fecha_ultimo_asiento	0000000084	1
+2018      	84	t_doc	 	V	0000000084	1
+2019      	84	contrapartida	 	572	0000000084	1
+2020      	84	cuenta	 	5730000	0000000084	1
+2021      	84	haber	 		0000000084	2
+2022      	84	fecha	S	fecha_ultimo_asiento	0000000084	2
+2023      	84	t_doc	 	F	0000000084	2
+2024      	85	numero_lineas	 	3	0000000085	1
+2025      	85	centro	N	T	0000000085	1
+2026      	85	proyecto	 	01	0000000085	1
+2027      	85	concepto	 	Pago factura	0000000085	1
+2028      	85	debe	 		0000000085	1
+2029      	85	fecha	S	fecha_ultimo_asiento	0000000085	1
+2030      	85	t_doc	 	V	0000000085	1
+2031      	85	contrapartida	 	573	0000000085	1
+2032      	85	cuenta	 	4004000	0000000085	1
+2033      	85	haber	 		0000000085	2
+2034      	85	fecha	S	fecha_ultimo_asiento	0000000085	2
+2035      	85	t_doc	 	V	0000000085	2
+2036      	85	cuenta	 	5730000	0000000085	2
+2037      	85	concepto	 	Ajuste Diferencias Cambio	0000000085	3
+2038      	85	debe	 		0000000085	3
+2039      	85	fecha	S	fecha_ultimo_asiento	0000000085	3
+2040      	85	t_doc	 	F	0000000085	3
+2041      	86	numero_lineas	 	2	0000000086	1
+2042      	86	centro	N	T	0000000086	1
+2043      	86	proyecto	 	01	0000000086	1
+2044      	86	debe	 		0000000086	1
+2045      	86	fecha	S	fecha_ultimo_asiento	0000000086	1
+2046      	86	t_doc	 	A	0000000086	1
+2047      	86	concepto	 	DOTACION FONDO REVERSIËN	0000000086	2
+2048      	86	haber	 		0000000086	2
+2049      	86	fecha	S	fecha_ultimo_asiento	0000000086	2
+2050      	86	t_doc	 	F	0000000086	2
+2051      	86	contrapartida	 	143	0000000086	2
+2052      	86	cuenta	 	21	0000000086	2
+2053      	87	numero_lineas	 	3	0000000087	1
+2054      	87	centro	N	T	0000000087	1
+2055      	87	proyecto	 	01	0000000087	1
+2056      	87	concepto	 	Arrendamiento financiero	0000000087	1
+2057      	87	debe	 		0000000087	1
+2058      	87	fecha	S	fecha_ultimo_asiento	0000000087	1
+2059      	87	t_doc	 	F	0000000087	1
+2060      	87	cuenta	 	6211	0000000087	1
+2061      	87	concepto	 	IVA Soportado	0000000087	2
+2062      	87	debe	 	N1*0,16	0000000087	2
+2063      	87	fecha	S	fecha_ultimo_asiento	0000000087	2
+2064      	87	t_doc	 	F	0000000087	2
+2065      	87	contrapartida	 	572	0000000087	2
+2066      	87	cuenta	 	4720016	0000000087	2
+2067      	87	concepto	 	Bancos	0000000087	3
+2068      	87	haber	 		0000000087	3
+2069      	87	fecha	S	fecha_ultimo_asiento	0000000087	3
+2070      	87	t_doc	 	F	0000000087	3
+2071      	88	numero_lineas	 	2	0000000088	1
+2072      	88	centro	N	T	0000000088	1
+2073      	88	proyecto	 	01	0000000088	1
+2074      	88	concepto	 	Inmovilizado material	0000000088	1
+2075      	88	debe	 		0000000088	1
+2076      	88	fecha	S	fecha_ultimo_asiento	0000000088	1
+2077      	88	t_doc	 	F	0000000088	1
+2078      	88	cuenta	 	21	0000000088	1
+2079      	88	concepto	 	Bancos	0000000088	2
+2080      	88	haber	 		0000000088	2
+2081      	88	fecha	S	fecha_ultimo_asiento	0000000088	2
+2082      	88	t_doc	 	F	0000000088	2
+2083      	88	cuenta	 	572	0000000088	2
+2084      	89	numero_lineas	 	2	0000000089	1
+2085      	89	centro	N	T	0000000089	1
+2086      	89	proyecto	 	01	0000000089	1
+2087      	89	concepto	 	Impuesto corriente	0000000089	1
+2088      	89	debe	 		0000000089	1
+2089      	89	fecha	S	fecha_ultimo_asiento	0000000089	1
+2090      	89	t_doc	 	F	0000000089	1
+2091      	89	cuenta	 	6300	0000000089	1
+2092      	89	concepto	 	HP acreedora por IS	0000000089	2
+2093      	89	haber	 		0000000089	2
+2094      	89	fecha	S	fecha_ultimo_asiento	0000000089	2
+2095      	89	t_doc	 	F	0000000089	2
+2096      	89	cuenta	 	4752	0000000089	2
+2097      	90	numero_lineas	 	2	0000000090	1
+2098      	90	centro	N	T	0000000090	1
+2099      	90	proyecto	 	01	0000000090	1
+2100      	90	concepto	 	Crédito pérdidas a compen	0000000090	1
+2101      	90	debe	 		0000000090	1
+2102      	90	fecha	S	fecha_ultimo_asiento	0000000090	1
+2103      	90	t_doc	 	F	0000000090	1
+2104      	90	cuenta	 	4745	0000000090	1
+2105      	90	concepto	 	Impuesto corriente	0000000090	2
+2106      	90	haber	 		0000000090	2
+2107      	90	fecha	S	fecha_ultimo_asiento	0000000090	2
+2108      	90	t_doc	 	F	0000000090	2
+2109      	90	cuenta	 	6300	0000000090	2
+2110      	91	numero_lineas	 	4	0000000091	1
+2111      	91	centro	N	T	0000000091	1
+2112      	91	proyecto	 	01	0000000091	1
+2113      	91	concepto	 	AMORT.PREST.2.CITAM	0000000091	1
+2114      	91	debe	 		0000000091	1
+2115      	91	fecha	S	fecha_ultimo_asiento	0000000091	1
+2116      	91	t_doc	 	V	0000000091	1
+2117      	91	cuenta	 	572	0000000091	1
+2118      	91	haber	 		0000000091	2
+2119      	91	fecha	S	fecha_ultimo_asiento	0000000091	2
+2120      	91	t_doc	 	A	0000000091	2
+2121      	91	cuenta	 	532300002	0000000091	2
+2122      	91	debe	 		0000000091	3
+2123      	91	fecha	S	fecha_ultimo_asiento	0000000091	3
+2124      	91	t_doc	 	A	0000000091	3
+2125      	91	cuenta	 	473000000	0000000091	3
+2126      	91	haber	 		0000000091	4
+2127      	91	fecha	S	fecha_ultimo_asiento	0000000091	4
+2128      	91	t_doc	 	A	0000000091	4
+2129      	91	cuenta	 	762000002	0000000091	4
+2130      	110	numero_lineas	 	2	0000001100	2
+2131      	110	centro	N	T	0000001100	2
+2132      	110	proyecto	 	01	0000001100	2
+2133      	110	concepto	 	Corrección de errores	0000001100	2
+2134      	110	debe	 		0000001100	2
+2135      	110	fecha	S	fecha_ultimo_asiento	0000001100	2
+2136      	110	t_doc	 	V	0000001100	2
+2137      	110	cuenta	 	11	0000001100	2
+2138      	110	numero_lineas	 	2	0000001101	1
+2139      	110	centro	N	T	0000001101	1
+2140      	110	proyecto	 	01	0000001101	1
+2141      	110	concepto	 	Corrección de errores	0000001101	1
+2142      	110	debe	 		0000001101	1
+2143      	110	fecha	S	fecha_ultimo_asiento	0000001101	1
+2144      	110	t_doc	 	V	0000001101	1
+2145      	110	contrapartida	 	11	0000001101	1
+2146      	111	numero_lineas	 	2	0000001110	1
+2147      	111	centro	N	T	0000001110	1
+2148      	111	proyecto	 	01	0000001110	1
+2149      	111	concepto	 	Reversion Aumento Revalor	0000001110	1
+2150      	111	debe	 		0000001110	1
+2151      	111	fecha	S	fecha_ultimo_asiento	0000001110	1
+2152      	111	t_doc	 	V	0000001110	1
+2153      	111	contrapartida	 	281	0000001110	1
+2154      	111	cuenta	 	111	0000001110	1
+2155      	111	numero_lineas	 	2	0000001111	1
+2156      	111	centro	N	T	0000001111	1
+2157      	111	proyecto	 	01	0000001111	1
+2158      	111	concepto	 	Dif. temp. imp. cargo res	0000001111	1
+2159      	111	debe	 		0000001111	1
+2160      	111	fecha	S	fecha_ultimo_asiento	0000001111	1
+2161      	111	t_doc	 	F	0000001111	1
+2162      	111	cuenta	 	111	0000001111	1
+2163      	129	numero_lineas	 	2	0000001290	1
+2164      	129	centro	N	T	0000001290	1
+2165      	129	proyecto	 	01	0000001290	1
+2166      	129	concepto	 	Reversion Aumento Revalor	0000001290	1
+2167      	129	debe	 		0000001290	1
+2168      	129	fecha	S	fecha_ultimo_asiento	0000001290	1
+2169      	129	t_doc	 	V	0000001290	1
+2170      	129	contrapartida	 	281	0000001290	1
+2171      	129	cuenta	 	129	0000001290	1
+2172      	129	numero_lineas	 	2	0000001291	1
+2173      	129	centro	N	T	0000001291	1
+2174      	129	proyecto	 	01	0000001291	1
+2175      	129	concepto	 	Pérdidas valor razonable	0000001291	1
+2176      	129	debe	 		0000001291	1
+2177      	129	fecha	S	fecha_ultimo_asiento	0000001291	1
+2178      	129	t_doc	 	F	0000001291	1
+2179      	129	contrapartida	 	22	0000001291	1
+2180      	129	cuenta	 	129	0000001291	1
+2181      	200	numero_lineas	 	2	0000002000	1
+2182      	200	centro	N	T	0000002000	1
+2183      	200	proyecto	 	01	0000002000	1
+2184      	200	concepto	 	Imputación financiación	0000002000	1
+2185      	200	debe	 		0000002000	1
+2186      	200	fecha	S	fecha_ultimo_asiento	0000002000	1
+2187      	200	t_doc	 	F	0000002000	1
+2188      	200	cuenta	 	2	0000002000	1
+2189      	201	numero_lineas	 	3	0000002010	1
+2190      	201	centro	N	T	0000002010	1
+2191      	201	proyecto	 	01	0000002010	1
+2192      	201	concepto	 	Gtos. Establento.a Result	0000002010	1
+2193      	201	debe	 		0000002010	1
+2194      	201	fecha	S	fecha_ultimo_asiento	0000002010	1
+2195      	201	t_doc	 	F	0000002010	1
+2196      	201	cuenta	 	201	0000002010	1
+2197      	202	numero_lineas	 	2	0000002020	1
+2198      	202	centro	N	T	0000002020	1
+2199      	202	proyecto	 	01	0000002020	1
+2200      	202	concepto	 	Ampliación de capital	0000002020	1
+2201      	202	debe	 		0000002020	1
+2202      	202	fecha	S	fecha_ultimo_asiento	0000002020	1
+2203      	202	t_doc	 	F	0000002020	1
+2204      	202	cuenta	 	202	0000002020	1
+2205      	210	numero_lineas	 	4	0000002100	1
+2206      	210	centro	N	T	0000002100	1
+2207      	210	proyecto	 	01	0000002100	1
+2208      	210	concepto	 	Permuta	0000002100	1
+2209      	210	haber	 		0000002100	1
+2210      	210	fecha	S	fecha_ultimo_asiento	0000002100	1
+2211      	210	t_doc	 	V	0000002100	1
+2212      	210	contrapartida	 	281	0000002100	1
+2213      	210	cuenta	 	21	0000002100	1
+2214      	215	numero_lineas	 	2	0000002150	1
+2215      	215	centro	N	T	0000002150	1
+2216      	215	proyecto	 	01	0000002150	1
+2217      	215	concepto	 	Revalorización maquinaria	0000002150	1
+2218      	215	debe	 		0000002150	1
+2219      	215	fecha	S	fecha_ultimo_asiento	0000002150	1
+2220      	215	t_doc	 	V	0000002150	1
+2221      	215	contrapartida	 	111	0000002150	1
+2222      	215	cuenta	 	215	0000002150	1
+2223      	215	numero_lineas	 	2	0000002151	1
+2224      	215	centro	N	T	0000002151	1
+2225      	215	proyecto	 	01	0000002151	1
+2226      	215	concepto	 	Reversion Aplica. Informa	0000002151	1
+2227      	215	debe	 		0000002151	1
+2228      	215	fecha	S	fecha_ultimo_asiento	0000002151	1
+2229      	215	t_doc	 	V	0000002151	1
+2230      	215	contrapartida	 	129	0000002151	1
+2231      	215	cuenta	 	215	0000002151	1
+2232      	220	numero_lineas	 	3	0000002200	1
+2233      	220	centro	N	T	0000002200	1
+2234      	220	proyecto	 	01	0000002200	1
+2235      	220	concepto	 	Revalorización de activo	0000002200	1
+2236      	220	debe	 		0000002200	1
+2237      	220	fecha	S	fecha_ultimo_asiento	0000002200	1
+2238      	220	t_doc	 	V	0000002200	1
+2239      	220	contrapartida	 	282	0000002200	1
+2240      	220	cuenta	 	22	0000002200	1
+2241      	220	numero_lineas	 	3	0000002201	1
+2242      	220	centro	N	T	0000002201	1
+2243      	220	proyecto	 	01	0000002201	1
+2244      	220	concepto	 	Revers disminución reval.	0000002201	1
+2245      	220	debe	 		0000002201	1
+2246      	220	fecha	S	fecha_ultimo_asiento	0000002201	1
+2247      	220	t_doc	 	V	0000002201	1
+2248      	220	contrapartida	 	282	0000002201	1
+2249      	220	cuenta	 	22	0000002201	1
+2250      	220	numero_lineas	 	4	0000002202	1
+2251      	220	centro	N	T	0000002202	1
+2252      	220	proyecto	 	01	0000002202	1
+2253      	220	concepto	 	Minusvalía cargo a result	0000002202	1
+2254      	220	haber	 		0000002202	1
+2255      	220	fecha	S	fecha_ultimo_asiento	0000002202	1
+2256      	220	t_doc	 	V	0000002202	1
+2257      	220	cuenta	 	22	0000002202	1
+2258      	220	numero_lineas	 	4	0000002203	1
+2259      	220	centro	N	T	0000002203	1
+2260      	220	proyecto	 	01	0000002203	1
+2261      	220	concepto	 	Minusv. de plusv. previa	0000002203	1
+2262      	220	haber	 		0000002203	1
+2263      	220	fecha	S	fecha_ultimo_asiento	0000002203	1
+2264      	220	t_doc	 	V	0000002203	1
+2265      	220	cuenta	 	22	0000002203	1
+2266      	220	numero_lineas	 	4	0000002204	1
+2267      	220	centro	N	T	0000002204	1
+2268      	220	proyecto	 	01	0000002204	1
+2269      	220	concepto	 	Cambio cont arrend financ	0000002204	1
+2270      	220	debe	 		0000002204	1
+2271      	220	fecha	S	fecha_ultimo_asiento	0000002204	1
+2272      	220	t_doc	 	V	0000002204	1
+2273      	220	contrapartida	 	282	0000002204	1
+2274      	220	cuenta	 	22	0000002204	1
+2275      	220	numero_lineas	 	3	0000002205	1
+2276      	220	centro	N	T	0000002205	1
+2277      	220	proyecto	 	01	0000002205	1
+2278      	220	concepto	 	Ajuste de intereses	0000002205	1
+2279      	220	haber	 		0000002205	1
+2280      	220	fecha	S	fecha_ultimo_asiento	0000002205	1
+2281      	220	t_doc	 	V	0000002205	1
+2282      	220	contrapartida	 	178	0000002205	1
+2283      	220	cuenta	 	272	0000002205	1
+2284      	220	numero_lineas	 	2	0000002206	1
+2285      	220	centro	N	T	0000002206	1
+2286      	220	proyecto	 	01	0000002206	1
+2287      	220	concepto	 	Ganancias valor razonable	0000002206	1
+2288      	220	debe	 		0000002206	1
+2289      	220	fecha	S	fecha_ultimo_asiento	0000002206	1
+2290      	220	t_doc	 	F	0000002206	1
+2291      	220	contrapartida	 	129	0000002206	1
+2292      	220	cuenta	 	22	0000002206	1
+2293      	228	numero_lineas	 	3	0000002280	1
+2294      	228	centro	N	T	0000002280	1
+2295      	228	proyecto	 	01	0000002280	1
+2296      	228	concepto	 	Formalización contrato	0000002280	1
+2297      	228	debe	 	125624,03	0000002280	1
+2298      	228	fecha	S	fecha_ultimo_asiento	0000002280	1
+2299      	228	t_doc	 	V	0000002280	1
+2300      	228	cuenta	 	228	0000002280	1
+2301      	228	numero_lineas	 	3	0000002281	1
+2302      	228	centro	N	T	0000002281	1
+2303      	228	proyecto	 	01	0000002281	1
+2304      	228	concepto	 	Pago Cuota	0000002281	1
+2305      	228	debe	 	23318,63	0000002281	1
+2306      	228	fecha	S	fecha_ultimo_asiento	0000002281	1
+2307      	228	t_doc	 	V	0000002281	1
+2308      	228	cuenta	 	524	0000002281	1
+2309      	228	numero_lineas	 	2	0000002282	1
+2310      	228	centro	N	T	0000002282	1
+2311      	228	proyecto	 	01	0000002282	1
+2312      	228	concepto	 	Leasing Amortiz. Periodo	0000002282	1
+2313      	228	debe	 	25124,81	0000002282	1
+2314      	228	fecha	S	fecha_ultimo_asiento	0000002282	1
+2315      	228	t_doc	 	F	0000002282	1
+2316      	228	contrapartida	 	282000001	0000002282	1
+2317      	228	cuenta	 	682000001	0000002282	1
+2318      	228	numero_lineas	 	2	0000002283	1
+2319      	228	centro	N	T	0000002283	1
+2320      	228	proyecto	 	01	0000002283	1
+2321      	228	concepto	 	Traspaso Cuota LP a CP	0000002283	1
+2322      	228	debe	 	24188,63	0000002283	1
+2323      	228	fecha	S	fecha_ultimo_asiento	0000002283	1
+2324      	228	t_doc	 	F	0000002283	1
+2325      	228	contrapartida	 	524000000	0000002283	1
+2326      	228	cuenta	 	173000000	0000002283	1
+2327      	281	numero_lineas	 	2	0000002810	1
+2328      	281	centro	N	T	0000002810	1
+2329      	281	proyecto	 	01	0000002810	1
+2330      	281	concepto	 	Revalorización Apli.Infor	0000002810	1
+2331      	281	debe	 		0000002810	1
+2332      	281	fecha	S	fecha_ultimo_asiento	0000002810	1
+2333      	281	t_doc	 	V	0000002810	1
+2334      	281	contrapartida	 	215	0000002810	1
+2335      	281	cuenta	 	281	0000002810	1
+2336      	281	numero_lineas	 	2	0000002811	1
+2337      	281	centro	N	T	0000002811	1
+2338      	281	proyecto	 	01	0000002811	1
+2339      	281	concepto	 	Reversion Aplica. Informa	0000002811	1
+2340      	281	debe	 		0000002811	1
+2341      	281	fecha	S	fecha_ultimo_asiento	0000002811	1
+2342      	281	t_doc	 	V	0000002811	1
+2343      	281	contrapartida	 	215	0000002811	1
+2344      	281	cuenta	 	281	0000002811	1
+2345      	281	numero_lineas	 	2	0000002812	1
+2346      	281	centro	N	T	0000002812	1
+2347      	281	proyecto	 	01	0000002812	1
+2348      	281	concepto	 	Reversion Aumento Revalor	0000002812	1
+2349      	281	debe	 		0000002812	1
+2350      	281	fecha	S	fecha_ultimo_asiento	0000002812	1
+2351      	281	t_doc	 	V	0000002812	1
+2352      	281	contrapartida	 	215	0000002812	1
+2353      	281	cuenta	 	281	0000002812	1
+2354      	281	numero_lineas	 	2	0000002813	1
+2355      	281	centro	N	T	0000002813	1
+2356      	281	proyecto	 	01	0000002813	1
+2357      	281	concepto	 	Reversion Aumento Revalor	0000002813	1
+2358      	281	debe	 		0000002813	1
+2359      	281	fecha	S	fecha_ultimo_asiento	0000002813	1
+2360      	281	t_doc	 	V	0000002813	1
+2361      	281	contrapartida	 	215	0000002813	1
+2362      	281	cuenta	 	281	0000002813	1
+2363      	282	numero_lineas	 	2	0000002820	1
+2364      	282	centro	N	T	0000002820	1
+2365      	282	proyecto	 	01	0000002820	1
+2366      	282	concepto	 	Revalorización maquinaria	0000002820	1
+2367      	282	debe	 		0000002820	1
+2368      	282	fecha	S	fecha_ultimo_asiento	0000002820	1
+2369      	282	t_doc	 	V	0000002820	1
+2370      	282	contrapartida	 	223	0000002820	1
+2371      	282	cuenta	 	282	0000002820	1
+2372      	282	numero_lineas	 	2	0000002821	1
+2373      	282	centro	N	T	0000002821	1
+2374      	282	proyecto	 	01	0000002821	1
+2375      	282	concepto	 	Revalorización maquinaria	0000002821	1
+2376      	282	debe	 		0000002821	1
+2377      	282	fecha	S	fecha_ultimo_asiento	0000002821	1
+2378      	282	t_doc	 	V	0000002821	1
+2379      	282	contrapartida	 	111	0000002821	1
+2380      	282	cuenta	 	223	0000002821	1
+2381      	300	numero_lineas	 	2	0000003000	1
+2382      	300	centro	N	T	0000003000	1
+2383      	300	proyecto	 	01	0000003000	1
+2384      	300	concepto	 	Coste de	0000003000	1
+2385      	300	debe	 		0000003000	1
+2386      	300	fecha	S	fecha_ultimo_asiento	0000003000	1
+2387      	300	t_doc	 	F	0000003000	1
+2388      	300	contrapartida	 	66	0000003000	1
+2389      	300	cuenta	 	3	0000003000	1
+2390      	470	numero_lineas	 	2	0000004700	1
+2391      	470	centro	N	T	0000004700	1
+2392      	470	proyecto	 	01	0000004700	1
+2393      	470	concepto	 	Deduc. activos subvencion	0000004700	1
+2394      	470	debe	 		0000004700	1
+2395      	470	fecha	S	fecha_ultimo_asiento	0000004700	1
+2396      	470	t_doc	 	F	0000004700	1
+2397      	470	cuenta	 	47	0000004700	1
+2398      	479	numero_lineas	 	2	0000004791	1
+2399      	479	centro	N	T	0000004791	1
+2400      	479	proyecto	 	01	0000004791	1
+2401      	479	concepto	 	Rev. dif. imp. cargo rese	0000004791	1
+2402      	479	debe	 		0000004791	1
+2403      	479	fecha	S	fecha_ultimo_asiento	0000004791	1
+2404      	479	t_doc	 	F	0000004791	1
+2405      	479	cuenta	 	4791	0000004791	1
+2406      	630	numero_lineas	 	3	0000006300	1
+2407      	630	centro	N	T	0000006300	1
+2408      	630	proyecto	 	01	0000006300	1
+2409      	630	concepto	 	Diferencia deducible	0000006300	1
+2410      	630	debe	 		0000006300	1
+2411      	630	fecha	S	fecha_ultimo_asiento	0000006300	1
+2412      	630	t_doc	 	F	0000006300	1
+2413      	630	cuenta	 	630	0000006300	1
+2414      	630	numero_lineas	 	3	0000006301	1
+2415      	630	centro	N	T	0000006301	1
+2416      	630	proyecto	 	01	0000006301	1
+2417      	630	concepto	 	Gasto por Imp. sobre Soc.	0000006301	1
+2418      	630	debe	 		0000006301	1
+2419      	630	fecha	S	fecha_ultimo_asiento	0000006301	1
+2420      	630	t_doc	 	F	0000006301	1
+2421      	630	cuenta	 	630	0000006301	1
+2422      	650	numero_lineas	 	2	0000006500	1
+2423      	650	centro	N	T	0000006500	1
+2424      	650	proyecto	 	01	0000006500	1
+2425      	650	concepto	 	Pérd. por reduc. mercado	0000006500	1
+2426      	650	debe	 		0000006500	1
+2427      	650	fecha	S	fecha_ultimo_asiento	0000006500	1
+2428      	650	t_doc	 	F	0000006500	1
+2429      	650	cuenta	 	65	0000006500	1
+2430      	660	numero_lineas	 	2	0000006600	1
+2431      	660	centro	N	T	0000006600	1
+2432      	660	proyecto	 	01	0000006600	1
+2433      	660	concepto	 	Reduc. por incr. costes	0000006600	1
+2434      	660	debe	 		0000006600	1
+2435      	660	fecha	S	fecha_ultimo_asiento	0000006600	1
+2436      	660	t_doc	 	F	0000006600	1
+2437      	660	cuenta	 	66	0000006600	1
+2438      	670	numero_lineas	 	2	0000006700	1
+2439      	670	centro	N	T	0000006700	1
+2440      	670	proyecto	 	01	0000006700	1
+2441      	670	concepto	 	Pérdida por det. de Inmov	0000006700	1
+2442      	670	debe	 		0000006700	1
+2443      	670	fecha	S	fecha_ultimo_asiento	0000006700	1
+2444      	670	t_doc	 	F	0000006700	1
+2445      	670	cuenta	 	67	0000006700	1
+2446      	678	numero_lineas	 	2	0000006781	1
+2447      	678	centro	N	T	0000006781	1
+2448      	678	proyecto	 	01	0000006781	1
+2449      	678	concepto	 	Reclasif. Gtos. Extraord.	0000006781	1
+2450      	678	haber	 		0000006781	1
+2451      	678	fecha	S	fecha_ultimo_asiento	0000006781	1
+2452      	678	t_doc	 	F	0000006781	1
+2453      	678	cuenta	 	6781	0000006781	1
+2454      	778	numero_lineas	 	2	0000007780	1
+2455      	778	centro	N	T	0000007780	1
+2456      	778	proyecto	 	01	0000007780	1
+2457      	778	concepto	 	Reclasific. Ingr. Extraor	0000007780	1
+2458      	778	debe	 		0000007780	1
+2459      	778	fecha	S	fecha_ultimo_asiento	0000007780	1
+2460      	778	t_doc	 	F	0000007780	1
+2461      	778	cuenta	 	778	0000007780	1
+139       	2	cuenta	 	701000001	0000000002	2
+584       	12	cuenta	 	572100001	0000000012	9
+817       	18	cuenta	 	695900001	0000000018	1
+25        	1	debe	 		0000000001	4
+2462      	479	cuenta	 	4791	0000004791	1
+2463      	630	numero_lineas	 	3	0000006300	1
+2464      	630	centro	N	T	0000006300	1
+2465      	630	proyecto	 	01	0000006300	1
+2466      	630	concepto	 	Diferencia deducible	0000006300	1
+2467      	630	debe	 		0000006300	1
+2468      	630	fecha	S	fecha_ultimo_asiento	0000006300	1
+2469      	630	t_doc	 	F	0000006300	1
+2470      	630	cuenta	 	630	0000006300	1
+2471      	630	numero_lineas	 	3	0000006301	1
+2472      	630	centro	N	T	0000006301	1
+2473      	630	proyecto	 	01	0000006301	1
+2474      	630	concepto	 	Gasto por Imp. sobre Soc.	0000006301	1
+2475      	630	debe	 		0000006301	1
+2476      	630	fecha	S	fecha_ultimo_asiento	0000006301	1
+2477      	630	t_doc	 	F	0000006301	1
+2478      	630	cuenta	 	630	0000006301	1
+2479      	650	numero_lineas	 	2	0000006500	1
+2480      	650	centro	N	T	0000006500	1
+2481      	650	proyecto	 	01	0000006500	1
+2482      	650	concepto	 	Pérd. por reduc. mercado	0000006500	1
+2483      	650	debe	 		0000006500	1
+2484      	650	fecha	S	fecha_ultimo_asiento	0000006500	1
+2485      	650	t_doc	 	F	0000006500	1
+2486      	650	cuenta	 	65	0000006500	1
+2487      	660	numero_lineas	 	2	0000006600	1
+2488      	660	centro	N	T	0000006600	1
+2489      	660	proyecto	 	01	0000006600	1
+2490      	660	concepto	 	Reduc. por incr. costes	0000006600	1
+2491      	660	debe	 		0000006600	1
+2492      	660	fecha	S	fecha_ultimo_asiento	0000006600	1
+2493      	660	t_doc	 	F	0000006600	1
+2494      	660	cuenta	 	66	0000006600	1
+2495      	670	numero_lineas	 	2	0000006700	1
+2496      	670	centro	N	T	0000006700	1
+2497      	670	proyecto	 	01	0000006700	1
+2498      	670	concepto	 	Pérdida por det. de Inmov	0000006700	1
+2499      	670	debe	 		0000006700	1
+2500      	670	fecha	S	fecha_ultimo_asiento	0000006700	1
+2501      	670	t_doc	 	F	0000006700	1
+2502      	670	cuenta	 	67	0000006700	1
+2503      	678	numero_lineas	 	2	0000006781	1
+2504      	678	centro	N	T	0000006781	1
+2505      	678	proyecto	 	01	0000006781	1
+2506      	678	concepto	 	Reclasif. Gtos. Extraord.	0000006781	1
+2507      	678	haber	 		0000006781	1
+2508      	678	fecha	S	fecha_ultimo_asiento	0000006781	1
+2509      	678	t_doc	 	F	0000006781	1
+2510      	678	cuenta	 	6781	0000006781	1
+2511      	778	numero_lineas	 	2	0000007780	1
+2512      	778	centro	N	T	0000007780	1
+2513      	778	proyecto	 	01	0000007780	1
+2514      	778	concepto	 	Reclasific. Ingr. Extraor	0000007780	1
+2515      	778	debe	 		0000007780	1
+2516      	778	fecha	S	fecha_ultimo_asiento	0000007780	1
+2517      	778	t_doc	 	F	0000007780	1
+2518      	778	cuenta	 	778	0000007780	1

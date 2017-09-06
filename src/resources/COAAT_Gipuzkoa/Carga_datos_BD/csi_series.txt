@@ -1,0 +1,88 @@
+COLEGIADOS		F519	01	0.0		N	2007				N	N
+CLIEN     			01	3.0		N	2007				N	N
+PREMAA    			01	3253.0		S	2007				N	N
+TECNIC    			01	373.0		N	2007				N	N
+ABOGAD    			01	29.0		N	2007				N	N
+MUSICA    			01	78.0		N	2007				N	N
+VARIOS    			01	24.0		N	2007				N	N
+CUOTA     			01	2880.0		N	2007				N	N
+SEGURO    			01	204.0		N	2007				N	N
+RECTIF    	neg		01	180.0	Serie para Facturas negativas	N	2007				N	N
+COLEGIADOS			01	0.0		N	2008				N	N
+PREMAA    			01	3194.0		S	2008	 	 		N	N
+TECNIC    			01	542.0		N	2008				N	N
+ABOGAD    			01	7.0		N	2008				N	N
+MUSICA    			01	68.0		N	2008				N	N
+CUOTA     			01	2854.0		N	2008				N	N
+SEGURO    			01	212.0		N	2008				N	N
+MUSAAT    			01	1079.0		S	2008				N	N
+RECTIF    			01	114.0	Serie para Facturas negativas	N	2008				N	N
+COLEGIADOS			01	0.0		N	2009				N	N
+CLIEN     			01	0.0		N	2009				N	N
+TECNIC    			01	419.0		N	2009				N	N
+ABOGAD    			01	0.0		N	2009				N	N
+MUSICA    			01	63.0		N	2009				N	N
+VARIOS    			01	42.0		N	2009				N	N
+CUOTA     			01	2895.0		N	2009				N	N
+SEGURO    			01	208.0		N	2009				N	N
+MUSAAT    			01	1073.0		S	2009				N	N
+RECTIF    			01	337.0	Serie para Facturas negativas	N	2009				N	N
+COLEGIADOS			01	0.0		N	2010				N	N
+PREMAA    			01	2908.0		N	2010	 	 		N	N
+TECNIC    			01	216.0		N	2010				N	N
+ABOGAD    			01	0.0		N	2010				N	N
+MUSICA    			01	55.0		N	2010				N	N
+VARIOS    			01	36.0		N	2010				N	N
+CUOTA     			01	2868.0		N	2010				N	N
+MUSAAT    			01	1065.0		S	2010				N	N
+RECTIF    			01	153.0	Serie para Facturas negativas	N	2010				N	N
+MUSAAT    			01	1076.0		S	2007				N	N
+VARIOS    			01	36.0		N	2008				N	N
+PREMAA    			01	3106.0		N	2009	 	 		N	N
+SEGURO    			01	193.0		N	2010				N	N
+PROFOR    			01	0.0	Facturas Proforma	N	2010			PROFOR	S	N
+COLEGIADOS			01	0.0		N	2011				N	N
+CLIEN     			01	0.0		N	2011				N	N
+PREMAA    			01	1138.0		N	2011	 	 		N	N
+TECNIC    			01	154.0		N	2011				N	N
+ABOGAD    			01	3.0		N	2011				N	N
+MUSICA    			01	0.0		N	2011				N	N
+VARIOS    			01	44.0		N	2011				N	N
+CUOTA     			01	2887.0		N	2011				N	N
+MUSAAT    			01	1010.0		S	2011				N	N
+RECTIF    			01	97.0	Serie para Facturas negativas	N	2011				N	N
+SEGURO    			01	143.0		N	2011				N	N
+PROFOR    			01	407.0	Facturas Proforma	N	2011			PROFOR	S	N
+CLIEN     			01	0.0		N	2008				N	N
+CLIEN     			01	0.0		N	2010				N	N
+EXPEDI    		F508	01	6379.0		N	2007				N	S
+EXPEDI    			01	5330.0		N	2008				N	S
+EXPEDI    			01	4463.0		N	2009				N	S
+EXPEDI    			01	4444.0		N	2010				N	S
+EXPEDI    			01	2960.0		N	2011				N	S
+PC        			02	1256.0	Serie para la facturación de la prima variable	S	2011				N	S
+PF        			02	23.0	Serie para la facturación de la prima fija de la empresa a	S	2011				N	N
+MT        			02	1.0	Serie para la facturación de otros conceptos de la empresa a	S	2011				N	N
+PROFOR    			02	29.0	Serie para proformas de la empresa aseguradora	N	2011				S	N
+RECTIF    			02	25.0	Serie rectificativa de la empresa aseguradora	S	2011				N	N
+PREMAA    			02	1553.0	Serie para la facturación de la cuota de PREMAAT	S	2011				N	N
+COLEGIADOS			01	0.0		N	2012				N	N
+CLIEN     			01	0.0		N	2012				N	N
+PREMAA    			01	0.0		N	2012	 	 		N	N
+TECNIC    			01	12.0		N	2012				N	N
+ABOGAD    			01	0.0		N	2012				N	N
+MUSICA    			01	0.0		N	2012				N	N
+VARIOS    			01	3.0		N	2012				N	N
+CUOTA     			01	2.0		N	2012				N	N
+MUSAAT    			01	0.0		S	2012				N	N
+RECTIF    			01	3.0	Serie para Facturas negativas	N	2012				N	N
+SEGURO    			01	0.0		N	2012				N	N
+PROFOR    			01	26.0	Facturas Proforma	N	2012			PROFOR	S	N
+EXPEDI    			01	181.0		N	2012				N	S
+PC        			02	146.0	Serie para la facturación de la prima variable	S	2012				N	S
+PF        			02	488.0	Serie para la facturación de la prima fija de la empresa a	S	2012				N	N
+MT        			02	0.0	Serie para la facturación de otros conceptos de la empresa a	S	2012				N	N
+PROFOR    			02	1.0	Serie para proformas de la empresa aseguradora	N	2012				S	N
+RECTIF    			02	5.0	Serie rectificativa de la empresa aseguradora	S	2012				N	N
+PREMAA    			02	217.0	Serie para la facturación de la cuota de PREMAAT	S	2012				N	N
+CURSOS    			01	13.0		N	2012				N	N

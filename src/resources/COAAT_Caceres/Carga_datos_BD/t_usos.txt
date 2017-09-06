@@ -1,0 +1,42 @@
+01	Bar, cafetería, chocolatería, horchatería, bodega, churrería, ...	HOSTELERÍA	1.1299999999999999
+02	Asociaciones Recreativas y Gastronómicas	HOSTELERÍA	1.0
+03	Pizzerías, Hamburgueserías, Restaurantes comida rápida	HOSTELERÍA	1.3999999999999999
+04	Otros Restaurantes	HOSTELERÍA	1.8100000000000001
+05	Pub, discobar, club, café-cantante, café-teatro, whiskería	HOSTELERÍA	1.8500000000000001
+06	Discotecas, Salas de baile	HOSTELERÍA	2.3199999999999998
+07	Pensiones, Hostales, Residencias	HOSTELERÍA	1.3
+08	Despachos y Oficinas en general	OFICINAS Y VIVIENDAS	1.1899999999999999
+09	Acondicionamiento de viviendas	OFICINAS Y VIVIENDAS	1.3
+10	Pescadería, Carnicería, Charcutería, Panadería, Pastelería, ...	COMERCIOS DE ALIMENTACIÓN	1.02
+11	Supermercados, Galerías alimentación, Mercados, Ultramarinos	COMERCIOS DE ALIMENTACIÓN	1.1100000000000001
+12	Ferretería, Droguería, lavandería, Pajarería, Enmarcaciones	COMERCIOS VARIOS	.81999999999999995
+13	Tiendas de ropa, Perfumería y cosméticos, Floristerías	COMERCIOS VARIOS	.91000000000000003
+14	Peluquería, Informática, Numismática, Filatelia, Fotografía	COMERCIOS VARIOS	.91000000000000003
+15	Armería, Muebles, Instrumentos musicales, Marroquinería	COMERCIOS VARIOS	.91000000000000003
+16	Electrodomésticos, Administración lotería/apuestas, Estanco	COMERCIOS VARIOS	.91000000000000003
+17	Videoclub, Prensa, Papelería Librería, Menaje, Mat. deportivo	COMERCIOS VARIOS	.91000000000000003
+18	Óptica, Farmacia, Ortopedia	COMERCIOS VARIOS	1.3899999999999999
+19	Bisutería, Salón de belleza	COMERCIOS VARIOS	1.3100000000000001
+20	Joyería	COMERCIOS VARIOS	1.3500000000000001
+21	Tienda de decoración, Objetos de regalo	COMERCIOS VARIOS	1.3200000000000001
+22	Gimnasios, Polideportivos	DEPORTIVOS	1.28
+23	Almacenes en general, trasteros	ALMACENES Y TALLERES	.45000000000000001
+24	Garajes, Talleres de automoción	ALMACENES Y TALLERES	.59999999999999998
+25	Exposición de vehículos a motor	ALMACENES Y TALLERES	.70999999999999996
+26	Talleres de orfebrería, de confección, etc.	ALMACENES Y TALLERES	.80000000000000004
+27	Laboratorios	ALMACENES Y TALLERES	.95999999999999996
+28	Academias de enseñanza	ENSEÑANZA Y CULTURA	.88
+29	Guarderías y Jardines de Infancia	ENSEÑANZA Y CULTURA	1.02
+30	Bibliotecas, Salas de Exposición, Galerías de Arte	ENSEÑANZA Y CULTURA	1.22
+31	Casas de Cultura, Centros Cívicos	ENSEÑANZA Y CULTURA	1.24
+32	Salones de actos Religiosos o Confesionales	ENSEÑANZA Y CULTURA	1.1499999999999999
+33	Estudios de Música	ENSEÑANZA Y CULTURA	1.25
+34	Autoescuelas	ENSEÑANZA Y CULTURA	1.0
+35	Centros de día tercera edad	ENSEÑANZA Y CULTURA	1.1499999999999999
+36	Bancos, Cajas de Ahorro	ENTIDADES FINANCIERAS	1.99
+37	Mutuas, Ambulatorios, Equipos médicos, Centros de Salud	CENTROS SANITARIOS	1.6899999999999999
+38	Centros veterinarios	CENTROS SANITARIOS	1.3100000000000001
+39	Funerarias	CENTROS SANITARIOS	1.21
+40	Salones de Juegos recreativos	DIVERSIÓN Y OCIO	.92000000000000004
+41	Salas de Juego, Casinos, Bingos, Cines	DIVERSIÓN Y OCIO	1.98
+42	Circuitos culturales, Clubes sociales	DIVERSIÓN Y OCIO	1.96

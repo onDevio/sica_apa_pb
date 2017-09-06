@@ -1,0 +1,18 @@
+A 	Sociedades Anónimas	1
+B 	Sociedades de Responsabilidad Limitada	1
+C 	Sociedades Colectivas	1
+D 	Sociedades Comanditarias	1
+E 	Comunidad de Bienes	2
+H 	Comunidad de Propietarios en Régimen de Propiedad Horizontal	2
+X 	Personas Físicas	2
+F 	Sociedades Cooperativas	3
+S 	Órganos de la Adm. del estado y CC.AA.	4
+P 	Corporaciones Locales	5
+G 	Asoc. y Otros Tipos no Definidos	6
+Q 	Org. Autónomos estatales o no, y asimilados, congregaciones e instituciones religiosas	6
+J 	Sociedades civiles, con o sin personalidad jurídica	1
+R 	Congregaciones e instituciones religiosas	6
+U 	Uniones Temporales de Empresas	6
+V 	Otros tipos no definidos en el resto de claves	6
+N 	Entidades extranjeras	6
+W 	Establecimientos permanentes de entidades no residentes en España	6

@@ -1,0 +1,14 @@
+AYTO      	Carta del Ayuntamiento	% 	0.0	S	Z:\documentos_fases\	S	N		0	%		01
+COLEGIA   	Certificados y Resumenes economicos	% 	0.0	S	Z:\documentos_fases\	S	N		0	%		01
+LIQUID    	Hojas de Liquidaciones	% 	0.0	S	Z:\liquidaciones\	S	N		0	%		01
+RE        	Registro de Entrada	% 	148.0	E			N		0	%		01
+RECLAM_EXP	Cartas de reclamaciones de Expedientes	% 	0.0	S	Z:\reclamaciones\expedientes\	S	N		0	%		01
+RECLAM_FAS	Cartas de reclamaciones de Fases	% 	0.0	S	Z:\reclamaciones\fases\	S	N		0	%		01
+REPARO    	Cartas de Reparos	% 	0.0	S			N		0	%		01
+RS        	Registro de Salida	% 	119.0	S			N		0	%		01
+ECON      	Resumenes Economicos	% 	0.0	S	Z:\economicos\	S	N		0	%		01
+LISTADOS  	Listados	% 	0.0	S	Z:\listados\	S	N		0	%		01
+RS_CON    	Registro de Salida Consejo	% 	5.0	S			N		0	%		01
+RE_CON    	Registro de Entrada Consejo	% 	4.0	E			N		0	%		01
+RE        	Registro de Entrada Aseguradora	% 	88.0	E	 		N		0	%		03
+RS        	Registro de Salida Aseguradora	% 	98.0	S			N		0	%		03

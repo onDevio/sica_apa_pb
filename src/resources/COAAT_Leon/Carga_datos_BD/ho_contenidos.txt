@@ -1,0 +1,34 @@
+P         	Proyecto, exclusivamente
+PD        	Proyecto y Dirección de las Obras
+D         	Dirección, exclusivamente
+DST       	Deslinde sin amojonamiento de terrenos
+DSS       	Deslinde sin amojonamiento de solares
+DSE       	Deslinde sin amojonamiento de edificaciones
+DAT       	Deslinde con amojonamiento de terrenos
+DAS       	Deslinde con amojonamiento de solares
+DAE       	Deslinde con amojonamiento de edificaciones
+REPE      	Replanteo de edificaciones
+REPS      	Replanteo de solares
+REPT      	Replanteo de terrenos
+MET       	Medición de terrenos
+MES       	Medición de solares
+MEE       	Medición de edificaciones
+4.1.1     	Reconocimientos
+4.1.2     	Consultas
+4.1.3     	Examen de documentos, títulos, planos, etc.
+4.1.4     	Diligencias que requieran conocimientos técnicos
+ISC       	Informes sin certificación
+DCI       	Dictámenes con informe
+CSI       	Certificaciones sin informe
+CCI       	Certificaciones con informe
+PER       	Peritaciones
+ARB       	Arbitrajes
+CON       	Contratación
+ADM       	Administración
+EDF       	Edificación
+URB       	Urbanización
+EG        	Encargo global
+CSSP      	Coordinación en materia de seguridad y salud durante la elaboración de proyecto
+REB       	Redacción de estudio o estudio básico de seguridad y salud
+CSSO      	Coordinación en materia de seguridad y salud durante la ejecución de la obra
+ARP       	Asesoramiento técnico al contratista para la redacción del plan de seguridad y salud en el trabajo

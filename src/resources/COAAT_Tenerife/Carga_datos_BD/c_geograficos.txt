@@ -1,0 +1,8 @@
+R    	RESIDENTE EJERCIENTE                                        
+H    	ACREDITADO                                                  
+HC   	CARPETA                                                     
+RNE  	RESIDENTE NO EJERCIENTE                                     
+NRE  	NO RESIDENTE EJERCIENTE                                     
+NRNE 	NO RESIDENTE NO EJERCIENTE                                  
+SATT 	ASEGURADO DEL SATT                                          
+OP   	OTROS PROFESIONALES                                         

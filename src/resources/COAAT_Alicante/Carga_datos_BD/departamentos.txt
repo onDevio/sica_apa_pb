@@ -1,0 +1,19 @@
+01	PRESIDENCIA                                                 
+03	ASESOR JURIDICO                                             
+00	VISADOS                                                     
+02	JEFE ADMINISTRACION                                         
+04	GABINETE TECNICO                                            
+05	SECRETARIA JUNTA                                            
+06	FISCAL                                                      
+07	COLEGIACION Y MUTUA                                         
+08	BIBLIOTECA                                                  
+09	CONTABILIDAD                                                
+10	DPTO. INFRAESTRUCTURAS                                      
+CL	COLEGIADO                                                   
+AC	ACREDITADO                                                  
+11	MARKETING                                                   
+12	GERENCIA                                                    
+13	ADMON/CENTRALITA                                            
+14	JEFE VISADOS                                                
+15	ASESOR PROFESIONAL                                          
+16	COATEC                                                      

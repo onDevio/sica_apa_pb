@@ -1,0 +1,5 @@
+001	Color que tendrán las líneas que hayan en la página web, si las tienen.	Color de las líneas
+002		
+003	Indica si la opción de menú estará activa y, por lo tanto, visible.	Activo
+004	Indica la posición de la opción de menú dentro de la lista de opciones.	Orden
+005		Contenido

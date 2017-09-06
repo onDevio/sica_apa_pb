@@ -1,0 +1,36 @@
+LO	Libro de Ordenes	S	S	S	S	N	
+LI	Libro de Incidencias	S	S	S	S	N	
+CC	Certificado de Control de Calidad	S	S	S	S	N	
+LC	Libro de Control de Calidad	S	S	S	S	N	
+CF	Certificado Final de Obra	S	S	S	S	N	
+AA	Acta de Aprobación	S	S	S	S	N	
+DC	Documentación complementaria	S	S	S	S	N	
+LF	Liquidación Final	S	S	S	S	N	
+01	Estudio de Seguridad	S	S	S	S	N	
+02	Estudio Básico de Seguridad	S	S	S	S	N	
+12	Proyecto	S	S	S	S	N	
+31	Programa de Control	S	S	S	S	N	
+IG	Certificado Instalación de Grua	S	S	S	S	N	
+41	Proyecto de Actividad	S	S	S	S	N	
+71	Informes, Reconocimientos, Dictamenes	S	S	S	S	N	
+81	Colaboraciones Técnicas	S	S	S	S	N	
+73	Certificado	S	S	S	S	N	
+PB	Proyecto Básico	S	S	S	S	N	
+42	Plan de Emergencia	S	S	S	S	N	
+CA	Certificado Expediente de Actividad	S	S	S	S	N	
+74	Certificado para espectáculos	S	S	S	S	N	
+72	Actuaciones Periciales	S	S	S	S	N	
+75	Certificados para Andamios	S	S	S	S	N	
+65	Valoración de Terrenos y Solares	S	S	S	S	N	
+AR	Acta de Recepción	S	S	S	S	N	
+PA	Presupuesto de adjudicación	S	S	S	S	N	
+MN	Minuta	S	S	S	S	N	
+91	Medición de edificación	S	S	S	S	N	
+92	Medición de terreno	S	S	S	S	N	
+IP	INFORME PREVIO APROBACION PLAN	S	S	S	S	N	
+AP	PLAN DE AUTOPROTECCION	S	S	S	S	N	
+62	MEMORIA VALORADA	S	S	S	S	N	
+VA	FOTOGRAFIAS	S	S	S	S	N	
+AM	ACTA DE MANIFESTACIONES	S	S	S	S	N	
+IT	INSPECCION TECNICA DE EDIFICIOS	S	S	S	S	N	
+AC	ACTA DE REPLANTEO	S	S	S	S	N	

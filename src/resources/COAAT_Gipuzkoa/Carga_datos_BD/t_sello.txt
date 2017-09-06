@@ -1,0 +1,9 @@
+R         	Sello rotado                                                	sello_gui_rotado.xml
+S         	Sello                                                       	sello_gui.xml
+RSP       	Sello rotado sin página                                     	sello_gui_rotado_sin_pag.xml
+SP        	Sello sin página                                            	sello_gui_sin_pag.xml
+REG       	Registro                                                    	registro_gui.xml
+SRA       	Sello Rojo Antiguo                                          	sello_gui_2.xml
+SR        	Sello Rojo                                                  	sello_gui_rojo.xml
+SRRSP     	Sello Rojo rotado sin página                                	sello_gui_rojo_rotado_sp.xml
+LI        	Libro de Incidencias                                        	sello_gui_Libro_Incidencias.xml

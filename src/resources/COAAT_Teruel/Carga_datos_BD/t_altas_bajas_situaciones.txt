@@ -1,0 +1,21 @@
+A 	N	N	S	ASALARIADO                                                  	N
+A1	S	N	N	NUEVO INGRESO                                               	N
+A2	S	N	N	REINGRESO                                                   	N
+A3	S	N	N	PROCEDE DE OTRO COLEGIO                                     	N
+B 	N	N	S	BAJA                                                        	N
+B1	N	S	N	SUSPENDIDO                                                  	N
+B2	N	S	N	BAJA VOLUNTARIA                                             	N
+B3	N	S	N	BAJA EXP.DISCIPLINARIO                                      	N
+B4	N	S	N	FALLECIMIENTO                                               	N
+B5	N	S	N	BAJA IMPAGO CUOTAS                                          	N
+F 	N	N	S	FUNCIONARIO                                                 	N
+H 	N	N	N	ACREDITADO                                                  	N
+J 	N	N	S	JUBILADO                                                    	N
+L 	N	N	S	LIBERAL                                                     	N
+L1	N	N	S	LIBERAL PROMOTOR                                            	N
+L2	N	N	S	LIBERAL CONSTRUCTOR                                         	N
+N 	N	N	N	NO RESIDENTE                                                	N
+NR	N	N	N	NO RESIDENTE                                                	S
+O 	N	N	S	OTRO                                                        	N
+RE	N	N	N	RESIDENTE                                                   	N
+S 	N	N	S	SOCIEDAD                                                    	N

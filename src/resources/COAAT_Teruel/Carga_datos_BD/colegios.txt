@@ -1,0 +1,56 @@
+01	ALAVA                                                       		01	1.0	AA
+02	ALBACETE                                                    		02	1.0	AB
+03	ALICANTE                                                    		COAATA	1.0	A
+04	ALMERIA                                                     		04	1.0	AL
+05	ASTURIAS                                                    		05	1.0	AS
+06	AVILA                                                       		COAATAVI	1.0	AV
+07	BADAJOZ                                                     		07	1.0	BA
+08	BARCELONA                                                   		08	1.0	B
+09	BURGOS                                                      		COAATBU	1.0	BU
+10	CACERES                                                     		COAATCC	1.0	CC
+11	CADIZ                                                       		11	1.0	CA
+12	CANTABRIA                                                   		12	1.0	CN
+13	CASTELLON                                                   		13	1.0	CS
+14	CIUDAD REAL                                                 		14	1.0	CR
+15	CORDOBA                                                     		15	1.0	CO
+16	CUENCA                                                      		COAATCU	1.0	CU
+17	GIRONA                                                      		17	1.0	G
+18	GRANADA                                                     		18	1.0	GR
+19	GUADALAJARA                                                 		COAATGU	1.0	GU
+20	GUIPUZCOA                                                   		COAATGUI	1.0	SS
+21	HUELVA                                                      		21	1.0	H
+22	HUESCA                                                      		22	1.0	HU
+23	IBIZA                                                       		23	1.0	IB
+24	JAEN                                                        		24	1.0	J
+25	A CORUÑA                                                    		25	1.0	C
+26	LA RIOJA                                                    		COAATLR	1.0	LO
+27	GRAN CANARIA                                                		COAATGC	1.0	GC
+28	LEON                                                        		COAATLE	1.0	LE
+29	LLEIDA                                                      		COAATLL	1.0	L
+30	LUGO                                                        		30	1.0	LU
+31	MADRID                                                      		31	1.0	M
+32	MALAGA                                                      		32	1.0	MA
+33	MALLORCA                                                    		COAATMCA	1.0	ML
+34	MENORCA                                                     		34	1.0	MN
+35	MURCIA                                                      		COAATMU	1.0	MU
+36	NAVARRA                                                     		COAATN	1.0	N
+37	OURENSE                                                     		37	1.0	O
+38	PALENCIA                                                    		38	1.0	P
+39	PONTEVEDRA                                                  		39	1.0	PO
+40	SALAMANCA                                                   		40	1.0	SA
+41	SEGOVIA                                                     		41	1.0	SG
+42	SEVILLA                                                     		42	1.0	SE
+43	SORIA                                                       		43	1.0	SO
+44	TARRAGONA                                                   		COAATTGN	1.0	T
+45	TENERIFE                                                    		COAATTFE	1.0	TF
+46	TERUEL                                                      		COAATTER	1.0	TR
+47	TOLEDO                                                      		47	1.0	TO
+48	VALENCIA                                                    		48	1.0	V
+49	VALLADOLID                                                  		49	1.0	VA
+50	VIZCAYA                                                     		COAATB	1.0	VI
+51	ZAMORA                                                      		51	1.0	ZA
+52	ZARAGOZA                                                    		COAATZ	1.0	Z
+55	TERRES                                                      		COAATTEB	1.0	TE
+56	LANZAROTE                                                   		56	1.0	LA
+62	NUEVA COLEGIACION                                           		62	1.0	NC
+96	FUERTEVENTURA                                               		96	1.0	FU

@@ -1,0 +1,60 @@
+1  	1         	1.6.1. Obras de nueva planta
+1  	2         	1.6.2. Obras de Ampliación, Reforma o Reparación
+1  	3         	1.6.3. Legalizaciones
+2  	1         	2.4.1. Urbanización de nueva planta
+2  	2         	2.4.2. Ampliación, reforma y reparación de obras de urbanización
+3  	1         	3.1.1. Deslinde de Terrenos
+3  	2         	3.1.2. Deslinde de Solares
+3  	3         	3.1.3. Deslinde de Edificaciones
+3  	4         	3.1.6. Replanteos
+3  	5         	3.2.1. Medición de Terrenos
+3  	6         	3.2.2. Medición de Solares
+3  	7         	3.2.3. Medición de Edificaciones
+4  	1         	4.1.1. Reconocimientos
+4  	2         	4.1.2. Consultas
+4  	3         	4.1.3. Examen de Documentos
+4  	4         	4.1.4. Diligencias que requieren Conocimientos Técnicos
+4  	5         	4.2.2. Informes, Dictámenes y Certificaciones
+4  	6         	4.3.1. Actuaciones Periciales
+4  	7         	4.3.2. Arbitrajes
+5  	1         	5.1.1. Arquitectura Monumental
+5  	2         	5.4.1. Administración de Fondos Invertidos en la Obra
+5  	3         	5.5.1. Derribo de Edificaciones
+5  	4         	5.6.1. Inspección y Comprobación de Instalaciones
+5  	5         	5.9.1. Medición de Unidades de Obra de Edificación sobre Plano
+5  	6         	5.9.2. Medición de Unidades de Obra de Urbanización sobre Planos
+5  	7         	5.9.3a Estudio y Realización de Mediciones y Relaciones Valoradas (Edificación)
+5  	8         	5.9.3b Estudio y Realización de Mediciones y Relaciones Valoradas (Urbanización)
+5  	9         	5.10.1 Estudio y Comparación de Ofertas
+5  	10        	5.11 Revisión de Precios Unitarios y Reajuste de Presupuestos
+5  	11        	5.12.1 Trabajos de Racionalización, de Planificación y Programación
+6  	1         	6.1. Trabajos valorados por tiempo
+7  	1         	7.1. Trabajos Efectuados Fuera de la Residencia del Aparejador
+10 	1         	10.A.1. Proyectos de Ejecución de Derribos de Edificaciones
+10 	2         	10.A.2. Proyectos de Ejecución de Obras de Urbanización
+10 	3         	10.A.3. Proyectos de Ejecución de Naves Indistriales, Agrícolas y Ganaderas
+10 	4         	10.A.4. Proyectos de Ejecución de Instalaciones Deportivas
+10 	5         	10.A.5. Proyectos de Ejecución de Obras de Refuerzo y Consolidación de Edificaciones
+10 	6         	10.A.6.1, Estudio y Dirección de Obra
+10 	7         	10.A.6.2. Estudio y Valoración de Obras
+10 	8         	10.A.6.3. Proyectos de Ejecución de Obras de Reforma, Habilitación, Adecuación o Rehabilitación
+10 	9         	10.A.6.4. Proyectos de Decoración
+10 	10        	10.B.1. Proyectos de Conservación y Mantenimiento de Edificios y Monumentos
+10 	11        	10.B.2. Proyectos de Cálculo de Estructuras
+10 	12        	10.B.3.1. Proyecto de Control de Calidad
+10 	13        	10.B.4. Proyectos de Parcelación
+11 	1         	11.A.1.3.3. Encargo Global de Seguridad y Salud - Obras de Construcción
+11 	2         	11.A.1.4.1. Coordinador en la eleboración del Proyecto - Obras de Construcción
+11 	3         	11.A.1.4.2. Redacción del Estudio o Estudio Básico - Obras de Construcción
+11 	4         	11.A.1.4.3. Asesoramiento Técnico en la Redacción del Plan - Obras de Construcción
+11 	5         	11.A.1.4.4. Coordinador en la Ejecución de la Obra - Obras de Construcción
+11 	6         	11.A.2.2.1. Encargo Global de Seguridad y Salud - Obras de Derribo y Demolición
+11 	7         	11.A.2.2.2. Coordinador durante Elaboración del Proyecto - Obras de Derribo y Demolición
+11 	8         	11.A.2.2.3. Redacción del Estudio o Estudio Básico - Obras de Derribo y Demolición
+11 	9         	11.A.2.2.4.  Asesoramiento Técnico en la Redacción del Plan - Obras de Derribo y Demolición
+11 	10        	11.A.2.2.5. Coordinador durante la Ejecución - Obras de Derribo y Demolición
+12 	1         	4.4.1. Tasación de terrenos y solares
+12 	2         	4.4.3. Tasación total/parcial de Edificios
+12 	3         	4.4.5. Tasación de las Rentas
+13 	1         	6.1. Colaboración en la redacción del Libro del Edificio
+13 	2         	6.2. Colaboración en la redacción del Manual de Uso y Mantenimiento

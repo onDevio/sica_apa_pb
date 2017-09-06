@@ -1,0 +1,4 @@
+02	Colegio - Cliente (Promotor)	d_csi_factura_tfe	d_csi_factura_tfe				
+03	Colegio - Colegiado	d_factu_gastos_tfe	d_factu_honos_tfe				
+04	Honorarios de Colegiado	d_factu_honos_tfe	d_factu_honos_tfe				
+05	no vale	d_factu_musaat_tfe	d_factu_musaat_tfe				

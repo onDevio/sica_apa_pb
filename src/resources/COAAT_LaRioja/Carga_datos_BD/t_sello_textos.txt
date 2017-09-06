@@ -1,0 +1,5 @@
+1         	Promotor                                          	nombre promotor		N	1	t1	7
+2         	Contratista                                       	nombre contratista		N	2	t2	7
+3         	Promotor                                          	nombre promotor		N	1	t1	8
+4         	Contratista                                       	nombre contratista		N	2	t2	8
+0000000006	Localidad                                         	Nombre de la localidad		N	1	t1	2

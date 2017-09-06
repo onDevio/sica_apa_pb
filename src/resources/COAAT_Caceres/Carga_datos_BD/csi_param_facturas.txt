@@ -1,0 +1,226 @@
+COLEGIADOS	01	2008	% 	Cabecera            	FACTURA 
+PREMAA    	01	2008	% 	Cabecera            	FACTURA 
+MUSAAT    	01	2008	% 	Cabecera            	FACTURA 
+R         	01	2008	% 	Cabecera            	FACTURA 
+FV000000PL	01	2009	% 	Cabecera            	FACTURA 
+COLEGIADOS	01	2009	% 	Cabecera            	FACTURA 
+PREMAA    	01	2009	% 	Cabecera            	FACTURA 
+MUSAAT    	01	2009	% 	Cabecera            	FACTURA 
+RECTIF    	01	2009	% 	Cabecera            	FACTURA 
+R         	01	2009	% 	Cabecera            	FACTURA 
+CUOTAS    	01	2009	% 	Cabecera            	FACTURA 
+FV        	01	2009	% 	Cabecera            	FACTURA 
+CC        	01	2009	% 	Cabecera            	FACTURA 
+PL        	01	2009	% 	Cabecera            	FACTURA 
+FV20      	02	2009	% 	Cabecera            	FACTURA 
+PREMAA    	01	2010	% 	Cabecera            	FACTURA 
+MUSAAT    	01	2010	% 	Cabecera            	FACTURA 
+R         	01	2010	% 	Cabecera            	FACTURA 
+CUOTAS    	01	2010	% 	Cabecera            	FACTURA 
+FV        	01	2010	% 	Cabecera            	FACTURA 
+CC        	01	2010	% 	Cabecera            	FACTURA 
+PL        	01	2010	% 	Cabecera            	FACTURA 
+FV20      	02	2010	% 	Cabecera            	FACTURA 
+FV.PL     	01	2010	% 	Cabecera            	FACTURA 
+SIN FR    	01	2010	% 	Cabecera            	FACTURA 
+RECTIF    	01	2008	% 	Cabecera            	FACTURA 
+RECTIF    	01	2010	% 	Cabecera            	FACTURA 
+COLEGIADOS	01	2011	% 	Cabecera            	FACTURA 
+PREMAA    	01	2011	% 	Cabecera            	FACTURA 
+MUSAAT    	01	2011	% 	Cabecera            	FACTURA 
+R         	01	2011	% 	Cabecera            	FACTURA 
+CUOTAS    	01	2011	% 	Cabecera            	FACTURA 
+FV        	01	2011	% 	Cabecera            	FACTURA 
+CC        	01	2011	% 	Cabecera            	FACTURA 
+PL        	01	2011	% 	Cabecera            	FACTURA 
+FV20      	02	2011	% 	Cabecera            	FACTURA 
+FV.PL     	01	2011	% 	Cabecera            	FACTURA 
+SIN FR    	01	2011	% 	Cabecera            	FACTURA 
+RECTIF    	01	2011	% 	Cabecera            	FACTURA 
+SIN FR    	02	2011	% 	Cabecera            	FACTURA 
+COLEGIADOS	01	2010	% 	Cabecera            	FACTURA 
+F         	01	2008	% 	Cabecera            	FACTURA 
+F         	01	2010	% 	Cabecera            	FACTURA 
+F         	01	2011	% 	Cabecera            	FACTURA 
+PC        	03	2011	% 	Cabecera            	FACTURA 
+PF        	03	2011	% 	Cabecera            	FACTURA 
+MT        	03	2011	% 	Cabecera            	FACTURA 
+RECTIF    	03	2011	% 	Cabecera            	FACTURA 
+PROFOR    	01	2010	% 	Cabecera            	PROFORMA
+PROFOR    	01	2011	% 	Cabecera            	PROFORMA
+PROFOR    	03	2011	% 	Cabecera            	PROFORMA
+%         	% 	%   	% 	Cabecera            	FACTURA
+COLEGIADOS	01	2008	% 	N_fact              	FACTURA Nº
+FV000000PL	01	2009	% 	N_fact              	FACTURA Nº
+COLEGIADOS	01	2009	% 	N_fact              	FACTURA Nº
+RECTIF    	01	2009	% 	N_fact              	FACTURA Nº
+FV        	01	2009	% 	N_fact              	FACTURA Nº
+CC        	01	2009	% 	N_fact              	FACTURA Nº
+PL        	01	2009	% 	N_fact              	FACTURA Nº
+FV20      	02	2009	% 	N_fact              	FACTURA Nº
+FV        	01	2010	% 	N_fact              	FACTURA Nº
+CC        	01	2010	% 	N_fact              	FACTURA Nº
+PL        	01	2010	% 	N_fact              	FACTURA Nº
+FV20      	02	2010	% 	N_fact              	FACTURA Nº
+FV.PL     	01	2010	% 	N_fact              	FACTURA Nº
+RECTIF    	01	2008	% 	N_fact              	FACTURA Nº
+RECTIF    	01	2010	% 	N_fact              	FACTURA Nº
+COLEGIADOS	01	2011	% 	N_fact              	FACTURA Nº
+FV        	01	2011	% 	N_fact              	FACTURA Nº
+CC        	01	2011	% 	N_fact              	FACTURA Nº
+PL        	01	2011	% 	N_fact              	FACTURA Nº
+FV20      	02	2011	% 	N_fact              	FACTURA Nº
+FV.PL     	01	2011	% 	N_fact              	FACTURA Nº
+RECTIF    	01	2011	% 	N_fact              	FACTURA Nº
+SIN FR    	02	2011	% 	N_fact              	FACTURA Nº
+COLEGIADOS	01	2010	% 	N_fact              	FACTURA Nº
+F         	01	2008	% 	N_fact              	FACTURA Nº
+F         	01	2010	% 	N_fact              	FACTURA Nº
+F         	01	2011	% 	N_fact              	FACTURA Nº
+PROFOR    	01	2010	% 	N_fact              	PROFORMA Nº
+PROFOR    	01	2011	% 	N_fact              	PROFORMA Nº
+PROFOR    	03	2011	% 	N_fact              	PROFORMA Nº
+PREMAA    	01	2008	% 	N_fact              	RECIBO Nº
+MUSAAT    	01	2008	% 	N_fact              	RECIBO Nº
+R         	01	2008	% 	N_fact              	RECIBO Nº
+PREMAA    	01	2009	% 	N_fact              	RECIBO Nº
+MUSAAT    	01	2009	% 	N_fact              	RECIBO Nº
+R         	01	2009	% 	N_fact              	RECIBO Nº
+CUOTAS    	01	2009	% 	N_fact              	RECIBO Nº
+PREMAA    	01	2010	% 	N_fact              	RECIBO Nº
+MUSAAT    	01	2010	% 	N_fact              	RECIBO Nº
+R         	01	2010	% 	N_fact              	RECIBO Nº
+CUOTAS    	01	2010	% 	N_fact              	RECIBO Nº
+SIN FR    	01	2010	% 	N_fact              	RECIBO Nº
+PREMAA    	01	2011	% 	N_fact              	RECIBO Nº
+MUSAAT    	01	2011	% 	N_fact              	RECIBO Nº
+R         	01	2011	% 	N_fact              	RECIBO Nº
+CUOTAS    	01	2011	% 	N_fact              	RECIBO Nº
+SIN FR    	01	2011	% 	N_fact              	RECIBO Nº
+PC        	03	2011	% 	N_fact              	RECIBO Nº
+PF        	03	2011	% 	N_fact              	RECIBO Nº
+MT        	03	2011	% 	N_fact              	RECIBO Nº
+RECTIF    	03	2011	% 	N_fact              	RECIBO Nº
+%         	% 	%   	% 	N_fact              	FACTURA Nº
+PROFOR    	01	2010	% 	Total_fact          	TOTAL PROFORMA
+PROFOR    	01	2011	% 	Total_fact          	TOTAL PROFORMA
+PROFOR    	03	2011	% 	Total_fact          	TOTAL PROFORMA
+COLEGIADOS	01	2008	% 	Total_fact          	TOTAL FACTURA
+FV000000PL	01	2009	% 	Total_fact          	TOTAL FACTURA
+COLEGIADOS	01	2009	% 	Total_fact          	TOTAL FACTURA
+RECTIF    	01	2009	% 	Total_fact          	TOTAL FACTURA
+FV        	01	2009	% 	Total_fact          	TOTAL FACTURA
+CC        	01	2009	% 	Total_fact          	TOTAL FACTURA
+PL        	01	2009	% 	Total_fact          	TOTAL FACTURA
+FV20      	02	2009	% 	Total_fact          	TOTAL FACTURA
+FV        	01	2010	% 	Total_fact          	TOTAL FACTURA
+CC        	01	2010	% 	Total_fact          	TOTAL FACTURA
+PL        	01	2010	% 	Total_fact          	TOTAL FACTURA
+FV20      	02	2010	% 	Total_fact          	TOTAL FACTURA
+FV.PL     	01	2010	% 	Total_fact          	TOTAL FACTURA
+RECTIF    	01	2008	% 	Total_fact          	TOTAL FACTURA
+RECTIF    	01	2010	% 	Total_fact          	TOTAL FACTURA
+COLEGIADOS	01	2011	% 	Total_fact          	TOTAL FACTURA
+FV        	01	2011	% 	Total_fact          	TOTAL FACTURA
+CC        	01	2011	% 	Total_fact          	TOTAL FACTURA
+PL        	01	2011	% 	Total_fact          	TOTAL FACTURA
+FV20      	02	2011	% 	Total_fact          	TOTAL FACTURA
+FV.PL     	01	2011	% 	Total_fact          	TOTAL FACTURA
+RECTIF    	01	2011	% 	Total_fact          	TOTAL FACTURA
+SIN FR    	02	2011	% 	Total_fact          	TOTAL FACTURA
+COLEGIADOS	01	2010	% 	Total_fact          	TOTAL FACTURA
+F         	01	2008	% 	Total_fact          	TOTAL FACTURA
+F         	01	2010	% 	Total_fact          	TOTAL FACTURA
+F         	01	2011	% 	Total_fact          	TOTAL FACTURA
+PREMAA    	01	2008	% 	Total_fact          	TOTAL RECIBO
+MUSAAT    	01	2008	% 	Total_fact          	TOTAL RECIBO
+R         	01	2008	% 	Total_fact          	TOTAL RECIBO
+PREMAA    	01	2009	% 	Total_fact          	TOTAL RECIBO
+MUSAAT    	01	2009	% 	Total_fact          	TOTAL RECIBO
+R         	01	2009	% 	Total_fact          	TOTAL RECIBO
+CUOTAS    	01	2009	% 	Total_fact          	TOTAL RECIBO
+PREMAA    	01	2010	% 	Total_fact          	TOTAL RECIBO
+MUSAAT    	01	2010	% 	Total_fact          	TOTAL RECIBO
+R         	01	2010	% 	Total_fact          	TOTAL RECIBO
+CUOTAS    	01	2010	% 	Total_fact          	TOTAL RECIBO
+SIN FR    	01	2010	% 	Total_fact          	TOTAL RECIBO
+PREMAA    	01	2011	% 	Total_fact          	TOTAL RECIBO
+MUSAAT    	01	2011	% 	Total_fact          	TOTAL RECIBO
+R         	01	2011	% 	Total_fact          	TOTAL RECIBO
+CUOTAS    	01	2011	% 	Total_fact          	TOTAL RECIBO
+SIN FR    	01	2011	% 	Total_fact          	TOTAL RECIBO
+PC        	03	2011	% 	Total_fact          	TOTAL RECIBO
+PF        	03	2011	% 	Total_fact          	TOTAL RECIBO
+MT        	03	2011	% 	Total_fact          	TOTAL RECIBO
+RECTIF    	03	2011	% 	Total_fact          	TOTAL RECIBO
+%         	% 	%   	% 	Total_fact          	TOTAL FACTURA
+MT        	03	2011	% 	N_emisor2           	AGENCIA DE SEGUROS EXCLUSIVA DE MUSAAT, MUTUA DE SEGUROS A PRIMA FIJA, CON NUMERO DE REGISTRO: M0368B10407377
+PC        	03	2011	% 	N_emisor2           	Agencia de Seguros Exclusiva de MUSAAT, ~nMutua de Seguros a Prima Fija.~nCon nº de Registro: M0368B10407377
+PF        	03	2011	% 	N_emisor2           	AGENCIA DE SEGUROS EXCLUSIVA DE MUSAAT, MUTUA DE SEGUROS A PRIMA FIJA, CON NUMERO DE REGISTRO: M0368B10407377
+PROFOR    	03	2011	% 	N_emisor2           	AGENCIA DE SEGUROS EXCLUSIVA DE MUSAAT, MUTUA DE SEGUROS A PRIMA FIJA, CON NUMERO DE REGISTRO: M0368B10407377
+RECTIF    	03	2011	% 	N_emisor2           	AGENCIA DE SEGUROS EXCLUSIVA DE MUSAAT, MUTUA DE SEGUROS A PRIMA FIJA, CON NUMERO DE REGISTRO: M0368B10407377
+COLEGIADOS	01	2012	% 	Cabecera            	FACTURA 
+PREMAA    	01	2012	% 	Cabecera            	FACTURA 
+MUSAAT    	01	2012	% 	Cabecera            	FACTURA 
+R         	01	2012	% 	Cabecera            	FACTURA 
+CUOTAS    	01	2012	% 	Cabecera            	FACTURA 
+FV        	01	2012	% 	Cabecera            	FACTURA 
+CC        	01	2012	% 	Cabecera            	FACTURA 
+PL        	01	2012	% 	Cabecera            	FACTURA 
+FV20      	02	2012	% 	Cabecera            	FACTURA 
+FV.PL     	01	2012	% 	Cabecera            	FACTURA 
+SIN FR    	01	2012	% 	Cabecera            	FACTURA 
+RECTIF    	01	2012	% 	Cabecera            	FACTURA 
+SIN FR    	02	2012	% 	Cabecera            	FACTURA 
+F         	01	2012	% 	Cabecera            	FACTURA 
+PC        	03	2012	% 	Cabecera            	FACTURA 
+PF        	03	2012	% 	Cabecera            	FACTURA 
+MT        	03	2012	% 	Cabecera            	FACTURA 
+RECTIF    	03	2012	% 	Cabecera            	FACTURA 
+PROFOR    	01	2012	% 	Cabecera            	PROFORMA
+PROFOR    	03	2012	% 	Cabecera            	PROFORMA
+COLEGIADOS	01	2012	% 	N_fact              	FACTURA Nº
+FV        	01	2012	% 	N_fact              	FACTURA Nº
+CC        	01	2012	% 	N_fact              	FACTURA Nº
+PL        	01	2012	% 	N_fact              	FACTURA Nº
+FV20      	02	2012	% 	N_fact              	FACTURA Nº
+FV.PL     	01	2012	% 	N_fact              	FACTURA Nº
+RECTIF    	01	2012	% 	N_fact              	FACTURA Nº
+SIN FR    	02	2012	% 	N_fact              	FACTURA Nº
+F         	01	2012	% 	N_fact              	FACTURA Nº
+PROFOR    	01	2012	% 	N_fact              	PROFORMA Nº
+PROFOR    	03	2012	% 	N_fact              	PROFORMA Nº
+PREMAA    	01	2012	% 	N_fact              	RECIBO Nº
+MUSAAT    	01	2012	% 	N_fact              	RECIBO Nº
+R         	01	2012	% 	N_fact              	RECIBO Nº
+CUOTAS    	01	2012	% 	N_fact              	RECIBO Nº
+SIN FR    	01	2012	% 	N_fact              	RECIBO Nº
+PC        	03	2012	% 	N_fact              	RECIBO Nº
+PF        	03	2012	% 	N_fact              	RECIBO Nº
+MT        	03	2012	% 	N_fact              	RECIBO Nº
+RECTIF    	03	2012	% 	N_fact              	RECIBO Nº
+PROFOR    	01	2012	% 	Total_fact          	TOTAL PROFORMA
+PROFOR    	03	2012	% 	Total_fact          	TOTAL PROFORMA
+COLEGIADOS	01	2012	% 	Total_fact          	TOTAL FACTURA
+FV        	01	2012	% 	Total_fact          	TOTAL FACTURA
+CC        	01	2012	% 	Total_fact          	TOTAL FACTURA
+PL        	01	2012	% 	Total_fact          	TOTAL FACTURA
+FV20      	02	2012	% 	Total_fact          	TOTAL FACTURA
+FV.PL     	01	2012	% 	Total_fact          	TOTAL FACTURA
+RECTIF    	01	2012	% 	Total_fact          	TOTAL FACTURA
+SIN FR    	02	2012	% 	Total_fact          	TOTAL FACTURA
+F         	01	2012	% 	Total_fact          	TOTAL FACTURA
+PREMAA    	01	2012	% 	Total_fact          	TOTAL RECIBO
+MUSAAT    	01	2012	% 	Total_fact          	TOTAL RECIBO
+R         	01	2012	% 	Total_fact          	TOTAL RECIBO
+CUOTAS    	01	2012	% 	Total_fact          	TOTAL RECIBO
+SIN FR    	01	2012	% 	Total_fact          	TOTAL RECIBO
+PC        	03	2012	% 	Total_fact          	TOTAL RECIBO
+PF        	03	2012	% 	Total_fact          	TOTAL RECIBO
+MT        	03	2012	% 	Total_fact          	TOTAL RECIBO
+RECTIF    	03	2012	% 	Total_fact          	TOTAL RECIBO
+MT        	03	2012	% 	N_emisor2           	AGENCIA DE SEGUROS EXCLUSIVA DE MUSAAT, MUTUA DE SEGUROS A PRIMA FIJA, CON NUMERO DE REGISTRO: M0368B10407377
+PC        	03	2012	% 	N_emisor2           	Agencia de Seguros Exclusiva de MUSAAT, ~nMutua de Seguros a Prima Fija.~nCon nº de Registro: M0368B10407377
+PF        	03	2012	% 	N_emisor2           	AGENCIA DE SEGUROS EXCLUSIVA DE MUSAAT, MUTUA DE SEGUROS A PRIMA FIJA, CON NUMERO DE REGISTRO: M0368B10407377
+PROFOR    	03	2012	% 	N_emisor2           	AGENCIA DE SEGUROS EXCLUSIVA DE MUSAAT, MUTUA DE SEGUROS A PRIMA FIJA, CON NUMERO DE REGISTRO: M0368B10407377
+RECTIF    	03	2012	% 	N_emisor2           	AGENCIA DE SEGUROS EXCLUSIVA DE MUSAAT, MUTUA DE SEGUROS A PRIMA FIJA, CON NUMERO DE REGISTRO: M0368B10407377

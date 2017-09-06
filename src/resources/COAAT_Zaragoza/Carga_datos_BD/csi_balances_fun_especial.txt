@@ -1,0 +1,20 @@
+SIGN	Cambia el signo al saldo obtenido para la cuenta
+SDO2	Cﬂlculo del saldo de cuentas que estﬂn en Bal. de Situaciæn en Activo y en Pasivo=>saldo=0 si saldo<0 y Act / saldo=0 si saldo > 0 y Pasivo
+CONS	El saldo se obtendrﬂ para el consumo realizado durante el ejercicio
+CON-	= a Consumo pero representarﬂn Devoluciones y el saldo de dichas cuentas se tomarﬂ cambiﬂndole el signo
+VCCS	Obtiene la diferencia entre el Saldo de una Cuenta y el Saldo de Apertura
+VCCA	Obtiene la diferencia entre el Saldo de Apertura y el Saldo de una Cuenta
+NOAP	Obtendrﬂ el saldo sin el Asiento de apertura para el ejercicio Actual si no estﬂ cerrado
+APYG	Obtiene el resultado del balance PYG
+AIMP	Obtiene el resultado del balance PYG antes de impuestos
+APNN	Resultado del Balance PNN
+SREJ	Obtiene el resultado del ejercicio utilizando el saldo obtenido en el Balance PyG y el existente en cuenta 129
+HAB 	Movimientos al Haber -sin apertura-
+DEB 	Movimientos al Debe -sin apertura-
+APH 	Apertura H-D: Saldo Haber - Debe de la apertura
+APD 	Apertura D-H: Saldo Debe - Haber de la apertura
+DH  	Debe - Haber (enero a dic) sin apertura
+HD  	Haber - Debe (enero a dic) sin apertura
+AC  	Ajustes Cambio Criterio Ejercicios Ant.
+AE  	Ajustes Errores Ejercicios Ant.
+EIGR	EIGR H-D Sælo de Apuntes de Transf PyG

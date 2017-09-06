@@ -1,0 +1,12 @@
+02	Retenido (con reparos)                                      	S	S	N	N	S
+00	Preasignado (no registrado)                                 	S	S	N	S	S
+01	Registrado (en analisis)                                    	S	S	N	S	S
+03	Verificado (V. Técnico)                                     	S	N	S	S	S
+04	Abonado Parcialmente                                        	S	N	N	S	S
+05	Abonado y retirado                                          	S	N	N	S	S
+06	Anulado                                                     	S	N	N	N	S
+VI	Retirado Visared                                            	S	S	N	S	S
+E1	Presenta finaliza (NO USAR)                                 	S	S	S	S	S
+E2	Finalizado                                                  	S	S	S	S	S
+E5	Renuncia MUSAAT                                             	S	S	S	S	S
+LR	Visado (Despachar)                                          	N	N	N	S	S

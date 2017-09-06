@@ -1,0 +1,253 @@
+COLEGIO                                           			COAATB		Codigo del colegio		N
+g_titulo_listados_superior                        			COAATB				N
+g_titulo_listados_inferior                        			SICA				N
+Tesorero                                          			Félix Gutiérrez García		Nombre del Tesorero		S
+g_cod_actas                                       			06		Valor por defecto del tipo de documento ACTAS		N
+g_titulo_aplicacion                               			Sistema de Información de Colegios de Aparejadores				N
+Fa                                                	6.9000000000000004						N
+g_banco_por_defecto                               			01				N
+g_irpf_por_defecto                                	15.0						N
+g_facts_colegio_cliente                           			S				N
+g_fact_colegio_colegiado                          			S				N
+g_colegiado_cliente                               			04		TIPOS DE FACTURA GENERADAS DESDE FASES DE EXPEDIENTES		N
+g_colegio_cliente                                 			02		TIPOS DE FACTURA GENERADAS DESDE FASES DE EXPEDIENTES		N
+g_colegio_colegiado                               			03		TIPOS DE FACTURA GENERADAS DESDE FASES DE EXPEDIENTES		N
+g_colegio_general                                 			01		TIPOS DE FACTURA GENERADAS DESDE FASES DE EXPEDIENTES		N
+g_serie_fases                                     			EXPEDI		Valor de la serie para las facturas generadas desde Fases, LAS NO EMITIDAS POR EL COLEGIADO		N
+g_art_honorarios                                  			HO		Este art¡culo no se deber  poner en la lista de art¡culos de expedientes en la w_calculo_informes		N
+g_art_aportaciones                                			AP		Informe de Aportaciones, para diferenciarlo (necesario p.ej.para la emisi¢n de notifs.)		N
+g_art_src                                         			SRC		Informe de ASEMAS ¢ SRC(Seguro de Responsabilidad Civil), para diferenciarlo (necesario p.ej.para la emisi¢n de notifs.)		N
+g_permitir_expedi_sin_numero                      			N		Har  visible/invisible un campo del dw de expedi que permitir  grabar expedis sin n£mero		N
+coste_prototipo                                   	0.0				Para el Vitp del Colegio de Canarias		N
+coef_desc_vitp                                    	0.0				Para el Vitp del Colegio de Canarias		N
+g_colegio_n_subprovincias                         			N.SubProvincias				N
+g_colegio_n_provincial                            			Nivel Provincias				N
+g_visado_verificado                               			N		Variable que muestra u oculta el check de verificado de la ventana de visado (S=visible, N=oculto)		N
+g_f_entrada_fase                                  			S		Variable que controla la fecha de registro del modulo de fase (S=control, N=no control)		N
+g_f_registro_es                                   			S		Variable que edita o bloquea la fecha de registro del m¢dulo de registro E/S (S=editable, N=no editable)		N
+g_visar_con_reparos                               			N		Variable que permite o no dejar visar una fase que tenga reparos pendientes. (S=permite, N=no permite)		N
+g_cobros_por_bancos_cuenta                        			1234-56-78-901234-56				N
+g_cobros_por_bancos_titular                       			Colegio Oficial de Aparejadores y Arquitectos Técnicos de Bizkaia		Variable que se muestra el titular de los resguados de cobro que se entregan a los colegiados/clientes que pagan a trav‚s de banco.		N
+g_recuperar_fecha_inicio_exp                      			N		Recupera la fecha de inicio de la £ltima fase registrada o pone la fecha de hoy (S=ultima fecha, N=hoy)		N
+g_t_iva_defecto                                   			Z8		Verificar q coincide con alg£n tipo v lido de la tabla csi_t_iva		N
+g_codigo_musaat                                   			12		C¢digo fijo para el descuento del seguro de responsabilidad civil MUSAAT		N
+g_codigo_dv                                       			02				N
+g_codigo_retvol                                   			08				N
+g_codigo_irpf                                     			09				N
+g_col_ciudad                                      			Bilbao				N
+g_col_provincia                                   			Bizkaia				N
+g_gerente                                         			Jesús Pérez Núñez				S
+g_col_telefono                                    			944247900				N
+g_col_nif                                         			Q4875003H				N
+g_col_codigo_musaat                               			50				N
+g_col_coef_musaat                                 	1.0700000000000001						N
+g_musaat_poliza_colectiva                         			15050				N
+g_estadillo_cargo                                 			Secretaria		Cargo Firmante del estadillo		N
+g_estadillo_nombre                                			Matxalen Garcia-Echave Monasterio		Nombre firmante del estadillo		N
+g_codigo_cliente                                  			01				N
+g_codigo_honorarios                               			15				N
+g_codigo_desplazamientos                          			62				N
+g_nombre_colegio_carta                            			COLEGIO OF. APAREJADORES DE BIZKAIA				N
+g_direc_colegio_carta                             			AL. MAZARREDO 47, 4º				N
+g_tasa_minima                                     	12.02						N
+g_introducir_datos_preasignados                   			S		Indica el valor por defecto para el check 'Introducir datos ahora' en la ventana de preasignaci¢n.		N
+g_tipo_formato_lista_por_defecto                  			F2		Indica el formato de lista de fases por defecto que se mostrar  seg£n los datos que cada col. quiere que aparezcan		N
+g_informe_factura                                 			d_csi_factura_coaatb		Indica el dataobject que se utilizar  para imprimir las facturas de cada colegio.		N
+g_factura_por_delegacion                          			N		Indica si la numeraci¢n de las facturas se har  por delegaci¢n o todas iguales.		N
+g_numero_digitos_anyo_exp                         	2.0				Indica el n£mero de d¡gitos que llevar  el n£mero de expediente, correspondiente al a¤o		N
+g_notif_texto1                                    			L¡nea 1		1er texto que dejamos reservado para las Notificaciones		N
+g_notif_texto2                                    			L¡nea 2		2§ texto que dejamos reservado para las Notificaciones		N
+g_notif_texto3                                    			L¡nea 3		3§ texto que dejamos reservado para las Notificaciones		N
+g_modo_liquidaciones                              			L				N
+g_emite_recibos                                   			N				N
+g_preasignar_principio                            			S				N
+g_niveles_visible                                 			N				N
+g_diario_traspasos                                							N
+g_existe_contabilidad                             			S				N
+t_t_doc_hon_sica                                  			HS				N
+g_t_doc_src_sica                                  			SS				N
+g_diarios_generados_sica                          			901				N
+g_importar_datos_tasas                            			N				N
+g_importar_datos_informes                         			N				N
+g_codigo_ben_premaat                              			04				N
+g_tipo_visado_visible                             			N				N
+g_tipo_doc_liq                                    			16				N
+g_tipo_doc_traspaso                               			02				N
+g_aplica_irpf_en_desplaza                         			S				N
+Presidente                                        			Ignacio Pérez Pérez		Nombre del Presidente		S
+g_informe_factura_honos                           			d_factu_honos_viz				N
+g_informe_factura_gastos                          			d_factu_gastos_viz				N
+g_forma_pago_por_defecto                          			TA				N
+CA                                                	1.22						N
+g_desvio_moneda                                   	1.0						N
+g_codigo_retiva                                   			zz		Codigo de la retenci¢n de IVA para COAATMU		N
+g_informe_pago_gastos                             							N
+g_porc_cip_admon                                  	3.6000000000000001						N
+g_porc_cip_sgc                                    	4.5						N
+g_liquidacion_incluir_saldo_deudor                			S				N
+g_codigo_reg_musaat                               			94				N
+g_liquidar_facturas_pendientes                    			N				N
+g_forma_pago_premaat                              			TA				N
+g_forma_cobro_premaat                             			CA				N
+g_informe_talon_premaat                           			d_premaat_liquid_talon_bizkaia				N
+g_codigo_dev_garantia                             			11				N
+g_serie_premaat                                   			GASCOL				N
+g_serie_musaat                                    			GASCOL				N
+g_codigo_libro_incidencias                        			LI				N
+g_codigo_libro_ordenes                            			LO				N
+g_codigo_premaat                                  			204				N
+g_codigo_musaat_fija                              			205				N
+g_forma_devolucion_garantia                       			CA				N
+g_aplica_irpf_en_garantia                         			S				N
+g_obra_admin_sgc                                  			S				N
+g_obra_admin_cgc                                  			N				N
+g_fecha_ultimo_asiento                            				Jan  5 2012 12:00:00:000AM	Variable que se actualizar  cada vez que generemos o visualicemos un apunte (en cada llamada a f_apunte)		N
+g_fecha_mayor_asiento                             					Variable que se actualizar  al generar o visualizar un apunte (en cada llamada a f_apunte) si es de fecha posterior al existente		N
+g_informe_reparos                                 			d_reparos_notificacion				N
+g_codigo_musaat_accidentes                        			202				N
+g_codigo_musaat_tasadores                         			203				N
+g_exp_basura                                      			999999				N
+g_contabiliza_liquidacion_auto                    			S				N
+g_codigo_empresas                                 			18		Código del tipo de tercero de empresas de asalariados		N
+g_obra_admin_cgc_aplica_10                        			N		Indica si se cobra 10% inicial de Musaat en CGC		N
+g_codigo_ofertante                                			24				N
+g_codigo_representantes                           			23				N
+g_codigo_ponente                                  			25				N
+CP                                                	1.0		DESAPARECE?				N
+g_abogado_colegio                                 					Id del abogado del colegio que apunta a terceros		N
+g_carta_reparos                                   			d_reparos_notificacion_bi				N
+g_codigo_reparos_otros_doc                        			OT				N
+g_comprobar_saldo_deudor_col                      			S				N
+g_conta.enlace_facturas                           			MINUTAS				N
+g_diario_generados_sica                           			901				N
+g_direccion_empresa_csb                           			AL. MAZARREDO 47, 4º				N
+g_extension_fichero_csb34                         			n34				N
+g_extension_fichero19                             			f19				N
+g_jg_horas_extraordinarias                        	2.0						N
+g_jg_precio_dieta                                 	180.31						N
+g_jg_precio_hora                                  	43.0						N
+g_nombre_empresa_csb                              			COLEGIO OF. APAREJADORES DE BIZKAIA				N
+g_prefijo_expediente                              			EXP				N
+g_prefijo_registro                                			REG				N
+g_cursos_control_asistentes                       			d_ctrlasistencia_imprimir_lista_firma_bi				N
+g_informe_talon_garantias                         			d_garantias_talon_canarias				N
+g_contabilidad_automatica                         		S			Variable para indicar si lleva o no contabilidad automatica		N
+g_cuenta_irpf_cliente_generica                    			???????		Cuenta para indicar el IRPF de los clientes		N
+g_colegio_retiene_irpf                            			S				N
+g_colegio_retiene_iva                             			N				N
+g_diario_ing_ret                                  			921				N
+g_ing_ret_retira                                  			d_ing_ret_biz_retira				N
+g_ing_ret_talon                                   			d_ing_ret_talon				N
+g_factu_e_reclamacion                             			d_carta_reclamacion_5_lr				N
+g_codigo_musaat_fija_plazo_1                      			206				N
+g_codigo_musaat_fija_plazo_2                      			207				N
+g_cobros_multiples_cuenta_puente                  			???????		Variable para la cuenta puente para cuadrar asientos de cobros multiples		N
+g_colegiado_comodin                               			00000		Variable para almacenar el id del colegiado comodin		N
+g_informe_autoliquidacion                         			dw_recibi_autoliquidacion		Variable para almacenar el nombre del dw de autoliquidacion		N
+g_anyo_numeracion                                 			2012		VISARED: carpeta del año	VISARED.PBL, SELLADOR.PBL	S
+g_num_expedi_nulo                                 			00000000		Numero del expediente nulo		N
+g_version_minima                                  			20111212		versión v6.00.00		N
+g_fases_inicio_tipo_registro                      			IP				N
+g_cod_colegio                                     			50				N
+g_cuenta_puente_pendiente_abono_hon               			441000000		Cuenta puente para las facturas pendientes de abono		N
+g_cuenta_puente_pendiente_abono_dv                			441000001		Cuenta puente para las facturas pendientes de abono de DV		N
+g_devoluciones_carta_reclamacion                  			d_cobros_reclam_facturas_devolucion		Dw de la carta de reclamacion		N
+g_fases_inicio_tipo_act                           			00				N
+g_fases_inicio_tipo_obra                          			00				N
+g_fases_inicio_destino                            			00				N
+g_fases_inicio_emplaz                             			-				N
+g_fases_inicio_tipo_via                           			00				N
+g_fases_inicio_poblacion                          			00000				N
+g_fases_inicio_estado                             			00				N
+g_fases_inicio_colegiado                          			 				N
+g_fases_inicio_id_cliente                         			 				N
+g_fases_inicio_tipo_promotor                      			X				N
+g_codigo_cobro_a_cuenta                           			PAC		Codigo del cobro a cuenta		N
+g_hoja_liquidacion_manual                         			d_informe_liquidacion_manual_biz				N
+g_cod_circulares                                  			05		Valor por defecto del tipo de documento CIRCULARES		N
+g_codigo_cip                                      			05				N
+g_porc_cip_defecto                                	3.0						N
+g_pobla_colegio_carta                             			48009 - BILBAO				N
+g_t_doc_recibos_sica                              			RS				N
+g_informe_talon                                   			d_liquidacion_talon_bizkaia				N
+g_hoja_liquidacion                                			d_informe_liquidacion_transferencia_biz				N
+g_diario_domic_saldo_deudor                       			920		Diario para los apuntes de domiciliaci¢n bancaria		N
+g_jg_horas_ordinarias                             	1.5						N
+g_ing_ret_ingresa                                 			d_ing_ret_biz_ingresa				N
+g_codigo_otros_gastos                             			65		Codigo de Otros Pagos		
+firma_obligatoria                                 			N				N
+g_sistema_mailing                                 			O		Envio de mails en SICA.O=outlook,S=sockets		
+g_f_abono_es_visado                               			N				N
+g_cod_prov_colegio                                			48				
+g_listado_liquid_otros_pagos                      			d_garantias_listado_banco		DW del listado de liquidaciones de otros pagos		N
+g_listado_liquid_honos                            			d_liquidacion_listado		DW del listado de liquidaciones de honorarios		N
+g_listado_talones_otros_pagos                     			d_premaat_liquid_listado		Dw de listado de talones de otros pagos		N
+g_anyos_reclam_avisos                             	5.0				Nº máximo de años de reclamación de avisos		S
+g_modo_funcionamiento                             			1		 		
+regsoc_syntax funcionamiento                      			 		c:\regsoc\datawindow		
+regsoc_colegiado_tabla                            			colegiados		 		
+regsoc_colegiado_campo1                           			id_colegiado		 		
+regsoc_colegiado_campo2                           			n_colegiado		 		
+regsoc_colegiado_campo3                           			apellidos		 		
+regsoc_colegiado_campo4                           			nombre		 		
+regsoc_colegiado_campo5                           			tipo_persona		 		
+regsoc_colegiado_campo6                           			nif		 		
+regsoc_colegiado_campo7                           			poblacion_activa_fiscal		 		
+regsoc_colegiado_campo8                           			domicilio_activo_fiscal		 		
+regsoc_cliente_tabla                              			clientes		 		
+regsoc_cliente_campo1                             			id_cliente		 		
+regsoc_cliente_campo2                             			n_cliente		 		
+regsoc_cliente_campo3                             			apellidos		 		
+regsoc_cliente_campo4                             			nombre		 		
+regsoc_cliente_campo5                             			tipo_persona		 		
+g_usuarios_n_fallos_max                           			3		Numero maximo de errores al introducir la contraseña		S
+g_usuarios_activo_caducidad                       			60		Numero de dias para la fecha de caducidad		S
+g_usuarios_usar_gest_con                          			S		Indica si se gestionara la caducidad de contraseña		S
+Secretario                                        			Matxalen Garcia-Echave Monasterio		Nombre del Secretario		S
+g_idioma_defecto                                  			es		Contiene el idioma por defecto		N
+g_aplica_musaat_dcto                              	100.0				Tiene el valor que se va a descontar a la formula de musaat		S
+g_ds_detalle                                      			ds_detalle				
+g_ds_lineas                                       			ds_lineas				
+g_texto_mail                                      			Ya puede descargar la factura %N_FACT% de la web.				
+g_firmador                                        			S				
+g_reg_es_series                                   			S				N
+g_codigo_cuota_colegial                           			200				N
+g_comprobar_mas_65                                			N		Comprobacion inicial de cuotas pendientes para colegiados +65		S
+g_calcular_cuota_alta_premaat                     			S		Proceso de cálculo de la cuota de Premaat al colegiar		S
+g_premaat_cod_basico                              			150Ba		Código Básico PREMAAT		S
+g_premaat_cod_2000                                			1502k		Código 2000 PREMAAT		S
+g_premaat_cod_comple1                             			150C1		Código Complementario PREMAAT		S
+g_calculo_iva_fact                                			S		Indica el cálculo de iva en las lineas de las facturas S:aplica cáculo por precio; N:aplica cálculo por subtotal		S
+g_asiento_cobro_multiple                          			N		Indica si se usa un solo apunte para cobros multiples como navarra		N
+g_digito_colegio_pro                              		N			Indica si se utiliza la modalidad en la generación de ctas contables de colegiados, con el indicando el colegio  de procedencia ejemplo: (43X): prefijo + (xx)codigo colegio procedencia + (xxxxx) n_colegiado		N
+g_serie_liquidaciones                             			X		Indica la serie del informe de liquidaciones		N
+g_aplica_pem_seguridad                            		N			Indica que se aplica el presupuesto de seguridad para algunas intervenciones		S
+g_musaat_coef_colindantes2m                       	1.0249999999999999				Contiene el coficiente de recargo para los que tienen colindantes < 2m		S
+g_musaat_tabla_desc_activa                        		N			Indica si esta activa la tabla de porcentaje		S
+g_musaat_factor_doble_condicion                   	1.3				Contiene el factor de cobertura de doble condicion		S
+g_regulariza_cip_porc_nuevo                       		N			Indica que el porcentaje se realiza por el el campo nuevo y no por diferencia		S
+g_activa_multiempresa                             		S			Indica si se activa la funcionalidad de multiempresa		N
+g_musaat_verifica_prima_aviso                     		S			Activa que se compruebe cuando se consulta un aviso pendiente, si hay modificaciones en la prima		S
+g_carga_a_pruebas                                 	1.0	S			INDICA SI SE COPIA LA BD REAL SOBRE LA DE PRUEBAS. ESTO SE HACE SIEMPRE SALVO CUANDO LOS COLEGIOS PRUEBEN VERSION		S
+g_imprime_resumen_sin_email                       		N			Activa comprobar si el colegiado no tiene email		S
+g_formacion_empresa                               			01		Variable utilizada en Gesform para la generación de facturas tenga por defecto un valor		 
+g_tipo_ident_muss                                 			3		Variable que marca el identificador que se envia a MUSAAT		S
+g_musaat_coef_poliza_plus                         	1.0				Este valor incrementa a el coeficiente G	 	N
+g_musaat_recargo_prima                            	1.02				Porcentaje que representa recargo en la prima complementaria, si no se encuentra visado o registrado por el colegio	 	N
+g_facturar_musaat_pc_serie_aparte                 		N			Parametro que indica si gastan una serie distinta (g_fases_serie_musaat) para la facturación de conceptos de MUSAAT		N
+g_serie_proforma                                  			PROFOR		Indica la serie con la que se crearán las facturas proforma		S
+g_tipo_notificacion                               			I		A:Las notificaciones se agruparán. I: Las notificaciones serán individuales		S
+g_tramite_defecto                                 			REDAP		Codigo del tramite por defecto (t_tramite)		
+g_conta_concepto_solo_n_registros                 		 	E		Indica si en el proceso de contabilización, el concepto incluira sólo el num. de Registro o si tiene num. Visado, introduzca el num. visado		S
+g_clientes_utiliza_multiempresa                   		N			Para un valor S se distinguiran los clientes por empresas creadas.Este valor solo se tiene en cuenta si g_activa_multiempresa=S		S
+g_titulo_anyo_ejer                                		S			Variable para ver el año del ejercicio en el título		
+g_contabil_antigua                                		N			Variable para usar el proceso de contabilización antiguo (valor "S") o el moderno (valor "N")		
+g_borrar_empresa                                  		N			Permite borrar empresa		N
+g_hoja_liq_referencia                             		R			Variable para ver cual es el nº de referencia en las hojas de liquidacion. R=Nº registro, V=Nºvisado/salida, E=NºExpediente		
+g_imprimir_talon_multiples                        			S		Cuando esta activada permite imprimir varios talones en la misma pagina		S
+g_tipo_num_doc                                    			GENERAL				
+g_cod_empresa_aseguradora                         			03				
+g_imprimir_registro_docs_fase                     		S			Variable para controlar la impresión del documento que se imprime con la asignación de num. de registro en los documentos de una fase		
+permitir_generar_apuntes_garantias                		S			Variable para controlar la generación de los apuntes relacionados con la garantia. En principio unicamente para Terres		
+g_tipo_tramite_novacio                            			N		Elegir asignar un valor por defecto al tipo de tramite		
+g_asignar_n_visado                                		S			Activa el check del asignar nº visado del la ventana de Visto Bueno		

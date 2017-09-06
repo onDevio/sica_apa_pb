@@ -1,0 +1,34 @@
+FAlta agregar las siguientes tablas:
+csd_conexion_bd
+csd_seg_ip
+csd_seg_ip_exclusion
+csi_centros_intragrupo
+cuentas_pyme
+dv_tipo_act
+fases_renuncias_desglose
+ho_parametros
+meses
+messages_ca
+
+
+
+Tienen una versión del sicap muy vieja que no tiene las siguientes tablasen producción:
+csi_param_facturas
+
+
+No coinciden la cantidad de campos en las siguientes tablas y por tal motivo no se vuelca la información
+
+Colegios(fno coincide el orden de los campos cod_sica)
+Municipio (falta direccion, cp)
+tipo_registro (falta activo)
+tipos_facturas(falta bandeja)
+
+
+
+Hay que definir con que tipo dejamos la tabla
+
+Tabla		campo 		ucp		tipo coaata
+web_ayuda	descripcion	char(255)	text
+web_estilos,
+web_paginas
+web_planillas	todos los	int 		double precision		da error de conversión

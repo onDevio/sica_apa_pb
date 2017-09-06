@@ -1,0 +1,247 @@
+CONTRATOS           	725.0	Identificador de contratos			
+SERVICIOS           	13606.0	Identificador de servicios			
+CARACTERISTICAS     	0.0	Identificador de caracteristicas			
+COLEGIADOS          	11929.0	Identificador de colegiados			
+COLEGIADO_PERSONA   	8.0	Identificador de colegiados_persona			
+COLEGIADO_SOCIEDAD  	8.0	Identificador de colegiados_sociedad			
+INCOMPATIBILIDADES  	377.0	Identificador de Incompatibilidades			
+DOMICILIOS          	4168.0	Identificador de domicilios			
+ALTA_BAJA_SITUACION 	8985.0	Identificador de altas, bajas y situaciones			
+ACTAS               	11.0	Identificador de actas			
+ASISTENTES          	64.0	Identificador de asistentes en actas			
+APARTADOS           	81.0	Identificador de apartados en actas			
+PUNTOS              	46.0	Identificador de puntos en actas			
+DOCUMENTOS          	42.0	Identificador de documentos en actas			
+FOTOS               	60.0	Identificador de fotos			
+FIRMAS              	8.0	Identificador de firmas			
+REGISTROS           	94282.0	ID interno de registros			
+REGISTROS_ANEXOS    	40038.0	Identificador de variables de registros_anexos			
+GRUPOS              	7.0	Identificador de grupos			
+SUBGRUPOS           	20.0	Identificador de subgrupos			
+TIPOS_SERVICIO      	54.0	Identificador de tipos de servicio			
+CLIENTES            	60095.0	Identificador de clientes			
+PAISES              	211.0	Identificador de paises			
+PROVINCIAS          	54.0	Identificador de provincias			
+FORMAS_DE_PAGO      	4.0	Identificador de formas de pago			
+ORIENT_PROFESIONALES	71.0	Identificador de orientaciones profesionales			
+TRATAMIENTOS        	3.0	Identificador de tratamientos			
+OTROS_CONCEPTOS     	3.0	Identificador de otros conceptos			
+LISTAS_COLEGIADOS   	430.0	Identificador de listas de colegiados			
+ESCRITO_CERTIFICADO 	14.0	Identificador de escritos_certificados			
+ESCRITOS_VARIABLES  	326.0	Identificador de variables de escritos			
+USUARIOS            	1000002144.0	Identificador de usuarios			
+PERMISOS            	2.0	Identificador de permisos			
+ALTAS_BAJAS         	5.0	Identificador de altas y bajas			
+INCOMPATIBILIDAD    	2.0	Identificador de tipos de incompatibilidades			
+SIT_PROFESIONALES   	2.0	Identificador de tipos de situaciones profesionales			
+ESCRITOS            	0.0	Identificador de escritos			
+MODIFICACIONES      	607385.0	Identificador de modificaciones			
+FOTOS_FIRMAS        	5232.0	Identificador de fotos y firmas			
+CIRCULARES          	12.0	Identificador de circulares			
+CIRCULARES_E_S      	0.0	Identificador de los registros de entrada/salida asociados a las circulares			
+PUNTOS_CIRCULARES   	23.0	Identificador de los puntos de las circulares			
+ACTAS_PUNTOS        	5.0	Identificador de los puntos de las actas			
+REGISTROS_E_S       	0.0	Identificados de los registros_e_s			
+CAMBIO_COLEGIADO    	41.0	Identificador de cambio de colegiados			
+N_DOC_CERTIFICADO   	79.0	Identificador del numero de documento de escritos			
+REGISTRO_ENTRADA    	0.0	Identificador de correlativo en Numeros de registros de entrada oficiales			
+REGISTRO_SALIDA     	0.0	Identificador de correlativo en Numeros de registros de salida oficiales			
+REGISTRO_ES_INTERNO 	4.0	Identificador de correlativo en Numeros de registros de entrada NO oficiales.DUDA.			
+BOLSA_DEMANDA       	61.0	Identificador de demandas en bolsa de trabajo			
+BOLSA_OFERTA        	20.0	Identificador de ofertas en la bolsa de trabajo			
+REGISTRO_ANEXOS     	37927.0	Identificador de anexos del Registro E/S			
+EXPEDIENTES         	83882.0	Identificador de Expedientes			
+FASES_DOCUMENTOS    	51609.0	Identificador de los Documentos Asociados a una Fase			
+FASES_REPAROS       	152.0	Identificador de los Reparos de una Fase			
+EXPEDIENTES_DOC     	5.0	Identificador de los Documentos en un Expediente			
+FASES               	121258.0	Identificador de fases (Detalle)			
+REPAROS             	852.0	Identificador de Reparos (Lista)			
+FASES-INFORMES      	275407.0	Identificador de los informes de las fases (Detalle)			
+FRECIBIDAS          	15077.0	Ult. fact recibida sin numerar			
+CUOTA               	1609.0	NO BORRAR, Ult. fact.CUOTAS			
+FACTUEMI            	736374.0	Identif. de facturas emitidas			
+REMESA              	61.0	Ultima remesa de facturas Rec.			
+PROVEEDOR           	1343.0	Ultimo proveedor introducido			
+CLIENTE             	1.0	Ultimo cliente introducido			
+APUNTE              	813763.0	Último Apunte para la nueva co			
+DOMICILIACION       	391118.0	Último Nº de domiciliación			
+LINEA_FREC          	14801.0	ULT LINEA FRECIBIDAS			
+elem_inmov          	790.0	Ult. elem. inmovilizado			
+PAGO_FREC           	2343.0	ULT PAGO FRECIBIDAS			
+CASACION            	11.0	ultima casacion			
+PRESTAMOS           	993.0	Identificador de prestamos			
+LIBROS              	5152.0	Identificador de libros			
+CLASIF_FRE          	44079.0	ULT LINEA CLASIF. FRECIBIDAS			
+FASES-REGISTROS     	0.0	Identificador de registros en fases			
+PARAMETRIZACIONES   	0.0	Identificador de parametrizaciones			
+TIPOS_AGRUPACIONES  	0.0	Identificador de tipos de agrupaciones			
+AGRUPACIONES        	63.0	Identificador de agrupaciones			
+EMPRESAS            	7.0	Identificador de empresas			
+CANDIDATOS          	81.0	Identificador de candidatos			
+OFERTAS             	11.0	Identificador de ofertas			
+LINEAS_FACTURA      	38.0	Lineas de factura			
+IDIOMAS             	6.0	Identificador de idiomas			
+NIVELES_IDIOMAS     	0.0	Identificador de niveles de idiomas			
+COBRO_FEMI          	470363.0	ULT COBRO FEMITIDAS			
+LINEA_FEMI          	770608.0	ULT LINEA FEMITIDAS			
+CLASIF_FEM          	10.0	Ult. linea clasif. FEMITIDAS			
+NUM_FACTURA         	0.0	Número de la última factura.			
+FASES_N_REGISTROS   	117.0	Contador de Nº Registo de fases			
+ID_NOTIFICACIONES   	53.0	Identificador de notificaciones (fases-notificaciones)			
+SERIE_EXPEDI        	0.0	ULT.NUM.FACTURA EMITIDA POR EL COLEGIO EN EXPEDIENTES			
+FASES_USOS          	129143.0	Usos en fases			
+APLICACION          	31.0	Identificador de aplicaciones			
+FASES-HONORARIOS    	44379.0	Identificador de los Honorarios de la fase			
+FASES-MINUTAS       	152153.0	Identificador de las MINUTAS de la fase			
+INCIDENCIAS         	61.0	Identificador de incidencias de colegiados y clientes			
+INCIDENCIAS-EXP     	1775.0	Identificador de incidencias de expedientes			
+FASES_GARANTIA      	0.0	Identificador de la Garantía Urbanística de la Fase			
+N_FACT_REC          	0.0	ULT FACT. REC.			
+RECIBOS             	0.0	Identificador de los Recibos de la fase			
+LINEAS-RECIBOS      	0.0	Identificador para las Líneas que componen un recibo			
+FORMACION_RECIBOS   	500.0	Identificador del número de recibo de los asistentes a cursos de formacion			
+FORMACION_ASIS_PERS 	450719.0	Identificador de los asistentes a cursos de formacion			
+FORMACION_ASIS_FECHA	10623.0	Identificador de la fecha de asistencia de los cursos de formacion			
+FORMACION_ANYO      	2006.0	Anyo actual			
+FORMACION_CODIGO    	0.0	Identificador del código del curso			
+FORMACION_ORG       	18.0	Id de organizadores			
+FORMACION_ASISTENTES	24875.0	Identificador de los asistentes a un curso de formacion			
+FORMACION_PONENTES  	273.0	Id de ponentes			
+FORMACION_IMPORTE   	0.0	Identificador de los diferentes importes para los cursos en formacion			
+FORMACION_FECHAS    	4307.0	Identificador de las fechas del curso en formacion			
+FORMACION_CURSOS    	976.0	Identificador del curso de formacion			
+FORMACION_COSTES    	2.0	Identificador de los costes fijos de los cursos de formacion			
+FORMACION_ESTADISTIC	0.0	Identificador de las estadisticas en formacion			
+FORMACION_ENCUESTAS 	600.0	Identificador del numero de encuestas			
+FORMACION_DOC       	302.0	Identificador del documento asociado a los cursos de formacion			
+FORMACION_MANT_RES  	0.0	Identificador de las respuestas test del mantenimiento			
+FORMACION_PREG      	4486.0	Identificador de las preguntas test de formacion			
+RECIBO_TASAS        	97633.0	ULT. NUM RBO.			
+PREMAAT             	654.0	Identificador de PREMAAT			
+ID_FASES_COLEGIADOS 	216777.0	Identificador de colegiados por fase			
+N_AVISO             	137969.0	Nº de Aviso de Factura			
+MUSAAT              	1691.0	Identificador de MUSAAT			
+CLIENTES_TERCEROS   	59379.0	Identificador de la tabla clientes_terceros			
+N_REG_LIBRO         	3012.0	Nº de registro de libro			
+LIQUIDACIONES       	41627.0	Id de las liquidaciones			
+N_REMESA            	4655.0	Nº de remesa			
+NIVELES             	0.0	Id niveles			
+PREMAAT_BEN         	94.0	Id de beneficiarios de Premaat			
+FASES_ESTADOS       	3737.0	Identificador de Fases Estados			
+FASES_SRC           	0.0	Id de SRC			
+CONT_FR_PR          	0.0	Cont. de facts. emitidas por Prov/anyo			
+ID_MOV_MUSAAT       	149720.0	Id de Movimientos de MUSAAT			
+FINALES_OBRA        	41061.0	Id de los finales de obra			
+ID_ARQUITECTOS      	14.0				
+ID_FASES_ARQUITECTOS	54765.0				
+NUM_REG             	3062.0				
+SERIE_GRAL          	0.0	Facturas de caracter general			
+SERIE_CUOTA         	0.0	Facturas de cuota colegial			
+SERIE_MUTUA         	0.0	Facturas de PREMAAT			
+SERIE_SEGURO        	0.0	Facturas de MUSAAT			
+SERIE_TASADO        	0.0	Facturas de Tasadores			
+REMESA_PAGOS        	2.0	Contador de No de Remesa de Pagos			
+SERIE_UNICA         	235669.0	Contador secuencial unico para facturas emitidas			
+ENLACE_PRESUP       	4020.0	Enlace entre cuentas contables, proyecto y cuentas presupuestarias			
+REGISTRO_ENTRADA_C  	0.0	Identificador de correlativo en Numeros de registros de entrada oficiales de Cartagena			
+REGISTRO_ES_INTER_C 	0.0	Identificador de correlativo en Numeros de registros de entrada NO oficiales de Cartagena.DUDA.			
+REGISTRO_SALIDA_C   	0.0	Identificador de correlativo en Numeros de registros de salida oficiales de Cartagena			
+ID_ACTIVIDAD        	1464.0	Contador de Actividades  del módulo web de actividades de Murcia			
+ID_ACTIVIDAD_LINEA  	1504.0	Contador de Líneas de calendario del módulo web de actividades de Murcia			
+ID_NOTICIA          	1337.0	Id de Noticias web			
+ID_OFERTA           	2695.0	Id de Ofertas web			
+ID_COBERTURAS       	3546.0	Historico coberturas musaat			
+LIBROS_INCIDENCIAS  	0.0	Contador de Libros de Incidencias			
+LIBROS_ORDENES      	3019.0	Contador de Libros de Ordenes			
+ID_CIRCULAR_WEB     	1.0	Contador de Circulares web			
+ULT_MIN_DOC         	0.0	Ultimo numero de aviso con la documentacion preparada			
+NUM_EXP             	2257.0	Número de expediente			
+N_EFECTO            	0.0	Contador de No de Efecto	N_EFE	S	
+REMESA_EFECTOS      	0.0	Contador de No de Remesa de Efectos	R_EFE	S	
+ID_ASIENTO_PRE      	9.0	Id de asientos predefinidos	PREDE	N	
+LINEA_ASIENTO_PRE   	20.0	Id. lineas de asientos predefinidos	PRE_L	N	
+ID_CAMPO_ASIENTO_PRE	0.0	Id campos de asientos predefinidos	PRE_C	N	
+N_TALON             	1.0	VALOR DE CONTADOR DE Nº DE TALON SIGUIENTE (PROPUESTO)	N_TAL	S	
+PORC_INMOV          	2976.0	Id. porcentajes amortizac. mens.Crec.	AM_DC	N	
+ACUM_INMOV_DIG_CREC 	30675.0	Id. acumulados amortizac. mens.	AMM_A	N	
+CONTROL_EVENTOS     	1000.0	 Identificador de los controles de eventos	0	N	
+CONSULTAS           	3637.0	Id consultas	0	N	
+CONSULTAS_DATOS     	159927.0	Id consultas datos	0	N	
+PLANTILLAS          	105.0	Contador de plantillas	0	N	
+REMESA_RECLAMACION  	3.0	Identificador de remesas_reclamaciones	0	N	
+REMESA_COBROS       	0.0	Número de remesa domiciliada	0	N	
+NUM_DOCU_VISARED    	0.0	Siguiente número de documento VISARED	1	N	
+NUM_TRANSFERENCIA   	22.0	Contador de número de transferencia	0	N	
+FASES_DOCU_VISARED  	388472.0	Id. de documentos importados desde VISARED			
+MENSAJES            	186.0	Id de mensajeria interna			
+ID_SINIESTRO        	2.0	Id de siniestros			
+FORMACION_CURSO_INTE	500.0	Id de grupos de cursos. Con este se agrupan cursos	1	S	
+ID_JG_REUNION       	0.0	Contador del identificador de reuniones	0	N	
+ID_JG_ASISTENTE     	0.0	Contador del identificador de los asistentes a juntas de govierno	0	N	
+ID_DISPOSICION      	569.0	Contador del identificador de legislacion/disposiciones		N	
+ID_LICITACION       	65.0	Contador del identificador de legislacion/licitaciones		N	
+ID_OPOSICION        	22.0	Contador del identificador de legislacion/oposiciones		N	
+ID_ASESORIA_JURIDICA	0.0	Contador del identificador de la asesoría jurídica	0	N	
+N_ASESORIA_JURIDICA 	0.0	Contador del numero de asesorías jurídica	0	N	
+ID_ADMINISTRACION   	0.0	Contador del identificador de la via Administrativa y Judicial	0	N	
+NUM_FINALES_OBRA    	27.0	Contador de Nº de Finales de Obra			
+ID_FASES_DEPOSITOS  	0.0	Id de fases_depositos			
+ID_PRESTACIONES     	409.0	Identificador de prestaciones de PREMAAT	0	S	
+ID_SINIESTROS_INCIDE	0.0				
+ID_SINIESTROS_TECNIC	0.0				
+ACCION              	1.0	Contador para las acciones a mostrar en los finales de obra	0	N	
+caja_pagos          	1.0	Contador para la tabla de pagos desde caja	00	N	
+ID_FASES_INFORMES   	9376.0	Contador de gastos de fases	00	N	
+CIERRE              	0.0	Contador de registros de cierre del CSB43	 	S	
+MOVIMIENTO          	0.0	Contador de registros de movimientos de cuenta del CSB43	 	S	
+CABECERA            	0.0	Contador de registros de cabecera de cuenta del CSB43	 	S	
+CAJ_ARQ             	0.0	Contador de id_caja	 	S	
+EQUIV_COPIA_EMP     	0.0	EQUIV_COPIA_EMPRESA	 	S	
+N_ELEM_INMOVILIZADO 	790.0	ULT. Nº ASIGNADO A FICHA DE ELEM. INMOV.		S	
+ORDEN_APUNTE        	0.0	Contador que se arrastra a contabilidad para saber las facturas pagadas juntas	0	N	
+ID_CARTA            	39.0	Contador del id_carta de la tabla cartas			
+f_pago_relac        	0.0	Contador para la relacion de la forma de pago de guadalajara	00	N	
+FORMACION_PONENTES_C	787.0				
+FORMACION_PROGRAMA  	185.0				
+FORMACION_CUEST     	40.0				
+FORMACION_MATERIAS  	19.0	id de las materias de un curso			
+FORMACION_ORG_C     	306.0	Id de organizadores en cursos			
+Id_estilo           	0.0	Identificador del estilo web		N	
+Id_web              	0.0	Identificador de la web		N	
+Id_pagina           	0.0	Identificador de la pagina		N	
+ID_PROV_APROBACION  	2.0	Id. Proveedores Aprobación		S	
+ID_PROV_EVALUACION  	1.0	Id. Proveedores Evaluación		S	
+ID_PERSONAS         	2.0	Id. Personas asociadas		S	
+DIARIOS_PARAMETRIZAC	1.0	PARAMETRIZACIONES EN FUNCIÓN DEL DIARIO: CENTRO,...		S	
+FORM_CAMPOS         	4.0	Identificador de campos		N	
+FORMACION_PREINSCRIT	140.0	Indentifica el contador de preinscripcion		S	
+N_REGISTRO          	0.0	Contador de registro de plantillas de colegiado			
+ID_REPARO_FICHA     	0.0	Identificador de reparos		N	
+ID_REPARO_LINEA     	0.0	Identificador de líneas de reparos		N	
+REGSOC              	76.0				
+REGSOC_ACTIVIDAD    	5.0				
+ID_REGSOC_SOCIO     	19.0				
+ID_REGSOC_AGENDA    	10.0				
+ID_SANCION          	0.0				
+ID_REGSOC_ANEXO     	8.0				
+ID_CAMBIO_DOM       	1311.0	Contador de lineas del historico de cambios de domicilio			
+ID_PREMAAT_HISTORICO	453.0	Contador de lineas del historico de Premaat			
+RENUNCIAS           	1806.0	Identificador de fases_renuncias		N	
+ID_DOC_MODULO       	36902.0	Contador de documentos		N	
+ID_MOD_340          	0.0	Valor interno declaración 340			
+LOG_APUNTES_NPGC    	0.0	LOG INTERNO APUNTES_NPGC			
+FORMACION_IMPORTES  	0.0	Identificador de los diferentes importes para los cursos en formacion		N	
+FORMACION_HISTORIA  	2598.0	Historial			
+FORM_RESPUESTA      	1102.0	Identificador de las espuestas de las encuestas		N	
+FASES_ESTAD_OTROS   	0.0	Contador DW Otras estadisticas			
+ID_COL_AUTORIZADO   	0.0	Contador para las autorizaciones de los colegiados	 	S	
+ID_TITULACION       	1796.0	Identificadr para las titulaciones habilitantes del colegiado		N	
+ID_INHABILITACION   	2.0	Identificador de inhabilitaciones del colegiado		N	
+NUM_RENUNCIA        	20.0	Identificador de Renuncias para el año		N	
+ID_SELLO_TEXTO      	0.0	t_sello_textos.id_texto	 	 	 
+RECLAM_FACT         	0.0	Contador de cartas de raclamacion de facturas y proformas	00	N	
+RECLAM_FACT_GRUPO   	0.0	Contador de cartas agrupadas de reclamacion de facturas y proformas	00	N	
+MUSAAT_PARAMS_FE    	8111.0	PK parámetros empleados en cálculo anotado línea facturación de MUSAAT		N	 
+ID_TARIFA           	10002.0	Contador de Tarifas			
+ID_TARIFA_IMPORTE   	10001.0	Contador de Valores para las tarifas			
+NUM_DOC_ANEXOS      	0.0	Contador de documentos anexos		N	

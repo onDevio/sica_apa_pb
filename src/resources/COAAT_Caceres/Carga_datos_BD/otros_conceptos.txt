@@ -1,0 +1,18 @@
+01	S	C	 	Estado Civil
+02	S	C	 	Conyuge
+03	S	C	 	Provincia Nacimiento
+04	S	C	 	Poblacion Nacimiento
+05	B	C	 	Digital
+08	B	C	 	VE
+09	B	C	 	Circular
+10	B	C	 	Biblioteca
+11	S	C	 	Numero Hijos 1
+12	S	C	 	Numero Hijos 2
+13	S	C	 	Numero Hijos 3
+14	S	C	 	Numero Hijos 4
+15	S	C	 	Numero Hijos 5
+16	S	C	 	Numero Hijos 6
+17	S	C	 	Numero Hijos 7
+18	S	C	 	Hijo
+19	S	C		NOMBRE DEL PADRE
+20	S	C		NOMBRE DE LA MADRE

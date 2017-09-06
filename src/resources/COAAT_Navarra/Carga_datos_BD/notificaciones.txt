@@ -1,0 +1,10 @@
+Primera a Cliente (CGC)                                                                             	d_carta_reclamacion_1_cgc_na	P	1 	2	3	S	-1.0	C	S	Primer Comunicado		1
+Segunda a Cliente (CGC)                                                                             	d_carta_reclamacion_2_cgc_na	P	2 	3	3	N	30.0	C	N	Segundo Comunicado		1
+Tercera a Cliente (CGC)                                                                             	d_carta_reclamacion_3_cgc_cli_na	P	3 	4	3	N	60.0	C	N	Tercer Comunicado Cliente		1
+Tercera a Colegiado (CGC)                                                                           	d_carta_reclamacion_3_cgc_col_na	C	4 	5	3	N	60.0	C	N	Tercer Comunicado Colegiado		1
+Cuarta a Colegiado (CGC)                                                                            	d_carta_reclamacion_4_cgc_na	C	5 	6	3	N	90.0	C	N	Cuarto Comunicado		1
+Quinta a Colegiado (CGC)                                                                            	d_carta_reclamacion_5_cgc_na	C	6 	@@	3	N	105.0	C	N	Quinto Comunicado		1
+Primera a Cliente Minuta (CGC)                                                                      	d_carta_reclamacion_1_cgc_min_na	P	M1	M2	3	S	-1.0	C	S	Primer Comunicado Minuta		2
+Segunda a Cliente Minuta (CGC)                                                                      	d_carta_reclamacion_2_cgc_min_na	P	M2	M3	3	N	30.0	C	N	Segundo Comunicado Minuta		2
+Tercera a Cliente Minuta (CGC)                                                                      	d_carta_reclamacion_3_cgc_min_na	P	M3	M4	3	N	60.0	C	N	Tercer Comunicado Minuta		2
+Cuarta a Cliente Minuta (CGC)                                                                       	d_carta_reclamacion_4_cgc_min_na	P	8 	@@	3	N	90.0	C	N	Cuarto Comunicado Minuta		2

@@ -1,0 +1,5 @@
+AYTO      	Carta del Ayuntamiento	% 	0.0	S	 	S	N		0	%		01
+RE        	Registro de Entrada	% 	10.0	E			N		0	%		01
+RS        	Registro de Salida	% 	33.0	S			N		0	%		01
+ALSYS-RE  	Registro de Entrada de Alsys	% 	3.0	E			N		0	%		02
+ALSYS-RS  	Registro de Salida de Alsys	% 	4.0	S			N		0	%		02

@@ -1,0 +1,8 @@
+    <texto>
+      <x>45</x>
+      <y>250</y>    
+      <contenido>Pág %pag de %pags </contenido>
+      <fuente>${directorio_windows}\Fonts\Gothic.ttf</fuente>
+      <size>6</size> 
+      <color>0,174,239</color>
+    </texto>

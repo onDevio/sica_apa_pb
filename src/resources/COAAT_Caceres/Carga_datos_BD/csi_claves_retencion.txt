@@ -1,0 +1,40 @@
+B	01	Pensiones y haberes pasivos de los regímenes de la Seguridad Social y clases pasivas		S
+B	02	Percepciones distintas a las de las claves 01 y 03		S
+B	03	Conformes al procedimiento especial en el artículo 77 bis		S
+F	01	Premios literarios, científicos o artísticos no exentos del Impuesto		S
+F	02	Percepciones distintas a las de la clave 01		S
+G	01	Tipo de retención con cáracter general		S
+G	02	Tipo de retención específico		S
+H	01	Tipo de retención con cáracter general		S
+H	02	Tipo de retención específico		S
+H	03	Actividades forestales referidas en el art. 88.5		S
+L	01	Dietas y asignaciones para gastos de viaje exceptuadas de gravamen		S
+L	02	Prestaciones públicas extraordinarias por actos de terrorismo		S
+L	03	Ayudas percibidas por los afectados por el virus de la inmunodeficiencia humana		S
+L	04	Pensiones por lesiones o mutilaciones sufridas con ocasión o como consecuencia de la guerra civil 1936/1939		S
+L	05	Indemnizaciones por despido o cese del trabajador		S
+L	06	Prestaciones por incapacidad permanente absoluta o gran invalidez		S
+L	07	Pensiones por inutilidad o incapacidad permanente del régimen de clases pasivas		S
+L	08	Prestaciones familiares de la Seguridad Social por hijo a cargo y pensiones, haberes pasivos y demás Prestaciones familiares de la Seguridad Social por hijo a cargo y pensiones, haberes pasivos y demás prestaciones públicas por situación de orfandad		S
+L	09	Cantidades percibidas con motivo del acogimiento de personas con minusvalía o mayores de sesenta y cinco años y ayudas económicas otorgadas por instituciones públicas a personas con un grado de minusvalía igual o superior al 65 por 100		S
+L	10	Becas públicas para cursar estudios hasta el grado de licenciatura o equivalente		S
+L	11	Premios literarios, artísticos o científicos, así como los premios "Príncipe de Asturias"		S
+L	12	Ayudas económicas a los deportistas de alto nivel		S
+L	13	Prestaciones por desempleo abonadas en la modalidad de pago único		S
+L	14	Gratificaciones extraordinarias satisfechas por el Estado español por la participación en misiones internacionales de paz o humanitarias		S
+L	15	endimientos del trabajo percibidos por trabajos realizados en el extranjero		S
+L	16	Prestaciones por entierro o sepelio		S
+L	17	Ayudas a favor de las personas que hayan desarrollado la hepatitis C como consecuencia de haber recibido tratamiento en el ámbito del sistema sanitario público		S
+L	18	Otras rentas exentas		S
+A	19	Empleados por cuenta ajena en general		S
+B	20	Pensionistas y perceptores de haberes pasivos		N
+C	21	Prestaciones o subsidios de desempleo		S
+D	22	Prestaciones por desempleo abonadas en la modalidad de pago único		S
+E	23	Consejeros y administradores		S
+F	24	Cursos, conferencias, seminarios y similares y elaboración de obras literarias, artísticas o científ		N
+G	25	Rendimientos de actividades económicas: actividades profesionales		N
+H	26	Rendimientos de actividades económicas: actividades agrícolas, ganaderas y forestales		N
+I	27	Rendimientos de actividades económicas. Rendimientos a que se refiere el artículo 70.2, letra b)		S
+J	28	Cesión de derechos de imagen. Contraprestaciones a que se refiere el art. 76.8 de la Ley		S
+K	29	Premios por la participación en juegos, concursos, rifas o combinaciones aleatorias		S
+L	30	Rentas exentas y dietas exceptuadas de gravamen		N

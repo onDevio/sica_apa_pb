@@ -1,0 +1,40 @@
+A	  	Empleados por cuenta ajena en general		S
+B	  	Pensionistas y perceptores de haberes pasivos		N
+B	01	Pensiones y haberes pasivos de los reg›menes de la Seguridad Social y clases pasivas		S
+B	02	Percepciones distintas a las de las claves 01 y 03		S
+B	03	Conformes al procedimiento especial en el art›culo 77 bis		S
+C	  	Prestaciones o subsidios de desempleo		S
+D	  	Prestaciones por desempleo abonadas en la modalidad de pago ∑nico		S
+E	  	Consejeros y administradores		S
+F	  	Cursos, conferencias, seminarios y similares y elaboraciæn de obras literarias, art›sticas o cient›f		N
+F	01	Premios literarios, cient›ficos o art›sticos no exentos del Impuesto		S
+F	02	Percepciones distintas a las de la clave 01		S
+G	  	Rendimientos de actividades econæmicas: actividades profesionales		N
+G	01	Tipo de retenciæn con cﬂracter general		S
+G	02	Tipo de retenciæn espec›fico		S
+H	  	Rendimientos de actividades econæmicas: actividades agr›colas, ganaderas y forestales		N
+H	01	Tipo de retenciæn con cﬂracter general		S
+H	02	Tipo de retenciæn espec›fico		S
+H	03	Actividades forestales referidas en el art. 88.5		S
+I	  	Rendimientos de actividades econæmicas. Rendimientos a que se refiere el art›culo 70.2, letra b)		S
+J	  	Cesiæn de derechos de imagen. Contraprestaciones a que se refiere el art. 76.8 de la Ley		S
+K	  	Premios por la participaciæn en juegos, concursos, rifas o combinaciones aleatorias		S
+L	  	Rentas exentas y dietas exceptuadas de gravamen		N
+L	01	Dietas y asignaciones para gastos de viaje exceptuadas de gravamen		S
+L	02	Prestaciones p∑blicas extraordinarias por actos de terrorismo		S
+L	03	Ayudas percibidas por los afectados por el virus de la inmunodeficiencia humana		S
+L	04	Pensiones por lesiones o mutilaciones sufridas con ocasiæn o como consecuencia de la guerra civil 1936/1939		S
+L	05	Indemnizaciones por despido o cese del trabajador		S
+L	06	Prestaciones por incapacidad permanente absoluta o gran invalidez		S
+L	07	Pensiones por inutilidad o incapacidad permanente del r⁄gimen de clases pasivas		S
+L	08	Prestaciones familiares de la Seguridad Social por hijo a cargo y pensiones, haberes pasivos y demﬂs Prestaciones familiares de la Seguridad Social por hijo a cargo y pensiones, haberes pasivos y demﬂs prestaciones p∑blicas por situaciæn de orfandad		S
+L	09	Cantidades percibidas con motivo del acogimiento de personas con minusval›a o mayores de sesenta y cinco a±os y ayudas econæmicas otorgadas por instituciones p∑blicas a personas con un grado de minusval›a igual o superior al 65 por 100		S
+L	10	Becas p∑blicas para cursar estudios hasta el grado de licenciatura o equivalente		S
+L	11	Premios literarios, art›sticos o cient›ficos, as› como los premios "Pr›ncipe de Asturias"		S
+L	12	Ayudas econæmicas a los deportistas de alto nivel		S
+L	13	Prestaciones por desempleo abonadas en la modalidad de pago ∑nico		S
+L	14	Gratificaciones extraordinarias satisfechas por el Estado espa±ol por la participaciæn en misiones internacionales de paz o humanitarias		S
+L	15	endimientos del trabajo percibidos por trabajos realizados en el extranjero		S
+L	16	Prestaciones por entierro o sepelio		S
+L	17	Ayudas a favor de las personas que hayan desarrollado la hepatitis C como consecuencia de haber recibido tratamiento en el ﬂmbito del sistema sanitario p∑blico		S
+L	18	Otras rentas exentas		S

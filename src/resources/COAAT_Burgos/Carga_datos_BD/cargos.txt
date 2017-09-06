@@ -1,0 +1,17 @@
+01	Jefe de Personal                                            	
+02	Asistentes                                                  	
+03	Supervisores                                                	
+04	Secretarias                                                 	
+05	Otros Cargos                                                	
+06	Secretarios                                                 	
+07	Tesorero                                                    	
+08	Liberales                                                   	
+09	Asalariados                                                 	
+10	Mutua                                                       	
+11	Funcionarios                                                	
+12	Presidente                                                  	
+13	Contador                                                    	
+14	Particulares                                                	
+15	Terceros                                                    	
+16	Subvención                                                  	
+17	Abogado                                                     	

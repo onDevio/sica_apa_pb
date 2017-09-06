@@ -1,0 +1,4 @@
+B	Sello Largo                                                 	sello_coaatle.xml
+A	Sello Corto                                                 	sello_coaatle_cajetin.xml
+C	Registro Corto                                              	sello_coaatle_cajetin_REG.xml
+D	Registro Largo                                              	sello_coaatle_REG.xml

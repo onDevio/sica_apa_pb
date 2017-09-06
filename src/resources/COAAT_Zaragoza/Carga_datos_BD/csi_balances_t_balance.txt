@@ -1,0 +1,14 @@
+PGN	PÚrdidas y Ganancias	N
+PGA	PÚrdidas y Ganancias Abreviado	N
+SIN	Situaci¾n	N
+SIA	Situaci¾n Abreviado	N
+CFN	Cuadro Financiero/ Variaci¾n	N
+CFA	Cuadro Financiero/ Origenes y Aplicaci¾n	N
+PG8	PÚrdidas y Ganancias NPGC 08	S
+SI8	Situaci¾n NPGC 08	S
+PGY	PÚrdidas y Ganancias NPGC 08 PYME	S
+SIY	Situaci¾n NPGC 08 PYME	S
+ECA	Estado Cambios Patrim. Neto Total Abrev.	S
+ECN	Estado Cambios Patrim. Neto Total Normal	S
+PNN	Estado Ingresos y Gastos Reconocidos	S
+ECP	Estado Cambios Patrim. Neto PYMES	S

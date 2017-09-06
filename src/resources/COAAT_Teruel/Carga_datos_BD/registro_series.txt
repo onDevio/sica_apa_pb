@@ -1,0 +1,12 @@
+AYTO      	Carta del Ayuntamiento	% 	0.0	S	\\coaat-teruel\SICA-COMPARTIDO\documentos_fases\	S	N		0	%		01
+COLEGIA   	Certificados y Resumenes economicos	% 	0.0	S	\\coaat-teruel\SICA-COMPARTIDO\documentos_fases\	S	N		0	%		01
+ECON      	Resumenes Economicos	% 	0.0	S	\\coaat-teruel\SICA-COMPARTIDO\economicos\	S	N		0	%		01
+INC       	Cartas de Reparos	% 	0.0	S			N		0	%		01
+LIQUID    	Hojas de Liquidaciones	% 	0.0	S	\\coaat-teruel\SICA-COMPARTIDO\liquidaciones\	S	N	 	0	%		01
+LISTADOS  	Listados	% 	0.0	S	\\coaat-teruel\SICA-COMPARTIDO\listados\	S	N		0	%		01
+RECLAM_EXP	Cartas de reclamaciones de Expedientes	% 	79.0	S	\\coaat-teruel\SICA-COMPARTIDO\reclamaciones\expedientes\	S	N		0	%		01
+RECLAM_FAS	Cartas de reclamaciones de Fases	% 	51.0	S	\\coaat-teruel\SICA-COMPARTIDO\reclamaciones\fases\	S	N		0	%		01
+RE        	RE COAATTE	% 	36.0	E	 	S	N	 	 	 		01
+RS        	RS COAATTE	% 	32.0	S	 	S	N	 	 	 		01
+RE        	RE	% 	12.0	E	 	S	N	 	 	 		02
+RS        	RS	% 	0.0	S	 	S	N	 	 	 		02

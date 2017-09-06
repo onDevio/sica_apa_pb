@@ -1,0 +1,10 @@
+1         	5	Nombramiento	L	10.0	6.0			N
+2         	5	Final Obra ARQUITECTOS	L	13.5	14.0			 
+3         	5	Final Obra APAREJADORES	L	3.0	8.0			N
+4         	5	LIQUIDACION	L	3.0	10.0			N
+5         	5	Final Obra ARQUITECTOS VIEJO	L	1.0	13.5			N
+6         	5	Certificado Control Calidad	L	3.0	3.0			N
+8         	4	GENERAL	ID			.20000000000000001	.29999999999999999	S
+9         	7	CD FINAL DE OBRA	L	7.5	17.0			N
+10        	8	pegatina cuarta	L	2.1000000000000001	23.0			N
+11        	8	Pegatina tercera	L	2.1000000000000001	16.0			N

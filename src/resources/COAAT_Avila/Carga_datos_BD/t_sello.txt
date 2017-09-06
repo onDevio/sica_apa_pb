@@ -1,0 +1,9 @@
+D	Sello Visado                                                	coaatavi_sello_visado.xml
+E	Sello P.Segur.Salud                                         	coaatavi_sello_pss.xml
+F	Sello Otro                                                  	coaatavi_sello_otro.xml
+A	Sello Lateral Visado                                        	coaatavi_sello_lateral_visado.xml
+B	Sello Lateral P.Segur.Salud                                 	coaatavi_sello_lateral_pss.xml
+C	Sello Lateral Otro                                          	coaatavi_sello_lateral_otro.xml
+G	SELLO RECIBIDO Y REGISTRADO                                 	coaatavi_sello_recibido_registrado.xml
+H	SELLO P SYS RECIBIDO Y REGISTRADO                           	coaatavi_sello_lateral_pss_registrado.xml
+S	sociedad musaat                                             	coaatavi_sello_musaat.xml

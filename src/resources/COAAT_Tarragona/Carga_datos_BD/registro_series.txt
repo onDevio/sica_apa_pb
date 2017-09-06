@@ -1,0 +1,13 @@
+ECOR      	Registre entrada correspondència	% 	1290.0	E			N			%	01
+EVIS      	Registre entrada visats	% 	150.0	E			N			%	01
+EFAC      	Registre entrada facturació	% 	600.0	E			N			%	01
+SCOR      	Registre sortida correspondència	% 	963.0	S			N			%	01
+SVIS      	Registre sortida visats	% 	148.0	S			N			%	01
+ECON      	Resúmenes Económicos	% 	1.0	S	Z:\economicos\	S	N		0	%	01
+SDIP      	Salida de Diplomas	% 	0.0	S			N		0	%	01
+EASG      	Registre entrada ASSEGUR COAATT	% 	62.0	E			N			%	03
+EASS      	Registre entrada ASSEGUR COAATT	% 	0.0	E			N			%	04
+FASG      	Registre entrada factures ASSEGUR COAATT	% 	0.0	E			N			%	03
+FASS      	Resgistre entrada factures ASSESSOR COAATT	% 	0.0	E			N			%	04
+SASG      	Registre sortida ASSEGUR COAATT	% 	14.0	S			N			%	03
+SASS      	Registre sortida ASSESSOR COAATT	% 	0.0	S			N			%	04

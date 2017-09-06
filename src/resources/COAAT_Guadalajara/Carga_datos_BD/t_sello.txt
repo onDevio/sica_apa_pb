@@ -1,0 +1,8 @@
+C	Sello de visado                                             	sello_guadalajara.xml
+A	Sello standar                                               	sello_guadalajara_horizontal.xml
+E	Sello Nuevo Pagad                                           	sello_coaatgu_pagado.xml
+D	Sello Nuevo Visado                                          	sello_coaatgu_visado.xml
+R	Sello Nuevo Registro                                        	sello_coaatgu_registro.xml
+T	Sello CTP                                                   	sello_coaatgu_ctp.xml
+U	Sello Registro Nota Encargo                                 	sello_coaatgu_ctp_standar.xml
+V	Sello standar CTP                                           	sello_guadalajara_horizontal_ctp.xml

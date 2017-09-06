@@ -1,0 +1,17 @@
+<sello> 
+  <x>${x}</x>
+  <y>${y}</y>
+  <anchura>300</anchura>
+  <altura>300</altura>
+  <vertical>true</vertical>
+  <posicion>${margen}</posicion>
+  <textos></textos>
+  <imagenes>
+    <imagen>
+      <x>8</x>
+      <y>5</y>
+      <ruta>${directorio_imagenes}\\sello_red.gif</ruta>
+      <escala>18</escala>
+    </imagen>
+  </imagenes>
+</sello>

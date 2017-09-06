@@ -1,0 +1,124 @@
+[Database]
+DBMS=SYC Sybase System 10/11
+ServerName=ucp
+//ServerName=db-dev-06b
+//Database=sicap
+Database=sicap_caceres
+UserId=
+DatabasePassword=
+LogID="sa"
+LogPassword=""
+Lock=
+Prompt=0
+AutoCommit=1
+DBParm = "HOST= 'PC-YROMERO'; CharSet='cp850'"
+
+[Aplicacion]
+path=c:\Sica
+Debug=1
+
+[Delegacion]
+delegacion=M
+
+[Fotos]
+path_fotos=\\servidor\SICA-COMPARTIDO\fotos
+
+[Rtf]
+path_rtf=C:\Proyectos\SICA 10.5\plantillas\COAATAVI
+//path_rtf=\\servidor\SICA-COMPARTIDO\Plantillas
+
+[E_s]
+path_e_s=\\servidor\SICA-COMPARTIDO\registro\
+
+[Actas]
+path_actas=\\servidor\SICA-COMPARTIDO\actas\
+
+[Generados]
+path_generados=C:\Proyectos\SICA 10.5\plantillas\COAATAVI\Generados\
+
+[Parametros]
+textos=S
+piedepagina=S
+combino_vble_rtf=S
+ImpresoraTickets="HP LaserJet 1200 Series PCL 6"
+ImpresionPreasignacion=S
+
+[Ruta_word]
+Ruta_word=c:\archivos de programa\Microsoft Office\Office\WINWORD.EXE
+
+[Ruta_email]
+Ruta_email=c:\archivos de programa\Outlook Express\msimn.exe
+
+[Ruta_acrobat_reader]
+Ruta_acrobat_reader=C:\Archivos de programa\Adobe\Acrobat 7.0\Reader\acrord32.exe
+
+[Ruta_imagenes]
+Ruta_imagenes=c:\archivos de programa\Accesorios\Mspaint.EXE
+
+[CORREO]
+servidor_smtp = 192.168.0.32
+servidor_pop = 192.168.0.32
+direccion = direccion@email.es
+nombre = nombre
+recordar = S
+login = login
+password = password
+
+[Database_ejer]
+DBMS="syc"
+Database=conta200901
+LogID="sa"
+LogPassword=""
+ServerName="ucp"
+Autocommit=TRUE
+DBParm="charset='iso_1'"
+UserID=""
+DBPass=""
+Lock=""
+
+[Empresa_Activa]
+Ejercicio=2009
+Empresa=01
+
+[Visared]
+g_directorio_temporal=\\servidor\SICA-COMPARTIDO\temporal\
+g_directorio_certificados=\\servidor\SICA-COMPARTIDO\certificados\
+g_directorio_imagenes=\\servidor\SICA-COMPARTIDO\imagenes\
+g_directorio_importacion=\\servidor\SICA-COMPARTIDO\importacion\
+g_directorio_importados=\\servidor\SICA-COMPARTIDO\importados\
+g_directorio_documentos_visared=\\servidor\SICA-COMPARTIDO\documentos\
+g_directorio_fuentes=\\servidor\SICA-COMPARTIDO\fuentes\
+g_directorio_sellos=\\servidor\SICA-COMPARTIDO\sellos\
+g_directorio_firmas=\\servidor\SICA-COMPARTIDO\firmas\
+g_aviso_nuevos = N
+
+[Configuracion]
+AsistenteMostrar=N
+AsistenteModoEdicion=S
+
+[Ruta_documentos_fases]
+g_directorio_documentos_fases=\\servidor\SICA-COMPARTIDO\documentos_fases
+
+
+[Calidad]
+g_directorio_calidad=c:\calidad\
+
+[Informes Economicos]
+g_directorio_informes_economicos=\\servidor\SICA-COMPARTIDO\economicos\
+g_directorio_otras_facturas=otras_facturas
+g_directorio_facturas_a_cliente=\\servidor\SICA-COMPARTIDO\facturacion_a_clientes\
+
+[Bolsa Trabajo]
+g_directorio_bt=c:\sica\bolsa_trabajo\
+
+[Ruta_documentos_plantillas]
+g_directorio_documentos_plantillas= C:\Proyectos\SICA 10.5\plantillas\COAATAVI\
+//g_directorio_documentos_plantillas=\\servidor\SICA-COMPARTIDO\plantillas\certificados\
+
+[Regsoc]
+path_ficheros=c:\Sica\
+path_datawindow=c:\Sica\datawindow
+
+[Idiomas]
+idioma=ca
+traduccion=N

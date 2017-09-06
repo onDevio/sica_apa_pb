@@ -1,0 +1,206 @@
+0000000001	Colegiados	m_aplic_frame.m_file.m_new.m_altadefichas	1	1		N
+0000000002	Consulta Detallada	m_aplic_frame.m_file.m_new.m_altadefichas.m_colegiados_dropdown	1	1		N
+0000000003	Consulta Detallada	m_aplic_frame.m_file.m_new.m_altadefichas.m_colegiados_dropdown.m_consultadetallada_col	1	1	w_colegiados_lista	N
+0000000004	MUSAAT	m_aplic_frame.m_file.m_new.m_altadefichas.m_colegiados_dropdown.m_musaat_col	1	1	w_musaat_lista	N
+0000000005	PREMAAT	m_aplic_frame.m_file.m_new.m_altadefichas.m_colegiados_dropdown.m_premaat_col	1	1	w_premaat_lista	N
+0000000006	Consulta Rápida	m_aplic_frame.m_file.m_new.m_altadefichas.m_consultarápida	1	1		N
+0000000007	Listas de Colegiados	m_aplic_frame.m_file.m_new.m_altadefichas.m_listasdecolegiados	1	1	w_listas_lista	N
+0000000008	Bolsa de Trabajo	m_aplic_frame.m_file.m_new.m_altadefichas.m_bolsadetrabajo	1	1		N
+0000000009	Demandas	m_aplic_frame.m_file.m_new.m_altadefichas.m_bolsadetrabajo.m_demandas	1	1	w_demandas_lista	N
+0000000010	Ofertas	m_aplic_frame.m_file.m_new.m_altadefichas.m_bolsadetrabajo.m_ofertas	1	1	w_ofertas_lista	N
+0000000011	Resumen Económico	m_aplic_frame.m_file.m_new.m_altadefichas.m_resumeneconomico	1	1	w_conta_extracto_colegiado_canarias	N
+0000000012	Acreditaciones	m_aplic_frame.m_file.m_new.m_altadefichas.m_acreditaciones	1	1		N
+0000000013	Estadillo Consejo	m_aplic_frame.m_file.m_new.m_altadefichas.m_acreditaciones.m_estadilloconsejo	1	1	w_estadillo_consejo	N
+0000000014	Listados	m_aplic_frame.m_file.m_new.m_altadefichas.m_acreditaciones.m_listados	1	1	w_acreditaciones_listados	N
+0000000015	Contratos	m_aplic_frame.m_file.m_new.m_fases	1	1		N
+0000000016	Consulta Detallada	m_aplic_frame.m_file.m_new.m_fases.m_consultadetallada1	1	1	w_fases_lista	N
+0000000017	Expedientes	m_aplic_frame.m_file.m_new.m_fases.m_expedientes_nuevo	0	0	w_expedientes_lista	N
+0000000018	Reparos	m_aplic_frame.m_file.m_new.m_fases.m_reparos0	1	1	w_reparos_lista	N
+0000000019	Fichero del MOPU	m_aplic_frame.m_file.m_new.m_fases.m_ficherodelmopu	1	1	w_fomento	N
+0000000020	Estadísticas	m_aplic_frame.m_file.m_new.m_fases.m_estadisticas	1	1	w_fases_estadisticas	N
+0000000021	Control Integridad	m_aplic_frame.m_file.m_new.m_fases.m_selladorvisared	1	1		S
+0000000022	Avisos de Factura	m_aplic_frame.m_file.m_new.m_avisosdefactura	1	1		N
+0000000023	Consulta Detallada	m_aplic_frame.m_file.m_new.m_avisosdefactura.m_consultadetallada_avisos	1	1	w_minutas_detalle_lista	N
+0000000024	Reclamaciones	m_aplic_frame.m_file.m_new.m_avisosdefactura.m_reclamaciones	1	1	w_fases_reclamaciones	N
+0000000025	Facturas Emitidas	m_aplic_frame.m_file.m_new.m_facturasemitidas	1	1	w_facturacion_emitida_lista	N
+0000000026	Consulta Detallada	m_aplic_frame.m_file.m_new.m_facturasemitidas.m_consultadetalladafacturas	1	1		N
+0000000027	Generación de Facturas Manual	m_aplic_frame.m_file.m_new.m_facturasemitidas.m_generacióndefacturasmanual	1	1	w_colegiados_factura_cualquier_concepto	N
+0000000028	MUSAAT	m_aplic_frame.m_file.m_new.m_src	1	1		N
+0000000029	Consulta Detallada	m_aplic_frame.m_file.m_new.m_src.m_consultadetallada2	1	1	w_musaat_lista	N
+0000000030	Movimientos de Prima Variable	m_aplic_frame.m_file.m_new.m_src.m_movimientosdeprimavariable	1	1	w_musaat_lista_movimientos	N
+0000000031	Siniestros	m_aplic_frame.m_file.m_new.m_src.m_siniestros	1	1	w_siniestros_lista	N
+0000000032	Cálculo Manual	m_aplic_frame.m_file.m_new.m_src.m_calculomanual	1	1	w_musaat_calculo	N
+0000000033	Comprobar Fichero	m_aplic_frame.m_file.m_new.m_src.m_comprobarfichero	1	1	w_musaat_comprueba_fichero	N
+0000000034	Fichero de Recibos	m_aplic_frame.m_file.m_new.m_src.m_f	1	1	w_musaat_fichero_recibos	N
+0000000035	PREMAAT	m_aplic_frame.m_file.m_new.m_premaat1	1	1		N
+0000000036	Consulta Detallada	m_aplic_frame.m_file.m_new.m_premaat1.m_consultadetallada3	1	1	w_premaat_lista	N
+0000000037	Generación de Pagos	m_aplic_frame.m_file.m_new.m_premaat1.m_generaciondepagos	1	1	w_premaat_liquid	N
+0000000038	Consulta de Pagos	m_aplic_frame.m_file.m_new.m_premaat1.m_consultadepagos	1	1	w_premaat_liquid_lista	N
+0000000039	Terceros	m_aplic_frame.m_file.m_new.m_clientes	1	1	w_clientes_lista	N
+0000000040	Formación	m_aplic_frame.m_file.m_new.m_formación	0	0		S
+0000000041	Convocatoria	m_aplic_frame.m_file.m_new.m_formación.m_convocatoria	1	1	w_cursos_form_lista	N
+0000000042	Control Asistencia	m_aplic_frame.m_file.m_new.m_formación.m_controlasistencia	1	1	w_ctrlasistencia_lista	N
+0000000043	Secretaría	m_aplic_frame.m_file.m_new.m_secretaria	1	1		N
+0000000044	Actas	m_aplic_frame.m_file.m_new.m_secretaria.m_actas_nuevo	0	1	w_actas_lista	S
+0000000045	Registro de entrada y salida	m_aplic_frame.m_file.m_new.m_secretaria.m_registrodeentradaysalida	1	1	w_registros_lista	N
+0000000046	Certificados	m_aplic_frame.m_file.m_new.m_secretaria.m_certificado	0	1	w_certificados_lista	S
+0000000047	Circulares	m_aplic_frame.m_file.m_new.m_secretaria.m_circulares_nuevo	0	1	w_circulares_lista	S
+0000000048	Libros	m_aplic_frame.m_file.m_new.m_secretaria.m_libros_nuevo	1	1	w_libros_lista	N
+0000000049	Combinación de correspondencia	m_aplic_frame.m_file.m_new.m_secretaria.m_combinaciondecorrespondencia	1	1	w_plantillas_lista	N
+0000000050	Junta de Gobierno	m_aplic_frame.m_file.m_new.m_juntagobierno	1	1		N
+0000000051	Reuniones	m_aplic_frame.m_file.m_new.m_juntagobierno.m_reuniones	1	1	w_jg_reuniones_lista	N
+0000000052	Utiles	m_aplic_frame.m_file.m_new.m_cip	1	1		N
+0000000053	Cálculo Manual de Gastos	m_aplic_frame.m_file.m_new.m_cip.m_cálculodelacip	1	1	w_calcula_gastos	N
+0000000054	Contabilidad	m_aplic_frame.m_file.m_new.m_contabilidad0	1	1		N
+0000000055	Liquidaciones	m_aplic_frame.m_file.m_new.m_contabilidad0.m_liquidaciones	1	1	w_liquidaciones_lista	N
+0000000056	Cobros	m_aplic_frame.m_file.m_new.m_contabilidad0.m_cobros_nuevo	1	1	w_cobros_domicilia_lista	N
+0000000057	Gestión de Domiciliaciones	m_aplic_frame.m_file.m_new.m_contabilidad0.m_gestiondedomiciliaciones	1	1	w_domicilia_periodica_lista	N
+0000000058	Domiciliar Saldo Deudor	m_aplic_frame.m_file.m_new.m_contabilidad0.m_domiciliarsaldodeudor	1	1	w_apuntes_lista	N
+0000000059	Procesar Domiciliaciones devueltas	m_aplic_frame.m_file.m_new.m_contabilidad0.m_procesardomiciliacionesdevueltas	0	1	w_dev_devoluciones_bancarias	S
+0000000060	Procesos de Contabilización	m_aplic_frame.m_file.m_new.m_contabilidad0.m_procesosdecontabilizacion	0	1	w_facturas_contabiliza	S
+0000000061	Mensajería	m_aplic_frame.m_file.m_new.m_mensajeria	1	1		N
+0000000062	Mensajes Recibidos	m_aplic_frame.m_file.m_new.m_mensajeria.m_mensajesrecibidos	1	1	w_mensajes_recibidos	N
+0000000063	Mensajes Enviados	m_aplic_frame.m_file.m_new.m_mensajeria.m_mensajesenviados	1	1	w_mensajes_enviados	N
+0000000065	Seguridad	m_aplic_frame.m_file.m_new.m_seguridad	1	1		N
+0000000066	Aplicaciones	m_aplic_frame.m_file.m_new.m_seguridad.m_aplicacionesnuevo	1	1	w_aplicacion	N
+0000000067	Usuarios	m_aplic_frame.m_file.m_new.m_seguridad.m_usuarios_nuevo	1	1	w_usuarios_lista	N
+0000000068	General	m_aplic_frame.m_file.m_open.m_general	1	1		N
+0000000069	Contadores Generales	m_aplic_frame.m_file.m_open.m_general.m_contadoresgenerales	1	1	w_contadores_sica	N
+0000000070	Tipos de Vias	m_aplic_frame.m_file.m_open.m_general.m_tipos_vias	1	1	w_tipos_vias	N
+0000000071	Poblaciones	m_aplic_frame.m_file.m_open.m_general.m_poblaciones	1	1	w_poblaciones	N
+0000000072	Provincias	m_aplic_frame.m_file.m_open.m_general.m_provincias	1	1	w_provincias	N
+0000000073	Paises	m_aplic_frame.m_file.m_open.m_general.m_paises	1	1	w_paises	N
+0000000074	Cargos	m_aplic_frame.m_file.m_open.m_general.m_3	1	1	w_cargos	N
+0000000075	Otras Personas	m_aplic_frame.m_file.m_open.m_general.m_2	1	1	w_otras_personas	N
+0000000076	Tipos de Transporte de Comunicados	m_aplic_frame.m_file.m_open.m_general.m_tiposdetransportedecomunicados	1	1	w_tipos_transporte_comunicados	N
+0000000077	Arquitectos	m_aplic_frame.m_file.m_open.m_arquitectos	1	1	w_mant_arquitectos	N
+0000000078	Colegiados	m_aplic_frame.m_file.m_open.m_colegiados	1	1		N
+0000000079	Tipos de Situaciones Profesionales	m_aplic_frame.m_file.m_open.m_colegiados.m_tiposdesituacionesprofesionales	1	1	w_tipos_situaciones_profesionales	N
+0000000080	Tratamientos	m_aplic_frame.m_file.m_open.m_colegiados.m_tratamientos	1	1	w_tratamientos	N
+0000000081	Tipos de Orientaciones Profesionales	m_aplic_frame.m_file.m_open.m_colegiados.m_tiposdeorientacionesprofesionales	1	1	w_tipos_orientaciones_profesionales	N
+0000000082	Tipos de Agrupaciones	m_aplic_frame.m_file.m_open.m_colegiados.m_tiposdeagrupaciones	1	1	w_tipos_agrupaciones	N
+0000000083	Tipos de Incompatibilidad	m_aplic_frame.m_file.m_open.m_colegiados.m_tiposdeincompatibilidad	1	1	w_tipos_incompatibilidad	N
+0000000084	Tipos de Domicilios	m_aplic_frame.m_file.m_open.m_colegiados.m_tiposdomicilios	1	1	w_tipos_domicilios	N
+0000000085	Otros Conceptos	m_aplic_frame.m_file.m_open.m_colegiados.m_otros_conceptos	1	1	w_otros_conceptos	N
+0000000086	Tipos de Conceptos Domiciliables	m_aplic_frame.m_file.m_open.m_colegiados.m_tiposdeconceptosdomiciliables	1	1	w_tipos_conceptos_domiciliables	N
+0000000087	Nivel Provincial	m_aplic_frame.m_file.m_open.m_colegiados.m_demarcaciones	1	1	w_demarcaciones	N
+0000000088	Colegios	m_aplic_frame.m_file.m_open.m_colegiados.m_colegios	1	1	w_colegios	N
+0000000089	Delegaciones	m_aplic_frame.m_file.m_open.m_colegiados.m_delegaciones	1	1	w_delegaciones	N
+0000000090	Residente	m_aplic_frame.m_file.m_open.m_colegiados.m_codigos_geograficos	1	1	w_codigos_geograficos	N
+0000000091	Altas, Bajas y Situaciones	m_aplic_frame.m_file.m_open.m_colegiados.m_altasybajasdesituaciones	1	1	w_tipos_altas_bajas	N
+0000000092	Compañías de Seguros	m_aplic_frame.m_file.m_open.m_colegiados.m_companyiadeseguros	1	1		N
+0000000093	Configuraciones	m_aplic_frame.m_file.m_open.m_configuraciones	1	1		N
+0000000095	Control Eventos	m_aplic_frame.m_file.m_open.m_configuraciones.m_controleventos	1	1	w_control_eventos	N
+0000000096	Escritos	m_aplic_frame.m_file.m_open.m_escritos0	1	1		N
+0000000097	Escritos	m_aplic_frame.m_file.m_open.m_escritos0.m_escritos	1	1	w_escritos_tipo	N
+0000000099	Tipos de Escritos	m_aplic_frame.m_file.m_open.m_escritos0.m_tiposdeescritos	1	1	w_tipos_escritos	N
+0000000100	Registro E/S	m_aplic_frame.m_file.m_open.m_registro	1	1		N
+0000000101	Departamentos	m_aplic_frame.m_file.m_open.m_registro.m_departamentos	1	1	w_departamentos	N
+0000000102	Programas	m_aplic_frame.m_file.m_open.m_registro.m_programas	1	1	w_programas	N
+0000000103	Expedientes y Contratos	m_aplic_frame.m_file.m_open.m_expedientes	1	1		N
+0000000104	Estado	m_aplic_frame.m_file.m_open.m_expedientes.m_estado	1	1	w_mant_estados_expedientes	N
+0000000105	Modalidades	m_aplic_frame.m_file.m_open.m_expedientes.m_modalidades	1	1	w_modalidades	N
+0000000106	Personalidad Jurídica	m_aplic_frame.m_file.m_open.m_expedientes.m_personalidadjurídica	1	1	w_personalidad_jurid1ica	N
+0000000107	Reparos	m_aplic_frame.m_file.m_open.m_expedientes.m_reparos	1	1	w_tipos_reparos	N
+0000000108	Tipos de Documentos	m_aplic_frame.m_file.m_open.m_expedientes.m_tiposdedocumentos	1	1	w_tipos_documentos	N
+0000000109	Tipos de Actuación	m_aplic_frame.m_file.m_open.m_expedientes.m_tiposdeactuacion	1	1	w_tipos_fases	N
+0000000110	Tipos de Obra	m_aplic_frame.m_file.m_open.m_expedientes.m_tiposdetrabajos	1	1	w_tipos_trabajos	N
+0000000111	Destinos de Obra	m_aplic_frame.m_file.m_open.m_expedientes.m_trabajos0	1	1	w_trabajos	N
+0000000112	Tipos de Honorarios	m_aplic_frame.m_file.m_open.m_expedientes.m_tiposdehonorarios_nuevo	1	1	w_tipos_honorarios	N
+0000000113	Incidencias	m_aplic_frame.m_file.m_open.m_expedientes.m_incidencias	1	1	w_tipos_incidencias_exp	N
+0000000114	Bolsa de Trabajo	m_aplic_frame.m_file.m_open.m_bolsadetrabajo0	1	1		N
+0000000115	Tipos de Bolsa	m_aplic_frame.m_file.m_open.m_bolsadetrabajo0.m_tipobolsa	1	1	w_tipo_bolsa	N
+0000000116	Idiomas	m_aplic_frame.m_file.m_open.m_bolsadetrabajo0.m_idiomas	1	1	w_demandas_mant_idiomas	N
+0000000117	Nivel Idiomas	m_aplic_frame.m_file.m_open.m_bolsadetrabajo0.m_nivel	1	1	w_demandas_mant_nivel	N
+0000000118	Contabilidad	m_aplic_frame.m_file.m_open.m_contabilidad	1	1		N
+0000000119	Gestión de Articulos y Servicios	m_aplic_frame.m_file.m_open.m_contabilidad.m_gestióndeartículosyservicios	1	1	w_contabil_articulos	N
+0000000120	Formas de Pago	m_aplic_frame.m_file.m_open.m_contabilidad.m_formadepago	1	1	w_formas_pago	N
+0000000122	Formación	m_aplic_frame.m_file.m_open.m_formacióngen	0	0		S
+0000000123	Tipos de Convocatoria	m_aplic_frame.m_file.m_open.m_formacióngen.m_tipoconvocatoria	1	1	w_convocatoria_subtipos	N
+0000000124	Tipos de Titulación	m_aplic_frame.m_file.m_open.m_formacióngen.m_tipotitulación	1	1	w_tipo_titulacion	N
+0000000125	Tipos de Áreas/Materias	m_aplic_frame.m_file.m_open.m_formacióngen.m_tipoáreasmaterias	1	1	w_mant_areas_materias	N
+0000000126	Respuestas Test	m_aplic_frame.m_file.m_open.m_formacióngen.m_respuestastest	1	1	w_mant_respuestas_test	N
+0000000127	Siniestros	m_aplic_frame.m_file.m_open.m_siniestrosgen	1	1		N
+0000000128	Tipos de Daño	m_aplic_frame.m_file.m_open.m_siniestrosgen.m_tipodanyos	1	1	w_siniestros_tipo_danyos	N
+0000000129	Tipos de Obra	m_aplic_frame.m_file.m_open.m_siniestrosgen.m_tipoestadoobra	1	1	w_siniestros_tipo_estado_obra	N
+0000000130	Estimación Económica	m_aplic_frame.m_file.m_open.m_siniestrosgen.m_estimacioneconómica	1	1	w_siniestros_estimacion_economica	N
+0000000131	Terceros	m_aplic_frame.m_file.m_open.m_terceros	1	1	w_tipos_tercero	N
+0000000132	Tipos de Terceros	m_aplic_frame.m_file.m_open.m_terceros.m_tiposdeterceros	1	1	w_tipos_tercero	N
+0000000133	Personalidades Jurídicas	m_aplic_frame.m_file.m_open.m_terceros.m_personalidadesjuridicas	1	1	w_personalidad_juridica	N
+0000000134	Asesoría	m_aplic_frame.m_file.m_open.m_asesoria	1	1		N
+0000000135	Tipos de Asunto	m_aplic_frame.m_file.m_open.m_asesoria.m_tipoasuntos	1	1		N
+0000000136	Departamento Jurídico	m_aplic_frame.m_file.m_new.m_asesoriajuridica	1	1		N
+0000000137	Asesoría Jurídica	m_aplic_frame.m_file.m_new.m_asesoriajuridica.m_consultadetallada4	1	1		N
+0000000138	Vía Administrativa y Judicial	m_aplic_frame.m_file.m_new.m_asesoriajuridica.m_administrativajudicial	1	1		N
+0000000139	Tablas de Cuotas Actuales	m_aplic_frame.m_file.m_new.m_premaat1.m_tablasdecuotasactuales	0	1	w_premaat_tablas	S
+0000000140	Generación de Cuotas	m_aplic_frame.m_file.m_new.m_premaat1.m_generaciondecuotas	0	1	w_premaat_calculo_cuotas	S
+0000000141	Finales Obra	m_aplic_frame.m_file.m_new.m_fases.m_finalesobra	1	1		S
+0000000142	Garantías	m_aplic_frame.m_file.m_new.m_fases.m_ garantias	1	1	w_garantias_consulta	S
+0000000143	Liquidaciones Pagos	m_aplic_frame.m_file.m_new.m_contabilidad0.m_liquidacionespagos	1	1		N
+0000000144	Tipos de Comunicados	m_aplic_frame.m_file.m_open.m_registro.m_tiposcomunicados	1	1		N
+0000000145	Generar Devoluciones Manual	m_aplic_frame.m_file.m_new.m_contabilidad0.m_generardevolucionesmanual	0	1		S
+0000000146	Caja	m_aplic_frame.m_file.m_new.m_contabilidad0.m_caja	1	1		N
+0000000147	Ingresa-Retira	m_aplic_frame.m_file.m_new.m_contabilidad0.m_ingresa_retira	1	1		N
+0000000148	Familias de Incidencias	m_aplic_frame.m_file.m_open.m_expedientes.m_familiasdeincidencias	1	1		N
+0000000149	Cálculo de Cuota Mínima	m_aplic_frame.m_file.m_new.m_contabilidad0.m_calculodelacuotaminima	0	1		S
+0000000150	Devoluciones	m_aplic_frame.m_file.m_new.m_contabilidad0.m_devoluciones	1	1		N
+0000000151	Archivo CNC < 2005	m_aplic_frame.m_file.m_new.m_fases.m_visadosconsejo	0	0		S
+0000000152	Arte Cemento	m_aplic_frame.m_file.m_new.m_fases.m_artecemento	0	0		S
+0000000153	Cobro Mensual	m_aplic_frame.m_file.m_new.m_src.m_cobromensual	0	0		S
+0000000154	Cobro Múltiple	m_aplic_frame.m_file.m_new.m_contabilidad0.m_cobrosmultiples	0	0		S
+0000000155	Cálculo Cuota Colegial	m_aplic_frame.m_file.m_new.m_contabilidad0.m_actualizacionmasivaconceptos	0	0		S
+0000000156	Acciones Finales de Obra	m_aplic_frame.m_open.m_expedientes.m_accionesfinalesdeobra	0	0		S
+0000000157	Recálculo Avisos/Proformas	m_aplic_frame.m_file.m_new.m_src.m_recalculoavisos	0	0		S
+0000000158	Archivo CNC	m_aplic_frame.m_file.m_new.m_fases.m_consejoproyectopiloto	1	1		S
+0000000159	Registro Acreditaciones	m_aplic_frame.m_file.m_open.m_colegiados.m_registroacreditaciones	0	0	w_registro_cartas	S
+0000000160	Importación de Facturas	m_aplic_frame.m_file.m_new.m_contabilidad0.m_importacionfacturas	0	0	w_importacion_facturas_gabinete_gu	S
+0000000161	Tipos de Descripciones	m_aplic_frame.m_file.m_open.m_expedientes.m_tiposdedescripciones	1	1		N
+0000000162	Renuncias	m_aplic_frame.m_file.m_new.m_fases.m_renuncias	0	0		S
+0000000163	Estadísticas	m_aplic_frame.m_file.m_open.m_estadisticas0	0	0		S
+0000000164	Almacenes	m_aplic_frame.m_file.m_open.m_registro.m_almacenes	1	1		S
+0000000165	Extorno	m_aplic_frame.m_file.m_new.m_contabilidad0.m_extorno	0	0		S
+0000000166	Cálculo Honorarios Orientativos	m_aplic_frame.m_file.m_new.m_cip.m_calculohonorariosorientativos	0	0		S
+0000000167	Coeficientes	m_aplic_frame.m_file.m_open.m_coeficientes	0	0		S
+0000000168	Zonas Poblaciones	m_aplic_frame.m_file.m_open.m_general.m_zonaspoblaciones	1	1		S
+0000000169	Sellos	m_aplic_frame.m_file.m_open.m_expedientes.m_sellos	1	1		S
+0000000170	Aparatos Técnicos	m_aplic_frame.m_file.m_new.m_secretaria.m_aparatostecnicos	0	0		S
+0000000171	Estadísticas	m_aplic_frame.m_file.m_new.m_src.m_estadisticas1	1	1	w_musaat_estadisticas	S
+0000000172	Calidad	m_aplic_frame.m_file.m_new.m_calidad	1	0	 	S
+0000000173	Familias	m_aplic_frame.m_file.m_open.m_contabilidad.m_familias	1	1	 	N
+0000000174	Series Facturas	m_aplic_frame.m_file.m_open.m_contabilidad.m_seriesfacturas	1	1	 	N
+0000000175	Saldo Cuenta Colegiado	m_aplic_frame.m_file.m_new.m_contabilidad0.m_saldocuentacolegiado	0	0	 	S
+0000000176	Cuadre de Caja	m_aplic_frame.m_file.m_new.m_contabilidad0.m_cuadredecaja	0	0	 	S
+0000000177	Ingresa-Retira directo	m_aplic_frame.m_file.m_new.m_contabilidad0.m_ingresa_retiradirecto	0	0	 	S
+0000000178	Grupos	m_aplic_frame.m_file.m_new.m_seguridad.m_grupos	0	0	 	N
+0000000179	Registro de Almacén	m_aplic_frame.m_file.m_new.m_gestordeproyectos	0	0		S
+0000000180	Tipos de Documentos en Almacén	m_aplic_frame.m_file.m_open.m_almacén.m_otro	0	0		S
+0000000181	Códigos de Almacén	m_aplic_frame.m_file.m_open.m_almacén.m_mas	0	0		S
+0000000182	Almacén	m_aplic_frame.m_file.m_open.m_almacén	0	0		S
+0000000183	Cegas	m_aplic_frame.m_file.m_new.m_fases.m_cegas	0	0	 	S
+0000000184	Cartas Control	m_aplic_frame.m_file.m_new.m_fases.m_cartascontrol	0	0	 	S
+0000000185	Importación Recibos Externos	m_aplic_frame.m_file.m_new.m_contabilidad0.m_importacionrecibosexternos	0	0	 	S
+0000000186	Importación Conceptos Facturables	m_aplic_frame.m_file.m_new.m_contabilidad0.m_importacionconceptosfacturables	0	0	 	S
+0000000187	Coeficiente IPC	m_aplic_frame.m_file.m_open.m_contabilidad.m_coeficienteipc	0	0	 	S
+0000000064	Sellador Visared	m_aplic_frame.m_file.m_new.m_selladordevisared	1	1		N
+0000000094	Tablas Cip sobre Pem	m_aplic_frame.m_file.m_open.m_configuraciones.m_tablascip	1	1		N
+0000000098	Variables de Tipo de Escritos	m_aplic_frame.m_file.m_open.m_escritos0.m_4	1	1		N
+0000000121	Personas Contables	m_aplic_frame.m_file.m_open.m_contabilidad.m_personascontables	1	1		N
+0000000188	Biblioteca	m_aplic_frame.m_file.m_open.m_libros0	0	0	 	N
+0000000189	Ubicaciones	m_aplic_frame.m_file.m_open.m_libros0.m_ubicaciones	0	0	 	N
+0000000190	Recálculo DIP	m_aplic_frame.m_file.m_new.m_avisosdefactura.m_recalculodip	1	1	 	N
+0000000191	Sábana	m_aplic_frame.m_file.m_new.m_premaat1.m_sábana	1	1	 	S
+0000000193	Registro Sociedades	m_aplic_frame.m_file.m_new.m_registrosociedades	1	1	 	N
+0000000194	Registro Sociedades	m_aplic_frame.m_file.m_open.m_mantregistrosociedades	1	1	 	N
+0000000192	Firmas Digitales	m_aplic_frame.m_file.m_open.m_colegiados.m_firmadigital	1	1	 	N
+0000000195	Informe Caja	m_aplic_frame.m_file.m_new.m_contabilidad0.m_informedecaja	1	1	 	S
+0000000197	Ayudas Usuario	m_aplic_frame.m_file.m_open.m_ayudasusuario	0	0	 	N
+0000000198	Comprobar Cuentas Bancarias	m_aplic_frame.m_file.m_open.m_ayudasusuario.m_comprcuentasbanc	0	0	 	N
+0000000199	Depurar Estadillo	m_aplic_frame.m_file.m_open.m_ayudasusuario.m_depuración	0	0	 	N
+0000000200	Tipo de Idioma	m_aplic_frame.m_file.m_open.m_general.m_tipoidioma	1	1	w_mant_csi_seg_tipo_idioma	S
+0000000203	Mantenimiento de bancos	m_file.m_open.m_contabilidad.m_mant_bancos	1	1	w_mant_csi_bancos	S
+0000000205	Municipios	m_file.m_open.m_general.m_municipios0	1	1	w_municipios	S
+0000000206	Mantenimiento de Escuelas	m_file.m_open.m_colegiados.m_escuelas	1	1	 	S
+0000000207	Mantenimiento de Equivalencias VU-AT	m_aplic_frame.m_file.m_open.m_general.m_mant_equivalencia	1	1	w_mant_equivalencias	S
+0000000208	Tipos Inhabilitaciones	m_aplic_frame.m_file.m_new.m_colegiadosm_tiposinhabilitacion	1	1	w_tipo_inhabilitaciones	S
+0000000209	Origenes de Inhabilitaciones	m_aplic_frame.m_file.m_new.m_colegiados.m_origenesdeinhabilitacion	1	1	w_mant_origen_inhabilitacion	S
+0000000210	Regenera población y dirección activa	m_aplic_frame.m_file.m_new.m_cip.m_regenerapoblacion	1	1	w_regenera_poblaciones	S

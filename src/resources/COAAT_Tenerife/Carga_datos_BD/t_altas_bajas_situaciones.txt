@@ -1,0 +1,30 @@
+F 	N	N	S	FUNCIONARIO                                                 	N
+A 	N	N	S	ASALARIADO                                                  	N
+L 	N	N	S	LIBERAL                                                     	N
+O 	N	N	S	OTRO                                                        	N
+J 	N	N	S	JUBILADO                                                    	N
+E 	N	N	S	EMPRESARIO                                                  	N
+C 	N	N	S	CONTRATADO                                                  	N
+S 	N	N	S	SOCIEDAD                                                    	N
+B 	N	S	S	BAJA                                                        	N
+B1	N	S	N	SUSPENDIDO                                                  	N
+B2	N	S	N	BAJA VOLUNTARIA                                             	N
+B3	N	S	N	BAJA POR EXP. DISCIPLINARIO                                 	N
+B4	N	S	N	BAJA POR FALLECIMIENTO                                      	N
+B5	N	S	N	BAJA POR TRASLADO                                           	N
+B6	N	S	N	BAJA POR CESE EN ACTIVIDAD                                  	N
+A1	S	N	N	NUEVO INGRESO                                               	N
+A2	S	N	N	REINGRESO                                                   	N
+P 	N	N	S	PASIVO                                                      	N
+PA	N	N	S	PARO                                                        	N
+S1	N	N	S	SUSPENSION DE DERECHOS                                      	N
+R 	N	N	N	RESIDENTE                                                   	S
+N 	N	N	N	NO RESIDENTE                                                	S
+H 	N	N	N	ACREDITADO                                                  	S
+RN	N	N	N	RESIDENTE NO EJERCIENTE                                     	S
+BI	N	S	S	BAJA POR IMPAGO DE CUOTAS                                   	
+BH	N	S	S	BAJA POR INHABILITACIÓN                                     	
+VU	S	S	N	VENTANILLA UNICA                                            	
+A3	S	N	N	TRASLADO DESDE OTRO COAAT                                   	
+SA	S	N	N	ASEGURADO SATT                                              	
+OP	S	S	N	OTROS PROFESIONALES                                         	

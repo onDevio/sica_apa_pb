@@ -1,0 +1,4 @@
+01	Colegio - Cliente (General)					
+02	Colegio - Cliente (Promotor)	d_csi_factura_burgos				
+03	Colegio - Colegiado	d_factu_gastos_burgos_nueva				
+04	Honorarios de Colegiado	d_factu_honos_burgos_nueva				

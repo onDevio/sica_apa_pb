@@ -1,0 +1,63 @@
+<sello>
+  <x>${x}</x>
+  <y>${y}</y>
+  <anchura>121</anchura>
+  <altura>130</altura>
+  <vertical>false</vertical>
+  <posicion>${margen}</posicion>
+  <textos>
+    <texto>
+      <x>10</x>
+      <y>48</y>    
+      <contenido>EL PRESENTE DOCUMENTO NO</contenido>
+      <fuente>${directorio_windows}\Fonts\arial.ttf</fuente>
+      <size>6</size> 
+     <color>0,0,0</color>
+    </texto>
+    <texto>
+      <x>17</x>
+      <y>40</y>    
+      <contenido>TIENE LA CONDICIÓN DE
+
+
+</contenido>
+      <fuente>${directorio_windows}\Fonts\arial.ttf</fuente>
+      <size>6</size> 
+     <color>0,0,0</color>
+    </texto>
+    <texto>
+      <x>14</x>
+      <y>32</y>    
+      <contenido>PROYECTO TECNICO A LOS</contenido>
+      <fuente>${directorio_windows}\Fonts\arial.ttf</fuente>
+      <size>6</size> 
+     <color>0,0,0</color>
+    </texto>
+    <texto>
+      <x>12</x>
+      <y>24</y>    
+      <contenido>EFECTOS DE SOLICITUD DE LA</contenido>
+      <fuente>${directorio_windows}\Fonts\arial.ttf</fuente>
+      <size>6</size> 
+     <color>0,0,0</color>
+    </texto>
+    <texto>
+      <x>10</x>
+      <y>16</y>    
+      <contenido>LICENCIA MUNICIPAL DE OBRAS</contenido>
+      <fuente>${directorio_windows}\Fonts\arial.ttf</fuente>
+      <size>6</size> 
+     <color>0,0,0</color>
+    </texto>
+
+   </textos>
+
+  <imagenes>
+    <imagen>
+      <x>1</x>
+      <y>1</y>
+      <ruta>${directorio_imagenes}\coaatavi_sello.gif</ruta>
+      <escala>40</escala>
+    </imagen>
+  </imagenes>
+</sello>

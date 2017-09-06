@@ -1,0 +1,80 @@
+VALIDACIÓN DE AGRUPACIÓN_1              	VALIDACIÓN DE AGRUPACIÓN	Los vehículos asignados a la agrupación se borrarán. ~n¿Desea continuar?	Information!	YesNo!	1	0	N	N
+VALIDACIÓN DE AGRUPACIÓN_2              	VALIDACIÓN DE AGRUPACIÓN	No esta permitido el tipo de gestión 'Grupaje' con tipo de precio 'Camión'. ~n ¿Desea cambiar el tipo de precio a 'Palet'?	Information!	YesNo!	1	0	N	N
+VALIDACIÓN DE AGRUPACIÓN_3              	VALIDACIÓN DE AGRUPACIÓN	No esta permitido el tipo de gestión 'Vehiculo' si existen vehiculos en el grupaje.	Information!	OK!	1	0	N	N
+VALIDACIÓN DE AGRUPACIÓN_4              	VALIDACIÓN DE AGRUPACIÓN	No esta permitido el tipo de precio 'Camión' con tipo de gestión 'Grupaje'.	Information!	OK!	1	0	N	N
+csd_contador_no_encontrado              	ERROR EN CONTADOR	El contador %s no se ha encontrado, por favor imprima este error e informe al departamento informático.	Exclamation!	OK!	1	0	Y	Y
+csd_error_inicializar                   	%s	Error al inicializar la aplicación.	StopSign!	OK!	1	0	Y	Y
+csd_version_no_actualizada              	g_titulo	La versión no esta actualizada, por favor actualicese.	StopSign!	OK!	1	0	N	N
+pfc_acceptext_failedvalidation          	%s	%s	Exclamation!	OK!	1	0	N	N
+pfc_appmanager_appprefdebug             	PowerBuilder Class Library	The PFC Application Preferences service has been requested but the REQUIRED Application registry/INI File attributes have not been set.  Use of_SetAppKey/of_SetAppIniFile on the PFC Application  Manager to set the attribute.	Exclamation!	OK!	1	0	N	N
+pfc_calculator_dividezero               	Division	La división por cero no es válida.	Exclamation!	OK!	1	0	N	N
+pfc_checkrequired_missingvalue          	%s	Debe introducir un valor en la columna %s de la fila %s.	Information!	OK!	1	0	N	N
+pfc_closequery_failsvalidation          		La información introducida no pasa el test de validación y debe ser corregida antes de que se salven los cambios.~r~n~r~n" ¿Desea salir sin grabar?	Exclamation!	YesNo!	1	0	N	N
+pfc_closequery_savechanges              	PRUEBA	¿Desea grabar los cambios?	Question!	YesNoCancel!	1	0	N	N
+pfc_debuglog_failedsharedata            	PowerBuilder Class Library	Open on pfc_w_debuglog event has received a ShareData() fail code. The ShareData() functionality is unable to be processed.	Information!	OK!	1	0	N	N
+pfc_dwdberror                           	%s	%s	StopSign!	OK!	1	0	N	N
+pfc_dwlinkage_predelete                 		¿Desea borrar la(s) fila(s)?	Exclamation!	OKCancel!	1	0	N	N
+pfc_dwlinkage_requiredmissing           	%s	Debe especificar un valor para %s en la fila %s.	Information!	OK!	1	0	N	N
+pfc_dwproperty_multitable_keycol        		Las columnas clave son necesarias.	StopSign!	OK!	1	0	N	N
+pfc_dwproperty_multitable_keyoption     		La opción "key" es necesaria.	StopSign!	OK!	1	0	N	N
+pfc_dwproperty_multitable_regfailed     		Las siguientes tablas han fallado mientras intentaban ser registradas: ~r~n+ %s	StopSign!	OK!	1	0	N	N
+pfc_dwproperty_multitable_updatecol     		Las columnas actualizables son necesarias.	StopSign!	OK!	1	0	N	N
+pfc_dwproperty_multitable_whereoption   		La opción "where" es necesaria.	StopSign!	OK!	1	0	N	N
+pfc_dwpropertysyntax_replacefile        	%s	¿Desea sobreescribir el archivo %s?	Question!	YesNo!	1	0	N	N
+pfc_filterextended_failedverify         	FILTRO	Filtro inválido.	Information!	OK!	1	0	N	N
+pfc_filterextended_modifyfilter         	FILTRO	El filtro es inválido.  Por favor, modifique el filtro usando las funciones, columnas, operadores y valores válidos.  Utilice el botón 'Verify' para comprobar si el filtro es válido.	Information!	OK!	1	0	N	N
+pfc_filterextended_validverify          	FILTRO	Filtro válido.	Information!	OK!	1	0	N	N
+pfc_filtersimple_failedfilter           		Filtro inválido.	Information!	OK!	1	0	N	N
+pfc_find_finishsearch                   		%s  ha finalizado la búsqueda.	Information!	OK!	1	0	N	N
+pfc_find_replaceinvaliddate             	REEMPLAZAR	El dato a reemplazar no es una fecha válida.	Information!	OK!	1	0	N	N
+pfc_find_replaceinvalidnumber           	REEMPLAZAR	El dato a reemplazar no es un valor numérico válido.	Information!	OK!	1	0	N	N
+pfc_find_replaceinvalidtime             	REEMPLAZAR	El dato a reemplazar no es una hora válida.	Information!	OK!	1	0	N	N
+pfc_getparent_debug                     	PowerBuilder Class Library	For certain functionality the PFC DataStore requires a reference to its parent object. One of these cases has been encountered.  To let the Datastore "know who its parent window call the of_SetParent(...) function after the DataStore creation.	Exclamation!	OK!	1	0	N	N
+pfc_getparentwindow_debug               	PowerBuilder Class Library	For certain functionality the PFC DataStore requires a reference to its parent window. One of these cases has been encountered.  To let the Datastore now who its parent window call the of_SetParentWindow(...) function after	Exclamation!	OK!	1	0	N	N
+pfc_linkage_checkrequiredmissing        		Debe especificar un valor para %s  en la fila  %s .	Information!	OK!	1	0	N	N
+pfc_linkage_deleterow                   		¿Desea borrar la(s) fila(s)?	Exclamation!	OKCancel!	1	0	N	N
+pfc_linkage_savenow                     		Los datos han cambiado. ~r~n¿Desea grabar los cambios?	Exclamation!	YesNoCancel!	1	0	N	N
+pfc_logon_enterid                       	%s	Por favor introduzca el Usuario.	Exclamation!	OK!	1	0	N	N
+pfc_logon_enterpassword                 	%s	Por favor introduzca el password.	Exclamation!	OK!	1	0	N	N
+pfc_logon_incorrectpassword             	Login	Password incorrecto.	StopSign!	OK!	1	0	N	N
+pfc_luw_dberror                         	GUARDAR	%s	StopSign!	OK!	1	0	N	N
+pfc_luw_dsaccepttextfailed              	AcceptText	%s	Exclamation!	OK!	1	0	N	N
+pfc_luw_endtranerror                    	GUARDAR	%s	StopSign!	OK!	1	0	N	N
+pfc_lv_datasource_confirmdeletemulti    	BORRADO MÚLTIPLE	¿Está seguro que quiere eliminar %s %s?	Question!	YesNo!	1	0	N	N
+pfc_lv_datasource_confirmdeletesingle   	BORRADO	¿Está seguro que quiere eliminar %s?	Question!	YesNo!	1	0	N	N
+pfc_master_close_preferenceinidebug     	PowerBuilder Class Library	The PFC Window Preferences service has been requested but The Required inifile attribute has not been Set.  Use of_SetUserIniFile on The Application Manager to Set The attribute.	Exclamation!	OK!	1	0	N	N
+pfc_master_close_preferenceregistrydebug	PowerBuilder Class Library	The PFC Window Preferences service has been requested but The Required registry attribute has not been Set.  Use of_SetRegistryUserKey on The Application Manage to Set The attribute.	Exclamation!	OK!	1	0	N	N
+pfc_master_helpdebug                    	PowerBuilder Class Library	Help has been requested but the Required Help File Name has Not been Set.  Use of_SetHelpFile on The Application Manager to Set The attribute.	Exclamation!	OK!	1	0	N	N
+pfc_master_open_preferenceregistrydebug 	PowerBuilder Foundation Class Library	The PFC User Preferences service has been requested but The UserRegistrykey property has not been Set on The application manager Object.~r~n~r~n Call of_SetUserIniFile on The Application Manage to Set The property.	Exclamation!	OK!	1	0	N	N
+pfc_menu_msgnotreceived                 	%s	El mensaje %s no ha sido recuperado.	Information!	OK!	1	0	N	N
+pfc_mru_closedebug                      	PowerBuilder Class Library	Ocurrió un error mientras se guardaba la información del servicio MRU al registro INI.	Exclamation!	OK!	1	0	N	N
+pfc_mru_opendebug                       	PowerBuilder Class Library	The PFC MRU service has been requested but the REQUIRED User registry/INI File attributes have not been set.  Use of_SetUserKey/of_SetUserIniFile on the PFC MRU object to set the attribute.	Exclamation!	OK!	1	0	N	N
+pfc_pagesetup_bottomminimum             	Configuración de Pagina	El margen inferior mínimo es %s	Exclamation!	OK!	1	0	N	N
+pfc_pagesetup_leftminimum               	Configuración de Página	El margen mínimo izquierdo es %s	Exclamation!	OK!	1	0	N	N
+pfc_pagesetup_rightminimum              	Configuración de Página	El margen mínimo derecho es %s	Exclamation!	OK!	1	0	N	N
+pfc_pagesetup_topminimum                	Configuración de Página	El margen mínimo superior es %s	Exclamation!	OK!	1	0	N	N
+pfc_print_accesserror                   	IMPRIMIR	Ha ocurrido un error accediendo a la configuración de la impresora.	Exclamation!	OK!	1	0	N	N
+pfc_print_invalidcopies                 	IMPRIMIR	El número de copias debe ser mayor a cero.	Exclamation!	OK!	1	0	N	N
+pfc_print_invalidfromvalue              	IMPRIMIR	El valor del 'From' no puede ser mayor al valor del 'To'.	Exclamation!	OK!	1	0	N	N
+pfc_print_invalidpagerange              	IMPRIMIR	%s	Exclamation!	OK!	1	0	N	N
+pfc_replace_finishreplace               		%s  se han reemplazado %s elementos.	Information!	OK!	1	0	N	N
+pfc_replace_finishreplacesearch         		%s ha finalizado la búsqueda.	Information!	OK!	1	0	N	N
+pfc_replace_finishsearch                		%s ha acabado la búsqueda.	Information!	OK!	1	0	N	N
+pfc_replacefile                         	%s	El fichero %s ya existe.~r~n~r~n¿Desea reemplazarlo?	Exclamation!	YesNo!	1	0	N	N
+pfc_requiredmissing                     		Debe introducir un valor  para la columna %s en la fila %s.	Information!	OK!	1	0	N	N
+pfc_requiredmissingondatastore          		Debe introducir un valor en el datastore para la columna %s en la fila %s.	Information!	OK!	1	0	N	N
+pfc_rowmanager_confirmmultipledelete    	BORRADO MÚLTIPLE	¿Confirma que quiere borrar %s %s?	Question!	YesNo!	1	0	N	N
+pfc_rowmanager_confirmsingledelete      	BORRADO	¿Confirma que quiere eliminar %s?	Question!	YesNo!	1	0	N	N
+pfc_rowmanager_norestore                	%s	No hay %s para restaurar.	Information!	OK!	1	0	N	N
+pfc_savechanges                         	%s	¿Desea guardar los cambios de %s? 2	Question!	YesNoCancel!	1	0	N	N
+pfc_security_setdatawindowcolumns       	'Modificación fallida '+%s	%s	Information!	OK!	1	0	N	N
+pfc_securitystatuserror                 	of_setcontrolstatus	Control desconocido %s. Por favor, contacte con su administrador de sistema.	StopSign!	OK!	1	0	N	N
+pfc_sqlpreview_error                    	SQLSpy en SQLPreview	Ha ocurrido un error con la siguiente SQL:~r~n~r~n &	Information!	OK!	1	0	N	N
+pfc_sqlspy_replacefile                  	%s	¿Desea reemplazar el fichero  &?	Question!	YesNo!	1	0	N	N
+pfc_systemerror                         	System Error	%s	StopSign!	OK!	1	0	N	N
+pfc_tv_datasource_confirmdeletemulti    	BORRADO MÚLTIPLE	¿Confirma que desea eliminar %s %s?	Question!	YesNo!	1	0	N	N
+pfc_tv_datasource_confirmdeletesingle   	BORRADO	Confirma que desea eliminar %s?	Question!	YesNo!	1	0	N	N
+wf_informar_cliente                     	wf_informar_cliente	¿DESEA ENVIAR LA ORDEN DE CARGA AL CLIENTE?	Information!	YesNo!	1	0	N	N
+wf_informar_cooperativa                 	wf_informar_cooperativa	¿DESEA ENVIAR LA ORDEN DE CARGA A LAS COOPERATIVAS?	Information!	YesNo!	1	0	N	N
+wf_informar_transportista               	wf_informar_transportista	¿DESEA ENVIAR LA ORDEN DE CARGA AL TRANSPORTISTA?	Information!	YesNo!	1	0	N	N
+wf_recuperar_ultimos_precios            	wf_recuperar_ultimos_precios	Ya hay precios por palet introducidos ¿desea volver a cargar los últimos precios por palet del transportista seleccionado?	Information!	YesNo!	1	0	N	N

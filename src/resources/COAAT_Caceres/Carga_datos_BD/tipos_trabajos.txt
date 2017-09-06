@@ -1,0 +1,30 @@
+00 	VARIOS
+11 	Obra Nueva Edificación
+12 	Obra Nueva Naves y Similares
+13 	Obra Nueva Otras Construcciones
+21 	Ampliación Edificación
+22 	Ampliación Naves y Similares
+23 	Ampliación Otras Construcciones
+31 	Reforma y/o Restauración de Edificio
+32 	Reforma y/o Restauración de Naves y Similares
+33 	Reforma y/o Restauración de Otras Construcciones
+41 	Reforma y/o Acondicionamiento de Local
+42 	Decoración de Local
+51 	Refuerzo y/o Consolidación Edificio
+52 	Refuerzo y/o Consolidación Otras Construcciones
+61 	Conservación y Mantenimiento Edificación
+62 	Conservación y Mantenimiento Naves y Similares
+63 	Conservación y Mantenimiento Otras Construcciones
+71 	Obra Nueva de Urbanización
+72 	Ampliación de Urbanización
+73 	Reforma de Urbanización
+74 	Conservación y Mantenimiento de Urbanización
+75 	Demolición de Urbanización
+76 	Jardinería y Conservación del Paisaje
+81 	Instalaciones Receptoras de Agua
+82 	Instalación de Grúa
+83 	Instalación de Andamios
+84 	Otras Instalaciones
+91 	Demolición de Obras de Edificación
+92 	Demolición de Naves y Similares
+93 	Demolición de Otras Construcciones

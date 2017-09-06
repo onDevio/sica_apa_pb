@@ -1,0 +1,410 @@
+43        	QFA	VCCS	1	 	
+44        	QFA	VCCS	1	 	
+470       	QFA	VCCS	1	 	
+472       	QFA	VCCS	1	 	
+473       	QFA	VCCS	1	 	
+41        	QFA	VCCS	1	 	
+475       	QFA	VCCS	1	 	
+476       	QFA	VCCS	1	 	
+477       	QFA	VCCS	1	 	
+478       	QFA	VCCS	1	 	
+51        	QFA	VCCS	1	 	
+54        	QFA	VCCS	1	 	
+55        	QFA	VCCS	1	 	
+57        	QFA	VCCS	1	 	
+48        	QFA	VCCS	1	 	
+58        	QFA	VCCS	1	 	
+no292     	SIN	SIGN	1	 	
+no297     	SIN	SIGN	1	 	
+no298     	SIN	SIGN	1	 	
+no39      	SIN	SIGN	1	 	
+no593     	SIN	SIGN	1	 	
+no594     	SIN	SIGN	1	 	
+no595     	SIN	SIGN	1	 	
+no596     	SIN	SIGN	1	 	
+no598     	SIN	SIGN	1	 	
+no121     	SIN	SIGN	1	 	
+no129     	SIN	NOAP	1	 	
+no121     	SIA	SIGN	1	 	
+no129     	SIA	NOAP	1	 	
+no282     	SIA	SIGN	1	 	
+no291     	SIA	SIGN	1	 	
+no292     	SIA	SIGN	1	 	
+no297     	SIA	SIGN	1	 	
+no39      	SIA	SIGN	1	 	
+no490     	SIA	SIGN	1	 	
+no59      	SIA	SIGN	1	 	
+no600     	PGN	CONS	1	 	
+no610     	PGN	CONS	1	 	
+no71      	PGN	CONS	1	 	
+no791     	PGN	SIGN	1	 	
+no792     	PGN	SIGN	1	 	
+no7960    	PGN	SIGN	1	 	
+no7961    	PGN	SIGN	1	 	
+no7965    	PGN	SIGN	1	 	
+no7966    	PGN	SIGN	1	 	
+no797     	PGN	SIGN	1	 	
+no60      	PGA	CONS	1	 	
+no61      	PGA	CONS	1	 	
+no71      	PGA	CONS	1	 	
+no791     	PGA	SIGN	1	 	
+no792     	PGA	SIGN	1	 	
+no7961    	PGA	SIGN	1	 	
+no7963    	PGA	SIGN	1	 	
+no7965    	PGA	SIGN	1	 	
+no7966    	PGA	SIGN	1	 	
+no797     	PGA	SIGN	1	 	
+no799     	PGA	SIGN	1	 	
+7632      	PG8	SIGN	1	 	
+766       	PG8	SIGN	1	 	
+768       	PG8	SIGN	1	 	
+770       	PG8	SIGN	1	 	
+772       	PG8	SIGN	1	 	
+773       	PG8	SIGN	1	 	
+775       	PG8	SIGN	1	 	
+790       	PG8	SIGN	1	 	
+791       	PG8	SIGN	1	 	
+792       	PG8	SIGN	1	 	
+796       	PG8	SIGN	1	 	
+797       	PG8	SIGN	1	 	
+798       	PG8	SIGN	1	 	
+799       	PG8	SIGN	1	 	
+551       	SI8	SDO2	1	 	
+5523      	SI8	SDO2	1	 	
+5525      	SI8	SDO2	1	 	
+9999      	FDF	IMAI	1	 	
+8         	SI8	SDO2	1	 	
+9         	SI8	SDO2	1	 	
+129       	SIY	SREJ	1	 	
+5523      	SIY	SDO2	1	 	
+5524      	SIY	SDO2	1	 	
+5525      	SIY	SDO2	1	 	
+551       	SIY	SDO2	1	 	
+46        	QFA	VCCS	1	 	
+40        	QFA	VCCS	1	 	
+52        	QFA	VCCS	1	 	
+no291     	SIN	SIGN	1	 	
+no490     	SIN	SIGN	1	 	
+no597     	SIN	SIGN	1	 	
+no281     	SIA	SIGN	1	 	
+no298     	SIA	SIGN	1	 	
+no708     	PGN	SIGN	1	 	
+no7963    	PGN	SIGN	1	 	
+no799     	PGN	SIGN	1	 	
+no7960    	PGA	SIGN	1	 	
+no798     	PGA	SIGN	1	 	
+471       	QFA	VCCS	1	 	
+no296     	SIN	SIGN	1	 	
+no296     	SIA	SIGN	1	 	
+no798     	PGN	SIGN	1	 	
+100       	ECP	APH 	1	A511	
+101       	ECP	APH 	1	A511	
+102       	ECP	APH 	1	A511	
+100       	ECP	HAB 	1	B517	#1
+101       	ECP	DEB 	1	B524	
+101       	ECP	HAB 	1	B524	
+102       	ECP	DEB 	1	B524	
+102       	ECP	HAB 	1	B524	
+100       	ECP	HAB 	1	D517	#1
+101       	ECP	DEB 	1	D524	
+101       	ECP	HAB 	1	D524	
+102       	ECP	DEB 	1	D524	
+102       	ECP	HAB 	1	D524	
+1030      	ECP	APH 	2	A511	
+1040      	ECP	APH 	2	A511	
+1030      	ECP	HD  	2	B517	#1
+1040      	ECP	HD  	2	B517	#1
+1030      	ECP	HD  	2	D517	#1
+1040      	ECP	HD  	2	D517	#1
+110       	ECP	APH 	3	A511	
+110       	ECP	HAB 	3	D517	#1
+110       	ECP	DEB 	3	B518	#1
+110       	ECP	DEB 	3	D518	#1
+112       	ECP	APH 	4	A511	
+113       	ECP	APH 	4	A511	
+114       	ECP	APH 	4	A511	
+115       	ECP	APH 	4	A511	
+119       	ECP	APH 	4	A511	
+112       	ECP	AC  	4	A512	
+113       	ECP	AC  	4	A512	
+114       	ECP	AC  	4	A512	
+115       	ECP	AC  	4	A512	
+119       	ECP	AC  	4	A512	
+112       	ECP	AE  	4	A513	
+113       	ECP	AE  	4	A513	
+114       	ECP	AE  	4	A513	
+115       	ECP	AE  	4	A513	
+119       	ECP	AE  	4	A513	
+112       	ECP	HD  	4	B524	
+113       	ECP	HD  	4	B524	
+114       	ECP	HD  	4	B524	
+115       	ECP	HD  	4	B524	
+119       	ECP	HD  	4	B524	
+112       	ECP	AC  	4	C512	
+113       	ECP	AC  	4	C512	
+114       	ECP	AC  	4	C512	
+115       	ECP	AC  	4	C512	
+119       	ECP	AC  	4	C512	
+112       	ECP	AE  	4	C513	
+113       	ECP	AE  	4	C513	
+114       	ECP	AE  	4	C513	
+115       	ECP	AE  	4	C513	
+119       	ECP	AE  	4	C513	
+112       	ECP	HD  	4	D524	
+113       	ECP	HD  	4	D524	
+114       	ECP	HD  	4	D524	
+115       	ECP	HD  	4	D524	
+119       	ECP	HD  	4	D524	
+108       	ECP	APH 	5	A511	
+109       	ECP	APH 	5	A511	
+108       	ECP	HD  	5	B526	
+109       	ECP	HD  	5	B526	
+108       	ECP	HD  	5	D526	
+109       	ECP	HD  	5	D526	
+120       	ECP	APH 	6	A511	
+121       	ECP	APH 	6	A511	
+120       	ECP	HD  	6	B524	
+121       	ECP	HD  	6	B524	
+120       	ECP	HD  	6	D524	
+121       	ECP	HD  	6	D524	
+118       	ECP	APH 	7	A511	
+118       	ECP	HD  	7	B526	
+118       	ECP	HD  	7	D526	
+129       	ECP	APH 	8	A511	
+129       	ECP	HD  	8	B524	
+6         	ECP	HD  	8	B528	
+7         	ECP	HD  	8	B528	
+129       	ECP	HD  	8	D524	
+6         	ECP	HD  	8	D528	
+7         	ECP	HD  	8	D528	
+557       	ECP	APH 	9	A511	
+557       	ECP	HD  	9	B526	
+557       	ECP	HD  	9	D526	
+133       	ECP	APH 	11	A511	
+137       	ECP	APH 	11	A511	
+137       	ECP	HD  	11	B527	
+133       	ECP	HD  	11	B529	
+137       	ECP	HD  	11	D527	
+133       	ECP	HD  	11	D529	
+130       	ECP	APH 	12	A511	
+131       	ECP	APH 	12	A511	
+132       	ECP	APH 	12	A511	
+130       	ECP	HD  	12	B529	
+131       	ECP	HD  	12	B529	
+132       	ECP	HD  	12	B529	
+130       	ECP	HD  	12	D529	
+131       	ECP	HD  	12	D529	
+132       	ECP	HD  	12	D529	
+100       	ECA	APH 	1	A511	
+101       	ECA	APH 	1	A511	
+102       	ECA	APH 	1	A511	
+100       	ECA	DEB 	1	B518	#1
+100       	ECA	HAB 	1	B517	#1
+101       	ECA	DEB 	1	B524	
+101       	ECA	HAB 	1	B524	
+102       	ECA	DEB 	1	B524	
+102       	ECA	HAB 	1	B524	
+100       	ECA	DEB 	1	D518	#1
+101       	ECA	DEB 	1	D524	
+101       	ECA	HAB 	1	D524	
+102       	ECA	DEB 	1	D524	
+102       	ECA	HAB 	1	D524	
+1030      	ECA	APH 	2	A511	
+1040      	ECA	APH 	2	A511	
+1030      	ECA	HD  	2	B517	#1
+1040      	ECA	HD  	2	B517	#1
+1030      	ECA	HD  	2	D517	#1
+1040      	ECA	HD  	2	D517	#1
+110       	ECA	APH 	3	A511	
+110       	ECA	HAB 	3	B517	#1
+110       	ECA	DEB 	3	B518	#1
+110       	ECA	HAB 	3	D517	#1
+110       	ECA	DEB 	3	D518	#1
+112       	ECA	APH 	4	A511	
+113       	ECA	APH 	4	A511	
+114       	ECA	APH 	4	A511	
+115       	ECA	APH 	4	A511	
+119       	ECA	APH 	4	A511	
+112       	ECA	AC  	4	A512	
+113       	ECA	AC  	4	A512	
+114       	ECA	AC  	4	A512	
+115       	ECA	AC  	4	A512	
+119       	ECA	AC  	4	A512	
+112       	ECA	AE  	4	A513	
+113       	ECA	AE  	4	A513	
+114       	ECA	AE  	4	A513	
+115       	ECA	AE  	4	A513	
+119       	ECA	AE  	4	A513	
+112       	ECA	HD  	4	B524	
+113       	ECA	HD  	4	B524	
+114       	ECA	HD  	4	B524	
+115       	ECA	HD  	4	B524	
+119       	ECA	HD  	4	B524	
+112       	ECA	AC  	4	C512	
+113       	ECA	AC  	4	C512	
+114       	ECA	AC  	4	C512	
+115       	ECA	AC  	4	C512	
+119       	ECA	AC  	4	C512	
+112       	ECA	AE  	4	C513	
+113       	ECA	AE  	4	C513	
+114       	ECA	AE  	4	C513	
+115       	ECA	AE  	4	C513	
+119       	ECA	AE  	4	C513	
+112       	ECA	HD  	4	D524	
+113       	ECA	HD  	4	D524	
+114       	ECA	HD  	4	D524	
+115       	ECA	HD  	4	D524	
+119       	ECA	HD  	4	D524	
+108       	ECA	APH 	5	A511	
+109       	ECA	APH 	5	A511	
+108       	ECA	HD  	5	B526	
+109       	ECA	HD  	5	B526	
+108       	ECA	HD  	5	D526	
+109       	ECA	HD  	5	D526	
+120       	ECA	APH 	6	A511	
+121       	ECA	APH 	6	A511	
+120       	ECA	HD  	6	B524	
+121       	ECA	HD  	6	B524	
+120       	ECA	HD  	6	D524	
+121       	ECA	HD  	6	D524	
+118       	ECA	APH 	7	A511	
+118       	ECA	HD  	7	B526	
+118       	ECA	HD  	7	D526	
+129       	ECA	APH 	8	A511	
+129       	ECA	HD  	8	B524	
+6         	ECA	HD  	8	B515	
+7         	ECA	HD  	8	B515	
+129       	ECA	HD  	8	D524	
+6         	ECA	HD  	8	D515	
+7         	ECA	HD  	8	D515	
+557       	ECA	APH 	9	A511	
+557       	ECA	HD  	9	B526	
+557       	ECA	HD  	9	D526	
+133       	ECA	APH 	11	A511	
+137       	ECA	APH 	11	A511	
+137       	ECA	HD  	11	B515	
+133       	ECA	HD  	11	B515	
+137       	ECA	HD  	11	D515	
+133       	ECA	HD  	11	D515	
+130       	ECA	APH 	12	A511	
+131       	ECA	APH 	12	A511	
+132       	ECA	APH 	12	A511	
+130       	ECA	HD  	12	B515	
+131       	ECA	HD  	12	B515	
+132       	ECA	HD  	12	B515	
+130       	ECA	HD  	12	D515	
+131       	ECA	HD  	12	D515	
+132       	ECA	HD  	12	D515	
+100       	ECN	APH 	1	A511	
+101       	ECN	APH 	1	A511	
+102       	ECN	APH 	1	A511	
+100       	ECN	DEB 	1	B518	#1
+100       	ECN	HAB 	1	B517	#1
+101       	ECN	DEB 	1	B524	
+101       	ECN	HAB 	1	B524	
+102       	ECN	DEB 	1	B524	
+102       	ECN	HAB 	1	B524	
+100       	ECN	DEB 	1	D518	#1
+101       	ECN	DEB 	1	D524	
+101       	ECN	HAB 	1	D524	
+102       	ECN	DEB 	1	D524	
+102       	ECN	HAB 	1	D524	
+1030      	ECN	APH 	2	A511	
+1040      	ECN	APH 	2	A511	
+1030      	ECN	HD  	2	B517	#1
+1040      	ECN	HD  	2	B517	#1
+1030      	ECN	HD  	2	D517	#1
+1040      	ECN	HD  	2	D517	#1
+110       	ECN	APH 	3	A511	
+110       	ECN	HAB 	3	B517	#1
+110       	ECN	DEB 	3	B518	#1
+110       	ECN	HAB 	3	D517	#1
+110       	ECN	DEB 	3	D518	#1
+112       	ECN	APH 	4	A511	
+113       	ECN	APH 	4	A511	
+114       	ECN	APH 	4	A511	
+115       	ECN	APH 	4	A511	
+119       	ECN	APH 	4	A511	
+112       	ECN	AC  	4	A512	
+113       	ECN	AC  	4	A512	
+114       	ECN	AC  	4	A512	
+115       	ECN	AC  	4	A512	
+119       	ECN	AC  	4	A512	
+112       	ECN	AE  	4	A513	
+113       	ECN	AE  	4	A513	
+114       	ECN	AE  	4	A513	
+115       	ECN	AE  	4	A513	
+119       	ECN	AE  	4	A513	
+112       	ECN	HD  	4	B524	
+113       	ECN	HD  	4	B524	
+114       	ECN	HD  	4	B524	
+115       	ECN	HD  	4	B524	
+119       	ECN	HD  	4	B524	
+112       	ECN	AC  	4	C512	
+113       	ECN	AC  	4	C512	
+114       	ECN	AC  	4	C512	
+115       	ECN	AC  	4	C512	
+119       	ECN	AC  	4	C512	
+112       	ECN	AE  	4	C513	
+113       	ECN	AE  	4	C513	
+114       	ECN	AE  	4	C513	
+115       	ECN	AE  	4	C513	
+119       	ECN	AE  	4	C513	
+112       	ECN	HD  	4	D524	
+113       	ECN	HD  	4	D524	
+114       	ECN	HD  	4	D524	
+115       	ECN	HD  	4	D524	
+119       	ECN	HD  	4	D524	
+108       	ECN	APH 	5	A511	
+109       	ECN	APH 	5	A511	
+108       	ECN	HD  	5	B523	
+109       	ECN	HD  	5	B523	
+108       	ECN	HD  	5	D523	
+109       	ECN	HD  	5	D523	
+120       	ECN	APH 	6	A511	
+121       	ECN	APH 	6	A511	
+120       	ECN	HD  	6	B524	
+121       	ECN	HD  	6	B524	
+120       	ECN	HD  	6	D524	
+121       	ECN	HD  	6	D524	
+118       	ECN	APH 	7	A511	
+118       	ECN	HD  	7	B523	
+118       	ECN	HD  	7	D523	
+129       	ECN	APH 	8	A511	
+129       	ECN	HD  	8	B524	
+6         	ECN	HD  	8	B515	
+7         	ECN	HD  	8	B515	
+129       	ECN	HD  	8	D524	
+6         	ECN	HD  	8	D515	
+7         	ECN	HD  	8	D515	
+557       	ECN	APH 	9	A511	
+557       	ECN	HD  	9	B523	
+557       	ECN	HD  	9	D523	
+133       	ECN	APH 	11	A511	
+137       	ECN	APH 	11	A511	
+137       	ECN	HD  	11	B515	
+133       	ECN	HD  	11	B515	
+137       	ECN	HD  	11	D515	
+133       	ECN	HD  	11	D515	
+130       	ECN	APH 	12	A511	
+131       	ECN	APH 	12	A511	
+132       	ECN	APH 	12	A511	
+130       	ECN	HD  	12	B515	
+131       	ECN	HD  	12	B515	
+132       	ECN	HD  	12	B515	
+130       	ECN	HD  	12	D515	
+131       	ECN	HD  	12	D515	
+132       	ECN	HD  	12	D515	
+110       	ECP	HAB 	3	B517	#1
+100       	ECA	HAB 	1	D517	#1
+100       	ECN	HAB 	1	D517	#1
+129       	PNN	APYG	0	DAA	 
+8301      	PNN	EIGR	0	HA09	 
+100       	ECA	DEB 	1	B524	#3
+100       	ECA	HAB 	1	B524	#3
+100       	ECP	DEB 	1	B524	#3
+100       	ECP	HAB 	1	B524	#3
+100       	ECA	DEB 	1	D524	#3
+100       	ECA	HAB 	1	D524	#3
+100       	ECP	DEB 	1	D524	#3
+100       	ECP	HAB 	1	D524	#3

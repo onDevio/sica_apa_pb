@@ -1,0 +1,30 @@
+AYTO      	Carta del Ayuntamiento	01	130.0	S	\\coaat-caceres\APLICACIONES\SICA-COMPARTIDO\documentos_fases\	S	N			%		01
+COLEGIA   	Certificados y Resumenes economicos	01	0.0	S	\\coaat-caceres\APLICACIONES\SICA-COMPARTIDO\documentos_fases\	S	N			%		01
+RECLAM_FAS	Cartas de reclamaciones de Fases	01	0.0	S	\\coaat-caceres\APLICACIONES\SICA-COMPARTIDO\reclamaciones\fases\	S	N			%		01
+ECON      	Resumenes Economicos	01	0.0	S	\\coaat-caceres\APLICACIONES\SICA-COMPARTIDO\economicos\	S	N			%		01
+LISTADOS  	Listados	01	0.0	S	\\coaat-caceres\APLICACIONES\SICA-COMPARTIDO\listados\	S	N			%		01
+RE        	Registro de Entrada CC	01	133.0	E		S	N			%		01
+RE        	Registro de Entrada PL	02	3.0	E		S	N			%		01
+RS        	Registro de Salida CC	01	148.0	S		S	N			%		01
+RS        	Registro de Salida PL	02	18.0	S		S	N			%		01
+AYTO      	Carta del Ayuntamiento	02	30.0	S	\\coaat-caceres\APLICACIONES\SICA-COMPARTIDO\documentos_fases\	S	N			%		01
+COLEGIA   	Certificados y Resumenes economicos	02	0.0	S	\\coaat-caceres\APLICACIONES\SICA-COMPARTIDO\documentos_fases\	S	N			%		01
+LIQUID    	Hojas de Liquidaciones	02	0.0	S	\\coaat-caceres\APLICACIONES\SICA-COMPARTIDO\liquidaciones\	S	N			%		01
+RECLAM_EXP	Cartas de reclamaciones de Expedientes	02	0.0	S	\\coaat-caceres\APLICACIONES\SICA-COMPARTIDO\reclamaciones\expedientes\	S	N			%		01
+RECLAM_FAS	Cartas de reclamaciones de Fases	02	17.0	S	\\coaat-caceres\APLICACIONES\SICA-COMPARTIDO\reclamaciones\fases\	S	N			%		01
+REPARO    	Cartas de Reparos	02	0.0	S		S	N			%		01
+ECON      	Resumenes Economicos	02	0.0	S	\\coaat-caceres\APLICACIONES\SICA-COMPARTIDO\economicos\EMPRESA\	S	N			%		01
+LISTADOS  	Listados	02	0.0	S	\\coaat-caceres\APLICACIONES\SICA-COMPARTIDO\listados\	S	N			%		01
+SIS       	Registro Salida Sistema	% 	0.0	S		S	N		0	%		01
+SS        	Registro Salida Secretaria	% 	0.0	S		S	N		0	%		01
+INC       	Cartas de Reparos	01	71.0	S	\\coaat-caceres\APLICACIONES\SICA-COMPARTIDO\documentos\	S	N		0	%		01
+INC       	Cartas de Reparos	02	0.0	S	\\coaat-caceres\APLICACIONES\SICA-COMPARTIDO\documentos\	S	N		0	%		01
+LIQUID    	Hojas de Liquidaciones	01	0.0	S	\\coaat-caceres\APLICACIONES\SICA-COMPARTIDO\liquidaciones\	S	N			%		01
+RECLAM_EXP	Cartas de reclamaciones de Expedientes	01	0.0	S	\\coaat-caceres\APLICACIONES\SICA-COMPARTIDO\reclamaciones\expedientes\	S	N			%		01
+RENUNCIA  	Cartas de Renuncias	01	85.0	S	\\coaat-caceres\APLICACIONES\SICA-COMPARTIDO\documentos\	S	N		0	%		01
+REPARO    	Cartas de Reparos	01	0.0	S		S	N			%		01
+RENUNCIA  	Cartas de Renuncias	02	0.0	S	\\coaat-caceres\APLICACIONES\SICA-COMPARTIDO\documentos\	S	N		0	%		01
+RS        	Registro Salida Fundación	% 	0.0	S		S			0	%		02
+RE        	Registro Entrada Fundación	% 	0.0	E		S	N		0	%		02
+RE        	Registro Entrada Aseguradora	% 	4.0	E		S	N		0	%		03
+RS        	Registro Salida Aseguradora	% 	4.0	S		S	N		0	%		03

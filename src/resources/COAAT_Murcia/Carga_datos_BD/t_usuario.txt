@@ -1,0 +1,1976 @@
+0000000001	DE PRUEBA, USUARIO	0001      	0001                	 	0000011764			Mar  3 2099 12:00:00:000AM	0	ES
+0000000017	(GABINETE), ANA	ana       	ana                 	04				May  3 2099 12:00:00:000AM	0	
+0000000018	(VISADOS), ANTONIO	ant       	ant                 	00				May  3 2099 12:00:00:000AM	0	
+0000000019	(GERENCIA), MANOLO	masego    	msg                 					Mar  3 2099 12:00:00:000AM	0	
+0000000020	(VISADOS), FUENSANTA	fuen      	fuen                	00				Dec  1 2099 12:00:00:000AM	0	ES
+0000000021	(VISADOS), BEGOÑA	123poiu   	bego                	00				Mar  3 2099 12:00:00:000AM	0	
+0000000022	(CONTABILIDAD), ROSA	rosa      	rosa                	00		c		May  3 2099 12:00:00:000AM	0	
+0000000023	(SECRETARIA), CARMEN	mc        	mc                  	02				May  3 2099 12:00:00:000AM	0	
+0000000024	TERESA,	1231234   	teresa              	04						
+0000000026	(CARTAGENA), JOSE	jose      	jose                					May  3 2099 12:00:00:000AM	0	
+0000000027	(GABINETE), JULIAN	julian    	julian              	04				Mar  3 2099 12:00:00:000AM	0	
+0000000028	(GABINETE), ARACELI	ara       	ara                 	04		A		May  3 2099 12:00:00:000AM	0	
+0000000029	(CARTAGENA), MERCEDES	m.herrera 	mhf                 	00				May  3 2099 12:00:00:000AM	0	
+0000000030	(GABINETE), CARMELO	gojuryu   	carmelo             	04		A		May  3 2099 12:00:00:000AM	0	ES
+0000000032	GARCIA AYALA, JOSE	pepe      	pepe                					Mar  2 2012 12:00:00:000AM	0	
+0000000025	(CARTAGENA), JOSE LUIS	jl        	jl                  					May  3 2099 12:00:00:000AM	0	
+0000000031	(CARTAGENA), LOURDES	lourdes   	lourdes             					May  3 2099 12:00:00:000AM	0	
+0000000033	ASTURIAS, COAAT	33007     	astur               							
+0000000034	GRAN CANARIA Y FUERTEVENTURA, COAAT	35004     	canaria             							
+1000000001	(VISADOS), Rosa	1234567   	mrosa               	00				Mar  3 2099 12:00:00:000AM	0	
+1000000002	(COLEGIO), SIVA	230049    	siva                							
+1000000007	COAAT ALICANTE, GABINETE TÉCNICO	03005     	gtalc               							
+1000000008	COAAT LLEIDA, GABINETE TÉCNICO	25006     	gtlle               							
+1000000009	COAAT VALENCIA, GABINETE TÉCNICO	46002     	gtvlc               							
+1000000010	COAAT GIRONA, GABINETE TÉCNICO	17005     	gtgir               							
+1000000011	COAAT MÁLAGA, GABINETE TÉCNICO	29016     	gtmal               							
+1000000012	COAAT ALMERÍA, GABINETE TÉCNICO	04001     	gtalm               							
+1000000013	COAAT MALLORCA, GABINETE TÉCNICO	07014     	gtmll               							
+1000000023	(VISADOS), LOLA	lola      	lola                	00		c		May  3 2099 12:00:00:000AM	0	
+1000000024	(VISADOS), MARILÓ	marilo    	marilo              	00				Mar  3 2099 12:00:00:000AM	0	
+1000000029	(SECRETARIA), MARIA JOSE	mjose     	mjose               	02				Mar  3 2099 12:00:00:000AM	0	
+1000000040	(VISADOS), PILAR	12345678  	pilar               	00						
+1000000099	ABELLÁN TAPIA, JOSÉ	bufete    	jabellan            							
+1000000116	COAAT BURGOS, GABINETE TECNICO	101112    	gtbur               							
+10        	ALBACETE BARNUEVO, MARIA-MERCEDES	04040106  	1655                		0000008170					
+75        	BERMEJO ARNALDOS, DAVID	dba1643   	1643                		0000008130					
+135       	CAVA SANCHEZ, RAUL	1,Nm36    	1649                		0000008156					
+139       	CERDAN NOGUERA, DANIEL	olyhed543 	1651                		0000008159					
+197       	FERNANDEZ GIMENEZ, ANGEL	jsdljkv   	1648                		0000008153					
+231       	GARCIA GARRE, PEDRO	07051962  	1646                		0000008148					
+338       	HERNANDEZ CONESA, FRANCISCO	012100    	1652                		0000008160					
+477       	MARTINEZ LOPEZ, MARIA-MERCEDES	granada   	1653                		0000008161					
+501       	MARTINEZ TOMAS, MARIA TERESA	3ed5tg6yh 	1645                		0000008146					
+695       	REINALDOS GARCÍA, FRANCISCO	juanamaria	1644                		0000008145					
+741       	RUIZ LOPEZ, FRANCISCO-JOSE	fj120469  	1647                		0000008149					
+797       	SERRANO ROSON, MARC	marc1ser  	1650                		0000008158					
+801       	SOBREVIELA FONRUGE, ELENA	020362    	1654                		0000008167					
+1         	ABADIA SANCHEZ, ALVARO	274422    	1143                		1143					
+2         	ABELLAN MARTINEZ, EUSEBIO	eusebio   	0707                		0707					
+3         	ABELLAN SANCHEZ, ANTONIO	aa2442    	0440                		0440					
+4         	ABRIL NAVARRO, SALVADOR	061539    	0220                		0220					
+5         	AGÜERA PAREDES, CATALINA	capa13    	1361                		1361					
+6         	AGUILAR QUIGNON, FRANCISCO	jjurkjlg  	0425                		0425					
+7         	AGULLO NAVARRO, ANTONIO	a_0511    	1500                		1500					
+8         	AGULLO QUIROS, ISIDORO	a31416    	0790                		0790					
+9         	ALARCOS LOPEZ, ANDRES	safsdgdhdf	1610                		1610					
+11        	ALCAINA GARCIA, BENIGNO	cosita    	1182                		1182					
+12        	ALCAÑIZ MARTINEZ, JESUS-HERMINIO	esfera    	0831                		0831					
+13        	ALCARAZ CASTEJON, ANTONIO-JOSE	13131313  	1469                		1469					
+14        	ALCARAZ MERINO, JOSE	he84al88  	0717                		0717					
+15        	ALCAZAR ESPIN, JOSE-MANUEL	alcazarita	1459                		1459					
+16        	ALCAZAR GARCIA, MARIA-AGUSTINA	130773    	1438                		1438					
+17        	ALCAZAR PASTOR, JOSE-MARIA	205205    	0205                		0205					
+18        	ALCOLEA GARRIDO, ANDRES	jsdljkv   	1176                		1176					
+19        	ALCOLEA LUNA, AMABLE	ama1205   	1205                		1205					
+20        	ALDERETE BOSQUE, JOSE-ANTONIO	150448    	0579                		0579					
+21        	ALEDO GUERAO, SALVADOR-ANGEL	anaaledo  	1089                		1089					
+22        	ALEDO MARTINEZ, SALVADOR	jsdljkv   	0132                		0132					
+23        	ALEGRIA PELLICER, JOSE MARIANO	246891    	1094                		1094					
+24        	ALEMAN CAMPILLO, JUAN-ANTONIO	chitona   	0597                		0597					
+25        	ALEMAN CLARES, JOSE-ANTONIO	183240    	0515                		0515					
+26        	ALEMAN MORALES, MARIA-DEL CARMEN	180802    	1587                		1587					
+27        	ALONSO JIMENEZ, JOSE-MARIA	yecla-    	0752                		0752					
+28        	ANDUJAR MARTINEZ, JOSE-JOAQUIN	31101075  	1412                		1412					
+29        	ANDUJAR MARTINEZ, PEDRO	spperi    	1521                		1521					
+30        	ANTON GARCIA, JOSE MANUEL	manoloanto	0497                		0497					
+31        	ARACIL SALA, JOSE-MANUEL	211153    	0820                		0820					
+32        	ARCAS CAMPOY, JAIME FRANCISCO JAVIER	466194    	1019                		1019					
+33        	ARCAS MARTINEZ SALAS, JERONIMO	261500    	0605                		0605					
+34        	ARCAS MECA, FRANCISCO	jsdljkv   	0327                		0327					
+35        	ARIAS LOPERENA, ANGEL	jsdljkv   	1314                		1314					
+36        	ARIAS LOPEZ, SEVERIANO	00156100  	1414                		1414					
+37        	AROCA VILLALBA, DIEGO-JOSE	jsdljkv   	1499                		1499					
+38        	AROCA VILLALBA, MIGUEL	482550    	1598                		1598					
+39        	ARQUES PEREZ, ANTONIO	180753    	0466                		0466					
+40        	ARTES CARPENA, OCTAVIO	taviana   	1352                		1352					
+41        	ARTES CARPENA, PEDRO	jsdljkv   	1098                		1098					
+42        	ASENSIO SANCHEZ, JUAN-ANTONIO	1957ja    	0728                		0728					
+43        	AVELLANEDA GOICURIA, MARIA-VICTORIA	victoria  	1354                		1354					
+44        	AVILES PEREZ, FRANCISCO	208922    	0892                		0892					
+45        	AYALA LOPEZ, FRANCISCO-JAVIER	85831958  	0898                		0898					
+46        	AYALA RODRIGUEZ, JUAN	pcewfn    	1401                		1401					
+47        	AYALA SCHRAEMLI, ALFREDO-ENRIQUE	uhygt543e 	1471                		1471					
+48        	AZNAR ROSIQUE, JOSE	001773    	1460                		1460					
+49        	AZORIN RICO, INMACULADA	jsdljkv   	1389                		1389					
+50        	BAENA DELGADO, FRANCISCO	jsdljkv   	0218                		0218					
+51        	BAENA RUIZ, GRACIAN	1952gb    	0737                		0737					
+52        	BAEZA VILELA, YOLANDA	x00xdy    	1385                		1385					
+53        	BALIBREA AGUADO, VICENTE	jsdljkv   	0255                		0255					
+54        	BALLESTA CONEJERO, ANTONIO	221145    	0390                		0390					
+55        	BALLESTER CARRASCO, JULIO	sergio    	1433                		1433					
+56        	BALLESTER GARCIA, PEDRO-EMILIO	666888    	0688                		0688					
+57        	BALLESTER LOPEZ, EDUARDO	2w34r5t6bv	1479                		1479					
+58        	BALSALOBRE BENITO, BARTOLOME	bartolome 	0467                		0467					
+59        	BALSALOBRE MARTINEZ, PASCUAL	820600    	0470                		0470					
+60        	BAÑON LORENTE, MARINO	mbl30016  	1056                		1056					
+61        	BAÑOS GIL, FRANCISCO	270676    	1631                		1631					
+62        	BARCELO CLEMARES, MARIA TERESA	696266    	1066                		1066					
+63        	BARCELO PEÑALVER, JOSE-ANTONIO	22321676  	0293                		0293					
+64        	BAUTISTA CARRASCO, JOSE-ENRIQUE	181712    	1321                		1321					
+65        	BAUTISTA DIEZ DE LA LASTRA, JOSE	181086    	0990                		0990					
+66        	BAYONAS VICENTE, ALFONSO	021063    	1044                		1044					
+67        	BEDIA NAVARRO, MARIA-JOSE	bedia15   	1624                		1624					
+68        	BELANDO ROS, FRANCISCO	123456    	0920                		0920					
+69        	BELCHI ALEDO, PEDRO	jsdljkv   	0320                		0320					
+70        	BELMONTE FERNANDEZ, MIGUEL	bel2259   	0805                		0805					
+71        	BELTRAN ZAMORA, JOSE-MARIA	200209    	1555                		1555					
+72        	BELTRI CARREÑO, GUILLERMO	jsdljkv   	0172                		0172					
+73        	BELTRI FERNANDEZ, GUILLERMO	jsdljkv   	0980                		0980					
+74        	BENITO ALONSO, ANTONIO	020140    	0371                		0371					
+76        	BERMUDEZ DEL CERRO, FRANCISCO	bermudez  	0967                		0967					
+77        	BERMUDEZ PALAZON, CIRILO	ciri085   	0853                		0853					
+78        	BERNAL CALDERON, MARIA CARMEN	chiqui    	0785                		0785					
+79        	BERNAL ROMERO, JESUS IGNACIO	consuelo  	0666                		0666					
+80        	BLANCO CARRASCOSA, BERNARDO	sedrftg2  	1596                		1596					
+81        	BLANCO NAVEROS, MIGUEL	000804    	0804                		0804					
+82        	BLAY BUENDIA, JOAQUIN-JOSE	11233eeddr	1015                		1015					
+83        	BLAYA FERNANDEZ, MARCOS	662496    	1403                		1403					
+84        	BLAYA GARCIA, ASCENSION	662244    	1573                		1573					
+85        	BLEDA CARRION, ANTONIO	rebeca    	0909                		0909					
+86        	BO POVEDA, MARIA	lk76yhgtr4	1639                		1639					
+87        	BOLUDA SANCHEZ, JOSE-PASCUAL	jsdljkv   	0718                		0718					
+88        	BONILLA MEDINA, JAVIER	canito    	1505                		1505					
+89        	BONILLO DIAZ, JERONIMA	jsdljkv   	0705                		0705					
+90        	BONILLO DIAZ, MARIA-INMACULADA	232058    	0876                		0876					
+91        	BONILLO JIMENEZ, ANTONIO	4boni_jr13	0918                		0918					
+92        	BORREDAT GARCIA, EDUARDO	ddf65gtrrf	1099                		1099					
+93        	BOTIA GARCIA, ANTONIO	toninono  	0642                		0642					
+94        	BOTIAS ARNAU, JORGE	321977    	1642                		1642					
+95        	CABALLERO MOLINA, JUAN-IGNACIO	juigcamo  	0463                		0463					
+96        	CABELLO MORALES, JOAQUIN	jsdljkv   	0447                		0447					
+97        	CABRERA SANCHEZ, RAMON-ANGEL	ramon3    	0862                		0862					
+98        	CABRERA SEGURA, ANDRES	1410lara  	0953                		0953					
+99        	CABRERA SEVA, JOAQUIN	edyhetgrf 	1577                		1577					
+100       	CACERES NAVARRO, CRISTOBAL JAVIER	000000    	1601                		1601					
+101       	CACHORRO RODRIGUEZ, EMILIO	jsdljkv   	0201                		0201					
+102       	CAGIGA PELAYO, JOSE-MARIA	jsdljkv   	0734                		0734					
+103       	CALDERON GARCIA, JOSE-CARLOS	507043    	1493                		1493					
+104       	CALERO PRIETO, ANTONIO	jsdljkv   	1219                		1219					
+105       	CALVO NAVARRO, ANGEL	as45nbxz12	1348                		1348					
+106       	CANALEJO TELLO, FRANCISCO-JAVIER	2221968   	1457                		1457					
+107       	CANICIO SANCHEZ, FRANCISCO	canicio8  	1006                		1006					
+108       	CANO BALLESTEROS, FRANCISCO-LUIS	pacocano  	0922                		0922					
+109       	CANO MARTINEZ, JOSE	240892    	1491                		1491					
+110       	CANOVAS CANOVAS, MARIA-CONCEPCION	con8278cha	0968                		0968					
+111       	CANOVAS CARRILLO, MANUEL	mcc1588   	0594                		0594					
+112       	CANOVAS MOLINO, FRANCISCO-JOSE	caridad   	1316                		1316					
+113       	CAÑADAS JIMENEZ, PLACIDO	777pcj    	0777                		0777					
+114       	CAPEL PELEGRIN, MARIANO-MATIAS	guatemal  	0452                		0452					
+115       	CAPOTE GONZALEZ, JUAN-NORBERTO	nc1227    	1227                		1227					
+116       	CARBAJO MARTINEZ, MANUEL	616616    	0939                		0939					
+117       	CARBONELL RUIZ, ENRIQUE	jsdljkv   	0067                		0067					
+118       	CARCELES GARRALON, MIGUEL-ANGEL	miguela   	0972                		0972					
+119       	CARCELES LOPEZ, JOAQUIN	180750    	0622                		0622					
+120       	CARCELES MOLINA, PEDRO	jsdljkv   	0413                		0413					
+121       	CARDONA MARTINEZ, MARIA PILAR	198000    	0426                		0426					
+122       	CARRASCO MARCOS, CARLOS-FRANCISCO	jsdljkv   	1568                		1568					
+123       	CARRASCO MARTINEZ, JOSE-ANTONIO	jac5432   	0983                		0983					
+124       	CARRASCO YELO, CARMELO	21052105  	1554                		1554					
+125       	CARRILLO MARIN, JUAN	carana    	1188                		1188					
+126       	CARRION CERVANTES, FULGENCIO	carrion1  	0273                		0273					
+127       	CARTAGENA TRAVESEDO, FRANCISCO-JOSE	29006761n 	1296                		1296					
+128       	CARVAJAL PEREZ, MARIA JOSE	mjcp1497  	1497                		1497					
+129       	CASCALES DELGADO, EDUARDO	jsdljkv   	0553                		0553					
+130       	CASTEJON APARICIO, JUAN	jck3044   	0431                		0431					
+131       	CASTELLANOS MURCIA, MANUEL	jsdljkv   	0297                		0297					
+132       	CASTILLA CID, ALBERTO	jsdljkv   	0243                		0243					
+133       	CASTILLEJO MARIN, JOSE-ANTONIO	251033    	1449                		1449					
+134       	CASTRO FERNANDEZ, SYLVIA	jsdljkv   	0944                		0944					
+136       	CAVANILLES CARBAJO, ANTONIO	jsdljkv   	0360                		0360					
+137       	CELDRAN GADEA, ISABEL MARINA	iscelga   	1515                		1515					
+138       	CERDA FUENTES, FRANCISCO	granja    	0735                		0735					
+140       	CERVANTES GARCIA, JUAN ANTONIO	quijote   	0746                		0746					
+141       	CERVANTES REVUELTA, LUIS-DIEGO	121948    	0690                		0690					
+142       	CERVANTES SANCHEZ, MANUEL	05manu    	0590                		0590					
+143       	CERVERA DUEÑAS, JOSE-MARIA	2451ce    	0567                		0567					
+144       	CHECA GALIANO, RAFAEL	740432    	1281                		1281					
+145       	CHICA URIBE, MANUEL	chiurima16	1473                		1473					
+146       	CHILLON CASANOVA, CARMEN MARIA	67jh23fvdc	1524                		1524					
+147       	CHINCHILLA MAÑAS, DOMINGO-RAUL	jsdljkv   	1599                		1599					
+148       	CHUMILLA MATRAN, ADOLFO	28121963  	1169                		1169					
+149       	CHUMILLA MATRAN, HERMOGENES	22976059  	1170                		1170					
+150       	COLLADO ESPEJO, PEDRO-ENRIQUE	ukn5rp61  	1630                		1630					
+151       	COLLADO GOMEZ-RENGEL, JOSE-RICARDO	jsdljkv   	0895                		0895					
+152       	CONESA CASANOVA, ANDRES	an01dres  	0131                		0131					
+153       	CONESA RUIZ, TRINIDAD	petete    	0874                		0874					
+154       	CONTRERAS LOPEZ, SALVADOR	salvador  	1535                		1535					
+155       	CORNEJO FERNANDEZ, CARMELO	170962    	1513                		1513					
+156       	CORTES CORDOBA, JOSE-LUIS	jl1375    	1375                		1375					
+157       	CORTES NOGALES, DOMINGO-RAMON	cortes    	1504                		1504					
+158       	COSA ORENES, GERARDO	12453221  	1609                		1609					
+159       	COSTA CASTILLO, JOSE-ANTONIO	co0947    	0947                		0947					
+160       	CREMADES MONTEJANO, FELICIANO	jsdljkv   	0719                		0719					
+161       	CUADRADO FERNANDEZ, JULIAN	alskdjfg  	0704                		0704					
+162       	CUBERO GOMEZ, ANTONIO MARIA	acubero   	0438                		0438					
+163       	CUBERO GOMEZ, JAVIER-CRISTOBAL	001207    	1119                		1119					
+164       	CUENCA GIL, FRANCISCO-JAVIER	5050cd    	1506                		1506					
+165       	CUENCA NAVALON, JOSE-MANUEL	141276    	1576                		1576					
+166       	CUEVAS ROBLES, ENCARNACION	nuchi5    	1582                		1582					
+167       	DE BEJAR MANZANERA, JOSE ANTONIO	as34gg5565	1436                		1436					
+168       	DE LA ORDEN ACOSTA, JUANA-MARIA	yh5434d4  	1503                		1503					
+169       	DEL AMOR SANCHEZ, MARIA-DOLORES	030378    	1617                		1617					
+170       	DIAZ GARCIA, MANUEL	marina    	1114                		1114					
+171       	DIAZ LUJAN, ALFONSO	jsdljkv   	0290                		0290					
+172       	DIAZ SANCHEZ, VICENTE	000534    	0534                		0534					
+173       	DOLCET PALAU, FRANCISCO	dolcet    	0396                		0396					
+174       	DOLERA FERNANDEZ, JUAN-ANTONIO	ja1363    	1363                		1363					
+175       	DOLERA MARTINEZ, JOSE-LUIS	dolera    	1588                		1588					
+176       	DOMINGUEZ ALCOBA, JAVIER AUGUSTO	cuattro   	1261                		1261					
+177       	DOMINGUEZ GALZA, JORGE	201201    	1423                		1423					
+178       	DURAN JIMENEZ, EMILIO	150950    	0571                		0571					
+179       	EGEA GARCIA, IGNACIO	jsdljkv   	0891                		0891					
+180       	EGEA HERNANDEZ, JOSE-DOMINGO	181004    	1116                		1116					
+181       	EGEA JIMENEZ, ARTURO	aej91h    	0635                		0635					
+182       	ELEUTERIO GIMENO, MANUEL	me6347    	1425                		1425					
+183       	ELORZA ECHEBARRIA, ASIER	040974    	1485                		1485					
+184       	ESCARBAJAL PEREZ, ANTONIO	961965    	1049                		1049					
+185       	ESCUDERO CASTEJON, PLACIDO	001407    	1407                		1407					
+186       	ESPINOSA GUTIERREZ, FERNANDO	5927feg789	1393                		1393					
+187       	ESQUEMBRE POVEDA, ANGEL	183000    	0122                		0122					
+188       	ESTESO ESTESO, JUAN	eettjj    	1269                		1269					
+189       	FALCO TORTOSA, JUAN-ESTEBAN	aab8bcc   	1047                		1047					
+190       	FECED MARCO, MARIANO	jsdljkv   	0829                		0829					
+191       	FENOLLAR GRIS, GABRIEL	20061633  	1633                		1633					
+192       	FERNANDEZ AMOR, JUANA	juana15   	1501                		1501					
+193       	FERNANDEZ BUENDIA, JOSE	jsdljkv   	0539                		0539					
+194       	FERNANDEZ CAPEL CUETO, CARLOS	jsdljkv   	0684                		0684					
+195       	FERNANDEZ FERNANDEZ, ANTONIO	195612    	0778                		0778					
+196       	FERNANDEZ GARCIA, RICARDO	3330637   	0637                		0637					
+198       	FERNANDEZ JIMENEZ, ANTONIO-JAVIER	ajfernande	0695                		0695					
+199       	FERNANDEZ MARTIN, FRANCISCO	helio2    	0957                		0957					
+200       	FERNANDEZ MARTINEZ, FELIPE	230490    	0840                		0840					
+201       	FERNANDEZ MULA, LUIS-RAMON	190658    	0859                		0859					
+202       	FERNANDEZ SARABIA, JOSE	jsdljkv   	1520                		1520					
+203       	FERNANDEZ VALERA, MIGUEL	01276va   	0394                		0394					
+204       	FERRER BALLESTER, LORENZO	4875bdy   	1073                		1073					
+205       	FERRER CARBONELL, JOSE-MARIA	jsdljkv   	1045                		1045					
+206       	FERRER LOPEZ DE MOLINA, JOAQUIN	846415    	0652                		0652					
+207       	FERRER PORTES, JOSE-GABRIEL	000783    	0783                		0783					
+208       	FORCA ROSAS, JOSE-MARIA	777777    	1381                		1381					
+209       	FORCA RUIZ-OLMO, FERNANDO	520047    	0444                		0444					
+210       	FRUCTUOSO TORTOSA, FRANCISCO	jsdljkv   	0203                		0203					
+211       	GABARRON SANCHEZ, PATRICIA	014520    	1452                		1452					
+212       	GALAN JIMENEZ, JESUS	camaleon  	0649                		0649					
+213       	GALINDO RAMOS, LUIS MIGUEL	lm9228    	1567                		1567					
+214       	GALLARDO ESPINOSA, ALFONSO	001978    	0810                		0810					
+215       	GALLEGO DE LA FUENTE, ROSENDO	rosendo   	0428                		0428					
+216       	GALLEGO GONZALEZ, FERMIN	01231945  	0251                		0251					
+217       	GALLEGO ROS, TOMAS	256500    	0881                		0881					
+218       	GALLEGO ZUAZO, RAUL	197700    	1406                		1406					
+219       	GALLUD ARIÑO, MANUEL	jsdljkv   	1543                		1543					
+220       	GANDOLFO PRETEL, ALFREDO	agp3932   	0929                		0929					
+221       	GARCIA AYALA, MARIA DEL PILAR	250super  	1421                		1421					
+222       	GARCIA AZNAR, PERFECTO	okuytgrf  	1467                		1467					
+223       	GARCIA BOX, JOAQUIN	otemoli   	0798                		0798					
+224       	GARCIA CANOVAS, MARIA-CONCEPCION	330600    	1155                		1155					
+225       	GARCIA CANTO, ANGEL	454545    	0374                		0374					
+226       	GARCIA CLARIANA, CARLOS	60132008  	1466                		1466					
+227       	GARCIA DE LA PAZ, CARLOS-IGNACIO	jsdljkv   	1465                		1465					
+228       	GARCIA FUENTES, JESUS	jgf35d    	1231                		1231					
+229       	GARCIA GARCIA, ASENSIO	asensio15 	1558                		1558					
+230       	GARCIA GARCIA, RAMON-PABLO	741221    	0844                		0844					
+232       	GARCIA GOMEZ, FELIPE-ERNESTO	jsdljkv   	1484                		1484					
+233       	GARCIA GOMEZ, JUAN	019400    	1374                		1374					
+234       	GARCIA GOMEZ, JUAN-JOSE	120755    	1111                		1111					
+235       	GARCIA GRANADOS, FRANCISCO	-lyra1    	1545                		1545					
+236       	GARCIA GUEVARA, ANTONIO	Ramer06   	0771                		0771					
+237       	GARCIA GUEVARA, JOSE MARCOS	90949719  	0910                		0910					
+238       	GARCIA GUEVARA, PABLO IGNACIO	37dpmur   	1468                		1468					
+239       	GARCIA HERNANDEZ, LUCIANO	240957    	0902                		0902					
+240       	GARCIA JIMENEZ, ISIDORO	mu0405    	0772                		0772					
+241       	GARCIA JIMENEZ, JOSE-MANUEL	220742    	1561                		1561					
+242       	GARCIA LOPEZ, ENCARNACION ISABEL	190175    	1534                		1534					
+243       	GARCIA MARCOS, ANTONIO	238727    	0230                		0230					
+244       	GARCIA MARTINEZ, ANTONIO	jsdljkv   	1021                		1021					
+245       	GARCIA MARTINEZ, ISIDORO	10111955  	0656                		0656					
+246       	GARCIA MARTINEZ, JOSE-ANTONIO	040360    	1392                		1392					
+247       	GARCIA MARTINEZ, MAGDALENA	jsdljkv   	0828                		0828					
+248       	GARCIA MELLADO, PEDRO-AMADEO	4320pagm  	0424                		0424					
+249       	GARCIA MOMPEAN, JUAN-GINES	888844    	0848                		0848					
+250       	GARCIA MONTEAGUDO, ANTONIO JESUS	garcia    	1628                		1628					
+251       	GARCIA MOÑINO, JAVIER	jg2260    	0843                		0843					
+252       	GARCIA MORCILLO, RICARDO	rgarcia   	0900                		0900					
+253       	GARCIA MOYA, PEDRO	030755    	0825                		0825					
+254       	GARCIA OLMOS, FRANCISCO	amelia    	0361                		0361					
+255       	GARCIA OTERO, MARIANO-IGNACIO	80832408  	0903                		0903					
+256       	GARCIA PEREZ, VICENTE	jsdljkv   	1268                		1268					
+257       	GARCIA QUESADA, PEDRO	290355    	0827                		0827					
+258       	GARCIA RAMOS, ANTONIO	angarra   	1273                		1273					
+259       	GARCIA ROBLES, JUAN-ANTONIO	hannah    	1344                		1344					
+260       	GARCIA ROCA, EMILIO	trece13   	1440                		1440					
+261       	GARCIA RUBIO, JOSE-LUIS	191289    	0352                		0352					
+262       	GARCIA SALAS, RICARDO	021928    	0836                		0836					
+263       	GARCIA SALAZAR, JOSE-LUIS	salazar   	1004                		1004					
+264       	GARCIA SOLER, PEDRO-LUIS	p4942l    	1584                		1584					
+265       	GARCIA TUNEZ, MARCOS	130151    	0434                		0434					
+266       	GARCIA BAYONAS BLANQUEZ, JOSE LUIS	chechu    	0411                		0411					
+267       	GARCIA-CORCOLES VIVANCOS, FRANCISCO	nuria08   	0976                		0976					
+268       	GARCIA-JOVE FRIAS, MAXIMO	jsdljkv   	0702                		0702					
+269       	GARRIDO GALVEZ, JOSE	banano    	1404                		1404					
+270       	GARRIDO HERNANDEZ, ANTONIO	ascava2000	0451                		0451					
+271       	GEA CARRASCO, JOSE DE	jg1145    	0423                		0423					
+272       	GEA MARTINEZ, JAVIER	135791113 	1448                		1448					
+273       	GERVILLA ALONSO, PALOMA	maeed14da 	1478                		1478					
+274       	GIL DE PAREJA MARTINEZ, MANUEL-PABLO	mpgilpm   	1446                		1446					
+275       	GIL VERA, ALVARO	agv1183   	1184                		1184					
+276       	GIMENEZ FLORES, ANTONIO	12ssd44rff	1172                		1172					
+277       	GIMENEZ LOPEZ, RODRIGO	rodrigo   	1525                		1525					
+278       	GIMENEZ VICENTE, MARIA-VICTORIA	coaatmu   	1068                		1068					
+279       	GINER DIAZ, JOSE-ANTONIO	jsdljkv   	1398                		1398					
+280       	GISBERT DIAZ, JUAN	jgd1444   	0884                		0884					
+281       	GODINO GONZALEZ, JOSE-AGUSTIN	jsdljkv   	1498                		1498					
+282       	GOICOECHEA ACOSTA, MARIA-ARACELI	24108956  	1134                		1134					
+283       	GOMEZ CAMPOS, JOSE-JOAQUIN	jsdljkv   	1158                		1158					
+284       	GOMEZ CARRASCO, PEDRO	lauris    	1028                		1028					
+285       	GOMEZ DE SALAZAR MARTINEZ, CARLOS	cgomez    	1539                		1539					
+286       	GOMEZ GARCIA, MARIA-DOLORES	001462    	1462                		1462					
+287       	GOMEZ HERNANDEZ, JOSE	gltmlq    	1603                		1603					
+288       	GOMEZ LEIVA, DIEGO-JOSE	141714    	0977                		0977					
+289       	GOMEZ ORTEGA, PEDRO-JESUS	pj1204    	1204                		1204					
+290       	GOMEZ PEÑALVER, SALVADOR	23210931kq	0741                		0741					
+291       	GOMEZ PINA, JOSE-ANTONIO	jagomez   	0762                		0762					
+292       	GOMEZ PORRAS, ANTONIO	000825    	1095                		1095					
+293       	GOMEZ RUIZ, FRANCISCO	080561    	0989                		0989					
+294       	GOMEZ SEGURA, ANTONIO	141100    	1461                		1461					
+295       	GOMEZ SORIANO, BENJAMIN	jsdljkv   	1299                		1299					
+296       	GOMEZ DE MEMBRILLERA CERVANTES, JORGE	JM7799    	0546                		0546					
+297       	GONZALEZ BAUTISTA, MARIA DEL CARMEN	carmen    	1247                		1247					
+298       	GONZALEZ DIAZ-CANEJA, JOSE-RAMON	jsdljkv   	1216                		1216					
+299       	GONZALEZ FEREZ, JOSE-ANTONIO	010731    	1334                		1334					
+300       	GONZALEZ FERRER, MARCOS-FELIPE	pichon    	1615                		1615					
+301       	GONZALEZ GARAY, LUIS	sagasta   	1053                		1053					
+302       	GONZALEZ GARCIA, ALEJANDRO	algosl    	1137                		1137					
+303       	GONZALEZ GARCIA, ANTONIO	angoga    	1003                		1003					
+304       	GONZALEZ GOMEZ-ACEBO, JOSE-LUIS	jsdljkv   	0713                		0713					
+305       	GONZALEZ GONZALEZ, ADELINA	cyrgux    	1336                		1336					
+306       	GONZALEZ HUERTA, JOSE RAMON	ro1926    	1592                		1592					
+307       	GONZALEZ PONCE, ELOISA	mn8876bv66	1122                		1122					
+308       	GONZALEZ REQUENA, FLORENCIA	ws4rf5tg  	1613                		1613					
+309       	GONZALEZ RODRIGUEZ, ANTONIO	111098    	1510                		1510					
+310       	GONZALEZ ROMERO, MARIANO	mgonzalez 	1262                		1262					
+311       	GONZALEZ RUIZ, ADOLFO	jsdljkv   	0449                		0449					
+312       	GONZALEZ SOLER, ESTHER-JUANA	jsdljkv   	0863                		0863					
+313       	GONZALEZ VALENZUELA, ANDRES	001430    	0260                		0260					
+314       	GORRIZ CAMARASA, JOSE-EZEQUIEL.	jsdljkv   	0676                		0676					
+315       	GRACIA PARDO, CARMELO	jhtgwe250 	0551                		0551					
+316       	GRASSI SANCHEZ, PABLO-ADRIAN	grassi    	1470                		1470					
+317       	GRAU GOMEZ, JOAQUIN	j90v00    	1234                		1234					
+318       	GRIMA LOPEZ, ALFONSO	alfonso   	1426                		1426					
+319       	GRIÑAN ESCRIBANO, FRANCISCO-JAVIER	001365    	0956                		0956					
+320       	GUARDIOLA JIMENEZ, JUAN ANTONIO	Guarqui   	0934                		0934					
+321       	GUARDIOLA VILLA, JOAQUIN	joguar724 	0724                		0724					
+322       	GUERRERO LAZARO, MIGUEL-ANGEL	ams2ams2  	1611                		1611					
+323       	GUERRERO LEAL, NATALIA	34818222v 	1621                		1621					
+324       	GUERRERO PEREZ, JUAN	1234343256	0572                		0572					
+325       	GUEVARA LAZARO, ANTONIO	0819agl   	0819                		0819					
+326       	GUILLEN BOTIA, JUAN	050987    	0914                		0914					
+327       	GUILLEN CABEDO, ANTONIO	1234567   	0399                		0399					
+328       	GUIRAO HERNANDEZ, CAYETANO	0501ca    	0501                		0501					
+329       	GUIRAO ORTEGA, JOSE	jsdljkv   	0202                		0202					
+330       	GUTIERREZ PICO, JOSE-LUIS	as44rf5tgg	0650                		0650					
+331       	GUZMAN ASENSIO, JOSE ANDRES	ja1070    	1070                		1070					
+332       	GUZMAN JAVIER, RICARDO	jsdljkv   	1187                		1187					
+333       	HARO SAMPER, ELENA	asxx887lkl	1080                		1080					
+334       	HEREDIA DIAÑEZ, MANUEL	123dfr544e	0710                		0710					
+335       	HERNANDEZ ALBARRACIN, FRANCISCO	francisco 	1257                		1257					
+336       	HERNANDEZ ANDUJAR, JUAN	1464jha   	1522                		1522					
+337       	HERNANDEZ BARCELO, JOSE	110661jhb 	1063                		1063					
+339       	HERNANDEZ FERRANDIZ, MARIA-TERESA	hernandez 	0502                		0502					
+340       	HERNANDEZ FUENTES, JOSE-JUAN	jsdljkv   	0618                		0618					
+341       	HERNANDEZ GARCIA, JOSE-ANTONIO	ivana1    	1427                		1427					
+342       	HERNANDEZ GARCIA, JOSEFA	myriam    	1623                		1623					
+343       	HERNANDEZ GARCIA, JOSE MIGUEL	mih076    	0506                		0506					
+344       	HERNANDEZ GOMEZ, MARIA-ELISA	jsdljkv   	1210                		1210					
+345       	HERNANDEZ MARTINEZ, JOSE ANTONIO	df54sdfs23	1620                		1620					
+346       	HERNANDEZ MARTOS, FRANCISCO	2332bd    	0529                		0529					
+347       	HERNANDEZ MUÑOZ, FRANCISCO	060553    	0623                		0623					
+348       	HERNANDEZ ORTEGA, ANTONIO	27435519  	1120                		1120					
+349       	HERNANDEZ RUIZ, PEDRO	12915714  	0207                		0207					
+350       	HERNANDEZ SANCHEZ, EDUARDO	62591440  	1359                		1359					
+351       	HERNANDEZ SANCHEZ, JOSE	jsdljkv   	0625                		0625					
+352       	HERNANDEZ SANCHEZ, JOSE-JOAQUIN	wstgyhiku 	1435                		1435					
+353       	HERNANDEZ SANCHEZ, SALVADOR	capdestopa	0948                		0948					
+354       	HERRERA FERNANDEZ, MARIA-MERCEDES	belher    	1313                		1313					
+355       	HERRERA MESEGUER, JULIAN	julian1451	0487                		0487					
+356       	HERRERO SPUCHE, PEDRO-ALCANTARA	jsdljkv   	0475                		0475					
+357       	HERREROS CONEJERO, SANTIAGO	006789    	0457                		0457					
+358       	HERVAS AVILES, JORGE-JUAN	000531    	0531                		0531					
+359       	HUELBES GONZALEZ, ENRIQUE	quique    	0379                		0379					
+360       	HUETE-HUERTA LOPEZ, CARLOS-JESUS	car1496   	1547                		1547					
+361       	HURTADO CONTRERAS, ANTONIO	26242624  	1595                		1595					
+362       	HURTADO GARCIA, JOSE	121989    	1131                		1131					
+363       	IBAÑEZ ESCARABAJAL, PEDRO	pie5623   	0677                		0677					
+364       	IBAÑEZ GALVEZ, JOSE ANTONIO	alacant   	1405                		1405					
+365       	IBARRA LOPEZ, FRANCISCO	jsdljkv   	0373                		0373					
+366       	IBARRA MULA, JOSE	270453    	0826                		0826					
+367       	IBEAS RUIZ, JOSE	9003010247	0427                		0427					
+368       	IGLESIAS FERNANDEZ, MARIA-PILAR	jsdljkv   	1175                		1175					
+369       	INIESTA ASUNCION, ANTONIO-ALBERTO	181062    	1071                		1071					
+370       	IRACHETA AGUILAR, MIGUEL	079244    	0792                		0792					
+371       	IZQUIERDO OTON, FRANCISCO-ALEJANDRO	jsdljkv   	0624                		0624					
+372       	JIMENEZ BASTIDA, MIGUEL ANGEL	asgeama   	1390                		1390					
+373       	JIMENEZ CARRASCO, ANTONIO-JERONIMO	carrasco  	0942                		0942					
+374       	JIMENEZ CHECA, JUAN JOSE	jujoji    	1125                		1125					
+375       	JIMENEZ GALLEGO, JUAN	123456    	0769                		0769					
+376       	JIMENEZ JIMENEZ, LUIS-GUILLERMO	gratis    	1616                		1616					
+377       	JIMENEZ PALAZON, JOSE-MANUEL	1902mj    	0973                		0973					
+378       	JIMENEZ RODRIGUEZ, JOSE ANTONIO	jjr18r    	0736                		0736					
+379       	JORQUERA MEJIAS, ANTONIO	101956    	0809                		0809					
+380       	LAJARIN GONZALEZ, ANA	ferrovial 	1640                		1640					
+381       	LAPUENTE ORTEGA, JORGE-MANUEL	carmen    	0773                		0773					
+382       	LARIO GARCIA-ALCARAZ, ANTONIO	jsdljkv   	0838                		0838					
+383       	LARROSA MARTINEZ, JOSE-ANGEL	jal0889   	0889                		0889					
+384       	LEAL ZARAGOZA, FRANCISCO	pacoleal  	1194                		1194					
+385       	LEANDRO DEL PINO, ALFONSO	177777    	1349                		1349					
+386       	LEGAZ LOPEZ, JUAN	6644jl    	0659                		0659					
+387       	LEON ALBERT, JOSE-RAFAEL	3079jr    	0591                		0591					
+388       	LLAMAS BLAYA, MARIA DEL CARMEN	jsdljkv   	1443                		1443					
+389       	LLORENTE MARTINEZ, JUAN	llorente  	0720                		0720					
+390       	LOPEZ ALBALADEJO, JOSE	lopez0211 	0211                		0211					
+391       	LOPEZ ANIORTE, FRANCISCO-JAVIER	297211    	1641                		1641					
+392       	LOPEZ BAEZA, MANUELA	ml2494    	1585                		1585					
+393       	LOPEZ BRANDO, JOSE-FULGENCIO	1112229   	1046                		1046					
+394       	LOPEZ BUENO, FRANCISCO	jsdljkv   	1303                		1303					
+395       	LOPEZ CALVO, IGNACIO	jsdljkv   	0513                		0513					
+396       	LOPEZ CARRASCO, JOSE	609499    	1177                		1177					
+397       	LOPEZ FUENTENEBRO, MARIA-MERCEDES	081500    	1514                		1514					
+398       	LOPEZ GALDON, PEDRO	2660puri  	0996                		0996					
+399       	LOPEZ GARAULET, JUAN	jsdljkv   	0210                		0210					
+400       	LOPEZ GARCIA, DIONISIO	661949    	0569                		0569					
+401       	LOPEZ GARCIA, FRANCISCO	plg1377   	1377                		1377					
+402       	LOPEZ GARCIA, JUAN-ANTONIO	314000    	1454                		1454					
+403       	LOPEZ IBAÑEZ, JUAN	18091957  	0727                		0727					
+404       	LOPEZ JARA, VICENTE	197311    	0430                		0430					
+405       	LOPEZ LORENZO, BEATRIZ	bea.loren 	1540                		1540					
+406       	LOPEZ MAESTRE, JOSE-MARIA	jsdljkv   	1267                		1267					
+407       	LOPEZ MARTINEZ, ANTONIO	alm0575   	0575                		0575					
+408       	LOPEZ MARTINEZ, FERNANDO	1erlo36   	0236                		0236					
+409       	LOPEZ MARTINEZ, MARIA-EMMANUELA	colegio   	1518                		1518					
+410       	LOPEZ MERCADER, ROSARIO	rlmercader	1563                		1563					
+411       	LOPEZ OLIVER, JUAN-CARLOS	hhyh25443a	1619                		1619					
+412       	LOPEZ PACHECO, PEDRO-JOSE	1031pj    	0930                		0930					
+413       	LOPEZ PERAN, PEDRO ENRIQUE	plp080263 	1026                		1026					
+414       	LOPEZ PINA, JOSE	jsdljkv   	0166                		0166					
+415       	LOPEZ RAMIREZ, EXPEDITO	elopezr   	0346                		0346					
+416       	LOPEZ REJAS, JOSE	jlr1157   	1157                		1157					
+417       	LOPEZ RIQUELME, DAMIAN	dalbr1    	0924                		0924					
+418       	LOPEZ SALMERON, EMILIO-JOSE	emiliols  	1486                		1486					
+419       	LOPEZ SANCHEZ, OSCAR	bea411    	1565                		1565					
+420       	LOPEZ SERRANO, JUAN-CARLOS	mariauno  	1346                		1346					
+421       	LOPEZ SIERRA, FULGENCIO	rdsaux    	0480                		0480					
+422       	LOPEZ SOLER, FRANCISCO	lopezsoler	0335                		0335					
+423       	LOPEZ TORRECILLA, JESUS	2liebana5 	0767                		0767					
+424       	LOPEZ VALERO, ANTONIO	alvalero  	1178                		1178					
+425       	LOPEZ ZARAGOZA, FRANCISCO	461660    	0542                		0542					
+426       	LOPEZ-CERON FERNANDEZ, FEDERICO	jsdljkv   	0412                		0412					
+427       	LORENTE AGUILAR, ALEJANDRO	743053    	0450                		0450					
+428       	LOZANO MARTINEZ, CARLOS	150361    	0896                		0896					
+429       	LOZANO PATO, JUAN-JOSE	001084    	1084                		1084					
+430       	LUCAS ESTEVE, ANDRES	123456    	1490                		1490					
+431       	LUDEÑA LOPEZ, ANGEL	ludena    	0931                		0931					
+432       	LUQUE MIRO, RAMON-NONATO	jsdljkv   	1191                		1191					
+433       	MADRID IZQUIERDO, FRANCISCO	jsdljkv   	1065                		1065					
+434       	MADRID SAURA, SANTIAGO-JOSE	zxcvb65432	1629                		1629					
+435       	MADRONA GARCIA, PASCUAL	madrona   	0928                		0928					
+436       	MALDONADO ARRIAGADA, LUIS PATRICIO	aopqtges  	1246                		1246					
+437       	MANCILLA MILLON, MIGUEL-ANGEL	52802443D 	1034                		1034					
+438       	MANERO PEREZ, JUAN-JOSE	jsdljkv   	1075                		1075					
+439       	MANZANARES MEROÑO, MARIA-INMACULADA	diegolara 	1455                		1455					
+440       	MARCO NAVARRO, ALBERTO-JUAN	jsdljkv   	1542                		1542					
+441       	MARCOS ROJO, MARIANO	3108mm    	0629                		0629					
+442       	MARIN BALLESTA, JOSE	555555    	1586                		1586					
+443       	MARIN CEBALLOS, CARLOS-MANUEL	405050    	0598                		0598					
+444       	MARIN CELDRAN, SEBASTIAN	macseb01  	0419                		0419					
+445       	MARIN GALINDO, JOSE-PEDRO	190555    	0563                		0563					
+446       	MARIN NUÑEZ, JOSE	jsdljkv   	0337                		0337					
+447       	MARIN SAURA, JOSE-ANGEL	josean    	1579                		1579					
+448       	MARMOL ORTUÑO, ANTONIO	2630508   	0508                		0508					
+449       	MARQUEZ CERDAN, DANIEL	jsdljkv   	1420                		1420					
+450       	MARTI LOPEZ, JOSE-LUIS	200969    	0478                		0478					
+451       	MARTIN OLIVA ORTIZ-VILLAJOS,LEONOR-MARIA	261194    	1238                		1238					
+452       	MARTIN POVEDA, JESUS	jsdljkv   	0118                		0118					
+453       	MARTIN UGEDO, ANTONIO-JESUS	34798011  	1369                		1369					
+454       	MARTINEZ ALMANSA, ENCARNACION	almansa   	1380                		1380					
+455       	MARTINEZ AMOROS, GUILLERMO-MOISES	ga1505    	1626                		1626					
+456       	MARTINEZ BLAYA, JUAN-MIGUEL	jmmartinez	1391                		1391					
+457       	MARTINEZ BURLO, JUAN	jm2267    	1304                		1304					
+458       	MARTINEZ CANOVAS, JUAN	132333    	0963                		0963					
+459       	MARTINEZ CARBONERAS, MANUEL	292335    	1450                		1450					
+460       	MARTINEZ CARRILLO, BEATRIZ	asadff3344	1162                		1162					
+461       	MARTINEZ CONESA, LUCIANO	lmarti    	0169                		0169					
+462       	MARTINEZ ESPEJO, JOSE-MARIA	josema    	1180                		1180					
+463       	MARTINEZ FERNANDEZ, CRISTINA MARIA	euj767553e	1578                		1578					
+464       	MARTINEZ FRANCO, RAUL	2ws5tg6yh 	1632                		1632					
+465       	MARTINEZ GALLURT, MIGUEL-ANGEL	gallurt   	0507                		0507					
+466       	MARTINEZ GARCIA, DOMINGO	1A2B3C    	0803                		0803					
+467       	MARTINEZ GARCIA, JOSE-GUILLERMO	guillermo 	1562                		1562					
+468       	MARTINEZ GOMARIZ, ALFREDO	071964    	1079                		1079					
+469       	MARTINEZ GOMARIZ, JUAN-ANGEL	juanangel 	1399                		1399					
+470       	MARTINEZ GOMEZ, FRANCISCO-JOSE	60zama    	1127                		1127					
+471       	MARTINEZ HERNANDEZ, FULGENCIO	fulgen    	0680                		0680					
+472       	MARTINEZ HERNANDEZ, JOAQUIN	48886B    	0925                		0925					
+473       	MARTINEZ HERNANDEZ, JOSE	martinez  	1560                		1560					
+474       	MARTINEZ HERNANDEZ, PEDRO	jsdljkv   	0340                		0340					
+475       	MARTINEZ JIMENEZ, JOSE	pepe1310  	1310                		1310					
+476       	MARTINEZ LOPEZ, JOSE-LUIS	333jlmarlo	0333                		0333					
+478       	MARTINEZ MADRID, JOSE	jsdljkv   	0407                		0407					
+479       	MARTINEZ MARCOS, CARLOS	009669    	1060                		1060					
+480       	MARTINEZ MARTINEZ, ALFONSO	sofiam    	1159                		1159					
+481       	MARTINEZ MARTINEZ, ENCARNACION	6559bm    	1488                		1488					
+482       	MARTINEZ MARTINEZ, FRANCISCO-MIGUEL	fmiguel   	1152                		1152					
+483       	MARTINEZ MARTINEZ, JUAN	knossos   	1581                		1581					
+484       	MARTINEZ MARTINEZ, SIMON	simono    	1023                		1023					
+485       	MARTINEZ MARTINEZ, VALENTIN	2000_20   	1397                		1397					
+486       	MARTINEZ MOLINA, DOMINGO	elcoyote  	0943                		0943					
+487       	MARTINEZ MOLINA, VICTOR	victormm62	1166                		1166					
+488       	MARTINEZ MUÑOZ, ANDRES	murciano  	1546                		1546					
+489       	MARTINEZ OLIVA, ROSARIO	rosario   	1614                		1614					
+490       	MARTINEZ ORTIZ, DEMETRIO-ABEL	demetrio  	1258                		1258					
+491       	MARTINEZ PAREDES, JOSE	miranda   	1319                		1319					
+492       	MARTINEZ REQUENA, JOSE	jsdljkv   	0272                		0272					
+493       	MARTINEZ RIQUELME, JOSE-ANTONIO	642118    	1183                		1183					
+494       	MARTINEZ RIQUELME, JUAN DE DIOS	as45g6h442	0482                		0482					
+495       	MARTINEZ ROSIQUE, ANTONIO	paralexdp 	1557                		1557					
+496       	MARTINEZ SANCHEZ, ANTONIO	100328    	1324                		1324					
+497       	MARTINEZ SANCHEZ, ANTONIO	antoniocar	1408                		1408					
+498       	MARTINEZ SAURA, JUAN-MIGUEL	cavite    	0410                		0410					
+499       	MARTINEZ SEÑAS, ALFONSO	alfonso   	1523                		1523					
+500       	MARTINEZ TARDIDO, ANTONIO	jsdljkv   	0813                		0813					
+502       	MARTINEZ TORRES, CARLOS-JAVIER	awstgyhu  	1553                		1553					
+503       	MARTINEZ TUDELA, ANTONIO	amt732    	0732                		0732					
+504       	MARTINEZ TUNEZ, FRANCISCA	160500    	1453                		1453					
+505       	MARTINEZ VIDAL, PEDRO-JOSE	jsdljkv   	0343                		0343					
+506       	MARTINEZ-AZOR AZOR, FRANCISCO	Marmar02  	0601                		0601					
+507       	MARTINEZ-MOYA ROS, JOSE-LUIS	mm1407abc 	0842                		0842					
+508       	MARTINEZ OSORIO CHANA, JOSE	005700    	1419                		1419					
+509       	MARTINEZ-ROMERO MARTINEZ, CARLOS	847245    	0824                		0824					
+510       	MARTOS LOPEZ, ANDRES	asdvetyery	1373                		1373					
+511       	MAS GARCIA, SALVADOR-CARLOS	015014    	0729                		0729					
+512       	MASIA PEREZ, ANTONIO	jsdljkv   	0588                		0588					
+513       	MATEO GOMEZ, JUAN	330900    	1458                		1458					
+514       	MATEOS DIAZ-RONCERO, JERONIMO	jsdljkv   	0256                		0256					
+515       	MATILLA BENTO, GONZALO	jsdljkv   	0134                		0134					
+516       	MAYOL PEREZ, ANTONIO	121054    	0788                		0788					
+517       	MEDIALDEA LEYVA, JESUS	jsdljkv   	1456                		1456					
+518       	MEDINA ARRIAZU,JOAQUIN	011174    	1607                		1607					
+519       	MEDINA ARTILES, BEATRIZ	bemeart   	1388                		1388					
+520       	MEDINA QUIROS, FEDERICO	maiter    	0978                		0978					
+521       	MEGINA NAVARRO, JUAN-VICENTE	00134700  	1347                		1347					
+522       	MELGARES DE AGUILAR, PEDRO MARIA	asxd66yy66	0709                		0709					
+523       	MELLADO MELGAREJO,ROSARIO	charimm   	1417                		1417					
+524       	MENDEZ HEREDIA, SEBASTIAN	sebastian 	1224                		1224					
+525       	MENDEZ NAVARRO, JOSE-MIGUEL	joseme1970	1400                		1400					
+526       	MENDOZA MARTINEZ, MAXIMILIANA	liana1308 	1308                		1308					
+527       	MENGUAL RUIZ, MIGUEL	091256    	0682                		0682					
+528       	MERCADER ROS, MARIA-BELEN	sdfa545ghf	1527                		1527					
+529       	MEROÑO BALSALOBRE, GERARDO	obiwan    	1337                		1337					
+530       	MEROÑO MADRID, MARIA-DOLORES	octubre   	0871                		0871					
+531       	MEROÑO ROS, FRANCISCO	pacomerono	0885                		0885					
+532       	MESAS MUÑOZ, ANTONIO-JESUS	jsdljkv   	0731                		0731					
+533       	MESEGUER FUENTES, LUZ	232523    	1379                		1379					
+534       	MESEGUER GUAITA, ANDRES	131151    	1494                		1494					
+535       	MILAN GARCIA, MARCELINO	milan7    	0911                		0911					
+536       	MILAN JIMENEZ, DIEGO	zx4457ujt3	1186                		1186					
+537       	MILLAN LOPEZ, JUAN-JOSE	jsdljkv   	1240                		1240					
+538       	MILLAN MILLAN, ALFREDO	008702    	1445                		1445					
+539       	MIQUEL LOPEZ, MARIA-DOLORES	jsdljkv   	1556                		1556					
+540       	MOLINA ANDREU, JAIME	helios    	1383                		1383					
+541       	MOLINA GAITAN, JUAN-CARLOS	74745422  	0632                		0632					
+542       	MOLINA GARCIA, FERNANDO	342101    	1368                		1368					
+543       	MOLINA GARCIA, JERONIMO	571829    	0437                		0437					
+544       	MOLINA GARCIA, JERONIMO	1441jm    	1441                		1441					
+545       	MOLINA MILANES, ENRIQUE	096100    	0897                		0897					
+546       	MOLINA MOLINA, ANTONIO	040200    	1054                		1054					
+547       	MOLINA-NIÑIROLA FDEZ, JUAN	0315      	0315                		0315					
+548       	MOMPEAN GOMEZ, ROBERTO	jsdljkv   	1366                		1366					
+549       	MONREAL DEL TORO, MIGUEL	jsdljkv   	0283                		0283					
+550       	MONTIEL MOLINA, ANDRES	aammmm    	0763                		0763					
+551       	MONTORO CARRION, GINES	gietro    	0958                		0958					
+552       	MORA VIEYRA DE ABREU, LUIS-ENRIQUE	moravieyra	0523                		0523					
+553       	MORALEDA RENAU, MANUEL	jsdljkv   	0247                		0247					
+554       	MORALES SANCHEZ, PEDRO	jsdljkv   	0849                		0849					
+555       	MORATO DEL AMO, FEDERICO	162211    	1622                		1622					
+556       	MOREL MARTINEZ, ANTONIO	60mu63    	1020                		1020					
+557       	MORENILLA VICENTE, JOSE-LUIS	morenilla 	1502                		1502					
+558       	MORENO AROCA, ULPIANO	jsdljkv   	0261                		0261					
+559       	MORENO BARRANCOS, ANTONIO-JOSE	7939brs   	1198                		1198					
+560       	MORENO CASCALES, MARIA-JOSE	jsdljkv   	0899                		0899					
+561       	MORENO FERNANDEZ, ANTONIO-JOSE	ajmorenof 	0714                		0714					
+562       	MORENO GARCIA, MANUEL	mamoga    	0503                		0503					
+563       	MORENO MOÑINO, JUAN DE DIOS	01072000  	1332                		1332					
+564       	MORENO PASCUAL, JESUS ARTURO	pascual   	0975                		0975					
+565       	MORENO RAMOS, CAMILO-JOSE	camilo    	1415                		1415					
+566       	MORENO RODRIGUEZ, JUAN	648600    	0641                		0641					
+567       	MORENO SANCHEZ, ESTHER	123456    	1600                		1600					
+568       	MORRAL SAEZ, DAVID	021095    	1590                		1590					
+569       	MOTOS GOMEZ, JOSE ANTONIO	ggt6744ssd	1464                		1464					
+570       	MOTOS LAJARA, ANTONIO	larosa    	0678                		0678					
+571       	MOULIAA CORREAS, JOSE-MARIA	mouliaa793	0793                		0793					
+572       	MOYA CARRASCO, JOSE-FRANCISCO	jfmoya    	1358                		1358					
+573       	MOYA FALCO, VICENTE	vmmfxx    	0521                		0521					
+574       	MUNIOZGUREN LAZCANO, JOSE-IGNACIO	204300    	0901                		0901					
+575       	MUNUERA MUÑOZ, MANUEL	832436    	0643                		0643					
+576       	MUÑOZ ACIEN, GABRIEL-ANTONIO	55958750  	1156                		1156					
+577       	MUÑOZ GOMEZ, FRANCISCO GABRIEL	benjazmin 	1475                		1475					
+578       	MUÑOZ MARTINEZ, PEDRO-DIOSDADO	111942    	0331                		0331					
+579       	MUÑOZ MONREAL, VIRGINIA-DACIA	qpwoeiru  	1396                		1396					
+580       	MUÑOZ ORTIN, PASCUAL	197353    	0613                		0613					
+581       	MUÑOZ PERALTA, RAFAEL	87371117  	0383                		0383					
+582       	MUÑOZ PEREZ, ANA-MARIA	qokiwtger 	1320                		1320					
+583       	MUÑOZ RUIZ, JAVIER	010268    	1483                		1483					
+584       	MURCIA ARRONIZ, FRANCISCO-JAVIER	007600    	0514                		0514					
+585       	MURCIA CANO, MANUEL	mayo58    	0861                		0861					
+586       	MURCIA CONESA, ANTONIO	01101953  	0646                		0646					
+587       	MURCIA CONESA, JUAN	190095    	0837                		0837					
+588       	MURCIA HEREDIA, JOSE-FRANCISCO	005105    	1365                		1365					
+589       	MURCIA LOPEZ, ANTONIO	48194819  	0369                		0369					
+590       	NAVARRO ARANDA, JUAN	6591jna   	0703                		0703					
+591       	NAVARRO BERNABEU, PASCUAL	alskdjfh  	1376                		1376					
+592       	NAVARRO INIESTA, ANTONIO	anavini   	1037                		1037					
+593       	NAVARRO LUCAS, PEDRO	vb7823dsfg	1295                		1295					
+594       	NAVARRO MARTINEZ, PASCUAL	jsdljkv   	0350                		0350					
+595       	NAVARRO ROS, MANUEL	200578    	0894                		0894					
+596       	NAVARRO SOLER, VICENTE	vicentem  	0461                		0461					
+597       	NICOLAS VAZQUEZ, IGNACIO	espeleo   	1529                		1529					
+598       	NIETO BERNAL, JOSE ANTONIO	ribera    	1489                		1489					
+599       	NIETO MAESTRE, ANA-MARIA	ananieto  	1569                		1569					
+600       	NIETO PAREDES, ALFREDO	alfredo   	1434                		1434					
+601       	NOGUERA CARRILLO, MANUEL	001959    	0866                		0866					
+602       	NOGUERA ROS, JOSE-ANTONIO	jsdljkv   	1052                		1052					
+603       	NORTES CHECA, ANGEL-MARTIN	131045    	1146                		1146					
+604       	NOVILLO GIL, SUSANA-MARIA	asd876yhtg	1625                		1625					
+605       	NUEDA SOMALO, LORENZO	12061978  	1605                		1605					
+606       	NUÑEZ MARTINEZ, ANTONIO	rubi2002  	1149                		1149					
+607       	NUÑEZ TOLEDO, MONICA	mo1nu2    	1317                		1317					
+608       	OCIO COSTALES, ANTONIO	jsdljkv   	1113                		1113					
+609       	OJEDA BUENO, JOSE-MIGUEL	jsdljkv   	1233                		1233					
+610       	OLIVO SANCHEZ, EVA-MARIA	marta16   	1531                		1531					
+611       	ONSURBE SANCHEZ, ANTONIO	5960on    	0941                		0941					
+612       	ORTEGA EUGENIO, MIGUEL	170582    	0697                		0697					
+613       	ORTEGA HERNANDEZ, SEBASTIAN	281258    	0779                		0779					
+614       	ORTEGA MARTINEZ, ANTONIO	001345    	1345                		1345					
+615       	ORTIN AVILES, JOSE-MIGUEL	jortin    	1604                		1604					
+616       	ORTIZ DIAZ, ANTONIO	Urkobicho 	0341                		0341					
+617       	ORTIZ MARTINEZ, ANTONIA	224664    	0875                		0875					
+618       	ORTIZ ORTIZ, PRIMITIVO-CARMELO	zx33e4rghh	0375                		0375					
+619       	ORTIZ RUIZ, JOSE-RAMON	jror170356	0806                		0806					
+620       	ORTIZ ZARAGOZA, JOSE	jsdljkv   	0439                		0439					
+621       	ORTUÑO JIMENEZ, JOSE-ANTONIO	5320      	0493                		0493					
+622       	ORTUÑO YAÑEZ, PEDRO	catalana  	0365                		0365					
+623       	OSORIO VAZQUEZ, JOSE	16103283  	0747                		0747					
+624       	OTERO SUAREZ, CARLOS	1616col   	1355                		1355					
+625       	OTON MADRID, ANDRES	001952    	0512                		0512					
+626       	PAEZ ESCAMEZ, ALBERTO	ased74lki6	1533                		1533					
+627       	PAEZ SORIANO, LUIS	090877    	1580                		1580					
+628       	PAGAN LOPEZ, GONZALO	gonzalo   	0740                		0740					
+629       	PAGAN LOPEZ, JOSE-MANUEL	45563434  	1594                		1594					
+630       	PALAO JUAN, PEDRO	jsdljkv   	0393                		0393					
+631       	PALAO SORIANO, PEDRO JULIAN	pj0026    	1566                		1566					
+632       	PALAZON GONZALEZ, JOAQUIN	002224    	1575                		1575					
+633       	PALAZON LORENTE, FRANCISCO-MANUEL	123456    	1242                		1242					
+634       	PALLARES MARTINEZ, PEDRO-ANTONIO	001583    	1583                		1583					
+635       	PAREDES ALVAREZ, BEATRIZ	jsdljkv   	1442                		1442					
+636       	PAREDES CAMPILLO, MANUEL	mparedes  	0550                		0550					
+637       	PARRA FERNANDEZ, RAFAEL	golftenis 	0370                		0370					
+638       	PARRA JIMENEZ, JOSE-ANTONIO	221151    	1325                		1325					
+639       	PARRA LOPEZ, MIGUEL-ANGEL	27438123  	1085                		1085					
+640       	PARRA PARRA, JUAN	jsdljkv   	0969                		0969					
+641       	PARREÑO JIMENEZ, CIPRIANO	cipriano  	0749                		0749					
+642       	PASCUAL DE RIQUELME, ALFONSO	101154    	0865                		0865					
+643       	PASCUAL-DE RIQUELME PINIES,FRANCISCO-J.	251157    	1112                		1112					
+644       	PASTOR ROCAMORA, MARIA ROSARIO	rosipasro 	1618                		1618					
+645       	PASTOR RODRIGUEZ, FRANCISCO	albatros  	1235                		1235					
+646       	PELEGRIN FUSTER, JOAQUIN	34803969  	1386                		1386					
+647       	PELEGRIN LOPEZ, PEDRO	96202dlm  	0459                		0459					
+648       	PEÑA FERNANDEZ-SERRANO, DANIEL	2ws6yh5tg 	1634                		1634					
+649       	PEÑA MORENO MARTA-PILAR	jsdljkv   	1474                		1474					
+650       	PEÑAS GUIJARRO, DOMINGO	diana10   	0686                		0686					
+651       	PERALES JODAR, BARTOLOME	25904     	1077                		1077					
+652       	PEREZ ALBERT, JUAN-CARLOS	28101949  	0421                		0421					
+653       	PEREZ GONZALEZ, PEDRO	100651    	0683                		0683					
+654       	PEREZ LASERNA, JUAN-CARLOS	454545    	0535                		0535					
+655       	PEREZ MARTINEZ, ANTONIO	333333    	1211                		1211					
+656       	PEREZ MARTINEZ, FRANCISCO DE ASIS	delfin    	1492                		1492					
+657       	PEREZ MARTINEZ, JUAN	jupe1976  	0483                		0483					
+658       	PEREZ MATEOS, JUAN-ANTONIO	japm01    	1245                		1245					
+659       	PEREZ MOLINA, JUAN	566666    	1164                		1164					
+660       	PEREZ NAVARRO, JULIAN	Murcia2012	1265                		1265					
+661       	PEREZ PALAZON, FRANCISCO	paquete   	1530                		1530					
+662       	PEREZ PEREZ, MIGUEL	jsdljkv   	1511                		1511					
+663       	PEREZ REINA, MARIA DEL CARMEN	prrn640919	1173                		1173					
+664       	PEREZ SANCHEZ, PEDRO	2551952   	0517                		0517					
+665       	PEREZ SOLER-ESPIAUBA, JOSE-MARIA	jsdljkv   	1637                		1637					
+666       	PERONA LUCAS, JOAQUIN	22427802  	0699                		0699					
+667       	PERONA MARTINEZ, LUIS-FERNANDO	gr6962mu  	1002                		1002					
+668       	PIERNAS TERRES, JUAN-IGNACIO	100000    	1451                		1451					
+669       	PINA CANO, LUIS	121152    	0465                		0465					
+670       	PINA DE GEA, GREGORIO	gregorio  	1463                		1463					
+671       	PINA RUIZ, PEDRO	jsdljkv   	0961                		0961					
+672       	PINA VICENT, JUAN	jupivi    	0799                		0799					
+673       	PINAR RODRIGUEZ, ENRIQUE	enrique   	0526                		0526					
+674       	PINAR ROMERO, MARIA-CONCEPCION	i9140d    	1482                		1482					
+675       	PIÑANA MURCIA, EDUARDO	as556hg88j	0592                		0592					
+676       	PIÑERA LOPEZ, ANTONIO	jsdljkv   	1185                		1185					
+677       	PIÑERO GARCIA, ROQUE	republica 	0527                		0527					
+678       	PLANES BALLESTER, JOSE-ANTONIO	123edc    	0950                		0950					
+679       	PLIEGO ROMO DE ARCE, JOSE JAVIER	pliego    	1591                		1591					
+680       	PORTACELI MEDINA, FRANCISCO-JAVIER	romarina  	1139                		1139					
+681       	PORTALES PUIGVERT, JUAN-ANTONIO	asdfghiuy 	1126                		1126					
+682       	PORTILLO BOTIA, CESAR	195327    	0655                		0655					
+683       	POVEDA GARCIA, HERMINIO	hpg27378  	0627                		0627					
+684       	PRIETO ALONSO, JOSE-ANDRES	110395    	1043                		1043					
+685       	PUCHE MARTINEZ, DAVID	144444    	0593                		0593					
+686       	PUCHE PALAO, PEDRO-RAFAEL	300003    	0417                		0417					
+687       	PUJANTE MARTINEZ, ANTONIO	hormigon  	1635                		1635					
+688       	PUJOL GALINDO, MARIA-DOLORES	951500    	1362                		1362					
+689       	QUIÑONERO GALVEZ, LUIS	jsdljkv   	1171                		1171					
+690       	QUIÑONERO MARTINEZ, MARIA-CONCEPCION	mariac    	1532                		1532					
+691       	RABASCO GOMEZ, BENJAMIN	fraile    	1549                		1549					
+692       	RAMIREZ PEREA, BARTOLOME	PedMag    	1447                		1447					
+693       	RAMOS GARCIA, JOSE-LUIS	jsdljkv   	0316                		0316					
+694       	REDONDO LOPEZ, MIGUEL-ANGEL	rondos    	1574                		1574					
+696       	REQUENA JUNCOSA, FEDERICO	jsdljkv   	0182                		0182					
+697       	REYES CEREZO, JOSE	12345r    	1011                		1011					
+698       	RICHARTE RODRIGUEZ, FRANCISCO	700281    	0432                		0432					
+699       	RICHARTE RODRIGUEZ, JOSE-IGNACIO	20430450  	1062                		1062					
+700       	RIOS MORENO, JOSE-MANUEL	424242    	0789                		0789					
+701       	RIVAS MENA, LUIS-MIGUEL	lm0407o   	0599                		0599					
+702       	RIVERA MOLINA, MANUEL-FELIPE	almera    	1516                		1516					
+703       	RIVERA PAREDES, JOSE-ANTONIO	lk98iujyy6	1038                		1038					
+704       	ROBLES MOYA, PEDRO-ANTONIO	650730    	1201                		1201					
+705       	ROBLES SANCHEZ-GUERRERO, ANTONIO	arscarav  	0952                		0952					
+706       	ROCA ESTEBAN, JUAN	ofelia    	1199                		1199					
+707       	ROCA GUILLEN, FRANCISCO	perletico 	0577                		0577					
+708       	RODENAS ABAD, JOSE-MARIA	JRA77Z    	0887                		0887					
+709       	RODENAS DIAZ, ANTONIO	jsdljkv   	0101                		0101					
+710       	RODRIGUEZ ABAD, JOSE ANTONIO	231955    	0839                		0839					
+711       	RODRIGUEZ CANO, JOSE	447081    	0287                		0287					
+712       	RODRIGUEZ MARTIN, JOSE-ANTONIO	jym110395 	1538                		1538					
+713       	RODRIGUEZ PAREJO, JOSE ANDRES	aqwsertgf 	1350                		1350					
+714       	RODRIGUEZ TIRADO, JESUS	jrt0202   	0955                		0955					
+715       	ROJO GUILLEN, ANDRES	01091981  	0681                		0681					
+716       	ROMERA APARICIO, FRANCISCO-MANUEL	romera    	1551                		1551					
+717       	ROMERA SASTRE, JACINTO	22011960  	1027                		1027					
+718       	ROMERO MATALLANA, SALVADOR	belmonte  	1228                		1228					
+719       	ROMERO ROMERO, JORGE	253310    	1552                		1552					
+720       	ROMERO ROS, MATIAS	jsdljkv   	0835                		0835					
+721       	ROMERO VAZQUEZ, ANTONIO-JOSE	romero    	1382                		1382					
+722       	ROMOJARO SANCHEZ, FELIX	jsdljkv   	0059                		0059					
+723       	ROS AGUILERA, GABRIEL	gratis    	0945                		0945					
+724       	ROS DIEZ, ANTONIO-EDUARDO	oiqwertuy 	1014                		1014					
+725       	ROS ESPIN, JUAN-ISIDRO	001953    	0589                		0589					
+726       	ROS JODAR, JUAN-MIGUEL	000022    	1356                		1356					
+727       	ROS MARTINEZ, JUAN DE DIOS	jsdljkv   	1495                		1495					
+728       	ROS MAZUECOS, ANDRES	clamar    	1384                		1384					
+729       	ROS PEREZ, MARIANO-ANTONIO	sd56vbnm12	0170                		0170					
+730       	ROS RODRIGUEZ, GINES	109600    	1476                		1476					
+731       	ROS TORRES, JOSEFA	alboro    	1367                		1367					
+732       	ROSAS MARTINEZ, FRANCISCO	as445gt667	1271                		1271					
+733       	ROYO BARAÑANO, ELOISA	zx44bbqq22	1086                		1086					
+734       	RUBIO GARCIA, JUAN	lapila    	1360                		1360					
+735       	RUBIO VERDU, ANTONIO	270652    	0540                		0540					
+736       	RUEDA VELAZQUEZ, JOSE MARIA	rocio6181 	0997                		0997					
+737       	RUFETE SANCHEZ, ANTONIO	rufete    	1606                		1606					
+738       	RUIZ ALCARAZ, JOSE	jsdljkv   	0378                		0378					
+739       	RUIZ FERNANDEZ, ANTONIO	coaatmu   	1519                		1519					
+740       	RUIZ GARRIGA, JUAN-EMILIO	afs432534g	1167                		1167					
+742       	RUIZ LOPEZ, MARIA-ANGUSTIAS	200370    	1544                		1544					
+743       	RUIZ SANCHEZ, JOSE-LUIS	jsdljkv   	1512                		1512					
+744       	SAAVEDRA GARCIA, RAMON	011084    	1250                		1250					
+745       	SABATEL PAREJO, MANUEL	30m03s61p 	0965                		0965					
+746       	SALAS VIECO, RAFAEL	jsdljkv   	0784                		0784					
+747       	SALCEDO ESTEBAN, MANUEL	mse0803   	1371                		1371					
+748       	SALCEDO ORTIN, MANUEL-ERNESTO	002101    	1608                		1608					
+749       	SALES FERRER, ALICIA	jsdljkv   	1091                		1091					
+750       	SALMERON AVELLANEDA, MARIA-ESTHER	2405000   	1286                		1286					
+751       	SALMERON EGEA, PASCUAL	martas    	0615                		0615					
+752       	SANCHEZ ADRA, JORGE	22901008  	0414                		0414					
+753       	SANCHEZ ANDREU, GINES-FCO.	gibema    	0946                		0946					
+754       	SANCHEZ BENAVENTE, PEDRO	benavente 	1342                		1342					
+755       	SANCHEZ BLAYA, GINES	16121612  	1302                		1302					
+756       	SANCHEZ CANOVAS, JOSE-FRANCISCO	JOSEFCO   	0933                		0933					
+757       	SANCHEZ CESAR, JUAN-FRANCISCO	7494sc    	1179                		1179					
+758       	SANCHEZ CONESA, TOMAS	apdsc36a  	1133                		1133					
+759       	SANCHEZ DAVILA, DIEGO	xc445fvbvb	1572                		1572					
+760       	SANCHEZ DELGADO, JOSE MANUEL	3a465b    	1093                		1093					
+761       	SANCHEZ FENOLL, SILVIA	silvia    	1509                		1509					
+762       	SANCHEZ FERRON, JUAN-ANTONIO	060783    	0581                		0581					
+763       	SANCHEZ GALVEZ, PEDRO	precio    	0868                		0868					
+764       	SANCHEZ GUERRERO, JOSE	pensar    	1058                		1058					
+765       	SANCHEZ LEON, ANTONIA	barlovento	1306                		1306					
+766       	SANCHEZ MANZANARES, POLICARPO	poli9945  	1597                		1597					
+767       	SANCHEZ MARTINEZ, ANTONIO	sn6969    	0878                		0878					
+768       	SANCHEZ MARTINEZ, JUAN-CARLOS	53071700  	0667                		0667					
+769       	SANCHEZ MARTINEZ, MARIANO	53071700  	0516                		0516					
+770       	SANCHEZ MARTINEZ, PRUDENCIO	lumalu    	0570                		0570					
+771       	SANCHEZ MILLAN, JUAN-BAUTISTA	ulises    	1078                		1078					
+772       	SANCHEZ MONEDERO, MANUELA-FUENSANTA	itasanchez	1564                		1564					
+773       	SANCHEZ NOGUERA, LUCIA	jsdljkv   	1429                		1429					
+774       	SANCHEZ PARRA, JOSE	mu0405    	1030                		1030					
+775       	SANCHEZ PARRAGA, BERNARDINO	ca1409    	1496                		1496					
+776       	SANCHEZ REINON, DOMINGO	001072    	0766                		0766					
+777       	SANCHEZ RIQUELME, FULGENCIO	004431    	0999                		0999					
+778       	SANCHEZ SANCHEZ, FELICIANO	jsdljkv   	1278                		1278					
+779       	SANCHEZ SANCHEZ, FRANCISCO	lkjhytgedr	0580                		0580					
+780       	SANCHEZ-GUERRERO MARTINEZ, JOSE-MANUEL	jm0138    	1249                		1249					
+781       	SANCHO RUANO, MIGUEL	jsdljkv   	0145                		0145					
+782       	SANDOVAL SAURA, FRANCISCO-MANUEL	francisco 	1636                		1636					
+783       	SANTAMARIA GIL-DELGADO, JUAN-CARLOS	jsdljkv   	1048                		1048					
+784       	SANTIAGO CERVANTES, JOSE	JDS3069   	1106                		1106					
+785       	SANTOS GUERRERO ESCALANTE, ENRIQUE DE LO	130655    	0814                		0814					
+786       	SANZ SANCHEZ, JOSE-ANGEL	mA3272    	1487                		1487					
+787       	SAURA CARCELES, FRANCISCA	qawsedrftg	1431                		1431					
+788       	SAURA LOPEZ, JOSE	ma0510    	0913                		0913					
+789       	SAURA MARTINEZ, PEDRO	123456    	1339                		1339					
+790       	SAURA ROSIQUE, JULIAN	zmxncbvh  	0775                		0775					
+791       	SEGURA JIMENEZ, CRISTOBAL	jsdljkv   	0857                		0857					
+792       	SERRANO CASTILLEJO, EDUARDO	serranoec 	1253                		1253					
+793       	SERRANO ESTAÑ, JUAN-ANTONIO	jsdljkv   	1276                		1276					
+794       	SERRANO HERNANDEZ, RAMON	123456    	0528                		0528					
+795       	SERRANO LOZANO, ANTONIO	lomaroldan	0368                		0368					
+796       	SERRANO MARTINEZ, MARIA-CELESTINA	teresa22  	1001                		1001					
+798       	SIMO MEZQUITA, JOSE-PASCUAL	jpsimo    	0993                		0993					
+799       	SIMON RUIZ, JUAN	jsr0808   	1550                		1550					
+800       	SIRVENT CASANOVA, ISMAEL	jsdljkv   	1507                		1507					
+802       	SOLER CRUZ, JOSE-FRANCISCO	jsdljkv   	1115                		1115					
+803       	SOLER LAPUENTE, DIEGO	jsdljkv   	0600                		0600					
+804       	SOLER LOPEZ, NOELIA	370021    	1559                		1559					
+805       	SOMOZA SUAREZ, FRANCISCO-JAVIER	512002    	0768                		0768					
+806       	SORNICHERO MERCADER, ANGEL	968803362 	0821                		0821					
+807       	SOTO GARCIA, JUAN-JOSE	juanjo    	1627                		1627					
+808       	TARRAGO GUIRAO, FERNANDO	jsdljkv   	1000                		1000					
+809       	TEJEDOR MINGO, GUILLERMO	jsdljkv   	1602                		1602					
+810       	TEMPLADO CARRILLO, JESUS	jesuti57  	1061                		1061					
+811       	TERRY ANDRES, IRENE	iterry    	0960                		0960					
+812       	TERRY LOMBARDERO, JOSE-MARIA	jsdljkv   	0822                		0822					
+813       	TERRY LOMBARDERO, MANUEL	jsdljkv   	0174                		0174					
+814       	TOMAS BLEDA, JAIME	jaimeaat  	1012                		1012					
+815       	TOMAS COBARRO, TOMAS	sv0269    	1244                		1244					
+816       	TOMAS PEREZ, PEDRO-JOSE	pedrojo   	1142                		1142					
+817       	TORDERA CONTRERAS, ANTONIO	sinet1    	1141                		1141					
+818       	TORET MARTIN, ANTONIO	230549    	0619                		0619					
+819       	TORNERO MOLINA, JESUS	200441    	0292                		0292					
+820       	TORO INIESTA, JUAN-JULIAN	jsdljkv   	0926                		0926					
+821       	TORRECILLAS MELENDRERAS, ANTONIO	220854atm 	0870                		0870					
+822       	TORRECILLAS SANCHEZ, ANGEL	a100t746s 	0275                		0275					
+823       	TORREGROSA CHORRO, ANIBAL	jsdljkv   	0160                		0160					
+824       	TORRES GARCIA, DIEGO	jsdljkv   	0404                		0404					
+825       	TORRES GARCIA, EMILIO	coaatmu   	0168                		0168					
+826       	TORRES MARIN, PABLO	111111    	0919                		0919					
+827       	TUDELA SANCHEZ, JOSE PEDRO	sepetu    	0915                		0915					
+828       	TUDELA SANDOVAL, JUAN-RAMON	160877    	1638                		1638					
+829       	VALDES FERNANDEZ, MANUEL-ALFREDO	valdes    	1074                		1074					
+830       	VALDOR ZAMORA, JOSE MIGUEL	254890    	0349                		0349					
+831       	VALERO VILLAR, JUAN-BAUTISTA	jsdljkv   	0274                		0274					
+832       	VALVERDE MAIQUEZ, GINES	290666    	1101                		1101					
+833       	VALVERDE NAVARRO, RITA-MARIA	jsdljkv   	0748                		0748					
+834       	VALVERDE ORTUÑO, PATRICIO	jsdljkv   	0756                		0756					
+835       	VALVERDE PEÑALVER, JUAN-CARLOS	mu1973w   	1612                		1612					
+836       	VARA BECEIRO, MARIA	jsdljkv   	1593                		1593					
+837       	VELASCO MUÑOZ, ANTONIO-EUSEBIO	aev777    	0633                		0633					
+838       	VELAZQUEZ DE CASTRO PUERTA, GONZALO	jsdljkv   	1526                		1526					
+839       	VELEZ LOPEZ, JOSE	castillo  	0536                		0536					
+840       	VERA PEREZ, ROSA	jsdljkv   	1472                		1472					
+841       	VERDU CARRILLO, PASCUAL	pverdu    	0537                		0537					
+842       	VICENTE ANTON, PEDRO	zmxncbvhf 	1430                		1430					
+843       	VICTORIA CREVILLEN, MANUEL	jsdljkv   	0294                		0294					
+844       	VIDAL MENDOZA, MIGUEL-ANGEL	miglopa   	1411                		1411					
+845       	VILLAESCUSA MEROÑO, MARIANA-ISABEL	jsdljkv   	1571                		1571					
+846       	VILLAESCUSA SAAVEDRA, JUAN	JR1724    	1214                		1214					
+847       	VILLEGAS MARTINEZ, EDMUNDO	868600    	0845                		0845					
+848       	VILLEGAS ROSELL, ANTONIO	651565    	0511                		0511					
+849       	VINADER LOPEZ, FRANCISCO-JAVIER	196600    	1422                		1422					
+850       	VIVO GOZALBO, ADOLFO-ROBERTO	ccdd45tgrf	1341                		1341					
+851       	VIVO HENAREJOS, TOMAS	307920    	1517                		1517					
+852       	YUSTE GARCIA, SEBASTIAN-FRANCISCO	7765rfde32	1418                		1418					
+853       	ZAMORA ROS, ANTONIO	azr138    	0138                		0138					
+854       	ZAPATA JIMENEZ, MARIA-ANGELES	UM3Cuirgui	1132                		1132					
+855       	ZAPATA ROMERO, GINES	jsdljkv   	0435                		0435					
+856       	ZARAGOZA LOPEZ, FRANCISCO-JAVIER	15481975  	1548                		1548					
+0000008179	JIMENEZ MEDINA, ALEJANDRO	231295    	1656                		0000008179					
+0000008195	TAPIADOR POLO, MARIA	3ed5tg6yh 	1657                		0000008195					
+0000008196	DE TORO SANTOYO, MIGUEL-ANGEL	nerpio    	1658                		0000008196					
+0000008197	MANZANERA GAMBIN, MARIA DEL MAR	112358    	1659                		0000008197					
+0000008199	LOPEZ GIMENO, ALFONSO	yocace    	1660                		0000008199					
+0000008217	ALEGRIA ALBALADEJO, MARIA DOLORES	kdb638    	1661                		0000008217					
+0000008220	MIÑARRO PEÑAS, JUAN JOSE	7378bgb   	1662                		0000008220					
+0000008247	GARCIA LOPEZ, ALEJANDRO	algalo    	1665                		0000008247					
+0000008225	RUIPEREZ PADILLA, JOSE DANIEL	190400    	1663                		0000008225					
+1000000003	ATO ABELLAN, JOSE MARIA	country   	1679                		0000008311					
+1000000004	EDIFICACIÓN, ACE	jsdljkv   	5017                		5017					
+1000000005	CABRERA SEVA, ROBERTO	19781978  	1682                		0000008329					
+1000000006	MEDINA LOPEZ, ESTHER	estherml  	1674                		0000008297					
+1000000014	CLEMENTE GARCÍA, JUAN ANDRÉS	003152    	1693                		0000008363					
+1000000015	GALERA SÁNCHEZ, ÁNGEL	liktgrfe  	1689                		0000008362					
+1000000016	ARQUÉS HERNÁNDEZ, MARIA DOLORES	48481451  	1694                		0000008364					
+1000000017	LÓPEZ CONESA, FULGENCIO JAVIER	fjavier   	1695                		0000008365					
+1000000018	CARRILLO CORBALÁN, BLAS JOAQUÍN	as334dcvbf	1700                		0000008412					
+1000000019	ARQUITECTOS S. L., DELGADO SIMO	180163    	5027                		5027					
+1000000020	MOLINA MARTINEZ, DAVID	001681    	1681                		0000008323					
+1000000021	MARCOS PIQUERAS, ELENA	dia20na   	1676                		0000008307					
+1000000022	GALINDO ALBALADEJO, ELVIRA	rfedyh    	1673                		0000008295					
+1000000025	JUMILLA S.C.L., TALLER ARQUITECTURA	330900    	5031                		5031					
+1000000026	BENITO SAORIN, FRANCISCO JAVIER	232323    	1696                		0000008366					
+1000000027	LOPEZ HORNOS, MANUEL JESUS	hedningarn	1709                		0000008434					
+1000000028	RUIZ ORTIZ, JOSE FRANCISCO	pppaco    	1707                		0000008419					
+1000000030	PALAZON MIÑANO, MANUEL	260177    	1704                		0000008416					
+1000000031	GUILLAMON MARCOS, SANTOS PEDRO	hsv10999  	1708                		0000008433					
+1000000032	ROSA ROCA, NURIA	chipie    	1698                		0000008407					
+1000000033	GODOY SARMIENTO, PATRICIA	3ed6yh5rt 	1712                		0000008471					
+1000000035	ALCAINA LORENTE, GERTRUDIS	3ed4rf6yh 	1672                		0000008294					
+1000000036	SÁNCHEZ SÁNCHEZ, JOSE ANTONIO	edtgujik  	1715                		0000008475					
+1000000037	LOPEZ MANCEBO, MIRIAN	48483536  	1706                		0000008418					
+1000000038	RAMALLO MARTÍNEZ, FRANCISCO	121997    	1702                		0000008414					
+1000000039	HOZ MARTÍNEZ, LUIS DE LA	luis6187  	6187                		6187					
+1000000041	OLVERA FERNANDEZ, JUAN CARLOS	jco1731   	1731                		0000008589					
+1000000042	SANCHEZ CARRION, JOSE RAMON	670214070 	1697                		0000008406					
+1000000043	TUDELA MOLINO, FRANCISCO	fratumo   	1725                		0000008541					
+1000000044	MARÍN MOÑINO, ROBERTO	7174rob   	1692                		0000008368					
+1000000045	MARTINEZ GARCIA, MARIA ENCARNACION	190895    	1684                		0000008331					
+1000000046	MANRESA BROX, EUGENIO	27dic97   	1701                		0000008413					
+1000000047	ESPINOSA NAVARRO, ANDRES	anesna    	1728                		0000008546					
+1000000048	SOTO GARCIA, PILAR	1736ps    	1736                		0000008669					
+1000000049	HERNÁNDEZ INIESTA, JERÓNIMO	javier    	1669                		0000008261					
+1000000050	BELMONTE LÓPEZ, MARIA AMPARO	172424    	1724                		0000008512					
+1000000051	CÁNOVAS FERNÁNDEZ-LUNA, ADORACIÓN	ati17po   	1719                		0000008474					
+1000000052	DEL AMOR SÁNCHEZ, GUILLERMO	domy99    	1740                		0000008689					
+1000000053	URAN CONESA, PEDRO	1683arqt  	1683                		0000008330					
+1000000054	MENDEZ PELEGRIN, PEDRO	pm1975    	1721                		0000008517					
+1000000055	PELEGRIN FUSTER, JOSE RAMON	zxr56tgbff	1733                		0000008648					
+1000000056	PENALVA BUITRAGO, DAVID MARIA	dapebui   	1747                		0000008720					
+1000000057	MONTALBAN PLAZAS, FRANCISCO JAVIER	040103    	1688                		0000008343					
+1000000058	REQUENA SANCHEZ, RICARDO	1qa3ed6yh 	1750                		0000008727					
+1000000059	SANCHEZ SANCHEZ, JUAN FRANCISCO	colegio   	1741                		0000008700					
+1000000060	SAMPER BALLESTER, JUAN JOSE	9712blv   	1678                		0000008310					
+1000000061	SERRANO CASTAÑO, MARIA MERCEDES	654321mer 	1749                		0000008724					
+1000000062	PEULA PORTALES, MARIA JOSE	2ws4rf6yh 	1743                		0000008702					
+1000000063	BLEDA MARIN, JUAN	12w3e4rfd 	1763                		0000008756					
+1000000064	CEREZO HERNANDEZ, ENRIQUE	003216    	1755                		0000008752					
+1000000065	SANCHEZ GARCIA, MARIANO	masaga12  	1752                		0000008748					
+1000000066	DIAZ ESPAÑA, JUAN BERNARDO	1743582   	1746                		0000008718					
+1000000067	MARTINEZ GARCIA, DAVID	runner24  	1758                		0000008762					
+1000000068	TORRES CUTILLAS, JOSE MANUEL	001979    	1765                		0000008777					
+1000000069	BOGALO HUESCAR, ALMUDENA	infantes  	1745                		0000008712					
+1000000070	GARCIA CANTERO, ALBERTO	albertog  	1730                		0000008573					
+1000000071	GINER LOPEZ, MARIA JOSE	6yh8ik7uj 	1754                		0000008750					
+1000000073	GONZALEZ DE BULNES LOPEZ, FRANCISCO	1qa4rf3ed 	1771                		0000008792					
+1000000074	VILCHEZ BELMONTE, RAFAEL	Z1777cat  	1777                		0000008820					
+1000000076	OLABARRI BENGOECHEA, LANDER	aluprom   	6399                		0000008799					
+1000000078	GALINDO CANDEL, CRISTINA	cgc0967   	1716                		0000008476					
+1000000079	DANTE BARRAGAN, JORGE	jojojo    	1778                		0000008821					
+1000000080	BALLESTA SÁNCHEZ, ANA	8671abs   	1768                		0000008773					
+1000000081	LOPEZ SANCHEZ, SATURNINO	949814    	1703                		0000008415					
+1000000082	BULLIDO PEREZ, DIEGO	1qa3ed5tg 	1751                		0000008728					
+1000000083	TORNERO FRANCO, JAVIER	14catorce 	1737                		0000008678					
+1000000084	GIL DE PAREJA ALARCON, VALENTIN FRANCISCO	mariadel  	1772                		0000008793					
+1000000086	ROMAN ANDRINO, ANA MARIA	4rf6yh5tgr	1785                		0000008830					
+1000000087	MUÑOZ ESPINOSA, JOSE MARIA	6691003   	1779                		0000008822					
+1000000088	ZARAGOZA RIQUELME, MARGARITA	burbuja   	1783                		0000008815					
+1000000089	LEYVA PARRAGA, SALVACELI	280899    	1781                		0000008828					
+1000000090	BAÑOS MARTINEZ, JUAN	juanfra   	1782                		0000008829					
+1000000091	VIDAL MIRALLES, MARIA OBDULIA	3ed4rf5tg 	1671                		0000008277					
+1000000092	CREMADES HERNANDEZ, ANA MARIA	ed4r5t6ygt	1761                		0000008759					
+1000000093	CALDERON NAVARRO, JUAN CARLOS	77569292  	1680                		0000008320					
+1000000095	TORRICO GALVEZ, ADELA	arquitec  	1793                		0000008857					
+1000000096	BERNAL SANCHEZ, GINES	991199    	1738                		0000008677					
+1000000097	GARCIA GOMEZ, JOSE MANUEL	006221    	1792                		0000008854					
+1000000098	BARQUERO MARTINEZ, MARIA DEL CARMEN	3ed5tg4rf 	1775                		0000008796					
+1000000100	PEREZ GONZALEZ, FRANCISCO JOSE	4r56yhgfv 	1795                		0000008868					
+1000000101	MARTINEZ CARRASCO, DIEGO JAVIER	683642    	1796                		0000008869					
+1000000102	LOPEZ SANCHEZ, MARIA LUSIA	881974    	1784                		0000008827					
+1000000103	GARCIA GARCIA, FRANCISCO JAVIER	677405000 	1799                		0000008877					
+1000000104	GORRIA DE LA CUADRA, IGNACIO	23df98mnzx	1767                		0000008772					
+1000000105	DEL BAÑO ORTIZ, ANTONIO RUBEN	48428141  	1801                		0000008880					
+1000000106	ROS RODRIGUEZ, DAVID	447000    	1757                		0000008747					
+1000000107	GONZALEZ BELCHI, SERGIO	3ed5tg6yh7	1804                		0000008905					
+1000000108	BARREIRO FILGUEIRA, FRANCISCO	291094    	1803                		0000008904					
+1000000109	NAVARRO APARICIO, JOSE	17621270  	1762                		0000008758					
+1000000110	PEREZ ARENAS, ANA BELEN	3ed5tg6yh 	1723                		0000008519					
+1000000111	IBAÑEZ MORENO, LAURA	dfrty67uy 	1806                		0000008918					
+1000000112	GUTIERREZ REYES, ANTONIO	ml0936    	1797                		0000008870					
+1000000113	RICHARTE CANOVAS, VERONICA	606060    	1686                		0000008334					
+1000000114	RAMOS ARENAS, BENJAMIN	098ijuh654	1776                		0000008819					
+1000000115	LIMIA ROZAS, ANGEL	angeladhoc	1766                		0000008771					
+1000000117	MARTINEZ COBARRO, DANIEL	3ed5tgdf  	1774                		0000008795					
+1000000118	CARRION CUEVAS, SACRAMENTO	menty     	1809                		0000008922					
+1000000119	ARQUITECTURA Y URBANISMO S.L., ATICA	he84al88  	5042                		0000008739					
+1000000120	NIETO PEREZ, SERGIO	570241    	1812                		0000008932					
+1000000121	MUÑOZ LORENTE, MARIA PALOMA	paloma    	1780                		0000008823					
+1000000122	VERA AGULLO, MARIA LUISA	34832680  	1773                		0000008794					
+1000000123	MARMOL JOYA, JUAN LORENZO	122752    	1732                		0000008634					
+1000000124	ALCARAZ MARCOS, ROCIO	310777    	1818                		0000008955					
+1000000125	MONTIEL RODRIGUEZ, ISABEL	montiel   	1819                		0000008956					
+1000000126	ALCARAZ HERNANDEZ, JUAN	3sd5tg4rf 	1798                		0000008871					
+1000000127	GARRE MARTINEZ, CARMEN	mariano   	1791                		0000008852					
+1000000128	PARRAGA LAJARIN, ASUNCION LAURA	251978    	1817                		0000008954					
+1000000129	BUENDIA LORENZO, SALVADOR	16641664  	1664                		0000008239					
+1000000130	MARTINEZ MUNUERA, MARIA JOSE	majomar   	1814                		0000008951					
+1000000131	ZAMORA RUBIO, ANTONIO ENRIQUE	qicqic    	1823                		0000008974					
+1000000132	RECHE PEREZ, JUANA MARIA	francisco 	1820                		0000008970					
+1000000133	DEL AMOR JIMENEZ, ROSARIO MARIA	as45vb67hg	1808                		0000008921					
+1000000134	FERNANDEZ SANCHEZ, ANTONIO	anfersa   	1828                		0000008998					
+1000000135	MARTINEZ PEREZ-HITA, JUAN	040904    	1824                		0000008975					
+1000000136	PEDROS COSTA, EVA MARIA	29052905  	1810                		0000008924					
+1000000137	SAEZ CHUECOS, JUAN DAVID	2084ctd   	1787                		0000008841					
+1000000138	HERNANDEZ CEREZO, SONIA	220969    	1727                		0000008543					
+1000000139	SANCHEZ RUBIO, GINES	10141014  	1710                		0000008469					
+1000000140	PACHECO MARCO, ANGEL LUIS	003030    	1833                		0000009030					
+1000000141	PARRA VIDAL, MIGUEL ANGEL	brumily   	1827                		0000008988					
+1000000142	GUERRERO SEGURA, ISABEL	abcxyz    	1807                		0000008920					
+1000000143	PEDROS COSTA (Acreditada), EVA MARIA	29052905  	6356                		0000008643					
+1000000144	GUIJARRO CAZORLA, CARLOS	cgc777    	1836                		0000009043					
+1000000145	SOTO MEROÑO, MARIA ESPERANZA	snoopy    	1786                		0000008839					
+1000000146	LOPEZ LOPEZ, DIEGO	as445ggrtd	1832                		0000009028					
+1000000147	MARTINEZ BURLO, MARIA DE LA CRUZ	070272    	1839                		0000009047					
+1000000148	ESCUDERO PEREZ, CARLOS ENRIQUE	acuario   	1845                		0000009064					
+1000000149	PEREZ VICENTE, PILAR	612413    	1844                		0000009063					
+1000000150	SOLA SANCHEZ, BERTA	5555ab    	1800                		0000008879					
+1000000151	EGEA GARCIA, FERNANDO	egarfer   	1843                		0000009061					
+1000000152	HERNANDEZ GARCIA, JOSE MARIA	hernandez 	6012                		6012					
+1000000153	NAVARRO ALVAREZ, VICTOR	018520    	1852                		0000009082					
+1000000154	CARCELEN GILAR, BLAS	blaster   	1854                		0000009083					
+1000000155	PINILLOS CAPEL, PABLO	887hgtrfd 	1850                		0000009089					
+1000000156	SANCHEZ JOVER, SANTIAGO	48431674  	1821                		0000008971					
+1000000157	RIQUELME RIQUELME, MARIA ANGELES	3ed6yh54rf	1855                		0000009092					
+1000000158	ROS OLIVO, JOSEFA	230093    	1858                		0000009106					
+1000000159	ABELLAN ALEMAN, FRANCISCO JAVIER	15031975  	1853                		0000009091					
+1000000160	HERNANDEZ MARTINEZ, CARMEN MARIA	carmenarq 	1846                		0000009086					
+1000000161	GIL GARCIA, JOSE LUIS	232622    	1826                		0000008987					
+1000000162	INGECON SURESTE S.L.,	16121612  	5051                		0000009048					
+1000000163	MARTINEZ Y SANCHEZ ARQ. TECNICOS C.B.,	16121612  	5025                		5025					
+1000000164	IZQUIERDO ROMERO, NICOLAS	1871nir   	1871                		0000009127					
+1000000165	CARABANTE FLORES, IGNACIO LUIS	CARABANTE 	1863                		0000009111					
+1000000166	AYALA SANCHEZ, ANTONIO MANUEL	52818207  	1861                		0000009109					
+1000000167	MARTINEZ SAEZ, PEDRO MANUEL	010178    	1869                		0000009126					
+1000000168	ESCAMEZ JIMENO, ANA MARIA	434343    	1868                		0000009125					
+1000000169	MORALES DUE, JUAN BAUTISTA	aszx45bn67	1842                		0000009060					
+1000000170	GARCIA GUILLAMON, JOAQUIN MIGUEL	kinito    	1872                		0000009144					
+1000000171	SAIZ DORADO, MARIA ELENA	4rf5tg6yh7	1876                		0000009149					
+1000000172	LIARTE PEREZ, ANTONIO	12345678  	1879                		0000009153					
+1000000173	CABRERA ARQUITECTURA TECNICA S.L.,	1410lara  	5034                		5034					
+1000000174	MOLINA CARRASCO, ANTONIO EMILIO	aepepo    	1875                		0000009148					
+1000000176	LORITE PERALES, JOSE MARIA	dfrtg65t  	1877                		0000009150					
+1000000178	FAJARDO GARCIA, PABLO	000911    	1878                		0000009152					
+1000000179	OLIVARES VILCHES, MARIA GLORIA	686995006 	1874                		0000009146					
+1000000180	FLORES VITIELLO, ALEXANDRA	plokiju42 	1867                		0000009124					
+1000000181	PALAZON MEROÑO, JUAN	arquitecto	1705                		0000008417					
+1000000182	MORENO RUIZ, PASCUAL	777777    	1788                		0000008838					
+1000000183	SERNA JIMENEZ, SILVESTRE	sisegi    	1888                		0000009173					
+1000000184	GOMEZ MARTINEZ, MARCIAL	4rf5tg6yh 	1816                		0000008953					
+1000000185	SALVADOR BRAVO, MIGUEL	m272900   	1889                		0000009174					
+1000000186	BERNAL ABENZA, JUAN ANTONIO	cartagena 	1830                		0000009000					
+1000000187	SANTANDER ORTEGA, JOSE MIGUEL	21tgrf43es	1892                		0000009180					
+1000000188	GUILLEN PAY, HECTOR	17171717  	1717                		0000008514					
+1000000189	FERNANDEZ ALVAREZ, MARCOS	4rf5tg6yh7	1893                		0000009197					
+1000000190	VILLAESCUSA MEROÑO, MARIANA ISABEL	3ed4rf5tg6	1838                		0000009046					
+1000000191	OLMOS OCHOA, DEBORA	1qa3ed4rf 	1667                		0000008250					
+1000000192	DEL VALS MARTINEZ, FRANCISCO	23282434  	1885                		0000009165					
+1000000193	DIRYCOR S.L.,	48431674  	5047                		0000008964					
+1000000194	MIÑARRO ALONSO, PEDRO SALVADOR	21061973  	1897                		0000009210					
+1000000195	LOPEZ MARTINEZ, CATALINA	as34ff6ghy	1887                		0000009171					
+1000000196	MARTINEZ NAVARRO, JUAN ANTONIO	demolicion	1895                		0000009214					
+1000000197	CEREZO VALVERDE, MANUEL	291279    	1908                		0000009230					
+1000000198	SANCHEZ CANO, PEDRO ANTONIO	21697258  	1903                		0000009223					
+1000000199	SOLER SOLANO, ANA BELEN	s7e5rt    	1898                		0000009218					
+1000000200	GUARDIOLA GARCIA, ESTHER	12349ddffs	1884                		0000009164					
+1000000201	GOMEZ LOPEZ, MIGUEL ANGEL	415605    	1905                		0000009232					
+1000000202	ORTIN MONTESINOS, MANUEL	34827138  	1851                		0000009090					
+1000000203	JARA VIGUERAS, PEDRO	ggbh77uuyy	1901                		0000009221					
+1000000204	MARIN LIDON, ROBERTO	3e5t6yhgtd	1907                		0000009234					
+1000000205	MARTINEZ JAVALOYES, JESUS FRANCISCO	4ed6y7uyht	1917                		0000009252					
+1000000206	MORA LOPEZ, LAURA	lauramore 	1726                		0000008542					
+1000000207	MENDEZ GUTIERREZ, MARIA EULALIA	09120303  	6447                		0000008982					
+1000000208	NAVARRO SAN LEANDRO, JOSE LUIS	pistoliky 	1720                		0000008477					
+1000000209	AGUDO MIÑARRO, MARIO	135678    	1848                		0000009085					
+1000000210	CARPENA ORTUÑO, JUAN DAVID	RSD323    	1894                		0000009212					
+1000000211	GONZALVEZ GARCIA, ELENA	elena1914 	1914                		0000009249					
+1000000212	DURANTUNEZ S.L.	150950    	5055                		0000009198					
+1000000213	RODRIGUEZ PAREJO, JOSE ANDRES	sdfghjk   	1153                		1153					
+1000000215	RUIZ MOLINA, JUAN PEDRO	juperu    	1916                		0000009251					
+1000000216	ARQUES MARTINEZ, ROCIO DEL MAR	115411    	1873                		0000009145					
+1000000217	CANO PEÑALVER, JOSE	pato27    	1880                		0000009143					
+1000000218	CANTERO GONZALEZ, JUAN CARLOS	jardin    	1924                		0000009281					
+1000000219	ROS VELASCO, ROBERTO	hgt5987hde	1922                		0000009279					
+1000000220	GARCIA ARNAU, ANTONIO	choleitor 	1906                		0000009233					
+1000000221	PERIAGO CARRETERO, FRANCISCO	flanagan  	1714                		0000008473					
+1000000222	LOPEZ GARCIA, JOSE ANTONIO	99999999  	1919                		0000009275					
+1000000223	BECERRA ARROYO, JOSE ANTONIO	almudena  	1918                		0000009253					
+1000000224	ZAPATA BOLARIN, JOSE MIGUEL	191280    	1859                		0000009107					
+1000000225	LOPEZ SANCHEZ, PASCUAL AUGUSTO	alfa1904  	1904                		0000009231					
+1000000226	RODRIGUEZ GARCIA, JUAN ANTONIO	abc123    	1822                		0000008972					
+1000000227	TALLER DE ARQUITECTURA DE JUMILLA S.L.,	330900    	5057                		0000009284					
+1000000229	GALLARDO ROMERO, PEDRO JOSE	xxc98985hh	1835                		0000009041					
+1000000230	PANIAGUA RISUEÑO, MIGUEL ANGEL	290591    	1932                		0000009315					
+1000000231	MARIN CAMARA, PEDRO ANGEL	240276    	1935                		0000009329					
+1000000232	FERNANDEZ SARABIA, JOSE	pepito578 	1934                		0000009326					
+1000000233	VALVERDE SERRANO, JOSE	289100    	1928                		0000009310					
+1000000234	CANO CAMACHO, SUSANA	fr56y7ujh 	1933                		0000009325					
+1000000235	LOPEZ SALMERON, EMILIO JOSE	emiliols  	1486                		1486					
+1000000236	GUERRERO MARQUEZ, ANTONIO JAVIER	zx45bn8900	1936                		0000009349					
+1000000237	VALLE VALLE, JOSE MANUEL	vic0604sil	1927                		0000009297					
+1000000238	GRUPARTEC, C.B.	angelinas 	5050                		0000009016					
+1000000239	FERNANDEZ GARCIA DE LA NAVARRA, SERGIO	3sdcfvghbs	1940                		0000009365					
+1000000240	RUIZ LANTERO, PABLO	273273    	1944                		0000009369					
+1000000241	NAVARRO GIMENEZ, JUAN CARLOS	jc4055    	1942                		0000009367					
+1000000242	ASENCIO LOPEZ, FRANCISCO	hondon    	1931                		0000009313					
+1000000243	OLIVA FERNANDEZ, ILUMINADA	murcia    	1913                		0000009248					
+1000000244	SANCHEZ SERRANO, GABRIEL TOMAS	realmadrid	1923                		0000009280					
+1000000245	CARCELES ODERO, EMILIO JOSE	iscariote 	1937                		0000009350					
+1000000246	DE LLANO DURAN, BORJA	borjade   	1902                		0000009222					
+1000000247	TERRER LOPEZ, MERCEDES	3ed5tg7ujy	1815                		0000008952					
+1000000248	AGUIRRE MARTINEZ, ANA	160700    	1870                		0000009130					
+1000000249	ANDREO ROMERO, JUAN PEDRO	19541954  	1946                		0000009388					
+1000000250	MARTINEZ GUTIERREZ, ANTONIO	antonio   	1847                		0000009087					
+1000000251	MIRA MORALES, PABLO	184057    	1899                		0000009219					
+1000000252	CARRILLO SANCHEZ, JUAN CARLOS	170177    	1950                		0000009400					
+1000000253	BERNABE CORTIJOS, JOSE	almuerza  	1959                		0000009423					
+1000000254	GONZALEZ URAN, RAQUEL	raquel    	1957                		0000009421					
+1000000255	MARTINEZ-CARRASCO GUZMAN, LUIS	lmcg1956  	1956                		0000009420					
+1000000256	VALERO GOMEZ, MIGUEL ANGEL	48496505  	1954                		0000009418					
+1000000257	HERNANDEZ CONESA, DAVID	topolanger	1952                		0000009416					
+1000000258	OLIVARES ESTEBAN, MANUEL	2ws5tg4rf6	1953                		0000009417					
+1000000259	TASACIONES, PROMOCIONES Y GESTIONES TECNICAS ZELUAN, S.L.	Z5048cat  	5048                		0000008965					
+1000000260	ARREDONDO CAZORLA, RAFAEL	39026895  	1951                		0000009415					
+1000000261	CHICO MONREAL, CARLOS DOMINGO	6355ccm   	1963                		0000009444					
+1000000262	MARTINEZ BLAYA, DIEGO LUIS	de456bvc  	1938                		0000009351					
+1000000263	ROMERA GAZQUEZ, JOSE ANGEL	23263053  	1965                		0000009446					
+1000000264	PINTADO GIL, ROMAN FRANCISCO	sswed34ggg	1962                		0000009443					
+1000000265	LAJARIN CAMPILLO, ADRIAN	almudena  	1882                		0000009160					
+1000000266	HERNANDEZ MANZANO, MARIA DEL CARMEN	mame75    	1964                		0000009445					
+1000000267	FRUCTUOSO HERNANDEZ, FRANCISCO JAVIER	MARINA    	1966                		0000009447					
+1000000268	ROSIQUE BARBA, JOAQUIN CESAR	348268    	1971                		0000009461					
+1000000269	PEREZ GONZALEZ, RAQUEL	rapegon   	1973                		0000009463					
+1000000270	ALCARAZ IZQUIERDO, MARIA DOLORES	2ws3ed4rft	1829                		0000008999					
+1000000271	GARCIA CHALUD, LAZARO MANUEL	19101910  	1960                		0000009441					
+1000000273	MULTIESTUDIO, S.L.	mu0405    	5026                		5026					
+1000000274	ANDUJAR SANCHEZ, ALEJANDRO	andujar   	1967                		0000009448					
+1000000275	MOLINA MORENO, RUBEN	147258369 	1975                		0000009480					
+1000000276	MURCIA NICOLAS, FRANCISCO JAVIER	666666    	1915                		0000009250					
+1000000277	MARTINEZ DEL TORO, ESTHER	tollban   	1958                		0000009422					
+1000000278	GALLARDO RAMOS, FRANCISCO JOSE	23008760  	1978                		0000009497					
+1000000279	MARTINEZ JENKINS, JOSE SANTIAGO	santy28   	1794                		0000008867					
+1000000280	CUBERO CLIMENT, ANTONIO MARIA	156626    	1976                		0000009495					
+1000000281	MARTINEZ TERUEL, JOSE DAVID	141296    	1969                		0000009459					
+1000000282	MATEOS SUAREZ, BENITO	415263    	1811                		0000008925					
+1000000283	GONZALEZ TERUEL, JULIAN	08072007  	6489                		0000009118					
+1000000284	EGEA & ESCUDERO, S.L.	005056    	5056                		0000009237					
+1000000285	QUESADA AGUILAR, MANUEL FRANCISCO	150974    	1955                		0000009419					
+1000000286	SANCHEZ AMOR, JULIO	mecano    	1837                		0000009044					
+1000000287	PROVENCIO VALERA, CELIA	celias    	1981                		0000009528					
+1000000288	RODRIGUEZ CIMADEVILLA, MARIA ESTELA	fr567yhu7j	1979                		0000009517					
+1000000289	CASTILLO MORENO, ISABEL MARIA	ddf66yh778	1985                		0000009521					
+1000000290	CALZADILLA RIOS, RAFAEL	RCR2321   	1980                		0000009518					
+1000000291	SERTEC MEDITERRANEAS, S.L.	b31416    	5046                		0000008962					
+1000000292	MATEO CAVA, FRANCISCO	okyg56rde 	1991                		0000009546					
+1000000293	MIRETE LOPEZ, GUILLERMO JOSE	guillermo 	1983                		0000009519					
+1000000294	CORTIJOS GARCIA, ESTELA MARIA	em22cg    	1993                		0000009548					
+1000000295	BAÑOS GONZALEZ, HELIA	191182    	1992                		0000009547					
+1000000296	HUELVES LORENZO, ENRIQUE JOSE	quique    	1972                		0000009462					
+1000000297	ESTUDIO 9, SOCIEDAD COOPERATIVA	estudio9  	5062                		0000009451					
+1000000298	MENDEZ GUTIERREZ, MARIA EULALIA	ws3ed4rf  	1891                		0000009178					
+1000000299	ROMERA BALDO, SANDRA	140580    	1977                		0000009496					
+1000000300	MURCIA GALLARDO, JUANA MARIA	a23dcv55ed	1984                		0000009520					
+1000000301	RUIZ ALCARAZ, ANTONIO	88ujhy65tf	1988                		0000009526					
+1000000302	ALCARAZ LECHUGA, JOSE LUIS	32183218  	2004                		0000009594					
+1000000303	MARTINEZ MARTINEZ, CRISTINA	okunukic  	2001                		0000009591					
+1000000304	PINAR MARTINEZ, ROSA MARIA	130304    	2000                		0000009589					
+1000000305	DOMINGUEZ TORIBIO, FERNANDO	fersus    	1998                		0000009587					
+1000000306	LORCA SANCHEZ, ALBERTO	3ed5tgrf65	2003                		0000009593					
+1000000307	MARIMON GONZALEZ, RUBEN BASILIO	rioboo    	1995                		0000009569					
+1000000308	HERNANDEZ GARCIA, ALFONSO	2ws6yhvfcd	1997                		0000009572					
+1000000309	JIMENO MOUZO, HECTOR	jimeno    	2005                		0000009620					
+1000000310	MORENO ROBLES, ANA ROSA	anamor    	2006                		0000009634					
+1000000311	LORENTE BELMONTE, RAFAEL	as45gf67h 	1974                		0000009479					
+1000000312	CASAS SANCHEZ, ESTHER CANDELARIA	334edr56yg	2002                		0000009592					
+1000000313	LOPEZ RODRIGUEZ, MARIA JOSE	009139    	1760                		0000008760					
+1000000314	GOMEZ GILAR, ANTONIO	721672    	2009                		0000009638					
+1000000315	BELANDO PEREZ, SOLEDAD	230481    	2007                		0000009636					
+1000000316	TAUMEDYA, S.L.	tau5032   	5032                		5032					
+1000000317	PERONA GUILLAMON, MARTA MARIA	23030073  	1910                		0000009235					
+1000000318	SALMERON JIMENEZ, ELISABET	230680    	1999                		0000009588					
+1000000319	TAPIA ABAD, DAVID	938811    	2010                		0000009650					
+1000000320	MATEO-SIDRON ALVAREZ, PEDRO JOSE	021980    	2008                		0000009637					
+1000000321	SANCHEZ CERON, FRANCISCO JAVIER	MARQUES   	2012                		0000009654					
+1000000322	SANCHEZ HERNANDEZ, MARIA VIRGINIA	gompy8    	2013                		0000009655					
+1000000323	MARTINEZ GEA, MARIA CONCEPCION	12sqw99i7u	2011                		0000009653					
+1000000324	MURCIA COSTA, ANTONIO	zxlik7u6yt	2014                		0000009656					
+1000000325	CAPEL VELAZQUEZ, ALMUDENA	adrian    	1883                		0000009161					
+1000000326	DIARTEC S.L.,	001953    	5004                		5004					
+1000000327	CARRASCO HENAREJOS, MARIA LUISA	44d56tgyhh	2015                		0000009668					
+1000000328	SAURA MADRID, ANTONIO	12df56gh78	1968                		0000009449					
+1000000329	PLAZA ASENSIO, ANTONIO	tonido    	1990                		0000009545					
+1000000330	PEREZ NICOLAS, SEBASTIAN	444444    	2018                		0000009683					
+1000000331	MARTINEZ JUAN, MARIA ANGELES	43drf6yhgf	2019                		0000009684					
+1000000332	PEREZ HERRERO, MARTA PILAR	s23eoss23 	1912                		0000009229					
+1000000334	BARROS, FERNANDO-JOSE	143667    	2016                		0000009675					
+1000000335	LAGUNA LOPEZ, PABLO	3pe1nda   	2020                		0000009707					
+1000000336	SILVENTE MARTINEZ, CRISTINA	C1530PM   	1666                		0000008248					
+1000000337	MENA ESCRIBANO, FRANCISCO	paco44    	2021                		0000009708					
+1000000338	JRT DESPACHO DE ARQUITECTURA TECNICA, S.L.	jrt0202   	5074                		0000009709					
+1000000339	SANCHEZ AVILES, ANDRES	2ws5trf677	2017                		0000009676					
+1000000340	MURTIC, DZEVAD	230454    	6295                		0000008318					
+1000000341	GARDEN ARQUITECTURA, S.L.	191265    	5043                		0000008789					
+1000000342	PEREZ VIVES, CLEMENTE JAVIER	cjpvok    	2026                		0000009755					
+1000000343	SOLANO ARROYO, FRANCISCO MANUEL	291004    	2027                		0000009756					
+1000000344	CARTABON SERVICIOS TECNICOS, S.L.	lapila    	5065                		0000009532					
+1000000345	GINER MARTINEZ, JOAQUIN	505525    	2030                		0000009772					
+1000000346	GARCIA MILLAN, FRANCISCO JAVIER	fjgarmin  	2029                		0000009771					
+1000000347	ANTOLINO ESCRIBANO, MARIO	250482    	2035                		0000009785					
+1000000348	DIAZ PERAN, MARIA DE LOS ANGELES	madperan  	2033                		0000009783					
+1000000349	RUIZ LOPEZ, JUAN JOSE	232833    	2032                		0000009774					
+1000000350	ROMERO ANIORTE, MARCELINO	marceline6	2025                		0000009727					
+1000000351	CLEMENTE RODRIGUEZ, FRANCISCO JOSE	123456    	1802                		0000008901					
+1000000352	BRT ARKITEK, SDAD.COOP.	bedia15   	5052                		0000009069					
+1000000353	ABELLANEDA LIDON, ALFONSO LUIS	23266390  	1996                		0000009571					
+1000000354	SAEZ CASTEJON, ANTONIO FELIPE	felipe    	1748                		0000008717					
+1000000355	VIDAL GUEVARA, TOMÁS	angela    	2037                		0000009810					
+1000000356	MAESTRE SAN JUAN MAESTRE, FEDERICO CARLOS	as23fg5534	2039                		0000009813					
+1000000357	LAMAS GOMEZ, PAULA	151081    	2036                		0000009786					
+1000000358	NAVARRO LOPEZ, PEDRO ANTONIO	23281061  	2034                		0000009784					
+1000000359	ROMERA SASTRE, ANGEL MARTIN	xxccddewss	1945                		0000009375					
+1000000360	CONESA ZAMORA, JUAN CARLOS	col2038   	2038                		0000009812					
+1000000361	AM&MP COMUNIDAD DE BIENES	s23eoss23 	5067                		0000009481					
+1000000362	PEÑA NAVARRO, VICENTE	000001392 	1943                		0000009368					
+1000000363	CLML ARQUITECTURA, S.L.	005599    	5070                		0000009688					
+1000000364	GONZALEZ SANCHEZ-MANZANERA, CESAR	327038    	2041                		0000009836					
+1000000365	LOPEZ SANDOVAL, LAURA	lls2044   	2044                		0000009860					
+1000000366	VILLA SEÑAS, JOSE	77712034  	2042                		0000009858					
+1000000367	GIL TORRANO, ALVARO	as34gtrf  	1961                		0000009442					
+1000000368	SANCHEZ RUIZ-TELLO, CLEMENTE	csrt77    	2040                		0000009835					
+1000000369	DITARKI LUMBRERAS, S.L.	250super  	5076                		0000009814					
+1000000370	AROCA MARTINEZ, MARIA	maria1986 	1986                		0000009522					
+1000000371	TECNICOS EPECO, S.L.	29052905  	5064                		0000009531					
+1000000372	ILLAN GARCIA, RAMON	48398583  	2045                		0000009861					
+1000000373	LLAMAS GARCIA, ESTHER	as5tf37uhy	2046                		0000009862					
+1000000375	GALLEGO SALVADOR, ROSENDO	289188    	2050                		0000009899					
+1000000376	HERNANDEZ MESEGUER, ANDRES JAVIER	7964au    	2055                		0000009905					
+1000000377	LOPEZ GARCIA, ANGEL MANUEL	zxc67de334	1834                		0000009031					
+1000000378	NORTES CANOVAS, FRANCISCO JAVIER	669487    	2056                		0000009906					
+1000000379	PEREZ MARTINEZ, JULIO	030310    	2057                		0000009907					
+1000000382	GUILLEN MARTINEZ, VANESSA	asdfgh43dd	2059                		0000009911					
+1000000383	CARRASCO Y CARCELES ESTUDIO TECNICO, S.L.	21052105  	5075                		0000009741					
+1000000385	CEREZO SOTO, RAUL	ds45vcxdss	2051                		0000009900					
+1000000386	(VISADOS), SANDRA	sandra    	sandra              	00				May  3 2099 12:00:00:000AM	1	
+1000000387	CEGARRA LOPEZ, SERGIO	105210    	2060                		0000009912					
+1000000388	GUEVARA SANCHEZ, PASCUAL	pascuags  	1670                		0000008265					
+1000000389	ESTUDIOS Y PROYECTOS LA PUEBLA, S.L.	22427802  	5012                		5012					
+1000000390	PEÑAS GOMEZ, DIEGO	48544024  	2069                		0000009942					
+1000000391	ROS ALBALADEJO, ANTONIO	zx5tg7uhyy	2074                		0000009944					
+1000000392	BESADA PEÑA, FERNANDO	24011980  	2073                		0000009945					
+1000000393	MARTINEZ MONTESINOS, FRANCISCO JOSE	bk8cn0    	2071                		0000009947					
+1000000394	(VISADOS), MAVI	mavi      	mavi                	00						
+1000000395	HERNANDEZ SANCHEZ, FRANCISCO JAVIER	2332bc    	2065                		0000009924					
+1000000396	CANO LOPEZ, ANTONIO JOSE	as554ffgvf	2062                		0000009921					
+1000000397	MORENO AGUERA, JESUS	sd45gtfddd	2080                		0000009965					
+1000000398	NADAL JIMENEZ, VERONICA	nadal2569 	2075                		0000009959					
+1000000399	ROCA SANCHEZ, ANTONIO	xc67ne23dd	1687                		0000008336					
+1000000400	GARCIA VIVANCOS, DAVID	244485    	2083                		0000009969					
+1000000401	GODOY LOPEZ, ALEJANDRO	221200    	2081                		0000009966					
+1000000402	FERNANDEZ RODRIGUEZ, ISABEL	222280    	2031                		0000009773					
+1000000403	SANCHEZ HERNANDEZ, BEATRIZ	091006    	2079                		0000009964					
+1000000406	MARTINEZ RIVES, BARBARA	barbara   	2086                		0000009986					
+1000000407	SEIS ARQUITRABES, S.L.	5927feg789	5080                		0000009971					
+1000000408	SOLA MOLINA, ENRIQUE JESUS	cubico    	1949                		0000009399					
+1000000410	(VISADOS), TANIA	tania     	tania               	00						
+1000000411	AGULLO PALMA, IRENE	irenik    	2087                		0000009988					
+1000000412	SANDOVAL SAURA, FRANCISCO MANUEL	francisco 	1920                		0000009277					
+1000000413	MARTINEZ SANCHEZ, JAVIER	20889920  	2088                		0000009989					
+1000000414	CONDE MUÑOZ, JOSE MANUEL	condem    	2068                		0000009941					
+1000000416	(GABINETE), LAURA	laura     	laura               	04				Mar  3 2099 12:00:00:000AM	0	
+1000000418	REX LARIO, VICENTE	vrexlario 	2095                		0000010019					
+1000000421	DE IBARRA ZARAGOZA, DANIEL	dani77    	2096                		0000010030					
+1000000422	ORENES GARCIA, MATIAS JOSE	48396678  	2072                		0000009946					
+1000000426	NICOLAS GALVEZ, JAVIER	carolina  	2066                		0000009939					
+1000000427	RUIPEREZ CUENCA, MARIA VICTORIA	victoria  	1864                		0000009121					
+1000000431	ROJO CANOVAS, ANA BELEN	230704    	3000                		0000010040					
+1000000432	MARTINEZ PEREZ, MANUEL IGNACIO	000027    	2098                		0000010032					
+1000000434	MUÑOZ PEDREÑO, JOSE MANUEL	abril1983 	2099                		0000010033					
+1000000435	SANCHEZ MEROÑO, CONCEPCION ANGELES	cosame    	1677                		0000008306					
+1000000436	LOPEZ GADEA, MARIA	de45t5r6yy	2091                		0000010008					
+1000000437	RIOS LOPEZ, JOSE MANUEL	48508214  	2103                		0000010060					
+1000000438	ROCA MARTINEZ, FRANCISCO ESTANISLAO	PERLETICO 	2104                		0000010061					
+1000000439	PARRA PALOMARES, ROSA MARIA	3ed4rf5tgh	2105                		0000010077					
+1000000440	QUIÑONERO MARTINEZ, ANTONIO	469306    	2092                		0000010009					
+1000000441	PRATS MOLINA, EVA MARIA	020578    	2106                		0000010078					
+1000000442	GARCIA MARTINEZ, FRANCISCO JAVIER	87488748  	2082                		0000009968					
+1000000443	MARTINEZ POVEDA, JUAN MIGUEL	poveda    	2093                		0000010010					
+1000000444	CAMPILLO FERNANDEZ, FERNANDO	JOAQUIN   	1989                		0000009563					
+1000000445	GARCIA CERDAN, FRANCISCO JAVIER	asdf34ddds	2061                		0000009920					
+1000000446	RAMIREZ ABENZA, FRANCISCO JESUS	52818206  	2101                		0000010058					
+1000000447	MUÑOZ ORTIZ, SONIA	smo28582  	2111                		0000010115					
+1000000448	GALAN MONTES, CUSTODIO	sd55tg7yhj	2110                		0000010114					
+1000000449	SALINAS TORROGROSA, MIGUEL ANGEL	002882    	2049                		0000009897					
+1000000450	ARKITEKO MPGILPM, S.L.	mpgilpm   	5085                		0000010120					
+1000000452	ORTUÑO PEREZ, ANA ISABEL	30041999  	2107                		0000010100					
+1000000453	CANOVAS ROS, EULALIA	121299    	2078                		0000009963					
+1000000454	ARRONIS NAVARRO, FRANCISCO	as4r5t6yhg	2114                		0000010129					
+1000000455	SM DESPACHO DE ARQUITECTURA, S.L.	53071700  	5021                		5021					
+1000000456	JIMENEZ AYUSO, RAUL	pin133    	2048                		0000009864					
+1000000457	CARRASCO GARCIA, JOSE MARIA	138433jc  	2120                		0000010158					
+1000000458	LOPEZ ABELLAN, JOSE	pipiat    	2116                		0000010154					
+1000000459	MARTINEZ LOZANO, MARIA DOLORES	md2108    	2108                		0000010112					
+1000000461	MARTINEZ ROMERO, ANTONIO MIGUEL	gema07    	2125                		0000010180					
+1000000462	NUÑEZ ARIAS, MARIA JOSE	dfgy76t54e	2123                		0000010178					
+1000000463	GALIAN ESTRADA, MARIANO ELEUTERIO	galian3553	2122                		0000010177					
+1000000464	RABADAN BELTRAN, JOSE	bruque    	1739                		0000008686					
+1000000467	FERNANDEZ SANCHEZ ARQUITECTURA TECNICA S.L.	anfersa   	5088                		0000010174					
+1000000468	LOPEZ PEREZ, JUAN DOMINGO	alustante 	2109                		0000010113					
+1000000469	MORENO GARCIA, JOSE JAVIER	48423285  	2124                		0000010179					
+1000000470	ZAMORA DURAN, IRENE	12051983  	2130                		0000010199					
+1000000495	ORTEGA NAVARRO, RAUL	as567mnbv9	2131                		0000010216					
+1000000496	LOPEZ CARIDE, MARIA DOLORES	vf667y55tg	2140                		0000010247					
+1000000497	CERON CERON, MARIA JOSE	jj86ggfred	2138                		0000010245					
+1000000499	SANCHEZ LORENZO, JOSE	irenesv   	2126                		0000010181					
+1000000501	GARCIA RODES, ALVARO	mascotapez	2058                		0000009908					
+1000000502	ZAMORA RODRIGUEZ, DAVID	25951121  	2127                		0000010182					
+1000000503	JIMENEZ MENDEZ, BEGOÑA MARIA	bego05    	1831                		0000009001					
+1000000515	RUBIA MATEOS, SERAFIN MANUEL	221188    	2121                		0000010176					
+1000000519	PLANA MARTINEZ, DANIEL	coaatmu   	2143                		0000010250					
+1000000520	FRANCO HIDALGO, SANTIAGO	290482    	2133                		0000010218					
+1000000521	GARCIA AZNAR, GINES JESUS	ratoneses 	2145                		0000010252					
+1000000522	BALLESTER MADRID, FRANCISCO ANTONIO	hgkjhg6576	2149                		0000010289					
+1000000524	RINCON MARTIN, RUBEN	ok5r4edy6g	2136                		0000010221					
+1000000525	MORENO DEL TORO, LUDOVIC	as34fv6yhg	2142                		0000010249					
+1000000526	CARMONA RODRIGUEZ, SALVADOR	074702    	2150                		0000010290					
+1000000527	MOLINES BARAZA, JOSE ANGEL	xcfv6y5t7u	2052                		0000009902					
+1000000528	SANTOS BERICAT, DANIEL	25042504  	2156                		0000010313					
+1000000529	BAUTISTA MARTINEZ, FRANCISCO ALBERTO	641984    	2161                		0000010318					
+1000000530	LOPEZ LLEDO, PALOMA	97749774  	2158                		0000010315					
+1000000531	PINTADO INIESTA, FRANCISCO	iuydas789q	2153                		0000010293					
+1000000532	QUIÑONERO GABARRON, JUAN ANTONIO	juanquitec	2164                		0000010324					
+1000000533	NAVARRO MORENO, DAVID	0533dnm   	2159                		0000010316					
+1000000534	MEDINA ABELLAN, LUIS	654321    	2151                		0000010291					
+1000000535	CAMPILLO DOMINGUEZ, LAURA	supercoco 	2113                		0000010128					
+1000000536	MORA RODRIGUEZ, IVAN MANUEL	llk8u7y6tr	2163                		0000010323					
+1000000539	SANCHEZ PEREZ, MARIA DE LA PAZ	98ju65teef	2084                		0000009984					
+1000000541	LOPEZ CARRILLO, AFRICA MARIA	1213kkj6tg	2154                		0000010294					
+1000000563	MARTINEZ DIAZ, RICARDO JOSE	ricardo   	2155                		0000010312					
+1000000572	ANDREO CANOVAS, JAIME	ghyu7ygt5r	2076                		0000009960					
+1000000573	LOPEZ RODRIGUEZ, IGNACIO JESUS	123456    	2152                		0000010292					
+1000000574	PASTOR MAYOR, JOSE CARLOS	josecarlos	2070                		0000009943					
+1000000575	GARCIA SOLA, FRANCISCO JAVIER	as45gt6645	2171                		0000010357					
+1000000576	CONTRERAS LOPEZ, JOSE	as55jm9112	2172                		0000010358					
+1000000577	MUÑOZ GUILLEN, ANDRES	95219521  	2165                		0000010332					
+1000000578	GUZMAN SERRANO, JENNIFER	200106    	2148                		0000010267					
+1000000579	PEREZ AMOROS, JOAQUIN RAMON	lkjhy66754	1994                		0000009570					
+1000000580	CATARINEU SANZ, JORDI	notuyode  	2166                		0000010334					
+1000000582	ACOSTA SANCHEZ, MIRIAM	de45tgyh76	2173                		0000010359					
+1000000585	RIVAS PEREZ, LAURA	2119lr    	2119                		0000010157					
+1000000586	TORA RICO, MARIA ANGELES	968171849 	2064                		0000009923					
+1000000591	MAS ANDREO, ROSA	240583    	2129                		0000010198					
+1000000617	BERNAL ALONSO, ENRIQUE	as45tdcvhy	2177                		0000010377					
+1000000620	BERNABEU ALACID, JOSE MANUEL	150802    	2174                		0000010360					
+1000000621	JIMENEZ-CERVANTES FRIGOLS, MARIA TERESA	ed45tg6yh 	2176                		0000010362					
+1000000622	PUJALTE MOLINA, ALEJANDRO	161101    	2097                		0000010031					
+1000000624	RUIZ REINA, PABLO	28607PrR  	2178                		0000010378					
+1000000625	ARTERO CAMPILLO, MARIA	12asx88llk	2183                		0000010383					
+1000000626	FOUBELO GONZALEZ, OLAYA	2311981   	2181                		0000010381					
+1000000627	ALCAÑIZ YAÑEZ, MARIA DOLORES	as34fr56tt	2179                		0000010379					
+1000000628	HERNANDEZ MONTALBAN, PENELOPE	kjsf8734jh	2196                		0000010408					
+1000000629	ARROYO MIRA, ALBERTO	dsfsdf5465	2189                		0000010391					
+1000000630	GARCIA ESPIN, BEGOÑA	3e4rfgh6tg	2185                		0000010386					
+1000000700	ARQUITEC CIEZA, CB	joguar724 	5083                		0000010101					
+1000000705	FERNANDEZ AMOR, JUAN JOSE	150384    	2194                		0000010406					
+1000000717	VILLAESCUSA JIMENEZ, ANA ISABEL	160802    	2186                		0000010387					
+1000000721	DEL ALAMO MENDEZ, JOSE MIGUEL	123456    	2188                		0000010389					
+1000000722	PEREZ ESTEBAN, JUAN DANIEL	dolores   	2134                		0000010219					
+1000000723	LARA LARA, MARIA JOSEFA	48466680  	2201                		0000010428					
+1000000724	SAEZ CLAVIJO, JESUS DE JUAN	123456    	2022                		0000009737					
+1000000725	CRUCES SOLIS, JUAN LUIS	arq0041   	2190                		0000010392					
+1000000726	YEPEZ NOLASCO, CARLOS AUGUSTO	vvbb6756gg	2199                		0000010413					
+1000000730	ALHAMA RUIZ, JUAN	484315    	2191                		0000010403					
+1000000767	TORRANO MIÑANO, YOLANDA	hhy65trf3e	2206                		0000010440					
+1000000827	PIERNAS SANCHEZ, ANA ASCENSION	aszx34r432	2168                		0000010336					
+1000000829	GALIAN MUÑOZ, DAVINIA	dgalian   	2207                		0000010450					
+1000000852	ROSILLO MARTOS, RAQUEL	88u76ttsds	2211                		0000010456					
+1000000915	PM ARQUITECTURA Y GESTION, S.L.	333333    	5087                		0000010163					
+1000000916	AMOROS SORIANO, TOMAS	fg6543dess	2210                		0000010455					
+1000000918	LOPEZ PALAZON, JOSE ALEJANDRO	8876hgf43s	2209                		0000010454					
+1000000922	FERNANDEZ DE GEA, JUAN ANTONIO	658029767 	2215                		0000010468					
+1000000923	CABEZOS ABELLAN, ROSA MARIA	453def8uj7	2205                		0000010439					
+1000000953	JUEZ GASTAÑAGA, RODRIGO	at2146    	2146                		0000010263					
+1000001028	MARTINEZ BONMATI, JUAN BAUTISTA	041281jb  	2208                		0000010452					
+1000001036	TORTOSA SANCHEZ, FRANCISCO JOSE	48501349  	2115                		0000010130					
+1000001102	ROMERO MENDEZ, FRANCISCO JESUS	301279    	1926                		0000009298					
+1000001192	SANCHEZ NAVARRO, MARIA JESUS	170107    	2219                		0000010510					
+1000001193	FERNANDEZ RUIZ, ANA	ana1234   	2216                		0000010469					
+1000001194	GOMEZ PAGAN, FABIOLA	34ff66yh7u	2221                		0000010512					
+1000001195	MORENO GILAR, PEDRO JOSE	337342    	2175                		0000010361					
+1000001197	SALMERON BERMUDEZ, MARIA	maria5201 	2167                		0000010335					
+1000001199	JIMENEZ RIESCO, ANA CARLOTA	ooieuuyrhf	2203                		0000010430					
+1000001200	ALMELA LUCAS, JOSE ANGEL	jas80699  	2184                		0000010384					
+1000001201	BERNABE PELLICER, SERGIO MANUEL	kb8mj23p33	2193                		0000010405					
+1000001202	PEREZ SERRANO, EVA MARIA	466946    	1939                		0000009352					
+1000001203	CUTILLAS LUCERON, DAVINIA	davinia   	2162                		0000010322					
+1000001204	GARCIA GONZALEZ, FRANCISCO GINES	9987yhy54t	2232                		0000010598					
+1000001205	MIÑARRO GARCIA, ENRIQUE	2712AT    	2229                		0000010592					
+1000001206	MARQUEZ CERDAN, DANIEL	minina12  	1929                		0000009309					
+1000001207	LOPEZ MARTINEZ, MARTA	3ed5tgrf56	2228                		0000010591					
+1000001208	GARCIA MARTINEZ, GREGORIO	ggmmds    	2227                		0000010589					
+1000001210	MARTINEZ IBAÑEZ, MARIA	98ju665gdt	2231                		0000010597					
+1000001211	OBAYA GARCIA, MANUEL ANGEL	2341yhfg  	1865                		0000009122					
+1000001216	ESPIN SANCHEZ, PEDRO JULIAN	041285    	2233                		0000010599					
+1000001218	RIVERA SORIANO, ANTONIO	emvy07    	2230                		0000010593					
+1000001219	ROCA MARTINEZ, ANTONIO PEDRO	22962722  	1886                		0000009166					
+1000001220	IBAÑEZ MORENO, MARIA SACRAMENTO	kj65gfre34	2180                		0000010380					
+1000001221	TUDELA VALERO, NOEMI	616934046 	2224                		0000010548					
+1000001222	MARTINEZ DIAZ, JOSE ANTONIO	zx67hg4rfd	2234                		0000010624					
+1000001223	GUERRERO MORENO, CRISTINA	moreno    	2235                		0000010625					
+1000001224	TOBIAS IMBERNON, ERNESTO	tobias23  	2243                		0000010633					
+1000001225	ROS GARCIA, JUAN ISIDRO	23040428  	2204                		0000010431					
+1000001226	ORTIGOSA SANCHEZ, JUAN ANTONIO	131185JA  	2240                		0000010630					
+1000001227	ELCHE TEJEDA, MONICA	lo887hbvf6	1769                		0000008790					
+1000001229	TORRENTE GAZQUEZ, ANA MARIA	22228357  	2222                		0000010527					
+1000001232	RUZAFA DIAZ, AGAPITO PEDRO	111251    	2195                		0000010407					
+1000001233	ALCARAZ LOPEZ, MIRIAM	gofiliqui9	2238                		0000010628					
+1000001234	BRITO SALVADOR, CRISTINA	nnbvcd5trf	2241                		0000010631					
+1000001241	CANOVAS GIL, DAMIAN	damiANA   	2218                		0000010509					
+1000001246	ARQ TEC ALMAGO, S.L.P.	071964    	5093                		0000010559					
+1000001247	REINALDOS GARCIA, JOSE GERMAN	german    	1941                		0000009366					
+1000001248	PAREDES HERNANDEZ, ANTONIA MARIA	piolindo  	1690                		0000008349					
+1000001249	MEROÑO PEREZ, FRANCISCO	23fg67vc56	2247                		0000010678					
+1000001250	MENDOZA MARTINEZ, SILVIA	6363012   	2236                		0000010626					
+1000001251	PEREZ MANZANO, PABLO	2pablo    	2132                		0000010217					
+1000001252	METROCUADRADO OFICINA TECNICA S.L.	m2otsl    	5069                		0000009682					
+1000001253	DIRECO OBRAS, S.L.	48886B    	5079                		0000009949					
+1000001254	LORENTE CARRERAS, ALVARO	05081200  	2252                		0000010718					
+1000001256	VALLES SANCHEZ, MARIA DOLORES	as44007676	2200                		0000010415					
+1000001257	MARTINEZ BLAYA, LAURA	nnbgted34 	2251                		0000010717					
+1000001258	LLORENTE GARCIA, JOSE ANTONIO	arantnt   	2258                		0000010726					
+1000001259	MARTINEZ JIMENEZ, PEDRO LUIS	48523482  	2260                		0000010728					
+1000001260	PAREDES OLTRA, ENCARNACION	llo87746rt	2254                		0000010722					
+1000001265	MIRAS CASADO, AVELINA	aline21   	2256                		0000010724					
+1000001266	VILLEGAS MARTINEZ, ANTONIO AGUSTIN	indice    	1722                		0000008518					
+1000001277	GARCIA MARTINEZ, MARIA DE LOS LLANOS	as34fg67ju	2187                		0000010388					
+1000001278	PEREZ GALVEZ, ELIAS	12052007  	2212                		0000010457					
+1000001279	RODRIGUEZ LOPEZ, MARIA PILAR	de4rf5tgyy	1925                		0000009282					
+1000001280	MONTES PEREZ, JORGE BARTOLOME	222214    	2223                		0000010528					
+1000001281	GARCIA MUÑOZ, SALVADOR	gbhn654rfd	2244                		0000010674					
+1000001282	FINCIAS RODRIGUEZ, XAVIER	mn76t54rd3	2261                		0000010742					
+1000001283	BAHON PUERTO, IRENE	23df56hy6 	2144                		0000010251					
+1000001284	BLAZQUEZ VIDAL, ANTONIO	98ujh5trf4	1685                		0000008332					
+1000001286	FERNANDEZ NAVARRO, ENRIQUE	EBELINDA  	2267                		0000010750					
+1000001287	FERNANDEZ MATEO, FERNANDO	luciafm   	2269                		0000010752					
+1000001290	ALEJANDRO GONZALEZ GARCIA, S.L.	algosl    	5019                		5019					
+1000001291	FERRER LOPEZ, JOSE LORENZO	temetnosce	2264                		0000010747					
+1000001292	DIAZ ESPINOSA, PEDRO ALFONSO	48420233N 	2182                		0000010382					
+1000001294	RIQUELME GOMEZ, MARIA DE LOS ANGELES	231085    	2239                		0000010629					
+1000001295	LOPEZ OLIVA, ENRIQUE JAVIER	54995499  	2271                		0000010754					
+1000001296	GANDIA CASADO, ALEJANDRO DIEGO	123456    	2277                		0000010769					
+1000001297	MARISCAL LOPEZ, DIEGO JOSE	dml9214   	2275                		0000010767					
+1000001298	HERNANDEZ BUENO, AIDA	as45vb78uj	2279                		0000010771					
+1000001299	PIÑERO RUIZ, MARIA ENCARNACION	280683    	2278                		0000010770					
+1000001300	TORNERO CARRILLO, DAVID	48495498  	2266                		0000010749					
+1000001301	CANOVAS CASADO, VICENTE	511359    	2249                		0000010680					
+1000001302	RAMER PROYECTOS Y PROMOCIONES S.L.	Ramer06   	5045                		0000008900					
+1000001303	ISIDORO GARCIA MARTINEZ, S.L.	10111955  	5081                		0000009995					
+1000001304	PEREZ FERNANDEZ, ANTONIO	001729    	1930                		0000009312					
+1000001305	TRUJILLO DOMINGUEZ, DAVID	dominguez 	2268                		0000010751					
+1000001306	SOLANO PEREZ, FRANCISCO JAVIER	649554339 	2169                		0000010339					
+1000001307	GONZALEZ FUSTER, MANUEL AUGUSTO	190781    	2274                		0000010757					
+1000001308	HERRERA FERNANDEZ, LAURA	laurah    	2089                		0000009990					
+1000001310	LOPEZ GUILLAMON, MIGUEL ANGEL	lk875r4edd	2289                		0000010800					
+1000001311	MARCO GONZALEZ, MARIA TERESA	21041981  	2272                		0000010755					
+1000001312	MERCADER PEDREÑO, MARIA DEL MAR	as998kj656	2285                		0000010796					
+1000001313	GUIRAO SOTO, JUAN JOSE	998j763hhd	2282                		0000010792					
+1000001314	BANKS, STEPHEN	sb2213    	2213                		0000010458					
+1000001315	APTERA ESTUDIO S.L. UNIPERSONAL	ro1926    	5082                		0000010042					
+1000001316	VILLEGAS ACOSTA, JOSE MARIA	as345g6yhh	2291                		0000010802					
+1000001317	GARCIA GARCIA, RUBEN	975791    	2283                		0000010793					
+1000001318	GOMEZ VICENTE, VICTOR	kj8765fcds	2292                		0000010814					
+1000001319	PEREZ YAGUES, LIBERTAD	234dfrtgf 	2102                		0000010059					
+1000001320	LOPEZ CANTERO, MIGUEL MANUEL	180179    	2294                		0000010816					
+1000001322	GARCIA AYALA, JAVIER	171001    	2281                		0000010791					
+1000001323	LOPEZ GARCIA, ANGEL	786532    	2300                		0000010832					
+1000001324	CAYUELA EGIDOS, CARMEN	ccayuela  	2293                		0000010815					
+1000001325	MESEGUER ORTUÑO, GERMAN	gg66y6554r	2287                		0000010798					
+1000001326	SERRANO MARTINEZ, JUAN ANTONIO	177000    	1770                		0000008791					
+1000001328	DE HARO GARCIA, CRISTINA	tain9i    	2225                		0000010549					
+1000001329	PERAMOROS TECNICOS, S.L	bogart    	5071                		0000009689					
+1000001330	PIERNAS VICENTE, S.L.	100000    	5054                		0000009129					
+1000001331	SOLERA PEINADO, VICTOR	123456    	2245                		0000010675					
+1000001332	ABAD SANCHEZ, ENRIQUE	as455bn891	2284                		0000010795					
+1000001333	APARICIO CIRRE, MARÍA DEL MAR	680697881 	2305                		0000010851					
+1000001334	BRAVO MARTINEZ, JUAN AGUSTIN	sd56hbfce3	2157                		0000010314					
+1000001335	BALLESTEROS ALBERT, PLACIDO	xcb8654sfs	2296                		0000010828					
+1000001336	MOULIAA LOPEZ, JUAN JOSE	48397814  	2301                		0000010847					
+1000001337	HERNANDEZ GARCIA, JOSE LUIS	6S9S1985  	2257                		0000010725					
+1000001339	PERALES PORTILLO, GERMAN BARTOLOME	240882    	2265                		0000010748					
+1000001340	AYALA CAMPELLO, MARIA MAGDALENA	macampello	2295                		0000010817					
+1000001341	D+D ARQUITECTURA TECNICA SOCIEDAD COOPERATIVA	310777    	5063                		0000009483					
+1000001343	GRESA LOPEZ, AINHOA DE JESUS	po8tgf4red	2307                		0000010853					
+1000001344	CAÑADAS BERRIO, MARTA	jumilla   	2118                		0000010156					
+1000000423	(GABINETE), DEBORAH	dsd       	dsd                 	04		A		Mar  3 2099 12:00:00:000AM	0	
+1000001353	LOPEZ SOTO, JESUS EDUARDO	df56hgbvcc	2298                		0000010830					
+1000001354	MORAGO ANDUJAR, JUAN AGUSTIN	ju19ag13  	2117                		0000010155					
+1000001355	MARTINEZ NICOLAS, SERGIO	20031984  	2262                		0000010744					
+1000001356	IV DOMO ARQTEC., S.L.U.	taviana   	5068                		0000009662					
+1000001357	RIERA SANTONJA, CARLOS SANTIAGO	aas33dvcca	2214                		0000010459					
+1000001359	CARO GONZALEZ, ANA	23257266  	2217                		0000010508					
+1000001360	SANCHEZ FENOLL, ENCARNACION	esf1742   	1742                		0000008701					
+1000001361	HERNANDEZ PEREZ, JOSE MARIA	485465    	2316                		0000010883					
+1000001362	SANCHEZ PEÑARANDA, BLAS ANTONIO	001806    	2311                		0000010876					
+1000001363	OTERO LOPEZ, JOSE MANUEL	002527    	2094                		0000010020					
+1000001364	LAJARA MARTINEZ, JOSE FRANCISCO	48452244  	2310                		0000010875					
+1000001365	DOMINGO PEÑAS Y ASOCIADOS, C.B.	diana10   	5003                		5003					
+1000001366	ESAT (SALVADOR ALEDO Y PEDRO-A PALLARES ) C.B.	005040    	5040                		0000008674					
+1000001369	ACROTEC DIRECCION TECNICA, S.L.P.	2084ctd   	5096                		0000010788					
+1000001370	SIERRA RAMOS, FRANCISCO JOSE	c5tg7ujhyu	2280                		0000010790					
+1000001371	ALFREDO NIETO PAREDES APAREJADORES, S.L.	alfredo   	5091                		0000010296					
+1000001372	GALERA SANCHEZ, ANGEL	kkj87h66yt	2306                		0000010852					
+1000001373	ARQUITECNI DE CIEZA, S.L.	joguar724 	5089                		0000010175		 			
+1000001375	ESCRIBA FERNANDEZ-MARCOTE, ERNESTO	0715eefm  	0715                		0715					
+1000001376	FERNANDEZ DE GEA, ANA	sd45fg66yg	2237                		0000010627					
+1000001377	LOPEZ DEL AMO LORENTE, FERNANDO	12sdft66yh	2322                		0000010895					
+1000001379	VALLE GOMEZ, DANIEL	445ft6tggh	2319                		0000010892					
+1000001381	GOMEZ GOMEZ, MARIA VICTORIA	dfgh435dgd	2317                		0000010889					
+1000001383	GARCIA RUBIO, RAQUEL	197506    	1890                		0000009175					
+1000001384	CANOVAS ESPIN, MARIA	190582    	2323                		0000010896					
+1000001390	O.T.M.OFICINA TECNICA DE MOLINA, S.L.	otemoli   	5024                		5024					
+1000001392	GALVEZ GIMENEZ, ANTONIO	japon21   	2331                		0000010915					
+1000001393	GARCIA GIMENEZ, FRANCISCO JAVIER	599503    	2314                		0000010881					
+1000001394	JIMENEZ CLEMENTE, EDUARDO	3ed7uj65tg	1759                		0000008761					
+1000001395	SORIANO HURTADO, LAURA	277215hi  	2326                		0000010909					
+1000001396	MARTINEZ VALERA, MARIO	zx69kjujjy	2313                		0000010879					
+1000001397	PALOMO MANRIQUE, ANA BELEN	c6yh8ujhbf	2325                		0000010908					
+1000001398	LEON TORRES, MANUEL IVAN	leon6408  	2304                		0000010850					
+1000001399	SANCHEZ AGUDO, MARIA ISABEL	887uhfdf4r	2302                		0000010848					
+1000001400	GARCIA HERMOSILLA, JESUS OSCAR	asd45fggfd	2327                		0000010910					
+1000001401	GARCIA LOPEZ DE URALDE, FRANCISCO JAVIER	xc4456gbbh	2312                		0000010878					
+1000001402	SERRANO CAVA, ESTER	zx23bn65tg	2286                		0000010797					
+1000001403	GUILLAMON CANDEL, JOSE ANTONIO	REVIVAL   	2332                		0000010925					
+1000001404	LOPEZ BALMASEDA, INOCENCIO	021099    	2288                		0000010799					
+1000001405	CAMPAÑA JIMENEZ, MARIA DEL ROCIO	775829    	2328                		0000010912					
+1000001406	GAMEZ MONTORO, GREGORIO JOSE	DNM714    	2318                		0000010891					
+1000001407	NAVARRO MARTINEZ, ANTONIO LUIS	ccnv776ttg	2333                		0000010927					
+1000001408	BERNAL MARTINEZ, SONIA	7736tgfr5d	2334                		0000010928					
+1000001409	APLOMO ARQUITECTOS TECNICOS ASOCIADOS	26121994  	5058                		0000009328					
+1000001412	ABRIL PORTILLO, JOSE FRANCISCO	hnb654rfsd	2335                		0000010929					
+1000001413	EYTOR GARRIDO, IAGO	chanteiro 	2320                		0000010893					
+1000001416	PEÑA FERNANDEZ-SERRANO, DANIEL	gotcha    	1987                		0000009523					
+1000001420	CASTELLANOS SANZ, EDUARDO	161062    	2297                		0000010829					
+1000001425	CONESA GONZALEZ, VICTORIA DEL CARMEN	saiyan    	2336                		0000010943					
+1000001426	GALLUD ARIÑO, MANUEL	21dfee4889	2337                		0000010944					
+1000001428	INCOTEC CONSULTORES, S.L.	181086    	5023                		5023					
+1000001430	TERRER ASTORGA, GUADALUPE	guadalupe 	1909                		0000009228					
+1000001433	SANDOVAL RAMOS, MONICA	180184    	2339                		0000010953					
+1000001434	GARCIA LOPEZ, JUAN	002340    	2340                		0000010954					
+1000001435	FARIÑAS ALIJA, MARIA DEL CARMEN	mnbv65432w	2342                		0000010956					
+1000001439	MORALES MASCARELL, SERGIO	887hhg4ffd	2346                		0000010960					
+1000001440	SANCHEZ FUENTES, JAVIER	221422    	2344                		0000010958					
+1000001442	MORA LOPEZ, ENRIQUE ANTONIO	23dr5t6y6t	1862                		0000009110					
+1000001443	DIAZ MURCIA, JUAN JOSE	df78jnbvgt	2250                		0000010681					
+1000001444	GONZALEZ ROMERO, JOSE FRANCISCO	jf2310    	2341                		0000010955					
+1000001445	PONCE AMARO, EDUARDO	677487940 	2345                		0000010959					
+1000001446	SANCHEZ FERNANDEZ, EUGENIO	xxcc664hh4	2347                		0000010970					
+1000001447	GUIRAO MOLINA, LUIS MANUEL	260804    	2355                		0000010979					
+1000001448	LOPEZ GARCIA, IGNACIO	150175    	2356                		0000010980					
+1000001449	EGEA HERNANDEZ, ONOFRE	MU0290BV  	2353                		0000010976					
+1000001460	GALLEGO PELEGRIN, EDUARDO	531989    	2348                		0000010971					
+1000001461	BLANCO CARRASCOSA, BERNARDO	az33edrf44	2330                		0000010914					
+1000001462	PARREÑO MARCHANTE, ALFREDO	cristina  	2350                		0000010973					
+1000001463	GARCIA SAURA, JULIO JOSE	yabelaru  	2352                		0000010975					
+1000001465	VILLA MARTINEZ, JOSEFA	198200    	1982                		0000009516					
+1000001469	MARTINEZ LASHERAS, MARAVILLAS ESTER	fg667hjgrt	2220                		0000010511					
+1000001470	ARCAS TUNEZ, JOSE SAMUEL	77565732  	2147                		0000010265					
+1000001471	GOMARIZ LAJARIN, JUAN	48398612  	2321                		0000010894					
+1000001472	GARCIA MOLINA, MARIA DEL ROCIO	z3l98kuH65	2359                		0000011006					
+1000001473	MIÑARRO FERNANDEZ, GERMAN	100578    	2362                		0000011009					
+1000001474	ORTUÑO PUCHE, JOSE RAMON	2802almu  	2360                		0000011007					
+1000001475	NARROS MARTINEZ, ANTONIO	6611AN    	2361                		0000011008					
+1000001476	LENTISCO LLAMAS, ANTONIO ANGEL	232323    	2363                		0000011011					
+1000001477	GONZALO PEREZ, GERARDO	317000    	2364                		0000011012					
+1000001478	VELEZ ORTIZ, JAVIER	as334f5ghh	2338                		0000010952					
+1000001479	ANDRES OTON, S.L.P	001952    	5073                		0000009691					
+1000001480	CANOVAS MARTINEZ, PEDRO JOSE	bombas    	2366                		0000011028					
+1000001481	CEREZUELA MARTINEZ, JUAN BAUTISTA	2C365T    	2365                		0000011027					
+1000001482	CERON CERON, MARIA JOSE	ccvgrft5tg	2357                		0000010982					
+1000001483	DOLCET CAMPOY, CARMEN MARIA	dolcet    	1896                		0000009213					
+1000001484	ORTUÑO CABALLERO, LAURA	xcqqaaz331	2303                		0000010849					
+1000001485	FERNANDEZ NAVARRO, RAUL	angela09  	2368                		0000011030					
+1000001488	ORTIZ BENZAL, CARLOS JAVIER	ortiz4385 	2358                		0000011005					
+1000001489	IBORRA LLOPIS, INDALECIO	as34fe3112	2085                		0000009985					
+1000001490	PAINO MATE, NOEMI	bv65trfd43	2309                		0000010855					
+1000001491	MIRAS ROMERO, ANTONIO	200984    	2380                		0000011075					
+1000001492	ESCUDERO SAURA, RAFAEL	23014774p 	2367                		0000011029					
+1000001493	MARTINEZ CUENCA, JUAN	jumarcu   	2067                		0000009940					
+1000001494	IBARRA JEREZ, CATALINA ANA	221177    	2379                		0000011074					
+1000001495	MARTINEZ-QUINTANILLA GARCIA, DARIO JUAN	ffv556y775	2376                		0000011071					
+1000001496	LOPEZ GARCIA, JOSE	nbnvbg65tr	2384                		0000011083					
+1000001497	MARTINEZ SERRANO, JUAN	ambiental 	2373                		0000011068					
+1000001499	FLORES PARODI, MACARENA	zx34vb78jj	2354                		0000010977					
+1000001502	RUIZ MARTINEZ, SERAFIN	mmhnh65trf	2381                		0000011076					
+1000001503	QUIROSA FLORES, MARIA CARMEN	xc542299ij	2374                		0000011069					
+1000001508	TOMAS MUÑOZ, ALBERTO	12sd009jkj	2388                		0000011099					
+1000001509	DIAZ GOMARIZ, INMACULADA	942001    	2387                		0000011098					
+1000001511	LOPEZ INGLES, IBAN ALBERTO	159357    	2391                		0000011102					
+1000001512	BRAVO ABELLANEDA, JUAN JOSE	kki6tccdsx	2141                		0000010248					
+1000001513	DE HARO BLEDA, LEANDRO DIEGO	gg654eddfr	2390                		0000011101					
+1000001514	PEREZ SOLER-ESPIAUBA, JAVIER	coaatmu   	1331                		1331					
+1000001515	CAÑAVATE DEL PINO, ANGEL PAULINO	tyghbn    	2377                		0000011072					
+1000001527	MARIN-BLAZQUEZ VALCARCEL-RESALT, MARIA TERESA	fernando  	2382                		0000011077					
+1000001528	SAURA DE ANTONIO, ELOY	ELY02CO   	2396                		0000011119					
+1000001529	MORENO GARCIA, FRANCISCO JESUS	3453dfgsdg	2370                		0000011041					
+1000001535	SANCHEZ MARTINEZ, ROSA MARIA	as56bv78u6	2385                		0000011084					
+1000001536	SALINAS FERNANDEZ DELGADO, GONZALO	azx44r5tdd	2273                		0000010756					
+1000001537	PEREZ PALOMINO, IVAN	zx1290okjh	2383                		0000011081					
+1000001538	CARRASCO MARTINEZ, MARIA CRUZ	mc7779    	2394                		0000011117					
+1000001542	MENDEZ LORENTE, FRANCISCO JOSE	mnn896fd34	2399                		0000011125					
+1000001543	MORENO HERNANDEZ, JOSE	03413562  	2401                		0000011127					
+1000001544	PADIAL MEGIAS, CARLOS	abcabc123 	2329                		0000010913					
+1000001545	MURCIA CARRILLO, CONCEPCION	181008    	2259                		0000010727					
+1000001546	RUIZ PEREZ, ANTONIO	152545    	2398                		0000011124					
+1000001549	SAURA CARCELES, FRANCISCA	gb554fre33	2378                		0000011073					
+1000001550	FERNANDEZ GUARDIOLA, ANA JOSE	dgfdgdfgas	2351                		0000010974					
+1000001551	ARQUITECTURA TECNICA ANDUJAR MARTINEZ S.L.P.,	spperi    	5090                		0000010223					
+1000001553	GINER RUIZ, JOSE	as45gh67bv	2389                		0000011100					
+1000001557	FERNANDEZ TORRENT, JUAN ANTONIO	zxc556yhhe	2375                		0000011070					
+1000001559	FERNANDEZ COBARRO, DAVID	987654321 	2386                		0000011097					
+1000001560	MARTINEZ LOPEZ, JUAN DE DIOS	juande    	2408                		0000011148					
+1000001561	MARTINEZ ORTEGA, SALVADOR	90820323  	2410                		0000011150					
+1000001562	MARTINEZ RABADAN, NURIA	48506940D 	2405                		0000011145					
+1000001563	MARTINEZ PONCE, DAVID	48508179Y 	2404                		0000011144					
+1000001564	LORCA MARTINEZ, VERONICA	17082008  	2406                		0000011146					
+1000001565	CEJUELA SAURA, VICTOR	sd56h778gh	2397                		0000011123					
+1000001566	RUIZ SERRANO, EVA	mjht54rfde	2135                		0000010220					
+1000001569	GARCIA VERA, LUIS	28091984  	2411                		0000011161					
+1000001570	FERNANDEZ MORENO, NICOLAS	960888    	2412                		0000011162					
+1000001572	HERNANDEZ MONTOYA, MIGUEL	222333    	2403                		0000011143					es
+1000001576	TOMAS ALARCON, ADRIAN	iselisol  	2400                		0000011126					es
+1000001577	CLIMENT TEROL, ROBERTO JOSE	12dllk8u76	2420                		0000011181					es
+1000001578	DOLERA FERNANDEZ, PEDRO JOAQUIN	pj2414    	2414                		0000011175					es
+1000001579	PEREZ SANCHEZ, MARIA DE LA FUENSANTA	df434fdgfd	2418                		0000011179					es
+1000001580	PEREZ FERNANDEZ, FRANCISCO JAVIER	002277    	2419                		0000011180					es
+1000001581	CASTEJON GARRIDO, JAVIER	larencemel	2417                		0000011178					es
+1000001584	CAMPILLO OLMOS, JAVIER	xc5533477h	2421                		0000011185					es
+1000001586	SANCHEZ CEBRIAN, MARIA TERESA	ggt655rrfh	1866                		0000009123					es
+1000001593	PUERTA RUBIO, FRANCISCO JOSE	20051987  	2422                		0000011186					es
+1000001596	MADRID RUIZ, CARLOS	4815162342	2253                		0000010720					es
+1000001599	GARGALLO PAYÁ, IRENE	22112006  	2090                		0000010007					es
+1000001600	ROS TORRES, SALVADOR	carmen98  	2226                		0000010588					es
+1000001601	SERRANO IBAÑEZ, JAVIER	12as45fgvv	2424                		0000011199					es
+1000001602	HERNANDEZ ROS, PEDRO	110783    	2426                		0000011201					es
+1000001603	GUERRERO VILLAR, MARIANO	ccv6890jju	2425                		0000011200					es
+1000001604	LORENTE IBAÑEZ, MARIA ENRIQUETA	keltike   	2416                		0000011177					es
+1000001605	BERNAL ALONSO, MARIA DEL CARMEN	picoletu  	2423                		0000011198					es
+1000001613	MARIN CASCALES, JOSE LUIS	210686    	2427                		0000011210					es
+1000001614	LOPEZ ALMARCHA, JOSE MANUEL	almarcha13	2402                		0000011142					es
+1000001615	ACOSTA SANCHEZ, MIRIAM	18021998  	2428                		0000011211					es
+1000001616	INDEX ESTUDIO STA, SOCIEDAD CIVIL PROFESIONAL	apalussa  	5100                		0000011055					es
+1000001617	MUÑOZ SANCHEZ, LAURA	98hj65gfcd	2430                		0000011213					es
+1000001618	EDUARDO HERNANDEZ SANCHEZ, S.L.P.	62591440  	5098                		0000010962					es
+1000001619	MESEGUER GARCIA, DIEGO	santyago69	2435                		0000011228					es
+1000001620	GONZALEZ BELCHI, SERGIO	20933484  	2431                		0000011224					es
+1000001621	VARGAS MOLINA, JESUS	superman  	2434                		0000011227					es
+1000001625	MELGARES DE AGUILAR FERREIRA, MARINA	tesoro    	2437                		0000011230					es
+1000001626	LUCAS FERNANDEZ, JUAN JOSE	luc2219   	2432                		0000011225					es
+1000001627	SANCHEZ ARCE, MARIA JOSEFA	0605ja    	2429                		0000011212					es
+1000001630	GARCIA BELTRAN, ANTONIO MANUEL	547975    	2442                		0000011245					es
+1000001631	MARIN GOMEZ, ISABEL	465289    	2441                		0000011244					es
+1000001632	BALSALOBRE GONZALEZ, LORENA	balgon4854	2440                		0000011243					es
+1000001633	VELASCO OLMO, FRANCISCO	181218    	2439                		0000011241					es
+1000001636	PEREZ PASTOR, JOSE JAVIER	307164    	2054                		0000009904					es
+1000001637	PEREZ PACHECO, ISABEL	ss45fft6yh	2444                		0000011254					es
+1000001642	RODRIGUEZ GARCIA, GERMAN	271983    	2436                		0000011229					es
+1000001643	DIAZ MORENO, ELISABET	334f55tg44	2445                		0000011255					es
+1000001644	GARCIA ROBLES, FRANCISCO	zxs334efft	2198                		0000010412					es
+1000001645	RABAL SEGURA, DANIEL ALFONSO	dalfonso  	2446                		0000011259					es
+1000001650	SARABIA ALFONSO, JOAQUIN	123456    	2450                		0000011271					es
+1000001651	VISEDO MORALES, SANTIAGO	zx12vb45ws	2451                		0000011272					es
+1000001653	HERNANDEZ MARTINEZ, JOSE ALBERTO	hogueras  	2454                		0000011275					es
+1000001655	VISCONTI MOLINETE, GUSTAVO MIGUEL	alba13    	2448                		0000011269					es
+1000001658	ALCAINA MOLINA, JUAN MIGUEL	00hhbg4433	2453                		0000011274					es
+1000001659	RESCALVO HERNANDEZ, JAVIER	45rf66tg33	2460                		0000011288					es
+1000001660	MORILLAS MILLAN, ALFONSO	16961696  	2457                		0000011285					es
+1000001662	GARRE PUJALTE, ANGELES	181412    	2456                		0000011284					es
+1000001663	PEREDA MAS, ANGEL	48423458  	2459                		0000011287					es
+1000001664	LOPEZ FERNANDEZ, JAIME	48506774  	2449                		0000011270					es
+1000001666	MARTINEZ SANCHEZ, LIDIA FUENSANTA	20051985  	2455                		0000011283					es
+1000001667	ROSILLO MARTOS, PEDRO JOSE	23054976  	2413                		0000011163					es
+1000001668	ESPINOSA CARMONA, JOSE ALBERTO	23271815  	2458                		0000011286					es
+1000001670	ALVAREZ SANCHEZ, ANTONIO GINES	antonio1  	2464                		0000011301					es
+1000001671	NOGUERA CASAS, LIBRADA CONCEPCION	noguera   	2462                		0000011299					es
+1000001672	PEREZ CHOMON, ANA	270716    	2461                		0000011298					es
+1000001673	MARTINEZ FRANCO, RAUL	as56bv7866	2395                		0000011118					es
+1000001674	PEÑARANDA BARBA, MARIA ANGELES	mapb2466  	2466                		0000011306		 			es
+1000001675	GARRIGOS PEREZ, JUAN	juan1987  	2465                		0000011302					es
+1000001676	SANCHEZ PEREZ, JAVIER	1970aa    	1970                		0000009460					es
+1000001677	BAÑOS GREGORI, NATALIA	na2470    	2470                		0000011313					es
+1000001680	RUIZ SERRANO, EVA	eva1977   	2468                		0000011311					es
+1000001681	HERNANDEZ CAMARASA, DIEGO	g48bzt    	2467                		0000011310					es
+1000001682	ARRONIS NAVARRO, FRANCISCO	callosa   	2469                		0000011312					es
+1000001683	MARTINEZ MUÑOZ, DAVID	627730    	2473                		0000011328					es
+1000001684	LORENTE BELMONTE, RAFAEL	34ffr56yyg	2477                		0000011332					es
+1000001686	MARTINEZ ROS, MARIA JOSE	1212710301	2478                		0000011340					es
+1000001687	LOPEZ CORTES, FRANCISCO JAVIER	almenara01	2479                		0000011341					es
+1000001688	CANO BAEZA, JOSE FRANCISCO	999999999 	2481                		0000011343					es
+1000001689	TRIGUEROS GRAO, SERGIO JERONIMO	19991999  	2480                		0000011342					es
+1000001690	MARTINEZ SORIA, RICARDO	4298dn0   	2482                		0000011346					es
+1000001691	SANCHEZ SAAVEDRA, EMILIO	629978590 	2476                		0000011331					es
+1000001694	BLOEMEN, EMILE JAN NICOLAAS	chiclayo  	2484                		0000011355					es
+1000001696	GOMEZ HOLGADO, CARLOS	asdc344rds	2474                		0000011329					es
+1000001697	RUIZ MULA, JESUS DAVID	xc55tgff44	2471                		0000011326					es
+1000001698	DIAZ MALEUBRE, RAQUEL MARIA	62106210  	6210                		6210					es
+1000001699	SANCHEZ MELON, JUAN PEDRO	20062006  	1735                		0000008650					es
+1000001702	SIERRA RAMOS, FRANCISCO JOSE	228056    	2487                		0000011361					es
+1000001703	HERNANDEZ PIÑERA, ROBERTO	19051987  	2491                		0000011365					es
+1000001704	PARADA SARABIA, SALVADOR	SARABIAS  	2490                		0000011364					es
+1000001705	SANCHEZ ALVAREZ, JOSE MIGUEL	140505    	2486                		0000011360					es
+1000001706	CORRALES DIOS, ANA MARIA	170710    	2494                		0000011370					es
+1000001710	PORLAN CHUECOS, SALVADOR	23286598H 	2497                		0000011373					es
+1000001711	CORTES HERRERA, FRANCISCO JAVIER	javier888 	2492                		0000011367					es
+1000001712	AYCART BELDA, SERGIO	SOBOGILU  	2489                		0000011363					es
+1000001713	CAMPILLO SANCHEZ, JOSE ANTONIO	jacs2496  	2496                		0000011372					es
+1000001715	AGUILERA CASTILLA, MARIA DE LOS ANGELES	maag961   	2483                		0000011354					es
+1000001726	GUILLERMO LOPEZ, JOSE MANUEL	48542383D 	2488                		0000011362					es
+1000001727	JIMENEZ VIDAL, ELOY MIGUEL	as34fg67hj	2472                		0000011327					es
+1000001731	SAEZ RUANO, SERGIO RAIMUNDO	sergio    	1699                		0000008408					es
+1000001733	GARCIA MUÑOZ, SALVADOR	1099cd    	2485                		0000011356					es
+1000001736	SAMPER MARTINEZ, DAVID	MAKITRON  	2499                		0000011385					es
+1000001737	MORENO ZAMBUDIO, SALVADOR	271980    	2498                		0000011384					es
+1000001738	MARTINEZ COBARRO, DANIEL	dani2602  	2500                		0000011386					es
+1000001739	DE LA CERRA ACOSTA, JUAN CARLOS	esquiador 	2501                		0000011387					es
+1000001740	ROSELL MARQUES, LIDIA	02011986  	2503                		0000011390					es
+1000001741	GONZALEZ ESCUDERO, JESUS JOSE	paulinoxx 	2255                		0000010723					es
+1000001742	PALOMARES PEREZ, CELIA	badu1985  	2502                		0000011388					es
+1000001743	GONZALEZ MATEOS, SONIA	soniamaria	2504                		0000011391					es
+1000001746	HERNANDEZ SAEZ, MARTA	mahersa   	2443                		0000011253					es
+1000001748	ROMERO HERNANDEZ, PEDRO JOSE	PJRH1986  	1789                		0000008850					es
+1000001749	JIMENEZ GARCIA, ANA ISABEL	180383    	2248                		0000010679					es
+1000001751	DIAZ MONTESINOS, ANGEL	Angeldm85 	2511                		0000011410					es
+1000001752	SABATEL LOPEZ, CARLOS	c8052c    	2506                		0000011405					es
+1000001753	MOLINA GARCIA, DANIEL	48524814  	2510                		0000011409					es
+1000001754	ALBACETE RIERA, CARLOS	48514705  	2516                		0000011415					es
+1000001755	MARTINEZ MARTINEZ, JUAN BAUTISTA	2392brh   	2512                		0000011411					es
+1000001756	BAREA RODRIGUEZ, ANA	asx55tt544	2246                		0000010677					es
+1000001757	SANCHEZ MUNUERA, MARIA ANTONIA	56265626  	2515                		0000011414					es
+1000001758	CUADRUPANI BOSQUED, FRANCISCO	f2507c    	2507                		0000011406					es
+1000001759	BAÑOS GOMEZ, ALBERTO	MARTINEZ  	2509                		0000011408					es
+1000001760	AMOROS BARON, VICENTE	1989136   	2508                		0000011407					es
+1000001761	HERNANDEZ CARBONELL, MARIA JOSE	48448966h 	2475                		0000011330					es
+1000001762	VALERO AROCA, ANA	valero3035	2513                		0000011412					es
+1000001763	DE LA HOZ MARTINEZ, LUIS	lolita23  	2139                		0000010246					es
+1000001764	BARNES CARRASCO, DOMINGO	794320dbc 	2518                		0000011423					es
+1000001765	ABRIL GUILLEN, MARIA	neva1981  	2520                		0000011426					es
+1000001768	ROBLES PEREZ, LUCIA	campillo  	2514                		0000011413					es
+1000001776	PIERNAS SANCHEZ, MANUEL ALEJANDRO	MIGUEL1937	2493                		0000011369					es
+1000001777	REVUELTA TORRES, CARLOS ALBERTO	babilonia1	2505                		0000011392					es
+1000001778	MARTINEZ SOLER, JUAN FRANCISCO	267626a   	2529                		0000011446					es
+1000001779	RODRIGUEZ MARIN, MARIA CRISTINA	criscoaatm	2526                		0000011443					es
+1000001780	RODRIGO ARANDA, VICTOR MANUEL	rodrigo10 	2525                		0000011442					es
+1000001781	GORGAS FERNANDEZ, LUIS	000000    	1790                		0000008851					es
+1000001783	BELTRAN GONZALEZ, PEDRO	pedrobel  	2527                		0000011444					es
+1000001784	RUBIO GARCIA, JOSE	200878    	2521                		0000011430					es
+1000001785	OFICINA TECNICA DE MOLINA PROYECTOS, S.L.P.	burbuja   	5101                		0000011263					es
+1000001786	PEÑALVER PEREZ, EVA	080284    	2517                		0000011422					es
+1000001788	PARRILLA LOPEZ, MIGUEL ANGEL	25239865  	2523                		0000011440					es
+1000001789	AGUIRRE MARTINEZ-ABARCA, FUENSANTA	FuenCAT1  	2528                		0000011445					es
+1000001790	MARCO CARRILLO, CRISTIAN	141985    	2534                		0000011459					es
+1000001791	BLEDA MARIN, JUAN	tecnico   	2537                		0000011462					es
+1000001792	GALINDO RODENAS, MARINA	19840830  	2535                		0000011460					es
+1000001793	SANCHEZ MARTINEZ, JUAN	2506jsm   	2540                		0000011465					es
+1000001794	LOPEZ AVILES, CELESTINA	CAROLINA  	2524                		0000011441					es
+1000001795	MARTINEZ GUILLEN, JOSE MARIA	296615    	2532                		0000011457					es
+1000001796	YELO PEREZ, ANA ISABEL	anabel2531	2531                		0000011456					es
+1000001800	MIÑANO BELMONTE, ISABEL DE LA PAZ	296629    	2530                		0000011448					es
+1000001801	SABAO RUBIO, PALOMA	psabao29  	2533                		0000011458					es
+1000001804	MARTINEZ CAPARROS, MARIO	marfrench 	2539                		0000011464					es
+1000001811	JIMENEZ LOPEZ, DIEGO	123456    	2544                		0000011474					es
+1000001812	FRUCTUOSO VERA, JUAN MIGUEL	87654321  	2438                		0000011240					es
+1000001813	MARTINEZ SANCHEZ, PEDRO PABLO	sureste_86	2545                		0000011475					es
+1000001814	SAURA DE ANTONIO, MANUEL ANTONIO	manuel402 	2547                		0000011477					es
+1000001815	MONTOYA SEQUI, ALBERTO FRANCISCO	23284973  	2546                		0000011476					es
+1000001816	MEGIAS GUERRERO, FRANCISCO JAVIER	64246424  	2548                		0000011486					es
+1000001817	TRIPIANA MARTINEZ, FRANCISCO	232616    	2551                		0000011490					es
+1000001818	GOMEZ MONDEJAR, JOSE ENRIQUE	gomon15.  	2555                		0000011495					es
+1000001819	CARPINTERO MARTIN, BEATRIZ	lamanga   	2566                		0000011509					es
+1000001820	CORREDOR MATEU, ALEJANDRO	33g77u334r	2561                		0000011503					es
+1000001825	GONZALEZ BALIBREA, JULIAN	484962    	2543                		0000011473					es
+1000001826	MARIN ARNALDOS, MARI PAZ	asxd454523	2556                		0000011496					es
+1000001827	GOMEZ MARTINEZ, ROSA YOLANDA	25532553  	2553                		0000011493					es
+1000001828	MOLINA BERNARDO, GEMA	223de4rfff	2407                		0000011147					es
+1000001829	MATEO ROS, JOAQUIN	mateo2564 	2564                		0000011507					es
+1000001830	HERNANDEZ ROS, JORGE ANTONIO	063136313 	2549                		0000011487					es
+1000001831	GARCIA EGEA, MIRIAM	220378    	2568                		0000011511					es
+1000001832	MIRANDA ALBAL, ANA BELEN	asdc44998t	2562                		0000011504					es
+1000001833	GARCIA CANOVAS, BERNARDO	48429146  	2563                		0000011506					es
+1000001835	ESPINOSA SANCHEZ, CESAR	48524438  	2554                		0000011494					es
+1000001836	VELASCO MURCIA, JOSE FRANCISCO	j5e52002  	2575                		0000011526					es
+1000001837	MARIN BELANDO, JOSE ALBERTO	ja141094  	2567                		0000011510					es
+1000001838	MARTINEZ CONTRERAS, EDUARDO	266669xx  	2571                		0000011521					es
+1000001839	ARNAU GONZALEZ, NURIA	CATARSIS  	2577                		0000011532					es
+1000001842	GRIÑAN SANCHEZ, ALBERTO JOSE	931984    	2572                		0000011522					es
+1000001845	DURAN BLAZQUEZ, CARLOS ALBERTO	carlos2580	2580                		0000011541					es
+1000001846	YELO BAÑOS, ANGEL MANUEL	raquel1978	2578                		0000011539					es
+1000001847	GARCIA MALDONADO, MARIA DEL CARMEN	Mari0000  	2565                		0000011508					es
+1000001848	LOPEZ CERCOS, ADOLFO	coralula  	2591                		0000011556					es
+1000001849	SILVERA VAZQUEZ, JOSE RAMON	141187    	2560                		0000011500					es
+1000001850	HERNANDEZ MUÑOZ, IVAN	662743    	2576                		0000011527					es
+1000001851	CONESA CARRILLO, MAXIMINO	xcer4522wq	2582                		0000011543					es
+1000001854	TENZA HURTADO, FRANCISCO JOSE	francisco 	2372                		0000011067					es
+1000001855	MARIN ALONSO, NOEMI	as334fnn88	2599                		0000011576					es
+1000001856	BERISO CASTILLO, MARIA DEL ALBA	zx34vbg553	2573                		0000011523					es
+1000001857	MARTINEZ CANOVAS, MIGUEL ANGEL	400473    	2596                		0000011573					es
+1000001858	FERNANDEZ BONIL, BENEDICTO JOSE	VAYAVAYA10	2601                		0000011578					es
+1000001859	BAEZA LOPEZ, MARIA PILAR	Abichuela 	2595                		0000011572					es
+1000001861	PINILLOS CAPEL, PABLO	betis32   	2604                		0000011581					es
+1000001862	DIAZ ORTUÑO, JAVIER	23033610f 	2299                		0000010831					es
+1000001863	HERNANDEZ PUERTA, FELIPE JOSE	608066    	2597                		0000011574					es
+1000001867	ESTEBAN FEBRERO, JOSE	95651001  	2598                		0000011575					es
+1000001868	LOPEZ GONZALEZ, TERESA	txalaparta	2538                		0000011463					es
+1000001869	NAVARRO AROCA, VICTOR	300585    	2605                		0000011582					es
+1000001870	DENIA LOPEZ, FRANCISCO	fran1985  	2559                		0000011499					es
+1000001871	PAREDES OLTRA, ENCARNACION	22e07p81o 	2522                		0000011431					es
+1000001872	MARTINEZ RUIZ, ADRIAN	019810    	2606                		0000011583					es
+1000001873	BAÑOS ROS, ANGEL	01asoiyyte	2612                		0000011599					es
+1000001875	RAMOS ARENAS, BENJAMIN	111111    	2609                		0000011593					es
+1000001876	BALLESTEROS ALBERT, PLACIDO	271181    	2602                		0000011579					es
+1000001877	PARRA ALBARRACIN, ENRIQUE	aparejador	2592                		0000011560					es
+1000001878	SANCHEZ BUJEQUE, DIEGO	GRLPHQHZ  	2615                		0000011603					es
+1000001879	GINER RUIZ, JOSE	giner77   	2611                		0000011598					es
+1000001880	RUIZ LOPEZ, DIEGO	48547722nn	2581                		0000011542					es
+1000001882	MORENO GONZALEZ, MERCEDES	burbujita8	2557                		0000011497					es
+1000001889	PEREZ GARCIA, MIGUEL DAVID	miguelcamp	2617                		0000011608					es
+1000001890	LOPEZ MORENO, CLEMENTE	Grupo490  	2616                		0000011607					es
+1000001891	MARTINEZ VALERA, MARIO	voralura  	2623                		0000011617					es
+1000001892	PEREZ HERNANDEZ, MARIA ANGELES	626168696 	2620                		0000011612					es
+1000001893	LOPEZ LOPEZ, JOSEFA	jololo2   	2624                		0000011618					es
+1000001894	SANCHEZ GEA, LIDIA	morrix86  	2622                		0000011615					es
+1000001895	PARDO HABA, VALENTIN	VALENT1N  	2619                		0000011611					es
+1000001896	RUIZ DIAZ MONZON, HECTOR DANIEL	0908zu    	2626                		0000011622					es
+1000001898	SANCHEZ IBAÑEZ, RAFAEL	001520    	2621                		0000011614					es
+1000001900	SAEZ ABELLAN, MARIANO	56655665  	2627                		0000011623					es
+1000001902	FUENTES RUIZ, MANUEL JESUS	21fe1984  	2629                		0000011626					es
+1000001903	MONTESINOS ALCAYNA, SARA	DIBOPEOL  	2631                		0000011630					es
+1000001904	ROMERA NAVARRO, TOMAS	tomiromera	2634                		0000011635					es
+1000001905	SANCHEZ SANCHEZ, MARIA ALEJANDRA	680705    	2588                		0000011553					es
+1000001906	RUIZ FRAUCA, RAUL	ALFALFI161	2635                		0000011637					es
+1000001907	ESCRIBA MACIAS, CARMEN	2433cem   	2433                		0000011226					es
+1000001921	MURCIA PASTOR, PATRICIA	48481009  	2077                		0000009961					es
+1000001922	ALBALADEJO PASTOR, MARIA	0055ma    	2632                		0000011631					es
+1000001925	CARCELES LOPEZ, INMACULADA	6471inma  	2637                		0000011647					es
+1000001926	GIL DE PAREJA ALARCON, CARLOS	002710    	2639                		0000011649					es
+1000001927	GUILLEN JARA, TOMAS	ieguillen 	2642                		0000011653					es
+1000001929	GUTIERREZ MONTES DE OCA, YOLANDA	2610tonka 	2644                		0000011657					es
+1000001930	AYALA ATENZA, FRANCISCA	atenza7   	2590                		0000011555					es
+1000001931	RIQUELME NICOLAS, MARIA JOSE	132828    	2645                		0000011658					es
+1000001932	SANCHEZ MARTINEZ, JOSE ALBERTO	23041704  	2648                		0000011661					es
+1000001935	PEREZ LOPEZ, MARTA	mapartapa 	2651                		0000011665					es
+1000001937	GONZALEZ-PALAZON PALAZON, MIGUEL	644835Mgp 	2643                		0000011656					es
+1000001940	VILLEGAS BRAVO, EDUARDO	edu2655   	2655                		0000011671					es
+1000001941	ROS ALBALADEJO, ANTONIO	panzza1924	2653                		0000011667					es
+1000001942	PUJANTE MESEGUER, MARIA DOLORES	md2656    	2656                		0000011672					es
+1000001943	PRIETO POZO, ESTER	646389770 	2589                		0000011554					es
+1000001945	BAILON FLORENCIANO, ANGELES PURIFICACION	T3RR3ROS  	2170                		0000010356					es
+1000001948	GIL GARCIA, RAMON	raygil1980	2519                		0000011424					es
+1000001949	RUIZ PEREZ, RAFAEL	23286023h 	2660                		0000011678					es
+1000001950	MENGUAL LORENTE, RAFAEL	252525    	2663                		0000011681					es
+1000001955	FORTE LOPEZ, ALBERTO	48453282  	2664                		0000011684					es
+1000001956	BLANCO MENENDEZ, ROQUE	murcia99  	2665                		0000011686					es
+1000001959	DE BEJAR RIQUELME, JESUS	choersimck	2641                		0000011651					es
+1000001963	MARTINEZ HILLA, ENMA BELEN	yonolase1 	2661                		0000011679					es
+1000001964	FRUCTUOSO ALVAREZ, HERMOGENES	23033788  	2668                		0000011694					es
+1000001965	LARROSA GALLEGO, MIGUEL ANGEL	lgmiguel  	2628                		0000011624					es
+1000001968	SOLER ROS, ANTONIO	muchalaika	2633                		0000011632					es
+1000001969	SAURA MADRID, ANTONIO	240198    	2583                		0000011545					es
+1000001972	CREMADES HERNANDEZ, ANA MARIA	994290    	2673                		0000011703					es
+1000001973	PASTOR MAYOR, ALBERTO	654526369 	2674                		0000011707					es
+1000001976	MOYA JAVALOYES, JESUS	jm2657    	2657                		0000011673					es
+1000001977	AIA ESTUDIO, S.L.P.	colegio   	5105                		0000011690					es
+1000001980	PIÑERO MARTINEZ, ALICIA	wowalicia 	2676                		0000011709					es
+1000001985	MORENO GARCIA, DAVID ESTEBAN	2650demg  	2650                		0000011664					es
+1000001986	DIAZ MIÑARRO, SALVADOR	blanco328 	2672                		0000011702					es
+1000001987	MONERRI RODRIGUEZ, ANDRES	270387    	2678                		0000011713					es
+1000001988	SOLER GUERRERO, JUAN JOSE	guerrero  	2552                		0000011491					es
+1000001989	ALEMAN RUIZ, MARIA DESIREE	70727072  	2659                		0000011677					es
+1000001990	ORENES CORTES, MARIA ARACELI	maliore   	2662                		0000011680					es
+1000001991	SALA POMARES, JOSE FRANCISCO	22991094  	2682                		0000011720					es
+1000001992	GUINDO GUIRAO, ALEJANDRO ALBERTO	030811    	2586                		0000011551					es
+1000001993	PELEGRIN GONZALEZ, MIGUEL	2649miguel	2649                		0000011662					es
+1000001995	REBOLLO MIÑARRO, MIGUEL ANGEL	636671166 	2681                		0000011719					es
+1000001996	VILLAR SANCHEZ, PATRICIA	98869886  	2683                		0000011725					es
+1000001997	DIAZ BOSCH, CARLOS	tornapunta	2587                		0000011552					es
+1000001998	LOPEZ ACARRETA, IMANOL	009055    	2669                		0000011697					es
+1000001999	DEL SAZ HERNANDEZ, RAUL	23212321  	2684                		0000011731					es
+1000002000	FUENTES RAMIREZ, GUILLERMO	6430arquit	2685                		0000011732					es
+1000002001	MIÑARRO PEÑAS, ALBERTO	1981am    	2686                		0000011735					es
+1000002002	ALCARAZ GIL, FRANCISCO JOSE	francisco2	2603                		0000011580					es
+1000002004	HUERTAS GARCIA, ANA ISABEL	carpediem1	2679                		0000011714					es
+1000002013	ESCOBAR INIESTA, JOSE MARIA	29102910  	2690                		0000011749					es
+1000002015	ACOSTA NEGROLES, ANA	622ANA    	2689                		0000011747					es
+1000002016	MUÑOZ LORENTE, GINES	ginesml   	2371                		0000011042					es
+1000002017	GOMEZ PAGAN, FABIOLA	123456    	2625                		0000011621					es
+1000002018	TORNEL MARTINEZ, ANGEL	atm2366atm	2618                		0000011609					es
+1000002019	MARIN GARCIA, FRANCISCO	garciamari	2694                		0000011759					es
+1000002026	SANDOVAL LOPEZ, DEBORA	azulazul  	2697                		0000011768					es
+1000002027	REQUENA HERNANDEZ, NAIRA	24262426  	2691                		0000011750					es
+1000002028	PEREZ FRUTOS, PABLO	220105pym2	2700                		0000011771					es
+1000002029	ALVAREZ FUENTES, ANDRES MIGUEL	041183    	2696                		0000011767					es
+1000002031	HORTAL CANOVAS, JOSE MIGUEL	07072006  	2699                		0000011770					es
+1000002032	HELLIN CAMUÑEZ, SILVIA	05282986  	2698                		0000011769					es
+1000002036	MOLINA CABEZON, HECTOR GUILLERMO	sanroque1 	2695                		0000011766					es
+1000002037	JIMENEZ VAZQUEZ, JAVIER	JJ2702    	2702                		0000011776					es
+1000002038	JIMENEZ MARTINEZ, PEDRO	arquitectu	2667                		0000011692					es
+1000002039	ARQUITECTURA INTERIOR YTRASD, S.L.	x00xdy    	5028                		5028					es
+1000002040	PRIETO GARCIA, JUAN ANGEL	26662666  	2666                		0000011688					es
+1000002041	MARIN BARQUERO, MARIA DE LA FUENSANTA	fuensanta 	2692                		0000011753					es
+1000002042	CONESA PAREDES, JUAN FRANCISCO	261284679 	2704                		0000011782					es
+1000002043	PLAZAS MARCO, GONZALO	cervantes 	2701                		0000011775					es
+1000002044	PEREZ CAMACHO, MARTA	141086X   	2707                		0000011789					es
+1000002045	MORENO CABALLERO, RAUL	48501914C 	2708                		0000011790					es
+1000002046	LAJARA MARCO, ISIDRO	02marzo85 	2719                		0000011806					es
+1000002047	MARTINEZ GONZALEZ, CESAR	golfito   	2709                		0000011792					es
+1000002050	ASENSIO LEON, MIGUEL	alj31h33  	2693                		0000011757					es
+1000002051	OLMEDO MARTINEZ, FERNANDO	mavidg7603	2658                		0000011676					es
+1000002052	BAUTISTA PIÑERA, JOSE	071189    	2718                		0000011805					es
+1000002053	MARIN ALONSO, NOEMI	rojoynegro	2720                		0000011811					es
+1000002054	LOPEZ ALBURQUERQUE, JAVIER	javier27lo	2714                		0000011797					es
+1000002055	PEREZ MOLINA, NESTOR	7s4z8x    	2722                		0000011813					es
+1000002056	MORA BARROSO, JAVIER	21051988  	2710                		0000011793					es
+1000002057	MARTINEZ MARTINEZ, DAVID	789123SIC 	2711                		0000011794					es
+1000002058	VILLEGAS CANOVAS, EDMUNDO	promesa   	2705                		0000011787					es
+1000002059	VILLEGAS CANOVAS, HELENA	amapolas  	2706                		0000011788					es
+1000002060	LASSO DE LA VEGA RAMIREZ, MANUEL EUGENIO	carolina3 	2715                		0000011799					es
+1000002063	PERAN PEREZ, LUCIA	272400    	2724                		0000011816					es
+1000002065	BONILLO ESPINOSA, MARIA	asonipse  	2728                		0000011826					es
+1000002067	RIVAS BELMONTE, ELENA	terminator	2733                		0000011837					es
+1000002069	LOPEZ GUIRAO, ISABEL MARIA	2731imlg  	2731                		0000011832					es
+1000002070	SANCHEZ LOPEZ, PEDRO	pedro04   	2729                		0000011827					es
+1000002071	BAHON PUERTO, IRENE	cartagena 	2717                		0000011801					es
+1000002072	DOMINGUEZ GALZA, RAUL	9632584   	2721                		0000011812					es
+1000002073	JIMENEZ ORTIZ, FRANCISCO	puedeser  	2736                		0000011843					es
+1000002074	PEREZ SANCHEZ, NURIA	198625    	2558                		0000011498					es
+1000002083	SAURA ALCARAZ, SAMUEL	yomismo198	2740                		0000011850					es
+1000002084	ESPINOSA NAVARRO, DAVID	5908upv   	2727                		0000011823					es
+1000002085	BELCHI RUIZ, DIEGO	Patricia10	2741                		0000011851					es
+1000002086	VISEDO MORALES, SANTIAGO	233452    	2640                		0000011650					es
+1000002091	CAZORLA TORTOSA, FERNANDO	fecato    	6526                		0000009266					es
+1000002092	LOPEZ MARTINEZ, JUAN JOSE	jj240383  	2743                		0000011854					es
+1000002093	BRAVO MARTINEZ, JUAN AGUSTIN	pandoro   	2742                		0000011853					es
+1000002100	FUENTES OTHMAN-BENTRIA, MARIEM MARGARITA	48615216  	2713                		0000011796					es
+1000002101	JIMENEZ GARCIA, JUAN DIEGO	194455    	2747                		0000011867					es
+1000002102	PINAR GARCIA, MARTA	marta88   	2746                		0000011863					es
+1000002103	MIRAS SENES, MARIA TERESA	maitems17 	7163                		0000011804					es
+1000002104	MORENO CASANOVA, CESAR	topograf  	2751                		0000011873					es
+1000002110	ROCA SANCHEZ, ANTONIO	290529    	2739                		0000011849					es
+1000002111	SAEZ SANCHEZ, JUAN PABLO	aguilas   	2753                		0000011877					es
+1000002115	ROMERO LOPEZ, DANIEL	Ferrovia1 	2755                		0000011879					es
+1000002116	RICO LOPEZ, PEDRO JOSE	74109222  	2756                		0000011880					es
+1000002117	MARTINEZ PAGAN, JUAN JOSE	26074854  	2607                		0000011591					es
+1000002118	RAMIREZ ABENZA, FRANCISCO JESUS	52818206  	2754                		0000011878					es
+1000002121	CANOVAS ASENSIO, INMACULADA CONCEPCION	dospordos 	2675                		0000011708					es
+1000002122	MONTIEL YEPEZ, MARTA	marta16889	2750                		0000011872					es
+1000002123	MARTINEZ ROS, LORENA	lorenamar 	2749                		0000011871					es
+1000002129	BELMONTE MUÑOZ, PEDRO ALBERTO	7398348   	2745                		0000011862					es
+1000002131	GUIJARRO CAZORLA, MARCOS	141200    	2762                		0000011899					es
+1000002132	VERA FEREZ, JOSE	antonio27 	2760                		0000011895					es
+1000002133	RIQUELME RIQUELME, MARIA ANGELES	mangeles  	2735                		0000011842					es
+1000002134	ZAMORA MARINA, EDUARDO ALFREDO	ez4818    	7175                		0000011892					es
+1000002135	CARRILLO MENDOZA, JUAN MANUEL	23271942  	2758                		0000011891					es
+1000002136	YAGUE LOPEZ, ALBERTO	51418796  	7135                		0000011644					es
+1000002138	TORRANO SALAR, MARIANO	06028352  	2763                		0000011910					es
+1000002140	CASES BREGANTE, LUIS JOSE	LUJAN1    	7010                		0000011037					es
+1000002141	MARTINEZ MURCIA, ANTONIO JOSE	murcia+   	2764                		0000011920					es
+1000002142	GABARRON PRIETO, MARIA ANTONIA	groningen 	2765                		0000011922					es
+1000002144	ABADIA PEREZ, FRANCISCA MARIA	48515892  	2767                		0000011928					es

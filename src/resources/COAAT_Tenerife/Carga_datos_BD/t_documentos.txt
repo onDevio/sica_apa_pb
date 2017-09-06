@@ -1,0 +1,21 @@
+LO	Libro de Órdenes	S	S	S	S	N	
+LI	Libro de Incidencias	S	S	S	S	N	
+CC	Certificado de Control de Calidad	S	S	S	S	N	
+LC	Libro de Control de Calidad	S	S	S	S	N	
+CF	Certificado Final de Obra	S	S	S	S	N	
+CI	Certificado de Industria	S	S	S	S	N	
+LR	Libro de registro	S	S	S	S	N	
+AA	Acta de aprobación del Plan	S	S	S	S	N	
+AX	Anexos	S	S	S	S	N	
+CG	Certificado de Grua	S	S	S	S	N	
+OT	Otros Certificados	S	S	S	S	N	
+C1	Certificado final de coordinación	S	S	S	S	N	
+AP	ACTA Y PLAN DE SEGURIDAD	S	S	S	S	N	
+NA	SIN ACTA Y PLAN DE SEGURIDAD	S	S	S	S	N	
+AU	AUTORIZACIONES	S	S	S	S	N	
+SO	SOLICITUDES	S	S	S	S	N	
+AS	AUTOR DE ESTUDIO DE SEGURIDAD	S	S	S	S	N	
+DA	DOCUMENTOS ASOCIADOS AL PROYECTO	S	S	S	S	N	
+SU	SOLICITUD VISADO URGENCIA	S	S	S	S	N	
+SC	SOLICITUD DE COPIA	S	S	S	S	N	
+CV	COMISION DE VISADOS	S	S	S	S	N	

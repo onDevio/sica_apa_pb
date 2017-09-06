@@ -1,0 +1,49 @@
+COLEGIADOS		F519	01	0.0		N	2006				N	N
+MUSAAT    			01	816.0		S	2006				N	N
+PREMA     			01	5237.0		S	2006				N	N
+CUOTAS    			01	2499.0		N	2006				N	N
+VARIOS    			01	495.0		N	2006				N	N
+RECTIF    	neg		01	122.0	Serie para Facturas negativas	N	2006				N	N
+COLEGIADOS		F519	01	43.0		N	2007				N	N
+MUSAAT    			01	865.0		S	2007				N	N
+CUOTAS    			01	2622.0		N	2007				N	N
+VARIOS    			01	198.0		N	2007				N	N
+RECTIF    	neg		01	103.0	Serie para Facturas negativas	N	2007				N	N
+COLEGIADOS			01	0.0		N	2008				N	N
+MUSAAT    			01	888.0		S	2008				N	N
+PREMA     			01	5346.0		S	2008				N	N
+CUOTAS    			01	2893.0		N	2008				N	N
+VARIOS    			01	240.0		N	2008				N	N
+RECTIF    			01	153.0	Serie para Facturas negativas	N	2008				N	N
+COLEGIADOS			01	0.0		N	2009				N	N
+MUSAAT    			01	894.0		S	2009				N	N
+PREMA     			01	5306.0		S	2009				N	N
+CUOTAS    			01	3103.0		N	2009				N	N
+VARIOS    			01	246.0		N	2009				N	N
+RECTIF    			01	102.0	Serie para Facturas negativas	N	2009				N	N
+COLEGIADOS			01	4.0		N	2010				N	N
+MUSAAT    			01	888.0		S	2010				N	N
+CUOTAS    			01	8603.0		N	2010				N	N
+VARIOS    			01	202.0		N	2010				N	N
+RECTIF    			01	109.0	Serie para Facturas negativas	N	2010				N	N
+PROFOR    			01	0.0	Facturas Proforma	N	2010			PROFOR	S	N
+COLEGIADOS			01	0.0		N	2011				N	N
+MUSAAT    			01	850.0		S	2011				N	N
+PREMA     			01	2285.0		S	2011				N	N
+CUOTAS    			01	6511.0		N	2011				N	N
+VARIOS    			01	141.0		N	2011				N	N
+RECTIF    			01	38.0	Serie para Facturas negativas	N	2011				N	N
+PROFOR    			01	2069.0	Facturas Proforma	N	2011			PROFOR	S	N
+PREMA     			01	5774.0		S	2007				N	N
+PREMA     			01	4881.0		S	2010				N	N
+EXPEDI    		F508	01	5717.0		N	2006				N	S
+EXPEDI    		F508	01	5463.0		N	2007				N	S
+EXPEDI    			01	4849.0		N	2008				N	S
+EXPEDI    			01	4482.0		N	2009				N	S
+EXPEDI    			01	4077.0		N	2010				N	S
+EXPEDI    			01	2426.0		N	2011				N	S
+PC        			02	895.0	Serie para la facturación de la prima variable	S	2011				N	S
+PF        			02	0.0	Serie para la facturación de otros conceptos de la empresa a	S	2011				N	N
+MT        			02	1460.0	Serie para la facturaci?n de otros conceptos de la empresa a	S	2011				N	N
+PROFOR    			02	1027.0	Serie para proformas de la empresa aseguradora	N	2011				S	N
+RECTIF    			02	13.0	Serie rectificativa de la empresa aseguradora	S	2011				N	N

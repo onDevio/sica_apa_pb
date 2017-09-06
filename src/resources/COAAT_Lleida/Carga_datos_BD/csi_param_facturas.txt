@@ -1,0 +1,322 @@
+%         	% 	%   	% 	Cabecera            	   Rebut / Factura
+%         	% 	%   	% 	Total_fact          	TOTAL REBUT
+%         	% 	%   	% 	N_fact              	Nº REBUT / FACTURA
+F         	01	2008	% 	N_fact              	Nº REBUT / FACTURA
+RECTIF    	01	2008	% 	N_fact              	Nº REBUT / FACTURA
+PC        	01	2008	% 	Total_fact          	TOTAL REBUT
+R         	01	2008	% 	Cabecera            	Rebut
+RECTPR    	01	2008	% 	Total_fact          	TOTAL REBUT
+PR        	01	2009	% 	N_fact              	Nº REBUT
+CCV       	01	2009	% 	Total_fact          	TOTAL REBUT
+CIP       	01	2009	% 	N_fact              	Nº REBUT
+PROFOR    	01	2009	% 	Total_fact          	TOTAL PROFORMA
+RH        	01	2009	% 	Total_fact          	TOTAL REBUT
+PC        	01	2009	% 	Total_fact          	TOTAL REBUT
+RECTPF    	01	2009	% 	Total_fact          	TOTAL REBUT
+RECTPF    	01	2009	% 	Cabecera            	Rebut
+CIP       	01	2009	% 	Total_fact          	TOTAL REBUT
+RVA       	01	2009	% 	Total_fact          	TOTAL REBUT
+COLEGIADOS	01	2009	% 	Cabecera            	   Rebut / Factura
+CE        	01	2009	% 	Cabecera            	Rebut
+RH        	01	2009	% 	Cabecera            	Rebut
+CH        	01	2009	% 	Cabecera            	Rebut
+GE        	01	2009	% 	Total_fact          	TOTAL REBUT
+CE        	01	2009	% 	Total_fact          	TOTAL REBUT
+CCV       	01	2009	% 	N_fact              	Nº REBUT
+CC        	01	2009	% 	N_fact              	Nº REBUT
+PR        	01	2009	% 	Total_fact          	TOTAL REBUT
+PF        	01	2009	% 	N_fact              	Nº REBUT
+CH        	01	2009	% 	Total_fact          	TOTAL REBUT
+CC        	01	2009	% 	Total_fact          	TOTAL REBUT
+PL        	01	2009	% 	Cabecera            	   Rebut / Factura
+PL        	01	2009	% 	N_fact              	Nº REBUT / FACTURA
+RECTIF    	01	2009	% 	N_fact              	Nº REBUT / FACTURA
+COLEGIADOS	01	2009	% 	N_fact              	Nº REBUT / FACTURA
+R         	01	2009	% 	N_fact              	Nº REBUT
+R         	01	2009	% 	Total_fact          	TOTAL REBUT
+F         	01	2009	% 	N_fact              	Nº REBUT / FACTURA
+LA        	01	2009	% 	Cabecera            	Rebut
+RECTPR    	01	2009	% 	Total_fact          	TOTAL REBUT
+PF        	01	2009	% 	Total_fact          	TOTAL REBUT
+F         	01	2009	% 	Cabecera            	   Rebut / Factura
+LA        	01	2009	% 	Total_fact          	TOTAL REBUT
+CC        	01	2009	% 	Cabecera            	Rebut
+PR        	01	2009	% 	Cabecera            	Rebut
+GE        	01	2009	% 	Cabecera            	Rebut
+RECTPC    	01	2009	% 	Cabecera            	Rebut
+PF        	01	2009	% 	Cabecera            	Rebut
+GE        	01	2009	% 	N_fact              	Nº REBUT
+CCV       	01	2009	% 	Cabecera            	Rebut
+RECTPR    	01	2009	% 	N_fact              	Nº REBUT
+RECTPF    	01	2009	% 	N_fact              	Nº REBUT
+LA        	01	2009	% 	N_fact              	Nº REBUT
+PROFOR    	01	2009	% 	N_fact              	Nº PROFORMA
+CIP       	01	2009	% 	Cabecera            	Rebut
+RVA       	01	2009	% 	Cabecera            	Rebut
+RECTIF    	01	2009	% 	Cabecera            	   Rebut / Factura
+PC        	01	2009	% 	Cabecera            	Rebut
+R         	01	2009	% 	Cabecera            	Rebut
+RECTPR    	01	2009	% 	Cabecera            	Rebut
+RECTPC    	01	2009	% 	N_fact              	Nº REBUT
+CH        	01	2009	% 	N_fact              	Nº REBUT
+RVA       	01	2009	% 	N_fact              	Nº REBUT
+RECTPC    	01	2009	% 	Total_fact          	TOTAL REBUT
+PC        	01	2009	% 	N_fact              	Nº REBUT
+PROFOR    	01	2009	% 	Cabecera            	Proforma
+RH        	01	2009	% 	N_fact              	Nº REBUT
+CE        	01	2009	% 	N_fact              	Nº REBUT
+RECTPC    	01	2010	% 	Cabecera            	Rebut
+RECTPF    	01	2010	% 	Cabecera            	Rebut
+CCV       	01	2010	% 	Total_fact          	TOTAL REBUT
+RVA       	01	2010	% 	Total_fact          	TOTAL REBUT
+RECTPR    	01	2010	% 	Total_fact          	TOTAL REBUT
+RH        	01	2010	% 	Cabecera            	Rebut
+CC        	01	2010	% 	Cabecera            	Rebut
+PL        	01	2010	% 	N_fact              	Nº REBUT / FACTURA
+RH        	01	2010	% 	Total_fact          	TOTAL REBUT
+CH        	01	2010	% 	Cabecera            	Rebut
+RVA       	01	2010	% 	Cabecera            	Rebut
+PROFOR    	01	2010	% 	Cabecera            	Proforma
+PC        	01	2010	% 	Total_fact          	TOTAL REBUT
+CCV       	01	2010	% 	Cabecera            	Rebut
+R         	01	2010	% 	Total_fact          	TOTAL REBUT
+CIP       	01	2010	% 	Cabecera            	Rebut
+GE        	01	2010	% 	Cabecera            	   Rebut / Factura
+SD        	01	2010	% 	N_fact              	Nº REBUT / FACTURA
+C         	01	2010	% 	N_fact              	Nº REBUT / FACTURA
+RECTPF    	01	2010	% 	Total_fact          	TOTAL REBUT
+PR        	01	2010	% 	Cabecera            	Rebut
+GE        	01	2010	% 	N_fact              	Nº REBUT / FACTURA
+LA        	01	2010	% 	N_fact              	Nº REBUT / FACTURA
+PF        	01	2010	% 	Cabecera            	Rebut
+COLEGIADOS	01	2010	% 	N_fact              	Nº REBUT / FACTURA
+PC        	01	2010	% 	Cabecera            	Rebut
+F         	01	2010	% 	Cabecera            	   Rebut / Factura
+R         	01	2010	% 	Cabecera            	Rebut
+PROFOR    	01	2010	% 	Total_fact          	TOTAL PROFORMA
+PF        	01	2010	% 	Total_fact          	TOTAL REBUT
+CIP       	01	2010	% 	Total_fact          	TOTAL REBUT
+CH        	01	2010	% 	Total_fact          	TOTAL REBUT
+PR        	01	2010	% 	Total_fact          	TOTAL REBUT
+CE        	01	2010	% 	Total_fact          	TOTAL REBUT
+RVS       	01	2010	% 	Total_fact          	TOTAL REBUT
+RECTPC    	01	2010	% 	Total_fact          	TOTAL REBUT
+LA        	01	2010	% 	Cabecera            	   Rebut / Factura
+CC        	01	2010	% 	Total_fact          	TOTAL REBUT
+RECTIF    	01	2010	% 	N_fact              	Nº REBUT / FACTURA
+F         	01	2010	% 	N_fact              	Nº REBUT / FACTURA
+CE        	01	2010	% 	Cabecera            	Rebut
+PROFOR    	01	2010	% 	N_fact              	Nº PROFORMA
+RECTPR    	01	2010	% 	N_fact              	Nº REBUT
+C         	01	2010	% 	Cabecera            	   Rebut / Factura
+RECTPC    	01	2010	% 	N_fact              	Nº REBUT
+RECTPF    	01	2010	% 	N_fact              	Nº REBUT
+RVS       	01	2010	% 	N_fact              	Nº REBUT
+CE        	01	2010	% 	N_fact              	Nº REBUT
+RECTIF    	01	2010	% 	Cabecera            	   Rebut / Factura
+RH        	01	2010	% 	N_fact              	Nº REBUT
+CC        	01	2010	% 	N_fact              	Nº REBUT
+CH        	01	2010	% 	N_fact              	Nº REBUT
+RVA       	01	2010	% 	N_fact              	Nº REBUT
+CCV       	01	2010	% 	N_fact              	Nº REBUT
+CIP       	01	2010	% 	N_fact              	Nº REBUT
+COLEGIADOS	01	2010	% 	Cabecera            	   Rebut / Factura
+PR        	01	2010	% 	N_fact              	Nº REBUT
+PF        	01	2010	% 	N_fact              	Nº REBUT
+PC        	01	2010	% 	N_fact              	Nº REBUT
+R         	01	2010	% 	N_fact              	Nº REBUT
+PL        	01	2010	% 	Cabecera            	   Rebut / Factura
+RECTPR    	01	2010	% 	Cabecera            	Rebut
+SD        	01	2010	% 	Cabecera            	   Rebut / Factura
+RVS       	01	2010	% 	Cabecera            	Rebut
+SD        	01	2011	% 	Cabecera            	   Rebut / Factura
+PC        	01	2011	% 	Total_fact          	TOTAL REBUT
+RVS       	01	2011	% 	Total_fact          	TOTAL REBUT
+PROFOR    	01	2011	% 	N_fact              	Nº PROFORMA
+RH        	01	2011	% 	Total_fact          	TOTAL REBUT
+CC        	01	2011	% 	Total_fact          	TOTAL REBUT
+CH        	01	2011	% 	Total_fact          	TOTAL REBUT
+RECTIF    	01	2011	% 	N_fact              	Nº REBUT / FACTURA
+CIP       	02	2011	% 	Total_fact          	TOTAL REBUT
+PR        	01	2011	% 	Total_fact          	TOTAL REBUT
+F         	01	2011	% 	N_fact              	Nº REBUT / FACTURA
+C         	01	2011	% 	Cabecera            	   Rebut / Factura
+PF        	01	2011	% 	Total_fact          	TOTAL REBUT
+R         	01	2011	% 	Total_fact          	TOTAL REBUT
+UNASERIE  	02	2011	% 	N_fact              	Nº REBUT / FACTURA
+PROFOR    	01	2011	% 	Cabecera            	Proforma
+RECTIF    	02	2011	% 	N_fact              	Nº REBUT / FACTURA
+SD        	01	2011	% 	N_fact              	Nº REBUT / FACTURA
+GE        	01	2011	% 	Cabecera            	   Rebut / Factura
+C         	01	2011	% 	N_fact              	Nº REBUT / FACTURA
+GE        	01	2011	% 	N_fact              	Nº REBUT / FACTURA
+LA        	01	2011	% 	N_fact              	Nº REBUT / FACTURA
+COLEGIADOS	01	2011	% 	N_fact              	Nº REBUT / FACTURA
+RECTIF    	01	2011	% 	Cabecera            	   Rebut / Factura
+LA        	01	2011	% 	Cabecera            	   Rebut / Factura
+F         	01	2011	% 	Cabecera            	   Rebut / Factura
+PROFOR    	01	2011	% 	Total_fact          	TOTAL PROFORMA
+COLEGIADOS	01	2011	% 	Cabecera            	   Rebut / Factura
+45        	01	2011	% 	N_fact              	Nº REBUT
+BON       	01	2011	% 	N_fact              	Nº REBUT
+PC        	01	2011	% 	N_fact              	Nº REBUT
+RECTPR    	01	2011	% 	N_fact              	Nº REBUT
+45        	01	2011	% 	Cabecera            	Rebut
+RECTPC    	01	2011	% 	N_fact              	Nº REBUT
+RECTPF    	01	2011	% 	N_fact              	Nº REBUT
+BON       	01	2011	% 	Cabecera            	Rebut
+RVS       	01	2011	% 	N_fact              	Nº REBUT
+CE        	01	2011	% 	N_fact              	Nº REBUT
+RH        	01	2011	% 	N_fact              	Nº REBUT
+CC        	01	2011	% 	N_fact              	Nº REBUT
+PC        	01	2011	% 	Cabecera            	Rebut
+CH        	01	2011	% 	N_fact              	Nº REBUT
+RVA       	01	2011	% 	N_fact              	Nº REBUT
+RECTPR    	01	2011	% 	Cabecera            	Rebut
+CCV       	01	2011	% 	N_fact              	Nº REBUT
+CIP       	02	2011	% 	N_fact              	Nº REBUT
+RECTPC    	01	2011	% 	Cabecera            	Rebut
+PR        	01	2011	% 	N_fact              	Nº REBUT
+PF        	01	2011	% 	N_fact              	Nº REBUT
+RECTPF    	01	2011	% 	Cabecera            	Rebut
+R         	01	2011	% 	N_fact              	Nº REBUT
+RVS       	01	2011	% 	Cabecera            	Rebut
+CE        	01	2011	% 	Cabecera            	Rebut
+RH        	01	2011	% 	Cabecera            	Rebut
+UNASERIE  	02	2011	% 	Cabecera            	   Rebut / Factura
+CC        	01	2011	% 	Cabecera            	Rebut
+CH        	01	2011	% 	Cabecera            	Rebut
+CCV       	01	2011	% 	Total_fact          	TOTAL REBUT
+RVA       	01	2011	% 	Total_fact          	TOTAL REBUT
+RVA       	01	2011	% 	Cabecera            	Rebut
+CCV       	01	2011	% 	Cabecera            	Rebut
+CIP       	02	2011	% 	Cabecera            	Rebut
+CE        	01	2011	% 	Total_fact          	TOTAL REBUT
+PR        	01	2011	% 	Cabecera            	Rebut
+RECTPF    	01	2011	% 	Total_fact          	TOTAL REBUT
+RECTPC    	01	2011	% 	Total_fact          	TOTAL REBUT
+RECTPR    	01	2011	% 	Total_fact          	TOTAL REBUT
+PF        	01	2011	% 	Cabecera            	Rebut
+BON       	01	2011	% 	Total_fact          	TOTAL REBUT
+45        	01	2011	% 	Total_fact          	TOTAL REBUT
+R         	01	2011	% 	Cabecera            	Rebut
+RECTIF    	02	2011	% 	Cabecera            	   Rebut / Factura
+PC        	01	XX  	% 	Total_fact          	TOTAL REBUT
+PC        	01	XX  	% 	Cabecera            	Rebut
+PC        	01	XX  	% 	N_fact              	Nº REBUT
+F         	02	2009	% 	Cabecera            	Rebut
+PC        	02	2011	% 	Cabecera            	Rebut
+PC        	02	2010	% 	Cabecera            	Rebut
+PROFOR    	02	2010	% 	Cabecera            	Proforma
+RECTIF    	02	2010	% 	Cabecera            	Rebut
+PF        	02	2011	% 	Cabecera            	Proforma
+PROFOR    	02	2011	% 	Cabecera            	Proforma
+F         	02	2009	% 	N_fact              	Nº REBUT
+PC        	02	2010	% 	N_fact              	Nº REBUT
+PROFOR    	02	2010	% 	N_fact              	Nº PROFORMA
+RECTIF    	02	2010	% 	N_fact              	Nº REBUT
+PC        	02	2011	% 	N_fact              	Nº REBUT
+PF        	02	2011	% 	N_fact              	Nº PROFORMA
+PROFOR    	02	2011	% 	N_fact              	Nº PROFORMA
+F         	01	2009	% 	Total_fact          	TOTAL REBUT
+PC        	02	2011	% 	Total_fact          	TOTAL REBUT
+PC        	02	2010	% 	Total_fact          	TOTAL REBUT
+PF        	02	2011	% 	Total_fact          	TOTAL PROFORMA
+PROFOR    	02	2010	% 	Total_fact          	TOTAL PROFORMA
+PROFOR    	02	2011	% 	Total_fact          	TOTAL PROFORMA
+RECTIF    	02	2011	% 	Total_fact          	TOTAL PROFORMA
+RECTIF    	02	2010	% 	Total_fact          	TOTAL REBUT
+MT        	02	2011	% 	N_emisor2           	                                                        Núm. de Reg J313GC
+PC        	02	2011	% 	N_emisor2           	                                                        Núm. de Reg J313GC
+PF        	02	2011	% 	N_emisor2           	                                                        Núm. de Reg J313GC
+PREMAAT   	02	2011	% 	N_emisor2           	                                                        Núm. de Reg J313GC
+PROFOR    	02	2011	% 	N_emisor2           	                                                        Núm. de Reg J313GC
+RECTIF    	02	2011	% 	N_emisor2           	                                                        Núm. de Reg J313GC
+SD        	01	2012	% 	Cabecera            	   Rebut / Factura
+PC        	01	2012	% 	Total_fact          	TOTAL REBUT
+RVS       	01	2012	% 	Total_fact          	TOTAL REBUT
+PROFOR    	01	2012	% 	N_fact              	Nº PROFORMA
+RH        	01	2012	% 	Total_fact          	TOTAL REBUT
+CC        	01	2012	% 	Total_fact          	TOTAL REBUT
+CH        	01	2012	% 	Total_fact          	TOTAL REBUT
+RECTIF    	01	2012	% 	N_fact              	Nº REBUT / FACTURA
+CIP       	02	2012	% 	Total_fact          	TOTAL REBUT
+PR        	01	2012	% 	Total_fact          	TOTAL REBUT
+F         	01	2012	% 	N_fact              	Nº REBUT / FACTURA
+C         	01	2012	% 	Cabecera            	   Rebut / Factura
+PF        	01	2012	% 	Total_fact          	TOTAL REBUT
+R         	01	2012	% 	Total_fact          	TOTAL REBUT
+UNASERIE  	02	2012	% 	N_fact              	Nº REBUT / FACTURA
+PROFOR    	01	2012	% 	Cabecera            	Proforma
+RECTIF    	02	2012	% 	N_fact              	Nº REBUT / FACTURA
+SD        	01	2012	% 	N_fact              	Nº REBUT / FACTURA
+GE        	01	2012	% 	Cabecera            	   Rebut / Factura
+C         	01	2012	% 	N_fact              	Nº REBUT / FACTURA
+GE        	01	2012	% 	N_fact              	Nº REBUT / FACTURA
+LA        	01	2012	% 	N_fact              	Nº REBUT / FACTURA
+COLEGIADOS	01	2012	% 	N_fact              	Nº REBUT / FACTURA
+RECTIF    	01	2012	% 	Cabecera            	   Rebut / Factura
+LA        	01	2012	% 	Cabecera            	   Rebut / Factura
+F         	01	2012	% 	Cabecera            	   Rebut / Factura
+PROFOR    	01	2012	% 	Total_fact          	TOTAL PROFORMA
+COLEGIADOS	01	2012	% 	Cabecera            	   Rebut / Factura
+45        	01	2012	% 	N_fact              	Nº REBUT
+BON       	01	2012	% 	N_fact              	Nº REBUT
+PC        	01	2012	% 	N_fact              	Nº REBUT
+RECTPR    	01	2012	% 	N_fact              	Nº REBUT
+45        	01	2012	% 	Cabecera            	Rebut
+RECTPC    	01	2012	% 	N_fact              	Nº REBUT
+RECTPF    	01	2012	% 	N_fact              	Nº REBUT
+BON       	01	2012	% 	Cabecera            	Rebut
+RVS       	01	2012	% 	N_fact              	Nº REBUT
+CE        	01	2012	% 	N_fact              	Nº REBUT
+RH        	01	2012	% 	N_fact              	Nº REBUT
+CC        	01	2012	% 	N_fact              	Nº REBUT
+PC        	01	2012	% 	Cabecera            	Rebut
+CH        	01	2012	% 	N_fact              	Nº REBUT
+RVA       	01	2012	% 	N_fact              	Nº REBUT
+RECTPR    	01	2012	% 	Cabecera            	Rebut
+CCV       	01	2012	% 	N_fact              	Nº REBUT
+CIP       	02	2012	% 	N_fact              	Nº REBUT
+RECTPC    	01	2012	% 	Cabecera            	Rebut
+PR        	01	2012	% 	N_fact              	Nº REBUT
+PF        	01	2012	% 	N_fact              	Nº REBUT
+RECTPF    	01	2012	% 	Cabecera            	Rebut
+R         	01	2012	% 	N_fact              	Nº REBUT
+RVS       	01	2012	% 	Cabecera            	Rebut
+CE        	01	2012	% 	Cabecera            	Rebut
+RH        	01	2012	% 	Cabecera            	Rebut
+UNASERIE  	02	2012	% 	Cabecera            	   Rebut / Factura
+CC        	01	2012	% 	Cabecera            	Rebut
+CH        	01	2012	% 	Cabecera            	Rebut
+CCV       	01	2012	% 	Total_fact          	TOTAL REBUT
+RVA       	01	2012	% 	Total_fact          	TOTAL REBUT
+RVA       	01	2012	% 	Cabecera            	Rebut
+CCV       	01	2012	% 	Cabecera            	Rebut
+CIP       	02	2012	% 	Cabecera            	Rebut
+CE        	01	2012	% 	Total_fact          	TOTAL REBUT
+PR        	01	2012	% 	Cabecera            	Rebut
+RECTPF    	01	2012	% 	Total_fact          	TOTAL REBUT
+RECTPC    	01	2012	% 	Total_fact          	TOTAL REBUT
+RECTPR    	01	2012	% 	Total_fact          	TOTAL REBUT
+PF        	01	2012	% 	Cabecera            	Rebut
+BON       	01	2012	% 	Total_fact          	TOTAL REBUT
+45        	01	2012	% 	Total_fact          	TOTAL REBUT
+R         	01	2012	% 	Cabecera            	Rebut
+RECTIF    	02	2012	% 	Cabecera            	   Rebut / Factura
+PC        	02	2012	% 	Cabecera            	Rebut
+PF        	02	2012	% 	Cabecera            	Proforma
+PROFOR    	02	2012	% 	Cabecera            	Proforma
+PC        	02	2012	% 	N_fact              	Nº REBUT
+PF        	02	2012	% 	N_fact              	Nº PROFORMA
+PROFOR    	02	2012	% 	N_fact              	Nº PROFORMA
+PC        	02	2012	% 	Total_fact          	TOTAL REBUT
+PF        	02	2012	% 	Total_fact          	TOTAL PROFORMA
+PROFOR    	02	2012	% 	Total_fact          	TOTAL PROFORMA
+RECTIF    	02	2012	% 	Total_fact          	TOTAL PROFORMA
+MT        	02	2012	% 	N_emisor2           	                                                        Núm. de Reg J313GC
+PC        	02	2012	% 	N_emisor2           	                                                        Núm. de Reg J313GC
+PF        	02	2012	% 	N_emisor2           	                                                        Núm. de Reg J313GC
+PREMAAT   	02	2012	% 	N_emisor2           	                                                        Núm. de Reg J313GC
+PROFOR    	02	2012	% 	N_emisor2           	                                                        Núm. de Reg J313GC
+RECTIF    	02	2012	% 	N_emisor2           	                                                        Núm. de Reg J313GC

@@ -1,0 +1,699 @@
+CFA	V	V01  	558	1. Accionistas por desembolsos exigidos	N	N	10	1	10	N
+CFA	V	V02  	3	2. Existencias	N	N	20	1	10	S
+CFA	V	V03  	43, 44, 46, 470, 471, 472, 473	3. Deudores	N	N	30	1	10	S
+CFA	V	V04  	41, 40, 475, 476, 477, 478, 51, 52	4. Acreedores	N	N	40	1	10	S
+CFA	V	V05  	53, 54, 55	5. Inversiones financieras temporales	N	N	50	1	10	S
+CFA	V	V06  		6. Acciones propias	N	N	60	1	10	N
+CFA	V	V07  	57	7. Tesorer¡a	N	N	70	1	10	S
+CFA	V	V08  	48, 58	8. Ajustes por periodificaci¢n	N	N	80	1	10	S
+CFA	V	VTOT 	V01 + V02 + V03 + V04 + V05 + V07 + V08	TOTAL	S	S	90	2	10	S
+CFA	V	VVAR 		VARIACIÓN DEL CAPITAL CIRCULANTE	S	N	100	3	10	S
+CFN	L	L01  	129, 681, 682, 692, 272, 6710, (771), (775)	1. Recursos aplicados en las operaciones	N	N	10	1	10	S
+CFN	L	L02  	270	2. Gastos de establecimiento y formalización de deudas	N	N	20	1	10	S
+CFN	L	L03  	L031 + L032 + L033	3. Adquisiciones de inmovilizado	N	S	30	-1	10	S
+CFN	L	L031 	21	a) Inmovilizaciones inmateriales	N	N	31	1	10	S
+CFN	L	L032 	22, 23	b) Inmovilizaciones materiales	N	N	32	1	10	S
+CFN	L	L033 	25	c) Inmovilizaciones financieras	N	N	33	1	10	S
+CFN	L	L05  	10, 11	5. Reducciones de capital	N	N	50	1	10	S
+CFN	L	L07  	L071 + L072 + L073 + L074 + L075	7. Cancelación o traspaso a corto plazo de deuda a largo plazo	N	S	70	-1	10	S
+CFN	L	L075 	523, 171, 173	e) De proveedores de inmovilizado y otros	N	N	76	1	10	S
+CFN	L	LTOT 	L01 + L02 + L03 + L04 + L05 + L06 + L07	TOTAL APLICACIONES	S	S	90	3	10	S
+CFN	L	LEXC 	RTOT - LTOT	EXCESO DE ORIGENES SOBRE APLICACIONES (AUMENTO DE CAPITAL CIRCULANTE)	S	S	100	3	10	S
+CFN	R	R01  	129, 681, 682, 692, 272, 6710, (771), (775)	1. Recursos procedentes de las operaciones	N	N	160	1	10	S
+CFN	R	R02  	R02A	2. Aportaciones de colegiados	N	S	170	-1	10	S
+CFN	R	R02A 	10,11	a) Ampliaciones de capital	N	N	171	1	10	S
+CFN	R	R03  	130	3. Subvenciones de capital	N	N	180	1	10	S
+CFN	R	R04  	R041 + R042 + R043 + R044 + R045	4. Deudas a largo plazo	N	S	190	-1	10	S
+CFN	R	R045 	523, 171, 173	e) De proveedores de inmovilizado y otros	N	N	195	1	10	S
+CFN	R	R05  	R051 + R052 + R053	5. Enajenación de inmovilizado	N	S	200	-1	10	S
+CFN	R	R051 	21	a) Inmovilizaciones inmateriales	N	N	201	1	10	S
+CFN	R	R052 	22, 23	b) Inmovilizaciones materiales	N	N	202	1	10	S
+CFN	R	R053 	25	c) Inmovilizaciones financieras	N	N	203	1	10	S
+CFN	R	RTOT 	R01 + R02 + R03 + R04 + R05 + R06 + R07	TOTAL ORIGENES	S	S	240	3	10	S
+CFN	R	REXC 	LTOT - RTOT	EXCESO DE APLICACIONES SOBRE ORIGENES (DISMINUCIÓN DEL CAPITAL CIRCULANTE)	S	S	250	3	10	S
+PGA	D	DA0  	DA01 + DA02 + DA03 + DA04 + DA05 + DA06 + DA07 + DA08 + DA09 + DA010+ DA011 + DA012 + DA013 + DA014	GASTOS	S	S	10	0	10	S
+PGA	D	DA01 	60, 61*, 71	  1. Consumos de explotación	N	N	20	1	10	S
+PGA	D	DA02 	DA02A + DA02B	  2. Gastos de personal	N	S	40	-1	10	S
+PGA	D	DA02A	640, 641	      a) Sueldos, salarios y asimilados	N	N	60	1	10	S
+PGA	D	DA02B	642, 643, 649	      b) Cargas sociales	N	N	80	1	10	S
+PGA	D	DA03 	68	  3. Dotaciones para amortizaciones de inmovilizado	N	N	100	1	10	S
+PGA	D	DA04 	65	  4. Variación de las provisiones de tráfico y pérdidas de créditos incobrables	N	N	120	1	10	S
+PGA	D	DA05 	62, 631, 690	  5. Otros gastos de explotación	N	N	140	1	10	S
+PGA	D	DA1  	HB01 - DA01 - DA02 - DA03 - DA04 - DA05	I. BENEFICIOS DE EXPLOTACIÓN ( B1 - A1 - A2 - A3 - A4 - A5)	S	S	160	2	10	S
+PGA	D	DA06 	DA06A + DA06B + DA06C + DA06D	  6. Gastos financieros  y gastos asimilados	N	S	180	-1	10	S
+PGA	D	DA06C	661, 663, 664, 665, 669	      c) Por otras deudas	N	N	240	1	10	S
+PGA	D	DA06D	666	      d) Pérdidas de inversiones financieras	N	N	260	1	10	S
+PGA	D	DA07 	6963, 6965, 6966, 697, 698, 699, (7963), (7965), (7966), (797), (798), (799)	   7. Variación de las provisiones de inversiones financieras	N	N	280	1	10	S
+PGA	D	DA08 	668	   8. Diferencias negativas de cambio	N	N	300	1	10	S
+PGA	D	DA2  	HB02 + HB03 - DA06  - DA07 - DA08	II. RESULTADOS FINANCIEROS POSITIVOS (B2 + B3 - A6  - A7 - A8)	S	S	320	3	10	S
+PGA	D	DA3  	DA1 + DA2 - HB1 - HB2	III.BENEFICIOS DE LAS ACTIVIDADES ORDINARIAS (AI + AII - BI - BII)	S	S	340	4	10	S
+PGA	D	DA09 	691, 692, 6960, 6961, (791), (792), (7960), (7961)	    9. Variación de las provisiones de inmovilizado inmaterial, material y cartera de control	N	N	360	1	10	S
+PGA	D	DA010	671	   10. Pérdidas procedentes del inmovilizado inmaterial, material y cartera de control	N	N	380	1	10	S
+PGA	D	DA012	678	   12. Gastos extraordinarios	N	N	420	1	10	S
+PGA	D	DA013	679	   13. Gastos y pérdidas de otros ejercicios	N	N	440	1	10	S
+PGA	D	DA4  	HB04 + HB05 + HB06 + HB07 + HB08 - DA09 - DA010 - DA011 - DA012 - DA013	IV.RESULTADOS EXTRAORDINARIOS POSITIVOS (B4+B5+B6+B7+B8-A9-A10-A11-A12-A13)	S	S	460	5	10	S
+PGA	D	DA5  	DA3 + DA4 - HB3 - HB4	V. BENEFICIOS ANTES DE IMPUESTOS (AIII + AIV - BIII - BIV)	S	S	480	6	10	S
+PGA	D	DA014	630*	    14.Impuesto sobre Sociedades	N	N	500	1	10	S
+PGA	D	DA6  	DA5 - DA014	VI.RESULTADO DEL EJERCICIO (BENEFICIOS)  (AV - A14)	S	S	520	7	10	S
+PGA	H	HB0  	HB01 + HB02 + HB03 + HB04 + HB05 + HB06 + HB07 + HB08	INGRESOS	S	S	540	0	10	S
+PGA	H	HB01 	HB01A + HB01B	  1. Ingresos de explotación	N	S	560	-1	10	S
+PGA	H	HB01A	70	      a) Importe neto de la cifra de negocios	N	N	580	1	10	S
+PGA	H	HB01B	71, 73, 74, 78	      b) Otros ingresos de explotación	N	N	600	1	10	S
+PGA	H	HB1  	DA01 + DA02 + DA03 + DA04 + DA05 - HB01	I. PÉRDIDAS DE EXPLOTACION ( A1 + A2 + A3 + A4 + A5 - B1 )	S	S	620	2	10	S
+PGA	H	HB02 	HB02A + HB02B + HB02C + HB02D	  2. Ingresos financieros	N	S	640	-1	10	S
+PGA	H	HB02C	7616, 769	      c) Otros	N	N	700	1	10	S
+PGA	H	HB02D	766	      d) Beneficios en inversiones financieras	N	N	720	1	10	S
+PGA	H	HB03 	768	   3. Diferencias positivas de cambio	N	N	740	1	10	S
+PGA	H	HB2  	DA06 + DA07 + DA08 - HB02 - HB03	II .RESULTADOS FINANCIEROS NEGATIVOS (A6 + A7 + A8 - B2 - B3)	S	S	760	3	10	S
+PGA	H	HB3  	HB1 + HB2 - DA1 - DA2	III.PÉRDIDAS DE LAS ACTIVIDADES ORDINARIAS (BI + BII - AI - AII)	S	S	780	4	10	S
+PGA	H	HB04 	771	   4. Beneficios en enajenación de inmovilizado inmaterial, material y cartera de control	N	N	800	1	10	S
+PGA	H	HB06 	775	   6. Subvenciones de capital transferidas al resultado del ejercicio	N	N	840	1	10	S
+PGA	H	HB07 	778	   7. Ingresos extraordinarios	N	N	860	1	10	S
+PGA	H	HB08 	779	   8. Ingresos y beneficios de otros ejercicios	N	N	880	1	10	S
+PGA	H	HB4  	DA09 + DA010 + DA011 + DA012 + DA013 - HB04  - HB05 - HB06  - HB07 - HB08	IV.RESULTADOS EXTRAORDINARIOS NEGATIVOS (A9 + A10 + A11 + A12 + A13 - B4  - B5 - B6  -B7 - B8)	S	S	900	5	10	S
+PGA	H	HB5  	HB3 + HB4 - DA3 - DA4	V .PÉRDIDAS ANTES DE IMPUESTOS (BIII + BIV - AIII - AIV)	S	S	920	6	10	S
+PGA	H	HB6  	HB5 + DA014	VI.RESULTADO DEL EJERCICIO (PÉRDIDAS)   (HBV + HA14)	S	S	940	7	10	S
+PGN	D	DA0  	DA01 + DA02 + DA03 + DA04 + DA05 + DA06 + DA07 + DA08 + DA09 + DA10+ DA011 + DA012 + DA013 + DA014 + DA015	GASTOS	S	S	10	0	10	S
+PGN	D	DA01 	71	  1. Reducción de existencias de productos terminados y en curso de fabricación	N	N	20	1	10	N
+PGN	D	DA02 	DA02A + DA02B + DA02C	  2. Gastos de gestión	N	S	40	-1	10	S
+PGN	D	DA02A	600 , (6080), (6000),  610	      a) Gestión y Asesorías	N	N	60	1	10	S
+PGN	D	DA02B	601, 602, 607, (6081), (6082), (6091), (6092), 611	      b) Colaboraciones varias	N	N	70	1	10	S
+PGN	D	DA02C	620	      c) Servicios exteriores	N	N	75	1	10	S
+PGN	D	DA03 	DA03A + DA03B+ DA03C	  3. Gastos de personal	N	S	80	-1	10	S
+PGN	D	DA03A	640, 641	      a) Sueldos, salarios y asimilados	N	N	100	1	10	S
+PGN	D	DA03B	642, 643	      b) Seg.Social Cargo Empresa	N	N	112	1	10	S
+PGN	D	DA03C	649	      c) Otros Gastos Sociales	N	N	114	1	10	S
+PGN	D	DA04 	68	  4. Dotaciones para amortizaciones	N	N	140	1	10	S
+PGN	D	DA04A	680	      a) Amort. Gtos Establecimiento	N	N	142	1	10	S
+PGN	D	DA04B	681	      b) Amort.Inmoviliz.Inmaterial	N	N	144	1	10	S
+PGN	D	DA04C	682	      c) Amort. Gtos Inmoviliz.material	N	N	146	1	10	S
+PGN	D	DA05 	DA05A + DA05B + DA05C	  5. Variación de las provisiones de tráfico	N	S	160	-1	10	N
+PGN	D	DA05A	693, (793)	      a) Variación de provisiones de existencias	N	N	170	1	10	N
+PGN	D	DA05B	650, 694, (794)	      b) Variación de las provisiones y pérdidas de créditos incobrables	N	N	180	1	10	N
+PGN	D	DA05C	695, (795)	      c) Variación de otras provisiones	N	N	190	1	10	S
+PGN	D	DA06 	DA06B + DA06C + DA06D + DA06E + DA06F + DA06G + DA06H + DA06I + DA06J + DA06K + DA06L + DA06M	  6. Otros gastos de explotación	N	S	200	-1	10	S
+PGN	D	DA06A	DA06B + DA06C + DA06D + DA06E + DA06F + DA06G + DA06H + DA06I + DA06M	      a) Servicios exteriores	N	S	220	-1	10	S
+PGN	D	DA06B	621	          Arrendamientos y Canones	N	N	222	1	10	S
+PGN	D	DA06C	622	          Reparacion y Conservacion	N	N	224	1	10	S
+PGN	D	DA06D	623	          Servic.Profes.Independientes	N	N	226	1	10	S
+PGN	D	DA06E	624	          Transporte	N	N	228	1	10	S
+PGN	D	DA06F	626	          Servicios Bancarios y Similares	N	N	230	1	10	S
+PGN	D	DA06G	627	          Publicidad y propaganda	N	N	232	1	10	S
+PGN	D	DA06H	628	          Suministros	N	N	234	1	10	S
+PGN	D	DA06I	629	          Otros servicios	N	N	236	1	10	S
+PGN	D	DA06J	631, 634, (636), (639)	      b) Tributos	N	N	240	1	10	S
+PGN	D	DA06K	65	      c) Gastos Culturales y Profesionales	N	N	260	1	10	S
+PGN	D	DA06L	690	      d) Dotación al fondo de reversión	N	N	280	1	10	S
+PGN	D	DA1  	HB01 + HB02 + HB03 + HB04  - DA01 - DA02 - DA03 - DA04 - DA05 - DA06	I. BENEFICIOS DE EXPLOTACIÓN (B1+B2+B3+B4-A1-A2-A3-A4-A5-A6)	S	S	300	2	10	S
+PGN	D	DA07 	DA07A + DA07B + DA07C + DA07D + DA07E	   7.Gastos financieros y gastos asimilados	N	S	320	-1	10	S
+PGN	D	DA07A	6610, 6615, 6620, 6630, 6640, 6650	       a) Por deudas con empresas del grupo	N	N	325	1	10	S
+PGN	D	DA07B	6611, 6616, 6621, 6631, 6641, 6651	       b) Por deudas con empresas asociadas	N	N	335	1	10	S
+PGN	D	DA07C	6613, 6618, 6622, 6623, 6632, 6633, 6643, 6653, 669	       c) Por deuda con terceros y gastos asimilados	N	N	340	1	10	S
+PGN	D	DA07D	666, 667	       d) Pérdidas de inversiones financieras	N	N	360	1	10	S
+PGN	D	DA07E	660	       e) Otros Gastos Financieros	N	N	370	1	10	S
+PGN	D	DA08 	6963, 6965, 6966, 697, 698, 699, (7963) , (7965) , (7966) , (797) , (798), (799)	   8. Variación de las provisiones de inversiones financieras	N	N	380	1	10	S
+PGN	D	DA09 	668	   9. Diferencias negativas de cambio	N	N	400	1	10	S
+PGN	D	DA2  	HB05 + HB06 + HB07 + HB08 - DA07 - DA08 - DA09	II. RESULTADOS FINANCIEROS POSITIVOS ( B5+B6+B7+B8- A7-A8-A9 )	S	S	420	3	10	S
+PGN	D	DA3  	DA1 + DA2 - HB1 - HB2	III.BENEFICIOS DE LAS ACTIVIDADES ORDINARIAS ( AI+AII-BI-BII )	S	S	440	4	10	S
+PGN	D	DA010	691, 692, 6960, 6961, (791) , (792) , (7960) , (7961)	   10. Variación de las provisiones de inmovilizado inmaterial, material y cartera de control	N	N	460	1	10	S
+PGN	D	DA011	670, 671, 672, 673	   11. Pérdidas procedentes del inmovilizado inmaterial, material y Gastos representación	N	N	480	1	10	S
+PGN	D	DA012	674	   12. Pérdidas por operaciones con acciones y obligaciones propias	N	N	500	1	10	S
+PGN	D	DA013	678	   13. Gastos extraordinarios	N	N	520	1	10	S
+PGN	D	DA014	679	   14. Otros gastos y Public.Culturales	N	N	540	1	10	S
+PGN	D	DA4  	HB09 + HB010 + HB011 + HB012 + HB013 -  DA010 - DA011 - DA012 - DA013 - DA014	IV.RESULTADOS EXTRAORDINARIOS POSITIVOS ( B9+B10+B11+B12+B13-A10-A11-A12-A13-A14 )	S	S	560	5	10	S
+PGN	D	DA5  	DA3 + DA4 - HB3 - HB4	V. BENEFICIOS ANTES DE IMPUESTOS ( AIII+AIV-BIII-BIV )	S	S	580	6	10	S
+PGN	D	DA015	630*, 633, (638)	   15. Impuesto sobre Sociedades	N	N	600	1	10	S
+PGN	D	DA6  	DA5 - DA015	VI.RESULTADO DEL EJERCICIO (BENEFICIOS)  ( AV-A15 )	S	S	620	7	10	S
+PGN	H	HB0  	HB01 + HB02 + HB02A + HB03 + HB04 + HB05 + HB06 + HB07 + HB08 + HB09 + HB010 + HB011 + HB012 + HB013	INGRESOS	S	S	640	0	10	S
+PGN	H	HB01 	HB01A + HB01B + HB01C	  1. Importe neto de la cifra de negocios	N	S	660	-1	10	S
+PGN	H	HB01A	700, 701, 702, 703, 704	      a) Intervención colegial	N	N	680	1	10	S
+PGN	H	HB01B	705	      b) Prestaciones de servicios	N	N	700	1	10	S
+PGN	H	HB01C	(708), (709)	      c) Devoluciones y "rappels" sobre ventas	N	N	710	1	10	S
+PGN	H	HB02 	71	  2. Aumento de existencias de productos terminados y en curso de fabricación	N	N	720	1	10	S
+PGN	H	HB03 	73	  3. Trabajos Gabinete Técnico	N	N	730	1	10	S
+PGN	H	HB04 	HB04A + HB04B + HB04C + HB04D	  4. Otros ingresos de la explotación	N	S	740	-1	10	S
+PGN	H	HB04A	75	       a) Ingresos accesorios y otros de gestión corriente	N	N	750	1	10	S
+PGN	H	HB04B	74	       b) Subvenciones	N	N	760	1	10	S
+PGN	H	HB04C	78	       c) Otros	N	N	770	1	10	S
+PGN	H	HB1  	DA01 + DA02 + DA03 + DA04 + DA05 + DA06 - HB01 - HB02 - HB03 - HB04	I. PÉRDIDAS DE EXPLOTACION (A1+A2+A3+A4+A5+A6-B1-B2-B3-B4)	S	S	780	2	10	S
+PGN	H	HB05 	HB05A + HB05B + HB05C	   5. Ingresos de participaciones en capital	N	S	780	-1	10	S
+PGN	H	HB05A	7600	       a) En empresas del grupo	N	N	785	1	10	S
+PGN	H	HB05B	7601	       b) En empresas asociadas	N	N	790	1	10	S
+PGN	H	HB05C	7603	       c) En empresas fuera del grupo	N	N	795	1	10	S
+PGN	H	HB06 	HB06A + HB06B + HB06C	   6. Ingresos de otros valores negociables y de créditos del activo inmovilizado	N	S	800	-1	10	S
+PGN	H	HB06A	7610, 7620	       a) De empresas del grupo	N	N	805	-1	10	S
+PGN	H	HB06B	7611, 7621	       b) De empresas asociadas	N	N	810	-1	10	S
+PGN	H	HB06C	7613, 7623	       c) De empresas fuera del grupo	N	N	820	1	10	S
+PGN	H	HB07 	HB07A + HB07B + HB07C + HB07D + HB07E	   7. Otros intereses e ingresos asimilados	N	S	840	-1	10	S
+PGN	H	HB07A	7630, 7650	       a) De empresas del grupo	N	N	845	1	10	S
+PGN	H	HB07B	7631, 7651	       b) De empresas asociadas	N	N	850	1	10	S
+PGN	H	HB07C	769	       c) Otros intereses	N	N	860	1	10	S
+PGN	H	HB07D	766	       d) Beneficios en inversiones financieras	N	N	880	1	10	S
+PGN	H	HB08 	768	   8. Diferencias positivas de cambio	N	N	900	1	10	S
+PGN	H	HB2  	DA07 + DA08 + DA09 - HB05 - HB06 - HB07 - HB08	II .RESULTADOS FINANCIEROS NEGATIVOS ( A7+A8+A9-B5-B6-B7-B8 )	S	S	920	3	10	S
+PGN	H	HB3  	HB1 + HB2 - DA1 - DA2	III.PÉRDIDAS DE LAS ACTIVIDADES ORDINARIAS ( BI+BII-AI-AII )	S	S	940	4	10	S
+PGN	H	HB09 	770, 771, 772, 773	   9. Beneficios en enajenación de inmovilizado inmaterial, material, y cartera de control	N	N	960	1	10	S
+PGN	H	HB010	774	   10. Beneficios por operaciones con acciones y obligaciones propias	N	N	970	1	10	S
+PGN	H	HB011	775	 11. Subvenciones de capital transferidas al resultado del ejercicio	N	N	980	1	10	S
+PGN	H	HB012	778	 12. Ingresos extraordinarios	N	N	1000	1	10	S
+PGN	H	HB013	779	 13. Ingresos y beneficios de otros ejercicios	N	N	1020	1	10	S
+PGN	H	HB4  	DA010 + DA011 + DA012 + DA013 + DA014 - HB09  - HB010  - HB011 - HB012  - HB013	IV.RESULTADOS EXTRAORDINARIOS NEGATIVOS ( A10+A11+A12+A13+A14-B9-B10-B11-B12-B13 )	S	S	1040	5	10	S
+PGN	H	HB5  	HB3 + HB4 - DA3 - DA4	V .PÉRDIDAS ANTES DE IMPUESTOS ( BIII+BIV-AIII-AIV )	S	S	1060	6	10	S
+PGN	H	HB6  	HB5 + DA015	VI.RESULTADO DEL EJERCICIO (PÉRDIDAS)   ( BV + A15 )	S	S	1080	7	10	S
+SIA	A	AB0  	AB01 + AB02 + AB03 + AB04	B.INMOVILIZADO	S	S	0	2	10	S
+SIA	A	AB01 	20	   I . Gastos de Establecimiento	N	N	20	1	10	N
+SIA	A	AB02 	21, (281), (291)	   II. Inmovilizaciones inmateriales	N	N	40	1	10	S
+SIA	A	AB03 	22, 23, (282), (292)	   III.Inmovilizaciones materiales	N	N	60	1	10	S
+SIA	A	AB04 	250, 251, 258, 260, 265, (296), (297), (298)	   IV.Inmovilizaciones financieras	N	N	80	1	10	S
+SIA	A	AC0  	27	C.GASTOS A DISTRIBUIR EN VARIOS EJERCICIOS	S	N	100	2	10	S
+SIA	A	AD0  	AD01 + AD02 + AD03 + AD04 + AD06 + AD07	D.ACTIVO CIRCULANTE	S	S	120	2	10	S
+SIA	A	AD01 	558	   I.  Accionistas por desembolsos exigidos	N	N	140	1	10	N
+SIA	A	AD02 	30, 33, 35, 36, (39), 407	   II. Existencias	N	N	160	1	10	S
+SIA	A	AD03 	430, 435, 44, 460, 470, 471, 472, 473, 474, (490), 544	   III.Deudores	N	N	180	1	10	S
+SIA	A	AD04 	540, 541, 542, 546, 547, 548, 565, 566, (59)	   IV.Inversiones financieras temporales	N	N	200	1	10	S
+SIA	A	AD06 	57	   VI.Tesoreria	N	N	220	1	10	S
+SIA	A	AD07 	480, 580	   VII.Ajustes por periodificación	N	N	240	1	10	S
+SIA	A	AT0  	AB0 + AC0 + AD0	TOTAL GENERAL (B + C + D)	S	S	260	3	10	S
+SIA	P	PA0  	PA01 + PA02 + PA03 + PA04 + PA05 + PA06 + PA07	A. FONDOS PROPIOS	S	S	280	2	10	S
+SIA	P	PA01 	10	    I  .Capital suscrito	N	N	300	1	10	S
+SIA	P	PA02 	110	    II .Prima de emisión	N	N	320	1	10	N
+SIA	P	PA03 	111	    III.Reserva de revalorización	N	N	340	1	10	N
+SIA	P	PA04 	117	    IV.Reservas	N	N	360	1	10	S
+SIA	P	PA05 	120, 121	    V .Resultados de ejercicios anteriores	N	N	380	1	10	S
+SIA	P	PA06 	129	    VI.Pérdidas y ganancias (Beneficio o Pérdida)	N	N	400	1	10	S
+SIA	P	PA07 	557	    VII.Dividendo a cuenta entregado en el ejercicio	N	N	420	1	10	N
+SIA	P	PB0  	13	B.INGRESOS A DISTRIBUIR EN VARIOS EJERCICIOS	S	N	440	2	10	S
+SIA	P	PC0  	14	C.PROVISIONES PARA RIESGOS Y GASTOS	S	N	460	2	10	S
+SIA	P	PD0  	17	D.ACREEDORES A LARGO PLAZO	S	N	480	2	10	S
+SIA	P	PE0  	400, 401, 407, 410, 411, 419, 465, 475, 476, 477, 479, 485, 499, 51, 52, 555, 560, 561	E.ACREEDORES A CORTO PLAZO	S	N	500	2	10	S
+SIA	P	PT0  	PA0 + PB0 + PC0 + PD0 + PE0	TOTAL GENERAL (A + B + C + D + E)	S	S	520	3	10	S
+SIN	A	AA0  	190, 191, 192, 193, 194, 195, 196	A. ACCIONISTAS POR DESEMBOLSOS NO EXIGIDOS	S	N	10	2	10	S
+SIN	A	AB0  	AB01 + AB02 + AB03 + AB04 + AB05	B.  INMOVILIZADO	S	S	20	2	10	S
+SIN	A	AB01 	20	    I. Gastos de establecimiento	N	N	30	1	10	S
+SIN	A	AB01A	200	       a) Gastos de Constitucion	N	N	32	1	10	S
+SIN	A	AB01B	201	       b) Gastos de Primer Establecimiento	N	N	34	1	10	S
+SIN	A	AB01C	202	       c) Gastos de Ampliacion de Capital	N	N	36	1	10	S
+SIN	A	AB02 	AB02A + AB02B + AB02C + AB02D + AB02E + AB02F + AB02G + AB02H + AB02J	    II .Inmovilizaciones inmateriales	N	S	60	-1	10	S
+SIN	A	AB02A	210	        1 .Gastos de investigación y desarrollo	N	N	80	1	10	S
+SIN	A	AB02B	211, 212	        2 .Concesiones, patentes, licencias, marcas y similares	N	N	100	1	10	S
+SIN	A	AB02C	213	        3. Fondo de comercio	N	N	120	1	10	S
+SIN	A	AB02D	214	        4. Derechos de traspaso	N	N	140	1	10	S
+SIN	A	AB02E	215	        5. Aplicaciones informáticas	N	N	160	1	10	S
+SIN	A	AB02F	217	        6. Derechos s/Bienes Arred. Financiero	N	N	170	1	10	S
+SIN	A	AB02G	219	        7. Anticipos	N	N	180	1	10	S
+SIN	A	AB02H	(291)	        8. Provisiones	N	N	200	1	10	S
+SIN	A	AB02J	(281)	        9. Amortizaciones	N	N	220	1	10	S
+SIN	A	AB03 	AB03A + AB03B + AB03C + AB03D + AB03E +  AB03F + AB03G + AB03H	    III.Inmovilizaciones materiales	N	S	240	-1	10	S
+SIN	A	AB03A	220, 221	        1  Terrenos y construcciones	N	N	260	1	10	S
+SIN	A	AB03B	222, 223	        2   Instalaciones técnicas y maquinarias	N	N	280	1	10	S
+SIN	A	AB03C	224, 225, 226	        3   Otras instalaciones, utillaje y mobiliario	N	N	300	1	10	S
+SIN	A	AB03D	23	        4   Anticipos e inmovilizaciones materiales en curso	N	N	320	1	10	S
+SIN	A	AB03E	227, 228	        5   Equipos par proceso Informacion	N	N	340	1	10	S
+SIN	A	AB03F	229	             Otro Inmovilizado	N	N	342	1	10	S
+SIN	A	AB03G	(292)	        6   Provisiones	N	N	360	1	10	S
+SIN	A	AB03H	(282)	        7   Amortizaciones	N	N	380	1	10	S
+SIN	A	AB04 	AB04A + AB04B + AB04C + AB04D + AB04E + AB04F + AB04G + AB04H	    IV.Inmovilizaciones financieras	N	S	400	-1	10	S
+SIN	A	AB04A	240	        1  Participaciones en empresas del grupo	N	N	410	1	10	S
+SIN	A	AB04B	242, 244, 246	        2  Créditos a empresas del grupo	N	N	420	1	10	S
+SIN	A	AB04C	241	        3  Otras instalaciones, utillaje y mobiliario	N	N	430	1	10	S
+SIN	A	AB04D	243, 245, 247	        4  Anticipo e inmovilizaciones materiales en curso	N	N	440	1	10	S
+SIN	A	AB04E	250, 251, 256	        5  Cartera de valores a largo plazo	N	N	500	1	10	S
+SIN	A	AB04F	252, 253, 254, 257, 258	        6  Otros créditos	N	N	520	1	10	S
+SIN	A	AB04G	260, 265	        7  Depósitos y fianzas constituidos a largo plazo	N	N	540	1	10	S
+SIN	A	AB04H	(293), (294), (295), (296), (297), (298)	        8  Provisiones	N	N	560	1	10	S
+SIN	A	AB05 	198	    V. Acciones propias	N	N	570	1	10	S
+SIN	A	AC0  	27	C.  GASTOS A DISTRIBUIR EN VARIOS EJERCICIOS	S	N	600	2	10	S
+SIN	A	AD0  	AD01 + AD02 + AD03 + AD04 + AD06 + AD07	D.  ACTIVO CIRCULANTE	S	S	620	2	10	S
+SIN	A	AD01 	558	    I. Accionistas por desembolsos exigidos	N	N	630	1	10	S
+SIN	A	AD02 	AD02A + AD02B + AD02C + AD02D  + AD02E  + AD02F + AD02G	    II .Existencias	N	S	660	-1	10	S
+SIN	A	AD02A	30	        1  Comerciales	N	N	680	1	10	S
+SIN	A	AD02B	31, 32	        2  Materias primas y otros aprovisionamientos	N	N	690	1	10	S
+SIN	A	AD02C	33, 34	        3  Productos en curso y semiterminados	N	N	720	1	10	S
+SIN	A	AD02D	35	        4  Productos terminados	N	N	740	1	10	S
+SIN	A	AD02E	36	        5  Subproductos, residuos y materiales recuperados	N	N	750	1	10	S
+SIN	A	AD02F	407	        6  Anticipos	N	N	780	1	10	S
+SIN	A	AD02G	(39)	        7  Provisiones	N	N	800	1	10	S
+SIN	A	AD03 	AD03A + AD03B + AD03C +  AD03D + AD03E + AD03F + AD03I	    III.Deudores	N	S	820	-1	10	S
+SIN	A	AD03A	430, 435	        1  Clientes por ventas y prestaciones de servicios	N	N	840	1	10	S
+SIN	A	AD03B	432, 551	        2  Empresas del grupo, deudores	N	N	850	1	10	S
+SIN	A	AD03C	433, 552	        3  Empresas asociadas, deudores	N	N	860	1	10	S
+SIN	A	AD03D	44, 553	        4  Deudores varios	N	N	900	1	10	S
+SIN	A	AD03E	460, 544	        5  Personal	N	N	920	1	10	S
+SIN	A	AD03F	470, 471, 472, 473, 474	        6  Administraciones Públicas	N	N	940	1	10	S
+SIN	A	AD03G	472	            H.P. IVA Soportado	N	N	942	1	10	S
+SIN	A	AD03H	473	            H.P. Retenciones y Pagos a Cuenta	N	N	944	1	10	S
+SIN	A	AD03I	(490), (493), (494)	        7  Provisiones	N	N	960	1	10	S
+SIN	A	AD04 	AD04A + AD04B + AD04C + AD04D + AD04E + AD04F + AD04G + AD04H	    IV Inversiones Financieras Temporales	N	S	980	-1	10	S
+SIN	A	AD04A	530, (538)	        1  Participaciones en empresas del grupo	N	N	990	1	10	S
+SIN	A	AD04B	532, 534, 536	        2  Créditos a empresas del grupo	N	N	1000	1	10	S
+SIN	A	AD04C	531, (539)	        3  Participaciones en empresas asociadas	N	N	1010	1	10	S
+SIN	A	AD04D	533, 535, 537	        4  Créditos a empresas asociadas	N	N	1020	1	10	S
+SIN	A	AD04E	540, 541, 546, (549)	        5  Cartera de valores a corto plazo	N	N	1080	1	10	S
+SIN	A	AD04F	542, 543, 545, 547, 548	        6  Otros créditos	N	N	1100	1	10	S
+SIN	A	AD04G	565, 566	        7  Depósitos y fianzas constituidos a corto plazo	N	N	1120	1	10	S
+SIN	A	AD04H	(593), (594), (595), (596), (597), (598)	        8  Provisiones	N	N	1140	1	10	S
+SIN	A	AD06 	57	    VI Tesorería	N	N	1180	1	10	S
+SIN	A	AD06A	570	         Caja pesetas	N	N	1182	1	10	S
+SIN	A	AD06B	572	         Bancos e Instituciones de Credito	N	N	1184	1	10	S
+SIN	A	AD07 	480, 580	    VII Ajustes por periodificación	N	N	1200	1	10	S
+SIN	A	AT0  	AA0 + AB0 + AC0 + AD0	TOTAL GENERAL ( A + B + C + D )	S	S	1400	3	10	S
+SIN	P	PA0  	PA01 + PA02 + PA03 + PA04 + PA05 + PA06 + PA07 + PA08	A.  FONDOS PROPIOS	S	S	1520	2	10	S
+SIN	P	PA01 	10	    I  .Capital suscrito	N	N	1540	1	10	S
+SIN	P	PA02 	110	    II  Prima de emisión	N	N	1550	1	10	S
+SIN	P	PA03 	111	    III. Reserva de revalorización	N	N	1560	1	10	S
+SIN	P	PA04 	PA04A + PA04B + PA04C + PA04D +PA04E	    IV.Reservas	N	S	1600	-1	10	S
+SIN	P	PA04A	112	        1  Reserva legal	N	N	1610	-1	10	S
+SIN	P	PA04B	115	        2  Reservas para acciones propias	N	N	1620	-1	10	S
+SIN	P	PA04C	114	        3  Reservas para acciones de la sociedad dominante	N	N	1630	-1	10	S
+SIN	P	PA04D	116	        4  Reservas estatutarias	N	N	1640	-1	10	S
+SIN	P	PA04E	113, 117, 118	        5  Otras reservas	N	N	1700	1	10	S
+SIN	P	PA05 	PA051 + PA052 + PA053	    V .Resultados de ejercicios anteriores	N	S	1720	-1	10	S
+SIN	P	PA051	120	        1  Remanente	N	N	1740	1	10	S
+SIN	P	PA052	(121)	        2  Resultados negativos de ejercicios anteriores	N	N	1760	1	10	S
+SIN	P	PA053	122	        3  Aportaciones de socios para compensación de pérdidas	N	N	1770	-1	10	S
+SIN	P	PA06 	129	    VI .Pérdidas y ganancias   (Beneficio o pérdida)	N	N	1800	1	10	S
+SIN	P	PA07 	(557)	    VII .Dividendo a cuenta entregado en el ejercicio	N	N	1810	1	10	S
+SIN	P	PA08 	199	    VIII .Acciones propias para reducción del capital	N	N	1820	1	10	S
+SIN	P	PB0  	PB01 + PB02 + PB03	B.  INGRESOS A DISTRIBUIR EN VARIOS EJERCICIOS	S	S	1840	2	10	S
+SIN	P	PB01 	130, 131	        1  Subvenciones de capital	N	N	1860	1	10	S
+SIN	P	PB02 	136	        2  Diferencias positivas de cambio	N	N	1900	1	10	S
+SIN	P	PB03 	135	        3  Otros ingresos a distribuir en varios ejercicios	N	N	2000	1	10	S
+SIN	P	PC0  	PC01 + PC02 + PC03 + PC04	C.  PROVISIONES PARA RIESGOS Y GASTOS	S	S	2020	2	10	S
+SIN	P	PC01 	140	        1  Provisiones para pensiones y obligaciones similares	N	N	2040	1	10	S
+SIN	P	PC02 	141	        2  Provisiones para impuestos	N	N	2060	1	10	S
+SIN	P	PC03 	142, 143	        3  Otras provisiones	N	N	2080	1	10	S
+SIN	P	PC04 	144	        4  Fondo de reversión	N	N	2100	1	10	S
+SIN	P	PD0  	PD01 + PD02 + PD03 + PD04 + PD05	D.  ACREEDORES A LARGO PLAZO	S	S	2120	2	10	S
+SIN	P	PD01 	150, 151, 155	        I  Emisiones de obligaciones y otros valores negociables	N	N	2130	1	10	S
+SIN	P	PD02 	170	        II  Deudas con entidades de crédito	N	N	2140	1	10	S
+SIN	P	PD03 	160, 162, 164	        III  Deudas con empresas del grupo y asociadas	N	N	2150	1	10	S
+SIN	P	PD04 	PD04A + PD04B + PD04E	        IV  Otros acreedores	N	S	2160	-1	10	S
+SIN	P	PD04A	161, 163, 165, 174	             1.- Deudas representadas por efectos a pagar	N	N	2180	1	10	S
+SIN	P	PD04B	171, 172, 173	             2.- Otras deudas	N	N	2200	1	10	S
+SIN	P	PD04C	172	                  Deudas a L/P Transf.	N	N	2202	1	10	S
+SIN	P	PD04D	173	                  Proveedores Inmovilizado L/P	N	N	2204	1	10	S
+SIN	P	PD04E	180, 185	             3.- Fianzas y depósitos recibidos a largo plazo	N	N	2220	1	10	S
+SIN	P	PD05 	PD05A + PD05B + PD05C	        V  Desembolsos pendientes sobre acciones no exigidos	N	S	2230	-1	10	S
+SIN	P	PD05A	248	             1.- De empresas del grupo	N	N	2232	1	10	S
+SIN	P	PD05B	249	             2.- De empresas asociadas	N	N	2234	1	10	S
+SIN	P	PD05C	259	             3.- De otras empresas	N	N	2236	1	10	S
+SIN	P	PE0  	PE01 + PE02 + PE03 + PE04 + PE05 + PE06 + PE07	E. ACREEDORES A CORTO PLAZO	S	S	2240	2	10	S
+SIN	P	PE01 	500, 501, 505, 506	        I  Emisiones de obligaciones y otros valores negociables	N	N	2250	1	10	S
+SIN	P	PE02 	PE02A + PE02B	        II  Deudas con entidades de crédito	N	S	2260	-1	10	S
+SIN	P	PE02A	520	              1  Préstamos y otras deudas	N	N	2280	1	10	S
+SIN	P	PE02B	526	              2  Deuda por intereses	N	N	2300	1	10	S
+SIN	P	PE03 	PE03A + PE03B	        III Deudas con empresas del grupo y asociadas a corto plazo	N	S	2310	-1	10	S
+SIN	P	PE03A	402, 412, 413, 510, 512, 514, 516, 551	             1.- Deudas con empresas del grupo	N	N	2312	1	10	S
+SIN	P	PE03B	403, 511, 513, 515, 517, 552	             2.- Deudas con empresas asociadas	N	N	2314	1	10	S
+SIN	P	PE04 	PE04A + PE04B + PE04C + PE04D	        IV  Acreedores comerciales	N	S	2320	-1	10	S
+SIN	P	PE04A	437	              1  Anticipos recibidos por pedidos	N	N	2340	1	10	S
+SIN	P	PE04B	400, (406), 410, 419	              2  Deudas por compras o prestaciones de servicios	N	N	2360	1	10	S
+SIN	P	PE04C	401, 411	              3  Deudas a pagar	N	N	2380	1	10	S
+SIN	P	PE05 	PE05A + PE05E + PE05F + PE05G + PE05H	       V   Otras deudas no comerciales	N	S	2400	-1	10	S
+SIN	P	PE05A	475, 476, 477, 479	              1  Administraciones Públicas	N	N	2420	1	10	S
+SIN	P	PE05B	475	                  Administraciones Publicas	N	N	2422	1	10	S
+SIN	P	PE05C	476	                  Org. S.S. Acreedora	N	N	2424	1	10	S
+SIN	P	PE05D	477	                  H.P. IVA Repercutido	N	N	2426	1	10	S
+SIN	P	PE05E	524	              2  Deudas representadas por efectos a pagar	N	N	2440	1	10	S
+SIN	P	PE05F	509, 521, 523, 525, 527, 553, 555, 556	              3  Otras deudas	N	N	2460	1	10	S
+SIN	P	PE05G	465	              4  Remuneraciones pendientes de pago	N	N	2480	1	10	S
+SIN	P	PE05H	560, 561	              5  Fianzas y depósitos recibidos a corto plazo	N	N	2500	1	10	S
+SIN	P	PE06 	499	       VI    Provisiones para operaciones de tráfico	N	N	2520	1	10	S
+SIN	P	PE07 	485, 585	       VII    Ajustes por periodificación	N	N	2540	1	10	S
+SIN	P	PT0  	PA0 + PB0 + PC0 + PD0 +PE0	TOTAL GENERAL ( A + B + C + D + E)	S	S	2560	3	10	S
+SIN	A	AD06C	574	        Tesorería,ctas.pers.	N	N	1186	1	10	S
+SIN	A	AD06D	576	        Bancos, F.A.M.	N	N	1188	1	10	S
+SIN	P	PE04D	454	              4 Premaat	N	N	2390	1	10	S
+PGN	D	DA06M	625	          Gastos material oficina	N	N	238	1	10	S
+PGN	H	HB07E	760, 761	      e) Intereses inversiones y reg.	N	N	890	1	10	S
+PGN	H	HB04D	79	    d) Provisiones aplicadas	N	N	772	1	10	S
+PGN	H	HB02A	72	 2.1 Ingresos propios de la entidad	N	N	724	1	10	S
+PG8	D	DA02 	(6930),71*,7930	  2. Variación de existencias de productos terminados y en curso de fabricación.	N	N	30	1	150	S
+PG8	D	DA04 	DA04A + DA04B + DA04C + DA04D	  4. Aprovisionamientos	N	S	40	-1	150	S
+PG8	D	DA04A	(600),6060,6080, 6090,610*	      a) Consumo de mercadería	N	N	60	1	300	S
+PG8	D	DA04B	(601),(602),6061, 6062,6081, 6082, 6091,6092,611*, 612*	      b) consumo de materias primas y otras materias consumibles	N	N	70	1	300	S
+PG8	D	DA04C	(607)	      c) Trabajos realizados por otras empresas.	N	N	75	1	300	S
+PG8	D	DA04D	(6931),(6932),(6933), 7931,7932,7933	      d) Deterioro de mercaderías, materias primas y otros aprovisionamientos.	N	N	76	1	300	S
+PG8	D	DA06 	DA06A + DA06B + DA06C	  6. Gastos de personal	N	S	80	-1	150	S
+PG8	D	DA06A	(640),(641),(6450)	      a) Sueldos, salarios y asimilados	N	N	100	1	300	S
+PG8	D	DA06B	(642),(643),(649)	      b) Cargas sociales	N	N	120	1	300	S
+PG8	D	DA06C	(644),(6457),7950, 7957	      c) Provisiones	N	N	121	1	300	S
+PG8	D	DA07 	DA07A + DA07B + DA07C + DA07D	  7. Otros gastos de explotaci¢n	N	S	200	-1	150	S
+PG8	D	DA07A	(62)	      a) Servicios exteriores	N	N	220	1	300	S
+PG8	D	DA07B	(631),(634),636, 639	      b) Tributos	N	N	240	1	300	S
+PG8	D	DA07C	(650),(694),(695), 794,7954	      c) Pérdidas, deterioro y variación de provisiones por operaciones comerciales	N	N	260	1	300	S
+PG8	D	DA07D	(651),(659),(652),(653),(655)	      d) Otros gastos de gestión corriente.	N	N	280	1	300	S
+PG8	D	DA08 	(68)	  8.Amortización del inmobilizado.	N	N	281	1	150	S
+PG8	D	DA1  	DA01 + DA02 + DA03 + DA04 + DA05 + DA06 + DA07 + DA08 + DA09 + DA10 + DA11	A. 1) RESULTADO DE EXPLOTACIÓN (1+2+3+4+5+6+7+8+9+10+11)	S	S	300	3	0	S
+PG8	D	DA10 	7951,7952,7955, 7956	  10. Excesos de provisiones.	N	N	283	1	150	S
+PG8	D	DA11 	DA11A + DA11B	  11. Deterioro y resultado por enajenaciones del inmovilizado.	N	S	284	-1	150	S
+PG8	D	DA11A	(690),(691),(692), 790,791,792	       a) Deterioros y pérdidas.	N	N	285	1	300	S
+PG8	D	DA11B	(670),(671),(672), 770,771,772	       b) Resultados por enajenaciones y otras.	N	N	286	1	300	S
+PG8	D	DA13 	DA13A + DA13B + DA13C	   13. Gastos financiros	N	S	400	-1	150	S
+PG8	D	DA13A	(6610),(6611),(6615), (6616),(6620),(6621), (6640),(6641),(6650), (6651),(6654),(6655)	       a) Por deudas con empresas del grupo y asociadas	N	N	460	1	300	S
+PG8	D	DA13B	(6612),(6613),(6617), (6618),(6622),(6623), (6624),(6642),(6643), (6652),(6653),(6656), (6657),(669)	       b) Por deudas con terceros.	N	N	480	1	300	S
+PG8	D	DA13C	(660)	       c) Por actuación de provisiones.	N	N	500	1	300	S
+PG8	D	DA14 	DA14A + DA14B	   14. Variación de valor razonable en instrumentos financieros.	N	S	540	-1	150	S
+PG8	D	DA14A	(6630),(6631),(6633), 7630,7631,7633	       a) Cartera de negociación y otros.	N	N	600	1	300	S
+PG8	D	DA14B	(6632),7632	       b) Imputación al resultado del ejercicio por activos financieros disponibles para la venta.	N	N	601	1	300	S
+PG8	D	DA16 	DA16A + DA16B	   16. Deterioro y resultados por enajenaciones y otras.	N	S	603	-1	150	S
+PG8	D	DA16A	(696),(697),(698), (699),796,797, 798,799	       a) Deterios y pérdidas.	N	N	604	1	300	S
+PG8	D	DA16B	(666),(667),(673), (675),766,773, 775	       b) Resultados por enajenaciones y otras	N	N	605	1	300	S
+PG8	D	DA17 	(6300)*,6301*,(633), 638	   17. Impuestos sobre beneficios.	N	N	608	1	150	S
+PG8	D	DA18 	721,778,678, 654,648,(720),(725)	18. Resultado del ejercicio procedente de operaciones	N	N	611	1	150	S
+PG8	D	DA2  	DA12 + DA13 + DA14 + DA15 + DA16	A. 2) RESULTADO FINANCIERO (12 + 13 + 14 + 15 +16)	N	S	606	3	0	S
+PG8	D	DA3  	DA1 + DA2	A. 3) RESULTADO ANTES DE IMPUESTOS ( A. 1 + A. 2)	N	S	607	4	0	S
+PG8	D	DA4  	DA3 + DA17	A. 4) RESULTADO DEL EJERCICIO PROCEDENTE DE OPERACIONES CONTINUADAS (A. 13 + 17)	N	S	609	5	0	S
+PG8	D	DA5  	DA4 + DA18	A. 5) RESULTADO DEL EJERCICIO (A.4 + 18)	S	S	620	6	0	S
+PG8	D	DAB  	()	B) OPERACIONES INTERRUMPIDAS	N	N	610	1	0	S
+PG8	H	DA0  	DA01 + DA02 + DA03 + DA04 + DA05 + DA06 + DA07 + DA08 + DA09 + DA10+ DA011 + DA012 + DA013 + DA014 + DA015	A) OPERACIONES CONTINUADAS	S	S	10	0	0	S
+PG8	H	DA01 	DA01A + DA01B	  1. Importe neto de la cifra de negocio.	N	S	20	-1	150	S
+PG8	H	DA01A	700,701,702, 703,704,(706), (708),(709)	      a) Ventas.	N	N	21	1	300	S
+PG8	H	DA01B	705	      b) Prestaciones de servicios.	N	N	22	1	300	S
+PG8	H	DA03 	73	  3.Trabajos realizados por la empresa para su activo.	N	N	31	1	150	S
+PG8	H	DA05 	DA05A + DA05B	  5. Otros ingresos de explotación.	N	S	77	-1	150	S
+PG8	H	DA05A	75	      a) Ingresos accesorios y otros de gestión corriente.	N	N	78	1	300	S
+PG8	H	DA05B	740,747	      b) Subvenciones de explotación incorporadas al resultado del ejercicio.	N	N	79	1	300	S
+PG8	H	DA09 	746	  9. Imputación de subvenciones de inmovilizado no financiero y otras.	N	N	282	1	150	S
+PG8	H	DA12 	DA12A + DA12B	   12.Ingresos financieros.	S	S	320	2	150	S
+PG8	H	DA12A	DA12C + DA12D	       a) De participaciones en instrumentos de patrimonio.	N	S	325	-1	300	S
+PG8	H	DA12B	DA12E + DA12F	       b) De valores negociables y otros instrumentos financieros.	N	S	360	-1	300	S
+PG8	H	DA12C	7600,7601	            a1) En empresas del grupo y asociadas	N	N	335	1	450	S
+PG8	H	DA12D	7602,7603	            a2) En terceros.	S	N	340	1	450	S
+PG8	H	DA12E	7610,7611,76200, 76201,76210,76211	            b1) De empresas del grupo y asociadas	N	N	370	1	450	S
+PG8	H	DA12F	7612,7613,76202, 76203,76212,76213, 767,769	            b2) De terceros	N	N	380	1	450	S
+PG8	H	DA15 	(668),768	   15. Diferencias de cambio.	N	N	602	1	150	S
+SI8	A	AA0  	AB02 + AB03 + AB04 + AB05 + AB06 + AB07	A. ACTIVO NO CORRIENTE	S	S	10	2	0	S
+SI8	A	AB02 	AB02A + AB02B + AB02C + AB02D + AB02E + AB02F	    I .Inmovilizado intangible	N	S	60	-1	20	S
+SI8	A	AB02A	201, (2801), (2901)	        1 .Desarrollo.	N	N	80	1	40	S
+SI8	A	AB02B	202, (2802), (2902)	        2 .Concesiones.	N	N	100	1	40	S
+SI8	A	AB02C	203, (2803), (2903)	        3. Patentes, licencias, marcas y similares.	N	N	120	1	40	S
+SI8	A	AB02D	204	        4. Fondo de comercio.	N	N	140	1	40	S
+SI8	A	AB02E	206, (2806), (2906)	        5. Aplicaciones informáticas	N	N	160	1	40	S
+SI8	A	AB02F	205, 209, (2805), (2905),(207)	        6. Otro inmobilizado intangible.	N	N	170	1	40	S
+SI8	A	AB03 	AB03A + AB03B + AB03C	    II.Inmovilizado material.	N	S	240	-1	20	S
+SI8	A	AB03A	210, 211, (2811), (2910), (2911)	        1  Terrenos y construcciones.	N	N	260	1	40	S
+SI8	A	AB03B	212,213,214,215,216,217,218,219,(2812),(2813),(2814),(2815),(2816),(2817),(2818),(2819),(2912),(2913),(2914),(2915),(2916),(2917),(2918),(2919)	        2   Instalaciones técnicas y otro inmobilizado material.	N	N	280	1	40	S
+SI8	A	AB03C	23	        3   Inmobilizado en curso y anticipos.	N	N	300	1	40	S
+SI8	A	AB04 	AB04A + AB04B	    III.Inversiones inmobiliarias.	N	S	400	-1	20	S
+SI8	A	AB04A	220,(2920)	        1  Terrenos.	N	N	410	1	40	S
+SI8	A	AB04B	221,(282),(2921)	        2  Construcciones.	N	N	420	1	40	S
+SI8	A	AB05 	AB05A + AB05B + AB05C + AB05D + AB05E	    IV. Inversiones en empresas del grupo y asociadas a largo plazo.	N	S	570	-1	20	S
+SI8	A	AB05A	2403,2404,(2493),(2494),(293)	        1. Instrumentos de patrimonio	N	N	580	1	60	S
+SI8	A	AB05B	2423,2424,(2953),(2954)	        2. Créditos a empresas.	N	N	590	1	60	S
+SI8	A	AB05C	2413,2414,(2943),(2944)	        3. Valores representativos de deuda.	N	N	600	1	60	S
+SI8	A	AB05D	()	        4. Derivados.	N	N	610	1	60	S
+SI8	A	AB05E	()	        5. Otros activos financieros.	N	N	620	1	60	S
+SI8	A	AB06 	AB06A + AB06B + AB06C + AB06D + AB06E	    V. Inversiones financieras a largo plazo.	N	S	630	-1	60	S
+SI8	A	AB06A	2405,(2495),250,(259)	        1. Instrumentos de patrimonio.	N	N	640	1	60	S
+SI8	A	AB06C	2415,251,(2945),(297)	        3. Valores representativos de deuda.	N	N	660	1	60	S
+SI8	A	AB06D	255	        4. Derivados.	N	N	670	1	60	S
+SI8	A	AB06E	258,26	        5. Otros activos financieros.	N	N	680	1	60	S
+SI8	A	AB07 	474	    VI. Activos por impuesto diferido.	N	N	690	1	60	S
+SI8	A	AD0  	AD01 + AD02 + AD03 + AD04 + AD06 + AD07 + AD08	B)  ACTIVO CORRIENTE	S	S	700	2	0	S
+SI8	A	AD01 	580,581,582,583,584,(599)	    I. Activos no corrientes mantenidos para la venta.	N	N	710	1	20	S
+SI8	A	AD02 	AD02A + AD02B + AD02C + AD02D  + AD02E  + AD02F	    II .Existencias	N	S	720	-1	20	S
+SI8	A	AD02A	30,(390)	        1  Comerciales	N	N	730	1	40	S
+SI8	A	AD02B	31,32,(391),(392)	        2  Materias primas y otros aprovisionamientos	N	N	740	1	40	S
+SI8	A	AD02C	33,34,(393),(394)	        3  Productos en curso	N	N	750	1	40	S
+SI8	A	AD02D	35,(395)	        4  Productos terminados	N	N	760	1	40	S
+SI8	A	AD02E	36,(396)	        5  Subproductos, residuos y materiales recuperados	N	N	770	1	40	S
+SI8	A	AD02F	407	        6  Anticipos a proveedores.	N	N	780	1	40	S
+SI8	A	AD03 	AD03A + AD03B +  AD03D + AD03E + AD03F + AD03G + AD03H	    III.Deudores comerciales y otras cuentas a cobrar.	N	S	820	-1	20	S
+SI8	A	AD03A	430,431,432,435,436,(437),(490),(4935)	        1  Clientes por ventas y prestaciones de servicios	N	N	840	1	40	S
+SI8	A	AD03B	433,434,(4933),(4934)	        2  Clientes, empresas del grupo y asociadas.	N	N	850	1	40	S
+SI8	A	AD03D	44,5531,5533	        3  Deudores varios	N	N	900	1	40	S
+SI8	A	AD03E	460, 544,450	        4  Personal	N	N	920	1	40	S
+SI8	A	AD03F	4709	        5  Activos por impuesto corriente	N	N	940	1	40	S
+SI8	A	AD03G	4700,4708,471,472,4707,473	        6  Otros créditos con las Administraciones	N	N	960	1	40	S
+SI8	A	AD03H	5580	        7  Accionistas (socios) por desembolsos exigidos	N	N	970	1	40	S
+SI8	A	AD04 	AD04A + AD04B + AD04C + AD04D + AD04E	    IV. Inversiones en empresas del grupo y asociadas a corto plazo.	N	S	980	-1	20	S
+SI8	A	AD04A	5303,5304,(5393),(5394),(593)	        1  Instrumentos de patrimonio	N	N	990	1	40	S
+SI8	A	AD04B	5323,5324,5343,5344,(5953),(5954)	        2  Créditos a empresas	N	N	1000	1	40	S
+SI8	A	AD04C	5313,5314,5333,5334,(5943),(5944)	        3  Valores representativos de deuda	N	N	1010	1	40	S
+SI8	A	AD04D	 	        4  Derivados	N	N	1020	1	40	S
+SI8	A	AD04E	5353,5354,5523,5524	        5  Otros activos financieros	N	N	1080	1	40	S
+SI8	A	AD06 	AD06A + AD06B + AD06C + AD06D + AD06E	    V. Inversiones financieras a corto plazo	N	S	1100	-1	20	S
+SI8	A	AD06A	5305,540,(5395),(549)	        1  Instrumentos de patrimonio	N	N	1110	1	60	S
+SI8	A	AD06B	5325,5345,542,543,547,(5955),(598)	        2  Créditos a empresas.	N	N	1120	1	60	S
+SI8	A	AD06C	5315,5335,541,546,(5945),(597)	        3  Valores representativos de deuda.	N	N	1130	1	60	S
+SI8	A	AD06D	5590,5593	        4  Derivados	N	N	1140	1	60	S
+SI8	A	AD06E	5355,545,548,551,5525,565,566	        5  Otros activos financieros	N	N	1150	1	60	S
+SI8	A	AD07 	480,567	    VI Periodificaciones a corto plazo.	N	N	1160	1	20	S
+SI8	A	AD08 	AD08A + AD08B	    VII. Efectivo y otros activos líquidos equivalentes.	N	S	1170	-1	60	S
+SI8	A	AD08A	570,571,572,573,574,575	        1 Tesorería	N	N	1180	1	60	S
+SI8	A	AD08B	576	        2 Otros activos líquidos equivalentes	N	N	1203	1	60	S
+SI8	P	PA0  	PA01 + PA02 + PA03 + PA04 + PA05 + PA06 + PA07 + PA08 + PA09	A-1) Fondos propios	S	S	1420	2	0	S
+SI8	P	PA00 	()	A) PATRIMONIO NETO	S	N	1410	3	0	S
+SI8	P	PA01 	PA01A + PA01B	    I  .Capital.	N	S	1440	-1	20	S
+SI8	P	PA01A	100,101,102	        1. Capital escriturado.	N	N	1460	1	60	S
+SI8	P	PA01B	(1030),(1040)	        2. (Capital no exigido)	N	N	1470	1	60	S
+SI8	P	PA02 	110	    II  Prima de emisión	N	N	1480	1	20	S
+SI8	P	PA03 	PA03A + PA03B	    III. Reservas	N	S	1490	-1	20	S
+SI8	P	PA03A	112,1141	       1. Legal y estatutarias.	N	N	1510	1	60	S
+SI8	P	PA03B	113,1140,1142,1143,1144,115,119	       2. Otras reservas	N	N	1520	1	60	S
+SI8	P	PA05 	PA051 + PA052	    V .Resultados de ejercicios anteriores	N	S	1540	-1	20	S
+SI8	P	PA051	120	        1  Remanente	N	N	1550	1	40	S
+SI8	P	PA052	(121)	        2  (Resultados negativos de ejercicios anteriores)	N	N	1560	1	40	S
+SI8	P	PA06 	118	    VI .Otras aportaciones	N	N	1570	1	20	S
+SI8	P	PA07 	129	    VII .Resultado del ejercicio	N	N	1580	1	20	S
+SI8	P	PA08 	(557)	    VIII .(Dividendo a cuenta)	N	N	1590	1	20	S
+SI8	P	PA09 	111	    IX. Otros instrumentos de patrimonio	N	N	1600	1	60	S
+SI8	P	PB0  	PB01 + PB02 + PB03	A-2) Ajustes por cambios de valor	S	S	1610	2	0	S
+SI8	P	PB01 	133	   I  Activos financieros disponibles para venta	N	N	1620	1	20	S
+SI8	P	PB02 	1340	   II.Operaciones de cobertura.	N	N	1630	1	20	S
+SI8	P	PB03 	137	   III. Otros.	N	N	1640	1	20	S
+SI8	P	PC0  	130,131,132	A-3) Subvenciones, donaciones y legados recibidos.	S	N	1650	1	0	S
+SI8	P	PD0  	PD01 + PD05 + PD06 + PD07 + PD08	B)  PASIVO NO CORRIENTE	S	S	1660	2	0	S
+SI8	P	PD01 	PD01A + PD01B + PD01C + PD01D	        I  Provisiones a largo plazo.	N	S	1670	-1	20	S
+SI8	P	PD01A	140	             1. Obligaciones por prestaciones a largo plazo al personal.	N	N	1680	1	20	S
+SI8	P	PD01B	145	             2. Actuaciones medioambientales.	N	N	1690	1	20	S
+SI8	P	PD01C	146	             3. Provisiones por reestructuración	N	N	1700	1	20	S
+SI8	P	PD01D	141,142,143,147	             4. Otras provisiones.	N	N	1710	1	40	S
+SI8	P	PD05 	PD05A + PD05B + PD05C + PD05D + PD05E	       II. Deudas a largo plazo	N	S	1720	-1	20	S
+SI8	P	PD05A	177,178,179	             1.- Obligaciones y otros valores negociables	N	N	1730	1	40	S
+SI8	P	PD05B	1605,170	             2.- Deudas con entidades de crédito	N	N	1740	1	40	S
+SI8	P	PD05C	1625,174	             3.- Acreedores por arrendamiento financiero	N	N	1750	1	40	S
+SI8	P	PD05D	176	             4. Derivados	N	N	2237	1	60	S
+SI8	P	PD05E	1615,1635,171,172,173,175,180,185,189	             5. Otros pasivos financieros	N	N	2238	1	60	S
+SI8	P	PD06 	1603,1604,1613,1614,1623,1624,1633,1634	        III. Deudas con empresas del grupo y asociadas a largo plazo.	N	N	2250	1	20	S
+SI8	P	PD07 	479	        IV  Pasivos por impuesto diferido	N	N	2260	1	20	S
+SI8	P	PD08 	181	        V.  Periodificaciones a largo plazo.	N	N	2280	1	40	S
+SI8	P	PE03 	PE04 + PE05 + PE06 + PE07 + PE08 + PE09	C) PASIVO CORRIENTE	N	S	2310	2	20	S
+SI8	P	PE04 	585,586,587,588,589	       I.  Pasivos vinculados con activos no corrientes mantenidos para la venta.	N	N	2320	1	20	S
+SI8	P	PE05 	499,529	       II  Provisiones a corto plazo	N	N	2400	1	20	S
+SI8	P	PE06 	PE06A + PE06B + PE06C + PE06D + PE06E	       III. Deudas a corto plazo	N	S	2520	-1	20	S
+SI8	P	PE06A	500,501,505,506	            1. Obligaciones y otros valores negociables.	N	N	2521	1	60	S
+SI8	P	PE06B	5105,520,527	            2. Deudas con entidades de crédito.	N	N	2522	1	60	S
+SI8	P	PE06C	5125,524	            3. Acreedores por arrendamiento financiero.	N	N	2523	1	60	S
+SI8	P	PE06D	5595,5598	            4. Derivados.	N	N	2524	1	60	S
+SI8	P	PE06E	(1034),(1044),(190),(192),194,509,5115,5135,5145,521,522,523,525,526,528,551,5525,5530,5532,555,5565,5566,560,561,569	            5. Otros pasivos financieros.	N	N	2525	1	60	S
+SI8	P	PE07 	5103,5104,5113,5114,5123,5124,5133,5134,5143,5144,5523,5524,5563,5564	       IV. Deudas con empresas del grupo y asociadas a corto plazo.	N	N	2840	1	20	S
+SI8	P	PE08 	PE08A + PE08B + PE08C + PE08D + PE08E + PE08F + PE08G	       V. Acreedores comerciales y otras cuentas a pagar.	N	S	2950	-1	20	S
+SI8	P	PE08A	400,401,405,(406)	            1. Proveedores	N	N	2960	1	60	S
+SI8	P	PE08B	403,404	            2. Proveedores, empresas del grupo y asociadas	N	N	2970	1	60	S
+SI8	P	PE08C	41	            3. Acreedores varios	N	N	2980	1	60	S
+SI8	P	PE08D	465,466	            4. Personal (remuneraciones pendientes de pago)	N	N	2990	1	60	S
+SI8	P	PE08E	4752,4753	            5. Pasivos por impuesto corriente	N	N	3000	1	60	S
+SI8	P	PE08F	4750,4751,4757, 4758,476,477	            6. Otras deudas con las Administraciones Públicas	N	N	3010	1	60	S
+SI8	P	PE08G	438	            7. Anticipos de clientes	N	N	3020	1	60	S
+SI8	P	PE09 	485,568	       VI. Periodificaciones a corto plazo.	N	N	3050	1	20	S
+SI8	P	PT0  	PA0 + PB0 + PC0 + PD0 + PE03 + ESPB	TOTAL PATRIMONIO NETO Y PASIVO (A + B + C)	N	S	3060	3	20	S
+SI8	P	PA04 	(108),(109)	    IV. (Acciones y participaciones en patrimonio propias)	N	N	1530	1	40	S
+SI8	A	AB06B	2425,252,253, 254,(2955),(298)	        2. Créditos a empresas.	N	N	650	1	60	S
+ETB	p	EAI  	11	I. Ajustes por cambio de criterio 200X -2 anteriores	N	N	2	1	20	S
+ETB	P	EAII 	 	II. Ajustes por errores 200X -2 y anteriores	N	N	3	1	20	S
+ETB	P	EA   	1,2,3,4,5,6,7,8,9,10,11,12	A. SALDO FINAL DEL AÑO 200X - 2	S	N	1	1	10	S
+ETB	P	EB   	 	B. SALDO AJUSTADO, INICIO DEL AÑO 200X-1	S	N	4	2	10	S
+ETB	P	EBI  	999911	I. Total ingresos gastos reconocidos.	N	N	5	2	20	S
+ETB	P	EBII 	7	II. Operaciones con socios o propietarios	N	N	6	2	20	S
+ETB	P	EBII1	1,2,3,4	1. Aumentos de capital.	N	N	7	2	20	S
+ETB	P	EBII2	1,2,4	2. (-) Reducciones de capital.	N	N	8	2	20	S
+ETB	P	EBII3	 	3. Conversion de pasivos financieros en patrimonio neto (conversion obligaciones, ...)	N	N	9	2	20	S
+ETB	P	EBII4	8,9	4. (-) Distribucion de dividendos.	N	N	10	2	20	S
+ETB	P	EBII5	5	5. Operaciones con acciones o participaciones propias (netas).	N	N	11	2	20	S
+ETB	P	EBII6	10	6. Incremento (reducción) de patrimonio neto resultante de una combinacion de negocios.	N	N	12	2	20	S
+ETB	P	EBII7	7	7. Otras operaciones con socios o propietarios	N	N	13	2	20	s
+ETB	P	EBIII	10	III. Otras variaciones del patrimonio neto.	N	N	14	2	20	S
+ETB	P	EC   	 	C. SALDO, FINAL DEL AÑO 200X - 1	S	N	15	3	10	S
+ETB	P	ECII 	 	II. Ajustes por errores 200X -1	N	N	17	3	20	S
+ETB	P	ECI  	11	I. Ajustes por cambios de criterio  200X-1	N	N	16	3	20	S
+ETB	P	ED   	 	D. SALDO AJUSTADO, INICIO DEL AÑO 200X	S	N	18	4	10	S
+ETB	P	EDII1	1,2,3,4	1. Aumentos de capital.	N	N	21	4	20	S
+ETB	P	EDII3	 	3. Conversion de pasivos financieros en patrimonio neto (conversion obligaciones, ....)	N	N	23	4	20	S
+ETB	P	EAII2	1,2,4	2. (-) Reducciones de capital.	N	N	22	4	20	S
+ETB	P	EDII4	8,9	4. (-) Distribucion de dividendos.	N	N	24	4	20	S
+ETB	P	EDII5	5	5. Operaciones con acciones o participaciones propias (netas).	N	N	25	4	20	S
+ETB	P	EDII6	10	6. Incremento (reducción) de patrimonio neto resultante de una combinacion de negocios	N	N	26	4	20	S
+ETB	P	EDII7	7	7. Otras operaciones con socios o propietarios.	N	N	27	4	20	S
+ETB	P	EDIII	10	III. Otras variaciones del patrimonio neto.	N	N	28	4	20	S
+ETB	P	EDI  	999911	I. Total ingresos y gastos reconocidos.	N	N	19	4	20	S
+ETB	P	EDII 	7	II. Operaciones con socios o propietarios	N	N	20	4	20	S
+PNN	D	DAA  	8888	A) Resultado de la cuenta de pérdidas y ganancias	S	N	10	3	10	S
+PNN	D	DAB  	DA01 + DA02 + DA03 + DA04 + DA05	  Ingresos y gastos imputados directamente al patrimonio neto	S	S	20	3	10	S
+PNN	D	DA01 	DA011 + DA013	     I. Por valoración instrumentos financieros.	S	S	30	2	10	S
+PNN	D	DA011	900, (800), 990	           1. Activos financieros disponibles para la venta.	N	N	40	1	10	S
+PNN	D	DA013	991, 992, (891), (892)	           2. Otros ingresos/gastos	N	N	60	1	10	S
+PNN	D	DA02 	(810),910	     II. Por coberturas de flujos de efectivo	S	N	70	1	10	S
+PNN	D	DA03 	94	     III. Subvenciones, donaciones y legados.	S	N	100	1	10	S
+PNN	D	DA04 	(85),95	     IV. Por ganancias y pérdidas actuariales y otros ajustes.	S	N	110	1	10	S
+PNN	D	DA05 	(8300)*, 8301*, (833), 834,835, 838	     V. Efecto impositivo	S	N	120	1	10	S
+PNN	D	DATOT	DA01 + DA02 + DA03 + DA04 + DA05	B) Total ingresos y gastos imputados directamente en el parimonio neto (I + II + III + IV + V)	S	S	130	3	10	S
+PNN	D	HAC  	HA06 + HA07 + HA08 + HA09	  Transferencias a la cuenta de pérdidas y ganancias	S	S	140	2	10	S
+PNN	D	HA06 	HA061 + HA063	     VI. Por valoración de instrumentos financieros	S	S	150	2	10	S
+PNN	D	HA061	(802), 902,993,994	          1. Activos financieros disponibles para la venta.	N	N	160	1	10	S
+PNN	D	HA063	 	          2. Otros ingresos/gastos.	N	N	180	1	10	S
+PNN	D	HA07 	(812), 912	     VII. Por Coberturas de flujos efectivos.	S	N	190	2	10	S
+PNN	D	HA08 	(84)	     VIII. Subvenciones, donaciones y legados.	S	S	220	1	10	S
+PNN	D	HA09 	8301*,(836),(837)	     IX. Efecto impositivo.	S	N	230	1	10	S
+PNN	D	HATOT	HA06 + HA07 + HA08 + HA09	C) Total transferencias a la cuenta de pérdidas y ganancias ( VI + VII + VIII + IX )	S	S	240	3	10	S
+PNN	D	DA05C	DAA + DAB + HAC	TOTAL DE INGRESOS Y GASTOS RECONOCIDOS ( A + B + C )	S	S	250	3	10	S
+FDF	A	A1   	9999	1. Resultado del ejercicio antes de impuestos.	S	N	3	1	20	S
+FDF	A	A2A  	256	   a) Amortización del inmovilizado (+)	N	N	5	1	30	S
+FDF	A	A2B  	900, 800, 990	   b) Correcciones valorativas por deterioro (+/-)	N	N	6	1	30	S
+FDF	A	A2C  	123	   c) Variacion de provisiones (+/-)	N	N	7	1	30	S
+FDF	A	A2D  	745	   d) Imputacion de subvenciones (-)	N	N	8	1	30	S
+FDF	A	A2E  	4	   e) Resultado por bajas y enajenaciones del inmovilizado (+/-)	N	N	9	1	30	S
+FDF	A	A2F  	589	   f) Resultados por bajas y enajenaciones de instrumentos financieros (+/-)	N	N	10	1	30	S
+FDF	A	A2G  	63	   g) Ingresos financieros (+/-)	N	N	11	1	30	S
+FDF	A	A2H  	9	   h) Gastos financieros (+)	N	N	12	1	30	S
+FDF	A	A2I  	8	   i) Diferencias de cambio (+/-)	N	N	13	1	30	S
+FDF	A	A2J  	7	   j) Variacion de valor razonableen instrumentos financieros (+/-)	N	N	14	1	30	S
+FDF	A	A2K  	6	   k) Otros ingresos y gastos (+/-)	N	N	15	1	30	S
+FDF	A	A3   	A3A + A3B + A3C + A3D + A3E + A3F	3. Cambios en el capital corriente.	S	S	16	2	20	S
+FDF	A	A3A  	5	   a) Existencias (+/-)	N	N	17	1	30	S
+FDF	A	A3B  	5	   b) Deudores y otras cuentas a cobrar (+/-)	N	N	18	1	30	S
+FDF	A	A3C  	5	   c) Otros activos corrientes (+/-)	N	N	19	1	30	S
+FDF	A	A3D  	5	   d) Acreedores y otras cuentas a pagar (+/-)	N	N	20	1	30	S
+FDF	A	A3E  	5	   e) Otros pasivos corrientes (+/-)	N	N	21	1	30	S
+FDF	A	A3F  	5	   f) Otros activos y pasivos no corrientes (+/-)	N	N	22	1	30	S
+FDF	A	A4A  	23	   a) Pagos de intereses (-)	N	N	24	1	30	S
+FDF	A	A4B  	4	   b) Cobros de dividendos (+)	N	N	25	1	30	S
+FDF	A	A4C  	67	   c) Cobros de intereses (+)	N	N	26	1	30	S
+FDF	A	A4D  	52	   d) Cobros (pagos) por impuesto sobre beneficios (+/-)	N	N	27	1	30	S
+FDF	A	A5   	A1 + A2 + A3 + A4	5. Flujos de efectivo de las actividades de explotación (+/-1+/-2+/-3+/-4)	S	S	29	2	20	S
+FDF	A	A4E  	45	   e) Otros pagos (cobros) (+/-)	N	N	28	1	30	S
+FDF	A	B    	24	B) FLUJOS DE EFECTIVO DE LAS ACTIVIDADES DE INVERSION	S	N	30	2	10	S
+FDF	A	B6   	B6A + B6B + B6C + B6D + B6E + B6F + B6G	6. Pagos por inversiones (-).	S	S	31	2	20	S
+FDF	A	B6A  	4	   a) Empresas del grupo y asociadas.	N	N	32	2	30	S
+FDF	A	B6B  	24	   b) Inmovilizado intangible.	N	N	33	2	30	S
+FDF	A	B6C  	1	   c) Inmovilizado material.	N	N	34	2	30	S
+FDF	A	B6D  	2	   d) Inversiones inmoviliarias	N	N	35	2	30	S
+FDF	A	B6E  	5	   e) Otros activos financieros	N	N	36	2	30	S
+FDF	A	B6F  	7	   f)  Activos no corrientes mantenidos para venta	N	N	37	2	30	S
+FDF	A	B6G  	9	   g) Otros activos	N	N	38	2	30	S
+FDF	A	B7   	B7A + B7B + B7C + B7D + B7E + B7F + B7G	7. Cobros por desinversiones (+).	S	S	39	2	20	S
+FDF	A	B7A  	3	   a) Empresas del grupo y asociadas	N	N	40	2	30	S
+FDF	A	B7B  	5	   b) Inmovilizado intangible.	N	N	41	2	30	S
+FDF	A	B7C  	78	   c) Inmovilizado material.	N	N	42	2	30	S
+FDF	A	B7D  	9	   d) Inversiones inmoviliarias.	N	N	43	2	30	S
+FDF	A	B7E  	1	   e) Otros activos financieros	N	N	44	2	30	S
+FDF	A	B7F  	4	   f)  Activos no corrientes mantenidos para venta	N	N	45	2	30	S
+FDF	A	B7G  	6	  g) Otros activos	N	N	46	2	30	S
+FDF	A	B8   	B7 - B6	8. Flujo de efectivo de las actividades de inversión (7-6)	S	S	47	2	20	S
+FDF	A	C    	8	C) FLUJO DE EFECTIVO DE LAS ACTIVIDADES DE FINANCIACION	S	N	48	3	10	S
+FDF	A	C9   	C9A + C9B + C9C + C9D + C9E	9. Cobros y pagos por instrumentos de patrimonio.	S	S	49	3	20	S
+FDF	A	C9A  	9	   a) Emisión de instrumentos de patrimonio (+).	N	N	50	3	30	S
+FDF	A	C9B  	6	   b) Amortizacion de instrumentos de patrimonio (-).	N	N	51	3	30	S
+FDF	A	C9C  	4	   c) Adquisión de instrumentos de patrimonio propio (-).	N	N	52	3	30	S
+FDF	A	C9E  	2	   e) Subvenciones, donaciones y legados recibidos (+).	N	N	54	3	30	S
+FDF	A	C9D  	3	   d) Enajenación de instrumentos de patrimonio propio (+).	N	N	53	3	30	S
+FDF	A	C10  	C10A + C10B	10. Cobros y pagos por instrumentos de pasivo financiero.	S	S	55	3	20	S
+FDF	A	C10A 	C10A1 + C10A2 + C10A3 + C10A4	   a) Emisión	N	S	56	3	30	S
+FDF	A	C10A1	 	             1.Obligaciones y otros valores negociables (+).	N	N	57	3	40	S
+FDF	A	C10A2	 	             2.Deudas con entidades de crédito (+).	N	N	58	3	40	S
+FDF	A	C10A3	 	             3. Deudas con empresas del grupo y asociadas (+).	N	N	59	3	40	S
+FDF	A	C10A4	 	             4. Otras deudas (+).	N	N	60	3	40	S
+FDF	A	C10B1	 	             1. Obligaciones y otros valores negociables (-).	N	N	62	3	40	S
+FDF	A	C10B2	 	             2. Deudas con entidades de crédito (-).	N	N	63	3	40	S
+FDF	A	C10B3	 	             3. Deudas con empresas del grupo  y asociadas (-).	N	N	64	3	40	S
+FDF	A	C10B4	 	             4. Otras deudas (-).	N	N	65	3	40	S
+FDF	A	C11  	 	11. Pagos por dividendos y remuneraciones de otros instrumentos de patrimonio.	S	N	66	3	20	S
+FDF	A	C11A 	 	   a) Dividendos (-).	N	N	67	3	30	S
+FDF	A	C11B 	 	   b) Remuneración de otros instrumentos de patrimonio (-).	N	N	68	3	30	S
+FDF	A	C12  	 	12. Flujos de efectivo de las actividades de financiacion.	S	N	69	3	20	S
+FDF	A	D    	 	D) Efecto de las variaciones de los tipos de cambio.	S	N	70	3	10	S
+FDF	A	E    	A5 + B8 + C12 + D	E) AUMENTO/DISMINUCION NETA DEL EFECTIVO O EQUIVALENTES (+/-5+/-8+/-12+/-D)	S	S	71	3	10	S
+FDF	A	F    	 	Efectivo o equivalentes al comienzo del ejercicio.	N	N	72	3	10	S
+FDF	A	G    	 	efectivo o equivalente al final del ejercicio	N	N	73	3	10	S
+FDF	A	A4   	A4A + A4B + A4C + A4D + A4E	4. Otros flujos de efectivo de las actividades de explotación.	S	S	23	2	20	S
+FDF	A	C10B 	C10B1 + C10B2 + C10B3 + C10B4	   b) Devolución y amortización de	S	S	61	3	30	S
+ETB	P	EE   	ED+EDI+EDII+EDII1+EAII2+EDII3+EDII4+EDII5+EDII6+EDII7+EDIII	E. SALDO, FINAL DEL AÑO 200X	N	S	29	5	10	S
+FDF	A	A2   	A2A + A2B + A2C + A2D + A2E + A2F + A2G + A2H + A2I + A2J + A2K	2. Antes del resultado.	S	S	4	2	30	S
+FDF	A	A    	A1 + A2A + A2B + A2C + A2D + A2E + A2F + A2G + A2H + A2I + A2J + A2K + A3A + A3B + A3C + A3D + A3E + A3F + A4A + A4B + A4C + A4D + A4E	A) FLUJOS DE EFECTIVO DE LAS ACTIVIDADES DE EXPLOTACION	S	S	1	2	20	S
+SI8	A	ESPA 	8,9	        Saldo de las cuentas 8 y 9	S	N	1400	1	20	S
+SI8	P	ESPB 	8,9	            Saldo de las cuentas 8 y 9	S	N	3060	1	0	S
+SI8	A	AT0  	AA0 + AD0 + ESPA	TOTAL ACTIVO ( A + B )	S	S	1400	3	60	S
+SIY	A	AA0  	AB02 + AB03 + AB04 + AB05 + AB06 + AB07	A. ACTIVO NO CORRIENTE	S	S	10	2	0	S
+SIY	A	AB02 	20,(280),(290)	I. Inmovilizado intangible.	N	N	60	1	20	S
+SIY	A	AB03 	21,(281),(291),23	II. Inmovilizado material.	N	N	80	1	20	S
+SIY	A	AB04 	22,(282),(292)	III. Inversiones inmobiliarias.	N	N	100	1	20	S
+SIY	A	AB05 	2403,2404,2413,2414,2423,2424, (2493),(2494),(2933),(2934),(2943),(2944),(2953),(2954)	IV. Inversiones en empresas del grupo y asociadas a largo plazo.	N	N	120	1	20	S
+SIY	A	AB06 	2405,2415,2425, (2495),250,251,252,253,254, 255, 258,(259),26,(2935),(2945),(2955),(296),(297),(298)	V. Inversiones financieras a largo plazo.	N	N	140	1	20	S
+SIY	A	AB07 	474	VI. Activos por Impuesto diferido.	N	N	160	1	20	S
+SIY	A	AD0  	AD01 + AD02 + AD03 + AD04 + AD06 + AD07 + AD08	B)  ACTIVO CORRIENTE	S	S	200	2	0	S
+SIY	A	AD01 	30,31,32,33,34,35,36,(39),407	I. Existencias.	N	N	220	1	20	S
+SIY	A	AD02 	AD02A + AD02B + AD02C	II. Deudores comerciales y otras cuentas a cobrar.	N	S	240	-1	20	S
+SIY	A	AD02A	430,431,432,433,434,435,436, (437),(490),(493)	1. Clientes por ventas y Prestaciones de servicios.	N	N	260	1	40	S
+SIY	A	AD02B	5580	2. Accionistas (socios) por desembolsos exigidos.	N	N	280	1	40	S
+SIY	A	AD02C	44,460,470,471,472, 544	3. Otros deudores.	N	N	300	1	40	S
+SIY	A	AD03 	5303,5304,5313,5314,5323,5324,5333,5334, 5343,5344, 5353,5354,(5393),(5394),5523,5524,(5933),(5934),(5943),(5944),(5953),(5954)	III. Inversiones en empresas del grupo y asociadas a corto plazo.	N	N	320	1	20	S
+SIY	A	AD04 	5305,5315,5325,5335,5345,5355,(5395),540,541,542,543,545,546,547,548,(549),551,5525,5590,565,566,(5935),(5945),(5955),(596),(597),(598)	IV. Inversiones financieras a corto plazo.	N	N	340	1	20	S
+SIY	A	AD05 	480, 567	V. Periodificaciones a corto plazo.	N	N	360	1	20	S
+SIY	A	AD06 	57	VI. Efectivo y otros activos líquidos equivalentes.	N	N	380	1	20	S
+SIY	A	AT0  	AA0 + AD0	TOTAL ACTIVO ( A + B )	S	S	400	3	20	S
+SIY	P	PA0  	PA01 + PA02 + PA03 + PA04 + PA05 + PA06 + PA07 + PA08 + PA09	A-1) Fondos propios	S	S	1420	2	0	S
+SIY	P	PA00 	PA0 + PB0	A) PATRIMONIO NETO	S	S	1410	3	0	S
+SIY	P	PA01 	PA01A + PA01B	I  .Capital.	N	S	1440	-1	20	S
+SIY	P	PA01A	100,101,102	1. Capital escriturado.	N	N	1460	1	60	S
+SIY	P	PA01B	(1030),(1040)	2. (Capital no exigido)	N	N	1470	1	60	S
+SIY	P	PA02 	110	II  Prima de emisión	N	N	1480	1	20	S
+SIY	P	PA03 	112,113,114,119	III. Reservas	N	N	1490	1	20	S
+SIY	P	PA04 	(108),(109)	IV. (Acciones y participaciones en patrimonio propias)	N	N	1530	1	40	S
+SIY	P	PA05 	120,121	V .Resultados de ejercicios anteriores	N	N	1540	1	20	S
+SIY	P	PA06 	118	VI .Otras aportaciones de socios	N	N	1570	1	20	S
+SIY	P	PA07 	129	VII .Resultado del ejercicio	N	N	1580	1	20	S
+SIY	P	PA08 	(557)	VIII .(Dividendo a cuenta)	N	N	1590	1	20	S
+SIY	P	PB0  	130,131,132	A-2) Subvenciones, donaciones y legados recibidos.	S	N	1650	1	0	S
+SIY	P	PD0  	PD01 + PD05 + PD06 + PD07 + PD08	B)  PASIVO NO CORRIENTE	S	S	1660	2	0	S
+SIY	P	PD01 	14	I  Provisiones a largo plazo.	N	N	1670	1	20	S
+SIY	P	PD05 	PD05A + PD05B + PD05C	II. Deudas a largo plazo	N	S	1720	-1	20	S
+SIY	P	PD05A	1605,170	1.- Deudas con entidades de crédito	N	N	1740	1	40	S
+SIY	P	PD05B	1625,174	2.- Acreedores por arrendamiento financiero	N	N	1750	1	40	S
+SIY	P	PD05C	1615,1635,171,172,173,175,176,177,179,180,185	3. Otras deudas a largo plazo	N	N	2237	1	40	S
+SIY	P	PD06 	1603,1604,1613,1614,1623,1624,1633,1634	III. Deudas con empresas del grupo y asociadas a largo plazo.	N	N	2250	1	20	S
+SIY	P	PD07 	479	IV  Pasivos por impuesto diferido	N	N	2260	1	20	S
+SIY	P	PD08 	181	V.  Periodificaciones a largo plazo.	N	N	2280	1	20	S
+SIY	P	PE0  	PE01+ PE02 + PE03 + PE04 + PE05	C) PASIVO CORRIENTE	S	S	2310	2	0	S
+SIY	P	PE01 	499,529	I  Provisiones a corto plazo	N	N	2510	1	20	S
+SIY	P	PE02 	PE02A + PE02B + PE02C	II. Deudas a corto plazo	N	S	2520	-1	20	S
+SIY	P	PE02A	5105,520,527	1. Deudas con entidades de crédito.	N	N	2522	1	60	S
+SIY	P	PE02B	5125,524	2. Acreedores por arrendamiento financiero.	N	N	2523	1	60	S
+SIY	P	PE02C	(1034),(1044),(190),(192),194,500,505,506,509,5115,5135,5145,521,522,523,525,526,528,551,5525,555,5565,5566,5595,560,561	3. Otras deudas a corto plazo	N	N	2524	1	60	S
+SIY	P	PE03 	5103,5104,5113,5114,5123,5124,5133,5134,5143,5144,5523,5524,5563,5564	III. Deudas con empresas del grupo y asociadas a corto plazo.	N	N	2840	1	20	S
+SIY	P	PE04 	PE04A + PE04B	IV. Acreedores comerciales y otras cuentas a pagar.	N	S	2950	-1	20	S
+SIY	P	PE04A	400,401,403,404,405,(406)	1. Proveedores	N	N	2960	1	60	S
+SIY	P	PE04B	41,438,465,475,476,477	2.Otros acreedores	N	N	2980	1	60	S
+SIY	P	PE05 	485,568	VI. Periodificaciones a corto plazo.	N	N	3050	1	20	S
+SIY	P	PT0  	PA0 + PB0 + PC0 + PD0 + PE0	TOTAL PATRIMONIO NETO Y PASIVO (A + B + C)	S	S	3060	3	0	S
+PGY	H	DA01 	700,701,702,703,704,705,(706),(708),(709)	  1. Importe neto de la cifra de negocio.	N	N	20	-1	150	S
+PGY	D	DA02 	(6930),71*,7930	  2. Variación de existencias de productos terminados y en curso de fabricación.	N	N	30	1	150	S
+PGY	H	DA03 	73	  3.Trabajos realizados por la empresa para su activo.	N	N	31	1	150	S
+PGY	D	DA04 	(600),(601),(602),606,(607),608,609,61*,(6931),(6932)(6933),7931,7932,7933	  4. Aprovisionamientos	N	N	40	-1	150	S
+PGY	H	DA05 	740,747,75	  5. Otros ingresos de explotación.	N	N	77	-1	150	S
+PGY	D	DA06 	(64)	  6. Gastos de personal	N	N	80	-1	150	S
+PGY	D	DA07 	(62),(631),(634),636,639,(65),(694),(695),794,7954	  7. Otros gastos de explotaci¢n	N	N	200	-1	150	S
+PGY	D	DA08 	(68)	  8.Amortización del inmobilizado.	N	N	281	1	150	S
+PGY	H	DA09 	746	  9. Imputación de subvenciones de inmovilizado no financiero y otras.	N	N	282	1	150	S
+PGY	D	DA10 	7951,7952,7955	  10. Excesos de provisiones.	N	N	283	1	150	S
+PGY	D	DA11 	(670),(671),(672),(690),(691),(692),770,771,772,790,791,792	  11. Deterioro y resultado por enajenaciones del inmovilizado.	N	N	284	-1	150	S
+PGY	D	DA1  	DA01 + DA02 + DA03 + DA04 + DA05 + DA06 + DA07 + DA08 + DA09 + DA10 + DA11	A) RESULTADO DE EXPLOTACIÓN (1+2+3+4+5+6+7+8+9+10+11)	S	S	300	3	0	S
+PGY	H	DA12 	760,761,762,769	   12.Ingresos financieros.	N	N	320	2	150	S
+PGY	D	DA13 	(660),(661),(662),(664),(665),(669)	   13. Gastos financieros	N	N	400	-1	150	S
+PGY	D	DA14 	(663),763	   14. Variación de valor razonable en instrumentos financieros.	N	N	540	-1	150	S
+PGY	H	DA15 	(668),768	   15. Diferencias de cambio.	N	N	602	1	150	S
+PGY	D	DA16 	(666),(667),(673),(675),(696),(697),(698),(699),766,773,775,796,797,798,799	   16. Deterioro y resultados por enajenaciones y otras.	N	N	603	-1	150	S
+PGY	D	DA2  	DA12 + DA13 + DA14 + DA15 + DA16	B) RESULTADO FINANCIERO (12 + 13 + 14 + 15 +16)	S	S	606	3	0	S
+PGY	D	DA3  	DA1 + DA2	C) RESULTADO ANTES DE IMPUESTOS ( A + B)	S	S	607	4	0	S
+PGY	D	DA17 	(6300)*,6301*,(633), 638	   17. Impuestos sobre beneficios.	N	N	608	1	150	S
+PGY	D	DA5  	DA3 + DA17	D) RESULTADO DEL EJERCICIO (C + 17)	S	S	620	6	0	S

@@ -1,0 +1,44 @@
+EXPEDI    		F508	01	10925.0	Facturas de gastos de expedientes	N	2008				N
+COLEGIADOS		F519	01	0.0	Recibos de honorarios de colegiados	N	2008				N
+PREMAA    			01	14345.0	Facturas de PREMAAT	S	2008	d_premaat_factura_cuotas	S		N
+VARIOS    			01	553.0	Facturas varias a colegiados	N	2008				N
+CUOTA     			01	12126.0	Facturas de cuotas	N	2008				N
+SEGURO    			01	1003.0	Facturas de Prima Fija de MUSAAT	S	2008				N
+000       			02	0.0		N	2008				N
+RECTIF    	neg		01	134.0	Serie para Facturas rectificativas	N	2008				N
+001       			03	0.0		N	2008				N
+DEVOL     			01	0.0	Serie para Devoluciones	S	2008				N
+EXPEDI    			01	8128.0	Facturas de gastos de expedientes	N	2009				N
+COLEGIADOS			01	0.0	Recibos de honorarios de colegiados	N	2009				N
+PREMAA    			01	12030.0	Facturas de PREMAAT	S	2009				N
+VARIOS    			01	439.0	Facturas varias a colegiados	N	2009				N
+CUOTA     			01	11621.0	Facturas de cuotas	N	2009				N
+SEGURO    			01	2459.0	Facturas de Prima Fija de MUSAAT	S	2009				N
+000       			02	0.0		N	2009				N
+RECTIF    			01	179.0	Serie para Facturas rectificativas	N	2009				N
+001       			03	0.0		N	2009				N
+DEVOL     			01	0.0	Serie para Devoluciones	S	2009				N
+COLEGIADOS			01	0.0	Recibos de honorarios de colegiados	N	2010				N
+PREMAA    			01	12901.0	Facturas de PREMAAT	S	2010				N
+VARIOS    			01	591.0	Facturas varias a colegiados	N	2010				N
+CUOTA     			01	14524.0	Facturas de cuotas	N	2010				N
+SEGURO    			01	1748.0	Facturas de Prima Fija de MUSAAT	S	2010				N
+000       			02	0.0		N	2010				N
+RECTIF    			01	168.0	Serie para Facturas rectificativas	N	2010				N
+001       			03	0.0		N	2010				N
+DEVOL     			01	0.0	Serie para Devoluciones	S	2010				N
+SERVIC    			01	108.0	Facturas de Servicios Colegiales	N	2010				N
+EXPEDI    			01	6420.0	Facturas de gastos de expedientes	N	2010				N
+PROFOR    			01	4.0	Facturas Proforma	N	2010			PROFOR	S
+COLEGIADOS			01	0.0	Recibos de honorarios de colegiados	N	2011				N
+PREMAA    			01	9419.0	Facturas de PREMAAT	S	2011				N
+VARIOS    			01	539.0	Facturas varias a colegiados	N	2011				N
+CUOTA     			01	8643.0	Facturas de cuotas	N	2011				N
+SEGURO    			01	7.0	Facturas de Prima Fija de MUSAAT	S	2011				N
+000       			02	0.0		N	2011				N
+RECTIF    			01	203.0	Serie para Facturas rectificativas	N	2011				N
+001       			03	0.0		N	2011				N
+DEVOL     			01	0.0	Serie para Devoluciones	S	2011				N
+SERVIC    			01	573.0	Facturas de Servicios Colegiales	N	2011				N
+EXPEDI    			01	3977.0	Facturas de gastos de expedientes	N	2011				N
+PROFOR    			01	65.0	Facturas Proforma	N	2011			PROFOR	S

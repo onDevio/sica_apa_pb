@@ -1,0 +1,210 @@
+<sello> 
+  <x>${x}</x>
+  <y>${y}</y>
+  <anchura>36</anchura>
+  <altura>715</altura>
+  <vertical>true</vertical>
+  <posicion>${margen}</posicion>
+  <textos>
+
+	<texto>
+      <x>15</x>
+      <y>40</y>    
+      <contenido>COLEGIO OFICIAL DE APAREJADORES Y</contenido>
+      <fuente>${directorio_windows}\Fonts\ariblk.ttf</fuente>
+      <size>8</size> 
+      <color>0,0,0</color>
+    </texto>
+
+	<texto>
+      <x>24</x>
+      <y>40</y>    
+      <contenido>ARQUITECTOS TÉCNICOS DE BIZKAIA</contenido>
+      <fuente>${directorio_windows}\Fonts\ariblk.ttf</fuente>
+      <size>8</size> 
+      <color>0,0,0</color>
+    </texto>
+
+
+
+<!-- 		QUITADO HASTA QUE UTILICEMOS EL NUMERO DE REGISTRO
+    <texto>
+      <x>9</x>
+      <y>250</y>    
+      <contenido>· Registro: </contenido>
+      <fuente>${directorio_windows}\Fonts\arial.ttf</fuente>
+      <size>6</size> 
+      <color>0,0,0</color>
+    </texto>  
+
+     <texto>
+      <x>9</x>
+      <y>310</y>    
+      <contenido>${n_registro}</contenido>
+      <fuente>${directorio_windows}\Fonts\arial.ttf</fuente>
+      <size>6</size> 
+      <color>150,150,150</color>
+    </texto>  
+-->
+
+    <texto>
+      <x>15</x>
+      <y>250</y>    
+      <contenido>· Nº Expediente:</contenido>
+      <fuente>${directorio_windows}\Fonts\arial.ttf</fuente>
+      <size>6</size> 
+      <color>0,0,0</color>
+    </texto>
+
+
+	<texto>
+      <x>15</x>
+      <y>310</y>    
+      <contenido>${n_expediente}</contenido>
+      <fuente>${directorio_windows}\Fonts\arial.ttf</fuente>
+      <size>6</size> 
+      <color>150,150,150</color>
+    </texto>
+
+    <texto>
+      <x>21</x>
+      <y>250</y>    
+      <contenido>· Fecha de entrada:</contenido>
+      <vertical>true</vertical>
+      <fuente>${directorio_windows}\Fonts\arial.ttf</fuente>
+      <size>6</size> 
+      <color>0,0,0</color>
+    </texto>
+
+
+	<texto>
+      <x>21</x>
+      <y>310</y>    
+      <contenido>${f_entrada}</contenido>
+      <fuente>${directorio_windows}\Fonts\arial.ttf</fuente>
+      <size>6</size> 
+      <color>150,150,150</color>
+    </texto>
+
+
+<!--  		QUITADO POR QUE NO ES RELEVANTE, DAMOS FECHA DE ABONO POSTERIORMENTE AL VISADO
+     <texto>
+      <x>27</x>
+      <y>250</y>    
+      <contenido>· Fecha de abono: </contenido>
+      <fuente>${directorio_windows}\Fonts\arial.ttf</fuente>
+      <size>6</size> 
+      <color>0,0,0</color>
+    </texto>
+
+    <texto>
+      <x>27</x>
+      <y>310</y>    
+      <contenido>${f_abono} </contenido>
+      <fuente>${directorio_windows}\Fonts\arial.ttf</fuente>
+      <size>6</size> 
+      <color>150,150,150</color>
+    </texto>  
+-->
+
+
+    <texto>
+	  <x>35</x>
+      <y>330</y>    
+      <contenido> Pág %pag de %pags </contenido>
+      <fuente>${directorio_windows}\Fonts\ariblk.ttf</fuente>
+      <size>6</size> 
+      <color>150,150,150</color>
+    </texto>
+    <texto>
+
+      <x>11</x>
+      <y>400</y>    
+      <contenido>· Arquitecto/s Técnicos:</contenido>
+      <fuente>${directorio_windows}\Fonts\ariblk.ttf</fuente>
+      <size>6</size> 
+      <color>0,0,0</color>
+    </texto>
+
+    <texto>
+      <x>18</x>
+      <y>400</y>    
+      <contenido>${colegiado_1}:</contenido>
+      <fuente>${directorio_windows}\Fonts\arial.ttf</fuente>
+      <size>6</size> 
+      <color>150,150,150</color>
+    </texto>
+    <texto>
+      <x>23</x>
+      <y>400</y>    
+      <contenido>${colegiado_2}:</contenido>
+      <fuente>${directorio_windows}\Fonts\arial.ttf</fuente>
+      <size>6</size> 
+      <color>150,150,150</color>
+    </texto>
+    <texto>
+      <x>28</x>
+      <y>400</y>    
+      <contenido>${colegiado_3}:</contenido>
+      <fuente>${directorio_windows}\Fonts\arial.ttf</fuente>
+      <size>6</size> 
+      <color>150,150,150</color>
+    </texto>
+    <texto>
+      <x>33</x>
+      <y>400</y>    
+      <contenido>${colegiado_4}:</contenido>
+      <fuente>${directorio_windows}\Fonts\arial.ttf</fuente>
+      <size>6</size> 
+      <color>150,150,150</color>
+    </texto>
+    
+	<texto>
+      <x>12</x>
+      <y>550</y>    
+      <contenido>VISADO: ${archivo}</contenido>
+      <fuente>${directorio_windows}\Fonts\ariblk.ttf</fuente>
+      <size>10</size> 
+      <color>0,0,0</color>
+    </texto>
+    <texto>
+      <x>20</x>
+      <y>550</y>    
+      <contenido>El presente documento fue visado el ${f_visado}</contenido>
+      <fuente>${directorio_windows}\Fonts\arial.ttf</fuente>
+      <size>6</size> 
+      <color>128,0,0</color>
+    </texto>
+    <texto>
+      <x>25</x>
+      <y>550</y>    
+      <contenido>quedando copia electrónica del mismo en COAATBI</contenido>
+      <fuente>${directorio_windows}\Fonts\arial.ttf</fuente>
+      <size>6</size> 
+      <color>128,0,0</color>
+    </texto>
+    <texto>
+      <x>30</x>
+      <y>550</y>    
+      <contenido>con el identificador de documento ${referencia}</contenido>
+      <fuente>${directorio_windows}\Fonts\arial.ttf</fuente>
+      <size>6</size> 
+      <color>128,0,0</color>
+    </texto>
+	<texto>
+      <x>0</x>
+      <y>30</y>     <contenido>___________________________________________________________________________________________________________________________________________________________________________</contenido>
+      <fuente>${directorio_windows}\Fonts\arial.ttf</fuente>
+      <size>7</size> 
+      <color>${color_linea}</color>
+    </texto>
+   </textos>
+  <imagenes>
+    <imagen>
+      <x>6</x>
+      <y>0</y>
+      <ruta>${directorio_imagenes}\COAATBI.jpg</ruta>
+      <escala>40</escala>
+    </imagen>
+  </imagenes>
+</sello>

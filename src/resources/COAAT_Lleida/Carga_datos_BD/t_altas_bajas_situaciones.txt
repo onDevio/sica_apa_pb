@@ -1,0 +1,22 @@
+F 	N	N	S	FUNCIONARI                                                  	N
+A 	N	N	S	ASSALARIAT                                                  	N
+L 	N	N	S	LIBERAL                                                     	N
+O 	N	N	S	ALTRE                                                       	N
+J 	N	N	S	JUBILAT                                                     	N
+B1	N	S	N	SUSPÈS                                                      	N
+B2	N	S	N	BAIXA VOLUNTARIA                                            	N
+B3	N	S	N	BAIXA EXP.DISCIPLINARI                                      	N
+B4	N	S	N	DEFUNCIÓ                                                    	N
+A1	S	N	N	NOU INGRÉS                                                  	N
+A2	S	N	N	REINGRÉS                                                    	N
+S 	N	N	S	SOCIETAT                                                    	N
+B 	N	N	S	BAIXA                                                       	N
+A3	S	N	N	PROCEDEIX D'UN ALTRE COL·LEGI                               	N
+R 	N	N	N	RESIDENT                                                    	N
+N 	N	N	N	NO RESIDENT                                                 	N
+H 	N	N	N	ACREDITAT                                                   	N
+RN	N	N	S	COL·LEGIAT NO EXERCENT                                      	N
+B5	N	S	N	BAIXA IMPAGAMENT QUOTES                                     	
+L1	N	N	N	LIBERAL PROMOTOR                                            	N
+L2	N	N	S	PRECOL·LEGIAT                                               	N
+AU	N	N	N	AUTÒNOM                                                     	

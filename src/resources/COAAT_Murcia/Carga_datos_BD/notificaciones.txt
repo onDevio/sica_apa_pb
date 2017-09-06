@@ -1,0 +1,5 @@
+Notificación Primera a Cliente (gestión de cobro)                                                   	d_carta_reclamacion_1_2_burgos	P	1 	2	3	S	15.0	C	S	Primer Comunicado		%
+Notificación Segunda a Cliente (gestión de cobro)                                                   	d_carta_reclamacion_1_2_burgos	P	2 	3	3	N	15.0	C	S	Segundo Comunicado		%
+Notificación Tercera a Colegiado (gestión de cobro)                                                 	d_carta_reclamacion_3_burgos	C	3 	@@	3	N	15.0	C	N	Tercer Comunicado		%
+Notificación Primera a Colegiado (sin gestion de cobro)                                             	d_carta_colegiado_burgos	C	4 	5	1	S	15.0	S	S	Primer Comunicado		%
+Notificación Segunda a Colegiado (sin gestion de cobro)                                             	d_carta_colegiado_burgos	C	5 	@@	1	N	15.0	S	S	Segundo Comunicado		%

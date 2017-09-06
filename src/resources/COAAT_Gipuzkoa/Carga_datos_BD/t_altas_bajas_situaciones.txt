@@ -1,0 +1,16 @@
+F 	N	N	S	FUNCIONARIO                                                 	N
+A 	N	N	S	ASALARIADO                                                  	N
+L 	N	N	S	LIBERAL                                                     	N
+O 	N	N	S	OTRO                                                        	N
+J 	N	N	S	JUBILADO                                                    	N
+B1	N	S	N	SUSPENDIDO                                                  	N
+B2	N	S	N	BAJA VOLUNTARIA                                             	N
+B3	N	S	N	BAJA POR EXP.DISCIPLI.                                      	N
+B4	N	S	N	FALLECIMIENTO                                               	N
+A1	S	N	N	NUEVO INGRESO                                               	N
+A2	S	N	N	REINGRESO                                                   	N
+S 	N	N	S	SOCIEDAD                                                    	N
+R 	N	N	N	RESIDENTE                                                   	S
+N 	N	N	N	NO RESIDENTE                                                	S
+H 	N	N	N	HABILITADO                                                  	S
+PR	N	N	S	PRECOLEGIADO                                                	N

@@ -1,0 +1,19 @@
+0000000101	Certificado de Acreditación	C:\sica\habilitacion_murcia.doc	PLANTILLA	S
+C000000001	Certificado de ponentes	4. Certificado PONENTES.doc	CURSOS_PONENTES	S
+C000000002	Certificado cursos realizados	2. Certificado CURSOS REALIZADOS.doc	CURSOS_ASISTENTES	S
+C000000003	Certificado asistencia a curso colegiado	1. Certificado ASISTENCIA A CURSO.doc	CURSOS_ASISTENTES	S
+C000000004	Certificado asistencia a curso no colegiado	3. Certificado no coleg. ASISTENCIA A CURSO.doc	CURSOS_ASISTENTES	S
+C000000005	Diploma I	DIPLOMA 1.doc	CURSOS_ASISTENTES	S
+C000000006	Diploma II	6. DIPLOMA varios ponentes.doc	CURSOS_ASISTENTES	S
+C000000007	Encuesta	0. Encuesta.doc	CURSOS_ENCUESTAS	S
+C000000008	Cofirmación de Inscripcion con plaza para colegiados	p_inscripcion_colegiados.txt	CURSOS_EMAILS	S
+C000000009	Cofirmación de Inscripcion con plaza para no colegiados	p_inscripcion_no_colegiados.txt	CURSOS_EMAILS	S
+C000000010	Cofirmación de Inscripcion en lista de espera	p_inscripcion_espera.txt	CURSOS_EMAILS	S
+C000000011	Cofirmación de Inscripcion para curso sin fecha colegiados	p_inscripcion_reserva.txt	CURSOS_EMAILS	S
+C000000012	Libre	p_inscripcion_libre.txt	CURSOS_EMAILS	S
+C000000014	Certificado asistencia a jornada no colegiado	8. Certificado no coleg. ASISTENCIA A JORNADA.doc	CURSOS_ASISTENTES	S
+C000000013	Certificado asistencia a jornada colegiado	7. Certificado ASISTENCIA A JORNADA.doc	CURSOS_ASISTENTES	S
+0000000015	Cofirmación de Inscripcion	p_sms_inscripcion_colegiados.txt	CURSOS_SMS	S
+B0000002  	Ficha Préstamo	Ficha Prestamo.doc	BIBLIOTECA	S
+B0000001  	Carta Reclamo	Carta Reclamo.doc	BIBLIOTECA	S
+0000000016	Cofirmación de Inscripcion con plaza para Pre-colegiados	p_inscripcion_precolegiados.txt	CURSOS_EMAILS	S

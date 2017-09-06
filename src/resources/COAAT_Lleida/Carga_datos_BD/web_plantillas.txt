@@ -1,0 +1,865 @@
+0000000001	Clásico	<html>
+<head>
+<title>[__titulo_web__]</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+<style type="text/css">
+
+.html {	
+scrollbar-face-color: white;
+scrollbar-highlight-color:[__color_fondo_cuadros__];
+scrollbar-shadow-color: [__color_fondo_cuadros__];
+scrollbar-3dlight-color: white;	scrollbar-arrow-color: [__color_fondo_cuadros__];
+scrollbar-track-color: white;	scrollbar-darkshadow-color: white;
+}
+.cuerpo {
+background-color: [__color_fondo__];
+}
+.texto {
+font-family: [__fuente_texto__];
+font-size: [__tamanyo_texto__]px;
+color: [__color_texto__];
+text-align: justify;
+font-weight: lighter;
+}
+.menu {	
+background-color: [__color_fondo_cuadros__]; 
+text-align: left;
+background-position: left;
+text-indent: 0pt;
+}
+.texto_titulos {
+font-family: [__fuente_texto_titulo__];
+color: [__color_texto_titulo__];
+font-size:[__tamanyo_texto_titulo__]px;
+font-weight: lighter;
+
+}
+.texto_menu {
+font-family: [__fuente_texto_menu__];
+font-size: [__tamanyo_texto_menu__]px;
+color: [__color_texto_menu__];
+text-decoration: none;	
+cursor: hand;
+text-align: right;
+}
+.texto_menu:hover {
+font-family: [__fuente_texto_menu__];
+font-size: [__tamanyo_texto_menu__]px;
+color: [__color_texto_menu__];
+text-decoration: underline;	
+cursor: hand;
+text-align: left;
+}
+.titulo {
+background-color: [__color_fondo_cuadros__];
+text-align: center;
+}
+-->
+</style>
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function MM_reloadPage(init) 
+{ 
+//reloads the window if Nav4 resized  
+if (init==true) with (navigator)
+{
+	if ((appName=="Netscape")&&(parseInt(appVersion)==4)) 
+	{
+		document.MM_pgW=innerWidth; document.MM_pgH=innerHeight; onresize=MM_reloadPage;
+	} 
+	else if (innerWidth!=document.MM_pgW || innerHeight!=document.MM_pgH) location.reload();
+	
+}
+	MM_reloadPage(true);
+}
+//-->
+</script>
+<script language="Javascript">
+function mostrar(nombreCapa)
+{ 
+	document.getElementById(nombreCapa).style.visibility="visible"; 
+} 
+function ocultar(nombreCapa)
+{
+	document.getElementById(nombreCapa).style.visibility="hidden"; 
+}
+</script> 
+</head>
+
+<body class="cuerpo" topmargin="0" leftmargin="0">
+<div id="logo" style="position:absolute; left:17px; top:16px; width:100; height:80; z-index:3; overflow:hidden;">
+	<table width="100%" height="100%"  border="0" cellpadding="0" cellspacing="0">
+		<tr>
+			<td  scope="col">
+				[__logo__]
+			</td> 
+		</tr>
+</table>
+</div>
+<div id="titulo" style="position:absolute; left:120px; top:-2px; width:246px; height:99px; z-index:2" class="titulo">
+	<table width="100%" height="100%"  border="0" cellpadding="0" cellspacing="0">
+		<tr>
+			<td class="titulo" scope="col">
+				<font class="texto_titulos"><b>[__titulo_web__]</b>&nbsp;&nbsp;</font>
+			</td> 
+		</tr>
+</table>
+</div>
+
+<table width="95%" height="100%"  border="0" cellpadding="4" cellspacing="0">
+	<tr height="110"> 
+	<td colspan="3">&nbsp;</td>
+	</tr> 
+	<tr >  
+		<td class="titulo"  valign="top" width="10%" align="right">
+		   <div class="texto_menu" valign="center">	[__menu__] </div>
+		</td> 
+                            <td>&nbsp;&nbsp;</td> 
+		<td valign="top" class="texto">&nbsp; [__contenido__]</td>
+	</tr> 
+	<tr>   
+		<td height="30" colspan='2'>&nbsp;</td>   
+		<td height="30"  class="texto"><div align="center">mail de contacto:[__mail__]&nbsp;</div></td> 
+	</tr>
+</table>
+</body>
+</html>
+
+	#E7E7D6	#CE6363	#CE6363	#000000	Verdana, Arial, Helvetica, sans-serif	10	#FFFFFF	Verdana, Arial, Helvetica, sans-serif	11	#FFFFFF	Verdana, Arial, Helvetica, sans-serif	16
+0000000002	Sencillo	<html>
+<head>
+<title>[__titulo_web__]</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+<style type="text/css">
+<!--
+.html {	
+scrollbar-face-color: white;
+scrollbar-highlight-color:[__color_fondo_cuadros__];
+scrollbar-shadow-color: [__color_fondo_cuadros__];
+scrollbar-3dlight-color: white;	scrollbar-arrow-color: [__color_fondo_cuadros__];
+scrollbar-track-color: white;	scrollbar-darkshadow-color: white;
+}
+.cuerpo {
+background-color: [__color_fondo__];
+}
+.texto {
+font-family: [__fuente_texto__];
+font-size: [__tamanyo_texto__]px;
+color: [__color_texto__];
+text-align: justify;
+font-weight: lighter;
+}
+.menu {	
+background-color: [__color_fondo_cuadros__]; 
+text-align: left;
+background-position: left;
+text-indent: 0pt;
+}
+.texto_titulos {
+font-family: [__fuente_texto_titulo__];
+color: [__color_texto_titulo__];
+font-size:[__tamanyo_texto_titulo__]px;
+font-weight: lighter;
+
+}
+.texto_menu {
+font-family: [__fuente_texto_menu__];
+font-size: [__tamanyo_texto_menu__]px;
+color: [__color_texto_menu__];
+text-decoration: none;	
+cursor: hand;
+text-align: left;
+}
+.texto_menu:hover {
+font-family: [__fuente_texto_menu__];
+font-size: [__tamanyo_texto_menu__]px;
+color: [__color_texto_menu__];
+text-decoration: underline;	
+cursor: hand;
+text-align: left;
+}
+.titulo {
+background-color: [__color_fondo_cuadros__];
+vertical-align: bottom;
+text-align: center;
+}
+-->
+</style>
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function MM_reloadPage(init) 
+{ 
+//reloads the window if Nav4 resized  
+if (init==true) with (navigator)
+{
+	if ((appName=="Netscape")&&(parseInt(appVersion)==4)) 
+	{
+		document.MM_pgW=innerWidth; document.MM_pgH=innerHeight; onresize=MM_reloadPage;
+	} 
+	else if (innerWidth!=document.MM_pgW || innerHeight!=document.MM_pgH) location.reload();
+	
+}
+	MM_reloadPage(true);
+}
+//-->
+</script>
+<script language="Javascript">
+function mostrar(nombreCapa)
+{ 
+	document.getElementById(nombreCapa).style.visibility="visible"; 
+} 
+function ocultar(nombreCapa)
+{
+	document.getElementById(nombreCapa).style.visibility="hidden"; 
+}
+</script> 
+</head>
+
+<body class="cuerpo" topmargin="0" leftmargin="0">
+
+<div id="superior" style="position:absolute; left:4px; top:4px; width:735px; height:49px; z-index:1;border: 2px solid [__color_lineas__]">
+
+<table width="100%"  border="0" cellspacing="0" cellpadding="0">
+	<tr>
+		<td height="49" align="right" class="texto_titulos" scope="col" valign="bottom"><b>[__titulo_web__]</b>&nbsp;&nbsp;</td>
+	</tr>
+</table>
+
+</div>
+
+<div id="logo" style="position:absolute; left:8px; top:7px; width:258px; height:80px; z-index:2; overflow:hidden">
+	[__logo__]
+</div>
+
+<div id="menu" style="position:absolute; left:4px; top:95px; width:98px; height:408px; z-index:1" class="menu">
+[__menu__]
+</div>
+
+<div id="contenido" style="position:absolute; left:139px; top:90px; width:627px; height:443px; z-index:3; overflow: auto; border: 1px none #000000;">
+
+<table width="95%"  border="0" cellspacing="0" cellpadding="0" height="100%">
+	<tr height="10">
+		<td scope="col" class="texto_titulos">[__titulo_pagina__]</td>
+	</tr>
+	<tr>
+		
+		<td scope="col" class="texto" valign="top"><br>[__contenido__]</td>
+	</tr>
+	<tr height="10">
+		<td scope="col" class="texto"><div align="center">email de contacto: [__mail__]</div></td>
+	</tr>
+</table>
+
+</div>
+</body>
+</html>	#F7FFFF	#D6DEDE	#D6DEDE	#000000	Verdana, Arial, Helvetica, sans-serif	10	#4D4D4D	Verdana, Arial, Helvetica, sans-serif	10	#292929	Verdana, Arial, Helvetica, sans-serif	16
+0000000003	Cuadros	<html>
+<head>
+<title>[__titulo_web__]</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+<style type="text/css">
+<!--
+.html {	
+scrollbar-face-color: white;
+scrollbar-highlight-color:[__color_fondo_cuadros__];
+scrollbar-shadow-color: [__color_fondo_cuadros__];
+scrollbar-3dlight-color: white;	scrollbar-arrow-color: [__color_fondo_cuadros__];
+scrollbar-track-color: white;	scrollbar-darkshadow-color: white;
+}
+.cuerpo {
+background-color: [__color_fondo__];
+}
+.texto {
+font-family: [__fuente_texto__];
+font-size: [__tamanyo_texto__]px;
+color: [__color_texto__];
+text-align: justify;
+font-weight: lighter;
+}
+.menu {	
+background-color: [__color_fondo_cuadros__]; 
+text-align: left;
+background-position: left;
+text-indent: 0pt;
+}
+.texto_titulos {
+font-family: [__fuente_texto_titulo__];
+color: [__color_texto_titulo__];
+font-size:[__tamanyo_texto_titulo__]px;
+font-weight: lighter;
+
+}
+.texto_menu {
+font-family: [__fuente_texto_menu__];
+font-size: [__tamanyo_texto_menu__]px;
+color: [__color_texto_menu__];
+text-decoration: none;	
+cursor: hand;
+text-align: left;
+}
+.texto_menu:hover {
+font-family: [__fuente_texto_menu__];
+font-size: [__tamanyo_texto_menu__]px;
+color: [__color_texto_menu__];
+text-decoration: underline;	
+cursor: hand;
+text-align: left;
+}
+.titulo {
+background-color: #[__color_fondo_cuadros__];
+vertical-align: bottom;
+text-align: center;
+}
+-->
+</style>
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function MM_reloadPage(init) 
+{ 
+//reloads the window if Nav4 resized  
+if (init==true) with (navigator)
+{
+	if ((appName=="Netscape")&&(parseInt(appVersion)==4)) 
+	{
+		document.MM_pgW=innerWidth; document.MM_pgH=innerHeight; onresize=MM_reloadPage;
+	} 
+	else if (innerWidth!=document.MM_pgW || innerHeight!=document.MM_pgH) location.reload();
+	
+}
+	MM_reloadPage(true);
+}
+//-->
+</script>
+<script language="Javascript">
+function mostrar(nombreCapa)
+{ 
+	document.getElementById(nombreCapa).style.visibility="visible"; 
+} 
+function ocultar(nombreCapa)
+{
+	document.getElementById(nombreCapa).style.visibility="hidden"; 
+}
+</script> 
+</head>
+
+<body class="cuerpo" topmargin="0" leftmargin="0">
+
+<div id="logo" style="position:absolute; left:180px; top:40px; width:470px; height:40px; z-index:2; overflow: hidden; border:black 0px solid;">
+<table width="100%"  border="0" cellspacing="0" cellpadding="0">
+	<tr>
+		<td  align="right" class="texto_titulos" scope="col" valign="bottom"><div align="right"><b>[__titulo_web__]</b></div>&nbsp;&nbsp;</td>
+	</tr>
+</table>
+</div>
+
+<div id="logo" style="position:absolute; left:650px; top:8px; width:80px; height:80px; z-index:2; overflow: hidden">
+<table width="100%"  border="0" cellspacing="0" cellpadding="0">
+	<tr>
+	<td>[__logo__]</td>
+	</tr>
+</table>
+</div>
+
+<div id="titulo" style="position:absolute; left:50px; top:47px; width:230px; height:42px; z-index:1; border:black 0px solid;">
+<table width="100%" height="100%"  border="0" cellpadding="0" cellspacing="0">
+	<tr>
+		<td align="center" valign="bottom" class="texto_titulos" scope="col">[__titulo_pagina__]</td> 
+	</tr>
+</table>
+</div>
+
+
+
+
+<table width="100%" height="100%"  border="0" cellpadding="0" cellspacing="0">
+	<tr>
+		<td width="224" height="60" scope="col">&nbsp;</td> 
+		<td height="60" scope="col">&nbsp;</td>
+		<td width="5%" height="60" scope="col">&nbsp;</td>
+	</tr>
+	<tr>
+		<td align="left" valign="top" scope="row">
+
+			<div id="menu" style="position:absolute; left:20px; top:100px; width:98px; height:408px; z-index:1" class="menu">
+			[__menu__]
+			</div>
+
+			 <table width="100%" height="100%"  border="0" align="left" cellpadding="0" cellspacing="0">
+				 <tr>
+					 <td scope="col">&nbsp;</td>
+					 <td width="120" bgcolor="#[__color_fondo_cuadros__]" scope="col">&nbsp;</td> 
+				 </tr>
+			 </table>
+
+		 </td>
+		 <td align="left" valign="top">
+			<table width="100%"  border="0" cellspacing="40" cellpadding="10">
+				<tr>
+					<td align="left" valign="top" class="texto" scope="col">[__contenido__]</td>
+				</tr> 
+			 </table>
+		</td>
+				<td>&nbsp;</td>
+	</tr>
+</table>
+</body>
+</html>	#FFFFFF	#DDDDDD	#808080	#4D4D4D	Verdana, Arial, Helvetica, sans-serif	10	#5F5F5F	Verdana, Arial, Helvetica, sans-serif	10	#000000	Verdana, Arial, Helvetica, sans-serif	16
+0000000004	Líneas	<html>
+<head>
+<title>[__titulo_web__]</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+<style type="text/css">
+<!--
+.html {	
+scrollbar-face-color: white;
+scrollbar-highlight-color:[__color_fondo_cuadros__];
+scrollbar-shadow-color: [__color_fondo_cuadros__];
+scrollbar-3dlight-color: white;	scrollbar-arrow-color: [__color_fondo_cuadros__];
+scrollbar-track-color: white;	scrollbar-darkshadow-color: white;
+}
+.cuerpo {
+background-color: [__color_fondo__];
+}
+.texto {
+font-family: [__fuente_texto__];
+font-size: [__tamanyo_texto__]px;
+color: [__color_texto__];
+text-align: justify;
+font-weight: lighter;
+}
+.menu {	
+background-color: [__color_fondo_cuadros__]; 
+text-align: left;
+background-position: left;
+text-indent: 0pt;
+}
+.texto_titulos {
+font-family: [__fuente_texto_titulo__];
+color: [__color_texto_titulo__];
+font-size:[__tamanyo_texto_titulo__]px;
+font-weight: lighter;
+
+}
+.texto_menu {
+font-family: [__fuente_texto_menu__];
+font-size: [__tamanyo_texto_menu__]px;
+color: [__color_texto_menu__];
+text-decoration: none;	
+cursor: hand;
+text-align: left;
+}
+.texto_menu:hover {
+font-family: [__fuente_texto_menu__];
+font-size: [__tamanyo_texto_menu__]px;
+color: [__color_texto_menu__];
+text-decoration: underline;	
+cursor: hand;
+text-align: left;
+}
+.titulo {
+background-color: [__color_fondo_cuadros__];
+vertical-align: bottom;
+text-align: center;
+}
+.linea {
+background-color: [__color_lineas__];
+}
+-->
+</style>
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function MM_reloadPage(init) 
+{ 
+//reloads the window if Nav4 resized  
+if (init==true) with (navigator)
+{
+	if ((appName=="Netscape")&&(parseInt(appVersion)==4)) 
+	{
+		document.MM_pgW=innerWidth; document.MM_pgH=innerHeight; onresize=MM_reloadPage;
+	} 
+	else if (innerWidth!=document.MM_pgW || innerHeight!=document.MM_pgH) location.reload();
+	
+}
+	MM_reloadPage(true);
+}
+//-->
+</script>
+<script language="Javascript">
+function mostrar(nombreCapa)
+{ 
+	document.getElementById(nombreCapa).style.visibility="visible"; 
+} 
+function ocultar(nombreCapa)
+{
+	document.getElementById(nombreCapa).style.visibility="hidden"; 
+}
+</script> 
+</head>
+
+<body class="cuerpo" topmargin="0" leftmargin="0">
+
+<div id="logo" style="position:absolute; left:75px; top:2px; width:80px; height:80px; z-index:1; overflow: hidden;border:[__color_fondo_cuadros__] 1px solid;">
+	[__logo__]
+</div>
+
+<div id="titulo" style="position:absolute; left:224px; top:5px; width:740px; height:45px; z-index:2">
+<table width="100%" height="100%"  border="0" cellpadding="0" cellspacing="0"> 
+	<tr>  
+		<td align="center" valign="middle" class="texto_titulos" scope="col">
+			<b>[__titulo_web__]</b>
+		</td> 
+	</tr> 
+</table>
+</div>
+
+<table width="100%" height="100%"  border="0" cellpadding="0" cellspacing="0">
+
+	<tr> 
+		<td height="62" valign="bottom" scope="col">
+			<hr size="3" class="linea">
+			<hr size="3" class="linea">
+		</td>
+	</tr>
+	<tr>
+		<td align="left" valign="top" scope="col">
+			<div id="menu" style="position:absolute; left:52px; top:110px; width:119px; height:408px; z-index:1" class="menu">
+			[__menu__]
+			</div>  
+
+			<table width="100%" height="100%"  border="0" cellpadding="0" cellspacing="30">  
+				<tr>   
+					<td width="160" scope="col">&nbsp;</td>  
+					<td align="left" valign="top" class="texto" scope="col">[__contenido__]</td>  
+					<td width="10%" scope="col">&nbsp;</td> 
+				</tr>   
+			</table>
+		</td> 
+	</tr>
+	<tr> 
+		<td height="30" scope="col" class="texto"><div align="center">email de contacto: [__mail__]&nbsp;</div></td>
+	</tr>
+</table>
+</body>
+</html>	#FFFFFF	#FFC67B	#FFC67B	#000000	Verdana, Arial, Helvetica, sans-serif	10	#000000	Verdana, Arial, Helvetica, sans-serif	10	#FFC67B	Verdana, Arial, Helvetica, sans-serif	16
+0000000005	Minimal	<html>
+<head>
+<title>[__titulo_web__]</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+<style type="text/css">
+
+.html {	
+scrollbar-face-color: white;
+scrollbar-highlight-color:[__color_fondo_cuadros__];
+scrollbar-shadow-color: [__color_fondo_cuadros__];
+scrollbar-3dlight-color: white;	scrollbar-arrow-color: [__color_fondo_cuadros__];
+scrollbar-track-color: white;	scrollbar-darkshadow-color: white;
+}
+.cuerpo {
+background-color: [__color_fondo__];
+}
+.texto {
+font-family: [__fuente_texto__];
+font-size: [__tamanyo_texto__]px;
+color: [__color_texto__];
+text-align: justify;
+font-weight: lighter;
+}
+.menu {	
+background-color: [__color_fondo_cuadros__]; 
+text-align: left;
+background-position: left;
+text-indent: 0pt;
+}
+.texto_titulos {
+font-family: [__fuente_texto_titulo__];
+color: [__color_texto_titulo__];
+font-size:[__tamanyo_texto_titulo__]px;
+font-weight: lighter;
+
+}
+.texto_menu {
+font-family: [__fuente_texto_menu__];
+font-size: [__tamanyo_texto_menu__]px;
+color: [__color_texto_menu__];
+text-decoration: none;	
+cursor: hand;
+text-align: right;
+}
+
+.titulo_contenido {
+font-family: [__fuente_texto_menu__];
+font-size: [__tamanyo_texto_menu__]px;
+color: [__color_texto_menu__];
+font-weight: bold;
+}
+
+.texto_menu:hover {
+font-family: [__fuente_texto_menu__];
+font-size: [__tamanyo_texto_menu__]px;
+color: [__color_texto_menu__];
+text-decoration: underline;	
+cursor: hand;
+text-align: right;
+}
+.titulo {
+background-color: [__color_fondo_cuadros__];
+}
+
+-->
+</style>
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function MM_reloadPage(init) 
+{ 
+//reloads the window if Nav4 resized  
+if (init==true) with (navigator)
+{
+	if ((appName=="Netscape")&&(parseInt(appVersion)==4)) 
+	{
+		document.MM_pgW=innerWidth; document.MM_pgH=innerHeight; onresize=MM_reloadPage;
+	} 
+	else if (innerWidth!=document.MM_pgW || innerHeight!=document.MM_pgH) location.reload();
+	
+}
+	MM_reloadPage(true);
+}
+//-->
+</script>
+<script language="Javascript">
+function mostrar(nombreCapa)
+{ 
+	document.getElementById(nombreCapa).style.visibility="visible"; 
+} 
+function ocultar(nombreCapa)
+{
+	document.getElementById(nombreCapa).style.visibility="hidden"; 
+}
+</script> 
+</head>
+
+<body class="cuerpo" topmargin="0" leftmargin="0" style="BACKGROUND: url(logo_transparente.jpg) fixed no-repeat right bottom">
+
+<div id="logo" style="position:absolute; left:2px; top:2px; width:100; height:80; z-index:3; overflow:hidden;">
+	<table width="100%" height="100%"  border="0" cellpadding="0" cellspacing="0">
+		<tr>
+			<td  scope="col" align="center" valign="middle" style="border-bottom:[__color_lineas__] 0px solid;border-left:[__color_lineas__] 0px solid;border-right:[__color_lineas__] 0px solid;border-top:[__color_lineas__] 0px solid;">
+				[__logo__]
+			</td> 
+		</tr>
+</table>
+</div>
+
+<div id="titulo" style="position:absolute; left:120px; top:-2px; width:546px; height:50px; z-index:2" >
+	<table width="100%" height="100%"  border="0" cellpadding="0" cellspacing="0">
+		<tr>
+			<td  scope="col" valign="bottom" align="center">
+				<font class="texto_titulos"><b>[__titulo_web__]</b>&nbsp;&nbsp;</font>
+			</td> 
+		</tr>
+</table>
+</div>
+
+
+<table width="95%" height="100%"  border="0" cellpadding="0" cellspacing="0">
+	<tr height="60"> 
+		<td colspan="2">&nbsp;</td>
+	</tr> 
+	<tr>  
+		<td class=""  valign="top" width="12%" align="right">
+		<br><br><br>
+		   <div class="texto_menu" valign="center">	[__menu__] </div>
+		</td> 
+		<td>
+			<table width="100%" height="100%"  border="0" cellpadding="0" cellspacing="0">
+
+				<tr height="10">
+					<td colspan="2" width="3%"  style="border-bottom:[__color_lineas__] 1px solid;border-right:[__color_lineas__] 0px solid;">&nbsp;</td>
+					<td valign="bottom" style="border-bottom:[__color_lineas__] 1px solid;" class="titulo_contenido">&nbsp;[__titulo_pagina__]&nbsp;</td>
+				</tr>
+				<tr> 
+					<td style="border-right:[__color_lineas__] 1px solid;" width="3%">&nbsp;</td>
+						<td width="1%">&nbsp;</td>
+					<td class="texto" valign="top"><br>
+					&nbsp;&nbsp;&nbsp;&nbsp;[__contenido__]
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr> 
+	<tr>   
+		<td height="20">&nbsp;</td>   
+		<td height="20"  class="texto"><div align="center">[__mail__]&nbsp;</div></td> 
+	</tr>
+</table>
+
+</body>
+</html>	#FFFFFF	#FFFFFF	#777777	#969696	Verdana, Arial, Helvetica, sans-serif	10	#111111	Verdana, Arial, Helvetica, sans-serif	10	#111111	Verdana, Arial, Helvetica, sans-serif	16
+0000000006	Moderno	<html>
+<head>
+<title>[__titulo_web__]</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+<style type="text/css">
+
+.html {	
+scrollbar-face-color: white;
+scrollbar-highlight-color:[__color_fondo_cuadros__];
+scrollbar-shadow-color: [__color_fondo_cuadros__];
+scrollbar-3dlight-color: white;	scrollbar-arrow-color: [__color_fondo_cuadros__];
+scrollbar-track-color: white;	scrollbar-darkshadow-color: white;
+}
+.cuerpo {
+background-color: [__color_fondo__];
+}
+.texto {
+font-family: [__fuente_texto__];
+font-size: [__tamanyo_texto__]px;
+color: [__color_texto__];
+text-align: justify;
+font-weight: lighter;
+}
+.menu {	
+background-color: [__color_fondo_cuadros__]; 
+text-align: left;
+background-position: left;
+text-indent: 0pt;
+}
+.texto_titulos {
+font-family: [__fuente_texto_titulo__];
+color: [__color_texto_titulo__];
+font-size:[__tamanyo_texto_titulo__]px;
+font-weight: lighter;
+
+}
+.texto_menu {
+font-family: [__fuente_texto_menu__];
+font-size: [__tamanyo_texto_menu__]px;
+color: [__color_texto_menu__];
+text-decoration: none;	
+cursor: hand;
+text-align: right;
+}
+
+.titulo_contenido {
+font-family: [__fuente_texto_menu__];
+font-size: [__tamanyo_texto_menu__]px;
+color: [__color_texto_menu__];
+font-weight: bold;
+}
+
+.texto_menu:hover {
+font-family: [__fuente_texto_menu__];
+font-size: [__tamanyo_texto_menu__]px;
+color: [__color_texto_menu__];
+text-decoration: underline;	
+cursor: hand;
+text-align: right;
+}
+.titulo {
+background-color: [__color_fondo_cuadros__];
+}
+
+-->
+</style>
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function MM_reloadPage(init) 
+{ 
+//reloads the window if Nav4 resized  
+if (init==true) with (navigator)
+{
+	if ((appName=="Netscape")&&(parseInt(appVersion)==4)) 
+	{
+		document.MM_pgW=innerWidth; document.MM_pgH=innerHeight; onresize=MM_reloadPage;
+	} 
+	else if (innerWidth!=document.MM_pgW || innerHeight!=document.MM_pgH) location.reload();
+	
+}
+	MM_reloadPage(true);
+}
+//-->
+</script>
+<script language="Javascript">
+function mostrar(nombreCapa)
+{ 
+	document.getElementById(nombreCapa).style.visibility="visible"; 
+} 
+function ocultar(nombreCapa)
+{
+	document.getElementById(nombreCapa).style.visibility="hidden"; 
+}
+</script> 
+</head>
+
+<body class="cuerpo" topmargin="0" leftmargin="0" >
+
+<div id="logo" style="position:absolute; left:4px; top:4px; width:100; height:80; z-index:3; overflow:hidden;">
+	<table width="100%" height="100%"  border="0" cellpadding="0" cellspacing="0">
+		<tr>
+			<td  scope="col" align="center" valign="middle" style="border-bottom:[__color_lineas__] 0px solid;border-left:[__color_lineas__] 0px solid;border-right:[__color_lineas__] 0px solid;border-top:[__color_lineas__] 0px solid;">
+				[__logo__]
+			</td> 
+		</tr>
+</table>
+</div>
+
+<div id="titulo" style="position:absolute; left:120px; top:40px; width:546px; height:50px; z-index:2" >
+	<table width="100%" height="100%"  border="0" cellpadding="0" cellspacing="0">
+		<tr>
+			<td  scope="col" valign="bottom" align="center">
+				<font class="texto_titulos"><b>[__titulo_web__]</b>&nbsp;&nbsp;</font>
+			</td> 
+		</tr>
+</table>
+</div>
+
+
+<table width="100%" height="100%"  border="0" cellpadding="0" cellspacing="0">
+	<tr height="87"  bgcolor="[__color_fondo_cuadros__]"> 
+		<td colspan="2">&nbsp;</td>
+	</tr> 
+	<tr >  
+		<td class=""  valign="top" width="12%" align="right">
+		<br><br><br>
+		   <div class="texto_menu" valign="center">	[__menu__] </div>
+		</td> 
+		<td >
+			<table width="90%" height="100%"  border="0" cellpadding="0" cellspacing="0">
+
+				<tr height="30">
+					<td colspan="2" >&nbsp;</td>
+					<td valign="bottom" style="border-bottom:[__color_lineas__] 1px solid;" class="titulo_contenido" align="right">&nbsp;[__titulo_pagina__]&nbsp;</td>
+				</tr>
+				<tr> 
+					<td>&nbsp;</td>
+					<td width="20">&nbsp;</td>
+					<td class="texto" valign="top"><br>
+					&nbsp;&nbsp;&nbsp;&nbsp;[__contenido__]
+					</td>
+				</tr>
+				<tr height="30">
+					<td colspan="2" >&nbsp;</td>
+					<td valign="top" style="border-top:[__color_lineas__] 1px solid;" class="titulo_contenido" align="right">&nbsp;[__titulo_pagina__]&nbsp;</td>
+				</tr>
+			</table>
+		</td>
+	</tr> 
+	<tr bgcolor="[__color_fondo_cuadros__]">   
+		<td height="20">&nbsp;</td>   
+		<td height="20"  class="texto"><div align="center">[__mail__]&nbsp;</div></td> 
+	</tr>
+</table>
+
+</body>
+</html>	#FFFFFF	#C0C0C0	#808080	#969696	Verdana, Arial, Helvetica, sans-serif	10	#000000	Verdana, Arial, Helvetica, sans-serif	10	#F8F8F8	Verdana, Arial, Helvetica, sans-serif	16

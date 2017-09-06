@@ -1,0 +1,10 @@
+PGN	Pérdidas y Ganancias	N
+PGA	Pérdidas y Ganancias Abreviado	N
+SIN	Situación	N
+SIA	Situación Abreviado	N
+CFN	Cuadro Financiero/ Variación	N
+CFA	Cuadro Financiero/ Origenes y Aplicación	N
+PG8	Pérdidas y Ganancias NPGC 08	S
+SI8	Situación NPGC 08	S
+PGY	Pérdidas y Ganancias NPGC 08 PYME	S
+SIY	Situación NPGC 08 PYME	S

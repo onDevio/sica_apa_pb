@@ -1,0 +1,20 @@
+00	FUNCIONARIO DE ESTADO                                       
+01	FUNCIONARIO DE COMUNIDAD AUTONOMA                           
+02	FUNCIONARIO DE DIPUTACION                                   
+03	FUNCIONARIO DE AYUNTAMIENTO                                 
+04	FUNCIONARIO DE EMPRESA PUBLICA                              
+05	FUNCIONARIO EVENTUAL                                        
+06	FUNCIONARIO INTERINO                                        
+07	ASALARIADO                                                  
+08	ASALARIADO LIBERAL                                          
+09	ASALARIADO FUNCIONARIO                                      
+10	EVENTUAL                                                    
+11	LIBERAL                                                     
+12	LIBERAL FUNCIONARIO                                         
+13	LIBERAL PROMOTOR                                            
+14	LIBERAL CONSTRUCTOR                                         
+15	LIBERAL COLABORADOR                                         
+16	DESEMPLEADO                                                 
+17	DESEMPLEADO CON PRESTACION                                  
+18	LIBERAL DESEMPLEADO                                         
+19	JUBILADO                                                    

@@ -1,0 +1,22 @@
+01	Seguro de Responsabilidad civil			
+02	Mutualidad Previsión Social			
+00	SENSE			
+D 	Descuentos de Expedientes			
+H 	Conceptos de Honorarios			
+LI	Libros			
+SE	Otros Seguros			
+C 	Cuotas diversas			
+O 	Otros conceptos (300)			
+OC	Otros conceptos (400)			
+GA	Gastos Devolución			
+10	SECRETARIA			
+20	INFORMÀTICA			
+30	GABINET TÈCNIC			
+40	VISATS			
+50	DINAMITZACIÓ			
+51	CENTRE DE DOCUMENTACIÓ			
+60	SERVEIS EXTERNS			
+70	COMPTABILITAT			
+80	CITAM			
+CP	PRESTEC PLA JUBILACIO 98			
+90	Zurich			

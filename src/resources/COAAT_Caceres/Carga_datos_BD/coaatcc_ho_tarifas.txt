@@ -1,0 +1,146 @@
+1000      	1.1.3.1.1  -  Edificación. Nueva planta. Encargo global	H = P x C / 100	presupuesto	superficie				1
+1143      	1.1.3.1.2.1  -  Edificación. Nueva planta. Redacción de proyecto Básico	H = P x C / 100 x 0,3074	presupuesto	superficie				2
+1001      	1.1.3.1.2.2  -  Edificación. Nueva planta. Redacción de proyecto Ejecución	H = P x C / 100 x 0,538	presupuesto	superficie				3
+1002      	1.1.3.1.3  -  Edificación. Nueva planta. Dirección de obra	H = P x C / 100 x 0,231	presupuesto	superficie				4
+1003      	1.1.3.1.4  -  Edificación. Nueva planta. Dirección de la ejecución de la obra	H = P x C / 100 x 0,231	presupuesto	superficie				5
+1004      	1.1.3.2.1  -  Edificación. No sean de nueva planta. Encargo global	H = P x C / 100 x 1,2	presupuesto	superficie				6
+1144      	1.1.3.2.2.1  -  Edificación. No sean de nueva planta. Redacción de proyecto Básico	H = P x C / 100 x 1,2 x 0,3074	presupuesto	superficie				7
+1005      	1.1.3.2.2.2  -  Edificación. No sean de nueva planta. Redacción de proyecto Ejecución	H = P x C / 100 x 1,2 x 0,538	presupuesto	superficie				8
+1006      	1.1.3.2.3  -  Edificación. No sean de nueva planta. Dirección de obra	H = P x C / 100 x 1,2 x 0,231	presupuesto	superficie				9
+1007      	1.1.3.2.4  -  Edificación. No sean de nueva planta. Dirección de la ejecución de la obra	H = P x C / 100 x 1,2 x 0,231	presupuesto	superficie				10
+1008      	1.2.2.1  -  Arquitectura monumental. Nueva planta	H = P x Cm /100	presupuesto					11
+1009      	1.2.2.2  -  Arquitectura monumental. No sean de nueva planta	H = P x Cm /100 x 1,2	presupuesto					12
+1010      	2.1.3.1  -  Instalaciones deportivas. Nueva planta. Encargo global	H = P x C / 100	presupuesto					13
+1145      	2.1.3.2.1  -  Instalaciones deportivas. Nueva planta. Redacción de proyecto Básico	H = P x C / 100 x 0,4	presupuesto					14
+1011      	2.1.3.2.2  -  Instalaciones deportivas. Nueva planta. Redacción de proyecto Ejecución	H = P x C / 100 x 0,7	presupuesto					15
+1012      	2.1.3.3  -  Instalaciones deportivas. Nueva planta. Dirección de obra	H = P x C / 100 x 0,3	presupuesto					16
+1013      	2.1.3.4.1  -  Instalaciones deportivas. No sean de nueva planta. Encargo global	H = P x C / 100 x 1,2	presupuesto					17
+1148      	2.2.3.4.2.1  -  Refuerzo y consolidación de edificaciones. No sean de nueva planta. Redacción de proyecto Básico	H = P x C / 100 x 1,2 x 0,4	presupuesto					18
+1014      	2.1.3.4.2.2  -  Instalaciones deportivas. No sean de nueva planta. Redacción de proyecto Ejecución	H = P x C / 100 x 1,2 x 0,7	presupuesto					19
+1015      	2.1.3.4.3  -  Instalaciones deportivas. No sean de nueva planta. Dirección de obra	H = P x C / 100 x 1,2 x 0,3	presupuesto					20
+1016      	2.2.3.1  -  Refuerzo y consolidación de edificaciones. Nueva planta. Encargo global	H = P x C / 100	presupuesto					21
+1017      	2.2.3.2.2  -  Refuerzo y consolidación de edificaciones. Nueva planta. Redacción de proyecto Ejecución	H = P x C / 100 x 0,7	presupuesto					22
+1018      	2.2.3.3  -  Refuerzo y consolidación de edificaciones. Nueva planta. Dirección de obra	H = P x C / 100 x 0,3	presupuesto					23
+1019      	2.2.3.4.1  -  Refuerzo y consolidación de edificaciones. No sean de nueva planta. Encargo global	H = P x C / 100 x 1,2	presupuesto					24
+1146      	2.1.3.4.2.1  -  Instalaciones deportivas. No sean de nueva planta. Redacción de proyecto Básico	H = P x C / 100 x 1,2 x 0,4	presupuesto					25
+1020      	2.2.3.4.2.2  -  Refuerzo y consolidación de edificaciones. No sean de nueva planta. Redacción de proyecto Ejecución	H = P x C / 100 x 1,2 x 0,7	presupuesto					26
+1021      	2.2.3.4.3  -  Refuerzo y consolidación de edificaciones. No sean de nueva planta. Dirección de obra	H = P x C / 100 x 1,2 x 0,3	presupuesto					27
+1022      	2.3.3.1  -  Otras construcciones. Nueva planta	H = P x C / 100	presupuesto					28
+1023      	2.3.3.2  -  Otras construcciones. No sean de nueva planta	H = P x C / 100 x 1,2	presupuesto					29
+1024      	3.4.1  -  Reformas y acondicionamientos. Nueva planta. Encargo global	H = P x C / 100	presupuesto	superficie				30
+1149      	3.4.2.1  -  Reformas y acondicionamientos. Nueva planta. Redacción de proyecto Básico	H = P x C / 100 x 0,4	presupuesto	superficie				31
+1025      	3.4.2.2  -  Reformas y acondicionamientos. Nueva planta. Redacción de proyecto Ejecución	H = P x C / 100 x 0,7	presupuesto	superficie				32
+1026      	3.4.3  -  Reformas y acondicionamientos. Nueva planta. Dirección de obra	H = P x C / 100 x 0,3	presupuesto	superficie				33
+1027      	3.4.4.1  -  Reformas y acondicionamientos. No sean de nueva planta. Encargo global	H = P x C / 100 x 1,2	presupuesto	superficie				34
+1150      	3.4.4.2.1  -  Reformas y acondicionamientos. No sean de nueva planta. Redacción de proyecto Básico	H = P x C / 100 x 1,2 x 0,4	presupuesto	superficie				35
+1028      	3.4.4.2.2  -  Reformas y acondicionamientos. No sean de nueva planta. Redacción de proyecto Ejecución	H = P x C / 100 x 1,2 x 0,7	presupuesto	superficie				36
+1029      	3.4.4.3  -  Reformas y acondicionamientos. No sean de nueva planta. Dirección de obra	H = P x C / 100 x 1,2 x 0,3	presupuesto	superficie				37
+1030      	4.4.1  -  Derribos. Encargo global	H = V x a x t x Ca	volumen	altura	tipologia			38
+1151      	4.4.2.1  -  Derribos. Redacción de proyecto Básico	H = V x a x t x Ca x 0,1714	volumen	altura	tipologia			39
+1031      	4.4.2.2  -  Derribos. Redacción de proyecto Ejecución	H = V x a x t x Ca x 0,3	volumen	altura	tipologia			40
+1032      	4.4.3  -  Derribos. Dirección de obra	H = V x a x t x Ca x 0,7	volumen	altura	tipologia			41
+1033      	5.4.1  -  Urbanización. Nueva planta. Encargo global	H = P x C / 100	presupuesto					42
+1034      	5.4.2  -  Urbanización. Nueva planta. Redacción de proyecto	H = P x C / 100 x 0,7	presupuesto					43
+1035      	5.4.3  -  Urbanización. Nueva planta. Dirección de obra	H = P x C / 100 x 0,3	presupuesto					44
+1036      	5.4.4.1  -  Urbanización. No sean de nueva planta. Encargo global	H = P x C / 100 x 1,2	presupuesto					45
+1037      	5.4.4.2  -  Urbanización. No sean de nueva planta. Redacción de proyecto	H = P x C / 100 x 1,2 x 0,7	presupuesto					46
+1038      	5.4.4.3  -  Urbanización. No sean de nueva planta. Dirección de obra	H = P x C / 100 x 1,2 x 0,3	presupuesto					47
+1039      	6.4.1.1  -  Seguridad y salud laboral. Encargo global. Construcción	H = P x C / 100	presupuesto					48
+1040      	6.4.1.2  -  Seguridad y salud laboral. Encargo global. Derribo y demolición	H = 1,9 x V x a x t x Ca	volumen	altura	tipologia			49
+1152      	6.4.1.1.2  -  Seguridad y salud laboral. Encargo global. Estudio Básico. Construcción	H = P x C / 100	presupuesto					50
+1153      	6.4.1.2.2  -  Seguridad y salud laboral. Encargo global. Estudio Básico. Derribo y demolición	H = 1,9 x V x a x t x Ca	volumen	altura	tipologia			51
+1041      	6.4.2.1  -  Seguridad y salud laboral. Cordinación durante la elaboración de proyecto. Construcción	H = P x C / 100 x 0,4	presupuesto					52
+1042      	6.4.2.2  -  Seguridad y salud laboral. Cordinación durante la elaboración de proyecto. Derribo y demolición	H = 1,9 x V x a x t x Ca	volumen	altura	tipologia			53
+1043      	6.4.3.1.1  -  Seguridad y salud laboral. Redacción de Estudio. Construcción	H = P x C / 100 x 0,3	presupuesto					54
+1044      	6.4.3.2.1  -  Seguridad y salud laboral. Redacción de Estudio. Derribo y demolición	H = 1,9 x V x a x t x Ca	volumen	altura	tipologia			55
+1154      	6.4.3.1.2  -  Seguridad y salud laboral. Redacción de Estudio Básico. Construcción	H = P x C / 100 x 0,3	presupuesto					56
+1155      	6.4.3.2.2  -  Seguridad y salud laboral. Redacción de Estudio Básico. Derribo y demolición	H = 1,9 x V x a x t x Ca	volumen	altura	tipologia			57
+1045      	6.4.4.1  -  Seguridad y salud laboral. Cordinación durante la ejecución de la obra. Construcción	H = P x C / 100 x 0,85	presupuesto					58
+1046      	6.4.4.2  -  Seguridad y salud laboral. Cordinación durante la ejecución de la obra. Derribo y demolición	H = 1,9 x V x a x t x Ca	volumen	altura	tipologia			59
+1047      	6.4.5.1  -  Seguridad y salud laboral. Asesoramiento técnico al contratista. Construcción	H = P x C / 100  x 0,21	presupuesto					60
+1048      	6.4.5.2  -  Seguridad y salud laboral. Asesoramiento técnico al contratista. Derribo y demolición	H = 1,9 x V x a x t x Ca	volumen	altura	tipologia			61
+1049      	7.4.1  -  Control de calidad. Encargo global	H = P x C / 100	presupuesto	superficie				62
+1050      	7.4.2  -  Control de calidad. Redacción de programa	H = P x C / 100	presupuesto	superficie				63
+1051      	7.4.3  -  Control de calidad. Seguimiento del programa de control de calidad	H = P x C / 100	presupuesto	superficie				64
+1052      	7.4.4  -  Control de calidad. Documentación del cumplimiento del programa de control de calidad	H = P x C / 100	presupuesto	superficie				65
+1053      	8.2.4.1  -  Mantenimiento y conservación. Nueva construcción. Elaboración del libro del edificio	H = S x P x T x 2,44 x Ca	superficie	tipo_edificio				66
+1054      	8.2.4.2  -  Mantenimiento y conservación. Nueva construcción. Control del programa de mantenimiento	H = 205 x Ca						67
+1055      	8.3.2.1  -  Mantenimiento y conservación. En uso. Elaboración del libro del edificio	H = S x P x T x 4,88 x E x Ca	superficie	tipo_edificio	edad			68
+1056      	8.3.2.2  -  Mantenimiento y conservación. En uso. Control del programa de mantenimiento	H = 205 x Ca						69
+1057      	9.4.1.1.1  -  Deslinde sin amojonamiento. Terrenos	H = 1,96 x L x C x Ca	tipo_terreno	perimetro	perim_sup			70
+1058      	9.4.1.1.2  -  Deslinde sin amojonamiento. Terrenos. Sin planos	H = 1,96 x L x C x Ca x 0,66	tipo_terreno	perimetro	perim_sup			71
+1059      	9.4.1.2.1  -  Deslinde sin amojonamiento. Solares	H = 3,91 x L x C x Ca	tipo_terreno	perimetro	perim_sup			72
+1060      	9.4.1.2.2  -  Deslinde sin amojonamiento. Solares. Sin planos	H = 3,91 x L x C x Ca x 0,66	tipo_terreno	perimetro	perim_sup			73
+1061      	9.4.1.3.1  -  Deslinde sin amojonamiento. Edificaciones	H = 5,87 x L x Ca	tipo_terreno	perimetro	perim_sup			74
+1062      	9.4.1.3.2  -  Deslinde sin amojonamiento. Edificaciones. Sin planos	H = 5,87 x L x Ca x 0,66	tipo_terreno	perimetro	perim_sup			75
+1063      	9.4.1.4.1  -  Deslinde sin amojonamiento. Edificaciones plantas superiores	H = 5,87 x L x Ca + 2,61 x L' x CA	tipo_terreno	perimetro	perim_sup			76
+1064      	9.4.1.4.2  -  Deslinde sin amojonamiento. Edificaciones plantas superiores. Sin planos	H = 5,87 x L x Ca + 2,61 x L' x CA x 0,66	tipo_terreno	perimetro	perim_sup			77
+1065      	9.4.2.1.1  -  Deslinde con amojonamiento. Terrenos		tipo_terreno	perimetro	perim_sup			78
+1066      	9.4.2.1.2  -  Deslinde con amojonamiento. Terrenos. Sin planos		tipo_terreno	perimetro	perim_sup			79
+1067      	9.4.2.2.1  -  Deslinde con amojonamiento. Solares		tipo_terreno	perimetro	perim_sup			80
+1068      	9.4.2.2.2  -  Deslinde con amojonamiento. Solares. Sin planos		tipo_terreno	perimetro	perim_sup			81
+1069      	9.4.2.3.1  -  Deslinde con amojonamiento. Edificaciones		tipo_terreno	perimetro	perim_sup			82
+1070      	9.4.2.3.2  -  Deslinde con amojonamiento. Edificaciones. Sin planos		tipo_terreno	perimetro	perim_sup			83
+1071      	9.4.2.4.1  -  Deslinde con amojonamiento. Edificaciones plantas superiores		tipo_terreno	perimetro	perim_sup			84
+1072      	9.4.2.4.2  -  Deslinde con amojonamiento. Edificaciones plantas superiores. Sin planos		tipo_terreno	perimetro	perim_sup			85
+1073      	9.4.3.1.1  -  Replanteo sin amojonamiento. Terrenos		tipo_terreno	perimetro	perim_sup			86
+1074      	9.4.3.1.2  -  Replanteo sin amojonamiento. Solares		tipo_terreno	perimetro	perim_sup			87
+1075      	9.4.3.1.3  -  Replanteo sin amojonamiento. Edificaciones		tipo_terreno	perimetro	perim_sup			88
+1076      	9.4.3.1.4  -  Replanteo sin amojonamiento. Edificaciones plantas superiores		tipo_terreno	perimetro	perim_sup			89
+1077      	9.4.3.2.1  -  Replanteo con amojonamiento. Terrenos		tipo_terreno	perimetro	perim_sup			90
+1078      	9.4.3.2.2  -  Replanteo con amojonamiento. Solares		tipo_terreno	perimetro	perim_sup			91
+1079      	9.4.3.2.3  -  Replanteo con amojonamiento. Edificaciones		tipo_terreno	perimetro	perim_sup			92
+1080      	9.4.3.2.4  -  Replanteo con amojonamiento. Edificaciones plantas superiores		tipo_terreno	perimetro	perim_sup			93
+1081      	10.3.1  -  Medidiciones de terrenos	H = S x K x C x Ca	tipo_terreno	superficie				94
+1082      	10.3.2  -  Medidiciones de solares	H = S x K x C x Ca	tipo_terreno	superficie				95
+1083      	10.3.3  -  Medidiciones de Edificaciones	H = S x K x Ca	tipo_terreno	superficie	plantas_dif	plantas_ide	alz_sec_det	96
+1084      	11.4.1  -  Parcelaciones. Encargo global	H = 285 x Cs x Cp x Ca	superficie	parcelas				97
+1085      	11.4.2  -  Parcelaciones. Redacción de proyecto	H = 285 x Cs x Cp x Ca x 0,7	superficie	parcelas				98
+1086      	11.4.3  -  Parcelaciones. Seguimiento de la parcelación	H = 285 x Cs x Cp x Ca x 0,3	superficie	parcelas				99
+1087      	12.4  -  Reconocimientos, consultas, examen de documentos, diligencias	H = 200 x Ca						100
+1088      	13.4.1  -  Informes, sin certificación	H = 205 x Ca						101
+1089      	13.4.2  -  Dictámenes, con informe	H = 305 x Ca						102
+1090      	13.4.3  -  Certificaciones, sin informe	H = 205 x Ca						103
+1091      	13.4.4  -  Certificaciones, con informe	H = 410 x Ca						104
+1092      	14.3.1  -  Peritaciones							105
+1093      	14.3.2  -  Arbitrajes	H = 510 x Ca + C x V	cantidad					106
+1094      	15.2.1  -  Contratación	H = 0,04 x C	cantidad					107
+1095      	15.2.2  -  Administración	H = 0,01 x C	cantidad					108
+1096      	16.4.1  -  Instalaciones. Encargo global	H = P x C / 100	presupuesto					109
+1097      	16.4.2  -  Instalaciones. Redacción de proyecto	H = P x C / 100	presupuesto					110
+1098      	16.4.3  -  Instalaciones. Dirección facultativa de obra	H = P x C / 100	presupuesto					111
+1099      	17.4.1  -  Valoraciones. Solares y terrenos	H = V x C / 100	valor_tasacion					112
+1100      	17.4.2  -  Valoraciones. Edificios	H = V x C / 100	valor_tasacion					113
+1101      	18.3  -  Cálculo de estructuras	H = P x C / 100	presupuesto	superficie				114
+1102      	19.3  -  Mediciones realizadas sobre el edificio	H = f(S)	superficie					115
+1103      	20.3.1.1  -  Mediciones de edificaciones sobre planos	H = S x Ca	superficie					116
+1104      	20.3.1.2  -  Mediciones de urbanización sobre planos	H = P x Cu / 100	presupuesto	superficie				117
+1105      	20.3.2.1  -  Relaciones valoradas de edificaciones sobre planos	H = S x Ca	superficie					118
+1106      	20.3.2.2  -  Relaciones valoradas de urbanización sobre planos	H = P x Cu / 100	presupuesto					119
+1107      	21.3  -  Estudio y comparación de ofertas	H = 4 x Of x U x Ca	num_ofertas	num_partidas				120
+1108      	22.3.1  -  Revisión de precios unitarios y reajuste de presupuestos	H = 5 x N x Ca	num_partidas					121
+1109      	22.3.2  -  Revisión de precios unitarios y reajuste de presupuestos sin descomposición de precios unitarios	H = 5 x N x Ca x 0,4	num_partidas					122
+1110      	23.3  -  Racionalización, planificación y programación	H = P x C / 100	presupuesto	superficie				123
+1111      	25.2  -  Trabajos tarificados por tiempo	H = (Nn x 33 + Ne x 49) x Ca	horas	horas_extra				124
+1112      	27.4.1  -  Instalación de grua. Encargo global	H = 800 x R x H x Ca	radio	altura				125
+1113      	27.4.2  -  Instalación de grua. Redacción de proyecto	H = 800 x R x H x Ca	radio	altura				126
+1114      	27.4.3  -  Instalación de grua. Supervisión del montaje	H = 800 x R x H x Ca	radio	altura				127
+1115      	28.4.1  -  Instalación de andamio. Redacción de proyecto	H = T x Ca	superficie					128
+1116      	29.4  -  Expediente de actividad	H = S x T x Ca	superficie					129
+1117      	30.4  -  Planes de emergencia	H = S x C x Ca	superficie					130
+1118      	31.4.1  -  Gestión de proyecto. Encargo global	H = G x P / 100	presupuesto					131
+1119      	31.4.2  -  Gestión de proyecto. Planteamiento del proyecto	H = C x P / 100	presupuesto					132
+1120      	31.4.3  -  Gestión de proyecto. Auditoría del proyecto	H = A x P / 100	presupuesto					133
+1121      	32.2  -  Asesoría a Ayuntamientos o empresas	H = N x P x Ca	horas					134
+1122      	33.4  -  Inspección técnica de edificios	H = 240 x A x H x V x E x Ca	edad	altura	volumen	estructura		135
+1123      	34.4  -  Instalaciones públicas	H = 245 x C x Ca	tipo_inst					136
+1124      	35.4.1  -  Apeo de fachadas. Encargo global	H = A x Ca	superficie					137
+1125      	35.4.2  -  Apeo de fachadas. Redacción de proyecto	H = A x Ca	superficie					138
+1126      	35.4.3  -  Apeo de fachadas. Dirección de obra	H = A x Ca	superficie					139
+1127      	36.1.1  -  Memoria habilitante sin cedula. Proyecto y dirección	H = P x C / 100	presupuesto					140
+1128      	36.1.2  -  Memoria habilitante sin cedula. Proyecto	H = P x C / 100 x 0,7	presupuesto					141
+1129      	36.1.3  -  Memoria habilitante sin cedula. Dirección	H = P x C / 100 x 0,3	presupuesto					142
+1130      	36.2.1  -  Memoria habilitante con cedula. Proyecto y dirección	H = P x C / 100	presupuesto					143
+1131      	36.2.2  -  Memoria habilitante con cedula. Proyecto	H = P x C / 100 x 0,7	presupuesto					144
+1132      	36.2.3  -  Memoria habilitante con cedula. Dirección	H = P x C / 100 x 0,3	presupuesto					145
+1133      	37.1  -  Cedula de habitabilidad	H = 410 x Ca						146

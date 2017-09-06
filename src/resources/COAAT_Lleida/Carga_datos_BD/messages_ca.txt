@@ -1,0 +1,2109 @@
+contrato_ant	Contracte Ant.	fases	contrato_ant
+dom_fiscal	Domicili Fiscal	colegiados	dom_fiscal
+avisos.pasados_no_cobrados	Existeixen avisos que han sobrepasat la data de vencimient i encara no han sigut cobrats.Cobrar ara?	avisos	w_aplic_frame
+barra_progreso.proesado	Processat	barra_progreso	procesado
+beneficiarios.busqueda_rapida	Cerca Ràpida Beneficiaris	beneficiarios	busqueda_rapida
+clientes.no_poner_general	( No posar si desitja usar la general )	clientes	no_poner_general
+clientes.compartida	Compartida	clientes	compartida
+clientes.url	URL	clientes	url
+clientes.observaciones	Observacions	clientes	observaciones
+clientes.buscar	Cerca	clientes	buscar
+clientes.activa	Activa	clientes	activa
+clientes.apell_soc_activo_teclear	Cognom/Societat actiu al teclejar	clientes	apellidos_soc_activo_teclear
+clientes.cuenta_contable	Compte Comptable	clientes	cuenta_contable
+clientes.email	Email	clientes	email
+clientes.parametros_busqueda	Paràmetres de recerca	clientes	parametros_busqueda
+clientes.n_cliente	Nom. Client	clientes	n_cliente
+clientes.datos_economicos	Dades Econòmiques	clientes	datos_economicos
+clientes.paramtero_completo	Introdueixi el paràmetre complet:	clientes	parametro_completo
+clientes.cambios_ventana_no_grabar	Els canvis realitzats en aquesta finestra no es guardaran	clientes	cambios_ventana_no_grabar
+clientes.tipo_persona	Tipus Persona Juríd.	clientes	tipo_persona
+clientes.otros_datos	Altres Dades	clientes	otros_datos
+clientes.apellidos_sociedad	Cognoms/Societat	clientes	apellidos_sociedad
+clientes.visible_web	Visible en la web	clientes	visible_web
+clientes.lista_personal	Llista Personal	clientes	lista_personal
+clientes.nom_via	Nom via	clientes	nom_via
+clientes.nif	NIF	clientes	nif
+clientes.recuperando_info	RECUPERANT INFORMACIÓ	clientes	recuperando_info
+clientes.tipo_persona_juridica	Tipus Persona Jurídica	clientes	tipo_persona_juridica
+clientes.domicilio	Domicili	clientes	domicilio
+clientes.fax	Fax	clientes	fax
+clientes.provincia	Província	clientes	provincia
+clientes.alta	Alta	clientes	alta
+clientes.int_param_consulta_aceptar	Introdueixi els paràmetres de recerca i premi acceptar	clientes	introducir_param_busqueda
+clientes.clientes_mismo_nif	Clients amb mateix nif	clientes	clientes_mismo_nif
+clientes.listado_clientes_general	Llistat de Clients General	clientes	listado_clientes_general
+clientes.nombre	Nom	clientes	nombre
+clientes.pais	País	clientes	pais
+clientes.poblacion	Població	clientes	poblacion
+clientes.lista_nifs	NIFs separats per coma	clientes	lista_nifs
+clientes.fecha_alta	Data Alta	clientes	fecha_alta
+clientes.telefono	Telèfon	clientes	telefono
+clientes.cod_pos	CP	clientes	cod_pos
+clientes.apellidos_coma_nombre	Cognoms, Nom	clientes	apellidos_coma_nombre
+clientes.cuenta_bancaria	Compte Bancari	clientes	cuenta_bancaria
+clientes.retiene_irpf	Reté IRPF	clientes	retiene_irpf
+clientes.previsualizar_listado_clientes	Previsualizar Llistat Tots Clients	clientes	previsualizar_listado_todos_clientes
+clientes.tipo_tercero	Tipus Tercer	clientes	tipo_tercero
+clientes.incidencias	Incidències	clientes	incidencias
+cobros.marcar_todos	Marcar tots	cobros	marcar_todos
+cobros.fecha_vencimiento	DATA VENCIMENT	cobros	fecha_vencimiento
+cobros.proceso_contabilizacion_directamente	Marcant aquesta opció es llançarà el procés de~rcomptabilització directament	cobros	proceso_contabilizacion_directamente
+cobros.cliente	Client	cobros	cliente
+cobros.motivo_devolucion	Motiu Devolució	cobros	motivo_devolucion
+cobros.centro	Centre	cobros	centro
+cobros.ordendar_por	Ordenar per	cobros	ordendar_por
+cobros.facturas_gastos	Factures Despeses	cobros	facturas_gastos
+cobros.generar_fact_devol_gastos	Generar Fact. Dev. Despeses	cobros	generar_fact_devol_gastos
+cobros.cobros	Cobraments	cobros	cobros
+cobros.nombre	Nom	cobros	nombre
+cobros.n_colegiado	Nº Col·legiat	cobros	n_colegiado
+cobros.pagado_contabilizado	P: Pagat C: Comptabilitzat	cobros	pagado_contabilizado
+cobros.modif_forma_pago	Modifica la forma de pagament i el banc en els cobraments	cobros	modif_forma_pago
+cobros.no_remesados	No Remesats	cobros	no_remesados
+cobros.solo_pago	Solament Pagament	cobros	solo_pago
+cobros.datos_cobro	Dades Cobrament	cobros	datos_cobro
+cobros.imprimir_incidencias	Imprimir Incidències	cobros	imprimir_incidencias
+cobros.colegiado_cliente	Col·legiat/Client	cobros	colegiado_cliente
+cobros.generar_apuntes_contables	Generar Apunts Comptables	cobros	generar_apuntes_contables
+cobros.datos_remesa	Dades Remesa	cobros	datos_remesa
+cobros.n_plazo	Nº Termini	cobros	n_plazo
+cobros.facturas_apuntes	Factures/Apunts	cobros	facturas_apuntes
+cobros.ingresado	Ingressat	cobros	ingresado
+cobros.n_cobros_f_pago	Nº de cobraments per F.Pagament	cobros	n_cobros_f_pago
+cobros.total	Total	cobros	total
+cobros.a_devolver	A RETORNAR	cobros	a_devolver
+cobros.f_vencimiento_desde	Data Venciment Desde	cobros	f_vencimiento_desde
+cobros.recibido_impagado_recibo	'Hem rebut impagat el rebut nº '+ nfact + ' per import~rde ' +string(total, '#,##0.00')+' euros' + if (asunto = '' or isnull (asunto), '' , ', corresponent a '+upper(asunto) ) +'.'	cobros	recibido_impagado_recibo
+cobros.devolver_facturas	Retornar Factures	cobros	devolver_facturas
+cobros.f_venc.	Data Venc.	cobros	f_venc.
+cobros.fecha	Data	cobros	fecha
+cobros.atentamente	Atentament	cobros	atentamente
+cobros.pd	P.D. Si existís algun error administratiu, quant al deute que té pendent de pagament en aquestes oficines,~rli preguem ens ho comuniqui,obviant el contingut d'aquest escrit.	cobros	pd
+cobros.querido_colegiado	Estimat Col·legiat:~r~rLi dirigim el present escrit a fi de comunicar-li que han~restat impagats els rebuts que a continuació s'indiquen, amb~rels seus corresponents imports :	cobros	querido_colegiado
+cobros.hasta	Fins a	cobros	hasta
+cobros.generar_domiciliaciones	Generar domiciliacions	cobros	generar_domiciliaciones
+cobros.total_banco	Total Banc	cobros	total_banco
+cobros.datos_caja	Dades Caixa	cobros	datos_caja
+cobros.a_su_disposicion	'Quedem com sempre a la seva disposició.'	cobros	a_su_disposicion
+cobros.solo_miraran_cobros	Només es miraran els cobraments no pagats, i ~ren qualsevol cas es marcarà com pagat el ~rcobrament i la factura corresponent (en el cas ~rque la suma de cobraments la paguin per complet)	cobros	solo_miraran_cobros
+cobros.factura	Factura	cobros	factura
+cobros.recibir_f19	Rebre F19	cobros	recibir_f19
+cobros.devolver_cobros	Retornar Cobraments	cobros	devolver_cobros
+cobros.cuenta_cargo	Compte Càrrec	cobros	cuenta_cargo
+cobros.total_colegio	Total Col·legi	cobros	total_colegio
+cobros.n_factura	Nº Factura	cobros	n_factura
+cobros.asunto	Assumpte	cobros	asunto
+cobros.listado_cobros	LLISTAT DE COBRAMENTS	cobros	listado_cobros
+cobros.le_rogamos	Li preguem que com més aviat millor,aboni aquest import, de la manera~rque crea més convenient.	cobros	le_rogamos
+cobros.n_factura_desde	Nº Factura Desde	cobros	n_factura_desde
+cobros.esperamos_mayor_brevedad	'Esperem que el més aviat es posi en contacte amb~rel Col·legi, a fi de resoldre aquesta situació.'	cobros	esperamos_mayor_brevedad
+cobros.opciones	Opcions	cobros	opciones
+cobros.f_factura	Data Factura	cobros	f_factura
+cobros.imprimir	Imprimir	cobros	imprimir
+cobros.ayuda	Ajuda	cobros	ayuda
+cobros.acumular_consulta	Acumular Consulta	cobros	acumular_consulta
+cobros.salir	Sortir	cobros	salir
+cobros.generar_carta_devolucion	Generar Carta Devolució	cobros	generar_carta_devolucion
+cobros.datos_facturas	Dades Factures	cobros	datos_facturas
+cobros.devuelto	Retornat	cobros	devuelto
+cobros.departamento_administracion	Dpt. Administració COAATA	cobros	departamento_administracion
+cobros.contabilizado	Comptabilitzat	cobros	contabilizado
+cobros.n_cobros_centro	Nº de Cobraments per Centre	cobros	n_cobros_centro
+cobros.todos_menos_baja	Mostrar tots menys els de baixa	cobros	todos_menos_baja:
+cobros.serie	Sèrie	cobros	serie
+cobros.n_cobros_todas_f_pago	Nº de cobraments per a totes les F.Pagament	cobros	n_cobros_todas_f_pago
+cobros.total_centro	Total Centre	cobros	total_centro
+cobros.n_cobros_banco	Nº cobraments per Banc	cobros	n_cobros_banco
+cobros.num_copias_imprimir	Nom. Còpies a Imprimir	cobros	num_copias_imprimir
+cobros.cobros_expedientes_centro	Llistat de Cobraments d'Expedients per CENTRE	cobros	cobros_expedientes_centro
+cobros.incidencias_graves	* Existeixen incidències greus. NO podrà importar el fitxer en qüestió.	cobros	incidencias_graves
+cobros.acceptar	Acceptar	cobros	acceptar
+cobros.fecha_carta	Data Carta	cobros	fecha_carta
+cobros.modif_forma_pago_banco_cabecera	Modifica la forma de pagament i el banc en la capçalera~rde les factures	cobros	modif_forma_pago_banco_cabecera
+cobros.f_vencimiento	Data Venciment	cobros	f_vencimiento
+cobros.n_col_nif	NºCol./NIF	cobros	n_col_nif
+cobros.buscar	Cerca	cobros	buscar
+cobros.aceptar	Acceptar	cobros	aceptar
+cobros.usuario	Usuari	cobros	usuario
+cobros.ref_bancaria	Referència Bancària	cobros	ref_bancaria
+cobros.concepto	Concepte	cobros	concepto
+cobros.n_cobros_todos_centros	Nº de Cobraments per a tots els Centres	cobros	n_cobros_todos_centros
+cobros.n_cobros	Nº de cobraments	cobros	n_cobros
+cobros.generar_f19	Generar F19	cobros	generar_f19
+cobros.tipo_factura	Tipus Factura	cobros	tipo_factura
+cobros.caso_domiciliacion_bancaria	En el cas de DOMICILIACIÓ BANCÀRIA, els cobraments~res quedaran com no pagats fins que es generi la~rcorresponents remesa (es llançarà automàticament la~rfinestra de remesar per a generar la mateixa)	cobros	caso_domiciliacion_bancaria
+cobros.total_f_pago	Total D.Pagament	cobros	total_f_pago
+cobros.incidencias	Incidències	cobros	incidencias
+cobros.pagado	Pagat	cobros	pagado
+cobros.buscar_marcar_fichero	Cercar/Marcar desde Fitxer	cobros	buscar_marcar_fichero
+cobros.fecha_pago_desde	Data Pagament Desde	cobros	fecha_pago_desde
+cobros.fecha_desde	Data Desde	cobros	fecha_desde
+cobros.desmarcar_todos	Desmarcar tots	cobros	desmarcar_todos
+cobros.n_emision	Nº Emissió	cobros	n_emision
+cobros.cancelar	Cancel·lar	cobros	cancelar
+cobros.facturas	Factures	cobros	facturas
+cobros.añadir_todos	Afegir Tots	cobros	añadir_todos
+cobros.incluir_remesa_cobros	Només s'inclouran en la remesa els cobraments marcats.	cobros	incluir_remesa_cobros
+cobros.forma_pago	Forma Pagament	cobros	forma_pago
+cobros.delegacion	Delegació	cobros	delegacion
+cobros.n_c_nif	NºC./NIF	cobros	n_c_nif
+cobros.expediente	Expedient	cobros	expediente
+cobros.n_cobros_f_vencimiento	Nº cobraments per F.Venc	cobros	n_cobros_f_vencimiento
+cobros.datos_cobros	Dades Cobraments	cobros	datos_cobros
+cobros.total_f_vencimiento	Total D.Venc	cobros	total_f_vencimiento
+cobros.contabilizada	Comptabilitzada	cobros	contabilizada
+cobros.fecha_factura_desde	Data Factura Desde	cobros	fecha_factura_desde
+cobros.n_cobros_todos_bancos	Nº de cobraments per a tots els Bancs	cobros	n_cobros_todos_bancos
+cobros.formato	Format	cobros	formato
+cobros.t_factura	T.Factura	cobros	t_factura
+cobros.entregado	Lliurat	cobros	entregado
+cobros.colegiado_clientes	Col·legiat/Clients	cobros	colegiado_clientes
+cobros.borrador_previo	Esborrany previ	cobros	borrador_previo
+cobros.n_remesa	Nº Remesa	cobros	n_remesa
+cobros.banco	Banc	cobros	banco
+cobros.importe	Import	cobros	importe
+cobros.quitar_todos	Llevar Tots	cobros	quitar_todos
+cobros.actualizar_datos	Actualitzar Dades	cobros	actualizar_datos
+cobros.generar_asiento_cobro	Generar Seient per Cobrament	cobros	generar_asiento_cobro
+cobros.fecha_pago	Data Pagament	cobros	fecha_pago
+cobros.int_param_consulta_aceptar	Introdueixi els paràmetres de consulta i premi Acceptar	cobros	int_param_consulta_aceptar
+cobros.desglosar_conceptos	Desglossar els conceptes en el fitxer F19.	cobros	desglosar_conceptos
+cobros.actualizar	Actualitzar	cobros	actualizar
+colegiados.datos_generales_pagos	Dades Generals, Pagaments	colegados	datos_general_pagos
+colegiados.datos_src	Dades S.R.C.	colegiados	datos_src
+colegiados.duplicar_colegiados	No es poden duplicar col.legiats	colegiados	duplicar_colegiados
+colegiados.ficha_colegiado	Fitxa del Col.legiat	colegiados	ficha
+colegiados.tipo_situacion	Tipo Situació	colegiados	tipo_situacion
+colegiados.propietario	Propietari	colegiados	propietario
+colegiados.valor_tipo_impuestos	Ha d'especificar un valor per al camp Tipus Impostos	colegiados	valor_tipo_impuestos
+colegiados.procedencia	Procedència	colegiados	procedencia
+colegiados.valor_concepto	Ha d'especificar un valor per al camp concepte	colegiados	valor_concepto
+colegiados.valor_centro	Deu especificar el centre per a les factures.	colegiados	valor_centro
+colegiados.sel_todo	Sel. Tot	colegiados	sel_todo
+colegiados.colhasta	Fins	colegiados	colhasta
+colegiados.todo_conceptos	Inclou tots els conceptes especificats en la llista amb els seus respectius imports.~~rLes dades de la factura seran els especificats.	colegiados	todos_conceptos
+colegiados.fechaf	Data Fi	colegiados	fechaf
+colegiados.campo_codigo_provincia	Ha d'especificar un valor en el camp codi província	colegiados	campo_codigo_provincia
+colegiados.banco_dom	Banc Domiciliació	colegiados	banco_dom
+colegiados.porc_contratos	% Contractes	colegiados	porc_contratos
+colegiados.colegiados.conv_recono_humolog_espanya	Convalidació, Reconeiximent u Homologació a Espanya	colegiados	conv_recono_humolog_espanya
+colegiados.complemento2	Complement 2	colegiados	complemento2
+colegiados.campo_delegacion	Ha d'especificar un valor en el camp delegació	colegiados	campo_delegacion
+colegiados.cta_trans	Compte Transferències	colegiados	cta_trans
+colegiados.anyos	Anys	colegiados	anyos
+colegiados.fecha_colegiacion	Data Col.legiació	colegiados	fecha_colegiacion
+colegiados.n_cliente	Nº Client	colegiados	n_cliente
+colegiados.campo_colegiado	Ha d'especificar un valor en el camp nombre col.legiat	colegiados	campo_colegiado
+colegiados.busqueda_rapido_rep	Cerca ràpida de representants	colegiados	busqueda_rapido_rep
+colegiados.valor	Valor	colegiados	valor
+colegiados.fam_domiciliacion	Familia domicil.liació	colegiados	fam_domiciliacion
+colegiados.campo_f_inicio	Ha d'especificar un valor en el camp data d'inici	colegiados	campo_f_inicio
+colegiados.campo_nombre	Ha d'especificar un valor en el camp nom	colegiados	campo_nombre
+colegiados.cuota_min	Quota mínima (Col.legiats sense contracte entre dues dades)	colegiados	cuota_min
+colegiados.campo_orientacion_profesional	Ha d'especificar un valor en el camp orientació professional	colegiados	campo_orientacion_profesional
+colegiados.avisos_duplicados_nif	AVÍS DUPLICITAT DE NIF: Existeix una persona en tercers amb aquest NIF	colegiados	avisos_duplicados_nif
+colegiados.avisos	Avisos	colegiados	avisos
+colegiados.cobert_exc	Cobert. Exc	colegiados	cobert_exc
+colegiados.apellidos_sociedad	Cognoms/Societat	colegiados	apellidos_sociedad
+colegiados.tit_consejo	+dades Titulació/consell	colegiados	tit_consejo
+Incluir TODOS los conceptos especificados a todos los colegs. de la lista	Incloure TOTS els conceptes especificats a tots el col.leg. de la llista	colegiados	Incluir TODOS los conceptos especificados a todos los colegs. de la lista
+colegiados.bonus_malus	Bonus malus	colegiados	bonus_malus
+colegiados.ctas_bancarias	Ctes. Bancaris	colegiados	ctas_bancarias
+colegiados.cobertura	Cobertura	colegiados	cobertura
+colegiados.facturas_creadas	Rang Factures Creades :	colegiados	facturas_creadas
+colegiados.valor_asunto	Deu especificar l'asunt per a les factures.	colegiados	valor_asunto
+colegiados.tel_particular	Telèfon Part.	colegiados	telefono_particular
+colegiados.cambios_dom	Canvis Domicili	colegiados	cambios_dom
+colegiados.titulacion	Titulació	colegiados	titulacion
+colegiados.cta_bancaria	Comte Bancari	colegiados	cta_bancaria
+colegiados.colegiado_valido	Ha d'introduir un nombre de col.legiat vàlid	colegiados	colegiado_valido
+colegiados.campo_sexo	Ha d'especificar un valor en el camp sexe	colegiados	campo_sexo
+colegiados.num_poliza	Nº Pòlissa	colegiados	num_poliza
+colegiados.apellidos	Cognoms	colegiados	apellidos
+colegiados.caracteristica	Característica	colegiados	caracteristica
+colegiados.campo_sociedad	Ha d'especificar un valor en el camp societat	colegiados	campo_sociedad
+colegiados.datos_agrup	Dades Agrupació	colegiados	datos_agrup
+colegiados.cta_banco_dom	Compte Banc Domiciliació	colegiados	cta_banco_dom
+colegiados.fecha_alta	Data d´Alta	colegiados	fecha_alta
+colegiados.edad	Edad	colegiados	edad
+colegiados.pestanya_premaat	PREMAAT	colegiados	premaat_pestanya
+colegiados.campo_colegio	Ha d'especificar un valor en el camp col.lege	colegiados	campo_colegio
+colegiados.f_titulacion	Data Títol	colegiados	f_titulacion
+colegiados.suma_porcentajes	La suma de percentatges de participació en una societat no pot ser major que cent.	colegiados	suma_porcentajes
+colegiados.altas_bajas_sit	Altes, Baixes i Situacions	colegiados	altas_bajas_sit
+Nº Colegiado	Nom Col.legiat	colegiados	n_colegiado
+colegiados.tratamiento	Tractament	colegiados	tratamiento
+colegiados.alta_exceso	Alta exces	colegiados	alta_exceso
+colegiados.telefono_movil2	Telèfon Mòbil 2	colegiados	telefono_movil2
+colegiados.campo_codigo_poblacion	Ha d'especificar un valor en el camp codi població	colegiados	campo_codigo_poblacion
+colegiados.tipo_poliza	Tipo Pòlissa	colegiados	tipo_poliza
+colegiados.cambiar_imagen_activa	?No pot canviar el tipus d'una imatge activa.	colegiados	cambiar_imagen_activa
+colegiados.banco_trans	Banc Transferències	colegiados	banco_trans
+colegiados.agrupaciones_f_final_rango	No es poden duplicar agrupacions amb data fin dins del rang de cap altra.	colegiados	agrupaciones_f_ini_final
+colegiados.visible_web	Visible en la Web	colegiados	visible_web
+colegiados.datos_accidentes	Dades Accidents	colegiados	datos_accidentes
+colegiados.cesion_datos	Gestió de dades	colegiados	cesion_datos
+colegiados.dom_activo	Domicili Actiu	colegiados	dom_activo
+colegiados.retencion_iva	Retenció IVA/IGIC	colegiados	retencion_iva
+colegiados.seguro_accidente	Segur Accidents	colegiados	seguro_accidente
+colegiados.seguro_rc	Segur de Resposabilitat Civil (S. R. C.)	colegiados	seguro_rc
+colegiados.seguro_tasacion	Segur tasacion	colegiados	seguro_tasacion
+colegiados.ret_voluntaria	Retenció Voluntària	colegiados	ret_voluntaria
+colegiados.seguros	Assegurances	colegiados	seguros
+colegiados.activo_parametro	Cognom / Societat actiu al teclejar	colegiados	activo_parametro
+colegiados.tipo_seguro	Tipus	colegiados	tipo_seguro
+colegiados.datos_col	Dades Col.legials	colegiados	datos_colegiales
+colegiados.campo_pais_nombre	Deu especificar un valor per al camp nom Pais	colegiados	campo_pais_nombre
+colegiados.servicios	Servicis	colegiados	servicios
+colegiados.organismo	Organisme	colegiados	organismo
+colegiados.sit_profesional	Situació Professional	colegiados	sit_profesional
+colegiados.n_consejo	Consell	colegiados	n_consejo
+colegiados.complemento1	Complement 1	colegiados	complemento1
+colegiados.dom_activa_fiscal	Domicili Actiu Fiscal	colegiados	dom_activa_fiscal
+colegiados.datos_segur	DADES ASSEGURANÇA	colegiados	datos_segur
+colegiados.domicilio_poblacion	Amb domicili en la població	colegiados	domicilio_poblacion
+colegiados.poblacion_fiscal_activa	Població Fiscal Actiu	colegiados	poblacion_fiscal_activa
+colegiados.demarcacion	Demarcació	colegiados	demarcacion
+colegiados.registro_sicedades	Registre Societats	colegiados	registro_sociedades
+colegiados.colegiado_consejo	Consell	colegiados	colegiado_consejo
+colegiados.baja	Baixa	colegiados	baja
+colegiados.fecha_nacimiento	Data Naiximent	colegiados	fecha_nacimiento
+colegiados.companyia	Companyia	colegiados	companyia
+colegiados.centro	Centre	colegiados	centro
+colegiados.listado_mails	Llistat Emails	colegiados	listado_mails
+colegiados.ult_num_fac	Últim Nº Factura	colegiados	ult_num_fac
+colegiados.campo_apellido	Ha d'especificar un valor en el camp cognom	colegiados	campo_apellido
+colegiados.pagos	Pagaments Col.legiat	colegiados	pagos
+colegiados.listado_telefonos	Llistas Telèfons	colegiados	listado_telefonos
+colegiados.orientaciones_profesionales	Orientacions professionals	colegiados	situaciones_profesionales
+colegiados.poblacion	Població	colegiados	poblacion
+colegiados.agrupaciones_f_ini_iguales	No es poden duplicar agrupacions amb data inici iguals.	colegiados	agrupaciones_f_ini_iguales
+colegiados.listado_cesion	Llistat Cesió de Dades	colegiados	listado_cesion
+colegiados.premaat_baja	Desitja donar de Baixa a aquest col·legiat en PREMAAT?~~rLos imports a cobrar i pagar s'actualitzaran a0 .	colegiados	premaat_baja
+colegiados.tel_prof	Telèfon Prof.	colegiados	tel_prof
+colegiados.lista_colegiados	Llista Col.legiats	colegiados	lista_colegiados
+colegiados.poliza_exceso	Nom. Poliza excés	colegiados	poliza_exceso
+colegiados.msg_arquitectos_cod_poblacion	Existeixen arquitectes amb aquest codi de població	colegiados	msg_arquitectos_cod_poblacion
+colegiados.sociedades	Societats	colegiados	sociedades
+colegiados.campo_f_fin	Ha d'especificar un valor en el camp data fin	colegiados	campo_f_fin
+colegiados.observaciones	Observacions	colegiados	observaciones
+colegiados.fechai	D. Inici	colegiados	fechai
+colegiados.fnacimiento	Data Naiximent	colegiados	fnacimiento
+colegiados.impresion_impreso	Error en registrar la impressió de l'imprès	colegiados	impresion_impreosos
+colegiados.fechah	Fins	colegiados	fechah
+colegiados.hacienda	Hasienda	colegiados	hacienda
+colegiados.folio_ministerio	Fulla Ministeri	colegiados	folio_ministerio
+colegiados.serie	Serie	colegiados	serie
+colegiados.general_campo_sociedad	Ha d'especificar en la pestanya de Dades Generals, pagaments (Comptabilitat) un valor en el camp societat.	colegiados	msg_con_facturables_fp
+colegiados.valor_serie	Ha d'especificar una serie per a les factures.	colegiados	valor_serie
+colegiados.fotos_firmas	Fotografies, Signatures	colegiados	fotos_firmas
+colegiados.separados_comas	Nom.col. separat per comes	colegiados	separados_comas
+colegiados.documento	 Documents	colegiados	documento
+colegiados.hasta	Fins	colegiados	hasta
+colegiados.firma	Poseeïx signatura	colegiados	firma
+colegiados.fechad	Desde	colegiados	fechad
+colegiados.cobertura_exceso	Cob. Excés	colegiados	cobertura_exceso
+colegiados.duplicado	Nombre de Col.legiat duplicat.	colegiados	duplicado
+colegiados.adscripcion	Adscripció Col.legial	colegiados	adscripcion
+colegiados.tipo_alta	Tipus Alta	colegiados	tipo_alta
+colegiados.num_colegiado	Nom. Col.legiat	colegiados	num_colegiado
+colegiados.nombre	Nom	colegiados	nombre
+colegiados.listado_col_sociedades	Llistat Col.legiat i Societats	colegiados	listado_col_sociedades
+colegiados.valor_total_linea	Ha d'especificar un valor per al camp Total linea	colegiados	valor_total_linea
+colegiados.fecha_creacion	Data Creació	colegiados	fecha_creacion
+colegiados.nombre/num_colegiado	Nom/ Nombre Col.legiat	colegiados	nombre/num_colegiado
+colegiados.msg_pais_dom	Existeixen domicilis amb aquest pais	colegiados	msg_pais_dom
+colegiados.apellidos_nombre	Cognoms, Nom	colegiados	apellidos_nombre
+colegiados.n_poliza_exc	Nombre Pòlissa Exc.	colegiados	n_poliza_exc
+colegiados.ningun_concepto	Inclou els conceptes especificats que tingui assignats cada col·legiat i que tinguin la forma de pagament especificada	colegiados	ningun_concepto
+colegiados.poblacion-activa	Població Activa	colegiados	poblacion-activa
+colegiados.acreditado	Nº Habilitació	colegiados	acreditado
+colegiados.campo_tipo_alta	Ha d'especificar un valor en el camp tipus d'alta	colegiados	campo_tipo_alta
+colegiados.es_sociedad	És Societat	colegiados	es_sociedad
+colegiados.error_envio	Es va produir un error durant l'enviament	colegiados	error_envio
+colegiados.introducir_num	Deu introduir un nombre de col.legiat vàlid	colegiados	introducir_num
+colegiados.num_acreditado	Nom. Acreditat	colegiados	num_acreditado
+colegiados.existe_fichero	El fitxer ja existeix, desitja sobreescriure?	colegiados	existe_fichero
+colegiados.dom_fiscal	Ha d'especificar un domicili fiscal.	colegiados	dom_fiscal
+colegiados.plantilla	?La plantilla seleccionada no existeix	colegiados	plantilla
+colegiados.permiso_concesion	Permís cessió de dades	colegiados	permiso_cesion
+colegiados.listado_general_general	Llistat General	colegiados	listado_general_general
+colegiados.duplicar_clientes	No es poden duplicar clients	colegiados	duplicar_clientes
+colegiados.f_fin	D. Fi	colegiados	f_fin
+colegiados.campo_nombre_via	Ha d'especificar un valor en el camp nom de la via	colegiados	campo_nombre_via
+colegiados.campo_situacion	Ha d'especificar un valor en el camp situació	colegiados	campo_situacion
+colegiados.alta	Alta	colegiados	alta
+colegiados.permiso_col_con	Permís per a cedir dades a col.legi + Consell	colegiados	permiso_col_con
+colegiados.msg_pais_cli	Existeixen clients amb aquest codi de pais	colegiados	msg_pais_cli
+colegiados.msg_pais_prov	Existeixen provincies amb aquest codi de pais	colegiados	msg_pais_prov
+colegiados.msg_con_facturables_fp	Ha d'especificar en la pestanya de Conceptes Facturables (Comptabilitat) un valor en el camp forma pagament.	colegiados	msg_con_facturables_fp
+colegiados.f_registro_ministerio	D. Registre Ministeri	colegiados	f_registro_ministerio
+colegiados.historico	Històric	colegiados	historico
+colegiados.residente	Resident	colegiados	residente
+colegiados.listado_domiciliaciones	Llistat Domiciliacions	colegiados	listado_domiciliaciones
+colegiados.general_campo_voluntaria	Ha d'especificar en la pestanya de Dades Generals, pagaments (Comptabilitat) un valor en el camp retenció voluntaria.	colegiados	genera_campo_voluntaria
+colegiados.incluir_alguno	Inclou els conceptes especificats que tingui assignats cada col·legiat i que tinguin la forma de pagament especificada	colegiados	incluir_alguno
+colegiados.msg_con_facturables	Ha d'especificar en la pestanya de Conceptes Facturables (Comptabilitat) un valor en el camp concepte.	colegiados	msg_con_facturables
+colegiados.otros_datos	Altres dades	colegiados	otros_datos
+colegiados.agrupaciones	Agrupacions	colegiados	agrpaciones
+colegiados.campo_porcentaje	El camp percentatge deu de ser menor o igual a cent.	colegiados	campo_socedad
+colegiados.msg_fases_cod_poblacion	Existeixen fases amb aquest codi de població	colegiados	msg_fases_cod_poblacion
+colegiados.apellidos/sociedad	Cognom/Societat	colegiados	apellidos/sociedad
+colegiados.listado_sociedades_colegiados	Llistat de societats i col.legiats	colegiados	listado_sociedades_colegiados
+colegiados.campo_pais	Ha d'especificar un valor en el camp codi pais	colegiados	campo_pais
+colegiados.listado_completo	Llistat complet	colegiados	listado_completo
+colegiados.domicilios	Domicilis	colegiados	domicilios
+colegiados.listado_domicilios_detallado	Llistat de Domicilis Detallats	colegiados	listado_domicilios_detallado
+colegiados.telefono_particular	Telèfon Part.	colegiados	telefono_particular
+colegiados.listado_sencillo	Llistat Sencill de col.legiats	colegiados	listado_sencillo
+colegiados.ult_num_fac_rec	Últim Nº Factura Rect.	colegiados	ult_num_fac_rec
+colegiados.tipo_domicilio	Tipus Domicili	colegiados	tipo_domicilio
+colegiados.tipo_baja	Tipus Baixa	colegiados	tipo_baja
+colegiados.falta	Data Alta	colegiados	falta
+colegiados.permiso_col_con_ter	Permís per a cedir dades a Col.legi + Consell + Tercers	colegiados	permiso_col_con_ter
+colegiados.listado_seleccionados	Col.legiats seleccionats	colegiados	listado_seleccionados
+colegiados.publicidad	Publicitat	colegiados	publicidad
+colegiados.anyadir_registros	No es poden afegir més registres	colegiados	anyadir_registros
+colegiados.sociedad	Societat	colegiados	sociedad
+colegiados.dom_fiscal_activo	Domicili Fiscal Actiu	colegiados	dom_fiscal_activo
+colegiados.colegio_cons_terceros	Col.legi + Cons. + Tercers	colegiados	colegio_cons_terceros
+colegiados.premaat_baja_dom	Al donar de baixa al col·legiat en PREMAAT hauria de revisar les domiciliacions i prestacions que segueixen activa	colegiados	premaat_baja_dom
+colegiados.agrupaciones_f_ini_rango	No es poden duplicar agrupacions amb data inici dins del rang de cap altra.	colegiados	agrupaciones_f_ini_rango
+colegiados.n_poliza	Nº Pòlissa	colegiados	n_poliza
+colegiados.n_colegiado	Col.legiat	colegiados	n_colegiado
+colegiados.+65	Hi han colegiats majors de 65 anys que encar tenen les cuotas colegials pendents	colegiados	aviso_+65
+colegiados.n_expediente_univ	Nom. Exp. univ.	colegiados	n_expediente_univ
+colegiados.valor_fecha	Deu especificar una data per a les factures.	colegiados	valor_fecha
+colegiados.sit_prof_incom	Situacions Professionals / Incompatibilitats	colegiados	sit_conf_imcom
+colegiados.activa	Activa	colegiados	activa
+colegiados.situaciones	Situacions	colegiados	situaciones
+colegiados.valor_importe	Ha d'especificar un valor per al camp import	colegiados	valor_importe
+colegiados.retencion_IRPF	Retenció IRPF	colegiados	retencion_IRPF
+colegiados.listado_general	Llistat General	colegiados	listado_general
+colegiados.listado_inf_eco	Llistat D'Informació Económica	colegiados	listado_inf_eco
+colegiados.fecha_col	D. Col.legiació	colegiados	fecha_col
+colegiados.nivel_provincial	Nivell provincial	colegiados	nivel_provincial
+colegiados.ambito	Àmbit	colegiados	ambito
+colegiados.fcolegiacion	Data Col.letgiació	colegiados	fcolegiacion
+colegiados.fallo_captura	Impossible generar els documents per un error en la captura de dades	colegiados	fallo_catptura
+colegiados.duplicar_caracteristicas	No es poden duplicar característiques..?	colegiados	duplicar_caracteristicas
+colegiados.coldesde	Col. Desde	colegiados	coldesde
+colegiados.ape_sociedad	Cognoms/Societat	colegiados	ape_sociedad
+colegiados.situaciones_incompat	Dades Situacions, Incompabilitats	colegiados	situaciones_incompatibilidades
+colegiados.digitos_control_con	Els digits de control no són vàlids per al compte bancari.(Conceptes Facturables)	colegiados	digito_control_con
+colegiados.fecha_fin	Data Fi	colegiados	fecha_fin
+colegiados.digitos_control	Els digits de control no són vàlids per al compte bancari.(Dades Generals,pagaments)	colegiados	genera_campo_voluntaria
+colegiados.lista_personal	Llista personal col.legiats	colegiados	lista_personal
+colegiados.nombre_lista	Nom Llista	colegiados	nombre_lista
+colegiados.porcentaje	Porcentatge	colegiados	porcentaje
+colegiados.obs	Obs.	colegiados	obs
+colegiados.campo_tipo_via	Ha d'especificar un valor en el camp tipus de via	colegiados	campo_tipo_via
+colegiados.delegacion	Delegació	colegiados	delegacion
+colegiados.incompat.	Incompat.	colegiados	incompat.
+colegiados.campo_agrupacion	Ha d'especificar un valor en el camp agrupacó	colegiados	campo_agrpacion
+colegiados.tel_movil	Telèfon Mòbil	colegiados	tel_movil
+colegiados.irpf_distinto	Aquest col.legiat té un IRPF distint a %s	colegiados	distinto_irpf
+colegiados.num_mutualista	Nom. Mutualista	colegiados	num_mutualista
+colegiados.premaat	Aquest Col·legiat ja té una fitxa oberta en PREMAAT	colegiados	premaat
+colegiados.forma_pago	Forma de Pagament	colegiados	forma_pago
+colegiados.datos_bancarios	Dades Bancaris	colegiados	datos_bancarios
+colegiados.dom_correspondencia	Ha d'especificar un domicili per a correspondència	colegiados	dom_correspondencia
+colegiados.agrupacion	Agrupació	colegiados	agrupacion
+colegiados.fecha_sit	Data Situac.	colegiados	fecha_sit
+colegiados.campo_nif	Ha d'especificar un valor en el camp nif	colegiados	campo_nif
+colegiados.msg_clientes_cod_poblacion	Existeixen clients amb aquest codi de població	colegiados	msg_clientes_cod_poblacion
+colegiados.nom_banco_sucur	Nom Banc	colegiados	nom_banco_sucur
+colegiados.incluir_todos	Inclou tots els conceptes especificats en la llista amb els seus respectius imports.~~rLes dades de la factura seran els especificats.	colegiados	incluir_todos
+colegiados.seleccion_colegiado	?Seleccioni sol un col·legiat per generar el document	colegiados	seleccion_colegiado
+colegiados.sit_resid_ejer	Sit. Resid. Exerc.	colegiados	sit_resid_ejer
+colegiados.consejo	Nº Consell	colegiados	consejo
+colegiados.cesion_datos_int	Cesió de Dades/Internet	colegiados	cesion_datos_int
+colegiados.boora_con_fac_extra_col	Elimina conceptes dom. extres de col.legiats	colegiados	boora_con_fac_extra_col
+colegiados.identificacion	Identificació	colegiados	identificacion
+colegiados.concepto	Concepte	colegiados	concepto
+colegiados.desc_orientacion_prof	Descripció Orientació Professional	colegiados	desc_orientacion_prof
+colegiados.con_domiciliables_may0	Existeixen conceptes domiciliables amb imports majors a 0 que són suceptibles a facturació	colegiados	con_domiciliables_may0
+colegiados.num_valido	Deu introduir un nombre de col.legiat vàlid.	colegiados	num_valido
+colegiados.ctabanco_dom	Compte Bancari Domiciliació	colegiados	ctabanco_dom
+colegiados.desc_manual	Descripció Manual	colegiados	desc_manual
+colegiados.f_registro_escuela	D. Registre Escola	colegiados	f_registro_escuela
+colegiados.fecha_fin_carrera	D. Fi Carrera	colegiados	fecha_fin_carrera
+colegiados.denominacion_titulo	Denominació Títol	colegiados	denominacion_titulo
+colegiados.situacion	Situació	colegiados	situacion
+colegiados.col_consejo	Col.legi + Consell	colegiados	col_consejo
+colegiados.fecha_inicio	Data Inici	colegiados	fecha_inicio
+colegiados.permiso_trabajo_colegiados_paises	Permís de Treball Col.legiats entre Països	colegiados	permiso_trabajo_colegiados_paises
+colegiados.grupo	Grup	colegiados	grupo
+colegiados.ftitulacion	Data Titulació	colegiados	ftitulacion
+colegiados.fecha-alta	Data Alta	colegiados	fecha-alta
+colegiados.foto	Poseeïx fotografia	colegiados	foto
+colegiados.general_campo_irpf	Ha d'especificar en la pestanya de Dades Generals, pagaments (Comptabilitat) un valor en elretenció IRPF.	colegiados	genera_campo_irpf
+colegiados.busqueda_rapido_cli	Cerca ràpida de Clients	colegiados	busqueda_rapido_cli
+colegiados.cuotas_domic	Quotes,Domicil.liacions	colegiados	cuotas_domic
+colegiados.ejerciente	Exercient	colegiados	ejerciente
+Incluir SÓLO los conceptos facturables al colegiado en su ficha	Incloure SOLS els conceptes facturables al col.legiat en la seva fitxa	colegiados	Incluir SÓLO los conceptos facturables al colegiado en su ficha
+colegiados.cuenta_personal	Comte Personal	colegiados	cuenta_personal
+colegiados.poblacion_activa	Població Activa	colegiados	poblacion_activa
+colegiados.forma_pago_cuotas	Forma pagament de les Cuotes	colegiados	forma_pago_cuotas
+colegiados.valor_banco	Deu especificar el banc per a les factures.	colegiados	valor_banco
+colegiados.embargo_hacienda	Embargament Hasienda	colegiados	embargo_hacienda
+colegiados.conv_recono_humolog_espanya	Convalidació, Reconoiximent u Homologació d'Espanya	colegiados	conv_recono_humolog_espanya
+colegiados.contratos	Contractes	colegiados	contratos
+colegiados.contabilidad	Comptabilitat	colegiados	contabilidad
+colegiados.busqueda_rapido_col	Cerca ràpida de Col·legiats	colegiados	busqueda_rapido_col
+colegiados.f_caduc	D. Caduc.	colegiados	f_caduc
+colegiados.conceptos_facturables	Conceptes Facturables	colegiados	conceptos_fact
+colegiados.telefonos	Telèfons	colegiados	telefonos
+colegiados.f_ini_fin	La data inici no pot ser més gran que la data final.	colegiados	f_ini_fin
+colegiados.colegio	Col.legi	colegiados	colegio
+colegiados.col_con_terceros	Col.legi + Consell + Tercers	colegiados	col_con_terceros
+colegiados.colegiado	Col.legiat	colegiados	colegiado
+colegiados.escuela	Escola	colegiados	escuela
+colegiados.f_ini_fin_menor	La data final no pot ser menor que la data d'inici.	colegiados	f_ini_fin:menor
+colegiados.proceso_finalizado	Proces Finalitzat.?	colegiados	proceso_finalizado
+colegiados.campo_alta	Ha d'especificar un valor en el camp tipus d'alta	colegiados	campo_alta
+colegiados.tel_profesional	Telèfon Prof.	colegiados	tel_profesional
+colegiados.supera_honorarios	La quantitat a pagar pel col·legiat supera els seus honoraris	colegiados	supera_honorarios
+colegiados.parametros_busqueda	Paràmetres de Búsqueda	colegiados	parametros_busqueda
+colegiados.perfil_prof	Perfil Professional	colegiados	perfil_prof
+colegiados.campo_codigo_postal	Ha d'especificar un valor en el camp codi postal	colegiados	campo_codigo_postal
+colegiados.ciculares_impresas	Desitja rebre circulars impreses:	colegiados	ciculares_impresas
+colegiados.fbaja	Data Baixa	colegiados	fbaja
+colegiados.fecha	Data	colegiados	fecha
+colegiados.fax	Fax	colegiados	fax
+colegiados.telefono_web	Telèfon Web	colegiados	telefono_web
+colegiados.fecha_baja	Data Baixa	colegiados	fecha_baja
+colegiados.colegiados	Col.legiats	colegiados	colegiados
+general.ordenar_por	Ordenar per	colegiados	ordenar_por
+colegiados.duplicado_nif	Existeis un altre col.legiat amb aquet NIF	colegiados	duplicado_nif
+colegiados.activar_imagen	Avans d'activar una imatge ha d'indicar el seu tipus.	colegiados	activar_imagen
+consultas.seleccion	Seleccione una consulta de la llista :	consultas	texto_seleccion
+Del Usuario	De l~'usuari	consultas	del usuario
+consulta.consulta	Consulta	consultas	consulta
+consultas.seleccion_titulo	Selecció de consultes	consultas	titulo_seleccion
+mail.asunto	Assumpte	email	asunto
+mail.adjunto	Adjunt	email	adjunto
+mail.sin_adjuntos	Enviar sense adjunts	email	sin_adjuntos
+mail.password_mal	No ha intriduït cap password per a l'usuari %s	email	password_mal
+mail.direccion	Adreça	email	direccion
+mail.plantilla	Plantilla	email	plantilla
+mail.html	Format HTML	email	html
+mail.cuerpo	Missatge	email	cuerpo
+factu_fa.expediente	Expedient	factu_fa	expediente
+factura_e.iva16	Els tipus d'IVA al 16% i 7% només són vàlids per a dates anteriors al	facturas	iva16
+msg_factura.cambio_iva	L'IVA per defecte i IVA reduït han canviat des de l'1 de Juliol de 2010	facturas	cambio_iva
+factura_e.continuar	Desitja continuar?	facturas	continuar
+factura_e.iva18	Els tipus d'IVA al 18% i 8% només són vàlids per a dates posteriors al	facturas	iva18
+factura_e.fecha_iva	El canvi de data implica canvis en el tipus d'IVA, revisi les línies de conceptes	facturas	fecha_iva
+fases.col_pagar_directamente	Aquest col.legiat no pertany a aquest contracte.	fases	col_pagar_directamente
+fases.admon	Fases Admó	fases	admon
+fases.f_inicio	D. Inici	fases	f_inicio
+fases.f_inicio_obra	No existeis data d'inici d'obra	fases	f_inicio_obra
+fases.superficie	Superficie	fases	superficie
+fases.col_sit_res¡dente	Col.legiats Sit. Resident	fases	col_sit_res¡dente
+fases.sup_gar	Sup. Gar.	fases	sup_gar
+fases.col_pagar_directamente_gastos	El col·legiat desitja pagar directament les despeses, Sortirà un imprès que ha de signar	fases	col_pagar_directamente_gastos
+fases.f_reclam	Data Reclam.	fases	f_reclam
+fases.titulo	Títol	fases	titulo
+fases.col_sit_pro	Col.legiats Sit. Professional	fases	col_sit_pro
+fases.puerta	Porta	fases	puerta
+fases.propiedad	Propietat	fases	propiedad
+fases.tipo_promotor	Tipus Promotor	fases	tipo_promotor
+fases.uso_edi	Ús Edifici	fases	uso_edi
+fases.tipo_viviendas	Tipus Habitatges	fases	tipo_viviendas
+fases.sup_otros	Sup. Altres	fases	sup_otros
+fases.n_edificios	Nº Edificis	fases	n_edificios
+fases.tipo_reclam	Tipus Reclam.	fases	tipo_reclam
+fases.cte	No pertany al CTE	fases	cte
+fases.edi_bajo_rasante	Edif. Sota Rasant	fases	edi_bajo_rasante
+fases.abono	D.Visat	fases	abono
+fases.n_plantas	Nº Plantes	fases	n_plantas
+fases.n_visado	Nº Visat	fases	n_visado
+fases.estudio_geotecnico	Estudi Geotècnic	fases	estudio_geotecnico
+fases.f_visado	Data VºBº	fases	f_visado
+fases.poblacion	Població	fases	poblacion
+fases.cambio_col	Se ha produit un canvi de col.legiat	fases	cambio_col
+fases.msg_asociados	 és una societat. Falta introduir el col- legiat de la Societat, en la pestanya de Col.legiats.	fases	msg_asociados
+fases.sup_vdas	Sup. Hab.	fases	sup_vdas
+fases.col_pertenece_contrato	Aquest col.legiat no pertany a aquest contracte.	fases	col_pertenece_contrato
+fases.cliente_auto_doc	Client Autoritzat a retirar documentació	fases	cliente_auto_doc
+fases.control_calidad_ext	Control de Qualitat Extern	fases	control_calidad_ext
+fases.contrato_control	Contracte Control	fases	contrato_control
+fases.celda	Nº Full Enc.	fases	celda
+fases.control_calidad_int	Control de Qualitat Intern	fases	control_calidad_int
+fases.corte_tiquet	Talle el tiquet abans de continuar	fases	corte_tiquet
+fases.r_catastral	Catastre	fases	r_catastral
+fases.col_sit_col	Col.legiats Sit. Col.legial	fases	col_sit_col
+fases.contrato_minutas	Contracte Minutas	fases	contrato_minutas
+fases.emplezamiento	Emplaçament	fases	emplezamiento
+fases.altura_edi	Altura Edifici	fases	altura_edi
+fases.medianeras	Entre Mitgeres	fases	medianeras
+fases.calle	Nùm.	fases	calle
+fases.f_cfo	D. C.F.O.	fases	f_cfo
+fases.piso	Pis	fases	piso
+fases.destino_int	Destí Intern	fases	destino_int
+fases.n_viviendas	Nº Habitatges	fases	n_viviendas
+fases.f_introduccion	Data D'introducció	fases	f_introduccion
+fases.f_abono	Data Visat	fases	f_abono
+fases.ellas_vpo	Vpo's	fases	ellas_vpo
+fases.pe_material	Pressupost	fases	pe_material
+fases.representante	Representant	fases	representante
+fases.f_cfd	Data C.F.D	fases	f_cfd
+fases.f_emision	Data Emisió	fases	f_emision
+fases.contrato_prinicpal	Contracte Principal	fases	contrato_prinicpal
+fases.tipo_actuacion	Tipus D'Actuació	fases	tipo_actuacion
+fases.tipo_registro	Tipus Registre	fases	tipo_registro
+fases.ventana_importacion	La finestra de importacion de Visared està activa, cierrela per a continuar.	fases	ventana_importacion
+fases.tipo_obra	Tipus D'obra	fases	tipo_obra
+fases.tipo_gestion	Tipus de Gestió	fases	tipo_gestion
+fases.tipo_gestio	Tipus Gestió	fases	tipo_gestio
+fases.reg_preasignados_exp	Registres Preasignats de l'expedient	fases	reg_preasignados_exp
+fases.reg_es	Registre E/S	fases	reg_es
+fases.reclamaciones	Reclamacions	fases	reclamaciones
+fases.presupuestos	Total/Parcial	fases	presupuestos
+fases.presupuesto	Presupost	fases	presupuesto
+fases.pendiente	Pendent	fases	pendiente
+fases.otros_documentos	Altres Documents	fases	otros_documentos
+fases.otros_doc_fase	Altres documents de la fase	fases	otros_doc_fase
+fases.otros_datos	Altres Dades	fases	otros_datos
+fases.opciones	Opcions >>	fases	opciones
+fases.observaciones_doble_clic	Observacions (doble clic per a maximitzar)	fases	observaciones_doble_clic
+fases.obra_administracion	Obra Administració	fases	obra_administracion
+fases.nif_representante	NIF Representant	fases	nif_representante
+fases.n_viv	Nom. Viv	fases	n_viv
+fases.n_sal_arch_exp	Arx. Exp:	fases	n_sal_arch_exp
+fases.n_sal_arch_cont	Nº Visat	fases	n_sal_arch_cont
+fases.n_expediente	Nom. Expedient	fases	n_expediente
+fases.n_exp	Nº Exp.	fases	n_exp
+fases.n_edif	Nom. Edif.	fases	n_edif
+fases.n_colegiado	Nom. Col.legiat	fases	n_colegiado
+fases.n_coleg	Nom. Col.leg.	fases	n_coleg
+fases.n_avisos	Nº Avis	fases	n_avisos
+fases.n_aviso	Nº Avís	fases	n_aviso
+fases.msg_valor_tipo_obra	Ha d'especificar un valor en el camp tipus obra	fases	msg_valor_tipo_obra
+fases.msg_valor_tipo_actuacion	Ha d'especificar un valor en el camp Tipus D'Actuació	fases	msg_valor_tipo_actuacion
+fases.msg_valor_promotor_estadisticas	Ha d'especificar el tipus de promotor en la fitxa d'estadístiques	fases	msg_valor_promotor_estadisticas
+fases.msg_valor_emplazamiento	Ha d'especificar un valor en el camp empleçament	fases	msg_valor_emplazamiento
+fases.msg_valor_destino_uso_obra	Ha d'especificar un valor en el camp destí o ús d'obra	fases	msg_valor_destino_uso_obra
+fases.msg_valor_destino:uso_obra	Ha d'especificar un valor en el camp destí o ús d'obra	fases	msg_valor_destino:uso_obra
+fases.msg_valor_campo	Deu especificar una data al camp	fases	msg_valor_campo
+fases.msg_tipo_informe	Deu sel.leccionar un tipus d'informe.	fases	msg_tipo_informe
+fases.msg_tipo_fes_col	S'ha canviat el tipus de gestió dels col·legiats	fases	msg_tipo_fes_col
+fases.msg_tiene_musaat	- Té Musaat	fases	msg_tiene_musaat
+fases.msg_sociedad_socio	Una Societat ha de tenir almenys un soci	fases	msg_sociedad_socio
+fases.msg_sel_doc	Sel.lecciona Document	fases	msg_sel_doc
+fases.msg_reparos_notificados_mail	Les següents objeccions no han estat notificats per falta de Email de les seves col·legiats :	fases	msg_reparos_notificados_mail
+fases.msg_reparos_caract	Existeisen 2 o més objeccions amb les mateixes característiques	fases	msg_reparos_caract
+fases.msg_reparo_sub	L'objecció ja ha estat resolt amb anterioritat.	fases	msg_reparo_sub
+fases.msg_reparo_mod_estado_con	Aquest tipus d'objecció modifica l'estat actual del contracte, Desitja continuar?	fases	msg_reparo_mod_estado_con
+fases.msg_rep_no_existe_alta	Aquest representant NO existeix, Desitja donar-lo d'alta?	fases	msg_rep_no_existe_alta
+fases.msg_rep_no_existe	El representant NO existeis	fases	msg_rep_no_existe
+fases.msg_relacion_expediente	En relació a l'expedient	fases	msg_relacion_expediente
+fases.msg_recalcula_honorarios	Desitja recalcular els honoraris del contracte en funció del percentatge	fases	msg_recalcula_honorarios
+fases.msg_querido_amigo	Benvolgut company :	fases	msg_querido_amigo
+fases.msg_prop_no_existe_pregunta	La propietat NO existeis, Desitja donarla d'alta?	fases	msg_prop_no_existe_pregunta
+fases.msg_porcentaje_mayor_100	El percentatge total és superior a 100. Rectifiqui'l o es farà el repartiment proporcionalment	fases	msg_porcentaje_mayor_100
+fases.msg_pob_mopu	Aquesta població ha de tindre codi MOPU	fases	msg_pob_mopu
+fases.msg_permisos_suficientes	No té permisos suficiets per a modificar aquest valor.	fases	msg_permisos_suficientes
+fases.msg_permisos:suficientes	No té permisos suficiets per a modificar aquest valor.	fases	msg_permisos:suficientes
+fases.msg_permisos	No té permisos suficients per a modificar aquest valor	fases	msg_permisos
+fases.msg_parametros_calculo	Introduisca el paràmetres de Càlcul	fases	msg_parametros_calculo
+fases.msg_pagador_participacion	Ha d'haver almenys un client PAGADOR en la fase amb una participació major que 0.	fases	msg_pagador_participacion
+fases.msg_observado_reparos	, s'han observat les següents OBJECCIONS :	fases	msg_observado_reparos
+fases.msg_prop_no_existe	La propietat NO existeis	fases	msg_prop_no_existe
+fases.msg_numero_col_fila	El nombre de col.legiat de la fila	fases	msg_numero_col_fila
+fases.msg_no_permisos_accion	No Té Permís Per a Realitzar Aquesta Acció	fases	msg_no_permisos_accion
+fases.msg_nif_cliente	Ha d'indicar el nif de client, o no existeix cap client amb aquest NIF	fases	msg_nif_cliente
+fases.msg_recalcular	Desitja recalcular?	fases	msg_recalcular
+fases.msg_nif_9	El NIF/CIF ha de ser de 9 posicions.	fases	msg_nif_9
+fases.msg_mod_hono	Desitja modificar els honoraris existents?	fases	msg_mod_hono
+fases.msg_marcar_col_funcionario	Atenció!!! : Marcar aquest col·legiat com funcionari suposarà que no se li cobrarà MUSAAT en obres oficials	fases	msg_marcar_col_funcionario
+fases.msg_reparo_estado_actual	No es poden inserir objeccions en l'estat actual.	fases	msg_reparo_estado_actual
+fases.msg_inci_col	Atenció !!! Inciddències. Col.legiat:	fases	msg_inci_col
+fases.msg_inci_cli	Atenció !!! Inciddències. Client:	fases	msg_inci_cli
+fases.msg_importar_contrato_actual	No pot importar un contracte en l'estat actual. Ha d'estar en estat preasignado	fases	msg_importar_contrato_actual
+fases.msg_generar_aviso_10	Desitja generar un avís del 10% de MUSAAT?	fases	msg_generar_aviso_10
+fases.msg_fichero:usado_aplicacion	Comprovi que el fitxer no ho està utilitzant alguna aplicació	fases	msg_fichero:usado_aplicacion
+fases.msg_ficha_estadistica_comp	Hauria d'emplenar l'els/següent/s camp/s en la fitxa d'Estadística:	fases	msg_ficha_estadistica_comp
+fases.msg_ficha_estadistica	En la fitxa d'Estadística	fases	msg_ficha_estadistica
+fases.msg_tipo_actuacion_tipo_obra	Ha d'indicar primer el tipus d'actuació i el tipus d'obra per a poder informar de les accions a realitzar	fases	msg_tipo_actuacion_tipo_obra
+fases.msg_fase_exp	ATENCION !!! Aquesta fase JA existeix dintre d'aquest expedient.	fases	msg_fase_exp
+fases.msg_factura_colegiado	Existeix almenys un avís de factura assignat a un col·legiat i/o client no vinculat al contracte	fases	msg_factura_colegiado
+fases.msg_exp_dtos_regularizacion	El expediente no tiene descuentos por lo que no tiene sentido la regularización	fases	msg_exp_dtos_regularizacion
+fases.msg_valor_contrato_vinculados	Aquest Contracte te registres vinculats.	fases	msg_valor_contrato_vinculados
+fases.msg_exp_dtos_regul	L'expedient no té descomptes pel que no té sentit la regularització	fases	msg_exp_dtos_regul
+fases.msg_estado_operacion_visar	L'estat del contracte NO permet l'operació de Desvisar	fases	msg_estado_operacion_visar
+fases.msg_estado_contrato	L'estat del contracte és:	fases	msg_estado_contrato
+fases.msg_valor_f_entrada	Ha d'especificar un valor en el camp data d'etrada	fases	msg_valor_f_entrada
+fases.msg_estado_anterior	La fase passarà a estar en l'estat anterior - Registrat (en anàlisi)	fases	msg_estado_anterior
+fases.msg_error_crear_dir	Error al crear el directori on es copiaran els documents associats a aquest contracte.	fases	msg_error_crear_dir
+fases.msg_enviar_contrato	ATENCIÓ!! Va a procedir a enviar el contracte seleccionat a un Expedient d'Esborrat.	fases	msg_enviar_contrato
+fases.msg_datos_extendidos_fin_obra	No pot definir-se les dades esteses del final d'obra si no es grava amb antelació la línia del final d'obra corresponent	fases	msg_datos_extendidos_fin_obra
+fases.msg_datos_asociados	Les dades dels associats han canviat, Desitja guardar-los?	fases	msg_datos_asociados
+fases.msg_crear_avisos_guardado	No és possible crear avisos si el contracte no està prèviament gravat	fases	msg_crear_avisos_guardado
+fases.msg_contrato_tiene	Aquest contracte té	fases	msg_contrato_tiene
+fases.n_consejo	Nº Consell	fases	n_consejo
+fases.msg_contrato_reparos_subsa_exis	Ha de resoldre les objeccions existents abans de visar	fases	msg_contrato_reparos_subsa_exis
+fases.msg_contrato_reparos_subsa	Aquest contracte té objeccions no resoltes	fases	msg_contrato_reparos_subsa
+fases.msg_contrato_nuevo	Pot ser que el contracte no sigui nou, Desitja continuar amb la importació?	fases	msg_contrato_nuevo
+fases.n_registro	Nº Reg.	fases	n_registro
+fases.msg_contrato_coincide_presupuesto	Aquest contracte coincideix en pressupost, tipus d'actuació i promotors amb la següent llista de contractes	fases	msg_contrato_coincide_presupuesto
+fases.msg_contrato_borrar_con-avisos	El contracte que va a eliminar té avisos, desitja eliminar-lo?	fases	msg_contrato_borrar_con-avisos
+fases.msg_contrato_borrar_con_avisos	El contracte que va a eliminar té avisos, desitja eliminar-lo?	fases	msg_contrato_borrar_con_avisos
+fases.nif_cliente	NIF Client	fases	nif_cliente
+fases.msg_con_reparos_pdtes_sub	Aquest contracte té objecció/s pendent/s de resoldre	fases	msg_con_reparos_pdtes_sub
+fases.msg_con_estado_avisos	El contracte està en un estat en el qual no es permet crear avisos	fases	msg_con_estado_avisos
+fases.msg_combinacion_musaat	Aquesta combinació tipus act-tipus d'obra no la recull MUSAAT	fases	msg_combinacion_musaat
+fases.msg_col_participacion	Ha d'haver almenys un col·legiat amb participació superior a0 .	fases	msg_col_participacion
+fases.msg_col_f1	El nombre de Col·legiat no és vàlid o no aquesta dau d'alta (fila 1)	fases	msg_col_f1
+fases.msg_col_activos_contrato	No existeisen col.legiats actius per aquest contracte	fases	msg_col_activos_contrato
+fases.msg_codigo_inexistente	Aquest codi no existeix	fases	msg_codigo_inexistente
+fases.paga_gastos_cliente	Paga gastos Clients	fases	paga_gastos_cliente
+fases.msg_cobrar_aviso	No es pot cobrar l'avis.	fases	msg_cobrar_aviso
+fases.msg_cli_no_existe	El client NO existeis	fases	msg_cli_no_existe
+fases.msg_cli_no_exist	Aquest client NO existeix, Desitja donar-lo d'alta?	fases	msg_cli_no_exist
+fases.promotor	Promotor	fases	promotor
+fases.msg_cli_duplicado	No pot haver un client duplicat	fases	msg_cli_duplicado
+fases.msg_cli_avisos_asig_borrar	El client NO es pot eliminar , té Avisos Asignats	fases	msg_cli_avisos_asig_borrar
+fases.msg_cli_avisos_asig	El Client té Avisos Assignats	fases	msg_cli_avisos_asig
+fases.msg_cli_activos_contrato	No existeisen clients acius per aquest contracte	fases	msg_cli_activos_contrato
+fases.msg_campo_tipo_doc_otros	Ha d'especificar el Tipus de Document en la Fitxa Altres Docs.	fases	msg_campo_tipo_doc_otros
+fases.msg_campo_tipo	Ha d'especificar un valor en el camp tipus de la taula objeccions	fases	msg_campo_tipo
+fases.msg_campo_sup_viv	Ha d'especificar un valor en el camp Suoerficie Vivenda	fases	msg_campo_sup_viv
+fases.msg_campo_sup_otros	Ha d'especificar un valor en el camp Suoerficie Altres	fases	msg_campo_sup_otros
+fases.msg_campo_sup_garage	Ha d'especificar un valor en el camp Suoerficie Garage	fases	msg_campo_sup_garage
+fases.msg_campo_raparo	Ha d'especificar un valor en el camp objecció de la taula objeccions	fases	msg_campo_raparo
+fases.msg_campo_id_col	Ha d'especificar un valor en el camp Col.legiats de la taula objeccions	fases	msg_campo_id_col
+fases.msg_campo_fecha_intro_ficha_fin_obra	Ha d'especificar la data d'introducció a la fitxa fin d'obra.	fases	msg_campo_fecha_intro_ficha_fin_obra
+fases.msg_campo_fecha_entrada_otros	Ha d'especificar la data d'entrada del document a la Fitxa Altres Docs.	fases	msg_campo_fecha_entrada_otros
+fases.msg_campo_f_emision	Ha d'especificar un valor en el camp data d'emsisió de la taula objeccions	fases	msg_campo_f_emision
+fases.msg_campo_dtos	Ha d'especificar un valor en el camp tipus descompte en la taula Descomptes	fases	msg_campo_dtos
+fases.msg_campo_col_src	Ha d'especificar el col.legiat per a SRC.	fases	msg_campo_col_src
+fases.msg_camp_tipo_gestion	Ha d'especificar un valor en el camp Tipus Gestió	fases	msg_camp_tipo_gestion
+fases.msg_camp_pobalcion	La població és incorrecta, no existeix,deu donar d'alta poblacions.	fases	msg_camp_pobalcion
+fases.msg_calcular_dtos_col	Desitja calcular els descomptes col·legials i de segur ara?	fases	msg_calcular_dtos_col
+fases.msg_busca_cli_rep	No és possible buscar per client y repesentant al mateix temps.	fases	msg_busca_cli_rep
+fases.msg_borrar_reparo_notificado	No es pot eliminar una objecció que ha estat notificat	fases	msg_borrar_reparo_notificado
+fases.msg_borrar_fichero	No es pot eliminar el fitxer:	fases	msg_borrar_fichero
+fases.msg_borrar_colegiado	El col.legiat no és pot eliminar	fases	msg_borrar_colegiado
+fases.msg_avisos_asignados	- Té avisos asignats	fases	msg_avisos_asignados
+fases.msg_aviso_pdte_cobro	Aquest avís està pendent de pagament	fases	msg_aviso_pdte_cobro
+fases.msg_aviso_anulado	Aquest avís està anul.lat	fases	msg_aviso_anulado
+fases.msg_asociados_porcentaje	 és una societat, ha d'introduir els associats i els seus percentatges sumar 100.	fases	msg_asociados_porcentaje
+fases.msg_asignado_valor_contrato	Ha d'assignar-li valor per a poder eliminar contractes	fases	msg_asignado_valor_contrato
+fases.msg_asignado_exp_eventos	No té assignat cap expedient en la taula Control d'Esdeveniments.	fases	msg_asignado_exp_eventos
+fases.msg_asegurar_dir	Asseguri's que el directori	fases	msg_asegurar_dir
+fases.msg_abonado_gastos_con	No s'han abonat tots les despeses del contracte	fases	msg_abonado_gastos_con
+fases.modalidad	Delegació	fases	modalidad
+fases.mas_datos	Més dades	fases	mas_datos
+fases.incompatibilidades	Incompativilitats	fases	incompatibilidades
+fases.imp_renuncia	'Desitja imprimir la renúncia?	fases	imp_renuncia
+fases.honorarios	Honoraris	fases	honorarios
+fases.gestion	Gestió	fases	gestion
+fases.fase_dip	La fase no té DIP	fases	fase_dip
+fases.colegio_destino	Col.legi destí	fases	colegio_destino
+fases.f_retirada	Data Retirada	fases	f_retirada
+fases.f_subsana	Data Subsanac.	fases	f_subsana
+fases.f_entrada	Data Entrada	fases	f_entrada
+fases.estados	Estats	fases	estados
+fases.estado	Estat	fases	estado
+fases.entrada_lista	No existeix cap entrada en la llista.~~rPer a preasignar un nº de registre, cal partir d'un expedient obert.	fases	entrada_lista
+fases.emplazamiento	Emplaçament	fases	emplazamiento
+fases.destino	Destí	fases	destino
+fasesmas.visar_seguridad	Visar Seguretat	fasesmas	visar_seguridad
+fasesmas.ultimo_numero_minuta	Últim nombre de minuta :	fasesmas	ultimo_numero_minuta
+fasesmas.trabaja_empresa	Treballa per a Empresa	fasesmas	trabaja_empresa
+fasesmas.seleccionar_contratos	Seleccioni el/els contracte/s :	fasesmas	seleccionar_contratos
+fasesmas.ret.voluntaria	Ret. Voluntària	fasesmas	ret.voluntaria
+fasesmas.renunciado	Renunciat	fasesmas	renunciado
+fasesmas.ren	Ren.	fasesmas	ren
+fasesmas.redaccion_proyecto	Redacció de Projecte	fasesmas	redaccion_proyecto
+fasesmas.reclamar	Reclamar	fasesmas	reclamar
+fasesmas.pulse_icono	Premi la icona per a visualitzar el mapa en el seu navegador. En cas de no trobar la situació,~rpot buscar-la manualment i pegar l'adreça en el camp de text.	fasesmas	pulse_icono
+fasesmas.pertenece_alguna_sociedad	Pertany a alguna societat	fasesmas	pertenece_alguna_sociedad
+fasesmas.pago_fraccionado	Pagament Fraccionat	fasesmas	pago_fraccionado
+fasesmas.otros_datos	Altres Dades	fasesmas	otros_datos
+fasesmas.opciones_impresion	Opcions d'impressió	fasesmas	opciones_impresion
+fasesmas.ok	OK	fasesmas	ok
+fasesmas.obra_oficial	Aquesta obra és Oficial :	fasesmas	obra_oficial
+fasesmas.seleccione_colegiado	Seleccioni el col·legiat	fasesmas	seleccione_colegiado
+fasesmas.nivel_control_calidad	Nivell de Control de Qualitat	fasesmas	nivel_control_calidad
+fasesmas.n_originales	Nº Originals	fasesmas	n_originales
+fasesmas.n_copias	Nº Còpies	fasesmas	n_copias
+fasesmas.musaat	M.U.S.A.A.T.	fasesmas	musaat
+fasesmas.mover_expediente_existente	Moure a un expedient existent	fasesmas	mover_expediente_existente
+fasesmas.liquidaciones_mostrar	Liquidacions a mostrar	fasesmas	liquidaciones_mostrar
+fasesmas.irpf_cliente	IRPF Client	fasesmas	irpf_cliente
+fasesmas.introducir_datos_contrato	Introduir dades del Contracte ara	fasesmas	introducir_datos_contrato
+fasesmas.introducir_ahora	Introduir ara	fasesmas	introducir_ahora
+fasesmas.imprimir_etiqueta	Imprimir Etiqueta	fasesmas	imprimir_etiqueta
+fasesmas.importar_n_registro	Importar Nº de Registre	fasesmas	importar_n_registro
+fasesmas.honorarios	Honoraris	fasesmas	honorarios
+fasesmas.generar_movimientos_musaat_funcionarios	Es van a generar els moviments de MUSAAT als funcionaris per import 0	fasesmas	generar_movimientos_musaat_funcionarios
+fasesmas.generar_aviso_diez	Generar un avís pel 10%	fasesmas	generar_aviso_diez
+fasesmas.gastos_incluir_aviso	Seleccioni l'els/despesa/s a incloure en l'avís	fasesmas	gastos_incluir_aviso
+fasesmas.funcionario	Funcionari	fasesmas	funcionario
+fasesmas.fun	Fun.	fasesmas	fun
+fasesmas.fecha_v_b	Data VºBº :	fasesmas	fecha_v_b
+fasesmas.facturar_cobrar_aviso	Facturar i cobrar l'avís	fasesmas	facturar_cobrar_aviso
+fasesmas.estudio_geotecnico	Estudi Geotecnic	fasesmas	estudio_geotecnico
+fasesmas.emitida	Emesa	fasesmas	emitida
+fasesmas.edificacion_sobre	Edificació sobre Rasant	fasesmas	edificacion_sobre
+fasesmas.director	Director	fasesmas	director
+fasesmas.datos_relativos_pago	Dades Relatives al Pagament	fasesmas	datos_relativos_pago
+fasesmas.datos_musaat	Dades Musaat	fasesmas	datos_musaat
+fasesmas.conceptos_facturables	Conceptes Facturables	fasesmas	conceptos_facturables
+fasesmas.anulada	Anul·lada	fasesmas	anulada
+fasesmas.agrupar_contratos_tipo_act	Agrupar Contractes per Tipus Act	fasesmas	agrupar_contratos_tipo_act
+fasesmas.alta	Alta	fasesmas	alta
+fasesmas.abonada	Abonada	fasesmas	abonada
+fasesmas.cip	C.I.P	fasesmas	cip
+fasesmas.cg	CG	fasesmas	cg
+fasesmas.coordinacion	Coordinació	fasesmas	coordinacion
+fasesmas.control_calidad_externo	Control de Qualitat Extern	fasesmas	control_calidad_externo
+fasesmas.crear_mover_expediente_nuevo	Crear i moure a un expedient nou	fasesmas	crear_mover_expediente_nuevo
+fasesmas.desplazamientos	Desplaçaments	fasesmas	desplazamientos
+fasesmas.autor	Autor	fasesmas	autor
+fasesmas.domiciliacion_bancaria	Domiciliació Bancària	fasesmas	domiciliacion_bancaria
+fasesmas.domicilio	Domicili	fasesmas	domicilio
+fasesmas.edificacion_bajo	Edificació sota Rasant	fasesmas	edificacion_bajo
+fasesmas.dir	Dir.	fasesmas	dir
+final_obra.tipo	Tipus	final_obra	tipo
+final_obra.sup_viv	Sup Viv.	final_obra	sup_viv
+final_obra.sup_otros	Sup. Altres	final_obra	sup_otros
+final_obra.sup_otr	Sup. Altres	final_obra	sup_otr
+final_obra.sup_gar	Sup. Gar.	final_obra	sup_gar
+final_obra.promotor	Promotor	final_obra	promotor
+final_obra.presupuesto	Pressupost	final_obra	presupuesto
+final_obra.part	Part.	final_obra	part
+final_obra.pagador	Pagador	final_obra	pagador
+final_obra.nif	NIF	final_obra	nif
+final_obra.n_viv	Nº Viv.	final_obra	n_viv
+final_obra.n_registro	Nº Registre	final_obra	n_registro
+final_obra.n_expediente	Nº Expedient	final_obra	n_expediente
+final_obra.n_exp	Nº Exp.	final_obra	n_exp
+final_obra.n_edif	Nº Edif.	final_obra	n_edif
+final_obra.introduzca_param_consulta_aceptar	Introdueixi els paràmetres de consulta i premi &Acceptar	final_obra	introduzca_param_consulta_aceptar
+final_obra.hasta	Fins a	final_obra	hasta
+final_obra.f_introduccion	D. Introducció	final_obra	f_introduccion
+final_obra.f_introd	D. Introd.	final_obra	f_introd
+final_obra.f_c_f_o	D. C.F.O	final_obra	f_c_f_o
+final_obra.estadistica_fomento	Estadística Foment	final_obra	estadistica_fomento
+final_obra.desde	Desde	final_obra	desde
+final_obra.descripcion	Descripció	final_obra	descripcion
+final_obra.copias	Còpies	final_obra	copias
+final_obra.contrato_vinculado	Contracte Vinculat	final_obra	contrato_vinculado
+final_obra.contrato	Contracte	final_obra	contrato
+final_obra.colegiados	Col·legiats	final_obra	colegiados
+final_obra.colegiado	Col·legiat	final_obra	colegiado
+final_obra.clientes	Clients	final_obra	clientes
+final_obra.cliente	Client	final_obra	cliente
+final_obra.asociados	Associats	final_obra	asociados
+general.observaciones	Obs.	general	observaciones
+general.numero	Nombre	general	numero
+general.num_originales	Núm. Originals	general	num_originales
+general.nuevo	Nou	general	nuevo
+general.mes_junio	JUNY	general	junio
+general.mes_julio	JULIOL	general	julio
+general.nombre	Nom	general	nombre
+general.NIF	NIF	general	NIF
+general.msg_tener_colegio	Ha de tenir un col.legi	general	msg_tener_colegio
+general.msg_tener_codigo	Ha de tenir un codi	general	msg_tener_codigo
+general.msg_registros_exp_cod_poblacion	Existeixen expedients amb aquest codi de població	general	msg_registros_exp_cod_poblacion
+general.msg_registros_cod_poblacion	Existeixen registres amb aquest codi de població	general	msg_registros_cod_poblacion
+general.entrada	D. Entrada	general	entrada
+general.ubicacion	Ubicació	general	ubicacion
+general.msg_reg_tipo_trans	Existeixen registres amb aquest tipus de comunicat.	general	msg_reg_tipo_trans
+general.msg_pob_zona	Existeixen poblacions amb aquesta zona	general	msg_pob_zona
+general.msg_org_cursos_cod_poblacion	Existeixen organitzadors cursos de formació amb aquest codi de provincia	general	msg_org_cursos_cod_poblacion
+general.msg_musaat_trabajo	Existeixen musaat moviments amb aquest treball.	general	msg_musaat_trabajo
+general.msg_mov_musaat_tipo_tra	Existeixen moviments de musaat amb aquest tipus de treball.	general	msg_mov_musaat_tipo_tra
+general.msg_mov_musaat_fase	Existeixen moviments de musaat amb aquest tipus de fase	general	msg_mov_musaat_fase
+general.msg_modalidad	Existeixen fases amb aquesta modalitat	general	msg_modalidad
+general.msg_libros_ubicacion	Existeixen llibres amb aquesta ubicació	general	msg_libros_ubicacion
+general.msg_fich_no_existe	No existeix el fitxer en aquesta ruta	general	msg_fich_no_existe
+general.msg_fases_trabajo	Existeixen fases amb aquest treball.	general	msg_fases_trabajo
+general.msg_fases_tipo_via	Existeixen fases amb aquest tipus de via.	general	msg_fases_tipo_via
+general.msg_fases_tipo_trabajo	Existeixen fases amb aquest tipus de treball.	general	msg_fases_tipo_trabajo
+general.mes_enero	GENER	general	enero
+general.mes_febrero	FEBRER	general	febrero
+Factura	Factura	general	factura
+general.msg_exsite_departamento	Existeixen registres mb aquest codi de depatament	general	msg_exsite_departamento
+extracto remesa banco	Extracte Remesa Banc	general	extracto remesa banco
+general.msg_exsite_col_provincia	Existeixen col·legiats amb aquest codi de Província	general	msg_exsite_col_provincia
+Expediente	Expedient	general	expediente
+general.msg_exp_trabajo	Existeixen expedients amb aquest treball.	general	msg_exp_trabajo
+general.info_iva_col	INFORMACIÓ DE L'IVA DEL COL·LEGIAT	general	info_iva_col
+general.msg_escritos_tiop_escrito	Existeixen escrits amb aquest tipus d'escrit.	general	msg_escritos_tiop_escrito
+general.msg_dom_tipo_dom	Existeixen domicilis amb aquest tipus de domicili.	general	msg_dom_tipo_dom
+Exceso	Excés	general	exceso
+general.ref_expediente	Ref. Expedi. - Client	general	ref_expediente
+Título	Títol	general	titulo
+Terceros	Tercers	general	Terceros
+general.msg_colegiados_tipo_servicio	Existeixen col·legiats amb aquest tipus de Servei.	general	msg_colegiados_tipo_servicio
+general.f_nacimiento	Data Naix.	general	f_nacimiento
+Cheque, Talon	Xec Taló	general	cheque_talon
+Avisos	Avisos	general	avisos
+Activo	Actiu	general	activo
+general.msg_col_concepto_dom	Existeixen col.legiats amb aquest tipus de Concepte Domiciliable.	general	msg_col_concepto_dom
+general.soportado_gastos	IVA/IGIC Suportat (Despeses)	general	soportado_gastos
+general.repercutido_honorarios	IVA/IGIC Repercutit (Honoraris)	general	repercutido_honorarios
+general.mes_mayo	MAIG	general	mayo
+general.msg_cli_fases_personalidad_jur	Existeixen clients o fases de clients amb aquest tipus de personalitat jurídica	general	msg_cli_fases_personalidad_jur
+general.msg_cip_sobre_pem_tra	Existeixen cip_sobre_pem amb aquest tipus de treball.	general	msg_cip_sobre_pem_tra
+general.mes_octubre	OCTUBRE	general	octubre
+general.resumen_honorarios	RESUM D'HONORARIS DEL PERÍODE	general	resumen_honorarios
+general.msg_bolsa_tipo_orientacion_profesional	Existeixen bosses de treball amb aquest tipus de orientacion Professional.	general	msg_bolsa_tipo_orientacion_profesional
+general.resumen_final_impuestos	RESUM FINAL IMPOSTOS EN EL PERÍODE	general	resumen_final_impuestos
+domiciliaciones	Domiciliacions	general	domiciliaciones
+general.msg_asistents_cursos_cod_poblacion	Existeixen asistents dels cursos de formació amb aquest codi de provincia	general	msg_asistents_cursos_cod_poblacion
+general.mes_marzo	MARÇ	general	marzo
+general.mgs_persona_cargo	Existeixen altres persones amb aquest càrrec	general	msg_persona_cargo
+Desconocido	Desconegut	general	Desconocido
+general.mgs_codigo_colegio	Existeixen col·legiats amb aquest codi de col.legi	general	msg_codigo_colegio
+general.mens_web	Missatge Web	general	mens_web
+Del expediente	De l'expedient	general	del_expediente
+general.listar_a_fichero	Llistar a fitxer	general	listar a fichero
+general.resumen_codigo	Codi: H: Honoraris; A: Abonament; En blanc: factura de despeses emesa al col·legiat	general	resumen_codigo
+general.detalle_gastos_col	DETALL DE DESPESES DEL COL·LEGIAT	general	detalle_gastos_col
+general.totales	Totals	general	totales
+general.saldo_final_col	Saldo Final del Col·legiat	general	saldo_final_col
+general.honorario	Honorari	general	honorarios
+general.inicio_proceso	Inici Proces...	general	inicio_proceso
+corresp	Corresp.	general	corresp
+general.iniciar_lectura	Iniciar Lectura	general	iniciar_lectura
+general.honorarios	Honoraris	general	honorarios
+general.incorporar_zip	Aderir zip a l'expedient	general	incorporar_zip
+Contabilizar directamente	Comptabilitzar directament	general	Contabilizar directamente
+Cancelar	Cancelar	general	Cancelar
+Todo	Tot	general	todo
+general.imprimir_listado	Imprimir llistat	general	imprimir listado
+general.imprimir	Imprimir	general	imprimir
+Todas	Totes	general	todas
+Usuario	Usuari	general	Usuario
+general.impresion_papel	Col·loqui paper blanc en la impressora , va a sortir el llistat de transferències generat	general	impresion_papel
+Unión Europea	Unió Europea	general	union_europea
+general.importe_impuestos	Import Impuestos	general	importe_impuestos
+general.importe_desde	Import Desde	general	importe_desde
+general.importe	Import	general	importe
+Trimestral	Trimestral	general	trimestral
+sociedades	Societats	general	sociedades
+Sociedad	Societat	general	Sociedad
+general.importacion	Importació	general	importacion
+general.hasta	Fins	general	hasta
+general.concepto_conta	Concepte Conta	general	concepto_conta
+general.msg_fases_tipo_fases	Existeixen fases amb aquest tipus de fase.	general	msg_fases_tipo_fases
+general.guardar_cambios	Guardar canvis	general	guardar_cambios
+Facturas	Factures	general	facturas
+general.tiene_irpf	Té IRPF	general	tiene_irpf
+general.grupo	Grup	general	grupo
+general.grabar_pantalla	Guardar Pantalla	general	grabar_pantalla
+general.grabar_cambios_pdtes	Hi ha canvis pendents en la descripció de les variables	general	grabar_cambios_pdtes
+general.grabar_cambios	Desitja guardar els canvis?	general	grabar_cambios
+general.grabar	Guardar	general	grabar
+general.generar_fichero	Generar Fitxer	general	generar_fichero
+general.generar_factura	Generar Factura	general	generar_factura
+general.generar_dom_fichero	Generar Domiciliacions i Fitxers F19	general	generar_dom_fichero
+general.generar	Generar	general	generar
+general.gen_facturas	Gen. Factures	general	gen_facturas
+general.fuentes	Fonts	general	fuentes
+general.fpago	D. Pagament	general	fpago
+general.forma_pago	Forma Pagament	general	forma_pago
+general.firmas_digitales	Signatura Eletrònica	general	firmas_digitales
+general.fichero	Fitxer	general	fichero
+general.ficha_ampliada	Fitxa Amplificada	general	ficha_ampliada
+general.fechas	Dates	general	Fechas
+general.fecha	Data	general	fecha
+general.guardar	Guardar	general	guardar
+general.facturar	Facturar	general	facturar
+general.guardar_como	Guardar com...	general	guardar_como
+general.guardar_consulta	Guardar consulta	general	guardar_consulta
+general.guardar_pantalla	Guardar pantalla	general	guardar_pantalla
+Persona	Persona	general	Persona
+general.msg_fases_informes	Existeixen fases amb aquest tipus de fases.	general	msg_fases_informes
+Sobreescribir datos facturas NO CONTAB	Sobreescriure dades factures NO CONTAB.	general	Sobreescribir datos facturas NO CONTAB
+general.importados	Importats	general	importados
+Sobreescribir datos de los cobros	Sobreescriure dades dels cobraments	general	Sobreescribir datos de los cobros
+general.f_cobro	Forma Cobrament	general	f_cobro
+Pend.	Pend.	general	pendiente
+general.impresion_list_tranf_gen	IMPRESIÓ DEL LLISTAT DE TRANSFERÈNCIES GENERADES	general	impresion_list_tranf_gen
+general.f_alta	Data Alta	general	f_alta
+general.impresion_talones	IMPRESIÓDE TALONS	general	impresion_talones
+general.impresion_talones_gen	IMPRESIÓDE TALONS GENERATS	general	impresion_talones_gen
+general.impresos_talon	Col·loqui els impresos de taló en la impressora en la posició adequada, per favor	general	impresos_talon
+general.orden	Ordre	general	orden
+Sí	Sí	general	si
+general.imprimir_listado_pregunta	Desitja imprimir el llistat?	general	imprimir_listado_pregunta
+general.impuestos	Impuestos	general	impuestos
+general.incidencia	Incidència	general	incidencia
+general.incidencias	Incidències	general	incidencias
+Recordar Contraseña	Recordar Contrasenya	general	recordar_contrasenya
+general.info_no_valida_ejercicio_abierto	Informació no vàlida per estar en un exercici no obert	general	info_no_valida_ejercicio_abierto
+Semanal	Setmanal	general	semanal
+Selección	Selecció	general	seleccion
+general.instalar_sawzip	No es pot accedir a la llibreria de manipulació de zips (SAWZip). ¿Vol reinstalar-la?	general	instalar_sawzip
+general.info_contable_col	INFORMACIÓ COMPTABLE DEL COL·LEGIAT	general	info_contable_col
+general.limpiar_consulta	Netejar Consulta	general	limpiar_consulta
+general.detalle_honorarios_col	DETALL D'HONORARIS DEL COL·LEGIAT	general	detalle_honorarios_col
+general.listado_previo	Llistat Previ	general	listado_previo
+general.num_factura	Nom. Fact	general	num_factura
+general.msg_col_incompatibilidad	Existeixen col·legiats amb aquest tipus d'Incompatibilitat	general	msg_col_incompatibilidad
+general.documento	Document	general	documento
+general.extra	Extra	general	extra
+general.info_econom_colegiado	INFORMACIÓ ECONÒMICA DEL COL·LEGIAT O SOCIETAT	general	info_econom_colegiado
+general.existen_recibos_emi	Existeixen Rebuts emessos amb aquesta forma de pagament.	general	existen_recibos_emi
+general.mgs_codigo_geografico	Existeixen col·legiats amb aquest codi de Geogràfic	general	msg_codigo_geografico
+Papel	Paper	general	papel
+general.msg_asistentes_cursos_cod_poblacion	Existeixen assistents a cursos amb aquest codi de població	general	msg_asistentes_cursos_cod_poblacion
+general.existen_facturas_emi	Existeixen Factures emesses amb aquesta forma de pagament.	general	existen_facturas_emi
+Otras	Unes altres	general	Otras
+general.msg_cetificados_tiop_escrito	Existeixen certificats amb aquest tipus d'escrit.	general	msg_cetificados_tiop_escrito
+general.msg_cip_sobre_pem	Existeixen cip_sobre_pem amb aquest tipus de fase.	general	msg_cip_sobre_pem
+Entrada	Entrada	general	Entrada
+general.msg_cli_cod_prov	Existeixen clients amb aquest codi de provincia	general	msg_cli_cod_prov
+general.existe	Existeix	general	existe
+general.num_copias	Nom. Copies	general	num_copias
+Alto	Alt	general	Alto
+general.msg_codigo_valor	El codi escrit ha de tindre valor.	general	msg_codigo_valor
+Resguardo	Resguard	general	resguardos
+Salida	Sortida	general	Salida
+general.msg_col_mismo_cod	Existeixen col·legiats amb aquest codi	general	msg_col_mismo_cod
+general.msg_col_orientacion_profesional	Existeixen col·legiats amb aquest tipus de orientacion Professional.	general	msg_col_orientacion_profesional
+general.msg_col_tipo_agrup	Existeixen col·legiats amb aquest tipus de agrupacion	general	msg_col_tipo_agrup
+general.msg_col_tratamiento	Existeixen col.legiats amb aquest tratament.	general	msg_col_tratamiento
+Automática	Automàtica	general	automatica
+general.msg_concepto_familia	Existeixen conceptes amb aquesta familia	general	msg_concepto_familia
+Todos	Tots	general	Todos
+general.msg_dom_col_cod_prov	Existeixen domicilis amb aquest codi de provincia	general	msg_dom_col_cod_prov
+Transferencia	Transferència	general	transferencia
+general.msg_dom_tipo_dom_via	Existeixen domicilis de col.legiats amb aquest tipus de via.	general	msg_dom_tipo_dom_via
+excluir	Excloure	general	excluir
+general.msg_exp_tipo_via	Existeixen expedients amb aquest tipus de via.	general	msg_exp_tipo_via
+general.exceder_familia	El camp Familia contabilitat no pot excedir els 2 caràcters	general	concepto_familia
+general.msg_expedientes_tipo_doc	Existeixen expedients_documents amb aquest tipus de Documents	general	msg_expedientes_tipo_doc
+Expediente y registro nuevo	Expedient i registre nou	general	expediente_registro_nuevo
+general.msg_exsite_col_sit	Existeixen col.legiats amb aquesta situació	general	msg_exsite_col_sit
+general.ficha_colegiado	En Fitxa Col·legiat	general	ficha_colegiado
+general.msg_facturas_tipo_servicio	Existeixen linees de factures emeses amb aquest tipus de Servei.	general	msg_facturas_tipo_servicio
+general.msg_fases_estado_pendiente	Existeisen fases amb aquest estat d'expedient	general	msg_fases_estado_pendiente
+general.msg_fases_estados_pendiente	Existeixen fases_estaods amb aquest estat d'expedient	general	msg_fases_estados_pendiente
+general.exceder_cuenta	El camp Compte no pot excedir els 10 caràcters	general	exceder_cuenta
+Número de copias	Número de copies	general	num_copias
+Normal	Normal	general	normal
+no_tiene	No té	general	no_tiene
+No Tiene	No Té	general	no tiene
+general.baja	Baixa	general	baja
+general.exceder_codigo_10	El camp Codigo no pot excedir els 10 caràcters	general	exceder_codigo_10
+general.msg_minutas_tipo_honorario	Existeixen minutes amb aquest tipus d'honorari	general	msg_minutas_tipo_honorario
+general.exceder_codigo	El camp Codigo no pot excedir els 10 caràcters	general	exceder_codigo
+ninguno	Ningú	general	ninguno
+general.etiqueta	Etiqueta	general	etiqueta
+general.msg_mov_musaat_tipo_visado	Existeixen moviments de musaat amb aquest tipus de visat	general	msg_mov_musaat_tipo_visado
+Nacional	Nacional	general	nacional
+general.especificar_tipo	Ha d'especificar el tipus	general	especifica_tipo
+general.especificar_imp	Especificar Impressora	general	especificar_imp
+general.msg_ponentes_cursos_cod_poblacion	Existeixen ponents de los cursos de formació amb aquest codi de població	general	msg_ponentes_cursos_cod_poblacion
+general.escala	Escala	general	escala
+general.error_dir_contratos	Error al crear el directori on es copiaran els documents associats a aquest contracte	general	error_dir_contratos
+Ruta	Ruta	general	Ruta
+general.msg_registros_tipo_registro	Existeixen registres amb aquest tipus de registre.	general	msg_registros_tipo_registro
+general.error_contador	Hi ha hagut un error amb el contador %s~~r~~n%s	general	error_contador
+general.mes_abril	ABRIL	general	abril
+general.mes_agosto	AGOST	general	agosto
+general.nom_fichero	Nom Fitxer	general	nom_fichero
+general.error_conexion_bd	La conexió ha fallat amb el fitxer %s~~r~~n%s	general	error_conexion_bd_ini
+general.notas	Notes	general	notas
+general.mes_noviembre	NOVEMBRE	general	noviembre
+general.mes_septiembre	SETEMBRE	general	septiembre
+general.msg_codigo_delegacion	Existeixen registres amb aquest codi d'elegació.	general	msg_codigo_delegacion
+general.error_conexion	Error en la conexió a la Base de Dades	general	error_conexion_bd
+es_sociedad	És Societat	general	es_sociedad
+general.ordenar	Ordenar	general	ordenar
+general.error_abrir_pdf	No té instal.lat cap visor de pdf. Ha d'instalar-ne algun per a poder visualitzar aquests fitxers	general	eror_abrir_pdf
+general.mes_diciembre	DECEMBRE	general	diciembre
+general.empresas	Empreses	general	empresas
+Rehabilitación	Rehabilitació	general	Rehabilitación
+general.email	EMAIL	general	email
+general.domicilio	Domicili	general	domicilio
+general.dom_nuevo	Domicili Nou	general	dom_nuevo
+general.dom_antiguo	Domicili Antic	general	dom_antiguo
+general.dom_activo	Domicili Actiu	general	dom_activo
+general.doc_electronicos	Docs. electrònics	general	doc_electronicos
+general.direc_web	Direcció Web	general	direc_web
+general.dir_asegurar	Asseguri's que el directori	general	dir_asegurar
+general.detalle	Detall	general	detalle
+general.desea_recibir_inf	Desitja Rebre Informes	general	desea_recibir_inf
+general.desde	Desde	general	desde
+Registro en un Expediente ya existente	Registre en un Expedient ja existent	general	registro_expediente_existente
+general.descuentos	Despeses	general	descuentos
+Emp	Emp	general	emp
+general.descripcion	Descripció	general	descripcion
+general.descargar_correo_auto	Descarregar Correu Automàticament	general	descargar_correo_auto
+general.desc_larga	Descripció llarga	general	desc_larga
+general.depurar	Depurar	general	depurar
+general.departamento	Departament	general	departamento
+general.delusuario	De l'usuari	general	del_usuario
+general.de	De	general	de (desde)
+general.datos_factura	Dades Factura	general	datos_factura
+general.datos_banc	Dades Bancàries	general	datos_banc
+general.dar_alta	Donar D'alta	general	dar_alta
+general.imagenes	Imatges	general	imagenes
+general.cuenta	Comte	general	cuenta
+general.cta_bancaria	Compte Bancari	general	cta_bancaria
+general.cta_banc	Compte Bancari	general	cta_banc
+general.correspondencia	Correspondència	general	correspondencia
+general.copias	Copies	general	copias
+general.contador	Comptador	general	contador
+general.consultar	Consultar	general	consultar
+general.consulta_lista	Selecciona una consulta de la llista	general	seleccionar_lista
+general.conceptos_domiciliables	Conceptes domiciliables	general	conceptos_domiciliables
+general.concepto_contabilidad	Concepte Comptabilitat	general	concepto_contabilidad
+general.concepto	Concepte	general	concepto
+general.codigo	Codi	general	codigo
+general.cod_postal	Codi Postal	general	cod_postal
+general.msg_cursos_cod_poblacion	Existeixen cursos de formació amb aquest codi de provincia	general	msg_cursos_cod_poblacion
+general.cod_poblacion	Codi Pobl.	general	cod_poblacion
+Recibo	Rebut	general	recibo
+Reducido	Reduit	general	Reducido
+Pública	Pública	general	Pública
+general.chequea	Chequea	general	chequea
+general.certificados	Certificats	general	certificados
+general.cerrar	Tancar	general	cerrar
+general.cerrado	Tancat	general	cerrado
+general.centro_geografico	Ha d'especificar un valor en el camp centre geogràfic.	general	centro_geografico
+general.carta	CARTA	general	carta
+general.cargo	Carrec	general	cargo
+De la fase	De la fase	general	de_la_fase
+general.listado	Llistat	general	listado
+general.cancelar_no_generar	Cancel·lar: No Generar	general	cancelar_no_generar
+general.cancelar	Cancel.la	general	concelar
+general.listados	Llistats	general	listados
+Cta. general	Cte. general	general	cta. general
+general.campo_variable	Deu especificar un valor per al camp variable.	general	campo_variable
+general.campo_valor	Ha d'especificar un valor en el camp valor.	general	campo_valor
+general.mail	Email	general	mail
+general.campo_tipo_escrito	Ha d'especificar un valor en el tipus de l'escrit.	general	campo_tipo_escrito
+general.campo_tipo_acta	Deu d'especificar un valor per al camp Tipus Acta	general	campo_tipo_acta
+general.mensaje	MISSATGE	general	mensaje
+general.campo_tipo	Deu d'especificar un valor per al camp Tipus.	general	campo_tipo
+general.campo_reapro	Deu d'especificar un valor per al camp Rapare.	general	campo_reapro
+general.campo_provincia	Ha d'especificar un valor en el camp provincia.	general	campo_provincia
+general.campo_poblacion	?Ha d'especificar un valor en el camp població.	general	campo_poblacion
+general.campo_orientacion_profesional	Ha d'especificar un valor en el camp orientació professional.	general	campo_orientacion_profesional
+general.campo_informe	Ha d'especificar un valor en el camp informe	general	campo_informe
+general.campo_incompatibilidad	Ha d'especificar un valor en el camp Incompatibilitat	general	campo_incompatibilidad
+musaat	MUSAAT	general	musaat
+Mujer	Dona	general	mujer
+general.campo_incidencias_tipo_fam	Existeixen incidències amb aquest tipus de families.	general	campo_incidencias_tipo_fam
+general.campo_incidencias_fases_tipo_inc_exp	Existeixen incidències o fases amb aquest tipus d'incidència en l'expedient	general	campo_incidencias_fases_tipo_inc_exp
+general.campo_incidencia	Ha d'especificar un valor en el camp incidencia	general	campo_incidencia
+general.error	Error	general	error
+general.campo_impuesto	Ha d'especificar un valor en el camp impostos.	general	campo_impuesto
+general.campo_fase	Ha d'especificar un valor en el camp Fase	general	campo_fase
+general.campo_exp	Ha d'especificar un valor en el camp exp.	general	campo_exp
+general.campo_estado_esped	Deu especificar un valor en el camp Estat pendent	general	campo_estado_esped
+general.campo_ejercicio	Deu especificar un valor per al camp exercici (any)	general	campo_ejercicio
+general.campo_domicilio	Ha d'especificar un valor en el camp Domicili	general	campo_domicilio
+general.campo_desmarcacion	Ha d'especificar un valor en el camp Demarcació	general	campo_desmarcacion
+general.campo_descripcion_familia	D'especificar un valor en el camp Descripció de la familia	general	campo_descripcion_familia
+general.msg_cli_tipo_via	Existeixen clients amb aquest tipus de via.	general	msg_cli_tipo_via
+general.campo_descripcion	Ha d'especificar un valor en el camp Descripció	general	campo_descripcion
+general.campo_departamento	Ha d'especificar un valor en el camp departament.	general	campo_departamento
+general.campo_demarcacion	Ha d'especificar un valor en el camp Demarcació	general	campo_demarcacion
+general.campo_concepto	Ha d'especificar un valor en el camp Concepte.	general	campo_concepto
+general.campo_coeficiente	Deu especificar un valor per al camp Coeficient IPC	general	campo_coeficiente
+general.campo_codigo_cargo	Ha d'especificar un valor en el camp codi càrrec.	general	campo_cargo
+general.introducir_distribucion_valor_superficie	Introdueixi la distribució del nou valor de la superfície :	general	introducir_distribucion_valor_superficie
+No	No	general	no
+general.campo_codigo	Ha d'especificar un valor en el camp codi.	general	campo_codigo
+Otros paises	Altres països	general	otros_paises
+otra_cia	Altra Cia.	general	otra_cia
+general.campo_calle	Ha d'especificar un valor en el camp carrer.	general	campo_calle
+general.campo_activo	Ha d'especificar un valor en el camp actiu.	general	campo_activo
+Páginas	Pàgines	general	paginas
+Otra Cía.	Altra Cía.	general	otra cía
+general.calle	Carrer	general	calle
+general.calcular_hon	Calcular Hon.	general	calcular_hon
+general.calcular_gastos	Calcular despeses	general	calcular_gastos
+general.f_pago	D. Pagam.	general	f_pago
+general.calcular	Calcular	general	calcular
+general.buscar	Cerca	general	buscar
+general.borrar_todos	Eliminar tots	general	borrar_todos
+general.borrar_registro	No es pot eliminar el registre. ~n	general	borrar_registro
+general.borrar	Eliminar	general	borrar
+general.banco	Banc	general	banco
+general.ayuda	Ajuda	general	ayuda
+Cta. expedientes	Cte. expedients	general	cta. expedientes
+general.aviso	Avís:	general	aviso
+general.avisar_paquetes_nuevos	Avisar quan arriven paquets nous	general	avisar_paquetes_nuevos
+general.asunto	Assumpte	general	asunto
+general.asignar	Assignar	general	asignar
+general.exceder_concepto_contabilidad	El camp Cocepte contabilitat no pot excedir els 60 caràcters	general	concepto_contabilidad
+general.archivo	Arxiu	general	archivo
+general.apellidos	Cognoms	general	apellidos
+general.clientes	Clients	general	clientes
+general.alta	Alta	general	alta
+general.actualizar_datos	Actualitzar dades	general	actualizar_datos
+general.actualizar	Actualitzar	general	actualizar
+general.ciudad	Ciutat	general	Ciudad
+general.activo	Actiu	general	activo
+general.activa	Actiu	general	activa
+general.aceptar	Acceptar	general	aceptar
+general.acep_valor	Acceptar: Tornar Valor	general	acep_valor
+general.abrir_registro_detalle	No es pot obrir el registre en manera Detall ja que el codi de la linea no té valor	general	abrir_registro_detalle
+general.a	A	general	a (hasta)
+fiscal	Fiscal	general	fiscal
+Apellidos	Cognoms	general	apellidos
+msg_fases_reparo_tipo_reparo	Existeixen fases d'objecció amb aquest tipus d'objecció.	general	msg_fases_reparo_tipo_reparo
+Colegiados	Col.legiats	general	colegiados
+general.cargar	Carregar	general	cargar
+Colegiado	Col·legiat	general	colegiado
+Coleg.	Coleg.	general	colegiado
+Col	Col	general	col
+fichero	Fitxer	general	fichero
+Femenino	Femení	general	femenino
+fecha_fin	Data Fi	general	fecha_fin
+Pendientes	Pendents	general	Pendientes
+general.campo_cargo	Ha d'especificar un valor en el camp càrrec.	general	campo_cargo
+Otros	Altres	general	Otros
+Benef.	Benef.	general	beneficiario
+general.anyadir	Afegir	general	anyadir
+Minuta	Minuta	general	minuta
+Mensual	Mensual	general	mensual
+Masculino	Masculí	general	masculino
+Manual	Manual	general	manual
+m_dw.pegar	Enganxar	general	pegar
+m_dw.cortar	Tallar	general	cortar
+m_dw.copiar	Copiar	general	copiar
+Almacén	Magatzem	general	almacen
+Cli	Cli	general	cli
+Listados	Llistats	general	listados
+Anul.	Anul.	general	anular
+Liquidadas	Liquidades	general	Liquidadas
+Liq.	Liq.	general	liquidar
+Intercalar	Intercalar	general	intercalar
+informacion	Informació	general	informacion
+incluir	Incloure	general	incluir
+Inactivo	Inactiu	general	inactivo
+Impresora...	Impresora...	general	Impresora...
+Hombre	Home	general	hombre
+generalmsg_duplicidad_codigos	No pot haver duplicitat de codi	general	generalmsg_duplicidad_codigos
+general.zoom	Zoom	general	zoom
+general.zona	Zona	general	zona
+general.visualizar	Visualitzar	general	visualizar
+general.valor	Valor	general	valor
+general.usuario	Usuari	general	usuario
+general.ult_num_factura	Últim nombre Factura	general	ult_num_factura
+general.transporte	Transport	general	transporte
+general.total_conepto	Total Concepte	general	total_conepto
+general.total_colegiados	Total Col·legiats:	general	total_colegiados
+general.total	TOTAL	general	total
+general.tipo_baja	Tipo Baixa	general	tipo_baja
+general.tipo_alta	Tipus Alta	general	tipo_alta
+general.tipo	Tipus	general	tipo
+general.texto_consulta	Introduisca els paràmetres de consulte i pulse Acceptar	general	texto_consulta
+general.tel_movil	Tel. Movil	general	tel_movil
+general.suprimir	Suprimir	general	suprimir
+general.suma	Sumatori	general	suma
+general.sms	SMS	general	sms
+general.situacion	Situació	general	situacion
+general.sit_profesional	Situació Professional	general	sit_profesional
+general.sexo	Sexe	general	sexo
+general.sellos	Segells	general	sellos
+general.sello	Copies	general	sello
+general.seleccionar_todos	Sel. Tots	general	seleccionar_todos
+general.seleccionar_impreso	Seleccioni a l'impresso de desitja	general	seleccionar_impreso
+general.selec_impr	Seleccionar la impresora	general	seleccionar_impresora
+general.secretaria	Secretaria	general	secretaria
+general.salir	Sortir	general	salir
+general.ruta_relativa	Ruta relativa	general	ruta_relativa
+cheque,talon	Xec, Taló	general	cheque,talon
+general.ruta_base	Ruta base	general	ruta_base
+general.revisar_firmas_importar	Revisar Signatures al Importar	general	revisar_firmas_importar
+general.revisar_confianza_certificados	Revisar Confiança certificats a l'importar	general	revisar_confianza_certificados
+general.n_doc	Nº document	general	n_doc
+general.retenciones	Retencions	general	retenciones
+general.repetir_filas	?Hi ha un valor repetit a les files %s i %s	general	repetir_filas
+general.reparos	Objeccions	general	reparos
+general.regularizar	Regularitzar	general	regularizar
+general.registros	Registres :	general	registros
+general.recuperar_pantalla	Recuperar pantalla	general	recuperar_pantalla
+general.n_aviso	Nom. Avís	general	num_aviso
+general.recuperar_consulta	Recuperar consulta	general	recuperar_consulta
+general.recuperar	Recuperar	general	recuperar
+general.ret_clientes	I.R.P.F. ret. Clients	general	ret_clientes
+general.ret_colegio	I.R.P.F. ret. Col·legi	general	ret_colegio
+general.recupera	Recupera	general	recupera
+general.reclamaciones_estados	Reclamacions/Estats	general	reclamaciones_estados
+general.detalle_factura	DETALL DE FACTURES DEL PERÍODE	general	detalle_factura
+general.recibir_informes	Desitja Rebre Infomes	general	recibir_informes
+general.iva_soportado_col	I.V. A. SUPORTAT PEL COL·LEGIAT EN EL PERÍODE	general	iva_soportado_col
+general.recalcular	Recalcular	general	recalcular
+general.iva_repercutido_col	I.V. A. REPERCUTIT PEL COL·LEGIAT EN EL PERÍODE	general	iva_repercutido_col
+general.gastos_periodo	RESUM DE DESPESES DEL PERÍODE	general	gastos_periodo
+general.publicidad	Publicitat	general	publicidad
+general.provincia	Província	general	provincia
+general.cliente	Client	general	cliente
+general.profesional	Professional	general	profesional
+general.procesando	Processant ....	general	procesando
+general.gastos	Despeses	general	gastos
+general.asunto_concepto	Assumpte / Concepte	general	asunto_concepto
+general.previsualizar_listado	Previsualizar llistat	general	previsualizar_listado
+general.previsualizar	Previsualizar	general	previsualizar
+general.abono	Abonament	general	abono
+general.poblacion	Població	general	poblacion
+general.plantilla	Plantilla	general	plantilla
+general.hoja	Fulla	general	hoja
+general.periodo_desde	Període des de	general	periodo_desde
+general.permiso_cesion_datos	Permís de Cesió de dades:	general	permiso_cesion_datos
+general.particular	Particular	general	particular
+general.pais	País	general	pais
+general.pago_fraccionado	Pagament Fraccionat	general	pago_fraccionado
+general.pagina	Pàgina :	general	pagina
+general.tipo_domicilio	Tipus de domicili	general	tipo_domicilio
+general.otros_docs	Altres Docs.	general	otros_docs
+general.otras_fases	Altres Intervencions	general	otras_fases
+general.originales	Originals	general	originales
+liquidaciones.n_liquidacion	Nº liquidació	liquidaciones	n_liquidacion
+liquidaciones.f_liquidacion	Data liquidació	liquidaciones	f_liquidacion
+lista.borrar_lista	Eliminar llista	lista	li_borrar_lista
+listas.usuario_propietario	Usuari Propietari	listas	usuario_propietario
+listas.texto_corto_hasta	Text Curt Fins a	listas	texto_corto_hasta
+listas.texto_corto_desde	Text Curt Desde	listas	texto_corto_desde
+listas.texto	Text	listas	texto
+listas.seleccione_lista	Seleccioni una llista	listas	seleccione_lista
+listas.numero_2_desde	Nombre 2 Desde	listas	numero_2_desde
+listas.numero_1_desde	Nombre 1 Desde	listas	numero_1_desde
+listas.numero	Nombre	listas	numero
+listas.num	Nº	listas	num
+listas.nombre_lista	Nom de la Llista	listas	nombre_lista
+listas.nombre	Nom	listas	nombre
+listas.nif	NIF	listas	nif
+listas.miembros_lista	Membres de la llista	listas	miembros_lista
+listas.int_param_consulta_aceptar	Introdueixi els paràmetres de consulta i premi Acceptar	listas	int_param_consulta_aceptar
+listas.imprimir_lista	Imprimir llista	listas	imprimir_lista
+listas.hasta	Fins a	listas	hasta
+listas.filtrar	Filtrar	listas	filtrar
+listas.fecha_creacion	Data Creació	listas	fecha_creacion
+listas.fecha_2_desde	Data 2 Desde	listas	fecha_2_desde
+listas.fecha_1_desde	Data 1 Desde	listas	fecha_1_desde
+listas.fecha	Data	listas	fecha
+listas.exportar_lista	Exportar llista	listas	exportar_lista
+listas.etiqueta_datos_secundarios	Etiquetes dades secundàries	listas	etiqueta_datos_secundarios
+listas.etiqueta_datos_principales	Etiquetes dades personals	listas	etiqueta_datos_principales
+listas.desde	Desde	listas	desde
+listas.copiar_lista	Copiar llista	listas	copiar_lista
+listas.compartida	Compartida	listas	compartida
+listas.colegiado	Col·legiat	listas	colegiado
+listas.cliente	Client	listas	cliente
+listas.casilla_s_n_2	Casella S/N 2	listas	casilla_s_n_2
+listas.casilla_s_n_1	Casella S/N 1	listas	casilla_s_n_1
+listas.casilla_s_n	Casella S/N	listas	casilla_s_n
+listas.activa	Activa	listas	activa
+m_dw.restaurar	Restaurar...	m_dw	restaurar
+m_dw.insertar	Insertar	m_dw	insertar
+m_dw.borrar	Borrar	m_dw	borrar
+m_dw.anyadir	Afegir	m_dw	añadir
+menu.garantia	Garantíes	menu	garantias
+menu.garantias	Arres	menu	garantias
+menu.tipos_actuacion3	Tipus Actuació (3)	menu	tipos_actuacion3
+menu.tipos_actuacion2	Tipus Actuació (2)	menu	tipos_actuacion2
+menu.tipos_actuacion1	Tipus Actuació (1)	menu	tipos_actuacion1
+menu.estados	Estats	menu	estados
+menu.registro_acrediaciones	Registre Acreditacions	menu	registro_acrediaciones
+menu.zona_poblaciones	Zona Poblacions	menu	zona_poblaciones
+menu.visados_consejo	Visat Consell	menu	visados_consejo
+menu.ventana	Finestra	menu	ventana
+menu.vaiables_globales	&Variables Globals	menu	variables_globales
+menu.utiles	Útils	menu	utiles
+menu.ultimo	Últim	menu	ultimo
+menu.ubicaciones	Ubicacions	menu	ubicaciones
+menu.traspaso_saldos_musaat	Traspàs Saldos Musaat	menu	traspaso_saldos_musaat
+menu.tipos_terceros	Tipus Tercers	menu	tipos_terceros
+menu.tipos_registros	Tipus Registres	menu	tipos_registros
+menu.tipos_obra	Tipus D'obra	menu	tipos_obra
+menu.tipos_forma_juridica	Tipus Forma Jurídica	menu	tipos_forma_juridica
+menu.tipos_documentos	Tipus Documents	menu	tipos_documentos
+menu.tipos_de_vias	Tipus de Vies	menu	tipo_de_vias
+menu.tipos_comunicados	Tipus Comunicats	menu	tipos_comunicados
+menu.tipos_actuacion	Tipus Actuació	menu	tipos_actuacion
+menu.tipos_acta	Tipus Actes	menu	tipos_acta
+menu.tipo_transporte_comunicados	Tipus de Transport de Comunicats	menu	tipo_transporte_comunicados
+menu.tipo_situaciones_profesionales	Tipus Situacions Professionals	menu	tipo_situaciones_profesionales
+menu.tipo_sellos	Tipus Segells	menu	tipo_sellos
+menu.tipo_sancion	Tipus Sanció	menu	tipo_sancion
+menu.tipo_orientaciones_profesionales	Tipus Orientacions Professionals	menu	tipo_oriebtaciones_profesionales
+menu.tipo_obra	Tipus D'Obra	menu	tipo_obra
+menu.tipo_incompatibilidad	Tipus Incompatibilitat	menu	tipo_incompatibilidad
+menu.tipo_honorarios	Tipus honoraris	menu	tipo_honorarios
+menu.tipo_domicilios	Tipus Domicilis	menu	tipo_somicilios
+menu.tipo_descripciones	Tipus Descripcions	menu	tipo_descripciones
+menu.tipo_daño	Tipus De Dany	menu	tipo_daño
+menu.tipo_contrato	Tipus Contracte	menu	tipo_contrato
+menu.tipo_conceptos_domiciliables	Tipus Conceptes Domiciliables	menu	tipo_conceptos_domiciliables
+menu.tipo_bolsa	Tipus Borsa	menu	tipo_bolsa
+menu.tipo_asunto	Tipus Asunt	menu	tipo_asunto
+menu.tipo_areas_materias	Tipus Àrees/Materies	menu	tipo_areas_materias
+menu.tipo_agrupaciones	Tipus Agrupacions	menu	tipo_agrupaciones
+menu.terceros	Tercers	menu	Terceros
+menu.tcodigo_almacen	Codi Magatzem	menu	codigo_almacen
+menu.tablas_cuotas_actuales	Tables de Cuotes Actuals	menu	tablas_cuotas_actuales
+menu.tablas_cip	Tabes CIP	menu	tablas_cip
+menu.supuestas	Supsades	menu	supuestos
+menu.tipo_convocatoria	Tipus Convocatòria	menu	tipo_convocatoria
+menu.siniestros	Sinistres	menu	siniestros
+menu.siguiente	Següent	menu	siguiente
+menu.series_facturas	Series Factures	menu	series_facturas
+menu.tipo_estado_obra	Tipus Estat D'obra	menu	tipo_estado_obra
+menu.sellos	Segells	menu	sellos
+menu.sellador_visared	&Sellador VISARED	menu	sellador_visared
+menu.seleccionar_todo	Seleccionar Tot	menu	Seleccionar_todo
+menu.seguros	Assegurances	menu	seguros
+menu.seguridad	Seguretat	menu	seguridad
+menu.secretaria	Secretaria	menu	secretaria
+menu.salvar_como	&Guardar com...	menu	guardar
+menu.tipo_titulacion	Tipus Titulació	menu	tipo_titulacion
+menu.salir	Sortir	menu	salir
+menu.saldo_cuenta_colegiados	Saldo Compte Col.legiats [Ctrl+S]	menu	saldo_cuenta_colegiados
+menu.sabana	Sabana	menu	sabana
+menu.tipos_almacen	Tipus Magatzem	menu	tipos_almacen
+menu.rspuestas_text	Respostes Test	menu	Respostes Test
+menu.reuniones	Reunions	menu	reuniones
+menu.resumen_eco	Resum Econòmic	menu	resumen_eco
+menu.tipos_entrada_agenda	Tipus Entrada Agenda	menu	tipos_entrada_agenda
+menu.respuestas_text	Respostes Test	menu	Respostes Test
+menu.responder	Re&spondrer	menu	mensaje_responder
+menu.reparos	Objeccions	menu	reparos
+menu.renuncias	Renúncies	menu	renuncias
+menu.registros_es	Registres E/S	menu	registros_es
+menu.registro_sociedades	Registre Societats	menu	registro_sociedades
+menu.registro_e_s	Registres E/S	menu	registros_e_s
+menu.usuarios	Usuaris	menu	usuarios
+menu.registro_acreditaciones	Registre Acreditacions	menu	registro_acreditaciones
+menu.registro	 Registres	menu	registro
+menu.registo_sociedades	Registre Societats	menu	registro_sociedades
+menu.via_adim_judicial	Vía Administrativa i Judicial	menu	via_admin_judicial
+menu.registo	Registre	menu	registro
+menu.reg_mercantil	Registre Mercantil	menu	reg_mercantil
+menu.reemplazar	Reemplaçar	menu	reemplazar
+menu.reclamaciones	Reclamacions	menu	reclamaciones
+menu.recalculo_dip	Recàlcul DIP	menu	recalculo
+menu.recalculo_avisos	Recàlcul Avisos	menu	recalculo_avisos
+menu.recalculo	Recàlcul	menu	recalculo
+menu.quitar_seleccion	Llevar Selecció	menu	qutar_seleccion
+menu.provincias	Provincies	menu	provincias
+menu.propiedades	P&ropietats	menu	propiedades
+menu.programas	Programes	menu	Programas
+menu.procesos_contabilidad	Processos de Contabilitat	menu	procesos_contabilidad
+menu.procesar_domociliaciones_devueltas	Processar Domiciliacions Retornades	menu	procesar_domiciliaciones_devueltas
+menu.primero	Primer	menu	primero
+menu.presetacion_preliminar	&Presentació Preliminar	menu	presentacion_preliminar
+menu.preparar_pagina	Preparar Pà&gina	menu	preparar_pagina
+menu.preguntas_text	Respostes Test	menu	Preguntes Test
+menu.preferecias	Preferències	menu	preferencias
+menu.posicion_sellos	Posició Segells	menu	posicion_sellos
+menu.poblaciones	Poblacions	menu	poblaciones
+menu.personas_contables	Persones Comptables	menu	personas_contables
+menu.personalidad_juri	Personalitat Jurídica	menu	personalidad_juridica
+menu.pegado_especial	Pegat Especial	menu	pegado_especial
+menu.paises	Països	menu	paises
+menu.otros_conceptos	Altres Conceptes	menu	otros_conceptos
+menu.otras_personas	Altres Persones	menu	otras_personas
+menu.organizar_herramientas	Organització Eines	menu	organizar_herramientas
+menu.ofertas	Ofertes	menu	ofertas
+menu.nuevo	Nou	menu	nuevo
+menu.notificaciones	Notificacions	menu	notifiaciones
+menu.nivel_idioma	Nivell Idioma	menu	nivel_idioma
+menu.mutua	Mutua	menu	mutua
+menu.movimientos_prima_avriable	Moviments Prima Variable	menu	movimientos_prima_variable
+menu.modulos	Mòduls	menu	modulos
+menu.modificacion_contratos	Modificació de Contractes	menu	modificacion_contrato
+menu.modalidades	Modalitats	menu	modalidades
+menu.minimizar_ventanas	Minimitzar Finestres	menu	minimizar_ventanas
+menu.mensajes_ver	&Vore Missatge	menu	mensajes_ver
+menu.mensajes_recibidos	Missatges &Rebuts	menu	mensajes_recibidos
+menu.mensajes_enviados	Missatges &Enviats	menu	mensajes_enviados
+menu.mensajeria	Missatgeria	menu	mensajeria
+menu.mensaje_nuevo	Missatge &Nou	menu	mensaje_nuevos
+menu.mensaje_enviar	En&viar	menu	mensaje_enviar
+menu.mensaje_borrar	&Eliminar Missatge	menu	mensaje_borrar
+menu.mensaje_actualizar	&Actualitzar	menu	mensaje_actualzar
+menu.mant_ficheros_aux	Manteniment de Fitxers Auxiliars	menu	mant_ficheros_aux
+menu.listas_colegiados	Llistes Col.legiats	menu	listas_colegiados
+menu.listados	Llistats	menu	listados
+menu.lista	Llista	menu	lista
+menu.liquidaciones_honorarios	Liquidacions Honoraris	menu	Liquidacion_honorarios
+menu.liquidacion_hon	Liquida.	menu	liquidacion_hon
+menu.libros	Llibres	menu	Libros
+menu.junta_gobierno	Junta Gobern	menu	junta_gobierno
+menu.ingresar_retirar_directo	Ingressa-Retira Directe	menu	ingresar_retirar_directo
+menu.ingresa_retira	Ingressa-Retira	menu	ingresa_retira
+menu.incidencias	Incidències	menu	incidencias
+menu.imprimir_ahora	Imprimir Ara	menu	imprimir_ahora
+menu.imprimir	&Imprimir... [Ctrl+P]	menu	imprimir
+menu.importacion_recibos_externos	Importació Rebuts Externs	menu	imprtacion_recibos_externos
+menu.importacion_facturas	Importació Factures	menu	importacion_facturas
+menu.importacion_conceptos_facturables	Importació Conceptes Facturables	menu	importacion_conceptos_facturables
+menu.idioma	Idioma	menu	idioma
+menu.herramientas	Eines	menu	herramientas
+menu.guardar	Guardar	menu	guardar
+menu.guardad	Guardar [Ctrl+S]	menu	guardar
+menu.gestion_saldos_deudores	Gestió Saldos Deudors	menu	gestion_saldos_deudores
+menu.gestion_articulos_servicios	Gestió D'artículs i Serveis	menu	gestion_articulos_servicios
+menu.generacion_pagos	Generació Pagaments	menu	generacion_pagos
+menu.generacion_facturas_manual	Generació Factures Manual	menu	generacion_facturas_manual
+menu.generacion_cuotas	Generació Cuotes	menu	generacion_cuotas
+menu.generacion_cobros	Generar Cobraments	menu	comprobar_cobros
+menu.formacion	Formació	menu	formacion
+menu.firma_digital	Signatura Digital	menu	firma_digital
+menu.finales_obra	Final Obres	menu	finales_obra
+menu.fichero_recibos	Fitxer Rebuts	menu	fichero_recibos
+menu.fichero_mopu	Fitxer MOPU	menu	fichero_mopu
+menu.familias_incidencias	Families Incidències	menu	familias_inicdencias
+menu.familias	Families	menu	familias
+menu.facturas_emitidas	Factures Emeses	menu	facturas_emitidas
+menu.facturas	Factures	menu	Facturas
+menu.expedientes_contratos	Expedients i Contractes	menu	expedientes_contratos
+menu.expedientes	Expedients	menu	expedientes
+menu.estado	Estat	menu	estado
+menu.estadisticas	Estadístiques	menu	estadisticas
+menu.estadillo_consejo	Estadillo Consell	menu	estadillo_consejo
+menu.especificar_impresora	Especificar Impressora	menu	especificar impresora
+menu.esimacion_eco	Estimació Econòmica	menu	estimacion_economica
+menu.edicion	Edició	menu	edicion
+menu.domiciliar_saldo_deudor	Domiciliar Saldo Deudor	menu	domiciliar_saldo_deudor
+menu.devoluciones	Devolucions	menu	devoluciones
+menu.detalle	Detall	menu	detalle
+menu.destinos_obra	Destí Obra	menu	destinacion_obra
+menu.deshacer	Desfer	menu	deshacer
+menu.depuracion	Depuració	menu	depuracion
+menu.departamentos	Departaments	menu	departamentos
+menu.departamento_juridico	Departament Jurídic	menu	departamento_juridico
+menu.demandas	Demandes	menu	demandas
+menu.delegaciones	Delegacions	menu	Delegaciones
+menu.cuadre_caja	Quadri de Caixa	menu	cuadre_caja
+menu.cortar	Tallar	menu	cortar
+menu.copiar	Copiar	menu	copiar
+menu.convocatoria	Convocatòria	menu	convocatoria
+menu.control_asistencia	Control Assistència	menu	asistencia
+menu.contratos	Contractes	menu	contratos
+menu.contenidos	Continguts	menu	contenidos
+menu.contadores_generales	&Comptadors Generals	menu	contadores_generales
+menu.contabilidad	Comptabilitat	menu	contabilidad
+menu.consulta_rapida	Consulta Ràpida	menu	consulta_rapida
+menu.consulta_pagos	Consulta Pagaments	menu	consulta_pagos
+menu.consulta_detallada	Consulta Detallada	menu	consulta_detallada
+menu.consulta	Consulta	menu	consulta
+menu.consejo_proyecto_piloto	CNC	menu	consejo_proyecto_piloto
+menu.comprobar_ficher	&Comprobar Fitxer	menu	comprobar_ficherol
+menu.companyias_seguros	Companyia de Assegurances	menu	companyia_seguros
+menu.combinacion_corresp	Combinació Correspondència	menu	combinacin_corresp
+menu.colegios	Col.legis	menu	Colegios
+menu.colegiados	Col.legiats	menu	colegiados
+menu.coeficientes	Coeficients	menu	coeficientes
+menu.coeficiente_ipc	Coeficients IPC	menu	coeficientes_ipc
+menu.codigo_almacen	Codi Magatzem	menu	codigo_almacen
+menu.cobros_multiples	Cobraments Multiples	menu	cobros_multiples
+menu.cobros	Cobraments	menu	Cobros
+menu.cobro_mensual	Cobrament Mensual	menu	cobro_mensual
+menu.circulares	Circulars	menu	circulares
+menu.certificados	Certificats	menu	certificados
+menu.cerrar	Tancar	menu	cerrar
+menu.cartas_control	Cartes Control	menu	cartas_control
+menu.cargos	Càrrecs	menu	cargos
+menu.cambio_colegiado	Canvi Col.legiat	menu	cambio_colegiado
+menu.callejero	Llista de Carrers	menu	callejero
+menu.calidad	Qualitat	menu	calidad
+menu.calculo_manual_gastos	Càlcul Manual de Despeses [Ctrl+G]	menu	calculo_manual_gastos
+menu.calculo_manual	Càlcul Manual [Ctrl+M]	menu	calculo manual
+menu.calculo_honorarios_orientativos	Càlcul Honoraris orientatius	menu	calculo_honorarios_orientativos
+menu.calculo_cuota_minima	Càlcul Cuoata Mínima	menu	calculo_cuota_minima
+menu.caja	Caixa [F12]	menu	caja
+menu.buscar	Cerca	menu	Buscar
+menu.borrar	&Eliminar [Ctrl+D]	menu	borra
+menu.bolsa_trabajo	Borsa Treball	menu	bolsa_trabajo
+menu.ayuda	Ajuda	menu	ayuda
+menu.avisos_factura	Avisos Factures	menu	avisos_factura
+menu.asistente	Asistent	menu	asistente
+menu.asesoria_juridica	Assesoria juridica	menu	asesoria_juridical
+menu.asesoria_judicial	Assesoria Judicial	menu	asesoria_judicial
+menu.asesoria	Assesoria	menu	asesoria
+menu.arte_cemento	Art Ciment	menu	arte_cemento
+menu.arquitectos	Altres Professionals	menu	arquitectos
+menu.aplicaciones	Aplicacions	menu	aplicaciones
+menu.aparatos_tecnicos	Aparells Tècnics	menu	aparatos_tecnicos
+menu.anterior	Anterior	menu	anterior
+menu.almacenes	Magatzems	menu	Almacenes
+menu.almacen	Magatzem	menu	almacen
+menu.ajuste_vertical	Ajustament Vertical	menu	ajuste_vertical
+menu.ajuste_horizontal	Ajustament Horitzontal	menu	ajuste_horizontal
+menu.actualizar_sit_asegurados	Actulitzar Situació Assegurats	menu	actualizar_sit_asegurados
+menu.actualizar_listas	Actualizatició Llistes	menu	actualizar_listas
+menu.actualizar_enlaces	Actualització D'enllaços	menu	actualizar_enlacesr
+menu.actualizar_domiciliaciones	Actulitzar Domiciliacions	menu	actualizar_domiiciliaciones
+menu.actualizar_desplegables	Actualizatició Desplegables	menu	actualizar_desplegables
+menu.actualizar	Actualitzar	menu	actualizar
+menu.actualizacion_masiva_conceptos	Actualització Massiva Conceptes	menu	actualizacion_masiva_conceptos
+menu.actas	Actes	menu	actas
+menu.acreditaciones	Acreditacions	menu	acreditaciones
+menu.acerca_de	Acosta de...	menu	acerca_de
+menu.acciones_finales_obra	Accions Finals D'Obra	menu	acciones_finales_obra
+msg_cliente.varios_nif_recuperar	Existeixen un o més clients amb el NIF especificat. Desitja recuperar les seves dades?	msg_cliente	varios_nif_recuperar
+msg_cliente.tipo_tercero_cli	Existeixen clients amb un codi de tercer.	msg_cliente	tipo_tercero_cli
+msg_cliente.tipo_tercero	Ha d'especificar un valor en el camp tipus tercer	msg_cliente	tipo_tercero
+msg_cliente.registros_especif	No s'han trobat registres segons les especificacions.	msg_cliente	registros_especif
+msg_cliente.proveedor_cliente_premaat	Informin al proveïdor que existeix el client en la fitxa de premaat capçalera	msg_cliente	proveedor_cliente_premaat
+msg_cliente.proveedor_cliente_factura	Informin al proveïdor que existeix el client en la fitxa de lineas de factura	msg_cliente	proveedor_cliente_factura
+msg_cliente.proceso_lento	És un procés lent	msg_cliente	proceso_lento
+msg_cliente.obtener_listado_coleg	Desitja obtenir un llistat per a tots els col·legiats de la llista?	msg_cliente	obtener_listado_coleg
+msg_cliente.no_borrar_cliente	Impossible eliminar el client fins que no existeixi ocurrència alguna del mateix	msg_cliente	no_borrar_cliente
+msg_cliente.modif_colegiado_fict	No se puede modificar el colegiado FICTICIO	msg_cliente	modif_colegiado_fict
+msg_cliente.letra_nif	La lletra del NIF no és correcta	msg_cliente	letra_nif
+msg_cliente.filas_posteriores	No hi ha files posteriors a aquesta	msg_cliente	filas_posteriores
+msg_cliente.filas_anteriores	No hi ha files anteriors a aquesta	msg_cliente	filas_anteriores
+msg_cliente.espec_tipo_tercero	Ha d'especificar un tipus de tercer	msg_cliente	espec_tipo_tercero
+msg_cliente.duplicidad_nif	AVÍS DUPLICITAT DE NIF: Existeix un col·legiat amb aquest nif	msg_cliente	duplicidad_nif
+msg_cliente.digitos_control	Els dígits de control del compte bancari no són vàlids	msg_cliente	digitos_control
+msg_cliente.apellido	Ha d'especificar un valor en el camp cognoms	msg_cliente	apellido
+msg_cobros.visualizar_apuntes	Desitja visualitzar els apunts per a revisar-los abans que quedin gravats?	msg_cobros	visualizar_apuntes
+msg_cobros.valores_defecto	De moment els posarem valors per defecte, però no s'ha d'engegar si es llegix aquest missatge!!!	msg_cobros	valores_defecto
+msg_cobros.valor_campo_fecha	Ha d'especificar un valor en el camp Data.	msg_cobros	valor_campo_fecha
+msg_cobros.valor_campo_banco	Ha d'especificar un valor en el camp Banc.	msg_cobros	valor_campo_banco
+msg_cobros.revisar_facturas	Hauria de revisar aquestes factures per a veure l'estat que han quedat	msg_cobros	revisar_facturas
+msg_cobros.repita_proceso	Repeteixi el procés novament, tornant a realitzar la consulta	msg_cobros	repita_proceso
+msg_cobros.pulsar_grabar_apuntes	Els apunts generat no es guardaran fins que premi el botó de guardar apunts.	msg_cobros	pulsar_grabar_apuntes
+msg_cobros.proceso_finalizado	Procés Finalitzat	msg_cobros	proceso_finalizado
+msg_cobros.proceso_exito	El procés s'ha realitzat amb èxit.	msg_cobros	proceso_exito
+msg_cobros.posible_modificar_cobros	No és possible modificar cobraments ja comptabilitzats	msg_cobros	posible_modificar_cobros
+msg_cobros.pantalla_indica_error	Col·locades en pantalla indicant el motiu d'error per a la seva possible correcció.	msg_cobros	pantalla_indica_error
+msg_cobros.num_cliente_valido	Ha d'introduir un nombre de client vàlid.	msg_cobros	num_cliente_valido
+msg_cobros.no_permitida	Opció no permesa	msg_cobros	no_permitida
+msg_cobros.no_marcada_fact	NO s'ha marcat cap factura per a retornar.	msg_cobros	no_marcada_fact
+msg_cobros.no_encontrado_registros	No s'han trobat registres segons les especificacions.	msg_cobros	no_encontrado_registros
+msg_cobros.n_remesa_procesado_recibos	Nº Remesa : %s~r Processats %s rebuts: %s euros.	msg_cobros	n_remesa_procesado_recibos
+msg_cobros.n_colegiado_valido	Ha d'introduir un nombre de col·legiat vàlid.	msg_cobros	n_colegiado_valido
+msg_cobros.n_cliente_valido	Ha d'introduir un nombre de client vàlid.	msg_cobros	n_cliente_valido
+msg_cobros.marcara_cobro	Només es marcarà el pagat i la data de pagament dels cobraments i les factures, deixant els valors indicats en el banc i la forma de pagament	msg_cobros	marcara_cobro
+msg_cobros.ingresar_fecha_datos_caja	Ha d'ingressar la data en les dades de caixa	msg_cobros	ingresar_fecha_datos_caja
+msg_cobros.indicar_forma_pago	Ha d'indicar la forma de pagament en la qual s'ha/n realitzat l'els/cobrament/s	msg_cobros	indicar_forma_pago
+msg_cobros.indicar_fecha	Ha d'indicar una data en la qual s'ha/n realitzat l'els/cobrament/s	msg_cobros	indicar_fecha
+msg_cobros.indicar_banco	Debe indicar el banco para el/los cobro/s	msg_cobros	indicar_banco
+msg_cobros.incidencias_marcar_fichero	Hi ha hagut incidències al marcar desde fitxer	msg_cobros	incidencias_marcar_fichero
+msg_cobros.importe_grande	Debe indicar un importe suficientemente grande	msg_cobros	importe_grande
+msg_cobros.ha_elegido_factura	Ha triat actualitzar tots cobraments no pagats amb la forma de pagament i el banc indicat però no les factures, amb el consegüent desquadri entre factura i cobrament	msg_cobros	ha_elegido_factura
+msg_cobros.ha_elegido_banco	Ha triat actualitzar tots cobraments no pagats i factures (excepte les comptabilitzades ja) amb la forma de pagament i el banc indicat.	msg_cobros	ha_elegido_banco
+msg_cobros.grabar_antes	Abans de realitzar aquest procés han de guardar-se tots els canvis realitzats.	msg_cobros	grabar_antes
+msg_cobros.formato_exportacion_fichero	Ha d'indicar el format d'exportació del fitxer	msg_cobros	formato_exportacion_fichero
+msg_cobros.finalizado_sin_apunte	Procés finalitzat sense la generació de cap apunt	msg_cobros	finalizado_sin_apunte
+msg_cobros.fecha_contraapuntes_ejercicio	La data dels contraapuntes no pertany a l'exercici actual.~~rEl procés de devolució ha estat cancel·lat.	msg_cobros	fecha_contraapuntes
+msg_cobros.fecha_contraapuntes	Ha d'indicar la data en la qual es generaran els contraapuntes	msg_cobros	fecha_contraapuntes
+msg_cobros.fecha_cobro	Ha d'indicar la data en la qual s'ha pagat el cobrament (fila	msg_cobros	fecha_cobro
+msg_cobros.fecha_apuntes_no_ejercicio	La data dels apunts que es generaran no pertany a l'exercici obert. El procés ha estat cancel·lat	msg_cobros	fecha_apuntes_no_ejercicio
+msg_cobros.facturas_negativas	Existeixen factures amb import negatiu. No poden incloure's en la remesacion	msg_cobros	facturas_negativas
+msg_cobros.facturas_creadas	Rang de factures creades:	msg_cobros	facturas_creadas
+msg_cobros.fact_no_contab	De les factures marcades a retornar no hi ha cap comptabilitzada, no estan domiciliades o no ha marcat generar contraapuntes	msg_cobros	fact_no_contab
+msg_cobros.exito_mandar_banco	Actualització amb èxit. %s %s Recordi manar al banc el fitxer %s	msg_cobros	exito_mandar_banco
+msg_cobros.espera_descartar_apuntes	S'està a l'espera de l'actualització d'apunts.~~r Per a descartar els apunts i poder fer canvis ha de refrescar la llista prèviament	msg_cobros	espera_descartar_apuntes
+msg_cobros.espera_actualiz_apuntes_previo	S'està a l'espera de l'actualització d'apunts~~r Per a descartar els apunts i poder fer canvis ha de refrescar la llista prèviament	msg_cobros	espera_actualiz_apuntes_previo
+msg_cobros.error_guardar_cobros	S'ha produït un error a l'intentar guardar els cobraments	msg_cobros	error_guardar_cobros
+msg_cobros.error_guardar_apuntes	S'ha produït un error a l'intentar guardar els apunts	msg_cobros	error_guardar_apuntes
+msg_cobros.error_generando_apuntes	Error generant els apunts	msg_cobros	error_generando_apuntes
+msg_cobros.error_datos_banco_colegiados	Les dades bancàries dels següents col·legiats no són correctes. Les factures han estat	msg_cobros	error_datos_banco_colegiados
+msg_cobros.error_contraapuntes	S'ha produït un error a l'intentar generar els contraapuntes dels cobraments	msg_cobros	error_contraapuntes
+msg_cobros.error_actualizar_facturas_revisar	S'ha produït un error quan s'intentava actualitzar les factures dels cobraments indicats	msg_cobros	error_actualizar_facturas_revisar
+msg_cobros.error_actualizar_factura	Error a l'intentar actualitzar la factura	msg_cobros	error_actualizar_factura
+msg_cobros.error_actualizar_fact	S'ha produït un error quan s'intentava actualitzar les factures dels cobraments indicats	msg_cobros	error_actualizar_fact
+msg_cobros.error_actualizar_dep_inform	Ha ocorregut alguna fallada a l'actualitzar. Avisi al Dpto. d'Informàtica.	msg_cobros	error_actualizar
+msg_cobros.error_actualizar_cobros_revisar	S'ha produït un error quan s'intentava actualitzar els cobraments.~~r Revisi cadascun d'ells	msg_cobros	error_actualizar_cobros_revisar
+msg_cobros.error_actualizar_cobros_pagos	S'ha produït un error quan s'intentaven actualitzar les factures dels cobraments indicats	msg_cobros	error_actualizar_cobros_pagos
+msg_cobros.error_actualizar	S'ha produït un error quan s'intentava actualitzar els cobraments... Revisi cadascun d'ells	msg_cobros	error_actualizar
+msg_cobros.desea_descartar_apuntes	Desitja descartar aquests apunts?	msg_cobros	desea_descartar_apuntes
+msg_cobros.desea_continuar	Desitja continuar?	msg_cobros	desea_continuar
+msg_cobros.desea_actualizarlos	Desitja actualitzar-los?	msg_cobros	desea_actualizarlos
+msg_cobros.definir_variables	Cal definir les següents variables per a poder comptabilitzar:	msg_cobros	definir_variables
+msg_cobros.datos_no_actualizados	Les dades no han estat actualitzats.	msg_cobros	datos_no_actualizados
+msg_cobros.cuentas_bancarias_incorrectas	Existeixen comptes bancaris col·locades que no són correctes. Situat el focus en la primera incorrecta	msg_cobros	cuentas_bancarias_incorrectas
+msg_cobros.cuenta_indefinida	Hi ha bancs sense el compte comptable definida.~~r Es produiran errors en el procés.	msg_cobros	cuenta_indefinida
+msg_cobros.cuenta_cont_indef	Hi ha bancs sense el compte comptable definida.~~r Es produiran errors en el procés.	msg_cobros	cuenta_cont_indef
+msg_cobros.cobros_honorarios_no_pagados	Els cobraments de factures d'honoraris no poden marcar-se com no pagats (fila	msg_cobros	cobros_honorarios_no_pagados
+msg_cobros.cargar_fact_fichero	Desitja carregar les factures del fitxer que no estiguin en la consulta actual?	msg_cobros	cargar_fact_fichero
+msg_cobros.cancelar_generacion	Ha cancel·lat la generació de la remesa.~~r Els cobraments seran restablits tal com estan emmagatzemats desfent qualsevol canvi realitzat	msg_cobros	cancelar_generacion
+msg_cobros.cambia_remesa_actualizar	El nombre de remesa ha canviat i s'actualitzarà	msg_cobros	cambia_remesa_actualizar
+msg_cobros.banco_contraapuntes	Ha d'indicar el banc contra el qual es generaran els contraapuntes	msg_cobros	banco_contraapuntes
+msg_cobros.asiento_numero	Procés finalitzat, últim seient generat nombre :	msg_cobros	asiento_numero
+msg_cobros.apuntes_generados_noguardados	Existeixen ja apunts generats i no guardats	msg_cobros	apuntes_generados_noguardados
+msg_cobros.antes_grabar_cambios	Abans de realitzar aquest procés han de guardar-se tots els canvis realitzats.	msg_cobros	antes_grabar_cambios
+msg_cobros.actualizar_f_pago_banco	Desitja actualitzar la forma de pagament i el banc en les capçaleres de les factures amb la del cobrament corresponent si no estan comptabilitzades?	msg_cobros	actualizar_f_pago_banco
+msg_cobros.actualizar_ahora	Actualitzar ara?	msg_cobros	actualizar_ahora
+msg_entsal.suprimir	Suprimir	msg_entsal	suprimir
+msg_entsal.no_encont_regs	No s'han trobat registres segons les especificacions.	msg_entsal	no_encont_regs
+msg_entsal.no_cambia_tipo_reg	No se puede cambiar el tipo de registro cuando tiene asignado un número de registro.	msg_entsal	no_cambia_tipo_reg
+msg_entsal.no_borrar_reg	No es pot eliminar el registre.	msg_entsal	no_borrar_reg
+msg_entsal.fases_tipo_informe	Existeixen fases d'informes amb aquest tipus d'informe.	msg_entsal	fases_tipo_informe
+msg_entsal.exp_no_existe	Aquest expedient NO existeix.	msg_entsal	exp_no_existe
+msg_entsal.existe_registro	Ja existeix un registre amb el nom: %s	msg_entsal	existe_registro
+msg_entsal.especif_tipo_persona_destino	Ha d'especificar un valor en el camp Tipus de Persona Destinació.	msg_entsal	especif_tipo_persona_destino
+msg_entsal.especif_tipo_persona	Ha d'especificar un valor en el camp Tipus de Persona Origen.	msg_entsal	especif_tipo_persona
+msg_entsal.especif_serie	Ha d'especificar un valor en el camp SÈRIE.	msg_entsal	especif_serie
+msg_entsal.especif_ruta_anexo	Ha d'especificar un valor per a la ruta de l'annex	msg_entsal	especif_ruta_anexo
+msg_entsal.especif_remitente	Ha d'especificar un valor en el camp Remitent.	msg_entsal	especif_remitente
+msg_entsal.especif_fecha	Ha d'especificar un valor en el camp Data.	msg_entsal	especif_fecha
+msg_entsal.especif_destinatario	Ha d'especificar un valor en el camp Destinatari.	msg_entsal	especif_destinatario
+msg_entsal.especif_descripcion	Ha d'especificar un valor en el camp Descripció.	msg_entsal	especif_descripcion
+msg_entsal.especif_codig_orig	Ha d'especificar un valor en el camp Codi Origen.	msg_entsal	especif_codig_orig
+msg_entsal.especif_cod_destino	Ha d'especificar un valor en el camp Codi Destinació.	msg_entsal	especif_cod_destino
+msg_entsal.error_contador_sql	%s	msg_entsal	error_contador_sql
+msg_entsal.error_contador_serie	Ha ocurrido un error con el contador: %s %s	msg_entsal	error_contador_serie
+msg_entsal.desea_operacion	Desitja realitzar aquesta operacion?	msg_entsal	desea_operacion
+msg_entsal.cumplimentar	El valor del Nº Registre s'emplenarà amb el valor Nº Registro Bis, si no desitja fer-lo el valor serà el paràmetre intern habitual.	msg_entsal	cumplimentar
+msg_entsal.cod_origen_inval	El Codi Origen introduït no és vàlid	msg_entsal	cod_origen_inval
+msg_entsal.cod_destino_inval	El Codi Destinació introduïda no és vàlid	msg_entsal	cod_destino_inval
+msg_entsal.cambios_ver_cambios	Aquests canvis es veran la proxima vegada que obri aquesta finestra.	msg_entsal	cambios_ver_cambios
+msg_entsal.cambios_reg_asoc	S'han produït canvis en els Registres Associats.	msg_entsal	cambios_reg_asoc
+msg_ent_sal.especif_cod	Ha d'especificar un valor en el camp Codi.	msg_entsal	especif_cod
+msg_fasesmas.introducir_pbl	No es va introduir cap URL per a l'obra. Es construirà amb l'emplaçament actual	msg_fasesmas	introducir_pbl
+msg_fasesmas.seleccionar_documento	Debe seleccionar al menos un documento.	msg_fasesmas	seleccionar_documento
+msg_fasesmas.registro_cambiado_expediente	El Registre s'ha canviat a l'Expedient Nº:	msg_fasesmas	registro_cambiado_expediente
+msg_fasesmas.producido_error	S'ha produït un error	msg_fasesmas	producido_error
+msg_fasesmas.proceso_finalizado	Procés Finalitzat	msg_fasesmas	proceso_finalizado
+msg_fasesmas.participacion_colegiados_cien	La participació dels col·legiats és major de 100.	msg_fasesmas	participacion_colegiados_cien
+msg_fasesmas.num_salida_no_existe	El nombre de sortida especificat no existeix	msg_fasesmas	num_salida_no_existe
+msg_fasesmas.num_expediente_no_existe	El nombre d'expedient especificat no existeix	msg_fasesmas	num_expediente_no_existe
+msg_fasesmas.no_posible_cobro_cuenta_personal	No és possible el cobrament per compte personal	msg_fasesmas	no_posible_cobro_cuenta_personal
+msg_fasesmas.no_marcado_colegiado	No s'ha marcat cap col·legiat.	msg_fasesmas	no_marcado_colegiado
+msg_fasesmas.no_implementado	No implementat	msg_fasesmas	no_implementado
+msg_fasesmas.no_existe_nif_cliente	No existeix el NIF del client	msg_fasesmas	no_existe_nif_cliente
+msg_fasesmas.no_encuentra_porcent_colegiado	No es troba el % del col·legiat	msg_fasesmas	no_encuentra_porcent_colegiado
+msg_fasesmas.no_encuentra_porcent_cliente	No es troba el % del client	msg_fasesmas	no_encuentra_porcent_cliente
+msg_fasesmas.no_colegiado_duplicado	No pot haver-hi un col·legiat duplicat.	msg_fasesmas	no_colegiado_duplicado
+msg_fasesmas.no_años_anteriores_50	No es poden indicar anys anteriors a 1950	msg_fasesmas	no_años_anteriores_50
+msg_fasesmas.ningun_colegiado_facturar_documentos	No existeix ningun col·legiat al que facturar els documents	msg_fasesmas	ningun_colegiado_facturar_documentos
+msg_fasesmas.nif_9_posiciones	El NIF/CIF ha de ser de 9 posicions.	msg_fasesmas	nif_9_posiciones
+msg_fasesmas.liquidacion_positiva_trasferencia_talon	Una liquidació positiva només pot ser amb transferència o taló.	msg_fasesmas	liquidacion_positiva_trasferencia_talon
+msg_fasesmas.liquidacion_negativa_trasferencia_talon	Una liquidació negativa no pot ser ni per transferència ni per taló.	msg_fasesmas	liquidacion_negativa_trasferencia_talon
+msg_fasesmas.letra_nif_no_correcta	La lletra del NIF no és correcta	msg_fasesmas	letra_nif_no_correcta
+msg_fasesmas.introducir_volumen	Ha d'introduir el Volum	msg_fasesmas	introducir_volumen
+msg_fasesmas.introducir_un	Ha d'introduir un	msg_fasesmas	introducir_un
+msg_fasesmas.introducir_tipo_obra	Ha d'introduir un Tipus d'Obra	msg_fasesmas	introducir_tipo_obra
+msg_fasesmas.introducir_tipo_actuacion	Ha d'introduir un Tipus d'Actuació	msg_fasesmas	introducir_tipo_actuacion
+msg_fasesmas.introducir_superficie	Ha d'introduir la Superfície	msg_fasesmas	introducir_superficie
+msg_fasesmas.introducir_presupuesto_ejec_material	Ha d'introduir el Pressupost d'Execució Material	msg_fasesmas	introducir_presupuesto_ejec_material
+msg_fasesmas.introducir_num_expediente	Ha d'introduir un nombre d'Expedient	msg_fasesmas	introducir_num_expediente
+msg_fasesmas.introducir_colegiado	Ha d'introduir un Col·legiat	msg_fasesmas	introducir_colegiado
+msg_fasesmas.intro_nuevos_valores_pem_superficie	Ha d'introduir els nous valors per al PEM i la Superfície	msg_fasesmas	intro_nuevos_valores_pem_superficie
+msg_fasesmas.indicar_expediente	Ha d'indicar un Expedient	msg_fasesmas	indicar_expediente
+msg_fasesmas.indicar_contrato	Debe indicar un Contrato	msg_fasesmas	indicar_contrato
+msg_fasesmas.indicar_año_valido	Ha d'indicar un any vàlid	msg_fasesmas	indicar_año_valido
+msg_fasesmas.generado_avisos_colegiados	S'han generat tots els avisos per als col·legiats seleccionats.	msg_fasesmas	generado_avisos_colegiados
+msg_fasesmas.expediente_no_existe	L'expedient NO existeix.	msg_fasesmas	expediente_no_existe
+msg_fasesmas.expediente_no_avisos_pendientes	Aquest expedient no té avisos pendents.	msg_fasesmas	expediente_no_avisos_pendientes
+msg_fasesmas.existe_mas_cliente_nif	Existeix més d'un client amb aquest NIF	msg_fasesmas	existe_mas_cliente_nif
+msg_fasesmas.especif_serie_facturas	Ha d'especificar una sèrie per a les factures.	msg_fasesmas	especif_serie_facturas
+msg_fasesmas.especif_param_busqueda	Ha d'especificar almenys un paràmetre de recerca	msg_fasesmas	especif_param_busqueda
+msg_fasesmas.especif_forma_pago_liquidacion	Ha d'especificar la forma de pagament de la liquidació.	msg_fasesmas	especif_forma_pago_liquidacion
+msg_fasesmas.especif_forma_pago_facturas	Ha d'especificar una forma de pagament per a les factures.	msg_fasesmas	especif_forma_pago_facturas
+msg_fasesmas.especif_forma_pago	Ha d'especificar la forma de pagament.	msg_fasesmas	especif_forma_pago
+msg_fasesmas.especif_fecha_pago	Ha d'especificar la data de pagament.	msg_fasesmas	especif_fecha_pago
+msg_fasesmas.especif_fecha_facturas	Ha d'especificar una data per a les factures.	msg_fasesmas	especif_fecha_facturas
+msg_fasesmas.especif_concepto	Ha d'especificar el concepte.	msg_fasesmas	especif_concepto
+msg_fasesmas.especif_banco_facturas	Ha d'especificar un banc per a les factures.	msg_fasesmas	especif_banco_facturas
+msg_fasesmas.especif_banco	Ha d'especificar el banc.	msg_fasesmas	especif_banco
+msg_fasesmas.especif_asunto_facturas	Ha d'especificar un assumpte per a les factures.	msg_fasesmas	especif_asunto_facturas
+msg_fasesmas.error_actualizar_contrato	Error a l'actualitzar l'estat del contracte	msg_fasesmas	error_actualizar_contrato
+msg_fasesmas.desea_recalcular	Desitja recalcular	msg_fasesmas	desea_recalcular
+msg_fasesmas.corte_ticket	Cort el tiquet abans de continuar	msg_fasesmas	corte_ticket
+msg_fasesmas.contratos_mismo_tipo_actuacion	Existeix(en) un altre(s) contracte(s) en aquest expedient amb el mateix tipus d'actuació.	msg_fasesmas	contratos_mismo_tipo_actuacion
+msg_fasesmas.contrato_no_encontrado	Contracte no trobat	msg_fasesmas	contrato_no_encontrado
+msg_fasesmas.colegiado_no_musaat	El col·legiat no és de MUSAAT.	msg_fasesmas	colegiado_no_musaat
+msg_fasesmas.colegiado_no_existe	El col·legiat indicat no existeix	msg_fasesmas	colegiado_no_existe
+msg_fasesmas.colegiado_especificado	El col·legiat especificat no existeix	msg_fasesmas	colegiado_especificado
+msg_fasesmas.atencion	Atenció	msg_fasesmas	atencion
+msg_fasesmas.año_no_posterior	L'any no pot ser posterior a l'actual	msg_fasesmas	año_no_posterior
+msg_fasesmas.agrupar_opcion_superior_derecha	Pot agrupar els imports aquests contractes amb l'opció superior dreta	msg_fasesmas	agrupar_opcion_superior_derecha
+msg_final_obra.no_registros_especificaciones	No s'han trobat registres segons les especificacions.	msg_final_obra	no_registros_especificaciones
+msg_final_obra.especificar_final_obra	Ha d'especificar el final d'obra	msg_final_obra	especificar_final_obra
+msg_final_obra.asociar_contrato	Ha d'associar un contracte a aquest final d'obra	msg_final_obra	asociar_contrato
+msg_listas.solo_propietario_modif	Només l'usuari propietari de la llista pot modificar-la	msg_listas	solo_propietario_modif
+msg_listas.seguro_eliminar	Està segur que desitja eliminar aquesta llista?	msg_listas	seguro_eliminar
+msg_listas.nombre_lista	És necessari indicar un nom per a la llista.	msg_listas	nombre_lista
+msg_listas.n_coleg_valido	Ha d'introduir un nombre de col·legiat vàlid.	msg_listas	n_coleg_valido
+msg_listas.n_coleg_nif_cliente_valido	Ha d'introduir un nombre de col·legiat o nif de client vàlid.	msg_listas	n_coleg_nif_cliente_valido
+msg_listas.lista_eliminada	La llista ha estat eliminada, la finestra es tanqués en aquest moment	msg_listas	lista_eliminada
+msg_listas.filtro	El filtre és	msg_listas	filtro
+msg_listas.especif_propietario	Ha d'especificar un valor en el camp propietari	msg_listas	especif_propietario
+msg_listas.especif_nom_lista	Ha d'especificar un valor en el camp Nom Llesta	msg_listas	especif_nom_lista
+msg_listas.error_copia	Error durant la còpia de la llista	msg_listas	error_copia
+msg_listas.desea_continuar	Desitja continuar?	msg_listas	desea_continuar
+msg_listas.copiada_exito	La llista ha estat copiada amb èxit	msg_listas	copiada_exito
+msg_listas.coleg_ya_existe	Aquest col·legiat ja existeix en la llista	msg_listas	coleg_ya_existe
+msg_listas.cliente_ya_existe	Aquest client ja existeix en la llista	msg_listas	cliente_ya_existe
+msg_listas.borrar_consulta	ATENCIO!! Aquesta operació eliminará la consulta seleccionada.	msg_listas	borrar_consulta
+msg_musaat.total_prima	Total Primera	msg_musaat	total_prima
+msg_musaat.total_en_negativo	Total en negatiu	msg_musaat	total_en_negativo
+msg_musaat.tener_num_colegiado	Ha de tenir un nombre de col·legiat	msg_musaat	tener_num_colegiado
+msg_musaat.tener_estado_src	Ha de tenir un estat de S.R.C.	msg_musaat	tener_estado_src
+msg_musaat.tener_cobertura_tasaciones	Ha de tenir una cobertura de TAXACIONS	msg_musaat	tener_cobertura_tasaciones
+msg_musaat.tener_cobertura_src	Ha de tenir una cobertura de S.R.C.	msg_musaat	tener_cobertura_src
+msg_musaat.recuperando_movimiento	Recuperant Moviment :	msg_musaat	recuperando_movimiento
+msg_musaat.recuperacion_cancelada	Recuperació cancel·lada	msg_musaat	recuperacion_cancelada
+msg_musaat.proceso_finalizado_exito	Procés Finalitzat amb èxit	msg_musaat	proceso_finalizado_exito
+msg_musaat.proceso_finalizado	Procés finalitzat	msg_musaat	proceso_finalizado
+msg_musaat.otros_seguros_cuotas	Altres Segurs/Quotes: Ha d'indicar el concepte	msg_musaat	otros_seguros_cuotas
+msg_musaat.num_movimientos	Nombre de moviments	msg_musaat	num_movimientos
+msg_musaat.no_registros_especificaciones	No s'han trobat registres segun les especificacions.	msg_musaat	no_registros_especificaciones
+msg_musaat.no_participa_obra	El col·legiat no participa en aquesta obra.	msg_musaat	no_participa_obra
+msg_musaat.no_existe_contrato	No existeix el contracte.	msg_musaat	no_existe_contrato
+msg_musaat.no_duplicar_conceptos	No es poden duplicar conceptes.	msg_musaat	no_duplicar_conceptos
+msg_musaat.no_coinciden_movimientos	No coincideixen %s moviments	msg_musaat	no_coinciden_movimientos
+msg_musaat.n_poliza_tasaciones	El Nº de pòlissa Taxacions ha de ser un nombre (sense punts ni comas)	msg_musaat	n_poliza_tasaciones
+msg_musaat.n_poliza_peritos	El Nº de pòlissa Perits ha de ser un nombre (sense punts ni comas)	msg_musaat	n_poliza_peritos
+msg_musaat.n_poliza_numero	El Nº de pòlissa SRC ha de ser un nombre (sense punts ni comas)	msg_musaat	n_poliza_numero
+msg_musaat.n_poliza_accidentes_numero	El Nº de pòlissa Accidents ha de ser un nombre (sense punts ni comas)	msg_musaat	n_poliza_accidentes_numero
+msg_musaat.n_mutualista_numero	El Nº de mutualista ha de ser un nombre (sense punts ni comas)	msg_musaat	n_mutualista_numero
+msg_musaat.lista_existe_sobreescribir	La llista especificada ja existeix actualment,desitja sobreescriure-la?	msg_musaat	lista_existe_sobreescribir
+msg_musaat.introducir_volumen	Ha d'introduir el Volum	msg_musaat	introducir_volumen
+msg_musaat.introducir_tipo_obra	Ha d'introduir un Tipus d'Obra	msg_musaat	introducir_tipo_obra
+msg_musaat.introducir_tipo_actuacion	Ha d'introduir un Tipus d'Actuació	msg_musaat	introducir_tipo_actuacion
+msg_musaat.introducir_superficie	Ha d'introduir la Superfície	msg_musaat	introducir_superficie
+msg_musaat.introducir_presupuesto_ejecucion_material	Ha d'introduir el Pressupost d'Execució Material	msg_musaat	introducir_presupuesto_ejecucion_material
+msg_musaat.introducir_num_factura_hasta	Ha d'introduir el nº factura fins a en la fila	msg_musaat	introducir_num_factura_hasta
+msg_musaat.introducir_num_factura_desde	Ha d'introduir el nº factura des d'en la fila	msg_musaat	introducir_num_factura_desde
+msg_musaat.introducir_concepto	Ha d'introduir un concepte	msg_musaat	introducir_concepto
+msg_musaat.introducir_colegiado	Ha d'introduir un Col·legiat	msg_musaat	introducir_colegiado
+msg_musaat.indicar_fechas_consulta	Ha d'indicar les dates de consulta	msg_musaat	indicar_fechas_consulta
+msg_musaat.imprimir_listado	Imprimir llistat	msg_musaat	imprimir_listado
+msg_musaat.imprimir	Imprimir?	msg_musaat	imprimir
+msg_musaat.filas_columna_n_colegiado_vacia	Les següents files tenen buida la columna "Nº col·legiat", no podrà guardar les dades fins que corregeixi aquesta situació:	msg_musaat	filas_columna_n_colegiado_vacia
+msg_musaat.fichero_asegurado_empresa	El Fitxer de Situació d'Assegurats no correspon amb l'Empresa.	msg_musaat	fichero_asegurado_empresa
+msg_musaat.fechas_generacion_fichero	Ha d'especificar les dates per a la generació del fitxer	msg_musaat	fechas_generacion_fichero
+msg_musaat.especificar_param_busqueda	Ha d'especificar almenys un paràmetre de recerca	msg_musaat	especificar_param_busqueda
+msg_musaat.error_intro_dato	Error d'introducció de dada	msg_musaat	error_intro_dato
+msg_musaat.domiciliar_cobros	~rRecordi domiciliar els cobraments d'aquestes factures dintre del Mòdul de Cobraments.	msg_musaat	domiciliar_cobros
+msg_musaat.desea_imprimir_listado	Desitja imprimir el llistat?	msg_musaat	desea_imprimir_listado
+msg_musaat.dar_fecha_notificacion	Desitja donar data de notificacion a aquests moviments?	msg_musaat	dar_fecha_notificacion
+msg_musaat.conceptos_domiciliables	Conceptes Domiciliables: Ha d'indicar el concepte.	msg_musaat	conceptos_domiciliables
+msg_musaat.comunicar_dpto_visado	Comunicar al Dpto. de Visat	msg_musaat	comunicar_dpto_visado
+msg_musaat.colegiado_tiene_ficha	Aquest Col·legiat ja té una fitxa oberta en MUSAAT	msg_musaat	colegiado_tiene_ficha
+msg_musaat.colegiado_no_musaat	El col·legiat no és de MUSAAT.	msg_musaat	colegiado_no_musaat
+msg_musaat.colegiado_no_existe	El col·legiat no existeix	msg_musaat	colegiado_no_existe
+msg_musaat.centro_generacion_fichero	Ha d'especificar el centre per a la generació del fitxer	msg_musaat	centro_generacion_fichero
+msg_musaat.borraran_anteriores_actualizar	S'eliminaran les quotes anteriors, Desitja actualitzar les quotes?	msg_musaat	borraran_anteriores_actualizar
+msg_musaat.actualizar_datos	Actualitzar Dades	msg_musaat	actualizar_datos
+msg_musaat.actualiza_importe_musaat	Atenció: aquest procés actualitza l'import de musaat dels avisos amb el nou import recalculado, Desitja continuar?	msg_musaat	actualiza_importe_musaat
+musaat.fecha_musaat	Data Musaat	musaat	fecha_musaat
+musaat.tipo_obra	Tipus Obra	musaat	tipo_obra
+musaat.destino_obra	Destí Obra	musaat	destino_obra
+musaat.volumen	Volum	musaat	volumen
+musaat.vaciar_facts	Buidar Facts	musaat	vaciar_facts
+musaat.tipo_poliza	Tipus Pòlissa	musaat	tipo_poliza
+musaat.tipo_cuota_musaat	Tipus de Quota de MUSAAT	musaat	tipo_cuota_musaat
+musaat.tipo	Tipus	musaat	tipo
+musaat.tabla	Taula	musaat	tabla
+musaat.superficie	Superfície	musaat	superficie
+musaat.situaciones	Situacions	musaat	situaciones
+musaat.seguro_tasadores_musaat	Segur Taxadors MUSAAT	musaat	seguro_tasadores_musaat
+musaat.seguro_tasaciones	Segurs Taxacions	musaat	seguro_tasaciones
+musaat.seguro_responsabilidad_civil	Segur de Responsabilitat Civil ( S.R.C )	musaat	seguro_responsabilidad_civil
+musaat.seguro_responsabiidad_civil	Segur de Responsabilitat Civil	musaat	seguro_responsabiidad_civil
+musaat.seguro_peritos	Segur Perits	musaat	seguro_peritos
+musaat.seguro_peritaciones	Segur de Peritacions	musaat	seguro_peritaciones
+musaat.seguro_accidentes_musaat	Segur Accidents MUSAAT	musaat	seguro_accidentes_musaat
+musaat.seguro_accidentes	Segur d'Accidents	musaat	seguro_accidentes
+musaat.segur	Segur	musaat	segur
+musaat.residente	Resident	musaat	residente
+musaat.procesar_fichero_extramens	Processar Fitxer Extra Mensual	musaat	procesar_fichero_extramens
+musaat.prima_total	Prima Total	musaat	prima_total
+musaat.prima_fija_src	Prima Fixa SRC	musaat	prima_fija_src
+musaat.presupuesto	Pressupost	musaat	presupuesto
+musaat.prefijo	Prefix	musaat	prefijo
+musaat.porcent_part	% part	musaat	porcent_part
+musaat.porcen_bon_no_sini	%Bon. no sini.	musaat	porcen_bon_no_sini
+musaat.otros_seguros_cuotas	Altres Segurs/Quotes	musaat	otros_seguros_cuotas
+musaat.otros_datos	Altres Dades	musaat	otros_datos
+musaat.otros	Uns altres	musaat	otros
+musaat.obs	Obs.	musaat	obs
+musaat.obra_oficial	Obra Oficial	musaat	obra_oficial
+musaat.nombre	Nom	musaat	nombre
+musaat.nom_colegiado	Nom Col·legiat	musaat	nom_colegiado
+musaat.nif_pagador	Nif Pagador	musaat	nif_pagador
+musaat.nif	NIF	musaat	nif
+musaat.n_registro	Nº Registre	musaat	n_registro
+musaat.n_poliza_src	Nº Pòlissa S.R.C.	musaat	n_poliza_src
+musaat.n_poliza_r_c_tasadores	Nº Pòlissa R.C. Taxadors	musaat	n_poliza_r_c_tasadores
+musaat.n_poliza_r_c_peritos	Nº Pòlissa R.C. Perits	musaat	n_poliza_r_c_peritos
+musaat.n_poliza_exceso	Nº Pòlissa Excés	musaat	n_poliza_exceso
+musaat.n_poliza_accidentes	Nº Pòlissa Accidents	musaat	n_poliza_accidentes
+musaat.n_poliza	Nº Pòlissa	musaat	n_poliza
+musaat.n_mutualista	Nº Mutualista	musaat	n_mutualista
+musaat.n_mutua	Nº Mutua.	musaat	n_mutua
+musaat.n_expediente	Nº Expedient	musaat	n_expediente
+musaat.n_colegiado	Nº Col·legiat	musaat	n_colegiado
+musaat.n_coleg	Nº Col·legiat	musaat	n_coleg
+musaat.musaat	Musaat	musaat	musaat
+musaat.muerte	Mort	musaat	muerte
+musaat.malus	Malus	musaat	malus
+musaat.listado_variaciones	Llistat variacions	musaat	listado_variaciones
+musaat.listado_seguro_tasadores	LLISTAT DEL SEGUR DE TAXADORS	musaat	listado_seguro_tasadores
+musaat.listado_seguro_responsabilidad_civil	LLISTAT DEL SEGUR DE RESPONSABILITAT CIVIL	musaat	listado_seguro_responsabilidad_civil
+musaat.listado_seguro_accidentes	LLISTAT DEL SEGUR D'ACCIDENTS	musaat	listado_seguro_accidentes
+musaat.invalidez	Invalidesa	musaat	invalidez
+musaat.introducir_param_consulta_aceptar	Introdueixi els paràmetres de consulta i premi Acceptar	musaat	introducir_param_consulta_aceptar
+musaat.importe_desde	Import Desde	musaat	importe_desde
+musaat.importe	Import	musaat	importe
+musaat.importar_cuotas	Importar Quotes	musaat	importar_cuotas
+musaat.imp_pte	Imp. Pte.	musaat	imp_pte
+musaat.imp_cobrado	Imp. Cobrat	musaat	imp_cobrado
+musaat.historicos	Històrics	musaat	historicos
+musaat.historico_movimientos_src	Històric Moviments S.R.C.	musaat	historico_movimientos_src
+musaat.historico_coberturas_src	Històric Cobertures S.R.C.	musaat	historico_coberturas_src
+musaat.hasta	Fins a	musaat	hasta
+musaat.formula_aplicada	Fórmula Aplicada	musaat	formula_aplicada
+musaat.forma_pago	Forma Pagament	musaat	forma_pago
+musaat.fichero_estadistico	Fitxer Estadístic	musaat	fichero_estadistico
+musaat.fichero_economico	Fitxer Econòmic	musaat	fichero_economico
+musaat.fecha_efecto	Data Efecte	musaat	fecha_efecto
+musaat.fecha_calculo	Data Càlcul	musaat	fecha_calculo
+musaat.fecha_baja	Data Baixa	musaat	fecha_baja
+musaat.fecha_alta	Data Alta	musaat	fecha_alta
+musaat.fecha	Data	musaat	fecha
+musaat.f_notificacion	D. Notificació	musaat	f_notificacion
+musaat.f_inicio_activ_prof	D. Inici Activ. Prof.	musaat	f_inicio_activ_prof
+musaat.extra	Extra	musaat	extra
+musaat.excluir_movimientos_comunicados	Excloure moviments ja comunicats	musaat	excluir_movimientos_comunicados
+musaat.excluir_mov_comunicados	Excloure moviments ja comunicats	musaat	excluir_mov_comunicados
+musaat.exceso	Excés	musaat	exceso
+musaat.euros	Euros	musaat	euros
+musaat.estado	Estat	musaat	estado
+musaat.especificar_rango_facturas_adecuado	Especifiqui l'els/rang/s de factures adequat/s:	musaat	especificar_rango_facturas_adecuado
+musaat.delegacion	Delegació	musaat	delegacion
+musaat.datos_obra	Dades Obra	musaat	datos_obra
+musaat.datos_mutualista	Dades del Mutualista	musaat	datos_mutualista
+musaat.datos_musaat	Dades de MUSAAT	musaat	datos_musaat
+musaat.datos_historicos	Dades Històriques	musaat	datos_historicos
+musaat.datos_economicos	Dades Econòmiques	musaat	datos_economicos
+musaat.datos_contrato	Dades del Contracte	musaat	datos_contrato
+musaat.datos_cobertura	Dades Cobertura	musaat	datos_cobertura
+musaat.datos_alta_baja	Dades Alta/Baixa	musaat	datos_alta_baja
+musaat.contrato_ant	Contracte Ant.	musaat	contrato_ant
+musaat.conceptos_domiciliables	Conceptes Domiciliables	musaat	conceptos_domiciliables
+musaat.concepto	Concepte	musaat	concepto
+musaat.concep_domiciliables	Concep. Domiciliables	musaat	concep_domiciliables
+musaat.compañia	Companyia	musaat	compañia
+musaat.colegio	Col·legi	musaat	colegio
+musaat.colegiados	Col·legiats	musaat	colegiados
+musaat.coef_k	Coef. K	musaat	coef_k
+musaat.coef_g	Coef. G	musaat	coef_g
+musaat.coef_col	Coef. Col	musaat	coef_col
+musaat.coef_cm	Coef. cm	musaat	coef_cm
+musaat.coef_c	Coef. C	musaat	coef_c
+musaat.coef_bonus_malus	Coef. Bonus Malus	musaat	coef_bonus_malus
+musaat.cobertura_muerte	Cobertura mort	musaat	cobertura_muerte
+musaat.cobertura_invalidez	Cobertura Invalidesa	musaat	cobertura_invalidez
+musaat.cobertura_fecha_baja	Cobertura Data Baixa	musaat	cobertura_fecha_baja
+musaat.cobertura_fecha_alta	Cobertura Data Alta	musaat	cobertura_fecha_alta
+musaat.cobertura	Cobertura	musaat	cobertura
+musaat.cober_muer	Cober. Mort	musaat	cober_muer
+musaat.cober_inval	Cober. Inval.	musaat	cober_inval
+musaat.cob_muerte	Cob. Mort	musaat	cob_muerte
+musaat.cob_invalidez	Cob. Invalidesa	musaat	cob_invalidez
+musaat.cob_exceso	Cob. Excés	musaat	cob_exceso
+musaat.bonus_malus	Bonus Malus	musaat	bonus_malus
+musaat.bonus_m	Bonus M	musaat	bonus_m
+musaat.asistencia	Assistència	musaat	asistencia
+musaat.alta_tasadores	Alta Taxadors	musaat	alta_tasadores
+musaat.alta_src	Alta S.R.C	musaat	alta_src
+musaat.alta_peritos	Alta Perits	musaat	alta_peritos
+musaat.alta_exceso	Alta Excés	musaat	alta_exceso
+musaat.alta	Alta	musaat	alta
+musaat.coef_zona_musaat	Coef. zona Musaat	musaat	coef_zona_musaat
+musaat.poliza_plus	Pòlissa Plus	musaat	poliza_plus
+n_csd_impresion.-11	No s'ha especificat cap nom de fitxer	n_csd_impresion	-11
+n_csd_impresion.-10	No s'ha pogut generar l'entrada per a la web. No existeix la referència	n_csd_impresion	-10
+n_csd_impresion.-09	No s'ha pogut firmar el fitxer PDF	n_csd_impresion	-09
+n_csd_impresion.-08	No s'ha pogut crear el directori correctament	n_csd_impresion	-08
+n_csd_impresion.-07	No ha especificat cap adreça de correu	n_csd_impresion	-07
+n_csd_impresion.-06	No ha especificat una ruta vàlida per a generar el document pdf o no es té accé a la unitat	n_csd_impresion	-06
+n_csd_impresion.-05	La referència del document NO es correcta	n_csd_impresion	-05
+n_csd_impresion.-04b	NO té instal.lada la impresora de generació de PDF.~~r~~nConsulte amb l'administrador del sistema	n_csd_impresion	-04b
+n_csd_impresion.-04	Hi ha hagut problemes a l'hora de generar el pdf	n_csd_impresion	-04
+n_csd_impresion.-03	Hi ha hagut algún problema durant l'enviament del mail~~r~~nConsulte amb l'administrador del sistema	n_csd_impresion	-03
+n_csd_impresion.-02	La sessió NO ha sigut iniciada correctament	n_csd_impresion	-02
+n_csd_impresion.-01	El format de l'informe especificat NO es vàlid	n_csd_impresion	-01
+n_csd_impresion.+04	S'ha generat el document %s.pdf en la carpeta %s	n_csd_impresion	+04
+n_csd_impresion.+03	El missatge ha sigut enviat correctament	n_csd_impresion	+03
+nif.letra_mal	Lletra del NIF incorrecta. Es posarà la correcta.	nif	incorrecto
+Nueva. PLanta	Nova Planta	Nueva	PLanta
+pdf.web	Permetre visualitzar desde la web	pdf	visualizar_web
+pdf.previsualizar	Previsualitzar el pdf generat	pdf	previsualizar_pdf
+pdf.firmar	Firmar el PDF després de generar	pdf	firmar
+permaat.tipo_mutualista	Tipus Mutualista	permaat	tipo_mutualista
+permaat.sit_premaat	Situació PREMAAT	permaat	sit_premaat
+permaat.n_mutualista	Nom. Mutua	permaat	n_mutualista
+permaat.f_pasivo	Data Passiu	permaat	f_pasivo
+pfc.test_validacion	La informació introduïda no passa el test de validació i ha de ser corregida abans de que es guarden els canvis.~r~n~r~nVol sortir sense guardar?	pfc	pfc.test_validacion
+pfc.closequery_savechanges	Vol guardar els canvis?	pfc	pfc.closequery_savechanges
+premaat.valores-defecto	De moment els posarem valors per defecte, però no s'ha d'engegar si es llegix aquest missatge!!!	premaat	valores-defecto
+premaat.valor_numerico	Ha d'especificar un valor numèric	premaat	valor_numerico
+premaat.valor_gr_basico	Ha d'especificar un valor en el camp Gr. Bàsic	premaat	valor_gr_basico
+premaat.valor_gr_2000h	Ha d'especificar un valor en el camp Gr. 2000 Home	premaat	valor_gr_2000h
+premaat.valor_gr_2000d	Ha d'especificar un valor en el camp Gr. 2000 Dona	premaat	valor_gr_2000d
+premaat.valor_gr_2000_comple	Ha d'especificar un valor en el camp Gr. Comple 1	premaat	valor_gr_2000_comple
+premaat.valor_gr_2000_ahorro	Ha d'especificar un valor en el camp Mod. Estalvis 2000	premaat	valor_gr_2000_ahorro
+premaat.valor_anyo	Ha d'especificar un valor en el camp Any	premaat	valor_anyo
+premaat.vacia_fila_col	Les següents files tenen buida la columna "Nº col·legiat", no podrà guardar les dades fins que corregeixi aquesta situació	premaat	vacia_fila_col
+premaat.tranf_proc	No hi ha transferències per a processar	premaat	tranf_proc
+premaat.tipo_prestacion	Tipus Població	premaat	tipo_prestacion
+premaat.tipo_mutualista	Tipus Mutualista	premaat	tipo_mutualista
+premaat.tipo_benef	Tipus Beneficiari	premaat	tipo_benef
+premaat.talones_procesar	No hi han talons per a processar	premaat	talones_procesar
+premaat.talon_inicial	Ha d'especificar un nombre de taló inicial	premaat	talon_inicial
+premaat.sit_premaat	Situació PREMAAT	premaat	sit_premaat
+premaat.si_premaat	Situació PREMAAT	premaat	si_premaat
+premaat.prestacionses	Prestacions	premaat	prestacionses
+premaat.prestaciones	Prestacions	premaat	prestaciones
+premaat.pmp_sabana	Importació de Sabana	premaat	pmp_sabana
+premaat.pago_unico_todas_prestaciones	Pagament únic per a totes les prestacions	premaat	pago_unico_todas_prestaciones
+premaat.pago_prestaciones	PAGAMENT PRESTACIONS PREMAAT	premaat	pago_prestaciones
+premaat.pago_prest	PAGAMENT PREST. PREMAAT	premaat	pago_prest
+premaat.otros_datos	Altres Dades	premaat	otros_datos
+premaat.n_mutualista	Nom. Mutualista	premaat	n_mutualista
+premaat.n_mut	Nom. Mut.	premaat	n_mut
+premaat.n_col	N. Col	premaat	n_col
+premaat.msg_pres_tipo	Prestacions: Indiqui el tipus de prestació	premaat	msg_pres_tipo
+premaat.msg_pres_importe	Prestacions: Indiqui l l'import	premaat	msg_pres_importe
+premaat.msg_pres_f_cobro	Prestacions: Indiqui la forma de cobrament	premaat	msg_pres_f_cobro
+premaat.msg_grupo2000_basico_dom	Pertany al grup 2000 i no està domiciliat, se li generarà una domiciliació	premaat	msg_grupo2000_basico_dom
+premaat.msg_grupo_comp1_basico_dom	Pertany al grup complementari primer i no està domiciliat, se li generarà una domiciliació	premaat	msg_grupo_comp1_basico_dom
+premaat.msg_grupo_comp_basico_dom	Pertany al grup complementari i no està domiciliat, se li generarà una domiciliació	premaat	msg_grupo_comp_basico_dom
+premaat.msg_grupo_basico_dom	Pertany al grup bàsic i no està domiciliat, se li generarà una domiciliació	premaat	msg_grupo_basico_dom
+premaat.msg_forma_pago	Domiliacions: Indiqui la forma de pagament	premaat	msg_forma_pago
+premaat.msg_fin_proceso	Fi del Proces...	premaat	msg_fin_proceso
+premaat.msg_dom_forma_pago	Domiliacions: Indique la forma de pagament	premaat	msg_dom_forma_pago
+premaat.msg_dom_cuotacomp_dom	Té domiciliada la quota 2000 i no pertany a ella,~~r Es perdrà aquesta domiciliació	premaat	msg_dom_cuotacomp_dom
+premaat.msg_dom_cuota2000_dom	Té domiciliada la quota 2000 i no pertany a ella, Es perdrà aquesta domiciliació	premaat	msg_dom_cuota2000_dom
+premaat.msg_dom_cuota_dom	Té domiciliada la quota bàsica i no pertany a ella, Es perdrà aquesta domiciliació	premaat	msg_dom_cuota_dom
+premaat.msg_dom_concepto_importe	Domiliacions: Indique l'import	premaat	msg_dom_concepto_importe
+premaat.msg_dom_concepto_dom	Domiliacions: Indique elconcepte a domiciliar	premaat	msg_dom_concepto_dom
+premaat.msg_datos_defecto	Falta configurar dades per defecte	premaat	msg_datos_defecto
+premaat.msg_ben_nif	El Beneficiari ha de tenir un N.I.F	premaat	msg_ben_nif
+premaat.modulo_ahorro	Mòdul Estalvi	premaat	modulo_ahorro
+premaat.listado_cuotas_premaat_det	Llistat de cuotes de PREMAAT detallat	premaat	listado_cuotas_premaat_det
+premaat.listado_col_premaat	Llistat de Col.legiats de PREMAAT	premaat	listado_col_premaat
+premaat.listado	Llistat	premaat	listado
+premaat.liquidaciones_gen	Liquidacions generades	premaat	liquidaciones_gen
+premaat.liq_ya_procesadas	Ha seleccionat liquidacions ja processades: NO S'ACTUALITZARAN DADES.	premaat	liq_ya_procesadas
+premaat.liq_pendientes	Les següents liquidacions quedaran pendents:	premaat	liq_pendientes
+premaat.liq_pdtes_talones	Recordi que no totes les liquidacions estan pendents, pel que aquest procés NOMÉS imprimeix talons. NO S'ACTUALITZESSIN DADES!!	premaat	liq_pdtes_talones
+premaat.liq_fuera_ejer	Alguna de les dates de les liquidacions no corresponen a l'exercici actual, pel que es cancel·la el procés de comptabilització	premaat	liq_fuera_ejer
+premaat.imprimir_listado_final_pagos	Imprimir llistat final pagaments	premaat	imprimir_listado_final_pagos
+premaat.imp_list_trans_gen	IMPRESION DEL LLISTAT DE TRANSFERÈNCIES GENERADES	premaat	imp_list_trans_gen
+premaat.imp_excel	Importació Excel	premaat	imp_excel
+premaat.grupo_basico	Grup Bàsic	premaat	grupo_basico
+premaat.grupo_2000	Grup 2000	premaat	grupo_2000
+premaat.generacion_cuotas_fichas	Només es generaran les quotes de aquelllos col·legiats que estiguin d'alta tant en la fitxa col·legial com en PREMAAT....	premaat	generacion_cuotas_fichas
+premaat.ficha_premaat	Dades de la Fitxa de PREMAAT que discrepen amb les domiciliacions	premaat	ficha_premaat
+premaat.err_gen_pres	Error generant les prestacions de PREMAAT	premaat	err_gen_pres
+premaat.duplicar_conceptos	No es poden duplicar conceptes	premaat	duplicar_conceptos
+premaat.dom_premaat	Dades de la Fitxa de PREMAAT que discrepen amb les domiciliacions	premaat	dom_premaat
+premaat.definir_variables	Cal definir les següents variables per a poder comptabilitzar:	premaat	definir_variables
+premaat.cuotas	Quotes	premaat	cuotas
+premaat.cta_incorrecta	Compte Bancari Incorrecte en la línea nombre	premaat	cta_incorrecta
+premaat.contabilizar_pagos	Comptabilitzar Pagaments	premaat	contabilizar_pagos
+premaat.contabilizando_pagos	Comptabilitzant pagaments	premaat	contabilizando_pagos
+premaat.complemento2	Complement 2	premaat	complemento2
+premaat.complemento1	Complement 1	premaat	complemento1
+premaat.complementario_1	Complementari 1er	premaat	complementario_1
+premaat.borrar_cuotas	S'eliminaran les quotes anteriors, Desitja actualitzar les quotes?	premaat	borrar_cuotas
+premaat.borra_prestaciones_unicas_final	Eliminar Prestacions úniques al final del proces	premaat	borra_prestaciones_unicas_final
+premaat.bonificaciones	Bonificacions	premaat	bonificaciones
+premaat.beneficiarios	Beneficiaris	premaat	beneficiarios
+premaat.beneficiario	Beneficiari	premaat	beneficiario
+premaat.bancos_sin_cuenta	Hi ha bancs sense el compte comptable definida. Es produiran errors en el procés	premaat	bancos_sin_cuenta
+premaat.banco_pago	Ha d'especificar un Camp de Pagaments	premaat	banco_pago
+premaat.aplicar_paga_extra	Aplicar Paga Extra	premaat	aplicar_paga_extra
+premaat.actualizar_liq_ya_procesadas	Si desitja actualitzar dades seleccioni només liquidacions pendents	premaat	actualizar_liq_ya_procesadas
+premat.modulo_ahorro	1er Mòdul Estalvis	premat	modulo_ahorro
+reg_es.salida	Sortida	reg_es	salida
+reg_es.f_salida	Data Sortida	reg_es	f_salida
+reg_es.transporte	Transport	reg_es	transporte
+reg_es.tipo_persona	Tipus Persona	reg_es	tipo_persona
+reg_es.tipo_comunicado	Tipus Comunicat	reg_es	tipo_comunicado
+reg_es.tipo	Tipus	reg_es	tipo
+reg_es.texto	Text	reg_es	texto
+reg_es.serie	Sèrie	reg_es	serie
+reg_es.remitente	Remitent	reg_es	remitente
+reg_es.registro_venc_sal	Registres de Sortida per Data de Venciment	reg_es	registro_venc_sal
+reg_es.registro_venc_ent	Registres d'Entrada per Data de Venciment	reg_es	registro_venc_ent
+reg_es.registro_S	Registres de Sortida	reg_es	registro_S
+reg_es.registro_ref	Registre Ref.	reg_es	registro_ref
+reg_es.registro_fecha_S	Registres de Sortida per Data	reg_es	registro_fecha_S
+reg_es.registro_fecha_ES	Registres d'Entrada per Data	reg_es	registro_fecha_ES
+reg_es.registro_ES	Registres d'Entrada	reg_es	registro_ES
+reg_es.registro	Registre	reg_es	registro
+reg_es.poblacion	Població	reg_es	poblacion
+reg_es.parametros_busqueda	Paràmetres de recerca	reg_es	parametros_busqueda
+reg_es.parametro_completo	Introdueixi el paràmetre complet:	reg_es	parametro_completo
+reg_es.oficial	Oficial	reg_es	oficial
+reg_es.numero	Nombre	reg_es	numero
+reg_es.nombre_anexo	Nom de l'Annex	reg_es	nombre_anexo
+reg_es.nombre	Nom	reg_es	nombre
+reg_es.nom_activo_teclear	Nom actiu al teclejar:	reg_es	nom_activo_teclear
+reg_es.n_registro_referencia	Nº Registre Referència	reg_es	n_registro_referencia
+reg_es.n_registro_bis	Nº Registre Bis	reg_es	n_registro_bis
+reg_es.n_registro_activo_teclear	Nª registre actiu al teclejar:	reg_es	n_registro_activo_teclear
+reg_es.n_registro	Nº Registre	reg_es	n_registro
+reg_es.marca	Marca	reg_es	marca
+reg_es.interno	Intern	reg_es	interno
+reg_es.hasta	Fins a	reg_es	hasta
+reg_es.fecha_escrito	Data Escrit	reg_es	fecha_escrito
+reg_es.fecha	Data	reg_es	fecha
+reg_es.f_vencimiento	D. Venciment	reg_es	f_vencimiento
+reg_es.f_resgitro	Data Registre	reg_es	f_resgitro
+reg_es.f_escrito	Data Escrit	reg_es	f_escrito
+reg_es.expediente_act	Expedient/Act	reg_es	expediente_act
+reg_es.destinatario	Destinatari	reg_es	destinatario
+reg_es.desde	Desde	reg_es	desde
+reg_es.delegacion	Delegació	reg_es	delegacion
+reg_es.cumplimentado	Emplenat	reg_es	cumplimentado
+reg_es.control	Control	reg_es	control
+reg_es.codigo	Codi	reg_es	codigo
+reg_es.cod_pos	C.P	reg_es	cod_pos
+reg_es.celda	Cel·la	reg_es	celda
+reg_es.buscar	Cerca	reg_es	buscar
+reg_es.asunto	Assumpte	reg_es	asunto
+reg_es.archivo_documentos	Arxiu de Documents	reg_es	archivo_documentos
+reg_es.apellido_sociedad_activo_teclear	Cognom/Societat actiu al teclejar:	reg_es	apellido_sociedad_activo_teclear
+reg_es.anexo	Annexos	reg_es	anexo
+reg_es.almacen	Magatzem	reg_es	almacen
+reg_es.acuse_recibo	Justifiqui recepció	reg_es	acuse_recibo
+registro.n_registro	Nombre Registre	registro	n_registro
+seguridad.fallo_escritura	No té permís per a modificar les dades	seguridad	escritura_no_permitida
+seguridad.fallo_acceso	No es permet l'accés	seguridad	acceso_no_permitido
+traduccion.traduccion	Traducció	traduccion	traduccion
+traduccion.tag	Tag	traduccion	tag
+traduccion.modulo	Mòdul	traduccion	modulo
+busqueda.parametro_activo	Paràmetre actiu al teclejar	w_busqueda	texto_parametro_activo
+busqueda.parametro	Introduisca el paràmetre complet	w_busqueda	texto_parametro
+w_csd_impresion.serie_vacia	La serie del registre de sortida no pot ser buida	w_csd_impresion	serie vacia
+w_csd_impresion.serie_inexistente	La serie seleccionada no existeix. Consulte amb el departament d'informàtica per a la seua creació	w_csd_impresion	serie no exite
+w_csd_impresion.opciones	Opcions d'impresió	w_csd_impresion	opciones
+w_csd_impresion.nombre_archivo	Ha d'especificar un nom d'arxiu	w_csd_impresion	nombre_archivo
+w_csd_impresion.mail	Ha d'especificar una adreça d'e-mail	w_csd_impresion	e-mail
+w_csd_impresion.formato	Ha de seleccionar almenys un format	w_csd_impresion	formato
+w_csd_impresion.asunto	Ha d'especificar un assumpte per a l'e-mail	w_csd_impresion	asunto email
+Opciones de Impresión	Opcions d'impresió	w_csd_impresion	opciones
+Generar Registro Salida	Generar Registre de Sortida	w_csd_impresion	generar%registro
+Copias	Còpies	w_csd_print	copias
+Intervalo de páginas	Interval de pàgines	w_csd_print	intervalo
+w_detalle.no_posteriores	No hi ha files posteriors a aquesta	w_detalle	mensaje filas posteriores
+w_detalle.no_anteriores	No hi ha files anteriors a aquesta	w_detalle	mensaje filas anteriores
+m_dw.selec_todo	Selecciona-ho Tot	w_dw	seleccionar todo
+lista.registros	Registres	w_lista	registros
+error.salir	Sortir del Programa	w_system_error	salir
+error.objeto	Objecte	w_system_error	objeto
+error.numero	Número de Error	w_system_error	num_errror
+error.mensaje	Missatge de Error	w_system_error	mensaje
+error.linea	Línia	w_system_error	linea
+error.evento	Event	w_system_error	evento
+error.donde	Finestra/Menu	w_system_error	donde

@@ -1,0 +1,13 @@
+AYTO      	Carta del Ayuntamiento	% 	0.0	S	D:\_APLIC\SICA_APA_105\documentos_fases\	S	N			%		01
+COLEGIA   	Certificados y Resumenes economicos	% 	0.0	S	D:\_APLIC\SICA_APA_105\documentos_fases\	S	N			%		01
+LIQUID    	Hojas de Liquidaciones	% 	0.0	S	D:\_APLIC\SICA_APA_105\liquidaciones\	S	N			%		01
+RE        	Registro de Entrada	% 	1045.0	E			N			%		01
+RECLAM_EXP	Cartas de reclamaciones de Expedientes	% 	0.0	S	D:\_APLIC\SICA_APA_105\reclamaciones\expedientes\	S	N			%		01
+RECLAM_FAS	Cartas de reclamaciones de Fases	% 	0.0	S	D:\_APLIC\SICA_APA_105\reclamaciones\fases\	S	N			%		01
+REPARO    	Cartas de Reparos	% 	0.0	S			N			%		01
+ECON      	Resumenes Economicos	% 	0.0	S	\\ficheros\sica-compartido\documentos\	S	N			%		01
+LISTADOS  	Listados	% 	0.0	S	D:\_APLIC\SICA_APA_105\listados\	S	N			%		01
+RS        	Registro de Salida	% 	993.0	S			N			%		01
+AVISOS    	Avisos de factura	% 	0.0	S	\\ficheros\sica-compartido\documentos\	S	N		0	%		01
+E-RS      	Registro de Salida Ensacon	% 	48.0	S			N		0	%		02
+E-RE      	Registro de Entrada Ensacon	% 	14.0	E			N		0	%		02

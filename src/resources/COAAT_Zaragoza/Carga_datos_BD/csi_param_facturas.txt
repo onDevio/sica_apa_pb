@@ -1,0 +1,809 @@
+COLEGIADOS	01	2007	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+CUOTA     	01	2007	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+DV        	01	2007	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+VAR       	01	2007	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+MU        	01	2007	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+RECTIF    	01	2007	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+EXPO      	01	2007	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+COLEGIADOS	01	2008	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+CLIEN     	01	2008	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+CUOTA     	01	2008	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+DV        	01	2008	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+VAR       	01	2008	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+MU        	01	2008	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+SEP       	01	2008	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+RECTIF    	01	2008	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+EXPO      	01	2008	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+COLEGIADOS	01	2009	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+CLIEN     	01	2009	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+CUOTA     	01	2009	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+DV        	01	2009	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+VAR       	01	2009	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+MU        	01	2009	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+SEP       	01	2009	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+RECTIF    	01	2009	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+EXPO      	01	2009	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+ACTEXT    	01	2009	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+COLEGIADOS	01	2010	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+CLIEN     	01	2010	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+CUOTA     	01	2010	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+DV        	01	2010	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+VAR       	01	2010	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+MU        	01	2010	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+SEP       	01	2010	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+RECTIF    	01	2010	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+ACTEXT    	01	2010	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+SEP       	01	2007	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+COLEGIADOS	01	2011	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+CLIEN     	01	2011	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+CUOTA     	01	2011	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+DV        	01	2011	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+VAR       	01	2011	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+MU        	01	2011	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+SEP       	01	2011	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+RECTIF    	01	2011	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+EXPO      	01	2011	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+ACTEXT    	01	2011	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+CLIEN     	01	2007	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+EXPO      	01	2010	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+EXPEDI    	01	2007	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+EXPEDI    	01	2008	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+EXPEDI    	01	2009	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+EXPEDI    	01	2010	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+EXPEDI    	01	2011	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+PREMAA    	01	2007	% 	Cabecera            	RECIBO 
+MUSAAT    	01	2007	% 	Cabecera            	RECIBO 
+ADES      	01	2007	% 	Cabecera            	RECIBO 
+PREMAA    	01	2008	% 	Cabecera            	RECIBO 
+MUSAAT    	01	2008	% 	Cabecera            	RECIBO 
+ADES      	01	2008	% 	Cabecera            	RECIBO 
+PREMAA    	01	2009	% 	Cabecera            	RECIBO 
+MUSAAT    	01	2009	% 	Cabecera            	RECIBO 
+ADES      	01	2009	% 	Cabecera            	RECIBO 
+PREMAA    	01	2010	% 	Cabecera            	RECIBO 
+MUSAAT    	01	2010	% 	Cabecera            	RECIBO 
+ADES      	01	2010	% 	Cabecera            	RECIBO 
+PREMAA    	01	2011	% 	Cabecera            	RECIBO 
+MUSAAT    	01	2011	% 	Cabecera            	RECIBO 
+ADES      	01	2011	% 	Cabecera            	RECIBO 
+MT        	03	2011	% 	Cabecera            	RECIBO 
+SRECTIF   	03	2011	% 	Cabecera            	RECIBO 
+PROFOR    	01	2010	% 	Cabecera            	PROFORMA
+PROFOR    	01	2011	% 	Cabecera            	PROFORMA
+PROFOR    	03	2011	% 	Cabecera            	PROFORMA
+%         	% 	%   	% 	Cabecera            	FACTURA
+COLEGIADOS	01	2007	% 	N_fact              	FACTURA N?
+CUOTA     	01	2007	% 	N_fact              	FACTURA N?
+DV        	01	2007	% 	N_fact              	FACTURA N?
+VAR       	01	2007	% 	N_fact              	FACTURA N?
+MU        	01	2007	% 	N_fact              	FACTURA N?
+RECTIF    	01	2007	% 	N_fact              	FACTURA N?
+EXPO      	01	2007	% 	N_fact              	FACTURA N?
+COLEGIADOS	01	2008	% 	N_fact              	FACTURA N?
+CLIEN     	01	2008	% 	N_fact              	FACTURA N?
+CUOTA     	01	2008	% 	N_fact              	FACTURA N?
+DV        	01	2008	% 	N_fact              	FACTURA N?
+VAR       	01	2008	% 	N_fact              	FACTURA N?
+MU        	01	2008	% 	N_fact              	FACTURA N?
+SEP       	01	2008	% 	N_fact              	FACTURA N?
+RECTIF    	01	2008	% 	N_fact              	FACTURA N?
+EXPO      	01	2008	% 	N_fact              	FACTURA N?
+COLEGIADOS	01	2009	% 	N_fact              	FACTURA N?
+CLIEN     	01	2009	% 	N_fact              	FACTURA N?
+CUOTA     	01	2009	% 	N_fact              	FACTURA N?
+DV        	01	2009	% 	N_fact              	FACTURA N?
+VAR       	01	2009	% 	N_fact              	FACTURA N?
+MU        	01	2009	% 	N_fact              	FACTURA N?
+SEP       	01	2009	% 	N_fact              	FACTURA N?
+RECTIF    	01	2009	% 	N_fact              	FACTURA N?
+EXPO      	01	2009	% 	N_fact              	FACTURA N?
+ACTEXT    	01	2009	% 	N_fact              	FACTURA N?
+COLEGIADOS	01	2010	% 	N_fact              	FACTURA N?
+CLIEN     	01	2010	% 	N_fact              	FACTURA N?
+CUOTA     	01	2010	% 	N_fact              	FACTURA N?
+DV        	01	2010	% 	N_fact              	FACTURA N?
+VAR       	01	2010	% 	N_fact              	FACTURA N?
+MU        	01	2010	% 	N_fact              	FACTURA N?
+SEP       	01	2010	% 	N_fact              	FACTURA N?
+RECTIF    	01	2010	% 	N_fact              	FACTURA N?
+ACTEXT    	01	2010	% 	N_fact              	FACTURA N?
+SEP       	01	2007	% 	N_fact              	FACTURA N?
+COLEGIADOS	01	2011	% 	N_fact              	FACTURA N?
+CLIEN     	01	2011	% 	N_fact              	FACTURA N?
+CUOTA     	01	2011	% 	N_fact              	FACTURA N?
+DV        	01	2011	% 	N_fact              	FACTURA N?
+VAR       	01	2011	% 	N_fact              	FACTURA N?
+MU        	01	2011	% 	N_fact              	FACTURA N?
+SEP       	01	2011	% 	N_fact              	FACTURA N?
+RECTIF    	01	2011	% 	N_fact              	FACTURA N?
+EXPO      	01	2011	% 	N_fact              	FACTURA N?
+ACTEXT    	01	2011	% 	N_fact              	FACTURA N?
+CLIEN     	01	2007	% 	N_fact              	FACTURA N?
+EXPO      	01	2010	% 	N_fact              	FACTURA N?
+EXPEDI    	01	2007	% 	N_fact              	FACTURA N?
+EXPEDI    	01	2008	% 	N_fact              	FACTURA N?
+EXPEDI    	01	2009	% 	N_fact              	FACTURA N?
+EXPEDI    	01	2010	% 	N_fact              	FACTURA N?
+EXPEDI    	01	2011	% 	N_fact              	FACTURA N?
+PROFOR    	01	2010	% 	N_fact              	PROFORMA N?
+PROFOR    	01	2011	% 	N_fact              	PROFORMA N?
+PROFOR    	03	2011	% 	N_fact              	PROFORMA N?
+PREMAA    	01	2007	% 	N_fact              	RECIBO N?
+MUSAAT    	01	2007	% 	N_fact              	RECIBO N?
+ADES      	01	2007	% 	N_fact              	RECIBO N?
+PREMAA    	01	2008	% 	N_fact              	RECIBO N?
+MUSAAT    	01	2008	% 	N_fact              	RECIBO N?
+ADES      	01	2008	% 	N_fact              	RECIBO N?
+PREMAA    	01	2009	% 	N_fact              	RECIBO N?
+MUSAAT    	01	2009	% 	N_fact              	RECIBO N?
+ADES      	01	2009	% 	N_fact              	RECIBO N?
+PREMAA    	01	2010	% 	N_fact              	RECIBO N?
+MUSAAT    	01	2010	% 	N_fact              	RECIBO N?
+ADES      	01	2010	% 	N_fact              	RECIBO N?
+PREMAA    	01	2011	% 	N_fact              	RECIBO N?
+MUSAAT    	01	2011	% 	N_fact              	RECIBO N?
+ADES      	01	2011	% 	N_fact              	RECIBO N?
+MT        	03	2011	% 	N_fact              	RECIBO N?
+SRECTIF   	03	2011	% 	N_fact              	RECIBO N?
+%         	% 	%   	% 	N_fact              	FACTURA N?
+PROFOR    	01	2010	% 	Total_fact          	TOTAL PROFORMA
+PROFOR    	01	2011	% 	Total_fact          	TOTAL PROFORMA
+PROFOR    	03	2011	% 	Total_fact          	TOTAL PROFORMA
+COLEGIADOS	01	2007	% 	Total_fact          	TOTAL FACTURA
+CUOTA     	01	2007	% 	Total_fact          	TOTAL FACTURA
+DV        	01	2007	% 	Total_fact          	TOTAL FACTURA
+VAR       	01	2007	% 	Total_fact          	TOTAL FACTURA
+MU        	01	2007	% 	Total_fact          	TOTAL FACTURA
+RECTIF    	01	2007	% 	Total_fact          	TOTAL FACTURA
+EXPO      	01	2007	% 	Total_fact          	TOTAL FACTURA
+COLEGIADOS	01	2008	% 	Total_fact          	TOTAL FACTURA
+CLIEN     	01	2008	% 	Total_fact          	TOTAL FACTURA
+CUOTA     	01	2008	% 	Total_fact          	TOTAL FACTURA
+DV        	01	2008	% 	Total_fact          	TOTAL FACTURA
+VAR       	01	2008	% 	Total_fact          	TOTAL FACTURA
+MU        	01	2008	% 	Total_fact          	TOTAL FACTURA
+SEP       	01	2008	% 	Total_fact          	TOTAL FACTURA
+RECTIF    	01	2008	% 	Total_fact          	TOTAL FACTURA
+EXPO      	01	2008	% 	Total_fact          	TOTAL FACTURA
+COLEGIADOS	01	2009	% 	Total_fact          	TOTAL FACTURA
+CLIEN     	01	2009	% 	Total_fact          	TOTAL FACTURA
+CUOTA     	01	2009	% 	Total_fact          	TOTAL FACTURA
+DV        	01	2009	% 	Total_fact          	TOTAL FACTURA
+VAR       	01	2009	% 	Total_fact          	TOTAL FACTURA
+MU        	01	2009	% 	Total_fact          	TOTAL FACTURA
+SEP       	01	2009	% 	Total_fact          	TOTAL FACTURA
+RECTIF    	01	2009	% 	Total_fact          	TOTAL FACTURA
+EXPO      	01	2009	% 	Total_fact          	TOTAL FACTURA
+ACTEXT    	01	2009	% 	Total_fact          	TOTAL FACTURA
+COLEGIADOS	01	2010	% 	Total_fact          	TOTAL FACTURA
+CLIEN     	01	2010	% 	Total_fact          	TOTAL FACTURA
+CUOTA     	01	2010	% 	Total_fact          	TOTAL FACTURA
+DV        	01	2010	% 	Total_fact          	TOTAL FACTURA
+VAR       	01	2010	% 	Total_fact          	TOTAL FACTURA
+MU        	01	2010	% 	Total_fact          	TOTAL FACTURA
+SEP       	01	2010	% 	Total_fact          	TOTAL FACTURA
+RECTIF    	01	2010	% 	Total_fact          	TOTAL FACTURA
+ACTEXT    	01	2010	% 	Total_fact          	TOTAL FACTURA
+SEP       	01	2007	% 	Total_fact          	TOTAL FACTURA
+COLEGIADOS	01	2011	% 	Total_fact          	TOTAL FACTURA
+CLIEN     	01	2011	% 	Total_fact          	TOTAL FACTURA
+CUOTA     	01	2011	% 	Total_fact          	TOTAL FACTURA
+DV        	01	2011	% 	Total_fact          	TOTAL FACTURA
+VAR       	01	2011	% 	Total_fact          	TOTAL FACTURA
+MU        	01	2011	% 	Total_fact          	TOTAL FACTURA
+SEP       	01	2011	% 	Total_fact          	TOTAL FACTURA
+RECTIF    	01	2011	% 	Total_fact          	TOTAL FACTURA
+EXPO      	01	2011	% 	Total_fact          	TOTAL FACTURA
+ACTEXT    	01	2011	% 	Total_fact          	TOTAL FACTURA
+CLIEN     	01	2007	% 	Total_fact          	TOTAL FACTURA
+EXPO      	01	2010	% 	Total_fact          	TOTAL FACTURA
+EXPEDI    	01	2007	% 	Total_fact          	TOTAL FACTURA
+EXPEDI    	01	2008	% 	Total_fact          	TOTAL FACTURA
+EXPEDI    	01	2009	% 	Total_fact          	TOTAL FACTURA
+EXPEDI    	01	2010	% 	Total_fact          	TOTAL FACTURA
+EXPEDI    	01	2011	% 	Total_fact          	TOTAL FACTURA
+PREMAA    	01	2007	% 	Total_fact          	TOTAL RECIBO
+MUSAAT    	01	2007	% 	Total_fact          	TOTAL RECIBO
+ADES      	01	2007	% 	Total_fact          	TOTAL RECIBO
+PREMAA    	01	2008	% 	Total_fact          	TOTAL RECIBO
+MUSAAT    	01	2008	% 	Total_fact          	TOTAL RECIBO
+ADES      	01	2008	% 	Total_fact          	TOTAL RECIBO
+PREMAA    	01	2009	% 	Total_fact          	TOTAL RECIBO
+MUSAAT    	01	2009	% 	Total_fact          	TOTAL RECIBO
+ADES      	01	2009	% 	Total_fact          	TOTAL RECIBO
+PREMAA    	01	2010	% 	Total_fact          	TOTAL RECIBO
+MUSAAT    	01	2010	% 	Total_fact          	TOTAL RECIBO
+ADES      	01	2010	% 	Total_fact          	TOTAL RECIBO
+PREMAA    	01	2011	% 	Total_fact          	TOTAL RECIBO
+MUSAAT    	01	2011	% 	Total_fact          	TOTAL RECIBO
+ADES      	01	2011	% 	Total_fact          	TOTAL RECIBO
+MT        	03	2011	% 	Total_fact          	TOTAL RECIBO
+SRECTIF   	03	2011	% 	Total_fact          	TOTAL RECIBO
+%         	% 	%   	% 	Total_fact          	TOTAL FACTURA
+MT        	03	2011	% 	N_emisor2           	AGENCIA DE SEGUROS EXCLUSIVA DE MUSAAT, MUTUA DE SEGUROS A PRIMA FIJA, CON NUMERO DE REGISTRO: M0368B99287260
+PROFOR    	03	2011	% 	N_emisor2           	AGENCIA DE SEGUROS EXCLUSIVA DE MUSAAT, MUTUA DE SEGUROS A PRIMA FIJA, CON NUMERO DE REGISTRO: M0368B99287260
+SRECTIF   	03	2011	% 	N_emisor2           	AGENCIA DE SEGUROS EXCLUSIVA DE MUSAAT, MUTUA DE SEGUROS A PRIMA FIJA, CON NUMERO DE REGISTRO: M0368B99287260
+MUPC      	03	2011	% 	Total_fact          	TOTAL RECIBO
+MUPC      	03	2011	% 	N_emisor2           	AGENCIA DE SEGUROS EXCLUSIVA DE MUSAAT, MUTUA DE SEGUROS A PRIMA FIJA, CON NUMERO DE REGISTRO: M0368B99287260
+MUPC      	03	2011	% 	N_fact              	RECIBO N?
+MUPC      	03	2011	% 	Cabecera            	RECIBO
+MUPF      	03	2011	% 	N_emisor2           	AGENCIA DE SEGUROS EXCLUSIVA DE MUSAAT, MUTUA DE SEGUROS A PRIMA FIJA, CON NUMERO DE REGISTRO: M0368B99287260
+MUPF      	03	2011	% 	Total_fact          	TOTAL RECIBO
+MUPF      	03	2011	% 	N_fact              	RECIBO N?
+MUPF      	03	2011	% 	Cabecera            	RECIBO
+SVAR      	03	2011	% 	Cabecera            	FACTURA 
+MUOR      	03	2011	% 	Cabecera            	RECIBO 
+PREM      	03	2011	% 	Cabecera            	RECIBO 
+SVAR      	03	2011	% 	Total_fact          	TOTAL FACTURA
+MUOR      	03	2011	% 	Total_fact          	TOTAL RECIBO
+PREM      	03	2011	% 	Total_fact          	TOTAL RECIBO
+SVAR      	03	2011	% 	N_fact              	FACTURA N?
+MUOR      	03	2011	% 	N_fact              	RECIBO N?
+PREM      	03	2011	% 	N_fact              	RECIBO N?
+%         	03	2011	ES	pie_pagina          	Inscrita en el Reg. Merc. de Zaragoza, Tomo 3802, Folio 85, Hoja Z-50698, Inscripci¾n 1¬ - C.I.F. B99287260
+MT        	03	2011	% 	Pie_pagina_za       	Inscrita en el Reg. Merc. de Zaragoza, Tomo 3802, Folio 85, Hoja Z-50698, Inscripci¾n 1¬ - C.I.F. B99287260
+MUOR      	03	2011	% 	Pie_pagina_za       	Inscrita en el Reg. Merc. de Zaragoza, Tomo 3802, Folio 85, Hoja Z-50698, Inscripci¾n 1¬ - C.I.F. B99287260
+MUPF      	03	2011	% 	Pie_pagina_za       	Inscrita en el Reg. Merc. de Zaragoza, Tomo 3802, Folio 85, Hoja Z-50698, Inscripci¾n 1¬ - C.I.F. B99287260
+PREM      	03	2011	% 	Pie_pagina_za       	Inscrita en el Reg. Merc. de Zaragoza, Tomo 3802, Folio 85, Hoja Z-50698, Inscripci¾n 1¬ - C.I.F. B99287260
+PROFOR    	03	2011	% 	Pie_pagina_za       	Inscrita en el Reg. Merc. de Zaragoza, Tomo 3802, Folio 85, Hoja Z-50698, Inscripci¾n 1¬ - C.I.F. B99287260
+SRECTIF   	03	2011	% 	Pie_pagina_za       	Inscrita en el Reg. Merc. de Zaragoza, Tomo 3802, Folio 85, Hoja Z-50698, Inscripci¾n 1¬ - C.I.F. B99287260
+SVAR      	03	2011	% 	Pie_pagina_za       	Inscrita en el Reg. Merc. de Zaragoza, Tomo 3802, Folio 85, Hoja Z-50698, Inscripci¾n 1¬ - C.I.F. B99287260
+MUPC      	03	2011	% 	Pie_pagina_za       	Inscrita en el Reg. Merc. de Zaragoza, Tomo 3802, Folio 85, Hoja Z-50698, Inscripci¾n 1¬ - C.I.F. B99287260
+MT        	03	2011	% 	exento_iva          	ACTIVIDAD EXENTA DE IVA
+MUOR      	03	2011	% 	exento_iva          	ACTIVIDAD EXENTA DE IVA
+MUPF      	03	2011	% 	exento_iva          	ACTIVIDAD EXENTA DE IVA
+PREM      	03	2011	% 	exento_iva          	ACTIVIDAD EXENTA DE IVA
+PROFOR    	03	2011	% 	exento_iva          	ACTIVIDAD EXENTA DE IVA
+SRECTIF   	03	2011	% 	exento_iva          	ACTIVIDAD EXENTA DE IVA
+SVAR      	03	2011	% 	exento_iva          	ACTIVIDAD EXENTA DE IVA
+MUPC      	03	2011	% 	exento_iva          	ACTIVIDAD EXENTA DE IVA
+COLEGIADOS	01	2012	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+CLIEN     	01	2012	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+CUOTA     	01	2012	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+DV        	01	2012	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+VAR       	01	2012	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+MU        	01	2012	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+SEP       	01	2012	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+RECTIF    	01	2012	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+EXPO      	01	2012	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+ACTEXT    	01	2012	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+EXPEDI    	01	2012	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+PREMAA    	01	2012	% 	Cabecera            	RECIBO 
+MUSAAT    	01	2012	% 	Cabecera            	RECIBO 
+ADES      	01	2012	% 	Cabecera            	RECIBO 
+MT        	03	2012	% 	Cabecera            	RECIBO 
+SRECTIF   	03	2012	% 	Cabecera            	RECIBO 
+PROFOR    	01	2012	% 	Cabecera            	PROFORMA
+PROFOR    	03	2012	% 	Cabecera            	PROFORMA
+COLEGIADOS	01	2012	% 	N_fact              	FACTURA N?
+CLIEN     	01	2012	% 	N_fact              	FACTURA N?
+CUOTA     	01	2012	% 	N_fact              	FACTURA N?
+DV        	01	2012	% 	N_fact              	FACTURA N?
+VAR       	01	2012	% 	N_fact              	FACTURA N?
+MU        	01	2012	% 	N_fact              	FACTURA N?
+SEP       	01	2012	% 	N_fact              	FACTURA N?
+RECTIF    	01	2012	% 	N_fact              	FACTURA N?
+EXPO      	01	2012	% 	N_fact              	FACTURA N?
+ACTEXT    	01	2012	% 	N_fact              	FACTURA N?
+EXPEDI    	01	2012	% 	N_fact              	FACTURA N?
+PROFOR    	01	2012	% 	N_fact              	PROFORMA N?
+PROFOR    	03	2012	% 	N_fact              	PROFORMA N?
+PREMAA    	01	2012	% 	N_fact              	RECIBO N?
+MUSAAT    	01	2012	% 	N_fact              	RECIBO N?
+ADES      	01	2012	% 	N_fact              	RECIBO N?
+MT        	03	2012	% 	N_fact              	RECIBO N?
+SRECTIF   	03	2012	% 	N_fact              	RECIBO N?
+PROFOR    	01	2012	% 	Total_fact          	TOTAL PROFORMA
+PROFOR    	03	2012	% 	Total_fact          	TOTAL PROFORMA
+COLEGIADOS	01	2012	% 	Total_fact          	TOTAL FACTURA
+CLIEN     	01	2012	% 	Total_fact          	TOTAL FACTURA
+CUOTA     	01	2012	% 	Total_fact          	TOTAL FACTURA
+DV        	01	2012	% 	Total_fact          	TOTAL FACTURA
+VAR       	01	2012	% 	Total_fact          	TOTAL FACTURA
+MU        	01	2012	% 	Total_fact          	TOTAL FACTURA
+SEP       	01	2012	% 	Total_fact          	TOTAL FACTURA
+RECTIF    	01	2012	% 	Total_fact          	TOTAL FACTURA
+EXPO      	01	2012	% 	Total_fact          	TOTAL FACTURA
+ACTEXT    	01	2012	% 	Total_fact          	TOTAL FACTURA
+EXPEDI    	01	2012	% 	Total_fact          	TOTAL FACTURA
+PREMAA    	01	2012	% 	Total_fact          	TOTAL RECIBO
+MUSAAT    	01	2012	% 	Total_fact          	TOTAL RECIBO
+ADES      	01	2012	% 	Total_fact          	TOTAL RECIBO
+MT        	03	2012	% 	Total_fact          	TOTAL RECIBO
+SRECTIF   	03	2012	% 	Total_fact          	TOTAL RECIBO
+MT        	03	2012	% 	N_emisor2           	AGENCIA DE SEGUROS EXCLUSIVA DE MUSAAT, MUTUA DE SEGUROS A PRIMA FIJA, CON NUMERO DE REGISTRO: M0368B99287260
+PROFOR    	03	2012	% 	N_emisor2           	AGENCIA DE SEGUROS EXCLUSIVA DE MUSAAT, MUTUA DE SEGUROS A PRIMA FIJA, CON NUMERO DE REGISTRO: M0368B99287260
+SRECTIF   	03	2012	% 	N_emisor2           	AGENCIA DE SEGUROS EXCLUSIVA DE MUSAAT, MUTUA DE SEGUROS A PRIMA FIJA, CON NUMERO DE REGISTRO: M0368B99287260
+MUPC      	03	2012	% 	Total_fact          	TOTAL RECIBO
+MUPC      	03	2012	% 	N_emisor2           	AGENCIA DE SEGUROS EXCLUSIVA DE MUSAAT, MUTUA DE SEGUROS A PRIMA FIJA, CON NUMERO DE REGISTRO: M0368B99287260
+MUPC      	03	2012	% 	N_fact              	RECIBO N?
+MUPC      	03	2012	% 	Cabecera            	RECIBO
+MUPF      	03	2012	% 	N_emisor2           	AGENCIA DE SEGUROS EXCLUSIVA DE MUSAAT, MUTUA DE SEGUROS A PRIMA FIJA, CON NUMERO DE REGISTRO: M0368B99287260
+MUPF      	03	2012	% 	Total_fact          	TOTAL RECIBO
+MUPF      	03	2012	% 	N_fact              	RECIBO N?
+MUPF      	03	2012	% 	Cabecera            	RECIBO
+SVAR      	03	2012	% 	Cabecera            	FACTURA 
+MUOR      	03	2012	% 	Cabecera            	RECIBO 
+PREM      	03	2012	% 	Cabecera            	RECIBO 
+SVAR      	03	2012	% 	Total_fact          	TOTAL FACTURA
+MUOR      	03	2012	% 	Total_fact          	TOTAL RECIBO
+PREM      	03	2012	% 	Total_fact          	TOTAL RECIBO
+SVAR      	03	2012	% 	N_fact              	FACTURA N?
+MUOR      	03	2012	% 	N_fact              	RECIBO N?
+PREM      	03	2012	% 	N_fact              	RECIBO N?
+%         	03	2012	ES	pie_pagina          	Inscrita en el Reg. Merc. de Zaragoza, Tomo 3802, Folio 85, Hoja Z-50698, Inscripci¾n 1¬ - C.I.F. B99287260
+MT        	03	2012	% 	Pie_pagina_za       	Inscrita en el Reg. Merc. de Zaragoza, Tomo 3802, Folio 85, Hoja Z-50698, Inscripci¾n 1¬ - C.I.F. B99287260
+MUOR      	03	2012	% 	Pie_pagina_za       	Inscrita en el Reg. Merc. de Zaragoza, Tomo 3802, Folio 85, Hoja Z-50698, Inscripci¾n 1¬ - C.I.F. B99287260
+MUPF      	03	2012	% 	Pie_pagina_za       	Inscrita en el Reg. Merc. de Zaragoza, Tomo 3802, Folio 85, Hoja Z-50698, Inscripci¾n 1¬ - C.I.F. B99287260
+PREM      	03	2012	% 	Pie_pagina_za       	Inscrita en el Reg. Merc. de Zaragoza, Tomo 3802, Folio 85, Hoja Z-50698, Inscripci¾n 1¬ - C.I.F. B99287260
+PROFOR    	03	2012	% 	Pie_pagina_za       	Inscrita en el Reg. Merc. de Zaragoza, Tomo 3802, Folio 85, Hoja Z-50698, Inscripci¾n 1¬ - C.I.F. B99287260
+SRECTIF   	03	2012	% 	Pie_pagina_za       	Inscrita en el Reg. Merc. de Zaragoza, Tomo 3802, Folio 85, Hoja Z-50698, Inscripci¾n 1¬ - C.I.F. B99287260
+SVAR      	03	2012	% 	Pie_pagina_za       	Inscrita en el Reg. Merc. de Zaragoza, Tomo 3802, Folio 85, Hoja Z-50698, Inscripci¾n 1¬ - C.I.F. B99287260
+MUPC      	03	2012	% 	Pie_pagina_za       	Inscrita en el Reg. Merc. de Zaragoza, Tomo 3802, Folio 85, Hoja Z-50698, Inscripci¾n 1¬ - C.I.F. B99287260
+MT        	03	2012	% 	exento_iva          	ACTIVIDAD EXENTA DE IVA
+MUOR      	03	2012	% 	exento_iva          	ACTIVIDAD EXENTA DE IVA
+MUPF      	03	2012	% 	exento_iva          	ACTIVIDAD EXENTA DE IVA
+PREM      	03	2012	% 	exento_iva          	ACTIVIDAD EXENTA DE IVA
+PROFOR    	03	2012	% 	exento_iva          	ACTIVIDAD EXENTA DE IVA
+SRECTIF   	03	2012	% 	exento_iva          	ACTIVIDAD EXENTA DE IVA
+SVAR      	03	2012	% 	exento_iva          	ACTIVIDAD EXENTA DE IVA
+MUPC      	03	2012	% 	exento_iva          	ACTIVIDAD EXENTA DE IVA
+COLEGIADOS	01	2013	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+CLIEN     	01	2013	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+CUOTA     	01	2013	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+DV        	01	2013	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+VAR       	01	2013	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+MU        	01	2013	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+SEP       	01	2013	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+RECTIF    	01	2013	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+EXPO      	01	2013	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+ACTEXT    	01	2013	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+EXPEDI    	01	2013	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+PREMAA    	01	2013	% 	Cabecera            	RECIBO 
+MUSAAT    	01	2013	% 	Cabecera            	RECIBO 
+ADES      	01	2013	% 	Cabecera            	RECIBO 
+MT        	03	2013	% 	Cabecera            	RECIBO 
+SRECTIF   	03	2013	% 	Cabecera            	RECIBO 
+PROFOR    	01	2013	% 	Cabecera            	PROFORMA
+PROFOR    	03	2013	% 	Cabecera            	PROFORMA
+COLEGIADOS	01	2013	% 	N_fact              	FACTURA N?
+CLIEN     	01	2013	% 	N_fact              	FACTURA N?
+CUOTA     	01	2013	% 	N_fact              	FACTURA N?
+DV        	01	2013	% 	N_fact              	FACTURA N?
+VAR       	01	2013	% 	N_fact              	FACTURA N?
+MU        	01	2013	% 	N_fact              	FACTURA N?
+SEP       	01	2013	% 	N_fact              	FACTURA N?
+RECTIF    	01	2013	% 	N_fact              	FACTURA N?
+EXPO      	01	2013	% 	N_fact              	FACTURA N?
+ACTEXT    	01	2013	% 	N_fact              	FACTURA N?
+EXPEDI    	01	2013	% 	N_fact              	FACTURA N?
+PROFOR    	01	2013	% 	N_fact              	PROFORMA N?
+PROFOR    	03	2013	% 	N_fact              	PROFORMA N?
+PREMAA    	01	2013	% 	N_fact              	RECIBO N?
+MUSAAT    	01	2013	% 	N_fact              	RECIBO N?
+ADES      	01	2013	% 	N_fact              	RECIBO N?
+MT        	03	2013	% 	N_fact              	RECIBO N?
+SRECTIF   	03	2013	% 	N_fact              	RECIBO N?
+PROFOR    	01	2013	% 	Total_fact          	TOTAL PROFORMA
+PROFOR    	03	2013	% 	Total_fact          	TOTAL PROFORMA
+COLEGIADOS	01	2013	% 	Total_fact          	TOTAL FACTURA
+CLIEN     	01	2013	% 	Total_fact          	TOTAL FACTURA
+CUOTA     	01	2013	% 	Total_fact          	TOTAL FACTURA
+DV        	01	2013	% 	Total_fact          	TOTAL FACTURA
+VAR       	01	2013	% 	Total_fact          	TOTAL FACTURA
+MU        	01	2013	% 	Total_fact          	TOTAL FACTURA
+SEP       	01	2013	% 	Total_fact          	TOTAL FACTURA
+RECTIF    	01	2013	% 	Total_fact          	TOTAL FACTURA
+EXPO      	01	2013	% 	Total_fact          	TOTAL FACTURA
+ACTEXT    	01	2013	% 	Total_fact          	TOTAL FACTURA
+EXPEDI    	01	2013	% 	Total_fact          	TOTAL FACTURA
+PREMAA    	01	2013	% 	Total_fact          	TOTAL RECIBO
+MUSAAT    	01	2013	% 	Total_fact          	TOTAL RECIBO
+ADES      	01	2013	% 	Total_fact          	TOTAL RECIBO
+MT        	03	2013	% 	Total_fact          	TOTAL RECIBO
+SRECTIF   	03	2013	% 	Total_fact          	TOTAL RECIBO
+MT        	03	2013	% 	N_emisor2           	AGENCIA DE SEGUROS EXCLUSIVA DE MUSAAT, MUTUA DE SEGUROS A PRIMA FIJA, CON NUMERO DE REGISTRO: M0368B99287260
+PROFOR    	03	2013	% 	N_emisor2           	AGENCIA DE SEGUROS EXCLUSIVA DE MUSAAT, MUTUA DE SEGUROS A PRIMA FIJA, CON NUMERO DE REGISTRO: M0368B99287260
+SRECTIF   	03	2013	% 	N_emisor2           	AGENCIA DE SEGUROS EXCLUSIVA DE MUSAAT, MUTUA DE SEGUROS A PRIMA FIJA, CON NUMERO DE REGISTRO: M0368B99287260
+MUPC      	03	2013	% 	Total_fact          	TOTAL RECIBO
+MUPC      	03	2013	% 	N_emisor2           	AGENCIA DE SEGUROS EXCLUSIVA DE MUSAAT, MUTUA DE SEGUROS A PRIMA FIJA, CON NUMERO DE REGISTRO: M0368B99287260
+MUPC      	03	2013	% 	N_fact              	RECIBO N?
+MUPC      	03	2013	% 	Cabecera            	RECIBO
+MUPF      	03	2013	% 	N_emisor2           	AGENCIA DE SEGUROS EXCLUSIVA DE MUSAAT, MUTUA DE SEGUROS A PRIMA FIJA, CON NUMERO DE REGISTRO: M0368B99287260
+MUPF      	03	2013	% 	Total_fact          	TOTAL RECIBO
+MUPF      	03	2013	% 	N_fact              	RECIBO N?
+MUPF      	03	2013	% 	Cabecera            	RECIBO
+SVAR      	03	2013	% 	Cabecera            	FACTURA 
+MUOR      	03	2013	% 	Cabecera            	RECIBO 
+PREM      	03	2013	% 	Cabecera            	RECIBO 
+SVAR      	03	2013	% 	Total_fact          	TOTAL FACTURA
+MUOR      	03	2013	% 	Total_fact          	TOTAL RECIBO
+PREM      	03	2013	% 	Total_fact          	TOTAL RECIBO
+SVAR      	03	2013	% 	N_fact              	FACTURA N?
+MUOR      	03	2013	% 	N_fact              	RECIBO N?
+PREM      	03	2013	% 	N_fact              	RECIBO N?
+%         	03	2013	ES	pie_pagina          	Inscrita en el Reg. Merc. de Zaragoza, Tomo 3802, Folio 85, Hoja Z-50698, Inscripci¾n 1¬ - C.I.F. B99287260
+MT        	03	2013	% 	Pie_pagina_za       	Inscrita en el Reg. Merc. de Zaragoza, Tomo 3802, Folio 85, Hoja Z-50698, Inscripci¾n 1¬ - C.I.F. B99287260
+MUOR      	03	2013	% 	Pie_pagina_za       	Inscrita en el Reg. Merc. de Zaragoza, Tomo 3802, Folio 85, Hoja Z-50698, Inscripci¾n 1¬ - C.I.F. B99287260
+MUPF      	03	2013	% 	Pie_pagina_za       	Inscrita en el Reg. Merc. de Zaragoza, Tomo 3802, Folio 85, Hoja Z-50698, Inscripci¾n 1¬ - C.I.F. B99287260
+PREM      	03	2013	% 	Pie_pagina_za       	Inscrita en el Reg. Merc. de Zaragoza, Tomo 3802, Folio 85, Hoja Z-50698, Inscripci¾n 1¬ - C.I.F. B99287260
+PROFOR    	03	2013	% 	Pie_pagina_za       	Inscrita en el Reg. Merc. de Zaragoza, Tomo 3802, Folio 85, Hoja Z-50698, Inscripci¾n 1¬ - C.I.F. B99287260
+SRECTIF   	03	2013	% 	Pie_pagina_za       	Inscrita en el Reg. Merc. de Zaragoza, Tomo 3802, Folio 85, Hoja Z-50698, Inscripci¾n 1¬ - C.I.F. B99287260
+SVAR      	03	2013	% 	Pie_pagina_za       	Inscrita en el Reg. Merc. de Zaragoza, Tomo 3802, Folio 85, Hoja Z-50698, Inscripci¾n 1¬ - C.I.F. B99287260
+MUPC      	03	2013	% 	Pie_pagina_za       	Inscrita en el Reg. Merc. de Zaragoza, Tomo 3802, Folio 85, Hoja Z-50698, Inscripci¾n 1¬ - C.I.F. B99287260
+MT        	03	2013	% 	exento_iva          	ACTIVIDAD EXENTA DE IVA
+MUOR      	03	2013	% 	exento_iva          	ACTIVIDAD EXENTA DE IVA
+MUPF      	03	2013	% 	exento_iva          	ACTIVIDAD EXENTA DE IVA
+PREM      	03	2013	% 	exento_iva          	ACTIVIDAD EXENTA DE IVA
+PROFOR    	03	2013	% 	exento_iva          	ACTIVIDAD EXENTA DE IVA
+SRECTIF   	03	2013	% 	exento_iva          	ACTIVIDAD EXENTA DE IVA
+SVAR      	03	2013	% 	exento_iva          	ACTIVIDAD EXENTA DE IVA
+MUPC      	03	2013	% 	exento_iva          	ACTIVIDAD EXENTA DE IVA
+%         	% 	%   	% 	t_recc              	RÚgimen Especial del Criterio de Caja
+COLEGIADOS	01	2014	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+CLIEN     	01	2014	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+CUOTA     	01	2014	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+DV        	01	2014	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+VAR       	01	2014	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+MU        	01	2014	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+SEP       	01	2014	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+RECTIF    	01	2014	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+EXPO      	01	2014	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+ACTEXT    	01	2014	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+EXPEDI    	01	2014	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+PREMAA    	01	2014	% 	Cabecera            	RECIBO 
+MUSAAT    	01	2014	% 	Cabecera            	RECIBO 
+ADES      	01	2014	% 	Cabecera            	RECIBO 
+MT        	03	2014	% 	Cabecera            	RECIBO 
+SRECTIF   	03	2014	% 	Cabecera            	RECIBO 
+PROFOR    	01	2014	% 	Cabecera            	PROFORMA
+PROFOR    	03	2014	% 	Cabecera            	PROFORMA
+COLEGIADOS	01	2014	% 	N_fact              	FACTURA N?
+CLIEN     	01	2014	% 	N_fact              	FACTURA N?
+CUOTA     	01	2014	% 	N_fact              	FACTURA N?
+DV        	01	2014	% 	N_fact              	FACTURA N?
+VAR       	01	2014	% 	N_fact              	FACTURA N?
+MU        	01	2014	% 	N_fact              	FACTURA N?
+SEP       	01	2014	% 	N_fact              	FACTURA N?
+RECTIF    	01	2014	% 	N_fact              	FACTURA N?
+EXPO      	01	2014	% 	N_fact              	FACTURA N?
+ACTEXT    	01	2014	% 	N_fact              	FACTURA N?
+EXPEDI    	01	2014	% 	N_fact              	FACTURA N?
+PROFOR    	01	2014	% 	N_fact              	PROFORMA N?
+PROFOR    	03	2014	% 	N_fact              	PROFORMA N?
+PREMAA    	01	2014	% 	N_fact              	RECIBO N?
+MUSAAT    	01	2014	% 	N_fact              	RECIBO N?
+ADES      	01	2014	% 	N_fact              	RECIBO N?
+MT        	03	2014	% 	N_fact              	RECIBO N?
+SRECTIF   	03	2014	% 	N_fact              	RECIBO N?
+PROFOR    	01	2014	% 	Total_fact          	TOTAL PROFORMA
+PROFOR    	03	2014	% 	Total_fact          	TOTAL PROFORMA
+COLEGIADOS	01	2014	% 	Total_fact          	TOTAL FACTURA
+CLIEN     	01	2014	% 	Total_fact          	TOTAL FACTURA
+CUOTA     	01	2014	% 	Total_fact          	TOTAL FACTURA
+DV        	01	2014	% 	Total_fact          	TOTAL FACTURA
+VAR       	01	2014	% 	Total_fact          	TOTAL FACTURA
+MU        	01	2014	% 	Total_fact          	TOTAL FACTURA
+SEP       	01	2014	% 	Total_fact          	TOTAL FACTURA
+RECTIF    	01	2014	% 	Total_fact          	TOTAL FACTURA
+EXPO      	01	2014	% 	Total_fact          	TOTAL FACTURA
+ACTEXT    	01	2014	% 	Total_fact          	TOTAL FACTURA
+EXPEDI    	01	2014	% 	Total_fact          	TOTAL FACTURA
+PREMAA    	01	2014	% 	Total_fact          	TOTAL RECIBO
+MUSAAT    	01	2014	% 	Total_fact          	TOTAL RECIBO
+ADES      	01	2014	% 	Total_fact          	TOTAL RECIBO
+MT        	03	2014	% 	Total_fact          	TOTAL RECIBO
+SRECTIF   	03	2014	% 	Total_fact          	TOTAL RECIBO
+MT        	03	2014	% 	N_emisor2           	AGENCIA DE SEGUROS EXCLUSIVA DE MUSAAT, MUTUA DE SEGUROS A PRIMA FIJA, CON NUMERO DE REGISTRO: M0368B99287260
+PROFOR    	03	2014	% 	N_emisor2           	AGENCIA DE SEGUROS EXCLUSIVA DE MUSAAT, MUTUA DE SEGUROS A PRIMA FIJA, CON NUMERO DE REGISTRO: M0368B99287260
+SRECTIF   	03	2014	% 	N_emisor2           	AGENCIA DE SEGUROS EXCLUSIVA DE MUSAAT, MUTUA DE SEGUROS A PRIMA FIJA, CON NUMERO DE REGISTRO: M0368B99287260
+MUPC      	03	2014	% 	Total_fact          	TOTAL RECIBO
+MUPC      	03	2014	% 	N_emisor2           	AGENCIA DE SEGUROS EXCLUSIVA DE MUSAAT, MUTUA DE SEGUROS A PRIMA FIJA, CON NUMERO DE REGISTRO: M0368B99287260
+MUPC      	03	2014	% 	N_fact              	RECIBO N?
+MUPC      	03	2014	% 	Cabecera            	RECIBO
+MUPF      	03	2014	% 	N_emisor2           	AGENCIA DE SEGUROS EXCLUSIVA DE MUSAAT, MUTUA DE SEGUROS A PRIMA FIJA, CON NUMERO DE REGISTRO: M0368B99287260
+MUPF      	03	2014	% 	Total_fact          	TOTAL RECIBO
+MUPF      	03	2014	% 	N_fact              	RECIBO N?
+MUPF      	03	2014	% 	Cabecera            	RECIBO
+SVAR      	03	2014	% 	Cabecera            	FACTURA 
+MUOR      	03	2014	% 	Cabecera            	RECIBO 
+PREM      	03	2014	% 	Cabecera            	RECIBO 
+SVAR      	03	2014	% 	Total_fact          	TOTAL FACTURA
+MUOR      	03	2014	% 	Total_fact          	TOTAL RECIBO
+PREM      	03	2014	% 	Total_fact          	TOTAL RECIBO
+SVAR      	03	2014	% 	N_fact              	FACTURA N?
+MUOR      	03	2014	% 	N_fact              	RECIBO N?
+PREM      	03	2014	% 	N_fact              	RECIBO N?
+%         	03	2014	ES	pie_pagina          	Inscrita en el Reg. Merc. de Zaragoza, Tomo 3802, Folio 85, Hoja Z-50698, Inscripci¾n 1¬ - C.I.F. B99287260
+MT        	03	2014	% 	Pie_pagina_za       	Inscrita en el Reg. Merc. de Zaragoza, Tomo 3802, Folio 85, Hoja Z-50698, Inscripci¾n 1¬ - C.I.F. B99287260
+MUOR      	03	2014	% 	Pie_pagina_za       	Inscrita en el Reg. Merc. de Zaragoza, Tomo 3802, Folio 85, Hoja Z-50698, Inscripci¾n 1¬ - C.I.F. B99287260
+MUPF      	03	2014	% 	Pie_pagina_za       	Inscrita en el Reg. Merc. de Zaragoza, Tomo 3802, Folio 85, Hoja Z-50698, Inscripci¾n 1¬ - C.I.F. B99287260
+PREM      	03	2014	% 	Pie_pagina_za       	Inscrita en el Reg. Merc. de Zaragoza, Tomo 3802, Folio 85, Hoja Z-50698, Inscripci¾n 1¬ - C.I.F. B99287260
+PROFOR    	03	2014	% 	Pie_pagina_za       	Inscrita en el Reg. Merc. de Zaragoza, Tomo 3802, Folio 85, Hoja Z-50698, Inscripci¾n 1¬ - C.I.F. B99287260
+SRECTIF   	03	2014	% 	Pie_pagina_za       	Inscrita en el Reg. Merc. de Zaragoza, Tomo 3802, Folio 85, Hoja Z-50698, Inscripci¾n 1¬ - C.I.F. B99287260
+SVAR      	03	2014	% 	Pie_pagina_za       	Inscrita en el Reg. Merc. de Zaragoza, Tomo 3802, Folio 85, Hoja Z-50698, Inscripci¾n 1¬ - C.I.F. B99287260
+MUPC      	03	2014	% 	Pie_pagina_za       	Inscrita en el Reg. Merc. de Zaragoza, Tomo 3802, Folio 85, Hoja Z-50698, Inscripci¾n 1¬ - C.I.F. B99287260
+MT        	03	2014	% 	exento_iva          	ACTIVIDAD EXENTA DE IVA
+MUOR      	03	2014	% 	exento_iva          	ACTIVIDAD EXENTA DE IVA
+MUPF      	03	2014	% 	exento_iva          	ACTIVIDAD EXENTA DE IVA
+PREM      	03	2014	% 	exento_iva          	ACTIVIDAD EXENTA DE IVA
+PROFOR    	03	2014	% 	exento_iva          	ACTIVIDAD EXENTA DE IVA
+SRECTIF   	03	2014	% 	exento_iva          	ACTIVIDAD EXENTA DE IVA
+SVAR      	03	2014	% 	exento_iva          	ACTIVIDAD EXENTA DE IVA
+MUPC      	03	2014	% 	exento_iva          	ACTIVIDAD EXENTA DE IVA
+SRC       	01	%   	% 	Cabecera            	RECIBO
+SRC       	01	%   	% 	N_fact              	RECIBO N?
+SRC       	01	%   	% 	Total_fact          	TOTAL RECIBO
+COLEGIADOS	01	2015	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+CLIEN     	01	2015	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+CUOTA     	01	2015	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+DV        	01	2015	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+VAR       	01	2015	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+MU        	01	2015	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+SEP       	01	2015	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+RECTIF    	01	2015	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+EXPO      	01	2015	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+ACTEXT    	01	2015	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+EXPEDI    	01	2015	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+PREMAA    	01	2015	% 	Cabecera            	RECIBO 
+MUSAAT    	01	2015	% 	Cabecera            	RECIBO 
+ADES      	01	2015	% 	Cabecera            	RECIBO 
+MT        	03	2015	% 	Cabecera            	RECIBO 
+SRECTIF   	03	2015	% 	Cabecera            	RECIBO 
+PROFOR    	01	2015	% 	Cabecera            	PROFORMA
+PROFOR    	03	2015	% 	Cabecera            	PROFORMA
+COLEGIADOS	01	2015	% 	N_fact              	FACTURA N?
+CLIEN     	01	2015	% 	N_fact              	FACTURA N?
+CUOTA     	01	2015	% 	N_fact              	FACTURA N?
+DV        	01	2015	% 	N_fact              	FACTURA N?
+VAR       	01	2015	% 	N_fact              	FACTURA N?
+MU        	01	2015	% 	N_fact              	FACTURA N?
+SEP       	01	2015	% 	N_fact              	FACTURA N?
+RECTIF    	01	2015	% 	N_fact              	FACTURA N?
+EXPO      	01	2015	% 	N_fact              	FACTURA N?
+ACTEXT    	01	2015	% 	N_fact              	FACTURA N?
+EXPEDI    	01	2015	% 	N_fact              	FACTURA N?
+PROFOR    	01	2015	% 	N_fact              	PROFORMA N?
+PROFOR    	03	2015	% 	N_fact              	PROFORMA N?
+PREMAA    	01	2015	% 	N_fact              	RECIBO N?
+MUSAAT    	01	2015	% 	N_fact              	RECIBO N?
+ADES      	01	2015	% 	N_fact              	RECIBO N?
+MT        	03	2015	% 	N_fact              	RECIBO N?
+SRECTIF   	03	2015	% 	N_fact              	RECIBO N?
+PROFOR    	01	2015	% 	Total_fact          	TOTAL PROFORMA
+PROFOR    	03	2015	% 	Total_fact          	TOTAL PROFORMA
+COLEGIADOS	01	2015	% 	Total_fact          	TOTAL FACTURA
+CLIEN     	01	2015	% 	Total_fact          	TOTAL FACTURA
+CUOTA     	01	2015	% 	Total_fact          	TOTAL FACTURA
+DV        	01	2015	% 	Total_fact          	TOTAL FACTURA
+VAR       	01	2015	% 	Total_fact          	TOTAL FACTURA
+MU        	01	2015	% 	Total_fact          	TOTAL FACTURA
+SEP       	01	2015	% 	Total_fact          	TOTAL FACTURA
+RECTIF    	01	2015	% 	Total_fact          	TOTAL FACTURA
+EXPO      	01	2015	% 	Total_fact          	TOTAL FACTURA
+ACTEXT    	01	2015	% 	Total_fact          	TOTAL FACTURA
+EXPEDI    	01	2015	% 	Total_fact          	TOTAL FACTURA
+PREMAA    	01	2015	% 	Total_fact          	TOTAL RECIBO
+MUSAAT    	01	2015	% 	Total_fact          	TOTAL RECIBO
+ADES      	01	2015	% 	Total_fact          	TOTAL RECIBO
+MT        	03	2015	% 	Total_fact          	TOTAL RECIBO
+SRECTIF   	03	2015	% 	Total_fact          	TOTAL RECIBO
+MT        	03	2015	% 	N_emisor2           	AGENCIA DE SEGUROS EXCLUSIVA DE MUSAAT, MUTUA DE SEGUROS A PRIMA FIJA, CON NUMERO DE REGISTRO: M0368B99287260
+PROFOR    	03	2015	% 	N_emisor2           	AGENCIA DE SEGUROS EXCLUSIVA DE MUSAAT, MUTUA DE SEGUROS A PRIMA FIJA, CON NUMERO DE REGISTRO: M0368B99287260
+SRECTIF   	03	2015	% 	N_emisor2           	AGENCIA DE SEGUROS EXCLUSIVA DE MUSAAT, MUTUA DE SEGUROS A PRIMA FIJA, CON NUMERO DE REGISTRO: M0368B99287260
+MUPC      	03	2015	% 	Total_fact          	TOTAL RECIBO
+MUPC      	03	2015	% 	N_emisor2           	AGENCIA DE SEGUROS EXCLUSIVA DE MUSAAT, MUTUA DE SEGUROS A PRIMA FIJA, CON NUMERO DE REGISTRO: M0368B99287260
+MUPC      	03	2015	% 	N_fact              	RECIBO N?
+MUPC      	03	2015	% 	Cabecera            	RECIBO
+MUPF      	03	2015	% 	N_emisor2           	AGENCIA DE SEGUROS EXCLUSIVA DE MUSAAT, MUTUA DE SEGUROS A PRIMA FIJA, CON NUMERO DE REGISTRO: M0368B99287260
+MUPF      	03	2015	% 	Total_fact          	TOTAL RECIBO
+MUPF      	03	2015	% 	N_fact              	RECIBO N?
+MUPF      	03	2015	% 	Cabecera            	RECIBO
+SVAR      	03	2015	% 	Cabecera            	FACTURA 
+MUOR      	03	2015	% 	Cabecera            	RECIBO 
+PREM      	03	2015	% 	Cabecera            	RECIBO 
+SVAR      	03	2015	% 	Total_fact          	TOTAL FACTURA
+MUOR      	03	2015	% 	Total_fact          	TOTAL RECIBO
+PREM      	03	2015	% 	Total_fact          	TOTAL RECIBO
+SVAR      	03	2015	% 	N_fact              	FACTURA N?
+MUOR      	03	2015	% 	N_fact              	RECIBO N?
+PREM      	03	2015	% 	N_fact              	RECIBO N?
+%         	03	2015	ES	pie_pagina          	Inscrita en el Reg. Merc. de Zaragoza, Tomo 3802, Folio 85, Hoja Z-50698, Inscripci¾n 1¬ - C.I.F. B99287260
+MT        	03	2015	% 	Pie_pagina_za       	Inscrita en el Reg. Merc. de Zaragoza, Tomo 3802, Folio 85, Hoja Z-50698, Inscripci¾n 1¬ - C.I.F. B99287260
+MUOR      	03	2015	% 	Pie_pagina_za       	Inscrita en el Reg. Merc. de Zaragoza, Tomo 3802, Folio 85, Hoja Z-50698, Inscripci¾n 1¬ - C.I.F. B99287260
+MUPF      	03	2015	% 	Pie_pagina_za       	Inscrita en el Reg. Merc. de Zaragoza, Tomo 3802, Folio 85, Hoja Z-50698, Inscripci¾n 1¬ - C.I.F. B99287260
+PREM      	03	2015	% 	Pie_pagina_za       	Inscrita en el Reg. Merc. de Zaragoza, Tomo 3802, Folio 85, Hoja Z-50698, Inscripci¾n 1¬ - C.I.F. B99287260
+PROFOR    	03	2015	% 	Pie_pagina_za       	Inscrita en el Reg. Merc. de Zaragoza, Tomo 3802, Folio 85, Hoja Z-50698, Inscripci¾n 1¬ - C.I.F. B99287260
+SRECTIF   	03	2015	% 	Pie_pagina_za       	Inscrita en el Reg. Merc. de Zaragoza, Tomo 3802, Folio 85, Hoja Z-50698, Inscripci¾n 1¬ - C.I.F. B99287260
+SVAR      	03	2015	% 	Pie_pagina_za       	Inscrita en el Reg. Merc. de Zaragoza, Tomo 3802, Folio 85, Hoja Z-50698, Inscripci¾n 1¬ - C.I.F. B99287260
+MUPC      	03	2015	% 	Pie_pagina_za       	Inscrita en el Reg. Merc. de Zaragoza, Tomo 3802, Folio 85, Hoja Z-50698, Inscripci¾n 1¬ - C.I.F. B99287260
+MT        	03	2015	% 	exento_iva          	ACTIVIDAD EXENTA DE IVA
+MUOR      	03	2015	% 	exento_iva          	ACTIVIDAD EXENTA DE IVA
+MUPF      	03	2015	% 	exento_iva          	ACTIVIDAD EXENTA DE IVA
+PREM      	03	2015	% 	exento_iva          	ACTIVIDAD EXENTA DE IVA
+PROFOR    	03	2015	% 	exento_iva          	ACTIVIDAD EXENTA DE IVA
+SRECTIF   	03	2015	% 	exento_iva          	ACTIVIDAD EXENTA DE IVA
+SVAR      	03	2015	% 	exento_iva          	ACTIVIDAD EXENTA DE IVA
+MUPC      	03	2015	% 	exento_iva          	ACTIVIDAD EXENTA DE IVA
+COLEGIADOS	01	2016	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+CLIEN     	01	2016	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+CUOTA     	01	2016	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+DV        	01	2016	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+VAR       	01	2016	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+MU        	01	2016	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+SEP       	01	2016	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+RECTIF    	01	2016	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+EXPO      	01	2016	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+ACTEXT    	01	2016	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+EXPEDI    	01	2016	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+PREMAA    	01	2016	% 	Cabecera            	RECIBO 
+MUSAAT    	01	2016	% 	Cabecera            	RECIBO 
+ADES      	01	2016	% 	Cabecera            	RECIBO 
+MT        	03	2016	% 	Cabecera            	RECIBO 
+SRECTIF   	03	2016	% 	Cabecera            	RECIBO 
+PROFOR    	01	2016	% 	Cabecera            	PROFORMA
+PROFOR    	03	2016	% 	Cabecera            	PROFORMA
+COLEGIADOS	01	2016	% 	N_fact              	FACTURA N?
+CLIEN     	01	2016	% 	N_fact              	FACTURA N?
+CUOTA     	01	2016	% 	N_fact              	FACTURA N?
+DV        	01	2016	% 	N_fact              	FACTURA N?
+VAR       	01	2016	% 	N_fact              	FACTURA N?
+MU        	01	2016	% 	N_fact              	FACTURA N?
+SEP       	01	2016	% 	N_fact              	FACTURA N?
+RECTIF    	01	2016	% 	N_fact              	FACTURA N?
+EXPO      	01	2016	% 	N_fact              	FACTURA N?
+ACTEXT    	01	2016	% 	N_fact              	FACTURA N?
+EXPEDI    	01	2016	% 	N_fact              	FACTURA N?
+PROFOR    	01	2016	% 	N_fact              	PROFORMA N?
+PROFOR    	03	2016	% 	N_fact              	PROFORMA N?
+PREMAA    	01	2016	% 	N_fact              	RECIBO N?
+MUSAAT    	01	2016	% 	N_fact              	RECIBO N?
+ADES      	01	2016	% 	N_fact              	RECIBO N?
+MT        	03	2016	% 	N_fact              	RECIBO N?
+SRECTIF   	03	2016	% 	N_fact              	RECIBO N?
+PROFOR    	01	2016	% 	Total_fact          	TOTAL PROFORMA
+PROFOR    	03	2016	% 	Total_fact          	TOTAL PROFORMA
+COLEGIADOS	01	2016	% 	Total_fact          	TOTAL FACTURA
+CLIEN     	01	2016	% 	Total_fact          	TOTAL FACTURA
+CUOTA     	01	2016	% 	Total_fact          	TOTAL FACTURA
+DV        	01	2016	% 	Total_fact          	TOTAL FACTURA
+VAR       	01	2016	% 	Total_fact          	TOTAL FACTURA
+MU        	01	2016	% 	Total_fact          	TOTAL FACTURA
+SEP       	01	2016	% 	Total_fact          	TOTAL FACTURA
+RECTIF    	01	2016	% 	Total_fact          	TOTAL FACTURA
+EXPO      	01	2016	% 	Total_fact          	TOTAL FACTURA
+ACTEXT    	01	2016	% 	Total_fact          	TOTAL FACTURA
+EXPEDI    	01	2016	% 	Total_fact          	TOTAL FACTURA
+PREMAA    	01	2016	% 	Total_fact          	TOTAL RECIBO
+MUSAAT    	01	2016	% 	Total_fact          	TOTAL RECIBO
+ADES      	01	2016	% 	Total_fact          	TOTAL RECIBO
+MT        	03	2016	% 	Total_fact          	TOTAL RECIBO
+SRECTIF   	03	2016	% 	Total_fact          	TOTAL RECIBO
+MT        	03	2016	% 	N_emisor2           	AGENCIA DE SEGUROS EXCLUSIVA DE MUSAAT, MUTUA DE SEGUROS A PRIMA FIJA, CON NUMERO DE REGISTRO: M0368B99287260
+PROFOR    	03	2016	% 	N_emisor2           	AGENCIA DE SEGUROS EXCLUSIVA DE MUSAAT, MUTUA DE SEGUROS A PRIMA FIJA, CON NUMERO DE REGISTRO: M0368B99287260
+SRECTIF   	03	2016	% 	N_emisor2           	AGENCIA DE SEGUROS EXCLUSIVA DE MUSAAT, MUTUA DE SEGUROS A PRIMA FIJA, CON NUMERO DE REGISTRO: M0368B99287260
+MUPC      	03	2016	% 	Total_fact          	TOTAL RECIBO
+MUPC      	03	2016	% 	N_emisor2           	AGENCIA DE SEGUROS EXCLUSIVA DE MUSAAT, MUTUA DE SEGUROS A PRIMA FIJA, CON NUMERO DE REGISTRO: M0368B99287260
+MUPC      	03	2016	% 	N_fact              	RECIBO N?
+MUPC      	03	2016	% 	Cabecera            	RECIBO
+MUPF      	03	2016	% 	N_emisor2           	AGENCIA DE SEGUROS EXCLUSIVA DE MUSAAT, MUTUA DE SEGUROS A PRIMA FIJA, CON NUMERO DE REGISTRO: M0368B99287260
+MUPF      	03	2016	% 	Total_fact          	TOTAL RECIBO
+MUPF      	03	2016	% 	N_fact              	RECIBO N?
+MUPF      	03	2016	% 	Cabecera            	RECIBO
+SVAR      	03	2016	% 	Cabecera            	FACTURA 
+MUOR      	03	2016	% 	Cabecera            	RECIBO 
+PREM      	03	2016	% 	Cabecera            	RECIBO 
+SVAR      	03	2016	% 	Total_fact          	TOTAL FACTURA
+MUOR      	03	2016	% 	Total_fact          	TOTAL RECIBO
+PREM      	03	2016	% 	Total_fact          	TOTAL RECIBO
+SVAR      	03	2016	% 	N_fact              	FACTURA N?
+MUOR      	03	2016	% 	N_fact              	RECIBO N?
+PREM      	03	2016	% 	N_fact              	RECIBO N?
+%         	03	2016	ES	pie_pagina          	Inscrita en el Reg. Merc. de Zaragoza, Tomo 3802, Folio 85, Hoja Z-50698, Inscripci¾n 1¬ - C.I.F. B99287260
+MT        	03	2016	% 	Pie_pagina_za       	Inscrita en el Reg. Merc. de Zaragoza, Tomo 3802, Folio 85, Hoja Z-50698, Inscripci¾n 1¬ - C.I.F. B99287260
+MUOR      	03	2016	% 	Pie_pagina_za       	Inscrita en el Reg. Merc. de Zaragoza, Tomo 3802, Folio 85, Hoja Z-50698, Inscripci¾n 1¬ - C.I.F. B99287260
+MUPF      	03	2016	% 	Pie_pagina_za       	Inscrita en el Reg. Merc. de Zaragoza, Tomo 3802, Folio 85, Hoja Z-50698, Inscripci¾n 1¬ - C.I.F. B99287260
+PREM      	03	2016	% 	Pie_pagina_za       	Inscrita en el Reg. Merc. de Zaragoza, Tomo 3802, Folio 85, Hoja Z-50698, Inscripci¾n 1¬ - C.I.F. B99287260
+PROFOR    	03	2016	% 	Pie_pagina_za       	Inscrita en el Reg. Merc. de Zaragoza, Tomo 3802, Folio 85, Hoja Z-50698, Inscripci¾n 1¬ - C.I.F. B99287260
+SRECTIF   	03	2016	% 	Pie_pagina_za       	Inscrita en el Reg. Merc. de Zaragoza, Tomo 3802, Folio 85, Hoja Z-50698, Inscripci¾n 1¬ - C.I.F. B99287260
+SVAR      	03	2016	% 	Pie_pagina_za       	Inscrita en el Reg. Merc. de Zaragoza, Tomo 3802, Folio 85, Hoja Z-50698, Inscripci¾n 1¬ - C.I.F. B99287260
+MUPC      	03	2016	% 	Pie_pagina_za       	Inscrita en el Reg. Merc. de Zaragoza, Tomo 3802, Folio 85, Hoja Z-50698, Inscripci¾n 1¬ - C.I.F. B99287260
+MT        	03	2016	% 	exento_iva          	ACTIVIDAD EXENTA DE IVA
+MUOR      	03	2016	% 	exento_iva          	ACTIVIDAD EXENTA DE IVA
+MUPF      	03	2016	% 	exento_iva          	ACTIVIDAD EXENTA DE IVA
+PREM      	03	2016	% 	exento_iva          	ACTIVIDAD EXENTA DE IVA
+PROFOR    	03	2016	% 	exento_iva          	ACTIVIDAD EXENTA DE IVA
+SRECTIF   	03	2016	% 	exento_iva          	ACTIVIDAD EXENTA DE IVA
+SVAR      	03	2016	% 	exento_iva          	ACTIVIDAD EXENTA DE IVA
+MUPC      	03	2016	% 	exento_iva          	ACTIVIDAD EXENTA DE IVA
+COLEGIADOS	01	2017	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+CLIEN     	01	2017	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+CUOTA     	01	2017	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+DV        	01	2017	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+VAR       	01	2017	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+MU        	01	2017	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+SEP       	01	2017	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+RECTIF    	01	2017	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+EXPO      	01	2017	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+ACTEXT    	01	2017	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+EXPEDI    	01	2017	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+PREMAA    	01	2017	% 	Cabecera            	RECIBO 
+MUSAAT    	01	2017	% 	Cabecera            	RECIBO 
+ADES      	01	2017	% 	Cabecera            	RECIBO 
+MT        	03	2017	% 	Cabecera            	RECIBO 
+SRECTIF   	03	2017	% 	Cabecera            	RECIBO 
+PROFOR    	01	2017	% 	Cabecera            	PROFORMA
+PROFOR    	03	2017	% 	Cabecera            	PROFORMA
+COLEGIADOS	01	2017	% 	N_fact              	FACTURA N?
+CLIEN     	01	2017	% 	N_fact              	FACTURA N?
+CUOTA     	01	2017	% 	N_fact              	FACTURA N?
+DV        	01	2017	% 	N_fact              	FACTURA N?
+VAR       	01	2017	% 	N_fact              	FACTURA N?
+MU        	01	2017	% 	N_fact              	FACTURA N?
+SEP       	01	2017	% 	N_fact              	FACTURA N?
+RECTIF    	01	2017	% 	N_fact              	FACTURA N?
+EXPO      	01	2017	% 	N_fact              	FACTURA N?
+ACTEXT    	01	2017	% 	N_fact              	FACTURA N?
+EXPEDI    	01	2017	% 	N_fact              	FACTURA N?
+PROFOR    	01	2017	% 	N_fact              	PROFORMA N?
+PROFOR    	03	2017	% 	N_fact              	PROFORMA N?
+PREMAA    	01	2017	% 	N_fact              	RECIBO N?
+MUSAAT    	01	2017	% 	N_fact              	RECIBO N?
+ADES      	01	2017	% 	N_fact              	RECIBO N?
+MT        	03	2017	% 	N_fact              	RECIBO N?
+SRECTIF   	03	2017	% 	N_fact              	RECIBO N?
+PROFOR    	01	2017	% 	Total_fact          	TOTAL PROFORMA
+PROFOR    	03	2017	% 	Total_fact          	TOTAL PROFORMA
+COLEGIADOS	01	2017	% 	Total_fact          	TOTAL FACTURA
+CLIEN     	01	2017	% 	Total_fact          	TOTAL FACTURA
+CUOTA     	01	2017	% 	Total_fact          	TOTAL FACTURA
+DV        	01	2017	% 	Total_fact          	TOTAL FACTURA
+VAR       	01	2017	% 	Total_fact          	TOTAL FACTURA
+MU        	01	2017	% 	Total_fact          	TOTAL FACTURA
+SEP       	01	2017	% 	Total_fact          	TOTAL FACTURA
+RECTIF    	01	2017	% 	Total_fact          	TOTAL FACTURA
+EXPO      	01	2017	% 	Total_fact          	TOTAL FACTURA
+ACTEXT    	01	2017	% 	Total_fact          	TOTAL FACTURA
+EXPEDI    	01	2017	% 	Total_fact          	TOTAL FACTURA
+PREMAA    	01	2017	% 	Total_fact          	TOTAL RECIBO
+MUSAAT    	01	2017	% 	Total_fact          	TOTAL RECIBO
+ADES      	01	2017	% 	Total_fact          	TOTAL RECIBO
+MT        	03	2017	% 	Total_fact          	TOTAL RECIBO
+SRECTIF   	03	2017	% 	Total_fact          	TOTAL RECIBO
+MT        	03	2017	% 	N_emisor2           	AGENCIA DE SEGUROS EXCLUSIVA DE MUSAAT, MUTUA DE SEGUROS A PRIMA FIJA, CON NUMERO DE REGISTRO: M0368B99287260
+PROFOR    	03	2017	% 	N_emisor2           	AGENCIA DE SEGUROS EXCLUSIVA DE MUSAAT, MUTUA DE SEGUROS A PRIMA FIJA, CON NUMERO DE REGISTRO: M0368B99287260
+SRECTIF   	03	2017	% 	N_emisor2           	AGENCIA DE SEGUROS EXCLUSIVA DE MUSAAT, MUTUA DE SEGUROS A PRIMA FIJA, CON NUMERO DE REGISTRO: M0368B99287260
+MUPC      	03	2017	% 	Total_fact          	TOTAL RECIBO
+MUPC      	03	2017	% 	N_emisor2           	AGENCIA DE SEGUROS EXCLUSIVA DE MUSAAT, MUTUA DE SEGUROS A PRIMA FIJA, CON NUMERO DE REGISTRO: M0368B99287260
+MUPC      	03	2017	% 	N_fact              	RECIBO N?
+MUPC      	03	2017	% 	Cabecera            	RECIBO
+MUPF      	03	2017	% 	N_emisor2           	AGENCIA DE SEGUROS EXCLUSIVA DE MUSAAT, MUTUA DE SEGUROS A PRIMA FIJA, CON NUMERO DE REGISTRO: M0368B99287260
+MUPF      	03	2017	% 	Total_fact          	TOTAL RECIBO
+MUPF      	03	2017	% 	N_fact              	RECIBO N?
+MUPF      	03	2017	% 	Cabecera            	RECIBO
+SVAR      	03	2017	% 	Cabecera            	FACTURA 
+MUOR      	03	2017	% 	Cabecera            	RECIBO 
+PREM      	03	2017	% 	Cabecera            	RECIBO 
+SVAR      	03	2017	% 	Total_fact          	TOTAL FACTURA
+MUOR      	03	2017	% 	Total_fact          	TOTAL RECIBO
+PREM      	03	2017	% 	Total_fact          	TOTAL RECIBO
+SVAR      	03	2017	% 	N_fact              	FACTURA N?
+MUOR      	03	2017	% 	N_fact              	RECIBO N?
+PREM      	03	2017	% 	N_fact              	RECIBO N?
+%         	03	2017	ES	pie_pagina          	Inscrita en el Reg. Merc. de Zaragoza, Tomo 3802, Folio 85, Hoja Z-50698, Inscripci¾n 1¬ - C.I.F. B99287260
+MT        	03	2017	% 	Pie_pagina_za       	Inscrita en el Reg. Merc. de Zaragoza, Tomo 3802, Folio 85, Hoja Z-50698, Inscripci¾n 1¬ - C.I.F. B99287260
+MUOR      	03	2017	% 	Pie_pagina_za       	Inscrita en el Reg. Merc. de Zaragoza, Tomo 3802, Folio 85, Hoja Z-50698, Inscripci¾n 1¬ - C.I.F. B99287260
+MUPF      	03	2017	% 	Pie_pagina_za       	Inscrita en el Reg. Merc. de Zaragoza, Tomo 3802, Folio 85, Hoja Z-50698, Inscripci¾n 1¬ - C.I.F. B99287260
+PREM      	03	2017	% 	Pie_pagina_za       	Inscrita en el Reg. Merc. de Zaragoza, Tomo 3802, Folio 85, Hoja Z-50698, Inscripci¾n 1¬ - C.I.F. B99287260
+PROFOR    	03	2017	% 	Pie_pagina_za       	Inscrita en el Reg. Merc. de Zaragoza, Tomo 3802, Folio 85, Hoja Z-50698, Inscripci¾n 1¬ - C.I.F. B99287260
+SRECTIF   	03	2017	% 	Pie_pagina_za       	Inscrita en el Reg. Merc. de Zaragoza, Tomo 3802, Folio 85, Hoja Z-50698, Inscripci¾n 1¬ - C.I.F. B99287260
+SVAR      	03	2017	% 	Pie_pagina_za       	Inscrita en el Reg. Merc. de Zaragoza, Tomo 3802, Folio 85, Hoja Z-50698, Inscripci¾n 1¬ - C.I.F. B99287260
+MUPC      	03	2017	% 	Pie_pagina_za       	Inscrita en el Reg. Merc. de Zaragoza, Tomo 3802, Folio 85, Hoja Z-50698, Inscripci¾n 1¬ - C.I.F. B99287260
+MT        	03	2017	% 	exento_iva          	ACTIVIDAD EXENTA DE IVA
+MUOR      	03	2017	% 	exento_iva          	ACTIVIDAD EXENTA DE IVA
+MUPF      	03	2017	% 	exento_iva          	ACTIVIDAD EXENTA DE IVA
+PREM      	03	2017	% 	exento_iva          	ACTIVIDAD EXENTA DE IVA
+PROFOR    	03	2017	% 	exento_iva          	ACTIVIDAD EXENTA DE IVA
+SRECTIF   	03	2017	% 	exento_iva          	ACTIVIDAD EXENTA DE IVA
+SVAR      	03	2017	% 	exento_iva          	ACTIVIDAD EXENTA DE IVA
+MUPC      	03	2017	% 	exento_iva          	ACTIVIDAD EXENTA DE IVA

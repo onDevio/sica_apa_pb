@@ -1,0 +1,55 @@
+50	COLEGIO DE BIZKAIA                                          		1.0700000000000001	COAATB
+80	PREMAAT                                                     			80
+81	ICCE                                                        			81
+82	CONSEJO DE CATALUÑA                                         			82
+02	COLEGIO DE ALBACETE                                         		.94999999999999996	02
+03	COLEGIO DE ALICANTE                                         		1.1000000000000001	COAATA
+04	COLEGIO DE ALMERIA                                          		1.03	04
+05	COLEGIO DE ASTURIAS                                         		1.0800000000000001	05
+07	COLEGIO DE BADAJOZ                                          		1.02	07
+08	COLEGIO DE BARCELONA                                        		1.0600000000000001	08
+09	COLEGIO DE BURGOS                                           		1.0	COAATBU
+10	COLEGIO DE CACERES                                          		1.02	COAATCC
+11	COLEGIO DE CADIZ                                            		1.0	11
+13	COLEGIO DE CASTELLON                                        		1.02	13
+14	COLEGIO DE CIUDAD REAL                                      		1.03	14
+15	COLEGIO DE CORDOBA                                          		1.02	15
+16	COLEGIO DE CUENCA                                           		.88	COAATCU
+17	COLEGIO DE GIRONA                                           		1.04	17
+18	COLEGIO DE GRANADA                                          		1.1000000000000001	18
+19	COLEGIO DE GUADALAJARA                                      		.90000000000000002	COAATGU
+21	COLEGIO DE HUELVA                                           		.93000000000000005	21
+22	COLEGIO DE HUESCA                                           		.93000000000000005	22
+24	COLEGIO DE JAEN                                             		1.0	24
+25	COLEGIO DE A CORUÑA                                         		1.02	25
+27	COLEGIO DE LAS PALMAS                                       		1.0	COAATGC
+28	COLEGIO DE LEON                                             		1.0	COAATLE
+30	COLEGIO DE LUGO                                             		1.02	30
+31	COLEGIO DE MADRID                                           		1.0600000000000001	31
+32	COLEGIO DE MALAGA                                           		1.03	32
+33	COLEGIO DE PALMA MALLORCA                                   		1.1000000000000001	COAATMCA
+35	COLEGIO DE MURCIA                                           		1.03	COAATMU
+38	COLEGIO DE PALENCIA                                         		1.0600000000000001	38
+39	COLEGIO DE PONTEVEDRA                                       		1.1000000000000001	39
+40	COLEGIO DE SALAMANCA                                        		.93000000000000005	40
+42	COLEGIO DE SEVILLA                                          		1.02	42
+43	COLEGIO DE SORIA                                            		.84999999999999998	43
+44	COLEGIO DE TARRAGONA                                        		1.02	COAATTGN
+45	COLEGIO DE STA.CRUZ TENERIFE                                		1.02	COAATTFE
+46	COLEGIO DE TERUEL                                           		.97999999999999998	COAATTER
+48	COLEGIO DE VALENCIA                                         		1.0800000000000001	48
+49	COLEGIO DE VALLADOLID                                       		1.02	49
+51	COLEGIO DE ZAMORA                                           		1.0	51
+52	COLEGIO DE ZARAGOZA                                         		1.03	COAATZ
+56	COLEGIO DE LANZAROTE                                        		.96999999999999997	56
+01	COLEGIO DE ALAVA                                            		.84999999999999998	01
+12	COLEGIO DE CANTABRIA                                        		1.1000000000000001	12
+20	COLEGIO DE GIPUZKOA                                         		.91000000000000003	COAATGUI
+23	COLEGIO DE IBIZA                                            		1.03	23
+29	COLEGIO DE LLEIDA                                           		1.0	COAATLL
+36	COLEGIO DE NAVARRA                                          		.92000000000000004	COAATN
+41	COLEGIO DE SEGOVIA                                          		.92000000000000004	41
+47	COLEGIO DE TOLEDO                                           		.93000000000000005	47
+06	COLEGIO DE AVILA                                            		1.03	COAATAVI
+26	COLEGIO DE LA RIOJA                                         		1.03	COAATLR
+37	COLEGIO DE OURENSE                                          		1.0600000000000001	37

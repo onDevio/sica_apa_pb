@@ -1,0 +1,218 @@
+VU_COLEGIOS                                       	50                            	COAAT BIZKAIA	10
+VU_COLEGIOS                                       	85                            	CONSEJO COAAT DE CATALUÑA	9
+VU_COLEGIOS                                       	01                            	COAAT ALAVA	05
+VU_COLEGIOS                                       	02                            	COAAT ALBACETE	02
+VU_COLEGIOS                                       	03                            	COAAT ALICANTE	03
+VU_COLEGIOS                                       	04                            	COAAT ALMERIA	04
+VU_COLEGIOS                                       	06                            	COAAT AVILA	07
+VU_COLEGIOS                                       	07                            	COAAT BADAJOZ	08
+VU_COLEGIOS                                       	08                            	COAAT BARCELONA	09
+VU_COLEGIOS                                       	09                            	COAAT BURGOS	11
+VU_COLEGIOS                                       	10                            	COAAT CACERES	12
+VU_COLEGIOS                                       	11                            	COAAT CADIZ	13
+VU_COLEGIOS                                       	12                            	COAAT CANTABRIA	14
+VU_COLEGIOS                                       	13                            	COAAT CASTELLON	15
+VU_COLEGIOS                                       	14                            	COAAT CIUDAD REAL	16
+VU_COLEGIOS                                       	15                            	COAAT CORDOBA	17
+VU_COLEGIOS                                       	16                            	COAAT CUENCA	18
+VU_COLEGIOS                                       	17                            	COAAT GIRONA	21
+VU_COLEGIOS                                       	18                            	COAAT GRANADA	22
+VU_COLEGIOS                                       	19                            	COAAT GUADALAJARA	24
+VU_COLEGIOS                                       	21                            	COAAT HUELVA	25
+VU_COLEGIOS                                       	22                            	COAAT HUESCA	26
+VU_COLEGIOS                                       	23                            	COAAT IBIZA	27
+VU_COLEGIOS                                       	24                            	COAAT JAEN	28
+VU_COLEGIOS                                       	25                            	COAAT A CORUÑA	01
+VU_COLEGIOS                                       	26                            	COAAT LA RIOJA	29
+VU_COLEGIOS                                       	27                            	COAAT LAS PALMAS	23
+VU_COLEGIOS                                       	82                            	REPRESENTANTE COAAT DE LAS PALMAS EN LANZA	30
+VU_COLEGIOS                                       	28                            	COAAT LEON	31
+VU_COLEGIOS                                       	29                            	COAAT LLEIDA	33
+VU_COLEGIOS                                       	30                            	COAAT LUGO	32
+VU_COLEGIOS                                       	31                            	COAAT MADRID	34
+VU_COLEGIOS                                       	32                            	COAAT MALAGA	35
+VU_COLEGIOS                                       	33                            	COAAT PALMA MALLORCA	36
+VU_COLEGIOS                                       	81                            	COAAT	
+VU_COLEGIOS                                       	35                            	COAAT MURCIA	38
+VU_COLEGIOS                                       	36                            	COAAT NAVARRA	39
+VU_COLEGIOS                                       	38                            	COAAT PALENCIA	41
+VU_COLEGIOS                                       	39                            	COAAT PONTEVEDRA	42
+VU_COLEGIOS                                       	40                            	COAAT SALAMANCA	43
+VU_COLEGIOS                                       	41                            	COAAT SEGOVIA	44
+VU_COLEGIOS                                       	42                            	COAAT SEVILLA	45
+VU_COLEGIOS                                       	43                            	COAAT SORIA	46
+VU_COLEGIOS                                       	44                            	COAAT TARRAGONA	47
+VU_COLEGIOS                                       	45                            	COAAT STA.CRUZ TENERI	48
+VU_COLEGIOS                                       	46                            	COAAT TERUEL	49
+VU_COLEGIOS                                       	80                            	COAAT	
+VU_COLEGIOS                                       	47                            	COAAT TOLEDO	51
+VU_COLEGIOS                                       	48                            	COAAT VALENCIA	52
+VU_COLEGIOS                                       	49                            	COAAT VALLADOLID	53
+VU_COLEGIOS                                       	51                            	COAAT ZAMORA	56
+VU_COLEGIOS                                       	52                            	COAAT ZARAGOZA	96
+VU_PROVINCIAS                                     	00000                         	ANDORRA	00
+VU_PROVINCIAS                                     	00001                         	ARABA	01
+VU_PROVINCIAS                                     	00002                         	ALBACETE	02
+VU_PROVINCIAS                                     	00003                         	ALICANTE	03
+VU_PROVINCIAS                                     	00004                         	ALMERIA	04
+VU_PROVINCIAS                                     	00005                         	AVILA	05
+VU_PROVINCIAS                                     	00006                         	BADAJOZ	06
+VU_PROVINCIAS                                     	00007                         	MENORCA	07
+VU_PROVINCIAS                                     	00008                         	BARCELONA	08
+VU_PROVINCIAS                                     	00009                         	BURGOS	09
+VU_PROVINCIAS                                     	00010                         	CACERES	10
+VU_PROVINCIAS                                     	00011                         	CADIZ	11
+VU_PROVINCIAS                                     	00012                         	CASTELLON	12
+VU_PROVINCIAS                                     	00013                         	CIUDAD REAL	13
+VU_PROVINCIAS                                     	00014                         	CORDOBA	14
+VU_PROVINCIAS                                     	00015                         	A CORUÑA	15
+VU_PROVINCIAS                                     	00016                         	CUENCA	16
+VU_PROVINCIAS                                     	00017                         	GIRONA	17
+VU_PROVINCIAS                                     	00018                         	GRANADA	18
+VU_PROVINCIAS                                     	00019                         	GUADALAJARA	19
+VU_PROVINCIAS                                     	00020                         	GIPUZKOA	20
+VU_PROVINCIAS                                     	00021                         	HUELVA	21
+VU_PROVINCIAS                                     	00022                         	HUESCA	22
+VU_PROVINCIAS                                     	00023                         	JAEN	23
+VU_PROVINCIAS                                     	00024                         	LEON	24
+VU_PROVINCIAS                                     	00025                         	LLEIDA	25
+VU_PROVINCIAS                                     	00026                         	LA RIOJA	26
+VU_PROVINCIAS                                     	00027                         	LUGO	27
+VU_PROVINCIAS                                     	00028                         	MADRID	28
+VU_PROVINCIAS                                     	00029                         	MALAGA	29
+VU_PROVINCIAS                                     	00030                         	MURCIA	30
+VU_PROVINCIAS                                     	00031                         	NAVARRA	31
+VU_PROVINCIAS                                     	00032                         	OURENSE	32
+VU_PROVINCIAS                                     	00033                         	ASTURIAS	33
+VU_PROVINCIAS                                     	00034                         	PALENCIA	34
+VU_PROVINCIAS                                     	00035                         	LANZAROTE	35
+VU_PROVINCIAS                                     	00036                         	PONTEVEDRA	36
+VU_PROVINCIAS                                     	00037                         	SALAMANCA	37
+VU_PROVINCIAS                                     	00038                         	SANTA CRUZ DE TENERIFE	38
+VU_PROVINCIAS                                     	00039                         	CANTABRIA	39
+VU_PROVINCIAS                                     	00040                         	SEGOVIA	40
+VU_PROVINCIAS                                     	00041                         	SEVILLA	41
+VU_PROVINCIAS                                     	00042                         	SORIA	42
+VU_PROVINCIAS                                     	00043                         	TARRAGONA	43
+VU_PROVINCIAS                                     	00044                         	TERUEL	44
+VU_PROVINCIAS                                     	00045                         	TOLEDO	45
+VU_PROVINCIAS                                     	00046                         	VALENCIA	46
+VU_PROVINCIAS                                     	00047                         	VALLADOLID	47
+VU_PROVINCIAS                                     	00048                         	BIZKAIA	48
+VU_PROVINCIAS                                     	00049                         	ZAMORA	49
+VU_PROVINCIAS                                     	00050                         	ZARAGOZA	50
+VU_PROVINCIAS                                     	00051                         	CEUTA	51
+VU_PROVINCIAS                                     	00052                         	MELILLA	52
+VU_PROVINCIAS                                     	00070                         	MALLORCA	07
+VU_PROVINCIAS                                     	00099                         	HOLANDA	00
+VU_PROVINCIAS                                     	01080                         	VITORIA	01
+VU_PROVINCIAS                                     	02005                         	ALBACETE	02
+VU_PROVINCIAS                                     	06002                         	BADAJOZ	06
+VU_PROVINCIAS                                     	07010                         	PALMA DE MALLORCA	07
+VU_PROVINCIAS                                     	07620                         	BALEARES	07
+VU_PROVINCIAS                                     	08025                         	BARCELONA	08
+VU_PROVINCIAS                                     	08029                         	BARCELONA	08
+VU_PROVINCIAS                                     	09591                         	BURGOS	09
+VU_PROVINCIAS                                     	11111                         	FRANCIA	00
+VU_PROVINCIAS                                     	15620                         	CORUÑA	15
+VU_PROVINCIAS                                     	18005                         	GRANADA	18
+VU_PROVINCIAS                                     	28290                         	MADRID	28
+VU_PROVINCIAS                                     	28660                         	MADRID	28
+VU_PROVINCIAS                                     	35008                         	LA GOMERA	38
+VU_PROVINCIAS                                     	35100                         	GRAN CANARIA	35
+VU_PROVINCIAS                                     	35600                         	FUERTEVENTURA	38
+VU_PROVINCIAS                                     	46010                         	VALENCIA	46
+VU_PROVINCIAS                                     	47004                         	VALLADOLID	47
+VU_PROVINCIAS                                     	64240                         	URT	00
+VU_PROVINCIAS                                     	99999                         	DESCONOCIDA	00
+VU_SITUACIONES_PROFESIONALES                      	A                             	ASALARIADO	AS
+VU_SITUACIONES_PROFESIONALES                      	F                             	FUNCIONARIO	FU
+VU_SITUACIONES_PROFESIONALES                      	J                             	JUBILADO	JU
+VU_SITUACIONES_PROFESIONALES                      	L                             	LIBERAL	LI
+VU_SITUACIONES_PROFESIONALES                      	O                             	OTRO	OT
+VU_SITUACIONES_PROFESIONALES                      	PR                            	PRECOLEGIADO	OT
+VU_SITUACIONES_PROFESIONALES                      	S                             	SOCIEDAD	SO
+VU_SRC_CIA                                        	M                             		M
+VU_SRC_CIA                                        	N                             		N
+VU_SRC_CIA                                        	O                             		O
+VU_SRC_CIA                                        	S                             		M
+VU_TIPO_FORMA_JURIDICA                            	001                           	SOCIEDAD LIMITADA PROFESIONAL	SL
+VU_TIPO_FORMA_JURIDICA                            	002                           	SOCIEDAD LIMITADA PROFESIONAL UNIPERSONAL	SL
+VU_TIPO_FORMA_JURIDICA                            	SA                            	SOCIEDAD ANÓNIMA	SA
+VU_TIPO_FORMA_JURIDICA                            	SL                            	SOCIEDAD LIMITADA	SL
+VU_TIPO_REGIMEN                                   	A                             	BASICO	PREM
+VU_TIPO_REGIMEN                                   	C                             	2000	PREM
+VU_TIPO_VIA                                       	00                            	DESCONOCIDO	00
+VU_TIPO_VIA                                       	AB                            	AMBITO	00
+VU_TIPO_VIA                                       	AD                            	ALDEA	AD
+VU_TIPO_VIA                                       	AL                            	ALAMEDA	AL
+VU_TIPO_VIA                                       	AO                            	APARTADO	00
+VU_TIPO_VIA                                       	AP                            	APARTAMENTO	AP
+VU_TIPO_VIA                                       	AR                            	AREA	00
+VU_TIPO_VIA                                       	AT                            	ALTO	00
+VU_TIPO_VIA                                       	AV                            	AVENIDA	AV
+VU_TIPO_VIA                                       	B                             	*	00
+VU_TIPO_VIA                                       	BL                            	BLOQUE	BL
+VU_TIPO_VIA                                       	BO                            	BARRIO	BO
+VU_TIPO_VIA                                       	CA                            	CASA	00
+VU_TIPO_VIA                                       	CH                            	CHALET	CH
+VU_TIPO_VIA                                       	CL                            	CALLE	CL
+VU_TIPO_VIA                                       	CM                            	CAMINO	CM
+VU_TIPO_VIA                                       	CO                            	COLONIA	CO
+VU_TIPO_VIA                                       	CR                            	CARRETERA	CR
+VU_TIPO_VIA                                       	CS                            	CASERÍO	CS
+VU_TIPO_VIA                                       	CT                            	CUESTA	CT
+VU_TIPO_VIA                                       	ED                            	EDIFICIO	ED
+VU_TIPO_VIA                                       	ES                            	ESTRADA	00
+VU_TIPO_VIA                                       	GL                            	GLORIETA	GL
+VU_TIPO_VIA                                       	GR                            	GRUPO	GR
+VU_TIPO_VIA                                       	LG                            	LUGAR	LG
+VU_TIPO_VIA                                       	MC                            	MERCADO	MC
+VU_TIPO_VIA                                       	MN                            	MUNICIPIO	MN
+VU_TIPO_VIA                                       	MU                            	MUELLE	00
+VU_TIPO_VIA                                       	MZ                            	MANZANA	MZ
+VU_TIPO_VIA                                       	PA                            	PARCELA	00
+VU_TIPO_VIA                                       	PB                            	POBLADO	PB
+VU_TIPO_VIA                                       	PG                            	POLÍGONO	PG
+VU_TIPO_VIA                                       	PJ                            	PASAJE	PJ
+VU_TIPO_VIA                                       	PQ                            	PARQUE	PQ
+VU_TIPO_VIA                                       	PR                            	PROLONGACIÓN	PR
+VU_TIPO_VIA                                       	PS                            	PASEO	PS
+VU_TIPO_VIA                                       	PZ                            	PLAZA	PZ
+VU_TIPO_VIA                                       	RB                            	RAMBLA	RB
+VU_TIPO_VIA                                       	RD                            	RONDA	RD
+VU_TIPO_VIA                                       	SC                            	SIN CLASIFICAR	00
+VU_TIPO_VIA                                       	SE                            	SECTOR	00
+VU_TIPO_VIA                                       	SU                            	SUBZONA	00
+VU_TIPO_VIA                                       	TR                            	TRAVESÍA	TR
+VU_TIPO_VIA                                       	UA                            	UNIDAD DE ACTUACION	00
+VU_TIPO_VIA                                       	UE                            	UNIDAD DE EJECUCION	00
+VU_TIPO_VIA                                       	UR                            	URBANIZACIÓN	UR
+VU_TITULACION_HAB                                 	AP                            	APAREJADOR	AP
+VU_TITULACION_HAB                                 	AA                            	ARQUITECTO TÉCNICO	AA
+VU_TITULACION_HAB                                 	IE                            	INGENIERO DE LA EDIFICACION	EU
+VU_TITULACION_HAB                                 	EU                            	TÍTULO EUROPEO RECONOCIDO	EU
+VU_TITULACION_HAB                                 	10                            	ARQUITECTO SUPERIOR	EU
+VU_TITULACION_HAB                                 	17                            	FIRST CERTIFICATE IN ENGLISH	EU
+VU_TITULACION_HAB                                 	1                             	INGENIERO SUPERIOR	EU
+VU_TITULACION_HAB                                 	16                            	TECNICO SUPERIOR EN DESARROLLO Y APLICACION DE PROYECTOS DE CONSERVACION	EU
+VU_TITULACION_HAB                                 	2                             	TECNICO SUPERIOR EN PREVENCION DE RIESGOS LABORALES	EU
+VU_COLEGIOS                                       	05                            	COAAT ASTURIAS	06
+VU_COLEGIOS                                       	20                            	COAAT GIPUZKOA	20
+VU_COLEGIOS                                       	37                            	COAAT OURENSE	40
+VU_TITULACION_HAB                                 	3                             	LICENCIADO EN ECONOMIA	EU
+VU_TITULACION_HAB                                 	6                             	PARITO TASADOR INMOBILIARIO	EU
+VU_TITULACION_HAB                                 	7                             	DELINEACION INDUSTRIAL	EU
+VU_TITULACION_HAB                                 	8                             	INGENIERO TECNICO	EU
+VU_TITULACION_HAB                                 	9                             	MASTER EN INGENIERIA DE LA EDIFICACION	EU
+VU_TITULACION_HAB                                 	11                            	AUXILIAR DE TOPOGRAFIA	EU
+VU_TITULACION_HAB                                 	12                            	LICENCIADO EN HISTORIA	EU
+VU_TITULACION_HAB                                 	13                            	AGENTE PROPIEDAD INMOBILIARIA	EU
+VU_TITULACION_HAB                                 	14                            	CONSTRUCCION SOSTENIBLE	EU
+VU_TITULACION_HAB                                 	4                             	MASTER EN PROTECCION CIVIL Y GESTION DE EMERGENCIAS	EU
+VU_TITULACION_HAB                                 	5                             	MASTER EN DIRECCION Y ORGANIZACION DE  EMPRESAS DE CONSTRUCCION	EU
+VU_TITULACION_HAB                                 	15                            	LICENCIADO EN DERECHO	EU
+VU_TITULACION_HAB                                 	18                            	LICENCIADO EN QUIMICAS	EU
+VU_TITULACION_HAB                                 	19                            	INGENIERO TECNICO INDUSTRIAL	EU
+VU_TITULACION_HAB                                 	20                            	INGENIERO EN AUTOMATICA Y ELECTRONICA INDUSTRIAL	EU
+VU_TITULACION_HAB                                 	21                            	INGENIERO INDUSTRIAL	EU

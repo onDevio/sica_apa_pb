@@ -1,0 +1,4 @@
+ECON      	Resúmenes Económicos	% 	0.0	S	\\coaata-servidor\SICA-COMPARTIDO\economicos\	S	N	 	0	%		01
+CARTAS_CFO	Cartas CFO	% 	0.0	S	\\coaata-servidor\SICA-COMPARTIDO\CARTAS\CARTAS_CFO	S	N	 	0			01
+CARTAS_TRA	Cartas TRA	% 	0.0	S	\\coaata-servidor\SICA-COMPARTIDO\CARTAS\CARTAS_TRA	S	N	 	0			01
+CARTAS_SRC	Cartas SRC	% 	0.0	S	\\coaata-servidor\SICA-COMPARTIDO\CARTAS\CARTAS_SRC	S	N	 	0			01

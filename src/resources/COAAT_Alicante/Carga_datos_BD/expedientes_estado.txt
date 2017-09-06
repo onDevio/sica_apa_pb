@@ -1,0 +1,10 @@
+02	RETENIDO (TIENE REPAROS)                                    	S	S	S	N	S
+00	REGISTRADA ENTRADA                                          	S	S	S	S	S
+01	REGISTRADO (REDAP)                                          	S	S	S	S	S
+03	VISADO                                                      	S	S	S	S	S
+04	VISADO                                                      	S	S	S	S	S
+05	VISADO                                                      	S	S	S	S	S
+06	Anulado                                                     	S	S	S	N	S
+VI	Retirado Visared                                            	S	S	S	S	S
+RE	RENUNCIADO                                                  	S	S	S	S	S
+SU	SUSPENSO                                                    	N	N	N	S	S

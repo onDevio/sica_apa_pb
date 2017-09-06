@@ -1,0 +1,9 @@
+01	B	C	01	AVISOS POR EMAIL
+02	S	E	02	APODO
+03	D	C	01	FECHA NAC
+04	S	C	02	EDO. CIVIL
+05	B	C	02	RECLAMAR
+OR	S	C		Reclamante
+EX	S	C		Expediente
+RE	S	C		Responsable
+CA	s	C		Cargo

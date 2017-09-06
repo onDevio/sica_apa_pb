@@ -1,0 +1,48 @@
+0000000001	44	Base de Precio Centro 2005	GTP02
+0000000002	43	Libro de Precio Centro 2005	GTP00
+0000000003	45	Menfis+Libro+Base Centro 2005	GTP03
+0000000004	46	Presto+Libro+Base Centro 2005	GTP03
+0000000005	36	Base de Precio Centro 2004	GTP02
+0000000006	35	Libro de Precio Centro 2004	GTP00
+0000000007	47	Gest+Libro+Base Centro 2005	GTP03
+0000000008	1	Libro de Precio Centro 2001	GTP00
+0000000009	29	Base de Precios Centro 2003	GTP02
+0000000010	80	Menfis V.6	GTP04
+0000000015	50	Libro de Precio Centro 2006	GTP00
+Z000000003		Libro de Precio Centro 2006	GTP00
+Z000000014		Libro de Precio Centro 2006 ( 2 uds.)	GTP01
+Z000000015		Libro de Precio Centro 2006 ( 3 uds.)	GTP01
+Z000000016		Libro de Precio Centro 2006 ( 5 uds.)	GTP01
+Z000000017		Libro de Precio Centro 2006 ( 10 uds.)	GTP01
+Z000000018		Libro de Precio Centro 2006 ( 15 uds.)	GTP01
+Z000000019		Libro de Precio Centro 2006 ( 120 uds.)	GTP01
+0000000012	2	Base de Precios Centro 2001	GTP02
+0000000014	51	Base de Precio Centro 2006	GTP02
+Z000000001		Base de Precio Centro 2006	GTP02
+Z000000006		Base de Precio Centro 2006 ( 2 uds.)	GTP02
+Z000000007		Base de Precio Centro 2006 ( 3 uds.)	GTP02
+Z000000008		Base de Precio Centro 2006 ( 5 uds.)	GTP02
+Z000000009		Base de Precio Centro 2006 ( 12 uds.)	GTP02
+Z000000010		Base de Precio Centro 2006 ( 15 uds.)	GTP02
+Z000000011		Base de Precio Centro 2006 ( 20 uds.)	GTP02
+Z000000012		Base de Precio Centro 2006 ( 30 uds.)	GTP02
+Z000000013		Base de Precio Centro 2006 ( 80 uds.)	GTP02
+0000000011	37	Menfis+Libro+Base Centro 2004	GTP03
+0000000017	53	Presto+Libro+Base Centro 2006	GTP03
+0000000018	54	Gest+Libro+Base Centro 2006	GTP03
+Z000000002		Gest+Libro+Base Centro 2006	GTP03
+Z000000005		Presto+Libro+Base Centro 2006	GTP03
+0000000013	58	Página(s) Publicidad año 2006+menciones	GTP06
+0000000016	59	Menciones Publicidad año 2006	GTP06
+Z000000004		Menciones Publicidad año 2006	GTP06
+Z000000020		Página(s) Publicidad año 2006+menciones	GTP06
+0000000019	52	Menfis+Libro+Base Centro 2006	GTP03
+0000000020	49	Base de Precios Centro '99	GTP02
+0000000021	8	Codigo Tecnico de la Edificacion	GTP07
+0000000022	34	Normas Control Materiales a Pie de Obra	GTP05
+0000000023	10	Base de Precios Centro 2002	GTP02
+0000000024	9	Libro de Precio Centro 2002	GTP00
+0000000025	61	Normas Control Materiales 2004	GTP05
+0000000026	87	Pág.(s) Publicidad año 2007+menciones	GTP06
+0000000027	88	Menciones Publicidad año 2007	GTP06
+0000000028	56	Menfis v.7	GTP03

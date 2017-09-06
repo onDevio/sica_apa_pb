@@ -1,0 +1,77 @@
+00028	00055	MADRID                                            	
+00020	00055	GUIPUZKOA                                         	
+00008	00055	BARCELONA                                         	
+00041	00055	SEVILLA                                           	
+00012	00055	CASTELLON                                         	
+00046	00055	VALENCIA                                          	
+00003	00055	ALICANTE                                          	
+00040	00055	SEGOVIA                                           	
+00050	00055	ZARAGOZA                                          	
+00025	00055	LLEIDA                                            	
+00023	00055	JAEN                                              	
+00022	00055	HUESCA                                            	
+00011	00055	CADIZ                                             	
+00002	00055	ALBACETE                                          	
+00004	00055	ALMERIA                                           	
+00044	00055	TERUEL                                            	
+00016	00055	CUENCA                                            	
+00013	00055	CIUDAD REAL                                       	
+00047	00055	VALLADOLID                                        	
+00019	00055	GUADALAJARA                                       	
+00007	00055	MENORCA                                           	
+00043	00055	TARRAGONA                                         	
+00029	00055	MALAGA                                            	
+00035	00055	LAS PALMAS GRAN CANARIA                           	
+00030	00055	MURCIA                                            	
+00045	00055	TOLEDO                                            	
+00014	00055	CORDOBA                                           	
+00038	00055	SANTA CRUZ DE TENERIFE                            	
+00018	00055	GRANADA                                           	
+00031	00055	NAVARRA                                           	
+00021	00055	HUELVA                                            	
+00039	00055	CANTABRIA                                         	
+00009	00055	BURGOS                                            	
+00010	00055	CACERES                                           	
+00048	00055	BIZKAIA                                           	
+00033	00055	ASTURIAS                                          	
+00001	00055	ARABA                                             	
+00026	00055	LA RIOJA                                          	
+00034	00055	PALENCIA                                          	
+00006	00055	BADAJOZ                                           	
+00032	00055	OURENSE                                           	
+00099	00055	HOLANDA                                           	
+00015	00055	A CORUÐA                                          	
+00017	00055	GIRONA                                            	
+00024	00055	LEON                                              	
+00000	00055	ANDORRA                                           	
+00036	00055	PONTEVEDRA                                        	
+99999	00000	DESCONOCIDA                                       	
+00005	00055	AVILA                                             	
+00027	00055	LUGO                                              	
+00070	00055	MALLORCA                                          	
+00037	00055	SALAMANCA                                         	
+00042	00055	SORIA                                             	
+00049	00055	ZAMORA                                            	
+00051	00055	CEUTA                                             	
+00052	00055	MELILLA                                           	
+00100	00062	GARCHES                                           	
+00064	00062	AIDARRA                                           	
+0042 	00055	ZARAGOZA                                          	
+00101	00004	COMU DE ENCAP                                     	
+0044 	00055	ZARAGOZA                                          	
+0022 	00055	ZARAGOZA                                          	
+00102	00003	STUTTGART                                         	
+00109	00109	CASABLANCA                                        	
+01900	00112	MEXICO D.F.                                       	
+00208	00208	EINDHOVEN                                         	
+00209	00209	SEUL                                              	
+00210	00062	LA ROCHELLE                                       	
+041  	00062	GIEVRES                                           	
+64000	00062	PAU                                               	
+0032 	00062	MONTEGUT                                          	
+00053	00019	BRUSELAS                                          	
+00134	00134	MAIA                                              	
+042  	00062	PLUVIGNER                                         	
+07   	00055	IBIZA                                             	
+00184	00186	CHAM                                              	
+0041 	00086	MODENA                                            	

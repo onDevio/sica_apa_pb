@@ -1,0 +1,148 @@
+<sello> 
+  <x>${x}</x>
+  <y>${y}</y>
+  <anchura>45</anchura>
+  <altura>410</altura>
+  <vertical>true</vertical>
+  <posicion>${margen}</posicion>
+  <textos>
+    <texto>
+      <x>20</x>
+      <y>60</y>    
+      <contenido>Fecha entrada:</contenido>
+      <vertical>true</vertical>
+      <fuente>${directorio_windows}\Fonts\Gothic.ttf</fuente>
+      <size>6</size> 
+      <color>0,0,0</color>
+    </texto>
+
+	<texto>
+      <x>20</x>
+      <y>110</y>    
+      <contenido>${f_reg_entrada}</contenido>
+      <fuente>${directorio_windows}\Fonts\Gothic.ttf</fuente>
+      <size>6</size> 
+      <color>0,0,0</color>
+    </texto>
+
+    <texto>
+      <x>26</x>
+      <y>60</y>    
+      <contenido>Reg. entrada:</contenido>
+      <vertical>true</vertical>
+      <fuente>${directorio_windows}\Fonts\Gothic.ttf</fuente>
+      <size>6</size> 
+      <color>0,0,0</color>
+    </texto>
+
+
+	<texto>
+      <x>26</x>
+      <y>110</y>    
+      <contenido>${n_reg_entrada}</contenido>
+      <fuente>${directorio_windows}\Fonts\Gothic.ttf</fuente>
+      <size>6</size> 
+      <color>0,0,0</color>
+    </texto>
+
+
+   <texto>
+      <x>11</x>
+      <y>130</y>    
+      <contenido>VISADO</contenido>
+      <fuente>${directorio_windows}\Fonts\ariblk.TTF</fuente>
+      <size>11</size> 
+      <color>0,0,0</color>
+    </texto>
+
+  <texto>
+      <x>20</x>
+      <y>170</y>    
+      <contenido>Fecha visado:</contenido>
+      <fuente>${directorio_windows}\Fonts\Gothic.ttf</fuente>
+      <size>6</size> 
+      <color>0,0,0</color>
+    </texto>
+
+
+	<texto>
+      <x>20</x>
+      <y>220</y>    
+      <contenido>${f_visado}</contenido>
+      <fuente>${directorio_windows}\Fonts\Gothic.ttf</fuente>
+      <size>6</size> 
+      <color>0,0,0</color>
+    </texto>
+
+  
+    <texto>
+      <x>26</x>
+      <y>170</y>    
+      <contenido>Nº Visado: </contenido>
+      <fuente>${directorio_windows}\Fonts\Gothic.ttf</fuente>
+      <size>6</size> 
+      <color>0,0,0</color>
+    </texto>
+
+    <texto>
+      <x>26</x>
+      <y>220</y>    
+      <contenido>${archivo} </contenido>
+      <fuente>${directorio_windows}\Fonts\Gothic.ttf</fuente>
+      <size>6</size> 
+      <color>0,0,0</color>
+    </texto>
+
+   <texto>
+      <x>34</x>
+      <y>60</y>    
+      <contenido>EL PRESENTE DOCUMENTO NO TIENE LA CONDICION DE PROYECTO TECNICO A LOS </contenido>
+      <fuente>${directorio_windows}\Fonts\Gothic.ttf</fuente>
+      <size>5</size> 
+      <color>0,0,0</color>
+    </texto>
+   <texto>
+      <x>39</x>
+      <y>60</y>    
+      <contenido>EFECTOS DE SOLICITUD DE LA LICENCIA MUNICIPAL DE OBRAS </contenido>
+      <fuente>${directorio_windows}\Fonts\Gothic.ttf</fuente>
+      <size>5</size> 
+      <color>0,0,0</color>
+    </texto>
+
+   <texto>
+      <x>19</x>
+      <y>286</y>    
+      <contenido>Del presente documento</contenido>
+      <fuente>${directorio_windows}\Fonts\Gothic.ttf</fuente>
+      <size>6</size> 
+      <color>0,0,0</color>
+    </texto>
+    <texto>
+      <x>25</x>
+      <y>286</y>    
+      <contenido>queda copia electrónica en el</contenido>
+      <fuente>${directorio_windows}\Fonts\Gothic.ttf</fuente>
+      <size>6</size> 
+      <color>0,0,0</color>
+    </texto>
+    <texto>
+      <x>31</x>
+      <y>286</y>    
+      <contenido>COAATAVILA</contenido>
+      <fuente>${directorio_windows}\Fonts\Gothic.ttf</fuente>
+      <size>6</size> 
+      <color>0,0,0</color>
+    </texto>
+
+   </textos>
+
+  <imagenes>
+    <imagen>
+      <x>1</x>
+      <y>1</y>
+      <ruta>${directorio_imagenes}\coaatavi_sello_lateral.gif</ruta>
+      <escala>40</escala>
+    </imagen>
+  </imagenes>
+</sello>

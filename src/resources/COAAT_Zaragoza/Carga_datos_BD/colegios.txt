@@ -1,0 +1,58 @@
+80	COAAT                                                       		80	1.0		
+86	NUEVO INGRESO                                               		86	1.0		
+52	COAAT ZARAGOZA                                              		COAATZ	1.0	Z	
+03	COAAT ALICANTE                                              		COAATA	1.0	A	
+07	COAAT BADAJOZ                                               		07	1.0	BA	
+22	COAAT HUESCA                                                		22	1.0	HU	
+19	COAAT GUADALAJARA                                           		COAATGU	1.0	GU	
+04	COAAT ALMERIA                                               		04	1.0	AL	
+36	COAAT NAVARRA                                               		COAATN	1.0	N	
+08	COAAT BARCELONA                                             		08	1.0	B	B
+23	COAAT IBIZA                                                 		23	1.0	IB	
+10	COAAT CACERES                                               		COAATCC	1.0	CC	
+25	COAAT A CORUÐA                                              		25	1.0	C	
+46	COAAT TERUEL                                                		COAATTER	1.0	TR	
+50	COAAT BIZKAIA                                               		COAATB	1.0	VI	
+01	COAAT ALAVA                                                 		01	1.0	AA	
+05	COAAT ASTURIAS                                              		05	1.0	AS	
+09	COAAT BURGOS                                                		COAATBU	1.0	BU	
+11	COAAT CADIZ                                                 		11	1.0	CA	
+27	COAAT LAS PALMAS                                            		COAATGC	1.0	GC	
+12	COAAT CANTABRIA                                             		12	1.0	CN	
+15	COAAT CORDOBA                                               		15	1.0	CO	
+18	COAAT GRANADA                                               		18	1.0	GR	
+29	COAAT LLEIDA                                                		COAATLL	1.0	L	L
+31	COAAT MADRID                                                		31	1.0	M	
+32	COAAT MALAGA                                                		32	1.0	MA	
+35	COAAT MURCIA                                                		COAATMU	1.0	MU	
+42	COAAT SEVILLA                                               		42	1.0	SE	
+43	COAAT SORIA                                                 		43	1.0	SO	
+48	COAAT VALENCIA                                              		48	1.0	V	
+49	COAAT VALLADOLID                                            		49	1.0	VA	
+55	COAAT TERRES DE L'EBRE                                      		COAATTEB	1.0	TE	TE
+26	COAAT LA RIOJA                                              		COAATLR	1.0	LO	
+14	COAAT CIUDAD REAL                                           		14	1.0	CR	
+02	COAAT ALBACETE                                              		02	1.0	AB	
+06	COAAT AVILA                                                 		COAATAVI	1.0	AV	
+13	COAAT CASTELLON                                             		13	1.0	CS	
+17	COAAT GIRONA                                                		17	1.0	G	G
+21	COAAT HUELVA                                                		21	1.0	H	
+24	COAAT JAEN                                                  		24	1.0	J	
+30	COAAT LUGO                                                  		30	1.0	LU	
+33	COAAT PALMA MALLORCA                                        		COAATMCA	1.0	ML	
+38	COAAT PALENCIA                                              		38	1.0	P	
+40	COAAT SALAMANCA                                             		40	1.0	SA	
+41	COAAT SEGOVIA                                               		41	1.0	SG	
+47	COAAT TOLEDO                                                		47	1.0	TO	
+51	COAAT ZAMORA                                                		51	1.0	ZA	
+56	REPRESENTANTE COAAT DE LAS PALMAS EN LANZAROTE              		56	1.0	LA	
+82	CONSEJO COAAT DE CATALUÐA                                   		82	1.0		
+16	COAAT CUENCA                                                		COAATCU	1.0	CU	
+20	COAAT GIPUZKOA                                              		COAATGUI	1.0	SS	
+39	COAAT PONTEVEDRA                                            		39	1.0	PO	
+45	COAAT STA.CRUZ TENERI                                       		COAATTFE	1.0	TF	
+34	COAAT MENORCA                                               		34	1.0	MN	
+96	COAAT FUERTEVENTURA                                         		96	1.0	FU	
+44	COAAT TARRAGONA                                             		COAATTGN	1.0	T	T
+37	COAAT OURENSE                                               		37	1.0	O	
+28	COAAT LEON                                                  		COAATLE	1.0	LE	

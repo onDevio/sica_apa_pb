@@ -1,0 +1,9 @@
+00	Preasignado (no registrado)                                 	S	S	N	S	S
+01	Registrado (en analisis)                                    	S	S	N	S	S
+02	Retenido (con reparos)                                      	S	S	N	N	S
+03	Visado y Verificado (visado)                                	S	N	S	S	S
+04	Abonado Parcialmente                                        	S	N	N	S	S
+05	Abonado y retirado                                          	S	N	N	S	S
+06	Anulado                                                     	S	N	N	N	S
+99	Denegado de Visado                                          	S	S	N	S	S
+VI	Retirado Visared                                            	S	S	N	S	S

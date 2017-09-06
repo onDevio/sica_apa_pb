@@ -1,0 +1,8 @@
+02	Retenido (con reparos)                                      	S	S	N	N	S
+00	Registrado                                                  	S	S	N	S	S
+01	Mecanizado (en analisis)                                    	S	S	N	S	S
+03	Mecanizado y Verificado (VºBº)                              	S	N	S	S	S
+04	Abonado DIP Totalmente                                      	S	N	N	S	S
+05	Abonado DIP Totalmente                                      	S	N	N	S	S
+06	Anulado                                                     	S	N	N	N	S
+VI	Retirado Visared                                            	S	S	N	S	S

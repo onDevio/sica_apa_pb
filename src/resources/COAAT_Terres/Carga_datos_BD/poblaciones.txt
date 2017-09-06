@@ -1,0 +1,556 @@
+1     	43500 	TORTOSA                                                     	00043	155			 		100
+054596	43510 	BITEM                                                       	00043	155			 		100
+054597	43511 	TIVENYS                                                     	00043	149			 		100
+054598	43512 	BENIFALLET                                                  	00043	025			 		100
+054600	43514 	MAS DE BARBERANS                                            	00043	077			 		100
+054601	43515 	GALERA, LA                                                  	00043	063			 		100
+054603	43517 	VINALLOP                                                    	00043	155			 		100
+054604	43518 	ARRABAL DE LA LLET                                          	00043	155			 		100
+054605	43519 	PERELLO, EL                                                 	00043	104			 		100
+054606	43520 	ROQUETES                                                    	00043	133			 		100
+054607	43527 	REGUERS                                                     	00043	155			 		100
+054608	43528 	ALFARA DE CARLES                                            	00043	008			 		100
+054609	43529 	RAVAL DE CRIST                                              	00043	133			 		100
+054611	43540 	SANT CARLES DE LA RAPITA                                    	00043	136			 		100
+054612	43549 	POBLE NOU DEL DELTA                                         	00043	014			 		100
+054613	43550 	ULLDECONA                                                   	00043	156			 	 	100
+054614	43558 	FREGINALS                                                   	00043	062			 		100
+054615	43559 	VALENTINS                                                   	00043	156			 		100
+054617	43569 	CASES D'ALCANAR, LES                                        	00043	004			 		100
+054619	43580 	DELTEBRE                                                    	00043	901			 		100
+054620	43590 	JESUS                                                       	00043	155			 		100
+054621	43591 	ALDOVER                                                     	00043	006			 		100
+054622	43592 	XERTA                                                       	00043	052			 		100
+054623	43593 	PAULS                                                       	00043	102			 		100
+054624	43594 	PINELL DE BRAI                                              	00043	106			 		100
+054625	43595 	PRAT DE COMPTE                                              	00043	117			 		100
+054627	43597 	ARNES                                                       	00043	018			 		100
+054639	43780 	GANDESA                                                     	00043	064			 		100
+054640	43781 	FATARELLA, LA                                               	00043	056			 		100
+054641	43782 	VILLALBA DELS ARCS                                          	00043	175			 		100
+054642	43783 	POBLA DE MASALUCA                                           	00043	110			 		100
+054643	43784 	CORBERA D'EBRE                                              	00043	048			 		100
+054644	43785 	BOT                                                         	00043	032			 		100
+054646	43787 	CASERES                                                     	00043	041			 		100
+054655	43860 	L'AMETLLA DE MAR                                            	00043	013			 		100
+054656	43870 	AMPOSTA                                                     	00043	014			 		100
+054657	43877 	SANT JAUME D'ENVEJA                                         	00043	902			 		100
+054658	43878 	MASDENVERGE                                                 	00043	078			 		100
+054665	43894 	CAMARLES                                                    	00043	903			 		100
+054667	43896 	L'ALDEA                                                     	00043	904			 		100
+054668	43897 	CAMPREDO                                                    	00043	155			 		100
+054705	08420 	CANOVELLES                                                  	00008	000			 		08
+054706	08170 	MONTORNÈS DEL VALLÈS                                        	00008	000			 		08
+054707	03100 	XIXONA                                                      	00003	000			 		 
+054709	38144 	NOTRE DAME DE VAULX                                         	00038	000			 		 
+054710	      	ANDORRA LA VELLA                                            	000  	000			 		 
+054712	23600 	MARTOS                                                      	00023	000			 		 
+054713	43894 	LLIGALLO DEL GANGUIL                                        	00043	903			 		100
+054714	08780 	PALLEJA                                                     	00008	000			 		08
+054715	08415 	BIGUES I RIELLS                                             	00008	000			 		08
+054716	25310 	AGRAMUNT                                                    	00025	000			 		 
+054717	12599 	FREDES                                                      	00012	000			 		 
+054718	08185 	LLIÇA DE VALL                                               	00008	000			 		08
+054720	39140 	AMLAY                                                       	00039	000			 		 
+054721	      	ORDINO                                                      	000  	000			 		 
+054722	08187 	SANTA EULALIA DE RONÇANA                                    	00008	000			 		08
+054723	08130 	SANTA PERPETUA DE MOGODA                                    	00008	000			 		08
+054724	09197 	QUINTANADUEÑAS                                              	00009	000			 		 
+054728	08328 	ALELLA                                                      	00008	000			 		08
+054730	08186 	LLIÇA D'AMUNT                                               	00008	000			 		08
+054731	52538 	GANGELT                                                     	00052	000			 		 
+054732	08291 	RIPOLLET                                                    	00008	000			 		08
+054733	25200 	CERVERA                                                     	00025	000			 		 
+054734	31700 	BLAGNAC                                                     	00031	000			 		 
+054735	43736 	EL MOLAR                                                    	00043	085			 		43
+054736	25280 	SOLSONA                                                     	00025	000			 		 
+054740	43146 	TIVISSA                                                     	00043	150			 		43
+054741	12540 	VILA-REAL                                                   	00012	000			 		 
+054742	27200 	PALES DE REY                                                	00027	000			 		 
+054743	29130 	ALAHURIN DE LA TORRE                                        	00029	000			 		 
+054744	44143 	FORTANETE                                                   	00044	000			 		 
+054745	44142 	LA IGLESUELA DEL CID                                        	00044	000			 		 
+054746	17255 	BEGUR                                                       	00017	000			 		 
+054749	23400 	UBEDA                                                       	00023	000			 		 
+054751	08775 	TORRELAVIT                                                  	00008	000			 		08
+054752	43120 	CONSTANTI                                                   	00043	047			 		43
+054753	08231 	ULLASTRELL                                                  	00008	000			 		08
+054755	17310 	LLORET DE MAR                                               	00017	000			 		 
+054757	22400 	MONZON                                                      	00022	000			 		 
+054759	43772 	BOTARELL                                                    	00043	033			 		43
+054761	08338 	PREMIA DE DALT                                              	00008	000			 		08
+054762	08150 	PARETS DEL VALLES                                           	00008	000			 		08
+054763	08181 	SENTMENAT                                                   	00008	000			 		08
+054764	43320 	PRATDIP                                                     	00043	118			 		43
+054765	43881 	CUNIT                                                       	00043	051			 		43
+054766	50420 	CADRETE                                                     	00050	000			 		 
+054768	25100 	ALMACELLES                                                  	00025	000			 		 
+054769	25110 	ALPICAT                                                     	00025	000			 		 
+054770	08272 	SANT FRUITOS DEL BAGES                                      	00008	000			 		08
+054771	08859 	BEGUES                                                      	00008	000			 		08
+054772	08349 	CABRERA DE MAR                                              	00008	000			 		08
+054773	08210 	BARBERA DEL VALLES                                          	00008	000			 		08
+054775	08029 	SANT ESTEVE SESROVIRES                                      	00008	000			 		08
+054777	46180 	BENAGUASIL                                                  	00046	000			 		 
+054778	06400 	DON BENITO                                                  	00006	000			 		 
+054779	12589 	CALIG                                                       	00012	000			 		 
+054780	08192 	SANT QUIRZE DEL VALLES                                      	00008	000			 		08
+054781	46100 	BURJASSOT                                                   	00046	000			 		 
+054783	08759 	VALLIRANA                                                   	00008	000			 		08
+054785	44580 	VALDERROBRES                                                	00044	000			 		 
+054786	25334 	CASTELLSERA                                                 	00025	000			 		 
+054787	08450 	LLINARS DEL VALLES                                          	00008	000			 		08
+054789	08310 	ARGENTONA                                                   	00008	000			 		08
+054790	15008 	A CORUÑA                                                    	00015	000			 		 
+054791	43110 	LA CANONJA                                                  	00043	148			 		43
+054792	12599 	LA POBLA DE BENIFASSA                                       	00012	000			 		 
+054794	03570 	VILLAJOYOSA                                                 	00003	000			 		 
+054795	28223 	POZUELO DE ALARCON                                          	00028	000			 		 
+054797	08630 	ABRERA                                                      	00008	000			 		08
+054798	08410 	VILANOVA DEL VALLES                                         	00008	000			 		08
+054800	08783 	MASQUEFA                                                    	00008	000			 		08
+054801	18310 	SALAR                                                       	00018	000			 		 
+054804	43140 	POBLA DE MAFUMET                                            	00043	109			 		43
+054806	08640 	OLESA DE MONTSERRAT                                         	00008	000			 		08
+054807	08319 	DOS RIUS                                                    	00008	000			 		08
+054808	08233 	VACARISSES                                                  	00008	000			 		08
+054809	08195 	MIRA-SOL                                                    	00008	000			 		08
+054810	12360 	CHERT                                                       	00012	000			 		 
+054812	08880 	CUBELLES                                                    	00008	000			 		08
+054814	07141 	MARRATXI                                                    	00007	000			 		 
+054815	08757 	CORBERA DE LLOBREGAT                                        	00008	000			 		08
+054816	17411 	VIDRERES                                                    	00017	000			 		 
+054817	25560 	SORT                                                        	00025	000			 		 
+054818	43776 	CAPÇANES                                                    	00043	040			 		43
+054819	08166 	LLIÇA DE D'AMUNT                                            	00008	000			 		08
+054820	      	SHREWSBURY                                                  	000  	000			 		 
+054822	17411 	ULLERES                                                     	00017	000			 		 
+054823	15702 	SANTIAGO                                                    	00015	000			 		 
+054824	43374 	LA VILELLA BAIXA                                            	00043	174			 		43
+054825	46470 	ALBAL                                                       	00046	000			 		 
+054826	25700 	LA SEU D'URGELL                                             	00025	000			 		 
+054827	08279 	AVINYO                                                      	00008	000			 		08
+054828	50196 	CAMUELA                                                     	00050	000			 		 
+054830	08520 	LES FRANQUESES DEL VALLES                                   	00008	000			 		08
+054831	46900 	TORRENT                                                     	00046	000			 		 
+054832	08250 	SANT JOAN VILATORRADA                                       	00008	000			 		08
+054833	12400 	SEGORBE                                                     	00012	000			 		 
+054834	25120 	ALFARRAS                                                    	00025	000			 		 
+054836	08197 	VALLDOREIX                                                  	00008	000			 		08
+054838	08183 	CASTELLCIR                                                  	00008	000			 		08
+054839	43376 	POBOLEDA                                                    	00043	112			 		43
+054841	43712 	LLORENÇ DEL PENEDES                                         	00043	074			 		43
+054842	46191 	VILAMARXANT                                                 	00046	000			 		 
+054844	08811 	CANYELLES                                                   	00008	000			 		08
+054845	08690 	SANTA COLOMA DE CERVELLO                                    	00008	000			 		08
+054846	43783 	LA POBLA DE MASSALUCA                                       	00043	110			 		100
+054848	46700 	GANDIA                                                      	00046	000			 		 
+054849	36201 	VIGO                                                        	00036	000			 		 
+054850	08180 	MOIA                                                        	00008	000			 		08
+054851	08793 	LES GUNYOLES D'AVINYONET                                    	00008	000			 		08
+054852	08792 	LA GRANADA                                                  	00008	000			 		08
+054853	25175 	SARROCA DE LLEIDA                                           	00025	000			 		 
+054854	46470 	MASSANASSA                                                  	00046	000			 		 
+054856	20304 	IRUN                                                        	00020	000			 		 
+054857	25613 	CAMARASA                                                    	00025	000			 		 
+054858	12593 	MONCOFAR PLAYA                                              	00012	000			 		 
+054859	08251 	CASTELLNOU DE BAGES                                         	00008	000			 		08
+054345	00001 	SANT JULIA LORIA                                            	00000	000			 		 
+054347	01008 	VITORIA                                                     	00001	000			 		 
+054349	02640 	ALMANSA                                                     	00002	000			 		 
+054350	03005 	ALICANTE                                                    	00003	000			 		 
+054351	03016 	ALBUFERETA                                                  	00003	000			 		 
+054352	04001 	ALMERIA                                                     	00004	000			 		 
+054353	05001 	AVILA                                                       	00005	000			 		 
+054354	06004 	BADAJOZ                                                     	00006	000			 		 
+054355	07014 	PALMA DE MALLORCA                                           	00007	000			 		 
+054357	07800 	IBIZA                                                       	00007	000			 		 
+054358	08001 	BARCELONA                                                   	00008	000			 		08
+054394	08100 	MOLLET DEL VALLES                                           	00008	000			 		08
+054395	08110 	MONTCADA I REIXAC                                           	00008	000			 		08
+054396	08140 	CALDES DE MONTBUI                                           	00008	000			 		08
+054397	08147 	GALLECS                                                     	00008	000			 		08
+054398	08160 	MONTMELO                                                    	00008	000			 		08
+054400	08184 	PALAU DE PLEGAMANS                                          	00008	000			 		08
+054402	08190 	SANT CUGAT DEL VALLES                                       	00008	000			 		08
+054403	08191 	RUBI                                                        	00008	000			 		08
+054404	08201 	SABADELL                                                    	00008	000			 		08
+054409	08213 	POLINYAR                                                    	00008	000			 		08
+054411	08230 	MATADEPERA                                                  	00008	000			 		08
+054413	08275 	CALDERS                                                     	00008	000			 		08
+054414	08290 	CERDANYOLA DEL VALLES                                       	00008	000			 		08
+054415	08292 	ESPARRAGUERA                                                	00008	000			 		08
+054416	08293 	COLLBATO                                                    	00008	000			 		08
+054417	08302 	MATARO                                                      	00008	000			 		08
+054418	08320 	EL MASNOU                                                   	00008	000			 		08
+054419	08330 	PREMIA DE MAR                                               	00008	000			 		08
+054421	08348 	CABRILS                                                     	00008	000			 		08
+054422	08350 	ARENYS DE MAR                                               	00008	000			 		08
+054423	08391 	TIANA                                                       	00008	000			 		08
+054424	08395 	SANT POL DE MAR                                             	00008	000			 		08
+054425	08400 	GRANOLLERS                                                  	00008	000			 		08
+054426	08440 	CARDEDEU                                                    	00008	000			 		08
+054427	08460 	SANTA MARIA DE PALAUTORDERA                                 	00008	000			 		08
+054429	08511 	SANTA MARIA DE CORCO                                        	00008	000			 		08
+054430	0853  	LA GARRIGA                                                  	00008	000			 		08
+054432	08600 	BERGA                                                       	00008	000			 		08
+054433	08620 	SANT VICENS DELS HORTS                                      	00008	000			 		08
+054434	08629 	TORRELLES DEL LLOBREGAT                                     	00008	000			 		08
+054436	08700 	IGUALADA                                                    	00008	000			 		08
+054438	08740 	SANT ANDREU DE LA BARCA                                     	00008	000			 		08
+054439	08750 	MOLINS DE REI                                               	00008	000			 		08
+054440	08754 	EL PAPIOL                                                   	00008	000			 		08
+054441	08756 	LA PALMA DE CERVELLO                                        	00008	000			 		08
+054442	08758 	CERVELLO                                                    	00008	000			 		08
+054443	08770 	SANT SADURNI D'ANOIA                                        	00008	000			 		08
+054444	08784 	HOSTALETS DE PIEROLA                                        	00008	000			 		08
+054446	08810 	SANT PERE DE RIBES                                          	00008	000			 		08
+054448	08820 	PRAT DE LLOBREGAT                                           	00008	000			 		08
+054449	08830 	SANT BOI DE LLOBREGAT                                       	00008	000			 		08
+054450	08840 	VILADECANS                                                  	00008	000			 		08
+054451	08849 	SANT CLIMENT DE LLOBREGAT                                   	00008	000			 		08
+054452	08850 	GAVA                                                        	00008	000			 		08
+054453	08860 	CASTELLDEFELS                                               	00008	000			 		08
+054455	08901 	L'HOSPITALET DE LLOBREGAT                                   	00008	000			 		08
+054457	08905 	HOSPITALET DE LLOBREGAT                                     	00008	000			 		08
+054460	08910 	BADALONA                                                    	00008	000			 		08
+054463	08921 	SANTA COLOMA DE GRAMANET                                    	00008	000			 		08
+054465	08924 	STA. COLOMA DE GRAMANET                                     	00008	000			 		08
+054467	08940 	CORNELLA DE LLOBREGAT                                       	00008	000			 		08
+054469	08960 	SANT JUST DESVERN                                           	00008	000			 		08
+054470	08970 	SANT JOAN D'ESPI                                            	00008	000			 		08
+054471	08980 	SANT FELIU DE LLOBREGAT                                     	00008	000			 		08
+054472	09005 	BURGOS                                                      	00009	000			 		 
+054473	10004 	CACERES                                                     	00010	000			 		 
+054474	11009 	CADIZ                                                       	00011	000			 		 
+054475	12001 	CASTELLON DE LA PLANA                                       	00012	000			 		 
+054477	12005 	CASTELLO                                                    	00012	000			 		 
+054479	12130 	SAN JUAN DE MORO- CASTELLON                                 	00012	000			 		 
+054480	12190 	BORRIOL                                                     	00012	000			 		 
+054481	12200 	ONDA                                                        	00012	000			 		 
+054482	12300 	MORELLA                                                     	00012	000			 		 
+054483	12330 	TRAIGUERA                                                   	00012	000			 		 
+054484	1242  	SUIZA                                                       	00012	000			 		 
+054486	12510 	SAN RAFAEL DEL RIO                                          	00012	000			 		 
+054487	12511 	ROSSELL                                                     	00012	000			 		 
+054488	12540 	VILAREAL                                                    	00012	000			 		 
+054489	12560 	BENICASIM                                                   	00012	000			 		 
+054490	12579 	ALCOCEBRE                                                   	00012	000			 		 
+054492	12590 	OROPESA DEL MAR                                             	00012	000			 		 
+054494	13001 	CIUDAD REAL                                                 	00013	000			 		 
+054495	14001 	CORDOBA                                                     	00014	000			 		 
+054496	15001 	LA CORUÑA                                                   	00015	000			 		 
+054497	16002 	CUENCA                                                      	00016	000			 		 
+054499	17001 	GIRONA                                                      	00017	000			 		 
+054501	17005 	GERONA                                                      	00017	000			 		 
+054502	17110 	FONTETA                                                     	00017	000			 		 
+054504	17257 	TORRODELLA MONTGRI                                          	00017	000			 		 
+054505	17258 	ESTARTIT                                                    	00017	000			 		 
+054506	17300 	BLANES                                                      	00017	000			 		 
+054507	17401 	ARBUCIES                                                    	00017	000			 		 
+054508	17469 	VILAMALLA                                                   	00017	000			 		 
+054509	17472 	MONTIRO                                                     	00017	000			 		 
+054510	17485 	VILLA SACRA                                                 	00017	000			 		 
+054512	17550 	ALMASSORA                                                   	00017	000			 		 
+054513	17800 	CASTELLDOLLIR DE LA ROCA                                    	00017	000			 		 
+054514	17853 	TORTELLA                                                    	00017	000			 		 
+054515	18001 	GRANADA                                                     	00018	000			 		 
+054517	19003 	GUADALAJARA                                                 	00019	000			 		 
+054520	21003 	HUELVA                                                      	00021	000			 		 
+054522	22416 	PUEYO DE SANTA CRUZ                                         	00022	000			 		 
+054523	22500 	BINEFAR                                                     	00022	000			 		 
+054524	22520 	FRAGA                                                       	00022	000			 		 
+054525	23008 	JAEN                                                        	00023	000			 		 
+054526	24004 	LEON                                                        	00024	000			 		 
+054527	25003 	LLEIDA                                                      	00025	000			 		 
+054532	25210 	GUISSONA                                                    	00025	000			 		 
+054534	25600 	BALAGUER                                                    	00025	000			 		 
+054535	25620 	TREMP                                                       	00025	000			 		 
+054536	26004 	LOGROÑO                                                     	00026	000			 		 
+054538	27001 	LUGO                                                        	00027	000			 		 
+054540	28002 	MADRID                                                      	00028	000			 		 
+054546	28220 	MAJADAHONDA                                                 	00028	000			 		 
+054547	28905 	GETAFE                                                      	00028	000			 		 
+054549	30005 	MURCIA                                                      	00030	000			 		 
+054550	31002 	PAMPLONA                                                    	00031	000			 		 
+054551	32003 	ORENSE                                                      	00032	000			 		 
+054552	33007 	OVIEDO                                                      	00033	000			 		 
+054553	33206 	GIJON                                                       	00033	000			 		 
+054555	35004 	LAS PALMAS                                                  	00035	000			 		 
+054557	35500 	ARRECIFE                                                    	00035	000			 		 
+054558	36001 	PONTEVEDRA                                                  	00036	000			 		 
+054559	37003 	SALAMANCA                                                   	00037	000			 		 
+054560	38001 	SANTA CRUZ DE TENERIFE                                      	00038	000			 		 
+054561	39001 	SANTANDER                                                   	00039	000			 		 
+054562	40002 	SEGOVIA                                                     	00040	000			 		 
+054563	41002 	SEVILLA                                                     	00041	000			 		 
+054566	42511 	ROSELL                                                      	00042	000			 		 
+054567	43001 	TARRAGONA                                                   	00043	148			 		43
+054573	43141 	VILLALONGA DEL CAMP                                         	00043	166			 		43
+054574	43201 	REUS                                                        	00043	123			 		43
+054580	43300 	MONT-ROIG DEL CAMP                                          	00043	092			 		43
+054581	43310 	COLLDEJOU                                                   	00043	045			 		43
+054582	43340 	MONTBRIÓ DEL CAMP                                           	00043	088			 		43
+054584	43382 	MASPUJOLS                                                   	00043	081			 		43
+054585	43390 	RIUDECOLS                                                   	00043	128			 		43
+054586	43391 	VINYOLS I ELS ARCS                                          	00043	178			 		43
+054587	43392 	CASTELLVELL DEL CAMP                                        	00043	042			 		43
+054588	43393 	ALMOSTER                                                    	00043	011			 		43
+054590	43420 	STA. COLOMA DE QUERALT                                      	00043	139			 		43
+054592	43479 	L'ALBIOL                                                    	00043	003			 		43
+054593	43480 	VILASECA                                                    	00043	171			 		43
+054594	43491 	PICAMOIXONS                                                 	00043	000			 		43
+054599	43513 	RASQUERA                                                    	00043	121			 		43
+054628	43700 	EL VENDRELL                                                 	00043	163			 		43
+054629	43730 	FALSET                                                      	00043	055			 		43
+054630	43736 	LA FIGUERA                                                  	00043	058			 		43
+054632	43747 	MIRAVET D'EBRE                                              	00043	084			 		43
+054633	43748 	GINESTAR                                                    	00043	067			 		43
+054634	43750 	FLIX                                                        	00043	060			 		43
+054635	43760 	MORELL                                                      	00043	095			 		43
+054636	43761 	POBLA DE MONTORNES                                          	00043	111			 		43
+054637	43764 	EL CATLLAR                                                  	00043	043			 		43
+054638	43770 	MORA LA NOVA                                                	00043	094			 		43
+054649	43800 	VALLS                                                       	00043	161			 		43
+054650	43811 	CABRA DEL CAMP                                              	00043	036			 		43
+054651	43820 	CALAFELL                                                    	00043	037			 		43
+054652	43830 	TORREDEMBARRA                                               	00043	153			 		43
+054653	43840 	SALOU                                                       	00043	905			 		43
+054660	43883 	RODA DE BARA                                                	00043	131			 		43
+054662	43891 	VANDELLOS                                                   	00043	162			 		43
+054663	43892 	MIAMI-PLAYA                                                 	00043	162			 		43
+054664	43893 	ALTAFULLA                                                   	00043	012			 		43
+054669	44001 	TERUEL                                                      	00044	000			 		 
+054670	44550 	ALCORISA                                                    	00044	000			 		 
+054671	44564 	MAS DE LAS MATAS                                            	00044	000			 		 
+054672	44610 	CALACEITE                                                   	00044	000			 		 
+054674	44623 	CRETAS                                                      	00044	000			 		 
+054675	45001 	TOLEDO                                                      	00045	000			 		 
+054677	46004 	VALENCIA                                                    	00046	000			 		 
+054680	46016 	TAVERNES BLANQUES                                           	00046	000			 		 
+054682	46183 	ELIANA                                                      	00046	000			 		 
+054683	46520 	PUERTO DE SAGUNTO                                           	00046	000			 		 
+054684	46910 	ALFAFAR                                                     	00046	000			 		 
+054686	47001 	VALLADOLID                                                  	00047	000			 		 
+054688	48009 	BILBAO                                                      	00048	000			 		 
+054689	48260 	ERMUA                                                       	00048	000			 		 
+054690	49004 	ZAMORA                                                      	00049	000			 		 
+054691	50001 	ZARAGOZA                                                    	00050	000			 		 
+054698	50700 	CASPE                                                       	00050	000			 		 
+054701	56727 	MAYEN                                                       	00056	000			 		 
+054702	6230  	BELGICA                                                     	00062	000			 		 
+054703	67659 	KAISERSLAUTERN                                              	00067	000			 		 
+054704	90419 	NURNBERG                                                    	00090	000			 		 
+054708	08211 	CASTELLAR DEL VALLES                                        	00008	000			 		08
+054725	09400 	ARANDA DEL DUERO                                            	00009	000			 		 
+054738	08430 	LA ROCA DEL VALLES                                          	00008	000			 		08
+054748	08170 	MONTORNES DEL VALLES                                        	00008	000			 		08
+054754	17310 	LORET DE MAR                                                	00017	000			 		 
+054760	07720 	ES CASTELL                                                  	00007	000			 		 
+054774	50059 	MONTAÑANA                                                   	00050	000			 		 
+054788	43792 	LA TORRE DE L'ESPANYOL                                      	00043	152			 		43
+054799	43720 	L'ARBOS                                                     	00043	016			 		43
+054840	17244 	CASSÀ DE LA SELVA                                           	00017	000			 		 
+054843	17400 	BREDA                                                       	00017	000			 		 
+054602	43516 	GODALL                                                      	00043	068			 		100
+054610	43530 	ALCANAR                                                     	00043	004			 		100
+054618	43570 	SANTA BARBARA                                               	00043	138			 		100
+054626	43596 	HORTA DE SANT JOAN                                          	00043	071			 		100
+054666	43895 	L'AMPOLLA                                                   	00043	906			 		100
+054711	44570 	CALANDA                                                     	00044	000			 		 
+054719	08760 	MARTORELL                                                   	00008	000			 		08
+054729	08755 	CASTELLBISBAL                                               	00008	000			 		08
+054737	43559 	ST. JOAN DEL PAS                                            	00043	156			 		100
+054747	44600 	ALCAÑIZ                                                     	00044	000			 		 
+054758	43470 	LA SELVA DEL CAMP                                           	00043	145			 		43
+054767	43718 	ALBINYANA                                                   	00043	002			 		43
+054776	17248 	SAGARO                                                      	00017	000			 		 
+054784	43363 	ULLDEMOLINS                                                 	00043	157			 		43
+054793	43882 	SEGUR DE CALAFELL                                           	00043	000			 		43
+054813	43762 	LA RIERA DE GAIA                                            	00043	126			 		43
+054821	43423 	PIRA                                                        	00043	107			 		43
+054829	25400 	LES BORGES BLANQUES                                         	00025	000			 		 
+054837	17800 	FIGUERES                                                    	00017	000			 		 
+054847	8213  	NEUNKIRCH                                                   	00082	000			 		 
+054855	46520 	PORT DE SAGUNT                                              	00046	000			 		 
+054348	02001 	ALBACETE                                                    	00002	000			 		 
+054356	07701 	MAHON                                                       	00007	000			 		 
+054399	08182 	SANT FELIU DE GODINES                                       	00008	000			 		08
+054412	08240 	MANRESA                                                     	00008	000			 		08
+054420	08340 	VILASSAR DE MAR                                             	00008	000			 		08
+054428	08500 	VIC                                                         	00008	000			 		08
+054437	08720 	VILAFRANCA DEL PENEDES                                      	00008	000			 		08
+054445	08800 	VILANOVA I GELTRU                                           	00008	000			 		08
+054454	08870 	SITGES                                                      	00008	000			 		08
+054468	08950 	ESPLUGUES DE LLOBREGAT                                      	00008	000			 		08
+054476	12003 	CASTELLON                                                   	00012	000			 		 
+054485	12500 	VINAROZ                                                     	00012	000			 		 
+054493	12598 	PEÑISCOLA                                                   	00012	000			 		 
+054503	17230 	PALAMOS                                                     	00017	000			 		 
+054511	17520 	PUIGCERDA                                                   	00017	000			 		 
+054521	22003 	HUESCA                                                      	00022	000			 		 
+054533	25300 	TARREGA                                                     	00025	000			 		 
+054548	29016 	MALAGA                                                      	00029	000			 		 
+054556	35011 	LAS PALMAS DE GRAN CANARIA                                  	00035	000			 		 
+054565	42001 	SORIA                                                       	00042	000			 		 
+054583	43350 	LES BORGES DEL CAMP                                         	00043	031			 		43
+054631	43740 	MORA D'EBRE                                                 	00043	093			 		43
+054648	43791 	ASCO                                                        	00043	019			 		43
+054661	43890 	HOSPITALET DE L'INFANT                                      	00043	162			 		43
+054673	44620 	VALDELTORMO                                                 	00044	000			 		 
+054685	46950 	XIRIVELLA                                                   	00046	000			 		 
+054699	50710 	MAELLA                                                      	00050	000			 		 
+054616	43560 	LA SENIA                                                    	00043	044			 		100
+054659	43879 	ELS MONTELLS                                                	00043	902			 		100
+054727	33180 	NOREÑA                                                      	00033	000			 		 
+054756	17320 	TOSSA DE MAR                                                	00017	000			 		 
+054782	08789 	TORRE DE CLARAMUNT                                          	00008	000			 		08
+054811	43887 	NULLES                                                      	00043	098			 		43
+054835	08370 	CALELLA                                                     	00008	000			 		08
+054346	00066 	FRANÇA                                                      	00000	000			 		 
+054435	08680 	GIRONELLA                                                   	00008	000			 		08
+054466	08930 	SANT ADRIA DE BESOS                                         	00008	000			 		08
+054491	12580 	BENICARLO                                                   	00012	000			 		 
+054518	20006 	SAN SEBASTIAN                                               	00020	000			 		 
+054554	34001 	PALENCIA                                                    	00034	000			 		 
+054589	43400 	MONTBLANC                                                   	00043	086			 		43
+054654	43850 	CAMBRILS                                                    	00043	038			 		43
+054697	50410 	CUARTE DE HUERVA                                            	00050	000			 		 
+43771 	43771 	RIUDECANYES                                                 	00043	127					43
+08339 	08339 	VILASSAR DE DALT                                            	00008	000					08
+47775 	47775 	MARÇA                                                       	00043	076					43
+43737 	43737 	TORROJA DEL PRIORAT                                         	00043	154					43
+43777 	43777 	ELS GUIAMETS                                                	00043	070					43
+43006 	43006 	TORREFORTA                                                  	00043	148					100
+28945 	28945 	FUENLABRADA                                                 	00028	000					 
+08917 	08917 	BADALONA                                                    	00008	000					08
+07740 	07740 	ES MERCADAL                                                 	00007	000					 
+08480 	08480 	L'AMETLLA DEL VALLES                                        	00008	000					08
+43364 	43364 	PRADES                                                      	00043	116					43
+08560 	08560 	MANLLEU                                                     	00008	000					08
+15168 	15168 	SADA                                                        	00015	000					 
+25230 	25230 	MOLLERUSSA                                                  	00025	000					 
+17460 	17460 	CELRA                                                       	00017	000					 
+28027 	28027 	MADRID                                                      	00028	000					 
+08871 	08871 	ELS HOSTALETS DE PIEROLA                                    	00008	000					08
+50172 	50172 	ALFAJARIN                                                   	00050	000					 
+17190 	17190 	SALT                                                        	00017	000					 
+03690 	03690 	SAN VICENTE DEL RASPEIG                                     	00003	000					 
+43205 	43205 	REUS                                                        	00043	123					43
+43100 	43100 	BONAVISTA                                                   	00043	148					43
+28863 	28863 	COBEÑA                                                      	00028	000					 
+08635 	08635 	SAN ESTEVE SES ROVIRES                                      	00008	000					08
+43700 	43700 	VENDRELL                                                    	00043	163					43
+08798 	08798 	SANT CUGAT SESGARRIGUES                                     	00008	000					08
+08540 	08540 	CENTELLES                                                   	00008	000					08
+46160 	46160 	LLIRIA                                                      	00046	000					 
+43370 	43370 	LA PALMA D'EBRE                                             	00043	099					43
+43151 	43151 	ELS PALLARESOS                                              	00043	100					43
+25132 	25132 	BENABENT DE SEGRIA                                          	00025	000					 
+25125 	25125 	ALGUAIRE                                                    	00025	000					 
+08006 	08006 	BARCELONA                                                   	00008	000					08
+08580 	08580 	SANT QUIRZE DE BESORA                                       	00008	000					08
+12200 	12200 	ONDA                                                        	00012	000					 
+44596 	44596 	LA FRESNEDA                                                 	00044	000					 
+20001 	20001 	LLEIDA                                                      	00025	000					 
+08019 	08019 	BARCELONA                                                   	00008	000					08
+08032 	08032 	BARCELONA                                                   	00008	000					08
+08030 	08030 	SANT ANDREU                                                 	00008	000					08
+29001 	29001 	MALAGA                                                      	00029	000					 
+25008 	25008 	LLEIDA                                                      	00025	000					 
+29005 	29005 	MALAGA                                                      	00029	000					 
+43790 	43790 	RIBA-ROJA D'EBRE                                            	00043	125					43
+43144 	43144 	VALLMOLL                                                    	00043	160					43
+35600 	35600 	PERTO ROSARIO                                               	00035	000					 
+43891 	43891 	MASRIUDOMS                                                  	00043	148					43
+17491 	17491 	PERALADA                                                    	00017	000					 
+43815 	43815 	AIGUAMURCIA                                                 	00043	001					43
+054805	43430 	VIMBODI                                                     	00043	176			 		43
+054645	43786 	BATEA                                                       	00043	022			 		100
+054591	43450 	LA RIBA                                                     	00043	124			 		43
+054410	08225 	TERRASSA                                                    	00008	000			 		08
+43792 	43792 	VINEBRE                                                     	00043	177					43
+43460 	43460 	ALCOVER                                                     	00043	005				T	43
+43381 	43381 	L'ALEIXAR                                                   	00043	007					43
+43365 	43365 	ALFORJA                                                     	00043	009					43
+43813 	43813 	ALIO                                                        	00043	010					43
+43773 	43773 	L'ARGENTERA                                                 	00043	017				 	43
+43711 	43711 	BANYERES DEL PENEDES                                        	00043	020					43
+43422 	43422 	BARBERA DE LA CONCA                                         	00043	021					43
+43738 	43738 	BELLMUNT DEL PRIORAT                                        	00043	023					43
+43719 	43719 	BELLVEI                                                     	00043	024					43
+43747 	43747 	BENISSANET                                                  	00043	026					43
+43372 	43372 	LA BISBAL DE FALSET                                         	00043	027					43
+43717 	43717 	LA BISBAL DEL PENEDES                                       	00043	028					43
+43411 	43411 	BLANCAFORT                                                  	00043	029					43
+43884 	43884 	BONASTRE                                                    	00043	030					43
+43812 	43812 	BRAFIM                                                      	00043	034					43
+43373 	43373 	CABACES                                                     	00043	035					43
+433641	43364 	CAPAFONTS                                                   	00043	039					43
+43427 	43427 	CONESA                                                      	00043	046					43
+43360 	43360 	CORNUDELLA DE MONTSANT                                      	00043	049					43
+43839 	43839 	CREIXELL                                                    	00043	050					43
+437731	43773 	DUESAIGÜES                                                  	00043	053					43
+43440 	43440 	L'ESPLUGA DE FRANCOLI                                       	00043	054					43
+2     	43364 	LA FEBRO                                                    	00043	057					43
+43811 	43811 	FIGUEROLA DEL CAMP                                          	00043	059					43
+43425 	43425 	FORES                                                       	00043	061					43
+43749 	43749 	GARCIA                                                      	00043	065					43
+43153 	43153 	ELS GARIDELLS                                               	00043	066					43
+437371	43737 	GRATALLOPS                                                  	00043	069					43
+437372	43737 	EL LLOAR                                                    	00043	072					43
+434271	43427 	LLORAC                                                      	00043	073					43
+43371 	43371 	MARGALEF                                                    	00043	075					43
+433651	43365 	ARBOLI                                                      	00043	015					43
+43718 	43718 	MASLLORENÇ                                                  	00043	079					43
+43143 	43143 	LA MASO                                                     	00043	080					43
+43736 	43736 	EL MASROIG                                                  	00043	082					43
+431431	43143 	EL MILA                                                     	00043	083					43
+438121	43812 	MONTFERRI                                                   	00043	089					43
+437181	43718 	EL MONTMELL                                                 	00043	090					43
+433642	43364 	MONT-RAL                                                    	00043	091					43
+43361 	43361 	LA MORERA DE MONTSANT                                       	00043	096					43
+43763 	43763 	LA NOU DE GAIA                                              	00043	097					43
+434251	43425 	PASSANANT I BELLTALL                                        	00043	101					43
+43152 	43152 	PERAFORT                                                    	00043	103					43
+43428 	43428 	LES PILES                                                   	00043	105					43
+43810 	43810 	EL PLA DE SANTA MARIA                                       	00043	108					43
+43817 	43817 	EL PONT D'ARMENTERA                                         	00043	113					43
+43739 	43739 	PORRERA                                                     	00043	114					43
+43774 	43774 	PRADELL DE LA TEIXETA                                       	00043	115					43
+438122	43812 	PUIGPELAT                                                   	00043	119					43
+43816 	43816 	QUEROL                                                      	00043	120					43
+43886 	43886 	RENAU                                                       	00043	122					43
+43330 	43330 	RIUDOMS                                                     	00043	129					43
+43426 	43426 	ROCAFORT DE QUERALT                                         	00043	130					43
+438123	43812 	RODONYA                                                     	00043	132					43
+43142 	43142 	EL ROURELL                                                  	00043	134					43
+43885 	43885 	SALOMO                                                      	00043	135					43
+43713 	43713 	SANT JAUME DELS DOMENYS                                     	00043	137					43
+43710 	43710 	SANTA OLIVA                                                 	00043	140					43
+43421 	43421 	PONTILS                                                     	00043	141					43
+43424 	43424 	SARRAL                                                      	00043	142					43
+434272	43427 	SAVALLA DEL COMTAT                                          	00043	143					43
+43765 	43765 	LA SECUITA                                                  	00043	144					43
+43449 	43449 	SENAN                                                       	00043	146					43
+43412 	43412 	SOLIVELLA                                                   	00043	147					43
+437741	43774 	LA TORRE DE FONTAUBELLA                                     	00043	151					43
+43439 	43439 	VALLCLARA                                                   	00043	158					43
+434273	43427 	VALLFOGONA DE RIUCORP                                       	00043	159					43
+437631	43763 	VESPELLA DE GAIA                                            	00043	164					43
+438861	43886 	VILABELLA                                                   	00043	165					43
+43311 	43311 	VILANOVA D'ESCORNALBOU                                      	00043	167					43
+434391	43439 	VILANOVA DE PRADES                                          	00043	168					43
+43380 	43380 	VILAPLANA                                                   	00043	169					43
+43814 	43814 	VILA-RODONA                                                 	00043	170					43
+43490 	43490 	VILAVERD                                                    	00043	172					43
+43375 	43375 	LA VILELLA ALTA                                             	00043	173					43
+08294 	08294 	EL BRUC                                                     	00008	 					08
+08014 	08014 	BARCELONA                                                   	00008	 					08
+08008 	08008 	BARCELONA                                                   	00008	 					08
+25217 	25217 	MONTOLIU DE SEGARRA                                         	00025	 					 
+50180 	50180 	UTEBO                                                       	00050	272					 
+43007 	43007 	TARRAGONA                                                   	00043	 					43
+43206 	43206 	REUS                                                        	00043	 					43
+50170 	50170 	MEQUINENZA                                                  	00050	 					 
+50650 	50650 	GALLUR                                                      	00050	 					 

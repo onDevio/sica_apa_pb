@@ -1,0 +1,8 @@
+02	RETENIDO (TIENE REPAROS)                                    	S	S	N	N	S
+00	REGISTRADO                                                  	S	N	N	S	S
+01	GRABADO SIN VISAR                                           	S	S	N	S	S
+03	VISTO BUENO                                                 	S	N	S	S	S
+04	VISADO                                                      	S	N	N	S	S
+05	VISADO                                                      	S	N	N	S	S
+06	ANULADO                                                     	S	N	N	N	S
+07	PENDIENTE VISADOR                                           	S	N	N	S	S

@@ -1,0 +1,71 @@
+<sello> 
+  <x>${x}</x>
+  <y>${y}</y>
+  <anchura>45</anchura>
+  <altura>410</altura>
+  <vertical>true</vertical>
+  <posicion>${margen}</posicion>
+  <textos>
+
+   <texto>
+      <x>12</x>
+      <y>60</y>    
+      <contenido>TOMADADA RAZÓN A EFECTOS DE ACTA </contenido>
+      <fuente>${directorio_windows}\Fonts\Gothic.ttf</fuente>
+      <size>6</size> 
+      <color>0,0,0</color>
+    </texto>
+   <texto>
+      <x>20</x>
+      <y>60</y>    
+      <contenido>APROBACIÓN DEL PLAN DE SEGURIDAD Y </contenido>
+      <fuente>${directorio_windows}\Fonts\Gothic.ttf</fuente>
+      <size>6</size> 
+      <color>0,0,0</color>
+    </texto>
+   <texto>
+      <x>28</x>
+      <y>60</y>    
+      <contenido>SALUD VISADA CON EL Nº DE </contenido>
+      <fuente>${directorio_windows}\Fonts\Gothic.ttf</fuente>
+      <size>6</size> 
+      <color>0,0,0</color>
+    </texto>
+   <texto>
+      <x>36</x>
+      <y>60</y>    
+      <contenido>INTERVENCIÓN: ${archivo} EL DIA ${f_visado}</contenido>
+      <fuente>${directorio_windows}\Fonts\Gothic.ttf</fuente>
+      <size>6</size> 
+      <color>0,0,0</color>
+    </texto>
+
+   <texto>
+      <x>19</x>
+      <y>256</y>    
+      <contenido>Del presente documento queda copia</contenido>
+      <fuente>${directorio_windows}\Fonts\Gothic.ttf</fuente>
+      <size>6</size> 
+      <color>0,0,0</color>
+    </texto>
+    <texto>
+      <x>25</x>
+      <y>256</y>    
+      <contenido>electrónica en el COAATAVILA</contenido>
+      <fuente>${directorio_windows}\Fonts\Gothic.ttf</fuente>
+      <size>6</size> 
+      <color>0,0,0</color>
+    </texto>
+
+
+   </textos>
+
+  <imagenes>
+    <imagen>
+      <x>1</x>
+      <y>1</y>
+      <ruta>${directorio_imagenes}\coaatavi_sello_lateral.gif</ruta>
+      <escala>40</escala>
+    </imagen>
+  </imagenes>
+</sello>

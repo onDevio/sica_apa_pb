@@ -1,0 +1,14 @@
+Ver_ayuda	Ver ayuda	Indica si estará visible el enlace para ver la ayuda	N
+control_actividades	Menú Control Actividades	Indica si se habilitará la gestión de actividades en el GCW	S
+control_add_modulos	Añadir módulos	Indica si se podrán añadir módulos a la aplicación.	S
+control_boletines	Boletines	Indica si se habilitará la emision de boletines	N
+control_ficheros_aux	Menú ficheros auxiliares	Indica si se habilitará la gestión de ficheros auxiliares.	S
+control_preferencias	Menú preferencias	Indica si se habilitará la gestíon de preferencias	N
+control_usuarios	Menú control usuarios	Indica si se habilitará la gestión de usuarios de la web en el gestor de contenidos.	N
+control_visualizar	Visualizar web	Indica si se habilitará  la opción de visualizar web.	N
+gcw_seguridad	Seguridad GCW	Indica si el gestor de contenidos web implenatará seguridad.	S
+modulos_es_noticia	Noticias en módulos	Indica si se habilitará que el usuario controle la opción de indicar si es un módulo de noticias.	S
+modulos_es_rss	RSS en módulos	Indica si se habilitará que el usuario controle la opción de indicar si alimenta rss.	S
+modulos_plantilla	Plantillas en módulos	Indica si se habilitará que el usuario controle la opción de seleccionar plantilla	S
+registro_disponible	Disponibilidad en registros	Indica si se habilitará que el usuario controle la opción de estar disponible	S
+control_nodos	Menú Cambio Nodos	Indica si se habilitara la opción de Cambio de Nodos	S

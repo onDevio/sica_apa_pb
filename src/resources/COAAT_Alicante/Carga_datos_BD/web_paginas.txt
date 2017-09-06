@@ -1,0 +1,657 @@
+0000000028	0000000006	presentación	1.0	 	S	S	
+0000000029	0000000006	currículo	2.0	 	S	S	
+0000000030	0000000006	actividades	3.0	 	S	S	
+0000000031	0000000006	proyectos	4.0	 	S	S	
+0000000032	0000000006	imágenes	5.0	 	S	S	
+0000000033	0000000006	contacto	6.0	 	S	S	
+0000000034	0000000007	presentación	1.0	 	S	S	
+0000000035	0000000007	currículo	2.0	 	S	S	
+0000000036	0000000007	actividades	3.0	 	S	S	
+0000000037	0000000007	proyectos	4.0	 	S	S	
+0000000038	0000000007	imágenes	5.0	 	S	S	
+0000000039	0000000007	contacto	6.0	 	S	S	
+0000000040	0000000008	presentación	1.0	 	S	S	
+0000000041	0000000008	currículo	2.0	 	S	S	
+0000000042	0000000008	actividades	3.0	 	S	S	
+0000000043	0000000008	proyectos	4.0	 	S	S	
+0000000044	0000000008	imágenes	5.0	 	S	S	
+0000000045	0000000008	contacto	6.0	 	S	S	
+0000000046	0000000009	presentación	1.0	 	S	S	
+0000000047	0000000009	currículo	2.0	 	S	S	
+0000000048	0000000009	actividades	3.0	 	S	S	
+0000000049	0000000009	proyectos	4.0	 	S	S	
+0000000050	0000000009	imágenes	5.0	 	S	S	
+0000000051	0000000009	contacto	6.0	 	S	S	
+0000000052	0000000010	presentación	1.0	 	S	S	
+0000000053	0000000010	currículo	2.0	 	S	S	
+0000000054	0000000010	actividades	3.0	 	S	S	
+0000000055	0000000010	proyectos	4.0	 	S	S	
+0000000056	0000000010	imágenes	5.0	 	S	S	
+0000000057	0000000010	contacto	6.0	 	S	S	
+0000000058	0000000011	presentación	1.0	 	S	S	
+0000000059	0000000011	currículo	2.0	 	S	S	
+0000000060	0000000011	actividades	3.0	 	S	S	
+0000000061	0000000011	proyectos	4.0	 	S	S	
+0000000062	0000000011	imágenes	5.0	 	S	S	
+0000000063	0000000011	contacto	6.0	 	S	S	
+0000000070	0000000013	presentación	1.0	 	S	S	
+0000000071	0000000013	currículo	2.0	 	S	S	
+0000000072	0000000013	actividades	3.0	 	S	S	
+0000000073	0000000013	proyectos	4.0	 	S	S	
+0000000074	0000000013	imágenes	5.0	 	S	S	
+0000000075	0000000013	contacto	6.0	 	S	S	
+0000000076	0000000014	presentación	1.0	 	S	S	
+0000000077	0000000014	currículo	2.0	 	S	S	
+0000000078	0000000014	actividades	3.0	 	S	S	
+0000000079	0000000014	proyectos	4.0	 	S	S	
+0000000080	0000000014	imágenes	5.0	 	S	S	
+0000000081	0000000014	contacto	6.0	 	S	S	
+0000000082	0000000015	presentación	1.0	 	S	S	
+0000000083	0000000015	currículo	2.0	 	S	S	
+0000000084	0000000015	actividades	3.0	 	S	S	
+0000000085	0000000015	proyectos	4.0	 	S	S	
+0000000086	0000000015	imágenes	5.0	 	S	S	
+0000000087	0000000015	contacto	6.0	 	S	S	
+0000000088	0000000016	presentación	1.0	 	S	S	
+0000000089	0000000016	currículo	2.0	 	S	S	
+0000000090	0000000016	actividades	3.0	 	S	S	
+0000000091	0000000016	proyectos	4.0	 	S	S	
+0000000092	0000000016	imágenes	5.0	 	S	S	
+0000000093	0000000016	contacto	6.0	 	S	S	
+0000000100	0000000018	presentación	1.0	 	S	S	
+0000000101	0000000018	currículo	2.0	 	S	S	
+0000000102	0000000018	actividades	3.0	 	S	S	
+0000000103	0000000018	proyectos	4.0	 	S	S	
+0000000104	0000000018	imágenes	5.0	 	S	S	
+0000000105	0000000018	contacto	6.0	 	S	S	
+0000000106	0000000019	presentación	1.0	 	S	S	
+0000000107	0000000019	currículo	2.0	 	S	S	
+0000000108	0000000019	actividades	3.0	 	S	S	
+0000000109	0000000019	proyectos	4.0	 	S	S	
+0000000110	0000000019	imágenes	5.0	 	S	S	
+0000000111	0000000019	contacto	6.0	 	S	S	
+0000000112	0000000019	 	1.0	 	N	S	 
+0000000113	0000000020	presentación	1.0	 BIENVENIDOS A LA PAGINA DE GV ARQUITECNIA	N	S	 
+0000000114	0000000020	currículo	2.0	 	S	S	
+0000000115	0000000020	actividades	3.0	 	S	S	
+0000000116	0000000020	proyectos	4.0	 	S	S	
+0000000117	0000000020	imágenes	5.0	 	S	S	
+0000000118	0000000020	contacto	6.0	 	S	S	
+0000000119	0000000020	telefono de contacto 609 61 41	2.0	 	N	S	 
+0000000120	0000000021	presentación	1.0	 	S	S	
+0000000121	0000000021	currículo	2.0	 	S	S	
+0000000122	0000000021	actividades	3.0	 	S	S	
+0000000123	0000000021	proyectos	4.0	 	S	S	
+0000000124	0000000021	imágenes	5.0	 	S	S	
+0000000125	0000000021	contacto	6.0	 	S	S	
+0000000126	0000000022	presentación	1.0	 	S	S	
+0000000127	0000000022	currículo	2.0	 	S	S	
+0000000128	0000000022	actividades	3.0	 	S	S	
+0000000129	0000000022	proyectos	4.0	 	S	S	
+0000000130	0000000022	imágenes	5.0	 	S	S	
+0000000131	0000000022	contacto	6.0	 	S	S	
+0000000132	0000000023	presentación	1.0	 	S	S	
+0000000133	0000000023	currículo	2.0	 	S	S	
+0000000134	0000000023	actividades	3.0	 	S	S	
+0000000135	0000000023	proyectos	4.0	 	S	S	
+0000000136	0000000023	imágenes	5.0	 	S	S	
+0000000137	0000000023	contacto	6.0	 	S	S	
+0000000138	0000000024	presentación	1.0	 	N	S	www.despachotecnico.es
+0000000140	0000000024	actividades	3.0	 	N	S	www.despachotecnico.es
+0000000141	0000000024	proyectos	4.0	 	N	S	www.despachotecnico.es
+0000000142	0000000024	imágenes	5.0	 	N	S	www.despachotecnico.es
+0000000143	0000000024	contacto	6.0	 	N	S	www.despachotecnico.es
+0000000144	0000000025	presentación	1.0	 	S	S	
+0000000145	0000000025	currículo	2.0	 	S	S	
+0000000146	0000000025	actividades	3.0	 	S	S	
+0000000147	0000000025	proyectos	4.0	 	S	S	
+0000000148	0000000025	imágenes	5.0	 	S	S	
+0000000149	0000000025	contacto	6.0	 	S	S	
+0000000150	0000000026	presentación	1.0	 	S	S	
+0000000151	0000000026	currículo	2.0	 	S	S	
+0000000152	0000000026	actividades	3.0	 	S	S	
+0000000153	0000000026	proyectos	4.0	 	S	S	
+0000000154	0000000026	imágenes	5.0	 	S	S	
+0000000155	0000000026	contacto	6.0	 	S	S	
+0000000139	0000000024	currículo	2.0	 	N	S	www.despachotecnico.es
+0000000162	0000000028	presentación	1.0	 	S	S	
+0000000163	0000000028	currículo	2.0	 	S	S	
+0000000164	0000000028	actividades	3.0	 	S	S	
+0000000165	0000000028	proyectos	4.0	 	S	S	
+0000000166	0000000028	imágenes	5.0	 	S	S	
+0000000167	0000000028	contacto	6.0	C/ Felipe Antón nº 36-A 1	N	S	 
+0000000168	0000000029	presentación	1.0	 	S	S	
+0000000169	0000000029	currículo	2.0	 	S	S	
+0000000170	0000000029	actividades	3.0	TOPOGRAFICOS	N	S	 
+0000000171	0000000029	proyectos	4.0	 	S	S	
+0000000172	0000000029	imágenes	5.0	 	S	S	
+0000000173	0000000029	contacto	6.0	fperezl@coaatalicante.org	N	S	ICON07.ICO
+0000000174	0000000029	Topografia	3.0	 	N	S	 
+0000000175	0000000030	presentación	1.0	 	S	S	
+0000000176	0000000030	currículo	2.0	 	S	S	
+0000000177	0000000030	actividades	3.0	 	S	S	
+0000000178	0000000030	proyectos	4.0	 	S	S	
+0000000179	0000000030	imágenes	5.0	 	S	S	
+0000000180	0000000030	contacto	6.0	 	S	S	
+0000000181	0000000031	presentación	1.0	 	S	S	
+0000000182	0000000031	currículo	2.0	 	S	S	
+0000000183	0000000031	actividades	3.0	 	S	S	
+0000000184	0000000031	proyectos	4.0	 	S	S	
+0000000185	0000000031	imágenes	5.0	 	S	S	
+0000000186	0000000031	contacto	6.0	 	S	S	
+0000000187	0000000032	presentación	1.0	<P>Arquitecto Tecnico Colegiado 2711 telf: 669-298-636, Benidorm</P>	N	S	 
+0000000188	0000000032	currículo	2.0	 	S	S	
+0000000189	0000000032	actividades	3.0	 	S	S	
+0000000190	0000000032	proyectos	4.0	 	S	S	
+0000000191	0000000032	imágenes	5.0	 	S	S	
+0000000192	0000000032	contacto	6.0	 	S	S	
+0000000199	0000000034	presentación	1.0	 	S	S	
+0000000200	0000000034	currículo	2.0	 	S	S	
+0000000201	0000000034	actividades	3.0	 	S	S	
+0000000202	0000000034	proyectos	4.0	 	S	S	
+0000000203	0000000034	imágenes	5.0	 	S	S	
+0000000204	0000000034	contacto	6.0	 	S	S	
+0000000205	0000000035	presentación	1.0	 	S	S	
+0000000206	0000000035	currículo	2.0	 	S	S	
+0000000207	0000000035	actividades	3.0	 	S	S	
+0000000208	0000000035	proyectos	4.0	 	S	S	
+0000000209	0000000035	imágenes	5.0	 	S	S	
+0000000210	0000000035	contacto	6.0	 	S	S	
+0000000211	0000000036	presentación	1.0	 	S	S	
+0000000212	0000000036	currículo	2.0	 	S	S	
+0000000213	0000000036	actividades	3.0	 	S	S	
+0000000214	0000000036	proyectos	4.0	 	S	S	
+0000000215	0000000036	imágenes	5.0	 	S	S	
+0000000216	0000000036	contacto	6.0	 	S	S	
+0000000217	0000000037	presentación	1.0	 	S	S	
+0000000218	0000000037	currículo	2.0	 	S	S	
+0000000219	0000000037	actividades	3.0	 	S	S	
+0000000220	0000000037	proyectos	4.0	 	S	S	
+0000000221	0000000037	imágenes	5.0	 	S	S	
+0000000222	0000000037	contacto	6.0	 	S	S	
+0000000223	0000000038	presentación	1.0	 	S	S	
+0000000224	0000000038	currículo	2.0	 	S	S	
+0000000225	0000000038	actividades	3.0	 	S	S	
+0000000226	0000000038	proyectos	4.0	 	S	S	
+0000000227	0000000038	imágenes	5.0	 	S	S	
+0000000228	0000000038	contacto	6.0	 	S	S	
+0000000229	0000000039	presentación	1.0	 	S	S	
+0000000230	0000000039	currículo	2.0	 	S	S	
+0000000231	0000000039	actividades	3.0	 	S	S	
+0000000232	0000000039	proyectos	4.0	 	S	S	
+0000000233	0000000039	imágenes	5.0	 	S	S	
+0000000234	0000000039	contacto	6.0	 	S	S	
+0000000235	0000000038	 	1.0	 	N	S	 
+0000000236	0000000040	presentación	1.0	 	S	S	
+0000000237	0000000040	currículo	2.0	 	S	S	
+0000000238	0000000040	actividades	3.0	 	S	S	
+0000000239	0000000040	proyectos	4.0	 	S	S	
+0000000240	0000000040	imágenes	5.0	 	S	S	
+0000000241	0000000040	contacto	6.0	 	S	S	
+0000000248	0000000042	presentación	1.0	 	S	S	
+0000000249	0000000042	currículo	2.0	 	S	S	
+0000000250	0000000042	actividades	3.0	 	S	S	
+0000000251	0000000042	proyectos	4.0	 	S	S	
+0000000252	0000000042	imágenes	5.0	 	S	S	
+0000000253	0000000042	contacto	6.0	 	S	S	
+0000000266	0000000045	presentación	1.0	 	S	S	
+0000000267	0000000045	currículo	2.0	 	S	S	
+0000000268	0000000045	actividades	3.0	 	S	S	
+0000000269	0000000045	proyectos	4.0	 	S	S	
+0000000270	0000000045	imágenes	5.0	 	S	S	
+0000000271	0000000045	contacto	6.0	 	S	S	
+0000000272	0000000046	presentación	1.0	 	S	S	
+0000000273	0000000046	currículo	2.0	 	S	S	
+0000000274	0000000046	actividades	3.0	 	S	S	
+0000000275	0000000046	proyectos	4.0	 	S	S	
+0000000276	0000000046	imágenes	5.0	 	S	S	
+0000000277	0000000046	contacto	6.0	 	S	S	
+0000000278	0000000029	TRABAJOS EN ESTUDIOS ECONOMICO	1.0	 	N	S	 
+0000000285	0000000048	presentación	1.0	<P>BENVINGUTS</P>	N	S	 
+0000000286	0000000048	currículo	2.0	<P>ARQUITECTO TECNICO</P>
+<P>MASTER CONSERVACION DEL PATRIMONIO</P>	N	S	 
+0000000287	0000000048	actividades	3.0	 	S	S	
+0000000288	0000000048	proyectos	4.0	 	S	S	
+0000000289	0000000048	imágenes	5.0	 	S	S	
+0000000290	0000000048	contacto	6.0	 	S	S	
+0000000291	0000000048	 	1.0	 	N	S	 
+0000000292	0000000049	presentación	1.0	 	S	S	
+0000000293	0000000049	currículo	2.0	 	S	S	
+0000000294	0000000049	actividades	3.0	 	S	S	
+0000000295	0000000049	proyectos	4.0	 	S	S	
+0000000296	0000000049	imágenes	5.0	 	S	S	
+0000000297	0000000049	contacto	6.0	 	S	S	
+0000000298	0000000049	 	1.0	 	N	S	 
+0000000299	0000000050	presentación	1.0	 	S	S	
+0000000300	0000000050	currículo	2.0	 	S	S	
+0000000301	0000000050	actividades	3.0	 	S	S	
+0000000302	0000000050	proyectos	4.0	 	S	S	
+0000000303	0000000050	imágenes	5.0	 	S	S	
+0000000304	0000000050	contacto	6.0	 	S	S	
+0000000305	0000000051	presentación	1.0	 	S	S	
+0000000306	0000000051	currículo	2.0	 	S	S	
+0000000307	0000000051	actividades	3.0	 	S	S	
+0000000308	0000000051	proyectos	4.0	 	S	S	
+0000000309	0000000051	imágenes	5.0	 	S	S	
+0000000310	0000000051	contacto	6.0	 	S	S	
+0000000329	0000000055	presentación	1.0	 	S	S	
+0000000330	0000000055	currículo	2.0	 	S	S	
+0000000331	0000000055	actividades	3.0	 	S	S	
+0000000332	0000000055	proyectos	4.0	 	S	S	
+0000000333	0000000055	imágenes	5.0	 	S	S	
+0000000334	0000000055	contacto	6.0	 	S	S	
+0000000347	0000000058	presentación	1.0	 	S	S	
+0000000348	0000000058	currículo	2.0	 	S	S	
+0000000349	0000000058	actividades	3.0	 	S	S	
+0000000350	0000000058	proyectos	4.0	 	S	S	
+0000000351	0000000058	imágenes	5.0	 	S	S	
+0000000352	0000000058	contacto	6.0	 	S	S	
+0000000359	0000000060	presentación	1.0	 	S	S	
+0000000360	0000000060	currículo	2.0	 	S	S	
+0000000361	0000000060	actividades	3.0	 	S	S	
+0000000362	0000000060	proyectos	4.0	 	S	S	
+0000000363	0000000060	imágenes	5.0	 	S	S	
+0000000364	0000000060	contacto	6.0	 	S	S	
+0000000377	0000000063	presentación	1.0	 	S	S	
+0000000378	0000000063	currículo	2.0	 	S	S	
+0000000379	0000000063	actividades	3.0	 	S	S	
+0000000380	0000000063	proyectos	4.0	 	S	S	
+0000000381	0000000063	imágenes	5.0	 	S	S	
+0000000382	0000000063	contacto	6.0	 	S	S	
+0000000383	0000000064	presentación	1.0	 	S	S	
+0000000384	0000000064	currículo	2.0	 	S	S	
+0000000385	0000000064	actividades	3.0	 	S	S	
+0000000386	0000000064	proyectos	4.0	 	S	S	
+0000000387	0000000064	imágenes	5.0	 	S	S	
+0000000388	0000000064	contacto	6.0	 	S	S	
+0000000389	0000000065	presentación	1.0	 	S	S	
+0000000390	0000000065	currículo	2.0	 	S	S	
+0000000391	0000000065	actividades	3.0	 	S	S	
+0000000392	0000000065	proyectos	4.0	 	S	S	
+0000000393	0000000065	imágenes	5.0	 	S	S	
+0000000394	0000000065	contacto	6.0	 	S	S	
+0000000395	0000000066	presentación	1.0	 	S	S	
+0000000396	0000000066	currículo	2.0	 	S	S	
+0000000397	0000000066	actividades	3.0	 	S	S	
+0000000398	0000000066	proyectos	4.0	 	S	S	
+0000000399	0000000066	imágenes	5.0	 	S	S	
+0000000400	0000000066	contacto	6.0	 	S	S	
+0000000401	0000000067	presentación	1.0	<P>JOSÉ RAMÓN FUENTES BERNABEU</P>
+<P>Fecha nacimiento: 28/01/1973</P>
+<P>Lugar nacimiento: ALICANTE, ESPAÑA</P>
+<P><STRONG>Arquitecto técnico.</STRONG></P>
+<P><STRONG>Técnico Superior en Prevención de Riesgos Laborales.</STRONG></P>
+<P><STRONG>Project Manager en Edificación y Urbanismo.</STRONG></P>
+<P><STRONG>Actualmente cursando 5º curso Arquitectura.</STRONG></P>	N	S	 
+0000000402	0000000067	currículo	2.0	 	N	S	CURRÍCULO.doc
+0000000403	0000000067	PROJECT MANAGEMENT	5.0	 	N	S	http://www.coaatalicante.org/ficheros/Boletines/41/03-04.pdf
+0000000404	0000000067	EXPERIENCIA PROFESIONAL	4.0	 	N	S	EXPERIENCIA PROFESIONAL.doc
+0000000405	0000000067	imágenes	5.0	 	S	S	
+0000000406	0000000067	contacto	6.0	<P>Teléfono de contacto: 616 977 356</P>
+<P>E-mail: icasa2000@terra.es</P>	N	S	 
+0000000407	0000000068	PRESENTACIÓN	1.0	<P align=left>&nbsp;</P>
+<P align=left><FONT color=#666666 size=4>En S.M. Despacho de arquitectura, S.L.&nbsp;trabajamos&nbsp;el ámbito de la construcción y en la gestión de la producción de la edificación; dirigimos y controlamos la ejecución de las obras de edificación, redactamos y dirigimos los planes de control de calidad de los materiales, de los sistemas constructivos y de las instalaciones así como la gestión medioambiental y de los residuos; redactarmos&nbsp;y coordinamos los estudios y planes de seguridad y prevención de riesgos laborales; realizamos estudios, documentos, controles técnicos y proyectos; ocupándonos de la gestión del uso, conservación y mantenimiento de los edificios.</FONT></P>	N	S	 
+0000000410	0000000068	SERVICIOS	11.0	<P> </P>
+<P><FONT color=#666666 size=4>PROYECTOS.</FONT></P>
+<P><FONT color=#666666 size=4>DIRECCIONES DE OBRA.</FONT></P>
+<P><FONT color=#666666 size=4>INFORMES PERICIALES.</FONT></P>
+<P><FONT color=#666666 size=4>CERTIFICADOS TECNICOS.</FONT></P>
+<P><FONT color=#666666 size=4>LIBRO DEL EDIFICIO.</FONT></P>
+<P><FONT color=#666666 size=4>LEVANTAMIENTOS TOPOGRAFICOS.</FONT></P>
+<P><FONT color=#666666 size=4>INFORGRAFIA.</FONT></P>
+<P><FONT color=#666666 size=4></FONT> </P>	N	S	 
+0000000412	0000000068	CONTACTO	12.0	<P>&nbsp;</P>
+<P align=center><FONT color=#666666 size=4>Para ponerse en contacto con nosotros envien un e-mail a </FONT><A href="mailto:arquitectura@smdarq.com"><FONT color=#0033cc size=4>arquitectura@smdarq.com</FONT></A><FONT color=#666666><FONT size=4> describiendo el trabajo que necesitan,&nbsp; llamen&nbsp;a los teléfonos&nbsp; 96 676 64 12&nbsp; / &nbsp;619 93 45 15, &nbsp;o&nbsp; envien &nbsp;un &nbsp;fax&nbsp; al&nbsp;</FONT><FONT size=4>96 676 72 04, estamos a su disposición en Calle Mayor, 23, 3ºB,&nbsp; Pilar de la Horadada, Alicante.</FONT></FONT></P>	N	S	 
+0000000414	0000000068	3D VIV. UNIF.  I	2.0	<P align=left><FONT color=#003333 size=5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; VIVIENDA UNIFAMILIAR</FONT></P>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;<IMG alt="" hspace=0 src="C:\Documents and Settings\Usuario\Mis documentos\miriam\A800\2L.jpg" align=baseline border=0></P>
+<P align=left>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>	N	S	 
+0000000417	0000000068	3D EDIFICIOS              I	8.0	<IMG alt="" hspace=0 src="C:\Documents and Settings\Usuario\Mis documentos\miriam\A 600\ABRIL copia.jpg" align=baseline border=0>	N	S	 
+0000000418	0000000068	3D VIV. ADOSAD.I	5.0	&nbsp;<IMG alt="" hspace=0 src="C:\Documents and Settings\Usuario\Mis documentos\miriam\A800\CON SPONGE2.jpg" align=baseline border=0>	N	S	 
+0000000419	0000000068	                    II	3.0	<IMG alt="" hspace=0 src="C:\Documents and Settings\Usuario\Mis documentos\miriam\A800\3L.jpg" align=baseline border=0>&nbsp; 	N	S	 
+0000000420	0000000068	III	4.0	&nbsp;&nbsp;<IMG alt="" hspace=0 src="C:\Documents and Settings\Usuario\Mis documentos\miriam\A800\4L.jpg" align=baseline border=0> 	N	S	 
+0000000421	0000000068	II	6.0	<P><IMG alt="" hspace=0 src="C:\Documents and Settings\Usuario\Mis documentos\miriam\A800\HIPERR copia1000.jpg" align=baseline border=0></P>	N	S	 
+0000000422	0000000068	III	7.0	&nbsp;<IMG alt="" hspace=0 src="C:\Documents and Settings\Usuario\Mis documentos\miriam\A800\perros.jpg" align=baseline border=0>	N	S	 
+0000000423	0000000068	II	9.0	<P><IMG alt="" hspace=0 src="C:\Documents and Settings\Usuario\Mis documentos\miriam\A 600\ANJUMI VERSION CM.jpg" align=baseline border=0></P>	N	S	 
+0000000424	0000000069	presentación	1.0	 	S	S	
+0000000425	0000000069	currículo	2.0	 	S	S	
+0000000426	0000000069	actividades	3.0	 	S	S	
+0000000427	0000000069	proyectos	4.0	 	S	S	
+0000000428	0000000069	imágenes	5.0	 	S	S	
+0000000429	0000000069	contacto	6.0	 	S	S	
+0000000430	0000000070	presentación	1.0	 	S	S	
+0000000431	0000000070	currículo	2.0	 	S	S	
+0000000432	0000000070	actividades	3.0	 	S	S	
+0000000433	0000000070	proyectos	4.0	 	S	S	
+0000000434	0000000070	imágenes	5.0	 	S	S	
+0000000435	0000000070	contacto	6.0	 	S	S	
+0000000436	0000000071	presentación	1.0	 	N	S	 
+0000000437	0000000071	currículo	2.0	 	S	S	
+0000000438	0000000071	actividades	3.0	 	S	S	
+0000000439	0000000071	proyectos	4.0	 	S	S	
+0000000440	0000000071	imágenes	5.0	 	S	S	
+0000000441	0000000071	contacto	6.0	 	S	S	
+0000000442	0000000072	presentación	1.0	 	S	S	
+0000000443	0000000072	currículo	2.0	 	S	S	
+0000000444	0000000072	actividades	3.0	 	S	S	
+0000000445	0000000072	proyectos	4.0	 	S	S	
+0000000446	0000000072	imágenes	5.0	 	S	S	
+0000000447	0000000072	contacto	6.0	 	S	S	
+0000000448	0000000073	presentación	1.0	<P>Esta página está en desarrollo.</P>
+<P>Disculpe las molestias por no ofrecerle nada en este momento</P>
+<P>&nbsp;</P>	N	S	 
+0000000449	0000000073	currículo	2.0	 	S	S	
+0000000450	0000000073	actividades	3.0	 	S	S	
+0000000451	0000000073	proyectos	4.0	 	S	S	
+0000000452	0000000073	imágenes	5.0	 	S	S	
+0000000453	0000000073	contacto	6.0	 	S	S	
+0000000454	0000000074	presentación	1.0	 	S	S	
+0000000455	0000000074	currículo	2.0	 	S	S	
+0000000456	0000000074	actividades	3.0	 	S	S	
+0000000457	0000000074	proyectos	4.0	 	S	S	
+0000000458	0000000074	imágenes	5.0	 	S	S	
+0000000459	0000000074	contacto	6.0	 	S	S	
+0000000466	0000000076	PRESENTACIÓN	1.0	<P>&nbsp;</P>
+<P>&nbsp;</P>	N	S	 
+0000000467	0000000076	currículo	2.0	 	N	N	 
+0000000468	0000000076	ACTIVIDADES Y SERVICIOS	2.0	<P>&nbsp;</P>
+<BLOCKQUOTE dir=ltr style="MARGIN-RIGHT: 0px">
+<P><STRONG><FONT face="Tahoma, Arial, Helvetica, sans-serif" color=#333333 size=1>DIRECCION DE EJECUCION MATERIAL:</FONT></STRONG></P></BLOCKQUOTE>
+<UL>
+<LI><FONT face="Tahoma, Arial, Helvetica, sans-serif" color=#333333 size=1>EN OBRAS DE NUEVA EDIFICACION DE VIVIENDAS. </FONT>
+<LI><FONT face="Tahoma, Arial, Helvetica, sans-serif" color=#333333 size=1>EN OBRAS DE AMPLIACION, REPARACIÓN O REFORMAS.</FONT></LI></UL>
+<BLOCKQUOTE dir=ltr style="MARGIN-RIGHT: 0px">
+<P><STRONG><FONT face="Tahoma, Arial, Helvetica, sans-serif" color=#333333 size=1>CONTROL DE CALIDAD:</FONT></STRONG></P></BLOCKQUOTE>
+<UL>
+<LI dir=ltr><FONT face="Tahoma, Arial, Helvetica, sans-serif" color=#333333 size=1>EN OBRAS DE NUEVA EDIFICACION DE VIVIENDAS. </FONT>
+<LI dir=ltr><FONT face="Tahoma, Arial, Helvetica, sans-serif" color=#333333 size=1>EN OBRAS DE AMPLIACION, REPARACIÓN O REFORMAS.</FONT></LI></UL>
+<BLOCKQUOTE dir=ltr style="MARGIN-RIGHT: 0px">
+<P><STRONG><FONT face="Tahoma, Arial, Helvetica, sans-serif" color=#333333 size=1>SEGURIDAD Y SALUD:</FONT></STRONG></P></BLOCKQUOTE>
+<UL>
+<LI dir=ltr><FONT face="Tahoma, Arial, Helvetica, sans-serif" color=#333333 size=1>COORDINACIÓN DE SEGURIDAD Y SALUD DURANTE LA ELABORACION DEL PROYECTO. </FONT>
+<LI dir=ltr><FONT face="Tahoma, Arial, Helvetica, sans-serif" color=#333333 size=1>REDACCION ESTUDIO O ESTUDIO BASICO DE SEGURIDAD Y SALUD. </FONT>
+<LI dir=ltr><FONT face="Tahoma, Arial, Helvetica, sans-serif" color=#333333 size=1>ASESORAMIENTO TECNICO AL CONTRATISTA Y REDACCION DEL PLAN DE SEGURIDAD Y SALUD EN EL TRABAJO. </FONT>
+<LI dir=ltr><FONT face="Tahoma, Arial, Helvetica, sans-serif" color=#333333 size=1>COORDINACION EN MATERIA DE SEGURIDAD Y SALUD DURANTE LA EJECUCION DE LA OBRA.</FONT></LI></UL>
+<BLOCKQUOTE dir=ltr style="MARGIN-RIGHT: 0px">
+<P><STRONG><FONT face="Tahoma, Arial, Helvetica, sans-serif" color=#333333 size=1>ESTUDIOS E INFORMES:</FONT></STRONG></P></BLOCKQUOTE>
+<UL>
+<LI dir=ltr><FONT face="Tahoma, Arial, Helvetica, sans-serif" color=#333333 size=1>ESTUDIO Y VALORACION DE OBRAS. </FONT>
+<LI dir=ltr><FONT face="Tahoma, Arial, Helvetica, sans-serif" color=#333333 size=1>INFORMES, CERTIFICACIONES, DICTAMENES, PERITACIONES JUDICIALES, ARBITRAJES, ETC. </FONT>
+<LI dir=ltr><FONT face="Tahoma, Arial, Helvetica, sans-serif" color=#333333 size=1>LEGALIZACION DE OBRAS E INSTALACIONES.</FONT></LI></UL>
+<BLOCKQUOTE dir=ltr style="MARGIN-RIGHT: 0px">
+<P><STRONG><FONT face="Tahoma, Arial, Helvetica, sans-serif" color=#333333 size=1>OTROS:</FONT></STRONG></P></BLOCKQUOTE>
+<UL>
+<LI dir=ltr><FONT face="Tahoma, Arial, Helvetica, sans-serif" color=#333333 size=1>DESLINDES Y MEDICIONES DE TERRENOS, SOLARES, EDIFICACIONES, ETC. </FONT>
+<LI dir=ltr><FONT face="Tahoma, Arial, Helvetica, sans-serif" color=#333333 size=1>CALCULOS DE ESTRUCTURAS. </FONT>
+<LI dir=ltr><FONT face="Tahoma, Arial, Helvetica, sans-serif" color=#333333 size=1>COLABORACION EN GESTIÓN DE OBRAS. </FONT>
+<LI dir=ltr><FONT face="Tahoma, Arial, Helvetica, sans-serif" color=#333333 size=1>INFOGRAFIAS 3D.</FONT></LI></UL>
+<BLOCKQUOTE dir=ltr style="MARGIN-RIGHT: 0px">
+<P><FONT face="Tahoma, Arial, Helvetica, sans-serif" color=#333333 size=1><STRONG>PROYECTOS: </STRONG>VER APARTADO&nbsp;REDACCION DE&nbsp;PROYECTOS</FONT></P></BLOCKQUOTE>
+<P><FONT color=#333333 size=1>&nbsp;</FONT></P>	N	S	 
+0000000469	0000000076	REDACCION DE PROYECTOS	4.0	<BLOCKQUOTE dir=ltr style="MARGIN-RIGHT: 0px">
+<P><STRONG><FONT face="Tahoma, Arial, Helvetica, sans-serif" color=#333333 size=1>PROYECTOS:</FONT></STRONG></P></BLOCKQUOTE>
+<UL>
+<LI dir=ltr><FONT face="Tahoma, Arial, Helvetica, sans-serif" color=#333333 size=1>P. EJECUCION DE DERRIBOS DE EDIFICACIONES. </FONT>
+<LI dir=ltr><FONT face="Tahoma, Arial, Helvetica, sans-serif" color=#333333 size=1>P. EJECUCION OBRAS DE URBANIZACIÓN. </FONT>
+<LI dir=ltr><FONT face="Tahoma, Arial, Helvetica, sans-serif" color=#333333 size=1>P. EJECUCION DE NAVES INDUSTRIALES, AGRICOLAS Y GANADERAS. </FONT>
+<LI dir=ltr><FONT face="Tahoma, Arial, Helvetica, sans-serif" color=#333333 size=1>P. EJECUCION DE PISCINAS, GARAJES, BARBACOAS, ETC. </FONT>
+<LI dir=ltr><FONT face="Tahoma, Arial, Helvetica, sans-serif" color=#333333 size=1>P. EJECUCION DE INSTALACIONES DEPORTIVAS. </FONT>
+<LI dir=ltr><FONT face="Tahoma, Arial, Helvetica, sans-serif" color=#333333 size=1>P. EJECUCION DE OBRAS DE REFUERZO Y CONSOLIDACION DE EDIFICACIONES. </FONT>
+<LI dir=ltr><FONT face="Tahoma, Arial, Helvetica, sans-serif" color=#333333 size=1>P. EJECUCION DE OBRAS DE REFORMA, HABILITACION, ADECUACION O REHABILITACION. </FONT>
+<LI dir=ltr><FONT face="Tahoma, Arial, Helvetica, sans-serif" color=#333333 size=1>P. DE DECORACION E INTERIORISMO. </FONT>
+<LI dir=ltr><FONT face="Tahoma, Arial, Helvetica, sans-serif" color=#333333 size=1>P. DE URBANISMO: P. DE PARCELACION. </FONT>
+<LI dir=ltr><FONT face="Tahoma, Arial, Helvetica, sans-serif" color=#333333 size=1>P. APERTURA DE ESTABLECIMIENTOS.</FONT></LI></UL>	N	S	 
+0000000470	0000000076	IMAGENES	4.0	<P>&nbsp;</P>	N	S	 
+0000000471	0000000076	CONTACTO	5.0	 	N	S	 
+0000000472	0000000077	Presentación	1.0	 	N	S	 
+0000000473	0000000077	Currículo	2.0	 	N	S	Curriculum.pdf
+0000000474	0000000077	actividades	3.0	 	S	S	
+0000000475	0000000077	proyectos	4.0	 	S	S	
+0000000476	0000000077	Imágenes	5.0	 	N	S	 
+0000000477	0000000077	Contacto	6.0	 	N	S	 
+0000000478	0000000078	presentación	1.0	 	S	S	
+0000000479	0000000078	currículo	2.0	 	S	S	
+0000000480	0000000078	actividades	3.0	 	S	S	
+0000000481	0000000078	proyectos	4.0	 	S	S	
+0000000482	0000000078	imágenes	5.0	 	S	S	
+0000000483	0000000078	contacto	6.0	 	S	S	
+0000000490	0000000080	 	1.0	Arquitecto Técnico colegiado en el COAATA desde 1995	N	S	 
+0000000491	0000000080	currículo	2.0	 Título de Arquitectura Técnica  en la Universidad  Politécnica de Alicante.  
+
+Máster de Project Manager en Edificación y Urbanismo 
+
+Jefe de obra de varias edificaciones, Dirección Facultativa, Coordinación de Seguridad y Salud, Construction Manager.
+	N	S	 
+0000000492	0000000080	actividades	3.0	 	S	S	
+0000000493	0000000080	proyectos	4.0	 	S	S	
+0000000494	0000000080	imágenes	5.0	 	S	S	
+0000000495	0000000080	contacto	6.0	 	S	S	
+0000000496	0000000081	presentación	1.0	<P>Desde nuestro gabinete técnico le ofrecemos todo tipo de soluciones y servicios relacionados con la arquitectura.</P>
+<P>- Proyecto y dirección de obra nueva, reforma y rehabilitación.</P>
+<P>- Informes y&nbsp;certificados para la obtención de diferentes permisos y&nbsp;licencias, expedición de cédulas de habitabilidad, descripciones técnicas para escrituras notariales, etc.</P>
+<P>- Proyectos de apertura para actividades comerciales.</P>
+<P>- Tasaciones hipotecarias, Valoraciones inmobiliarias, Peritaciones judiciales.</P>
+<P>- Mediciones, delineación de planos.</P>
+<P>- Interiorismo, decoración.</P>
+<P>&nbsp;</P>	N	S	 
+0000000501	0000000081	contacto	6.0	<P>Nos encontramos en Altea&nbsp;y nuestro ámbito de actuación se extiende a toda la provincia de Alicante. </P>
+<P>Puede contactar con nosotros en los siguientes teléfonos:</P>
+<P>Movil: 609.63.31.77</P>
+<P>Tlf/fax: 966.88.13.75</P>
+<P>E-mail: sainz-rozas@wanadoo.es</P>	N	S	 
+0000000502	0000000082	presentación	1.0	 	S	S	
+0000000503	0000000082	currículo	2.0	 	S	S	
+0000000504	0000000082	actividades	3.0	 	S	S	
+0000000505	0000000082	proyectos	4.0	 	S	S	
+0000000506	0000000082	imágenes	5.0	 	S	S	
+0000000507	0000000082	contacto	6.0	 	S	S	
+0000000514	0000000084	presentación	1.0	 	S	S	
+0000000515	0000000084	currículo	2.0	 	S	S	
+0000000516	0000000084	actividades	3.0	 	S	S	
+0000000517	0000000084	proyectos	4.0	 	S	S	
+0000000518	0000000084	imágenes	5.0	 	S	S	
+0000000519	0000000084	contacto	6.0	 	S	S	
+0000000520	0000000085	presentación	1.0	 	S	S	
+0000000521	0000000085	currículo	2.0	 	S	S	
+0000000522	0000000085	actividades	3.0	 	S	S	
+0000000523	0000000085	proyectos	4.0	 	S	S	
+0000000524	0000000085	imágenes	5.0	 	S	S	
+0000000525	0000000085	contacto	6.0	 	S	S	
+0000000526	0000000086	presentación	1.0	<P>Ximo Zaragoza nacio el 15 de Noviembre de 1947, en Coves de Vinroma (Castellón de la Plana)</P>
+<P>Curse mis estudio en la Escuela Universitaria de Aparejadores y Arquitectos Técnicos de Barcelona (Universidad de Barcelona)</P>
+<P>Termine mis estudios en 1973</P>
+<P>Resido en Javea desde 1973 y siempre he trabajado como proferional libre</P>
+<P>&nbsp;</P>	N	S	 
+0000000527	0000000086	currículo	2.0	<P>Curse mis estudio en la Escuela Universitaria de Aparejadores y Arquitectos Técnicos de Barcelona (Universidad de Barcelona)</P>
+<P>Termine mis estudios en 1973</P>
+<P>Resido en Javea desde 1973 y siempre he trabajado como proferional libre, desempeñando trabajos de Dirección Facultativa de Obras, Coordinador de Seguridad y Saud en fase de ejcucion de obra, y realizando todo tipo de proyectos, de apertura, de rehabilitacion, de piscinas, de derribo, etc..</P>
+<P>Desde 1978 hasta 2003 trabaje como Técnico Municipal del Ayuntamiento de Orba, a tiempo parcial, puesto al que renuncie por motivos personales y profesionales.</P>
+<P>&nbsp;</P>	N	S	 
+0000000528	0000000086	actividades	3.0	<P>Dirección de la ejecucion material de Obra</P>
+<P>Coordinador de S/S en fase de ejecución</P>
+<P>Proyectos y direccion de Derribos, Aperturas de actividades, Rehabilitación, Decoración, Piscinas</P>
+<P>Mediciones, valoraciones, tasaciones</P>
+<P>Informes</P>	N	S	 
+0000000529	0000000086	proyectos	4.0	<P>Direccion de obra de hotel, grupo de viviendas, bloques de viviendas, viiendas unifamiliares.</P>
+<P>Proyectos, de piscinas, de rehabiliatación, de derribo.</P>	N	S	 
+0000000530	0000000086	imágenes	5.0	 	S	S	
+0000000531	0000000086	contacto	6.0	<P>Dirección </P>
+<P>Avda. de Lepanto, 1, bajos de Javea (Aliacante)</P>
+<P>Telefono</P>
+<P>965791846 - 629613953</P>
+<P>E-mail</P>
+<P>ximozaragoza@gmail.com</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>	N	S	 
+0000000532	0000000087	presentación	1.0	 	S	S	
+0000000533	0000000087	currículo	2.0	 	S	S	
+0000000534	0000000087	actividades	3.0	 	S	S	
+0000000535	0000000087	proyectos	4.0	 	S	S	
+0000000536	0000000087	imágenes	5.0	 	S	S	
+0000000537	0000000087	contacto	6.0	 	S	S	
+0000000538	0000000088	presentación	1.0	 	S	S	
+0000000539	0000000088	currículo	2.0	 	S	S	
+0000000540	0000000088	actividades	3.0	 	S	S	
+0000000541	0000000088	proyectos	4.0	 	S	S	
+0000000542	0000000088	imágenes	5.0	 	S	S	
+0000000543	0000000088	contacto	6.0	 	S	S	
+0000000544	0000000089	presentación	1.0	 	S	S	
+0000000545	0000000089	currículo	2.0	 	S	S	
+0000000546	0000000089	actividades	3.0	 	S	S	
+0000000547	0000000089	proyectos	4.0	 	S	S	
+0000000548	0000000089	imágenes	5.0	 	S	S	
+0000000549	0000000089	contacto	6.0	 	S	S	
+0000000550	0000000090	presentación	1.0	 	S	S	
+0000000552	0000000090	actividades	3.0	 	S	S	
+0000000553	0000000090	proyectos	4.0	 	S	S	
+0000000554	0000000090	imágenes	5.0	 	S	S	
+0000000555	0000000090	contacto	6.0	 	S	S	
+0000000556	0000000091	presentación	1.0	 	S	S	
+0000000557	0000000091	currículo	2.0	 	S	S	
+0000000558	0000000091	actividades	3.0	 	S	S	
+0000000559	0000000091	proyectos	4.0	 	S	S	
+0000000560	0000000091	imágenes	5.0	 	S	S	
+0000000561	0000000091	contacto	6.0	 	S	S	
+0000000562	0000000092	presentación	1.0	 	S	S	
+0000000563	0000000092	currículo	2.0	 	S	S	
+0000000564	0000000092	actividades	3.0	 	S	S	
+0000000565	0000000092	proyectos	4.0	 	S	S	
+0000000566	0000000092	imágenes	5.0	 	S	S	
+0000000567	0000000092	contacto	6.0	 	S	S	
+0000000568	0000000093	presentación	1.0	 	S	S	
+0000000569	0000000093	currículo	2.0	 	S	S	
+0000000570	0000000093	actividades	3.0	 	S	S	
+0000000571	0000000093	proyectos	4.0	 	S	S	
+0000000572	0000000093	imágenes	5.0	 	S	S	
+0000000573	0000000093	contacto	6.0	 	S	S	
+0000000574	0000000094	presentación	1.0	 	S	S	
+0000000575	0000000094	currículo	2.0	 	N	S	 
+0000000576	0000000094	actividades	3.0	 	S	S	
+0000000577	0000000094	proyectos	4.0	 	S	S	
+0000000578	0000000094	imágenes	5.0	 	S	S	
+0000000579	0000000094	contacto	6.0	jesusmariahf@gmail.com	N	S	 
+0000000586	0000000096	presentación	1.0	 	S	S	
+0000000587	0000000096	currículo	2.0	 	S	S	
+0000000588	0000000096	actividades	3.0	 	S	S	
+0000000589	0000000096	proyectos	4.0	 	S	S	
+0000000590	0000000096	imágenes	5.0	 	S	S	
+0000000591	0000000096	contacto	6.0	 	S	S	
+0000000592	0000000097	presentación	1.0	 	S	S	
+0000000593	0000000097	currículo	2.0	 	S	S	
+0000000594	0000000097	actividades	3.0	 	S	S	
+0000000595	0000000097	proyectos	4.0	 	S	S	
+0000000596	0000000097	imágenes	5.0	 	S	S	
+0000000597	0000000097	contacto	6.0	 	S	S	
+0000000598	0000000098	presentación	1.0	<P>hhhhhhhhhhhhhhh</P>
+<P>hhhhhhhhhhh</P>
+<P>hhhhhhhhh</P>	N	S	 
+0000000599	0000000098	currículo	2.0	 	S	S	
+0000000600	0000000098	actividades	3.0	 	S	S	
+0000000601	0000000098	proyectos	4.0	 	S	S	
+0000000602	0000000098	imágenes	5.0	 	S	S	
+0000000603	0000000098	contacto	6.0	 	S	S	
+0000000604	0000000094	 	1.0	 	N	S	 
+0000000605	0000000099	presentación	1.0	 	S	S	
+0000000606	0000000099	currículo	2.0	 	S	S	
+0000000607	0000000099	actividades	3.0	 	S	S	
+0000000608	0000000099	proyectos	4.0	 	S	S	
+0000000609	0000000099	imágenes	5.0	 	S	S	
+0000000610	0000000099	contacto	6.0	 	S	S	
+0000000611	0000000100	presentación	1.0	 	S	S	
+0000000612	0000000100	currículo	2.0	 	S	S	
+0000000613	0000000100	actividades	3.0	 	S	S	
+0000000614	0000000100	proyectos	4.0	 	S	S	
+0000000615	0000000100	imágenes	5.0	 	S	S	
+0000000616	0000000100	contacto	6.0	 	S	S	
+0000000617	0000000101	presentación	1.0	 	S	S	
+0000000618	0000000101	currículo	2.0	 	S	S	
+0000000619	0000000101	actividades	3.0	 	S	S	
+0000000620	0000000101	proyectos	4.0	 	S	S	
+0000000621	0000000101	imágenes	5.0	 	S	S	
+0000000622	0000000101	contacto	6.0	 	S	S	
+0000000623	0000000102	presentación	1.0	 	S	S	
+0000000624	0000000102	currículo	2.0	 	S	S	
+0000000625	0000000102	actividades	3.0	 	S	S	
+0000000626	0000000102	proyectos	4.0	 	S	S	
+0000000627	0000000102	imágenes	5.0	 	S	S	
+0000000628	0000000102	contacto	6.0	 	S	S	
+0000000629	0000000103	presentación	1.0	 	S	S	
+0000000630	0000000103	currículo	2.0	 	S	S	
+0000000631	0000000103	actividades	3.0	 	S	S	
+0000000632	0000000103	proyectos	4.0	 	S	S	
+0000000633	0000000103	imágenes	5.0	 	S	S	
+0000000634	0000000103	contacto	6.0	 	S	S	
+0000000635	0000000104	presentación	1.0	 	S	S	
+0000000636	0000000104	currículo	2.0	 	S	S	
+0000000637	0000000104	actividades	3.0	 	S	S	
+0000000638	0000000104	proyectos	4.0	 	S	S	
+0000000639	0000000104	imágenes	5.0	 	S	S	
+0000000640	0000000104	contacto	6.0	 	S	S	
+0000000641	0000000105	presentación	1.0	 	S	S	
+0000000642	0000000105	currículo	2.0	 	S	S	
+0000000643	0000000105	actividades	3.0	 	S	S	
+0000000644	0000000105	proyectos	4.0	 	S	S	
+0000000645	0000000105	imágenes	5.0	 	S	S	
+0000000646	0000000105	contacto	6.0	 	S	S	
+0000000653	0000000107	presentación	1.0	 	S	S	
+0000000654	0000000107	currículo	2.0	 	S	S	
+0000000655	0000000107	actividades	3.0	 	S	S	
+0000000656	0000000107	proyectos	4.0	 	S	S	
+0000000657	0000000107	imágenes	5.0	 	S	S	
+0000000658	0000000107	contacto	6.0	 	S	S	
+0000000659	0000000108	presentación	1.0	 	S	S	
+0000000660	0000000108	currículo	2.0	 	S	S	
+0000000661	0000000108	actividades	3.0	 	S	S	
+0000000662	0000000108	proyectos	4.0	 	S	S	
+0000000663	0000000108	imágenes	5.0	 	S	S	
+0000000664	0000000108	contacto	6.0	 	S	S	
+0000000665	0000000109	presentación	1.0	 	S	S	
+0000000666	0000000109	currículo	2.0	 	S	S	
+0000000667	0000000109	actividades	3.0	 	S	S	
+0000000668	0000000109	proyectos	4.0	 	S	S	
+0000000669	0000000109	imágenes	5.0	 	S	S	
+0000000670	0000000109	contacto	6.0	 	S	S	
+0000000671	0000000110	presentación	1.0	 	S	S	
+0000000672	0000000110	currículo	2.0	 	S	S	
+0000000673	0000000110	actividades	3.0	 	S	S	
+0000000674	0000000110	proyectos	4.0	 	S	S	
+0000000675	0000000110	imágenes	5.0	 	S	S	
+0000000676	0000000110	contacto	6.0	 	S	S	
+0000000677	0000000111	presentación	1.0	 	S	S	
+0000000678	0000000111	currículo	2.0	 	S	S	
+0000000679	0000000111	actividades	3.0	 	S	S	
+0000000680	0000000111	proyectos	4.0	 	S	S	
+0000000681	0000000111	imágenes	5.0	 	S	S	
+0000000682	0000000111	contacto	6.0	 	S	S	
+0000000683	0000000112	presentación	1.0	 	S	S	
+0000000684	0000000112	currículo	2.0	 	S	S	
+0000000685	0000000112	actividades	3.0	 	S	S	
+0000000686	0000000112	proyectos	4.0	 	S	S	
+0000000687	0000000112	imágenes	5.0	 	S	S	
+0000000688	0000000112	contacto	6.0	 	S	S	
+0000000690	0000000113	presentación	1.0	 	S	S	
+0000000691	0000000113	currículo	2.0	 	S	S	
+0000000692	0000000113	actividades	3.0	 	S	S	
+0000000693	0000000113	proyectos	4.0	 	S	S	
+0000000694	0000000113	imágenes	5.0	 	S	S	
+0000000695	0000000113	contacto	6.0	 	S	S	
+0000000696	0000000114	presentación	1.0	 	S	S	
+0000000697	0000000114	currículo	2.0	 	S	S	
+0000000698	0000000114	actividades	3.0	 	S	S	
+0000000699	0000000114	proyectos	4.0	 	S	S	
+0000000700	0000000114	imágenes	5.0	 	S	S	
+0000000701	0000000114	contacto	6.0	 	S	S	
+0000000714	0000000117	presentación	1.0	 	S	S	
+0000000715	0000000117	currículo	2.0	 	S	S	
+0000000716	0000000117	actividades	3.0	 	S	S	
+0000000717	0000000117	proyectos	4.0	 	S	S	
+0000000718	0000000117	imágenes	5.0	 	S	S	
+0000000719	0000000117	contacto	6.0	 	S	S	
+0000000750	0000000123	presentación	1.0	 	S	S	
+0000000751	0000000123	currículo	2.0	 	S	S	
+0000000752	0000000123	actividades	3.0	 	S	S	
+0000000753	0000000123	proyectos	4.0	 	S	S	
+0000000754	0000000123	imágenes	5.0	 	S	S	
+0000000755	0000000123	contacto	6.0	 	S	S	

@@ -1,0 +1,7 @@
+Notificación Primera a Cliente (gestión de cobro)                                                   	d_carta_reclamacion_1_lr	P	1 	2	3	S	30.0	C	N	Primer Comunicado		%
+Notificación Segunda a Cliente (gestión de cobro)                                                   	d_carta_reclamacion_2_lr	P	2 	3	3	N	30.0	C	N	Segundo Comunicado		%
+Notificación Segunda a Colegiado (gestión de cobro)                                                 	d_carta_reclamacion_3_lr	P	3 	4	3	N	-1.0	C	N	Segundo Com. Colegiado		%
+Notificación Tercera a Colegiado (gestión de cobro)                                                 	d_carta_reclamacion_4_lr	A	4 	@@	3	N	15.0	C	N	Tercer Com. Colegiado		%
+Notificación Primera a Colegiado (Sin gestión de cobro) - Aviso Anulación                           	d_carta_reclamacion_5_lr	P	5 	z	1	S	30.0	S	N	Aviso Anulación Visado		%
+Notificación Segunda a Colegiado (Sin gestión de cobro) - Anulación                                 		P	z 	@@	1	N	30.0	S	N	Anulación Visado		%
+Listado de Minutas Impagadas con más de 180 días                                                    	d_fases_listado_impagadas_180_dias	P	6 	@@					S			

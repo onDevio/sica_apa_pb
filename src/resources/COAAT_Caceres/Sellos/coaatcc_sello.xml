@@ -1,0 +1,60 @@
+<sello> 
+  <x>${x}</x>
+  <y>${y}</y>
+  <anchura>240</anchura>
+  <altura>85</altura>
+  <vertical>false</vertical>
+  <posicion>${margen}</posicion>
+  <textos>
+
+  <texto>
+      <x>23</x>
+      <y>43</y>    
+      <contenido>Nº Visado</contenido>
+      <fuente>${directorio_windows}\Fonts\arial.ttf</fuente>
+      <size>10</size> 
+      <color>179,4,5</color>
+    </texto>
+
+
+	<texto>
+      <x>16</x>
+      <y>32</y>    
+      <contenido>${archivo}</contenido>
+      <fuente>${directorio_windows}\Fonts\arial.ttf</fuente>
+      <size>10</size> 
+      <color>179,4,5</color>
+    </texto>
+
+    <texto>
+      <x>157</x>
+      <y>43</y>    
+      <contenido>Fecha Visado</contenido>
+      <vertical>true</vertical>
+      <fuente>${directorio_windows}\Fonts\arial.ttf</fuente>
+      <size>10</size> 
+      <color>179,4,5</color>
+    </texto>
+
+
+	<texto>
+      <x>165</x>
+      <y>32</y>    
+      <contenido>${f_visado}</contenido>
+      <fuente>${directorio_windows}\Fonts\arial.ttf</fuente>
+      <size>10</size> 
+      <color>179,4,5</color>
+    </texto>
+  
+ 
+   </textos>
+  <imagenes>
+    <imagen>
+      <x>0</x>
+      <y>0</y>
+      <ruta>${directorio_imagenes}\coaatcc_sello.gif</ruta>
+      <escala>23</escala>
+    </imagen>
+
+  </imagenes>
+</sello>

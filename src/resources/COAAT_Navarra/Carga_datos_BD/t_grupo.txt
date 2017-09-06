@@ -1,0 +1,10 @@
+01        	Colegiados
+02        	Acreditados
+03        	Registrados
+04        	Registrados Profesionales
+05        	Registrados Estudiantes
+C         	Colegiados Navarra
+A         	Acreditados Navarra
+R         	Registrados Navarra
+P         	Profesionales Navarra
+E         	Estudiantes Navarra

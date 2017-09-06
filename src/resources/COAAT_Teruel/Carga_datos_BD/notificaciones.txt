@@ -1,0 +1,6 @@
+Primera a Cliente (CGC)                                                                             	d_carta_reclamacion_1_cgc_ter	P	1 	2	3	S	0.0	C	S	Primer Comunicado		%
+Segunda a Cliente (CGC)                                                                             	d_carta_reclamacion_2_cgc_ter	P	2 	3	3	N	60.0	C	S	Segundo Comunicado		%
+Tercera a Cliente (CGC)                                                                             	d_carta_reclamacion_3_cgc_ter	D	3 	@@	3	N	60.0	C	S	Tercer Comunicado		%
+Primera a Colegiado (SGC)                                                                           	d_carta_reclamacion_1_sgc_ter	C	5 	6	1	S	0.0	S	S	Primer Comunicado		%
+Segunda a Colegiado (SGC)                                                                           	d_carta_reclamacion_1_sgc_ter	C	6 	7	1	N	60.0	S	S	Segundo Comunicado		%
+Tercera a Colegiado (SGC)                                                                           	d_carta_reclamacion_1_sgc_ter	C	7 	@@	1	N	60.0	S	S	Tercer Comunicado		%

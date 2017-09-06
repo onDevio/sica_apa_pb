@@ -1,0 +1,43 @@
+<sello>
+  <x>${x}</x>
+  <y>${y}</y>
+  <anchura>150</anchura>
+  <altura>150</altura>
+  <vertical>false</vertical>
+  <posicion>${margen}</posicion>
+  <textos>
+    <texto>
+      <x>101</x>
+      <y>11</y>    
+      <contenido>${n_registro}</contenido>
+      <fuente>${directorio_windows}\Fonts\Gothic.ttf</fuente>
+      <size>6</size> 
+      <color>0,174,239</color>
+    </texto> 
+    <texto>
+      <x>71</x>
+      <y>5</y>    
+      <contenido>${referencia}</contenido>
+      <fuente>${directorio_windows}\Fonts\Gothic.ttf</fuente>
+      <size>6</size> 
+      <color>0,174,239</color>
+    </texto> 
+	<texto>
+      <x>39</x>
+      <y>77</y>    
+      <contenido>${f_visado}</contenido>
+      <fuente>${directorio_windows}\Fonts\Gothic.ttf</fuente>
+      <size>16</size> 
+      <color>0,174,239</color>
+    </texto>
+
+   </textos>
+  <imagenes>
+   <imagen>
+      <x>0</x>
+      <y>0</y>
+	  <ruta>${directorio_imagenes}Sello.gif </ruta>
+      <escala>18</escala>
+    </imagen>
+  </imagenes>
+</sello>

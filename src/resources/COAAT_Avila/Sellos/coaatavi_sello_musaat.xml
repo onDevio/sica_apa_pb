@@ -1,0 +1,18 @@
+<sello>
+  <x>${x}</x>
+  <y>${y}</y>
+  <anchura>500</anchura>
+  <altura>200</altura>
+  <vertical>false</vertical>
+  <posicion>${margen}</posicion>
+ 
+   
+  <imagenes>
+    <imagen>
+      <x>1</x>
+      <y>1</y>
+      <ruta>${directorio_imagenes}\coaatavi_musaat.gif</ruta>
+      <escala>40</escala>
+    </imagen>
+  </imagenes>
+</sello>

@@ -1,0 +1,118 @@
+05        	TAXA DE VISAT		70500003		S	S	0.0	S	S	0.0		COAATLL   	Z8	N		N	QIP	N		N	S	N	01		S
+12        	MUSAAT. PRIMA VARIABLE	01	55230003		S	S	0.0	N	S	0.0		COAATLL   	00	N		N	ARC MUSAAT	N		N	N	N	01		S
+1502k     	PREMAAT-QUOTA 2000	02	41000066		N	S	0.0	S	N	0.0	0	COAATLL   	00	N		S		N		S	N	N	01		N
+150Vc     	PREMAAT-QUOTA VIUDETAT C1	02	41000066		N	S	0.0	S	N	0.0	0	COAATLL   	00	N		S		N		N	N	N	01		N
+101       	MUTUA GRUP BASIC	02	41000066		S	S	0.0	S	S	0.0		COAATLL   		N		S		N		N	N	N	01		N
+150Ba     	PREMAAT-QUOTA BASIC	02	41000066		N	S	0.0	S	N	0.0	0	COAATLL   	00	N		S		N		S	N	N	01		N
+150C1     	PREMAAT-QUOTA COMPL.1	02	41000066		N	S	0.0	S	N	0.0	0	COAATLL   	00	N		S		N		S	N	N	01		N
+150Jv     	PREMAAT-QUOTA JUB/VIUD C2	02	41000066		N	S	0.0	S	N	0.0	0	COAATLL   	00	N		S		N		N	N	N	01		N
+150Sv     	PREMAAT-QUOTA SEG. VIDA C2	02	41000066		N	S	0.0	S	N	0.0	0	COAATLL   	00	N		S		N		N	N	N	01		N
+150Vb     	PREMAAT-QUOTA VIUDETAT BA	02	41000066		N	S	0.0	S	N	0.0	0	COAATLL   	00	N		S		N		N	N	N	01		N
+116       	MUTUA GRUP AMPLIAT	02	41000066		S	S	0.0	N	S	0.0		COAATLL   		N		N		N		N	N	N	01		N
+EXP       	CONCEPTOS DE EXPEDIENTES	E	EXP	EXP	S	S	0.0	S	S	0.0	0	COAATLL   		N		S	EXP	N		N	N	N	01		N
+15        	HONORARIS COL.LEGI	H	X0		S	S	0.0	S	S	0.0		COAATLL   	Z8	N		N	IVA COL·LEGI	N		N	S	N	01		N
+03        	QUOTA MENSUAL MUSAAT		0X		N	S	0.0	S	N	0.0		COAATLL   	0N	N		S		N		N	N	N	01		N
+INTER     	TAXA DE VISAT ALTRES	QI	70500003	X	N	S	0.0	S	N	0.0	0	COAATLL   	Z8	N	 	S	 	N	 	N	S	N	01	 	N
+HONOR     	HONORARIS                                         	00	X	X	N	S	0.0	S	N	0.0	0	COAATLL   	Z8	N	 	N	 	N	 	N	N	N	01	 	N
+SRC       	ASSEGURANÇA DE RESPONSABILITAT CIVIL MUSAAT       	PR	X	X	N	S	0.0	S	N	0.0	0	COAATLL   	05	N	 	N	 	S	 	N	N	N	01	 	N
+20        	LLIBRE DE REGISTRE                                	DV	75000002	X	S	S	0.0	S	N	0.0	0	COAATLL   	Z8	N	 	N	 	N	 	N	N	N	01	75000002	N
+904       	CERTIFICAT D'HABITATGE USAT                       	CE	X	X	N	S	0.0	S	N	0.0	0	COAATLL   	04	N	 	N	 	N	 	N	N	N	01	 	N
+21        	LLIBRE D'INCIDENCIES                              	LI	75000002	X	S	S	5.0	S	S	.90000000000000002	0	COAATLL   	Z8	N	 	N	LLIBRE D'INCIDENCIES	N	 	N	S	N	01	75000002	N
+TAXES     	TAXES                                             	GE	X	X	N	S	0.0	S	N	0.0	0	COAATLL   	Z8	N	 	N	 	N	 	N	N	N	01	 	N
+903       	PRIMA REGULACIO A.R.C.                            	PR	X	X	N	S	0.0	S	N	0.0	0	COAATLL   	04	N	 	N	 	N	 	N	N	N	01	 	N
+901       	GESTIO DE COBRAMENT                               	GE	X	X	N	S	0.0	S	N	0.0	0	COAATLL   	Z8	N	 	N	 	N	 	N	N	N	01	 	N
+905       	DESPESES DE VISAT                                 	DV	X	X	N	S	0.0	S	N	0.0	0	COAATLL   	Z8	N	 	N	 	N	 	N	N	N	01	 	N
+908       	QUOTA INTERVENCIO COL·LEGIAL                      	QI	X	X	N	S	0.0	S	N	0.0	0	COAATLL   	Z8	N	 	N	 	N	 	N	S	N	01	 	N
+910       	DEVOLUCIO PENYORA VISAT                           	PE	X	X	N	S	0.0	S	N	0.0	0	COAATLL   	04	N	 	N	 	N	 	N	N	N	01	 	N
+LLOGUER   	LLOGUER LOCALS                                    	LL	75200001	X	N	S	0.0	S	N	0.0	0	COAATLL   	Z8	N	 	N	 	N	 	N	N	N	01	 	N
+ET001     	LLOGUER  ESTACIÓ TOTAL ELECTRONICA SOKKIA SET5A   	PA	 75000002	X	N	S	0.0	S	N	0.0	0	COAATLL   	Z8	N	 	N	 	N	 	N	N	N	01	 	N
+ETL11     	LLOGUER ESTACIÓ TRIMBLE 3605 DR                   	PA	X	X	N	S	0.0	S	N	0.0	0	COAATLL   	Z8	N	 	N	 	N	 	N	N	N	01	 	N
+LLIBRE    	VENDA DE LLIBRES                                  	LI	75000002	X	N	S	0.0	S	N	0.0	0	COAATLL   	03	N	 	N	 	N	 	N	N	N	01	 	N
+CD06      	LLOGUER CAMARA FOTOGRAFICA DIGITAL                	PA	X	X	N	S	0.0	S	N	0.0	0	COAATLL   	Z8	N	 	N	 	N	 	N	N	N	01	 	N
+AP-MULTI  	Multillicencia programa Apartot                   	PG	X	X	N	S	0.0	S	N	0.0	0	COAATLL   	Z8	N	 	N	 	N	 	N	N	N	01	 	N
+SALA      	LLOGUER SALA D'ACTES                              	SA	X	X	N	S	0.0	S	N	0.0	0	COAATLL   	Z8	N	 	N	 	N	 	N	N	N	01	 	N
+LLOGUER2  	DESPESES MES DE                                   	LL	75200001	X	N	S	0.0	S	N	0.0	0	COAATLL   	Z8	N	 	N	 	N	 	N	N	N	01	 	N
+MASTER    	MASTERPROJECT MANAGER                             	MA	X	X	N	S	0.0	N	N	0.0	0	COAATLL   	Z8	N	 	N	 	N	 	N	N	N	01	 	N
+LLAM      	LLOGUER APARELLS MENSUAL                          	PA	75000002	X	N	S	0.0	S	N	0.0	0	COAATLL   	Z8	N	 	N	 	N	 	N	S	N	01	 	N
+QUO05     	CIGNA                                             	Q5	X	X	N	S	0.0	S	N	0.0	0	COAATLL   	05	N	 	N	 	N	 	N	N	N	01	 	N
+QUO06     	ADESLAS                                           	Q6	X	X	N	S	0.0	S	N	0.0	0	COAATLL   	05	N	 	N	 	N	 	N	N	N	01	 	N
+QUO07     	COMPRA PREMAAT                                    	Q7	X	X	N	S	0.0	S	N	0.0	0	COAATLL   	05	N	 	N	 	N	 	N	N	N	01	 	N
+QUO08     	TAXADORS                                          	Q8	X	X	N	S	0.0	S	N	0.0	0	COAATLL   	05	N	 	N	 	N	 	N	N	N	01	 	N
+QUO09     	QUOTA INCORPORACIO                                	Q9	70500002	X	N	S	20.0	S	N	0.0	0	COAATLL   	06	N	 	S	 	N	 	S	S	N	01	 	N
+APORT.    	APORTACIO FUNDACIO LL.SOLIDARIA                   	AP	41000833	X	N	S	0.0	S	N	0.0	0	COAATLL   	05	N	 	N	 	N	 	N	N	N	01	 	N
+PRG       	PROGRAMA INFORMÀTIC                               	PG	7500002	X	N	S	0.0	S	N	0.0	0	COAATLL   	Z8	N	 	N	 	N	 	N	S	N	01	 	N
+PROGRAMA  	PROGRAMA INFORMÀTIC                               	PG	75000002	X	N	S	0.0	S	N	0.0	0	COAATLL   	03	N	 	N	 	N	 	N	S	N	01	 	N
+ABONO     	ABONAMENT FACTURES                                	AB	X	X	N	S	0.0	S	N	0.0	0	COAATLL   	Z8	N	 	N	 	N	 	N	N	N	01	 	N
+DESPESES  	DESPESES GENERALS                                 	DS	X	X	N	S	0.0	S	N	0.0	0	COAATLL   	Z8	N	 	N	 	N	 	N	N	N	01	 	N
+TEDI      	TL-                                               	TD	X	X	N	S	0.0	S	N	0.0	0	COAATLL   	Z8	N	 	N	 	N	 	N	N	N	01	 	N
+LLOG      	LLOGUER APARELLS                                  	LL	75000002	X	N	S	0.0	S	N	0.0	0	COAATLL   	Z8	N	 	N	 	N	 	N	N	N	01	 	N
+ENDARR    	ENDARRERIMENTS LLOGUER                            	LL	X	X	N	S	0.0	S	N	0.0	0	COAATLL   	Z8	N	 	N	 	N	 	N	N	N	01	 	N
+SP        	SPONSOR AGENDA C.A.A.T. DE LLEIDA,  ANY 2008      	SP	X	X	N	S	0.0	S	N	0.0	0	COAATLL   	Z8	N	 	N	 	N	 	N	N	N	01	 	N
+TEDI2     	REGULARITZACIO FRA.N.                             	TD	X	X	N	S	0.0	S	N	0.0	0	COAATLL   	Z8	N	 	N	 	N	 	N	N	N	01	 	N
+JORNADA   	JORNADA TECNICA M.TELLA                           	JO	X	X	N	S	0.0	S	N	0.0	0	COAATLL   	04	N	 	N	 	N	 	N	N	N	01	 	N
+SUBVENCO  	SUBVENCIO 10%                                     	MA	X	X	N	S	0.0	S	N	0.0	0	COAATLL   	04	N	 	N	 	N	 	N	N	N	01	 	N
+ARQ       	CONTRACTE MANTENIMENT 2006 (ARQ+CC+CCÇ)           	AR	X	X	N	S	0.0	S	N	0.0	0	COAATLL   	Z8	N	 	N	 	N	 	N	N	N	01	 	N
+PORTS     	Despeses de tramesa                               	LI	75000003	X	N	S	0.0	S	N	0.0	0	COAATLL   	Z8	N	 	N	 	N	 	N	S	N	01	 	N
+ASS.      	ACUERDO TRANSACCIONAL EN EL EX.                   	AS	X	X	N	S	0.0	N	N	0.0	0	COAATLL   	Z8	N	 	N	 	N	 	N	N	N	01	 	N
+SET       	SECRETARÍA,EXECUCIÓ PRESSUPOST IX S.E.U.          	EU	X	X	N	S	0.0	S	N	0.0	0	COAATLL   	Z8	N	 	N	 	N	 	N	N	N	01	 	N
+GTS       	LLUM I GAS                                        	LU	X	X	N	S	0.0	S	N	0.0	0	COAATLL   	Z8	N	 	N	 	N	 	N	N	N	01	 	N
+GTS2      	TELÈFON                                           	TF	X	X	N	S	0.0	S	N	0.0	0	COAATLL   	Z8	N	 	N	 	N	 	N	N	N	01	 	N
+GTS3      	CORREU                                            	CO	X	X	N	S	0.0	S	N	0.0	0	COAATLL   	Z8	N	 	N	 	N	 	N	S	N	01	 	N
+GTS4      	NETEJA                                            	NE	X	X	N	S	0.0	S	N	0.0	0	COAATLL   	Z8	N	 	N	 	N	 	N	N	N	01	 	N
+INTER1    	QIP  HABITATGE USAT                               	QI	X	X	N	S	0.0	S	N	0.0	0	COAATLL   	Z8	N	 	N	 	N	 	N	S	N	01	 	N
+SRC1      	ARC  CERTIFICAT HABITATGE USAT                    	PR	X	X	N	S	0.0	S	N	0.0	0	COAATLL   	05	N	 	N	 	N	 	N	N	N	01	 	N
+906       	QIP  HABITATGE USAT                               	QI	X	X	N	S	0.0	S	N	0.0	0	COAATLL   	Z8	N	 	N	 	N	 	N	S	N	01	 	N
+SER       	SERVEIS D'ASSESSORAMENT                           	SE	75000005	X	N	S	0.0	S	N	0.0	0	COAATLL   	Z8	N	 	N	 	N	 	N	N	N	01	 	N
+COMP.     	COMPENSACION 1ER.SEMESTRE 2007                    	CM	X	X	N	S	0.0	S	N	0.0	0	COAATLL   	04	N	 	N	 	N	 	N	N	N	01	 	N
+AN        	ANUNCI REVISTA "PARC TECNOLOGIC DEL GARDENY"      	PU	X	X	N	S	0.0	N	N	0.0	0	COAATLL   	Z8	N	 	N	 	N	 	N	N	N	01	 	N
+CO        	Col.laboració Econòmica acord 2007                	CL	X	X	N	S	0.0	S	N	0.0	0	COAATLL   	Z8	N	 	N	 	N	 	N	N	N	01	 	N
+SP2       	ABONO FRA.N.                                      	RA	X	X	N	S	0.0	S	N	0.0	0	COAATLL   	Z8	N	 	N	 	N	 	N	N	N	01	 	N
+LLIC      	LLICENCIES D'OFFICE 2007                          	LC	X	X	N	S	0.0	S	N	0.0	0	COAATLL   	Z8	N	 	N	 	N	 	N	N	N	01	 	N
+INC       	COMPENSACIÓ PREMAAT                               	IN	X	X	N	S	0.0	S	N	0.0	0	COAATLL   	04	N	 	N	 	N	 	N	N	N	01	 	N
+HS        	Honoraris                                         	CL	X	X	N	S	0.0	S	N	0.0	0	COAATLL   	04	N	 	N	 	N	 	N	N	N	01	 	N
+FOT       	FOTOCOPIES                                        	FO	75000003	X	N	S	0.0	S	N	0.0	0	COAATLL   	Z8	N	 	N	 	N	 	N	S	N	01	 	N
+DS        	Despeses retorn rebut                             	DP	X	X	N	S	0.0	S	N	0.0	0	COAATLL   	04	N	 	N	 	N	 	N	N	N	01	 	N
+IN        	INSERCIÓ ANUNCIS PROMOCIONALS MEMÒRIA 2008        	IN	X	X	N	S	0.0	S	N	0.0	0	COAATLL   	Z8	N	 	N	 	N	 	N	N	N	01	 	N
+PRES      	PRESTACIO DE SERVEIS SEGONS CONVENI               	SE	X	X	N	S	0.0	S	N	0.0	0	COAATLL   	Z8	N	 	N	 	N	 	N	N	N	01	 	N
+AVAL      	Despeses Aval                                     	AV	75900007	X	N	S	0.0	S	N	0.0	0	COAATLL   	Z8	N	 	N	 	N	 	N	S	N	01	 	N
+COL       	Col.laboració Trobada Aparelladors i A.T. 2009    	CB	X	X	N	S	0.0	S	N	0.0	0	COAATLL   	Z8	N	 	N	 	N	 	N	N	N	01	 	N
+SPS       	SPONSOR AGENDA CAATLLEIDA 2010                    	SP	X	X	N	S	0.0	S	N	0.0	0	COAATLL   	Z8	N	 	N	 	N	 	N	N	N	01	 	N
+CA        	Organització X Setmana d'Estudis Urbans           	ca	X	X	N	S	0.0	S	N	0.0	0	COAATLL   	Z8	N	 	N	 	N	 	N	N	N	01	 	N
+CERT      	Certificats Col.legi Curs Complements de Formació 	CF	X	X	N	S	0.0	S	N	0.0	0	COAATLL   	Z8	N	 	N	 	N	 	N	S	N	01	 	N
+QUO10     	QUOTA SOCIETAT                                    	QQ	70500006	X	N	S	0.0	S	N	0.0	0	COAATLL   	0N	N	 	S	 	N	 	N	S	N	01	 	N
+CAL       	CÀLCUL DESPESES DE VISAT                          	CA	X	X	N	S	0.0	S	N	0.0	0	COAATLL   	Z8	N	 	N	 	N	 	N	N	N	01	 	N
+INF       	CERTIFICATS COL.LEGIALS DIVERSOS                  	CE	75000003	X	N	S	0.0	S	N	0.0	0	COAATLL   	Z8	N	 	N	 	N	 	N	S	N	01	 	N
+SPS1      	SPONSOR AGENDA 2011                               	SS	X	X	N	S	0.0	S	N	0.0	0	COAATLL   	Z8	N	 	N	 	N	 	N	N	N	01	 	N
+01        	QUOTA COLEGIAL	03	70500001	X	N	S	0.0	S	N	0.0	0	COAATLL   	00	N	 	S	 	N	 	N	N	N	01	 	N
+02        	PREMAAT	02	41000066	X	N	S	0.0	N	N	0.0	0	COAATLL   	0N	N	 	S	 	N	 	N	N	N	01	 	N
+04        	AMPLIACIÓ PREMAAT	Q4	X	X	N	S	0.0	S	N	0.0	0	COAATLL   	05	N	 	N	 	N	 	N	N	N	01	 	N
+QUO02     	PREMAAT	02	X	X	N	S	0.0	N	N	0.0	0	COAATLL   	00	N		S		N					01		
+QUO01     	QUOTA COL.LEGIAL	Q1	70500001		N	S	0.0	S	N	0.0	0	COAATLL   	0N	N		S		N		S	S	N	01		
+DRE       	DESPESES DE REGISTRE	DR	70500003	X	S	S	0.0	S	S	0.0	0	COAATLL   	Z8	S		N		N		N	N	N	01		N
+12        	MUSAAT	01	55230003		S	S	0.0	S	S	0.0		COAATLL   	00	N		N	ARC MUSAAT	N		N	N	N	02		S
+1502k     	PREMAAT-QUOTA 2000	02	413000001		N	S	0.0	S	N	0.0	0	COAATLL   	00	N		S		N		S	N	N	02		N
+150Vc     	PREMAAT-QUOTA VIUDETAT C1	02	413000001		N	S	0.0	S	N	0.0	0	COAATLL   	00	N		S		N		N	N	N	02		N
+101       	MUTUA GRUP BASIC	02	X0		S	S	0.0	S	S	0.0		COAATLL   		N		S		N		N	N	N	02		N
+150Ba     	PREMAAT-QUOTA BASIC	02	413000001		N	S	0.0	S	N	0.0	0	COAATLL   	00	N		S		N		S	N	N	02		N
+150C1     	PREMAAT-QUOTA COMPL.1	02	413000001		N	S	0.0	S	N	0.0	0	COAATLL   	00	N		S		N		S	N	N	02		N
+150Jv     	PREMAAT-QUOTA JUB/VIUD C2	02	413000001		N	S	0.0	S	N	0.0	0	COAATLL   	00	N		S		N		N	N	N	02		N
+150Sv     	PREMAAT-QUOTA SEG. VIDA C2	02	413000001		N	S	0.0	S	N	0.0	0	COAATLL   	00	N		S		N		N	N	N	02		N
+150Vb     	PREMAAT-QUOTA VIUDETAT BA	02	413000001		N	S	0.0	S	N	0.0	0	COAATLL   	00	N		S		N		N	N	N	02		N
+116       	MUTUA GRUP AMPLIAT	02	X0		S	S	0.0	S	S	0.0		COAATLL   		N		N		N		N	N	N	02		N
+02        	PREMAAT	02	X	X	N	S	0.0	S	N	0.0	0	COAATLL   	05	N	 	S	 	N	 	N	N	N	02	 	N
+QUO02     	PREMAAT	02	X	X	N	S	0.0	S	N	0.0	0	COAATLL   	00	N		S		N					02		
+CURS      	CURS	 	1	 	N	S	0.0	S	N	0.0		COAATLL   	Z8	N	 	N	 	N	 	N	S	N	01		
+22        	LLIBRE D'OBRA                                     	LI	75000002	X	S	S	5.0	S	S	.90000000000000002	0	COAATLL   	Z8	N	 	N	LLIBRE D'OBRA	N	COAATT LLEIDA	N	N	N	01	75000002	N
+ARP       	Arrendament copiadora	FO	75000003	 	N	N	0.0	S	N	0.0		COAATLL   	Z8	N	 	N	Arrendament copiadora	N	 	S	S	N	01	 	
+23        	DESPESES PER GESTIÓ DE COBRAMENT	DV	77050004	 	S	S	0.0	S	S	0.0		COAATLL   	Z8	N	 	N	 	N	 	N	S	N	01	77050004	
+DRE1      	DESPESA REGISTRE DOCUMENTACIO	DV	1	 	S	S	30.0	S	S	5.4000000000000004		COAATLL   	Z8	N	 	N	 	N	 	N	N	N	01	 	
+QIP1      	TAXA ALTRES INTERVENCIONS	QI	70500003	 	S	S	40.0	S	S	7.2000000000000002		COAATLL   	Z8	N	 	N	QIP	N	 	N	S	N	01		
+VA        	CONCEPTES GENERALS	JO	75000003	 	N	S	0.0	S	N	0.0		COAATLL   	Z8	N	 	N	 	N	 	N	N	N	01		
+CD        	COMPULSA DE DOCUMENTS	00	75000003	 	N	S	0.0	S	N	0.0		COAATLL   	Z8	N	 	N	 	N	 	N	S	N	01		
+CP        	COMANDAMENT PARQUING	00	75000003	 	N	S	26.0	S	N	0.0		COAATLL   	0N	N	 	N	 	N	 	N	S	N	01		
+APORT     	QUOTA SOCI FUNDACIO LL.SOLIDARI	AP	41000833	 	N	S	20.0	S	N	0.0		COAATLL   	 	N	 	N	Quota Soci 2011 Fundacio Ll.Solidaria	N	 	N	N	N	01		
+100       	LOTERIA DE NADAL	LO	41900009	 	N	N	5.0	S	N	0.0		COAATLL   	 	N	 	N	 	N	 	N	N	N	01		
+0100      	LOTERIA DE NADAL	LO	41900009	 	N	N	5.0	S	N	0.0		COAATLL   	 	N	 	N	Loteria de Nadal	N	 	N	N	N	02		
+INMO.     	VENDA INMOBILITZAT	IM	21100007	 	N	N	0.0	S	N	0.0		COAATLL   	Z8	N	 	N	 	N	 	N	S	N	01		
+RECL      	 	RE	75000003	 	N	N	0.0	S	N	0.0		COAATLL   	Z8	N	 	N	 	N	 	N	N	N	01		
+AG        	AGENDA 2012	SP	75900015	 	N	S	0.0	S	N	0.0		COAATLL   	Z8	N	 	N	 	N	 	N	S	N	01		

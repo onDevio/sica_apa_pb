@@ -1,0 +1,16 @@
+00	DESCONOCIDO                                                 
+A 	ORIENTACION A                                               
+L 	LIBERAL                                                     
+F 	FUNCIONARIO                                                 
+01	EMPRESARIO - PROMOTOR                                       
+02	EMPRESARIO - CONSTUCTOR                                     
+03	EMPRESARIO - PROMOTOR - CONSTRUCTOR                         
+04	EMPRESARIO                                                  
+05	FUNCIONARIO - LABORAL / FIJO DE LA ADMON. DEL ESTADO        
+06	FUNCIONARIO - LABORAL / FIJO DEL GOBIERNO AUTONOMO          
+07	FUNCIONARIO - LABORAL / FIJO DE LA ADMON. LOCAL             
+08	CONTRATADO / INTERINO DE LA ADMON DEL ESTADO                
+09	CONTRATADO / INTERINO DEL GOBIERNO AUTONOMO                 
+10	CONTRATADO / INTERINO DE LA ADMON. LOCAL                    
+11	EMPLEADO COMO ARQUITECTO TECNICO                            
+12	EMPLEADO NO ARQUITECTO TECNICO                              

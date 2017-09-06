@@ -1,0 +1,1704 @@
+50020 	50020 	ZARAGOZA                                                    	00050	297	0297		F		01
+50057 	50057 	POLIGONO INDUSTRIAL MALPICA                                 	00050	297	0297		F		01
+50058 	50058 	BARRIO SANTA ISABEL                                         	00050	297	0297		F		01
+50059 	50059 	BARRIO MONTAÐANA                                            	00050	297	0297		F		01
+50100 	50100 	LA ALMUNIA DE DOÐA GODINA                                   	00050	025	0025		F		01
+50108 	50108 	ALMONACID DE LA SIERRA                                      	00050	024	0024		F		01
+50130 	50130 	BELCHITE                                                    	00050	045	0045		F		01
+50131 	50131 	LECERA                                                      	00050	136	0136		F		01
+50132 	50132 	CODO                                                        	00050	085	0085		F		01
+50137 	50137 	PUEBLA DE ALBORTON                                          	00050	218	0218		F		01
+50140 	50140 	AZUARA                                                      	00050	039	0039		F		01
+50141 	50141 	JAULIN                                                      	00050	131	0013		F		01
+50142 	50142 	FUENDETODOS                                                 	00050	114	0114		F		01
+50150 	50150 	HERRERA DE LOS NAVARROS                                     	00050	124	0124		F		01
+50153 	50153 	VILLANUEVA DEL HUERVA                                       	00050	290	0164		F		01
+50154 	50154 	TOSOS                                                       	00050	297	0297		F		01
+50160 	50160 	LECIÐENA                                                    	00050	137	0137		F		01
+50161 	50161 	PERDIGUERA                                                  	00050	206	0206		F		01
+50163 	50163 	FARLETE                                                     	00050	104	0104		F		01
+50164 	50164 	MONEGRILLO                                                  	00050	170	0074		F		01
+50170 	50170 	MEQUINENZA                                                  	00050	165	0165		F		01
+50171 	50171 	PUEBLA DE ALFINDEN                                          	00050	219	0219		F		01
+50172 	50172 	ALFAJARIN                                                   	00050	017	0017		F		01
+50173 	50173 	NUEZ DE EBRO                                                	00050	193	0193		F		01
+50174 	50174 	VILLAFRANCA DE EBRO                                         	00050	285	0285		F		01
+50177 	50177 	BUJARALOZ                                                   	00050	059	0059		F		01
+50178 	50178 	LA ALMOLDA                                                  	00050	022	0022		F		01
+50180 	50180 	UTEBO                                                       	00050	272	0297		F		01
+50191 	50191 	BARRIO DE JUSLIBOL                                          	00050	297	0297		F		01
+50193 	50193 	PEÐAFLOR DE GALLEGO                                         	00050	297	0297		F		01
+50196 	50196 	LA MUELA                                                    	00050	182	0182		F		01
+50200 	50200 	ATECA                                                       	00050	038	0038		F		01
+50216 	50216 	VILLALENGUA                                                 	00050	287	0287		F		01
+50217 	50217 	TORRIJO DE LA CAÐADA                                        	00050	263	0263		F		01
+50220 	50220 	ARIZA                                                       	00050	034	0034		F		01
+50237 	50237 	JARABA                                                      	00050	129	0129		F		01
+50246 	50246 	BREA DE ARAGON                                              	00050	057	0057		F		01
+50248 	50248 	SESTRICA                                                    	00050	243	0243		F		01
+50249 	50249 	VIVER DE LA SIERRA                                          	00050	243	0243		F		01
+50257 	50257 	GOTOR                                                       	00050	121	0121		F		01
+50260 	50260 	MORATA DE JALON                                             	00050	175	0175		F		01
+50267 	50267 	MESONES DE ISUELA                                           	00050	166	0166		F		01
+50270 	50270 	RICLA                                                       	00050	225	0225		F		01
+50280 	50280 	CALATORAO                                                   	00050	068	0068		F		01
+50290 	50290 	EPILA                                                       	00050	099	0099		F		01
+50292 	50292 	CETINA                                                      	00050	081	0081		F		01
+50293 	50293 	TERRER                                                      	00050	253	0253		F		01
+50300 	50300 	CALATAYUD                                                   	00050	067	0067		F		01
+50311 	50311 	TORRALBA DE RIBOTA                                          	00050	257	0257		F		01
+50312 	50312 	CERVERA DE LA CAÐADA                                        	00050	079	0079		F		01
+50320 	50320 	EL FRASNO                                                   	00050	110	0110		F		01
+50325 	50325 	TOBED                                                       	00050	255	0255		F		01
+50326 	50326 	CODOS                                                       	00050	086	0086		F		01
+50330 	50330 	MIEDES                                                      	00050	169	0169		F		01
+50340 	50340 	MALUENDA                                                    	00050	159	0159		F		01
+50342 	50342 	PARACUELLOS DE JILOCA                                       	00050	201	0201		F		01
+50343 	50343 	VELILLA DE JILOCA                                           	00050	279	0279		F		01
+50370 	50370 	VILLANUEVA DE JILOCA                                        	00050	289	0297		F		01
+50372 	50372 	VAL DE SAN MARTIN                                           	00050	274	0274		F		01
+50390 	50390 	FUENTES DE JILOCA                                           	00050	116	0116		F		01
+50408 	50408 	AGUARON                                                     	00050	004	0004		F		01
+50409 	50409 	COSUENDA                                                    	00050	088	0088		F		01
+50410 	50410 	CUARTE DE HUERVA                                            	00050	089	0089		F		01
+50411 	50411 	SANTA FE                                                    	00050	056	0056		F		01
+50420 	50420 	CADRETE                                                     	00050	066	0066		F		01
+50430 	50430 	MARIA DE HUERVA                                             	00050	163	0163		F		01
+50440 	50440 	MOZOTA                                                      	00050	180	0180		F		01
+50441 	50441 	BOTORRITA                                                   	00050	056	0056		F		01
+50450 	50450 	MUEL                                                        	00050	181	0181		F		01
+50460 	50460 	LONGARES                                                    	00050	143	0143		F		01
+50461 	50461 	ALFAMEN                                                     	00050	018	0018		F		01
+50470 	50470 	ENCINACORBA                                                 	00050	098	0098		F		01
+50500 	50500 	TARAZONA                                                    	00050	251	0251		F		01
+50511 	50511 	MALON                                                       	00050	157	0157		F		01
+50513 	50513 	CUNCHILLOS                                                  	00050	122	0122		F		01
+50520 	50520 	MAGALLON                                                    	00050	153	0153		F		01
+50530 	50530 	NOVILLAS                                                    	00050	191	0191		F		01
+50540 	50540 	BORJA                                                       	00050	055	0055		F		01
+50561 	50561 	BISIMBRE                                                    	00050	052	0052		F		01
+50570 	50570 	AINZON                                                      	00050	006	0006		F		01
+50580 	50580 	VERA DE MONCAYO                                             	00050	280	0280		F		01
+50581 	50581 	LITUENIGO                                                   	00050	141			F		01
+50582 	50582 	LITAGO                                                      	00050	140	0140		F		01
+50584 	50584 	SAN MARTIN DE LA VIRGEN DE MONCAYO                          	00050	234	0235		F		01
+50590 	50590 	AÐON DE MONCAYO                                             	00050	030	0101		F		01
+50591 	50591 	ALCALA DE MONCAYO                                           	00050	014	0297		F		01
+50600 	50600 	EJEA DE LOS CABALLEROS                                      	00050	095	0095		F		01
+50613 	50613 	CASTEJON DE VALDEJASA                                       	00050	077	0077		F		01
+50620 	50620 	CASETAS, LAS                                                	00050	297	0297		F		01
+50629 	50629 	SOBRADIEL                                                   	00050	247	0247		F		01
+50630 	50630 	ALAGON                                                      	00050	008	0008		F		01
+50637 	50637 	REMOLINOS                                                   	00050	223	0297		F		01
+50638 	50638 	CABANAS DE EBRO                                             	00050	064	0064		F		01
+50640 	50640 	LUCENI                                                      	00050	147	0147		F		01
+50641 	50641 	BOQUIÐENI                                                   	00050	053	0053		F		01
+50650 	50650 	GALLUR                                                      	00050	118	0297		F		01
+50660 	50660 	TAUSTE                                                      	00050	252	0252		F		01
+50668 	50668 	PRADILLA DE EBRO                                            	00050	217	0217		F		01
+50670 	50670 	SADABA                                                      	00050	230	0230		F		01
+50678 	50678 	UNCASTILLO                                                  	00050	267	0267		F		01
+50680 	50680 	SOS DEL REY CATOLICO                                        	00050	248	0248		F		01
+50684 	50684 	SALVATIERRA DE ESCA                                         	00050	232	0232		F		01
+50688 	50688 	LONGAS                                                      	00050	144	0144		F		01
+50690 	50690 	PEDROLA                                                     	00050	204	0204		F		01
+50691 	50691 	ALCALA DE EBRO                                              	00050	013	0013		F		01
+50693 	50693 	TORRES DE BERRELLEN                                         	00050	262	0262		F		01
+50700 	50700 	CASPE                                                       	00050	074	0074		F		01
+50720 	50720 	CARTUJA BAJA                                                	00050	297	0297		F		01
+50730 	50730 	EL BURGO DE EBRO                                            	00050	062	0062		F		01
+50740 	50740 	FUENTES DE EBRO                                             	00050	115	0115		F		01
+50750 	50750 	PINA DE EBRO                                                	00050	208	0208		F		01
+50760 	50760 	VELILLA DE EBRO                                             	00050	278	0278		F		01
+50783 	50783 	ALFORQUE                                                    	00050	019	0019		F		01
+50784 	50784 	ZAIDA, LA                                                   	00050	296	0296		F		01
+50786 	50786 	GELSA DE EBRO                                               	00050	119	0119		F		01
+50790 	50790 	ESCATRON                                                    	00050	101	0101		F		01
+50791 	50791 	ESCATRON (POBLADO NUEVO)                                    	00050	101	0101		F		01
+50792 	50792 	CHIPRANA                                                    	00050	092	0074		F		01
+50793 	50793 	FABARA                                                      	00050	102	0102		F		01
+50794 	50794 	NONASPE                                                     	00050	189	0189		F		01
+50795 	50795 	FAYON                                                       	00050	105	0105		F		01
+50800 	50800 	ZUERA                                                       	00050	298	0298		F		01
+50820 	50820 	SAN JUAN MOZARRIFAR                                         	00050	297	0297		F		01
+50840 	50840 	SAN MATEO DE GALLEGO                                        	00050	235	0235		F		01
+50850 	50850 	MORAN                                                       	00050	238	0238		F		01
+50001 	50001 	ZARAGOZA                                                    	00050	297	0297		F		01
+50002 	50002 	ZARAGOZA                                                    	00050	297	0297		F		01
+50003 	50003 	ZARAGOZA                                                    	00050	297	0297		F		01
+50004 	50004 	ZARAGOZA                                                    	00050	297	0297		F		01
+50005 	50005 	ZARAGOZA                                                    	00050	297	0297		F		01
+50007 	50007 	ZARAGOZA                                                    	00050	297	0297		F		01
+50009 	50009 	ZARAGOZA                                                    	00050	297	0297		F		01
+50010 	50010 	ZARAGOZA                                                    	00050	297	0297		F		01
+50011 	50011 	ZARAGOZA                                                    	00050	297	0297		F		01
+50012 	50012 	ZARAGOZA                                                    	00050	297	0297		F		01
+50013 	50013 	ZARAGOZA                                                    	00050	297	0297		F		01
+50014 	50014 	ZARAGOZA                                                    	00050	297	0297		F		01
+31500 	31500 	TUDELA                                                      	00031	232			X		 
+22520 	22520 	FRAGA                                                       	00022	112			X		 
+31600 	31600 	BURLADA                                                     	00031	 			X		 
+50017 	50017 	ZARAGOZA                                                    	00050	297	0297		F		01
+07800 	07800 	IBIZA                                                       	07   	026			X		 
+22005 	22005 	HUESCA                                                      	00022	125			X		 
+28016 	28016 	MADRID                                                      	00028	079			F		 
+22002 	22002 	HUESCA                                                      	00022	800			X		 
+50016 	50016 	STA. ISABEL (Z)                                             	00050	297	0297		F		01
+31012 	31012 	PAMPLONA                                                    	00031	 			X		 
+28008 	28008 	MADRID                                                      	00028	 			X		 
+20008 	20008 	SAN SEBASTIAN                                               	00020	 			X		 
+13700 	13700 	TOMELLOSO                                                   	00013	 			F		 
+31522 	31522 	MONTEAGUADO                                                 	00031	 			X		 
+44200 	44200 	CALAMOCHA                                                   	00044	050			X		 
+28042 	28042 	MADRID                                                      	00028	 			X		 
+44530 	44530 	HIJAR                                                       	00044	122			X		 
+33007 	33007 	OVIEDO                                                      	00033	044			X		 
+22400 	22400 	MONZON                                                      	00022	158			X		 
+22300 	22300 	BARBASTRO                                                   	00022	048			X		 
+08024 	08024 	BARCELONA                                                   	00008	 			X		 
+08008 	08008 	BARCELONA                                                   	00008	 			F		 
+44002 	44002 	TERUEL                                                      	00044	216			X		 
+28043 	28043 	MADRID                                                      	00028	 			X		 
+28230 	28230 	LAS ROZAS                                                   	00028	 			X		 
+20011 	20011 	SAN SEBASTIAN                                               	00020	 			X		 
+08207 	08207 	SABADELL                                                    	00008	 			X		 
+20100 	20100 	RENTERIA                                                    	00020	 			X		 
+44593 	44593 	URREA DE GAEN                                               	00044	237			X		 
+08240 	08240 	MANRESA                                                     	00008	 			X		 
+31016 	31016 	MENDILLORRI                                                 	00031	 			X		 
+25193 	25193 	LERIDA                                                      	00025	 			X		 
+08022 	08022 	BARCELONA                                                   	00008	 			X		 
+25300 	25300 	TARREGA                                                     	00025	 			X		 
+28028 	28028 	MADRID                                                      	00028	 			X		 
+28022 	28022 	MADRID                                                      	00028	 			X		 
+46980 	46980 	TERRAMELAR (PATERNA)                                        	00046	 			X		 
+28035 	28035 	MADRID                                                      	00028	 			X		 
+29600 	29600 	MARBELLA                                                    	00029	 			X		 
+28034 	28034 	MADRID                                                      	00028	 			X		 
+42002 	42002 	SORIA                                                       	00042	 			X		 
+28002 	28002 	MADRID                                                      	00028	 			X		 
+08830 	08830 	SANT BOI DE LLOBREGAT                                       	00008	 			X		 
+28024 	28024 	MADRID                                                      	00028	 			X		 
+21004 	21004 	HUELVA                                                      	00021	 			X		 
+08010 	08010 	BARCELONA                                                   	00008	 			X		 
+22270 	22270 	ALMUDEVAR                                                   	00022	021			X		 
+44001 	44001 	TERUEL                                                      	00044	216			X		 
+41007 	41007 	SEVILLA                                                     	00041	 			X		 
+08021 	08021 	BARCELONA                                                   	00008	 			X		 
+08750 	08750 	MOLINS DE REY                                               	00008	123			X		 
+46006 	46006 	VALENCIA                                                    	00046	 			X		 
+28200 	28200 	S.LORENZO ESCORIAL                                          	00028	 			X		 
+22001 	22001 	HUESCA                                                      	00022	125			X		 
+50018 	50018 	ZARAGOZA                                                    	00050	297	0297		F		01
+09007 	09007 	BURGOS                                                      	00009	 			X		 
+08031 	08031 	BARCELONA                                                   	00008	 			X		 
+09131 	09131 	STA MARIA TAJADURA                                          	00009	 			X		 
+28014 	28014 	MADRID                                                      	00028	 			X		 
+26528 	26528 	VALVERDE                                                    	00026	 			X		 
+22003 	22003 	HUESCA                                                      	00022	125			X		 
+22390 	22390 	EL GRADO                                                    	00022	 			X		 
+22630 	22630 	BIESCAS                                                     	00022	059			X		 
+22500 	22500 	BINEFAR                                                     	00022	061			X		 
+22600 	22600 	SABIÐANIGO                                                  	00022	199			X		 
+22640 	22640 	FORMIGAL                                                    	00022	204			X		 
+22200 	22200 	SARIÐENA                                                    	00022	213			X		 
+22340 	22340 	BOLTAÐA                                                     	00022	 			X		 
+22424 	22424 	ESTADA                                                      	00022	 			X		 
+22430 	22430 	GRAUS                                                       	00022	117			X		 
+22194 	22194 	ALERRE                                                      	00022	 			X		 
+44550 	44550 	ALCORISA                                                    	00044	014			X		 
+44600 	44600 	ALCAÐIZ                                                     	00044	013			X		 
+44003 	44003 	TERUEL                                                      	00044	216			X		 
+44432 	44432 	ALCALA DE LA SELVA                                          	00044	 			X		 
+44580 	44580 	VALDERROBRES                                                	00044	 			X		 
+44708 	44708 	PALOMAR DE ARROYOS                                          	00044	 			X		 
+44564 	44564 	MAS DE LAS MATAS                                            	00044	 			X		 
+22550 	22550 	TAMARITE DE LITERA                                          	00022	 			X		 
+22080 	22080 	HUESCA                                                      	00022	 			X		 
+22485 	22485 	EL RUN                                                      	00022	 			X		 
+22435 	22435 	LA PUEBLA DE CASTRO                                         	00022	187			X		 
+22440 	22440 	BENASQUE                                                    	00022	 			X		 
+22367 	22367 	SAN JUAN DE PLAN                                            	00022	 			X		 
+22330 	22330 	AINSA (HUESCA)                                              	00022	907			X		 
+22450 	22450 	SENZ                                                        	00022	 			X		 
+22211 	22211 	CAPDESASO                                                   	00022	 			X		 
+22420 	22420 	ALMUNIA DE SAN JUAN                                         	00022	022			F		 
+22373 	22373 	FISCAL                                                      	00022	109			X		 
+22800 	22800 	AYERBE                                                      	00022	039			X		 
+22773 	22773 	BINIES                                                      	00022	076			X		 
+08006 	08006 	BARCELONA                                                   	00008	 			X		 
+31002 	31002 	PAMPLONA                                                    	00031	 			X		 
+28013 	28013 	MADRID                                                      	00028	 			X		 
+31007 	31007 	PAMPLONA                                                    	00031	 			X		 
+28036 	28036 	MADRID                                                      	00028	 			X		 
+31008 	31008 	PAMPLONA                                                    	00031	 			X		 
+25006 	25006 	LLEIDA                                                      	00025	 			X		 
+25004 	25004 	LLEIDA                                                      	00025	 			X		 
+31592 	31592 	CINTRUENIGO                                                 	00031	072			X		 
+43202 	43202 	REUS                                                        	00043	123			X		 
+28007 	28007 	MADRID                                                      	00028	 			X		 
+28033 	28033 	MADRID                                                      	00028	 			X		 
+28004 	28004 	MADRID                                                      	00028	 			X		 
+08013 	08013 	BARCELONA                                                   	00008	 			X		 
+26002 	26002 	LOGROÐO                                                     	00026	 			X		 
+36201 	36201 	VIGO                                                        	00036	 			X		 
+46950 	46950 	CHIRIVELLA                                                  	00046	 			X		 
+08030 	08030 	BARCELONA                                                   	00008	019			X		 
+43786 	43786 	BATEA                                                       	00043	 			X		 
+28030 	28030 	MADRID                                                      	00028	 			X		 
+46011 	46011 	VALENCIA                                                    	00046	 			X		 
+20009 	20009 	DONOSTIA                                                    	00020	 			X		 
+46008 	46008 	VALENCIA                                                    	00046	 			X		 
+33203 	33203 	SOMIO (GIJON)                                               	00033	 			X		 
+31005 	31005 	PAMPLONA                                                    	00031	 			X		 
+01001 	01001 	VITORIA                                                     	00001	 			X		 
+22728 	22728 	ANSO                                                        	00022	028			X		 
+23001 	23001 	JAEN                                                        	00023	 			X		 
+28914 	28914 	LEGANES                                                     	00028	 			X		 
+46021 	46021 	VALENCIA                                                    	00046	 			X		 
+17003 	17003 	GERONA                                                      	00017	079			X		 
+04610 	04610 	CUEVAS DEL ALMANZORA                                        	00004	033			X		 
+48960 	48960 	GALDACANO                                                   	00048	 			X		 
+28224 	28224 	POZUELO DE ALARCON                                          	00028	 			X		 
+08290 	08290 	CERDANYOLA DEL VALLES                                       	00008	 			X		 
+08029 	08029 	BARCELONA                                                   	00008	019			X		 
+09006 	09006 	BURGOS                                                      	00009	 			X		 
+08026 	08026 	BARCELONA                                                   	00008	 			X		 
+08012 	08012 	BARCELONA                                                   	00008	F			X		 
+46001 	46001 	VALENCIA                                                    	00046	 			X		 
+28019 	28019 	MADRID                                                      	00028	 			X		 
+28017 	28017 	MADRID                                                      	00028	 			X		 
+19209 	19209 	VILLANUEVA DE LA TORRE                                      	00019	 			X		 
+08034 	08034 	BARCELONA                                                   	00008	 			X		 
+08348 	08348 	CABRILS                                                     	00008	 			X		 
+12360 	12360 	CHERT                                                       	00012	 			X		 
+28011 	28011 	MADRID                                                      	00028	 			X		 
+28009 	28009 	MADRID                                                      	00028	 			X		 
+46009 	46009 	VALENCIA                                                    	00046	 			X		 
+08911 	08911 	BADALONA                                                    	00008	 			X		 
+39478 	39478 	ORUÐA DE PIELAGOS                                           	00039	 			X		 
+31530 	31530 	CORTES                                                      	00031	078			X		 
+45593 	45593 	BARGAS                                                      	00045	 			X		 
+42004 	42004 	SORIA                                                       	00042	 			X		 
+08301 	08301 	MATARO                                                      	00008	 			X		 
+41005 	41005 	SEVILLA                                                     	00041	 			X		 
+28692 	28692 	VILLAFRANCA DEL CASTILLO                                    	00028				F		 
+28100 	28100 	ALCOBENDAS                                                  	00028	 			X		 
+28031 	28031 	MADRID                                                      	00028	 			X		 
+28012 	28012 	MADRID                                                      	00028	 			X		 
+28250 	28250 	TORRELODONES                                                	00028	152			X		 
+08850 	08850 	GAVA                                                        	00008	 			X		 
+42100 	42100 	AGREDA                                                      	00042	004			X		 
+28924 	28924 	ALCORCON                                                    	00028	 			X		 
+28047 	28047 	MADRID                                                      	00028	 			F		 
+46680 	46680 	ALGEMESI                                                    	00046	 			X		 
+46020 	46020 	VALENCIA                                                    	00046	 			X		 
+31009 	31009 	PAMPLONA                                                    	00031	 			X		 
+08011 	08011 	BARCELONA                                                   	00008	 			X		 
+23510 	23510 	TORRESBLASCOPEDRO                                           	00023	 			X		 
+18010 	18010 	GRANADA                                                     	00018	 			X		 
+18002 	18002 	GRANADA                                                     	00018	 			X		 
+31014 	31014 	PAMPLONA                                                    	00031	 			X		 
+28760 	28760 	TRES CANTOS                                                 	00028	903			X		 
+46520 	46520 	PUERTO DE SAGUNTO                                           	00046	220			X		 
+20500 	20500 	ARRASATE                                                    	00020	 			X		 
+48200 	48200 	DURANGO                                                     	00048	 			X		 
+28903 	28903 	GETAFE                                                      	00028	 			X		 
+26586 	26586 	MUNILLA                                                     	00026	 			X		 
+38001 	38001 	SANTA CRUZ DE TENERIFE                                      	00038	 			X		 
+28290 	28290 	LAS ROZAS                                                   	00028	 			M		 
+25737 	25737 	ALOS DE BALAGUER                                            	00025	 			X		 
+08810 	08810 	SANT PERE DE RIBES                                          	00008	 			X		 
+15004 	15004 	LA CORUÐA                                                   	00015	 			X		 
+28041 	28041 	MADRID                                                      	00028	 			X		 
+15009 	15009 	A CORUÐA                                                    	00015	 			X		 
+20006 	20006 	SAN SEBASTIAN                                               	00020	 			X		 
+08041 	08041 	BARCELONA                                                   	00008	 			X		 
+28027 	28027 	MADRID                                                      	00028	 			X		 
+08720 	08720 	VILLAFRANCA DEL PENEDES                                     	00008	 			X		 
+08870 	08870 	SITGES                                                      	00008	270			X		 
+08392 	08392 	SANT ANDREU DE LLAVANERS                                    	00008	 			X		 
+08190 	08190 	SANT CUGAT DEL VALLES                                       	00008	 			X		 
+28029 	28029 	MADRID                                                      	00028	 			X		 
+30008 	30008 	MURCIA                                                      	00030	 			X		 
+08119 	08119 	MONTCADA Y REIXAC                                           	00008	 			X		 
+28803 	28803 	ALCALA DE HENARES                                           	00028	 			X		 
+17005 	17005 	GERONA                                                      	00017	079			X		 
+17464 	17464 	SANT JORDI DESVALLS                                         	00017	 			X		 
+42330 	42330 	SORIA                                                       	00042	 			X		 
+08003 	08003 	BARCELONA                                                   	00008	 			X		 
+28006 	28006 	MADRID                                                      	00028	 			X		 
+43850 	43850 	CAMBRILS                                                    	00043	038			X		 
+15002 	15002 	A CORUÐA                                                    	00015	 			X		 
+33600 	33600 	MIERES                                                      	00033	 			X		 
+03005 	03005 	ALICANTE                                                    	00003	014			X		 
+09003 	09003 	BURGOS                                                      	00009	 			X		 
+26540 	26540 	ALFARO                                                      	00026	011			X		 
+08015 	08015 	BARCELONA                                                   	00008	 			X		 
+28805 	28805 	ALCALA DE HENARES                                           	00028	 			X		 
+28025 	28025 	MADRID                                                      	00028	 			X		 
+08005 	08005 	BARCELONA                                                   	00008	 			X		 
+48007 	48007 	BILBAO                                                      	00048	 			X		 
+43480 	43480 	VILASECA                                                    	00043	 			X		 
+44300 	44300 	MONREAL DEL CAMPO                                           	00044	153			X		 
+12006 	12006 	CASTELLON                                                   	00012	 			X		 
+33510 	33510 	POLA DE SIERO                                               	00033	 			X		 
+28220 	28220 	MAJADAHONDA                                                 	00028	 			X		 
+01010 	01010 	VITORIA                                                     	00001	059			X		 
+08187 	08187 	SANTA EULALIA DE RONÃANA                                    	00008	 			X		 
+41013 	41013 	SEVILLA                                                     	00041	 			X		 
+22142 	22142 	CASBAS DE HUESCA                                            	00022	 			X		 
+03201 	03201 	ELCHE                                                       	00003	065			X		 
+08042 	08042 	BARCELONA                                                   	00008	 			X		 
+08018 	08018 	BARCELONA                                                   	00008	 			X		 
+26004 	26004 	LOGROÐO                                                     	00026	89			X		 
+09400 	09400 	ARANDA DE DUERO                                             	00009	018			X		 
+13160 	13160 	TORRALBA DE CALATRAVA                                       	00013	 			F		 
+08440 	08440 	CARDEDEU                                                    	00008	 			X		 
+08230 	08230 	MATADEPERA                                                  	00008	 			X		 
+28916 	28916 	LEGANES                                                     	00028	 			X		 
+28026 	28026 	MADRID                                                      	00028	 			X		 
+28210 	28210 	VALDEMORILLO                                                	00028	 			X		 
+48992 	48992 	GETXO                                                       	00048	 			X		 
+48940 	48940 	LEIOA                                                       	00048	 			X		 
+08500 	08500 	VIC                                                         	00008	 			X		 
+48001 	48001 	BILBAO                                                      	00048	 			X		 
+08907 	08907 	HOSPITALET                                                  	00008	 			X		 
+31513 	31513 	ARGUEDAS                                                    	00031	 			X		 
+08016 	08016 	BARCELONA                                                   	00008	 			X		 
+08025 	08025 	BARCELONA                                                   	00008	 			X		 
+48009 	48009 	BILBAO                                                      	00048	 			X		 
+20300 	20300 	IRUN                                                        	00020	 			X		 
+28804 	28804 	ALCALA DE HENARES                                           	00028	 			X		 
+08970 	08970 	SANT JOAN DESPI                                             	00008	 			X		 
+5001  	5001  	ZARAGOZA                                                    	00050	297	0297		F		01
+28003 	28003 	MADRID                                                      	00028	 			X		 
+46002 	46002 	VALENCIA                                                    	00046	 			X		 
+26005 	26005 	LOGROÐO                                                     	00026	 			X		 
+08004 	08004 	BARCELONA                                                   	00008	 			X		 
+08840 	08840 	VILADECANS                                                  	00008	 			X		 
+5002  	5002  	ZARAGOZA                                                    	00050	297	0297		F		01
+44147 	44147 	CEDRILLAS                                                   	00044	 			X		 
+17006 	17006 	GERONA                                                      	00017	079			X		 
+28040 	28040 	MADRID                                                      	00028	 			X		 
+08820 	08820 	EL PRAT DE LLOBREGAT                                        	00008	169			X		 
+22411 	22411 	SANTA LECINA                                                	00022	 			X		 
+36416 	36416 	MOS                                                         	00036	 			X		 
+28223 	28223 	POZUELO DE ALARCON                                          	00028	 			X		 
+08035 	08035 	BARCELONA                                                   	00008	 			X		 
+17310 	17310 	LLORET DE MAR                                               	00017	 			X		 
+08914 	08914 	BADALONA                                                    	00008	 			X		 
+03509 	03509 	FINESTRAT                                                   	00003	069			X		 
+20007 	20007 	SAN SEBASTIAN                                               	00020	 			X		 
+20014 	20014 	SAN SEBASTIAN                                               	00020	 			X		 
+41020 	41020 	SEVILLA                                                     	00041	 			X		 
+26007 	26007 	LOGROÐO                                                     	00026	 			X		 
+03203 	03203 	ELCHE                                                       	00003	065			X		 
+07017 	07017 	BARCELONA                                                   	00007	 			X		 
+28021 	28021 	MADRID                                                      	00028	 			X		 
+48012 	48012 	BILBAO                                                      	00048	 			X		 
+33201 	33201 	GIJON                                                       	00033	024			X		 
+22252 	22252 	ROBRES                                                      	00022	 			X		 
+43730 	43730 	PALSET                                                      	00043	 			X		 
+25112 	25112 	GIMENELLS                                                   	00025	 			X		 
+20202 	20202 	LAZKAO                                                      	00020	 			X		 
+0816  	0816  	BARCELONA                                                   	00008	 			X		 
+08902 	08902 	HOSPITALET DE LLOBREG.                                      	00008	 			X		 
+08600 	08600 	BERGA                                                       	00008	 			X		 
+43003 	43003 	TARRAGONA                                                   	00043	 			X		 
+46007 	46007 	VALENCIA                                                    	00046	 			X		 
+17002 	17002 	GERONA                                                      	00017	079			X		 
+33810 	33810 	IBIAS                                                       	00033	 			X		 
+43080 	43080 	TARRAGONA                                                   	00043	 			X		 
+46016 	46016 	TAVERNES B.VALENCIA                                         	00046	 			X		 
+03680 	03680 	ASPE                                                        	00003	019			X		 
+09500 	09500 	MEDINA DE POMAR                                             	00009	 			X		 
+08023 	08023 	BARCELONA                                                   	00008	 			X		 
+29006 	29006 	MALAGA                                                      	00029	 			X		 
+44570 	44570 	CALANDA                                                     	00044	051			X		 
+08039 	08039 	BARCELONA                                                   	00008	 			X		 
+48911 	48911 	BILBAO                                                      	00048	 			X		 
+07760 	07760 	CIUTADELLA DE MENORCA                                       	00007	015			X		 
+48014 	48014 	BILBAO                                                      	00048	 			X		 
+28000 	28000 	MADRID                                                      	00028	 			X		 
+08184 	08184 	PALAULSOLITA I  PLEGAMANS                                   	00008	 			X		 
+45300 	45300 	OCAÐA                                                       	00045	 			X		 
+41130 	41130 	GIEVRES                                                     	041  	 			X		 
+25194 	25194 	LERIDA                                                      	00025	 			X		 
+33211 	33211 	GIJON                                                       	00033	024			X		 
+08921 	08921 	STA.COLOMA DE GRAMANET                                      	00008	 			X		 
+20800 	20800 	SAN SEBASTIAN                                               	00020	 			X		 
+47002 	47002 	VALLADOLID                                                  	00047	 			X		 
+33013 	33013 	OVIEDO                                                      	00033	044			X		 
+37002 	37002 	SALAMANCA                                                   	00037	 			X		 
+31300 	31300 	TAFALLA                                                     	00031	 			X		 
+22364 	22364 	LAFORTUNADA                                                 	00022	 			X		 
+51550 	51550 	MALLEN                                                      	00051	160	0160		X		 
+25530 	25530 	VIELLA                                                      	00025	 			X		 
+08940 	08940 	CORNELLA DE LLOBREGAT                                       	00008	 			X		 
+50672 	50672 	UNCASTILLO                                                  	00050	267	0267		F		01
+48011 	48011 	BILBAO                                                      	00048	 			X		 
+49121 	49121 	MONFARRACINOS                                               	00049	 			X		 
+46022 	46022 	VALENCIA                                                    	00046	 			X		 
+50006 	50006 	ZARAGOZA                                                    	00050	297	0297		F		01
+50770 	50770 	QUINTO                                                      	00050	222	0222		F		01
+50639 	50639 	FIGUERUELAS                                                 	00050	107	0107		F		01
+50480 	50480 	PANIZA                                                      	00050	200	0200		F		01
+22808 	22808 	AG?ERO                                                      	00022	004	0185		F		 
+50136 	50136 	LETUX                                                       	00050	139	0139		F		01
+50215 	50215 	MOROS                                                       	00050	178	0178		F		01
+50236 	50236 	IBDES                                                       	00050	125	0297		F		01
+50250 	50250 	ILLUECA                                                     	00050	126	0067		F		01
+50332 	50332 	BELMONTE DE GRACIAN                                         	00050	046	0046		F		01
+50360 	50360 	DAROCA                                                      	00050	094	0094		F		01
+50400 	50400 	CARIÐENA                                                    	00050	073	0073		F		01
+50550 	50550 	MALLEN                                                      	00050	160	0160		F		01
+50710 	50710 	MAELLA                                                      	00050	152	0152		F		01
+50015 	50015 	ZARAGOZA                                                    	00050	297	0297		F		01
+08338 	08338 	PREMIA DE DALT                                              	00008	 			X		 
+25552 	25552 	VILLALLER                                                   	00025	 			X		 
+28850 	28850 	TORREJON DE ARDOZ                                           	00028	 			X		 
+50692 	50692 	LA JOYOSA                                                   	00050	297			F		01
+44000 	44000 	HIJAR                                                       	00044	 			X		 
+26003A	26003A	LOGROÐO                                                     	00026	 			X		 
+28941 	28941 	FUENLABRADA                                                 	00028	 			X		 
+02005 	02005 	ALBACETE                                                    	00002	003			X		 
+25188 	25188 	012E                                                        	00025	 			X		 
+17392 	17392 	853                                                         	00017	 			X		 
+73059 	73059 	990                                                         	00073	 			X		 
+15008 	15008 	A CORUÐA                                                    	00015	 			X		 
+50375 	50375 	ABANTO                                                      	00050	001			F		01
+50090 	50090 	ACADEMIA GENERAL MILITAR                                    	00050	297			F		01
+50347 	50347 	ACERED                                                      	00050	002			F		01
+50190B	50190B	AEROPUERTO DE GARRAPINILLOS                                 	00050	297			F		01
+50560A	50560A	AGON                                                        	00050	003			F		01
+50175B	50175B	AGUILAR DE EBRO                                             	00050	000			F		01
+50152A	50152A	AILES                                                       	00050	000			F		01
+50481 	50481 	ALADREN                                                     	00050	007			F		01
+50345 	50345 	ALARBA                                                      	00050	009			F		01
+50529A	50529A	ALBERITE DE SAN JUAN                                        	00050	010			F		01
+50549A	50549A	ALBETA                                                      	00050	011			F		01
+41500 	41500 	ALCALA DE GUADAIRA                                          	00041	 			X		 
+28801 	28801 	ALCALA DE HENARES                                           	00028	 			X		 
+22251 	22251 	ALCUBIERRE                                                  	00022	018			X		 
+50374B	50374B	ALDEHUELA DE LIESTOS                                        	00050	016			F		01
+50120A	50120A	ALFOCEA                                                     	00050	000			F		01
+44591 	44591 	VINACEITE                                                   	00044	265			F		 
+50133 	50133 	ALMONACID DE LA CUBA                                        	00050	023			F		01
+50109 	50109 	ALPARTIR                                                    	00050	026			F		01
+28430 	28430 	ALPEDRETE                                                   	00028	 			X		 
+25110 	25110 	ALPICAP                                                     	00025	 			X		 
+50322 	50322 	ALUENDA                                                     	00050	000			F		01
+50546C	50546C	AMBEL                                                       	00050	027			F		01
+20140 	20140 	ANDOAIN                                                     	00020	 			X		 
+50369A	50369A	ANENTO                                                      	00050	028			F		01
+50313 	50313 	ANIÐON                                                      	00050	029			F		01
+50259B	50259B	ARANDA DE MONCAYO                                           	00050	031			F		01
+50266 	50266 	ARANDIGA                                                    	00050	032			F		01
+42250 	42250 	ARCOS DE JALON                                              	00042	 			X		 
+50614B	50614B	ARDISA                                                      	00050	033			F		01
+26580 	26580 	ARNEDO                                                      	00026	018			X		 
+15142 	15142 	ARTEIXO                                                     	00015	 			X		 
+50683C	50683C	ARTIEDA                                                     	00050	035			F		01
+50619B	50619B	ASIN                                                        	00050	036			F		01
+50683B	50683B	ASSO VERAL                                                  	00050	000			F		01
+50192 	50192 	AULA-DEI (CARTUJA DE)                                       	00050	297			F		01
+08912 	08912 	BADALONA                                                    	00008	 			X		 
+08214 	08214 	BADIA DEL VALLES                                            	00008	 			X		 
+50491A	50491A	BADULES                                                     	00050	040			F		01
+44320 	44320 	BAGUENA                                                     	00044	 			X		 
+50685A	50685A	BAGUES                                                      	00050	041			F		01
+50366B	50366B	BALCONCHAN                                                  	00050	042			F		01
+50297B	50297B	BARBOLES                                                    	00050	043			F		01
+08007 	08007 	BARCELONA                                                   	00008	 			X		 
+08017 	08017 	BARCELONA                                                   	00008	019			X		 
+08211 	08211 	BARCELONA                                                   	00008	 			X		 
+08009 	08009 	BARCELONA                                                   	00008	 			X		 
+08014 	08014 	BARCELONA                                                   	00008	 			X		 
+08020 	08020 	BARCELONA                                                   	00008	 			X		 
+08002 	08002 	BARCELONA                                                   	00008	 			X		 
+08001 	08001 	BARCELONA                                                   	00008	 			X		 
+08036 	08036 	BARCELONA                                                   	00008	 			X		 
+50296B	50296B	BARDALLUR                                                   	00050	044			F		01
+50694B	50694B	BARDENA DEL CAUDILLO                                        	00050	095			F		01
+50596B	50596B	BARUES                                                      	00050	000			F		01
+50694A	50694A	BAYO, EL                                                    	00050	095			F		01
+46910 	46910 	BENETUSSER                                                  	00046	 			X		 
+50294C	50294C	BERBEDEL                                                    	00050	000			F		01
+50316C	50316C	BERDEJO                                                     	00050	047			F		01
+50373D	50373D	BERRUECO                                                    	00050	048			F		01
+50619E	50619E	BIEL                                                        	00050	901			F		01
+50316A	50316A	BIJUESCA                                                    	00050	050			F		01
+48015 	48015 	BILBAO                                                      	00048	 			X		 
+48002 	48002 	BILBAO                                                      	00048	 			X		 
+50695B	50695B	BIOTA                                                       	00050	051			F		01
+50101 	50101 	B? JUSLIBOLZARAGOZA                                         	00050	297			F		01
+50019 	50019 	ZARAGOZA                                                    	00050	297			F		01
+50229 	50229 	BORDALBA                                                    	00050	054			F		01
+50239C	50239C	BUBIERCA                                                    	00050	058			F		01
+50546B	50546B	BULBUENTE                                                   	00050	060			F		01
+44330 	44330 	BURBAGUENA                                                  	00044	047			X		 
+50547B	50547B	BURETA                                                      	00050	061			F		01
+09004 	09004 	BURGOS                                                      	00009	 			X		 
+50689C	50689C	BUSCALAPOYO                                                 	00050	000			F		01
+50548B	50548B	EL BUSTE                                                    	00050	063			F		01
+50228 	50228 	CABOLAFUENTE                                                	00050	065			F		01
+50268A	50268A	CALCENA                                                     	00050	069			F		01
+08370 	08370 	CALELLA                                                     	00008	070			X		 
+39600 	39600 	CAMARGO                                                     	00039	 			X		 
+50692C	50692C	CAMINO REAL                                                 	00050	000			F		01
+50110 	50110 	CAMPAMENTO SAN GREGORIO                                     	00050	297			F		01
+50299C	50299C	CAMPIEL                                                     	00050	000			F		01
+50214 	50214 	CAMPILLO DE ARAGON                                          	00050	071			F		01
+50689A	50689A	CAMPO REAL                                                  	00050	000			F		01
+22888 	22888 	CANFRANC                                                    	00022	078			X		 
+50212 	50212 	CARENAS                                                     	00050	072			F		01
+50614A	50614A	CASAS DE ESPES                                              	00050	000			F		01
+31520 	31520 	CASCANTE                                                    	00031	 			X		 
+50346 	50346 	CASTEJON DE ALARBA                                          	00050	075			F		01
+50211 	50211 	CASTEJON DE LAS ARMAS                                       	00050	076			F		01
+50696A	50696A	CASTILISCAR                                                 	00050	078			F		01
+50596C	50596C	CASTILLO DE BARUES                                          	00050	000			F		01
+50368A	50368A	CERVERUELA                                                  	00050	080			F		01
+50269B	50269B	CHODES                                                      	00050	093			F		01
+50213B	50213B	CIMBALLA                                                    	00050	082			F		01
+50782 	50782 	CINCO OLIVAS                                                	00050	083			F		01
+50314 	50314 	CLARES DE RIBOTA                                            	00050	084			F		01
+50239B	50239B	CONTAMINA                                                   	00050	087			F		01
+31591 	31591 	CORELLA                                                     	00031	 			F		 
+28820 	28820 	COSLADA                                                     	00028	 			X		 
+03330 	03330 	CREVILLENTE                                                 	00003	059			X		 
+0410  	0410  	CUARTE                                                      	00004	 			X		 
+50376 	50376 	CUBEL                                                       	00050	090			F		01
+50373A	50373A	LAS CUERLAS                                                 	00050	091			F		01
+00000 	00000 	DESCONOCIDA                                                 	00050	297			X		01
+08754 	08754 	EL PAPIOL                                                   	00008	 			X		 
+22181 	22181 	EL TEMPLE                                                   	00022	 			X		 
+50239A	50239A	EMBID DE ARIZA                                              	00050	096			F		01
+50299A	50299A	EMBID DE LA RIBERA                                          	00050	000			F		01
+26375 	26375 	ENTRENA                                                     	00026	 			X		 
+50611B	50611B	ERLA                                                        	00050	100			F		01
+50682C	50682C	ESCO                                                        	00050	000			F		01
+08292 	08292 	ESPARRAGUERA                                                	00008	 			X		 
+50619F	50619F	FARASDUES                                                   	00050	095			F		01
+50513D	50513D	FAYOS, LOS                                                  	00050	106			F		01
+50491C	50491C	FOMBUENA                                                    	00050	108			F		01
+50610B	50610B	FRAGO, EL                                                   	00050	109			F		01
+50562 	50562 	FRESCANO                                                    	00050	111			F		01
+50529B	50529B	FUENDEJALON                                                 	00050	113			F		01
+50373C	50373C	GALLOCANTA                                                  	00050	117			F		01
+43780 	43780 	GANDESA                                                     	00043	 			X		 
+50560B	50560B	GAÐARUL                                                     	00050	000			F		01
+50190E	50190E	GARRAPINILLOS                                               	00050	297			F		01
+25598 	25598 	GESSA                                                       	00025	025			X		 
+50238C	50238C	GODOJOS                                                     	00050	120			F		01
+50686B	50686B	GONDUN                                                      	00050	000			F		01
+50685D	50685D	GORDUES                                                     	00050	000			F		01
+18008 	18008 	GRANADA                                                     	00018	 			X		 
+50213E	50213E	GRANJA DE LLUMES                                            	00050	173			F		01
+50213C	50213C	GRANJA DE ORO                                               	00050	173			F		01
+42269A	42269A	GRANJA DE SAN PEDRO                                         	00042	 			X		 
+22260 	22260 	GRAÐEN                                                      	00022	 			X		 
+50513A	50513A	GRISEL                                                      	00050	122			F		01
+50297E	50297E	GRISEN                                                      	00050	123			F		01
+08097 	08097 	HOSPITALET                                                  	00008	 			X		 
+50176 	50176 	HOSTAL EL CIERVO                                            	00050	297			F		01
+50336 	50336 	HUERMEDA                                                    	00050	067			F		01
+20213 	20213 	IDIAZABAL                                                   	00020	 			X		 
+08700 	08700 	IGUALADA                                                    	00008	 			X		 
+50323 	50323 	INOGES                                                      	00050	000			F		01
+50687B	50687B	ISUERRE                                                     	00050	128			F		01
+1826  	1826  	JA.ALKAMAAR (HOLANDA)                                       	00018	 			X		 
+22700 	22700 	JACA                                                        	00022	130			F		 
+50238B	50238B	JARABA                                                      	00050	129			F		01
+50258A	50258A	JARQUE DE MONCAYO                                           	00050	130			F		01
+11407 	11407 	JEREZ DE LA FRONTERA                                        	00011	 			X		 
+50692D	50692D	JOYOSA, LA                                                  	00050	132			F		01
+50134B	50134B	LAGATA                                                      	00050	133			F		01
+50367A	50367A	LANGA DEL CASTILLO                                          	00050	134			F		01
+50679B	50679B	LAYANA                                                      	00050	135			F		01
+50369B	50369B	LECHON                                                      	00050	138			F		01
+25008 	25008 	LERIDA                                                      	00025	 			X		 
+50213A	50213A	LLUMES, NUCLEO                                              	00050	000			F		01
+50687A	50687A	LOBERA DE ONSELLA                                           	00050	142			F		01
+26006 	26006 	LOGROÐO                                                     	00026	 			X		 
+26001 	26001 	LOGROÐO                                                     	00026	 			X		 
+26008 	26008 	LOGROÐO                                                     	00026	 			X		 
+50830B	50830B	LOMAS DEL GALLEGO                                           	00050	298			F		01
+50294A	50294A	LUCENA DE JALON                                             	00050	146			F		01
+50619A	50619A	LUESIA                                                      	00050	148			F		01
+50151 	50151 	LUESMA                                                      	00050	149			F		01
+50213F	50213F	LUGAR NUEVO                                                 	00050	000			F		01
+50194B	50194B	LUGARICO DE CERDAN                                          	00050	000			F		01
+50295B	50295B	LUMPIAQUE                                                   	00050	150			F		01
+50610A	50610A	LUNA                                                        	00050	151			F		01
+28050 	28050 	MADRID                                                      	00028	 			X		 
+28037 	28037 	MADRID                                                      	00028	 			X		 
+28039 	28039 	MADRID                                                      	00028	 			X		 
+28071 	28071 	MADRID                                                      	00028	 			X		 
+28830 	28830 	SAN FERNANDO DE HENARES                                     	00028	 			X		 
+28001 	28001 	MADRID                                                      	00028	 			X		 
+28049 	28049 	MADRID                                                      	00028	079			X		 
+28108 	28108 	MADRID                                                      	00028	 			X		 
+28005 	28005 	MADRID                                                      	00028	 			X		 
+28045 	28045 	MADRID.                                                     	00028	 			X		 
+07701 	07701 	MAHON                                                       	00007	015			X	 	 
+50368B	50368B	MAINAR                                                      	00050	154			F		01
+29016 	29016 	MALAGA                                                      	00029	 			X		 
+50315 	50315 	MALANQUILLA                                                 	00050	155			F		01
+50549B	50549B	MALEJAN                                                     	00050	156			F		01
+50545 	50545 	MALEJAN                                                     	00050	156			F		01
+50695A	50695A	MALPICA DE ARBA                                             	00050	000			F		01
+50596D	50596D	MAMILLAS                                                    	00050	000			F		01
+50366C	50366C	MANCHONES                                                   	00050	161			F		01
+50331A	50331A	MARA                                                        	00050	162			F		01
+50616A	50616A	MARRACOS                                                    	00050	902			F		01
+08760 	08760 	MARTORELL                                                   	00008	 			X		 
+08107 	08107 	MARTORELLAS                                                 	00008	 			X		 
+50135B	50135B	MEDIANA                                                     	00050	164			F		01
+50780A	50780A	MENUZA                                                      	00050	000			F		01
+60170 	60170 	MEQUINENZA                                                  	00060	 			X		 
+50152B	50152B	MEZALOCHA                                                   	00050	167			F		01
+43892 	43892 	MIAMI PLATJA                                                	00043	092			X		 
+50683A	50683A	MIANOS                                                      	00050	168			F		01
+50709A	50709A	MIRAFLORES, HUERTA DE                                       	00050	000			F		01
+46920 	46920 	MISLATA                                                     	00046	 			X		 
+50210A	50210A	MONASTERIO DE PIEDRA                                        	00050	192			F		01
+50592A	50592A	EL MONASTERIO DE VERUELA                                    	00050	280			F		01
+50144 	50144 	MONEVA                                                      	00050	171			F		01
+50291 	50291 	MONREAL DE ARIZA                                            	00050	172			F		01
+50213D	50213D	MONTERDE                                                    	00050	173			F		01
+50391A	50391A	MONTON DE JILOCA                                            	00050	174			F		01
+50120B	50120B	MONZALBARBA                                                 	00050	297			F		01
+50344 	50344 	MORATA DE JILOCA                                            	00050	176			F		01
+50240 	50240 	MORES                                                       	00050	177			F		01
+50194A	50194A	MOVERA                                                      	00050	297			F		01
+50143B	50143B	MOYUELA                                                     	00050	179			F		01
+50219C	50219C	MUNEBREGA                                                   	00050	183			F		01
+48100 	48100 	MUNGUIA                                                     	00048				X		 
+31521 	31521 	MURCHANTE                                                   	00031	176			X		 
+30001 	30001 	MURCIA                                                      	00030				X		 
+50366A	50366A	MURERO                                                      	00050	184			F		01
+50686A	50686A	NAVARDUN                                                    	00050	186			F		01
+50269A	50269A	NIGUELLA                                                    	00050	187			F		01
+50369E	50369E	NOMBREVILLA                                                 	00050	188			F		01
+50515 	50515 	NUESTRA SEÐORA DE MONCAYO                                   	00050	000			F		01
+50548A	50548A	NUESTRA SEÐORA MISERICORDIA                                 	00050	055			F		01
+50210B	50210B	NUEVALOS                                                    	00050	192			F		01
+50297A	50297A	OITURA                                                      	00050	000			F		01
+31191 	31191 	OLAZ                                                        	00031				X		 
+50341 	50341 	OLVES                                                       	00050	194			F		01
+50810B	50810B	ONTINAR DE SALZ                                             	00050	298			F		01
+50366D	50366D	ORCAJO                                                      	00050	195			F		01
+31160 	31160 	ORCOYEN                                                     	00031				X		 
+50331B	50331B	ORERA                                                       	00050	196			F		01
+50619G	50619G	ORES                                                        	00050	197			F		01
+50258B	50258B	OSEJA                                                       	00050	198			F		01
+50175A	50175A	OSERA                                                       	00050	199			F		01
+31011 	31011 	PAMPLONA                                                    	00031				X		 
+31015 	31015 	PAMPLONA                                                    	00031				X		 
+31001 	31001 	PAMPLONA.                                                   	00031				X		 
+50299B	50299B	PARACUELLOS DE LA RIBERA                                    	00050	202			F		01
+50195B	50195B	PASTRIZ                                                     	00050	203			F		01
+50611A	50611A	CASTILLO DE PAULES                                          	00050	000			F		01
+32550 	32550 	MONTEGUT                                                    	0032 				O		 
+50612C	50612C	LAS PEDROSAS                                                	00050	205			F		01
+50297D	50297D	PERAMAN                                                     	00050	000			F		01
+50709G	50709G	PERCUÐAR                                                    	00050	000			F		01
+50616B	50616B	PIEDRATAJADA                                                	00050	207			F		01
+50298C	50298C	PINSEQUE                                                    	00050	209			F		01
+50685E	50685E	PINTANO                                                     	00050	210			F		01
+28320 	28320 	PINTO                                                       	00028	113			X		 
+50296C	50296C	PLASENCIA DE JALON                                          	00050	211			F		01
+50297C	50297C	PLEITAS                                                     	00050	212			F		01
+50143A	50143A	PLENAS                                                      	00050	213			F		01
+50259A	50259A	POMER                                                       	00050	214			F		01
+50529C	50529C	POZUELO DE ARAGON                                           	00050	216			F		01
+50614C	50614C	PUENDELUNA                                                  	00050	220			F		01
+50810A	50810A	PUILATOS                                                    	00050	298			F		01
+50247 	50247 	PURROY DE JALON                                             	00050	000			F		01
+50268B	50268B	PURUJOSA                                                    	00050	221			F		01
+50367B	50367B	RETASCON                                                    	00050	224			F		01
+50619C	50619C	RIVAS                                                       	00050	095			F		01
+50135A	50135A	RODEN                                                       	00050	000			F		01
+50491B	50491B	ROMANOS                                                     	00050	227			F		01
+08491 	08491 	RUBI                                                        	00008				F		 
+50295A	50295A	RUEDA DE JALON                                              	00050	228			F		01
+15402 	15402 	S.DE COMPOSTELA                                             	00015				X		 
+08203 	08203 	SABADELL                                                    	00008				X		 
+08220 	08220 	SABADELL                                                    	00008				X		 
+50299D	50299D	SABIÐAN                                                     	00050	241			F		01
+50294B	50294B	SALILLAS DE JALON                                           	00050	231			F		01
+50134A	50134A	SAMPER DE SALZ                                              	00050	233			F		01
+50669B	50669B	SANCHO ABARCA                                               	00050	252			F		01
+31400 	31400 	SANGUESA                                                    	00031	216			X		 
+08960 	08960 	SANT JUST DESVERN                                           	00008				X		 
+50617B	50617B	SANTA ANASTASIA                                             	00050	095			F		01
+50513B	50513B	SANTA CRUZ DE MONCAYO                                       	00050	237			F		01
+50324C	50324C	SANTA CRUZ DEL GRIO                                         	00050	236			F		01
+50669A	50669A	SANTA ENGRACIA                                              	00050	252			F		01
+50373B	50373B	SANTED                                                      	00050	239			F		01
+50780B	50780B	SASTAGO                                                     	00050	240			F		01
+03630 	03630 	SAX                                                         	00003	123			X		 
+50334 	50334 	SEDILES                                                     	00050	242			F		01
+50612B	50612B	SIERRA DE LUNA                                              	00050	244			F		01
+50227 	50227 	SISAMON                                                     	00050	246			F		01
+50696B	50696B	SOFUENTES                                                   	00050	000			F		01
+42003 	42003 	SORIA                                                       	00042				X		 
+50709F	50709F	SOTO DE LA RATA                                             	00050	000			F		01
+08690 	08690 	STA CORONA DE CERVERO                                       	00008				X		 
+50546A	50546A	TALAMANTES                                                  	00050	250			F		01
+45600 	45600 	TALAVERA DE LA REINA                                        	00045				X		 
+43004 	43004 	TARRAGONA                                                   	00043				X		 
+43001 	43001 	TARRAGONA                                                   	00043				X		 
+43005 	43005 	TARRAGONA                                                   	00043				X		 
+08391 	08391 	TIANA                                                       	00008				X		 
+50269C	50269C	TIERGA                                                      	00050	254			F		01
+50374C	50374C	TORRALBA DE LOS FRAILES                                     	00050	256			F		01
+50368D	50368D	TORRALBILLA                                                 	00050	258			F		01
+50190D	50190D	TORRE BALMEZ (BARRIO DE GARRAPINILLOS)                      	00050	297			F		01
+29740 	29740 	TORRE DEL MAR                                               	00029				X		 
+50190C	50190C	TORRE VILLARROYA (BARRIO DE GARRAPINILLOS)                  	00050	297			F		01
+50139 	50139 	TORRECILLA DE VALMADRID                                     	00050	275			F		01
+42269B	42269B	TORREHERMOSA                                                	0042 	259			F		 
+50316B	50316B	TORRELAPAJA                                                 	00050	260			F		01
+50512 	50512 	TORRELLAS                                                   	00050	261			F		01
+50514 	50514 	TORTOLES                                                    	00050	000			F		01
+50583 	50583 	TRASMOZ                                                     	00050	265			F		01
+50268C	50268C	TRASOBARES                                                  	00050	266			F		01
+50689B	50689B	UNDUES DE LERDA                                             	00050	268			F		01
+50685C	50685C	UNDUES PINTANO                                              	00050	000			F		01
+50190A	50190A	URBILLAR (BARRIO DE GARRAPINILLOS)                          	00050	297			F		01
+50296A	50296A	URREA DE JALON                                              	00050	269			F		01
+50685B	50685B	URRIES                                                      	00050	270			F		01
+50374A	50374A	USED                                                        	00050	271			F		01
+50709E	50709E	VAL DE ZAIL                                                 	00050	000			F		01
+50617A	50617A	VALAREÐA                                                    	00050	095			F		01
+47008 	47008 	VALLADOLID                                                  	00047	186			X		 
+48150 	48150 	SONDIKA                                                     	00048				X		 
+50138 	50138 	VALMADRID                                                   	00050	275			F		01
+50615B	50615B	VALPALMAS                                                   	00050	276			F		01
+50219B	50219B	VALTORRES                                                   	00050	277			F		01
+50785B	50785B	ESTACION VELILLA DE EBRO                                    	00050	278			F		01
+50592B	50592B	VERUELA                                                     	00050	000			F		01
+50513C	50513C	VIERLAS                                                     	00050	281			F		01
+50785A	50785A	VILLA LOS ANGELES                                           	00050	000			F		01
+50490B	50490B	VILLADOZ                                                    	00050	283			F		01
+50391B	50391B	VILLAFELICHE                                                	00050	284			F		01
+50333 	50333 	VILLALBA DE PEREJILES                                       	00050	286			F		01
+50830A	50830A	VILLANUEVA DE GALLEGO                                       	00050	288			F		01
+50156 	50156 	VILLAR DE LOS NAVARROS                                      	00050	291			F		01
+50692B	50692B	VILLARRAPA                                                  	00050	297			F		01
+12540 	12540 	VILLARREAL                                                  	00012				X		 
+50490A	50490A	VILLARREAL DE HUERVA                                        	00050	292			F		01
+50310 	50310 	VILLARROYA DE LA SIERRA                                     	00050	293			F		01
+50368C	50368C	VILLARROYA DEL CAMPO                                        	00050	294			F		01
+50321 	50321 	VIRGEN DE PIETAS                                            	00050				F		01
+50482 	50482 	VISTABELLA                                                  	00050	295			F		01
+01004 	01004 	VITORIA                                                     	00001				X		 
+01007 	01007 	VITORIA                                                     	00001				X		 
+50324A	50324A	VIVER DE VICORT                                             	00050	000			F		01
+50709D	50709D	VUELTA DE RODAN                                             	00050	000			F		01
+50709C	50709C	VUELTA DEL CAÐAR                                            	00050	000			F		01
+46270 	46270 	VVA.DE CASTELLON                                            	00046				X		 
+50709B	50709B	ZARAGOCETA                                                  	00050	000			F		01
+50071 	50071 	ZARAGOZA                                                    	00050	297			F		01
+5007  	5007  	ZARAGOZA                                                    	00050	297			F		01
+0008  	0008  	ANDORRA                                                     	00000				X		 
+20015 	20015 	GUIPUZKOA                                                   	00020				X		 
+50080 	50080 	ZARAGOZA                                                    	00050	297			F		01
+5008  	5008  	ZARAGOZA                                                    	00050	297			F		01
+5005  	5005  	ZARAGOZA                                                    	00050	297			F		01
+5006  	5006  	ZARAGOZA                                                    	00050	297			F		01
+15005 	15005 	A CORUÐA                                                    	00015				X		 
+60004 	60004 	ZARAGOZA                                                    	00060				X		 
+5004  	5004  	ZARAGOZA                                                    	00050	297			F		01
+50055 	50055 	ZARAGOZA                                                    	00050	297			F		01
+50197 	50197 	ZARAGOZA                                                    	00050	297			F		01
+5009  	5009  	ZARAGOZA                                                    	00050	297			F		01
+31180 	31180 	ZIZUR MAYOR                                                 	00031	907			X		 
+41004 	41004 	SEVILLA                                                     	00041				F		 
+49023 	49023 	ZAMORA                                                      	00049				F		 
+50324B	50324B	ALDEHUELA DE GRIO                                           	00050	000			F		01
+50195A	50195A	ALFRANCA, LA                                                	00050	000			F		01
+50238A	50238A	CALMARZA                                                    	00050	070			F		01
+50619D	50619D	FUENCALDERAS                                                	00050	000			F		01
+50612A	50612A	HARINERA LA VARLUENGA                                       	00050	297			F		01
+50615A	50615A	LACORVILLA                                                  	00050	000			F		01
+50692A	50692A	MARLOFA                                                     	00050	095			F		01
+50350 	50350 	PARDOS DE ABANTO                                            	00050	000			F		01
+50617C	50617C	SABINAR, EL                                                 	00050	095			F		01
+50682A	50682A	TIERMAS                                                     	00050	000			F		01
+48500 	48500 	ABANTO                                                      	00048				X		 
+50850A	50850A	SANTA EULALIA DE GALLEGO                                    	00050	238			F		01
+28806 	28806 	ALCALA DE HENARES                                           	00028	005			X		 
+10003 	10003 	CACERES                                                     	00010						 
+19003 	19003 	GUADALAJARA                                                 	00019	271					 
+33420 	33420 	LUGONES                                                     	00033				M	33420	 
+04007 	04007 	ALMERIA                                                     	00004						 
+05005 	05005 	AVILA                                                       	00005						 
+08225 	08225 	TERRASA                                                     	00008				O		 
+24410 	24410 	PONFERRADA                                                  	00024						 
+13001 	13001 	CIUDAD REAL                                                 	00013				F		 
+20570 	20570 	BERGARA                                                     	00020						 
+44559 	44559 	VILLARLUENGO                                                	00044						 
+22465 	22465 	EL RUN                                                      	00022						 
+22371 	22371 	SAN FELICES DE ARA                                          	00022	109					 
+44370 	44370 	CELLA                                                       	00044						 
+44632 	44632 	CASTELSERAS                                                 	00044						 
+44400 	44400 	MORA DE RUBIELOS                                            	00044	158					 
+44142 	44142 	LA IGLESUELA DEL CID                                        	00044						 
+08950 	08950 	ESPLUGAS DE LLOBREGAT                                       	00008	077					 
+25002 	25002 	LLEIDA                                                      	00025						 
+26500 	26500 	CALAHORRA                                                   	00026	036			O		 
+92380 	92380 	GARCHES                                                     	00100				O		 
+44640 	44640 	TORRECILLA DE ALCAÐIZ                                       	00044						 
+22194A	22194A	BANASTAS                                                    	00022				O		 
+31190 	31190 	CIZUR MENOR                                                 	00031						 
+25460 	25460 	CERVIA D?LES GARRIGUES                                      	00025				O		 
+22280 	22280 	GURREA DE GALLEGO                                           	00022	119			F		 
+43520 	43520 	ROQUETES                                                    	00043				F		 
+17300 	17300 	BLANES                                                      	00017	023			O		 
+08860 	08860 	CASTELLDEFELS                                               	00008				F		 
+28290A	28290A	LAS MATAS                                                   	00028				M		 
+43140 	43140 	LA POBLA DE MAFUMET                                         	00043				F		 
+43120 	43120 	CONSTANTI                                                   	00043				F		 
+28270 	28270 	COLMENAREJO                                                 	00028				F		 
+39021 	39021 	SANTANDER                                                   	00039				F		 
+20017 	20017 	SAN SEBASTIAN                                               	00020				F		 
+40003 	40003 	SEGOVIA                                                     	00040				F		 
+08393 	08393 	CALDES DESTRAC                                              	00008				F		 
+16001 	16001 	CUENCA                                                      	00016						 
+48510 	48510 	TRAPAGARAN                                                  	00048				F		 
+20002 	20002 	SAN SEBASTIAN                                               	00020				O		 
+33400 	33400 	AVILES                                                      	00033				F		 
+35500 	35500 	ARRECIFE (LANZAROTE)                                        	00035						 
+32004 	32004 	OURENSE                                                     	00032						 
+28109 	28109 	ALCOBENDAS                                                  	00028				O		 
+08330 	08330 	PREMIA DEL MAR                                              	00008				O		 
+48013 	48013 	BILBAO                                                      	00048				X		 
+03600 	03600 	ELDA                                                        	00003	066			F		 
+48004 	48004 	BILBAO                                                      	00048				F		 
+11009 	11009 	CADIZ                                                       	00011						 
+15890 	15890 	SANTIAGO DE COMPOSTELA                                      	00015				O		 
+28080 	28080 	MADRID                                                      	00028				F		 
+28770 	28770 	COLMENAR VIEJO                                              	00028	045			M		 
+28044 	28044 	MADRID                                                      	00028				F		 
+20600 	20600 	EIBAR                                                       	00020				0		 
+08906 	08906 	ESPLUGAS DE LLOBREGAT                                       	00008				F		 
+31610 	31610 	VILLAVA                                                     	00031				F		 
+46800 	46800 	XATIVA                                                      	00046				O		 
+17481 	17481 	SAN JULIA DE RANIS                                          	00017				F		 
+03159 	03159 	DAYA NUEVA                                                  	00003	061			M		 
+25005 	25005 	LLEIDA                                                      	00025				M		 
+25192 	25192 	LLEIDA                                                      	00025				M		 
+39005 	39005 	SANTANDER                                                   	00039				M		 
+08540 	08540 	CENTELLES                                                   	00008				O		 
+28660 	28660 	BOADILLA DEL MONTE                                          	00028	022			O		 
+08640 	08640 	OLESA DE MONTSERRAT                                         	00008				F		 
+43002 	43002 	TARRAGONA                                                   	00043				P		 
+31004 	31004 	PAMPLONA                                                    	00031				F		 
+46183 	46183 	L? ELIANA                                                   	00046						 
+14014 	14014 	CËRDOBA                                                     	00014				F		 
+31799 	31799 	ENDERIZ                                                     	00031				F		 
+48460 	48460 	ORDUÐA                                                      	00048				F		 
+48530 	48530 	ORTUELLA                                                    	00048				F		 
+06460 	06460 	CAMPANARIO                                                  	00006	028			F		 
+44641 	44641 	TORREVELILLA                                                	00044				F		 
+08037 	08037 	BARCELONA                                                   	00008				X		 
+28046 	28046 	MADRID                                                      	00028				X		 
+51001 	51001 	CEUTA                                                       	00051						 
+13640 	13640 	HERENCIA                                                    	00013				F		 
+08930 	08930 	SAN ADRIAN DE BESOS                                         	00008				F		 
+20010 	20010 	SAN SEBASTIAN                                               	00020				F		 
+09340 	09340 	LERMA                                                       	00009				F		 
+28054 	28054 	MADRID                                                      	00028				F		 
+48920 	48920 	PORTUGALETE                                                 	00048				F		 
+19171 	19171 	CABANILLAS DEL CAMPO                                        	00019				F		 
+12530 	12530 	BURRIANA                                                    	00012				X		 
+25180 	25180 	ALCARRAS                                                    	00025	011			0		 
+28670 	28670 	VILLAVICIOSA DE ODON                                        	00028	181			F		 
+08359 	08359 	SANT ISCLE DE VALLALTA                                      	00008						 
+22662 	22662 	HOZ DE JACA                                                 	00022				F		 
+08174 	08174 	SANT CUGAT DEL VALLES                                       	00008						 
+22234 	22234 	BALLOBAR                                                    	00022				O		 
+48950 	48950 	ERANDIO                                                     	00048	902			F		 
+31195 	31195 	ANSOAIN                                                     	00031				F		 
+20750 	20750 	ZUMAYA                                                      	00020				F		 
+3640  	3640  	PORRIÐO                                                     	00036						 
+22714 	22714 	GUASA                                                       	00022				F		 
+25218 	25218 	FONOLLERES                                                  	00025				F		 
+28081 	28081 	MADRID                                                      	00028				F		 
+08901 	08901 	HOSPITALET DE LLOBREGAT                                     	00008				F		 
+15300 	15300 	BETANZOS                                                    	00015				F		 
+32901 	32901 	OURENSE                                                     	00032				F		 
+10001 	10001 	CACERES                                                     	00010				F		 
+17246 	17246 	SANTA CRISTINA D?ARO                                        	00017				F		 
+01510 	01510 	MIÐANO MAYOR                                                	00001				F		 
+30005 	30005 	MURCIA                                                      	00030				F		 
+28229 	28229 	VILLANUEVA DEL PARDILLO                                     	00028				F		 
+31006 	31006 	PAMPLONA                                                    	00031	201			F		 
+12560 	12560 	BENICASIM                                                   	00012				F		 
+36980 	36980 	O?GROVE                                                     	00036				F		 
+44360 	44360 	SANTA EULALIA                                               	00044				X		 
+04857 	04857 	MACAEL                                                      	00004				F		 
+31239 	31239 	ARAS                                                        	00031				F		 
+28110 	28110 	ALGETE                                                      	00028				F		 
+31620 	31620 	GORRAIZ                                                     	00031	086			F		 
+47012 	47012 	VALLADOLID                                                  	00047				F		 
+25007 	25007 	LERIDA                                                      	00025				F		 
+22750 	22750 	JAVIERREGAY                                                 	00022				F		 
+48930 	48930 	LAS ARENAS                                                  	00048				F		 
+28070 	28070 	MADRID                                                      	00028				F		 
+07610 	07610 	PALMA DE MALLORCA                                           	00070	040			F		 
+08903 	08903 	BARCELONA                                                   	00008				F		 
+46989 	46989 	TERRAMELAR                                                  	00046				F		 
+08195 	08195 	SAN CUGAT DEL VALLES                                        	00008				F		 
+36002 	36002 	PONTEVEDRA                                                  	00036				X		 
+31191A	31191A	CORDOVILLA                                                  	00031				X		 
+10004 	10004 	CACERES                                                     	00010				F		 
+47014 	47014 	VALLADOLID                                                  	00047	186			F		 
+12500 	12500 	VINAROZ                                                     	00012				F		 
+08233 	08233 	VACARISSES                                                  	00008				F		 
+31390 	31390 	OLITE                                                       	00031				F		 
+46730 	46730 	PLAYA DE GANDIA                                             	00046				F		 
+44595 	44595 	VALJUNQUERA                                                 	00044				F		 
+14008 	14008 	CORDOBA                                                     	00014				F		 
+08975 	08975 	OLESA DE BONESVALLS                                         	00008				F		 
+08630 	08630 	ABRERA                                                      	00008	001			F		 
+15160 	15160 	SADA                                                        	00015				F		 
+40197 	40197 	SAN CRISTOBAL                                               	00040				F		 
+08038 	08038 	BARCELONA                                                   	00008				F		 
+22410 	22410 	ALCOLEA DE CINCA                                            	00022	017			F		 
+30800 	30800 	LORCA                                                       	00030				F		 
+08980 	08980 	SAN FELIU DE LLOBREGAT                                      	00008				F		 
+08191 	08191 	RUBI                                                        	00008				F		 
+28260 	28260 	GALAPAGAR                                                   	00028				F		 
+22530 	22530 	ZAIDIN                                                      	00022				F		 
+42190 	42190 	FUENTETOBA                                                  	00042				F		 
+29640 	29640 	FUENGIROLA                                                  	00029				F		 
+03191 	03191 	TORRE DE LA HORADADA                                        	00003	902			F		 
+07014 	07014 	PALMA DE MALLORCA                                           	00070	040			F		 
+42127 	42127 	SERON DE NAJIMA                                             	00042				F		 
+11593 	11593 	JEREZ DE LA FRONTERA                                        	00011				F		 
+07702 	07702 	MAHON                                                       	00007	015			F		 
+38108 	38108 	LA LAGUNA                                                   	00038				F		 
+25199 	25199 	LLEIDA                                                      	00025	600			F		 
+64780 	64780 	AIDARRA                                                     	00064				F		 
+28232 	28232 	LAS ROZAS                                                   	00028				F		 
+28934 	28934 	MOSTOLES                                                    	00028	 			F		 
+39011 	39011 	SANTANDER                                                   	00039				F		 
+15179 	15179 	OLEIROS                                                     	00015				F		 
+26530 	26530 	AGUILAR DEL RIO ALHAMA                                      	00026				F		 
+25120 	25120 	ALCARRAS                                                    	00025	011			F		 
+08224 	08224 	TERRASSA                                                    	00008				F		 
+31010 	31010 	BARAÐAIN                                                    	00031				F		 
+AD200 	AD200 	COMU DE ENCAP                                               	00101				F		 
+08028 	08028 	BARCELONA                                                   	00008				X		 
+22006 	22006 	HUESCA                                                      	00022	125			X		 
+28015 	28015 	MADRID                                                      	00028				X		 
+28018 	28018 	MADRID                                                      	00028				X		 
+08922 	08922 	STA.COLOMA DE GRAMANET                                      	00008				X		 
+28038 	28038 	MADRID                                                      	00028				X		 
+28991 	28991 	TORREJON DE LA CALZADA                                      	00028				X		 
+28840 	28840 	MEJORADA DEL CAMPO                                          	00028				X		 
+28700 	28700 	SAN SEBAST.DE LOS REYES                                     	00028				X		 
+14001 	14001 	CORDOBA                                                     	00014						 
+39001 	39001 	SANTANDER                                                   	00039						 
+24004 	24004 	LEON                                                        	00024						 
+31192 	31192 	MUTILVA                                                     	00031	023			F		 
+06004 	06004 	BADAJOZ                                                     	00006	015					 
+50134 	50134 	LAGATA                                                      	ZARAG				F		 
+50190 	50190 	URBILLAR (BARRIO DE GARRAPINILLOS)                          	ZARAG				F		 
+12300 	12300 	MORELLA                                                     	00012				F		 
+26550 	26550 	RINCON DE SOTO                                              	00026				F		 
+19002 	19002 	GUADALAJARA                                                 	00019				F		 
+08019 	08019 	BARCELONA                                                   	00008				F		 
+08788 	08788 	VILANOVA DEL CAMI                                           	00008				F		 
+19005 	19005 	GUADALAJARA                                                 	00019				F		 
+08193 	08193 	BARCELONA                                                   	00008				F		 
+08223 	08223 	TARRASA                                                     	00008				F		 
+28529 	28529 	RIVAS-VACIAMADRID                                           	00028				F		 
+43877 	43877 	SANT JAUME D'ENVEJA                                         	00043				F		 
+31512 	31512 	FONTELLAS                                                   	00031				F		 
+47009 	47009 	VALLADOLID                                                  	00047	186			F		 
+48160 	48160 	DERIO                                                       	00048				F		 
+17412 	17412 	MAÃANET DE LA SELVA                                         	00017				F		 
+43007 	43007 	TARRAGONA                                                   	00043				F		 
+31003 	31003 	PAMPLONA                                                    	00031				F		 
+03590 	03590 	ALTEA                                                       	00003	018			F		 
+08186 	08186 	LLIÃA D?AMUNT                                               	00008				F		 
+20120 	20120 	HERNANI                                                     	00020				F		 
+20012 	20012 	SAN SEBASTIAN                                               	00020				F		 
+42269 	42269 	POZUEL DE ARIZA                                             	0042 	015			F		 
+22806 	22806 	SANTA EULALIA DE GALLEGO                                    	0022 	238			F		 
+08913 	08913 	BADALONA                                                    	00008				F		 
+08222 	08222 	TARRASA                                                     	00008				F		 
+08201 	08201 	SABADELL                                                    	00008				F		 
+50682 	50682 	SIGUES                                                      	00050	245			F		01
+50741 	50741 	RODEN                                                       	00050	000			F		01
+08520 	08520 	LES FRANQUESES DEL VALLES                                   	00008				F		 
+01005 	01005 	VITORIA                                                     	00001				F		 
+49018 	49018 	ZAMORA                                                      	00049				F		 
+12580 	12580 	BENICARLO                                                   	00012	027			F		 
+08205 	08205 	SABADELL                                                    	00008				X		 
+44510 	44510 	LA PUEBLA DE HIJAR                                          	00044	191			F		 
+08450 	08450 	SABADELL                                                    	00008				F		 
+23400 	23400 	UBEDA                                                       	00023				X		 
+26009 	26009 	LOGROÐO                                                     	00026				F		 
+08160 	08160 	MONTMELO                                                    	00008				X		 
+22625 	22625 	AQUILUE                                                     	00022	072			F		 
+08208 	08208 	SABADELL                                                    	00008				F		 
+43500 	43500 	TORTOSA                                                     	00043				F		 
+31261 	31261 	ANDOSILLA                                                   	00031				F		 
+42162 	42162 	FUENTELSAZ                                                  	00042				F		 
+43700 	43700 	EL VENDRELL                                                 	00043	163			F		 
+13600 	13600 	ALCAZAR DE SAN JUAN                                         	00013				F		 
+42260 	42260 	SANTA MARIA DE HUERTA                                       	00042	167			F		 
+28923 	28923 	ALCORCON                                                    	00028				F		 
+08032 	08032 	BARCELONA                                                   	00008				F		 
+08620 	08620 	SANT VICENÃ DELS HORTS                                      	00008				F		 
+48993 	48993 	ALGORTA-GUECHO                                              	00048						 
+35011 	35011 	LAS PALMAS DE GRAN CANARIA                                  	00035				F		 
+38017 	38017 	LA LAGUNA                                                   	00038				F		 
+41530 	41530 	MORON DE LA FRONTERA                                        	00041				F		 
+09580 	09580 	VILLASANA DE MENA                                           	00009	410			F		 
+08206 	08206 	SABADELL                                                    	00008				F		 
+37500 	37500 	CIUDAD RODRIGO                                              	00037				F		 
+17860 	17860 	SANT JOAN DE LES ABADESSES                                  	00017						 
+43206 	43206 	REUS                                                        	00043	123			F		 
+15220 	15220 	BERTAMIRANS-AMES                                            	00015				F		 
+31314 	31314 	SANTACARA                                                   	00031				F		 
+46017 	46017 	VALENCIA                                                    	00046				F		 
+26370 	26370 	NAVARRETE                                                   	00026				F		 
+03502 	03502 	BENIDORM                                                    	00003	031			F		 
+43580 	43580 	DELTEBRE                                                    	00043				F		 
+70176 	70176 	STUTTGART                                                   	00102				F		 
+08401 	08401 	GRANOLLERS                                                  	00008				F		 
+35330 	35330 	TEROR                                                       	00035				F		 
+35005 	35005 	LAS PALMAS DE GRAN CANARIA                                  	00035				F		 
+28492 	28492 	EL BOLAO                                                    	00028				F		 
+31360 	31360 	FUNES                                                       	00031				F		 
+45850 	45850 	LA VILLA DE DON FADRIQUE                                    	00045				F		 
+33930 	33930 	LA FELGUERA                                                 	00033				F		 
+43830 	43830 	TORREDEMBARRA                                               	00043	153			F		 
+43883 	43883 	RODA DE BARA                                                	00043				F		 
+11201 	11201 	ALGECIRAS                                                   	00011				F		 
+08795 	08795 	BONES VALLS                                                 	00008				F		 
+15707 	15707 	AMIO                                                        	00015				F		 
+28690 	28690 	BRUNETE                                                     	00028				F		 
+15864 	15864 	AMES                                                        	00015				F		 
+31398 	31398 	MURUARTE DE RETA                                            	00031				F		 
+07009 	07009 	PALMA DE MALLORCA                                           	00070	040			F		 
+43710 	43710 	SANTA OLIVA                                                 	00043				F		 
+20304 	20304 	IRUN                                                        	00020				F		 
+03699 	03699 	ALICANTE                                                    	00003	014			F		 
+44700 	44700 	MONTALBAN                                                   	00044	155			F		 
+08197 	08197 	VALLDOREIX                                                  	00008				F		 
+08130 	08130 	SANTA PERPETUA DE MOGODA                                    	00008				F		 
+22807 	22807 	BISCARRUES                                                  	00022	063			F		 
+42220 	42220 	FUENTELMONGE                                                	00042				F		 
+42269D	42269D	MONTEAGUDO DE LAS VICARIAS                                  	00042				F		 
+01400 	01400 	LLODIO                                                      	00001				F		 
+47001 	47001 	VALLADOLID                                                  	00047				F		 
+48003 	48003 	BILBAO                                                      	00048				F		 
+12598 	12598 	PEÐISCOLA                                                   	00012	089			F		 
+22808A	22808A	MURILLO DE GALLEGO                                          	0022 	185			F		01
+41011 	41011 	SEVILLA                                                     	00041				F		 
+a´n di	a´n di	CASABLANCA                                                  	00109				F		 
+01900 	01900 	MEXICO D.F.                                                 	01900				O		 
+39300 	39300 	TORRELAVEGA                                                 	00039				F		 
+15176 	15176 	OLEIROS                                                     	00015				F		 
+36206 	36206 	VIGO                                                        	00036	057			F		 
+36415 	36415 	MOS                                                         	00036				F		 
+28280 	28280 	EL ESCORIAL                                                 	00028				F		 
+46901 	46901 	TORRENT                                                     	00046				F		 
+11401 	11401 	JEREZ DE LA FRONTERA                                        	00011				F		 
+39009 	39009 	SANTANDER                                                   	00039				F		 
+22160 	22160 	BOLEA                                                       	00022				F		 
+01308 	01308 	LANCIEGO                                                    	00001				F		 
+15173 	15173 	OLEIROS                                                     	00015				F		 
+25611 	25611 	TARTAREU                                                    	00025				F		 
+39004 	39004 	SANTANDER                                                   	00039				F		 
+05600 	05600 	EINDHOVEN                                                   	00208				F		 
+41410 	41410 	CARMONA                                                     	00041				F		 
+135010	135010	SEUL                                                        	00209				F		 
+28942 	28942 	LORANCA-FUENLABRADA                                         	00028				F		 
+39140 	39140 	SOMORIBAMONTAN AL MAR                                       	00039				F		 
+38670 	38670 	SANTA CRUZ DE TENERIFE                                      	00038				F		 
+22770 	22770 	BERDUN                                                      	00022	076			F		 
+05003 	05003 	AVILA                                                       	00005				F		 
+01700 	01700 	LA ROCHELLE                                                 	00210				F		 
+49150 	49150 	MORALEJA DEL VINO                                           	00049				F		 
+25173 	25173 	SUDANELL                                                    	00025				F		 
+25181 	25181 	SOSES                                                       	00025	210			F		 
+15190 	15190 	A CORUÐA                                                    	00015				F		 
+08917 	08917 	BADALONA                                                    	00008				F		 
+28450 	28450 	COLLADO MEDIANO                                             	00028				F		 
+51003 	51003 	CEUTA                                                       	00051				F		 
+39012 	39012 	SANTANDER                                                   	00039				F		 
+25600 	25600 	BALAGUER                                                    	00025				F		 
+29004 	29004 	MALAGA                                                      	00029				F		 
+52001 	52001 	MELILLA                                                     	00052				F		 
+26559 	26559 	ALDEANUEVA DE EBRO                                          	00026				F		 
+25241 	25241 	GOLMES                                                      	00025				F		 
+22466 	22466 	CASTEJON DE SOS                                             	00022	084			F		 
+26150 	26150 	AGONCILLO                                                   	00026				F		 
+46010 	46010 	VALENCIA                                                    	00046				F		 
+07002 	07002 	PALMA DE MALLORCA                                           	00070	040			F		 
+40260 	40260 	FUENTEPELAYO                                                	00040				F		 
+03730 	03730 	JAVEA                                                       	00003	082			F		 
+03750 	03750 	PEDREGUER                                                   	00003	101			F		 
+28140 	28140 	FUENTE EL SAZ DE JARAMA                                     	00028				F		 
+03660 	03660 	NOVELDA                                                     	00003	093			F		 
+28400 	28400 	COLLADO VILLALBA                                            	00028				F		 
+64000 	64000 	PAU                                                         	64000				F		 
+46200 	46200 	PAIPORTA                                                    	00046				F		 
+08390 	08390 	MONTGAT                                                     	00008				F		 
+31798 	31798 	ETULAIN                                                     	00031				F		 
+25001 	25001 	LLEIDA                                                      	00025				F		 
+28051 	28051 	MADRID                                                      	00028				F		 
+22639 	22639 	GAVIN                                                       	00022	059			F		 
+44621 	44621 	MAZALEON                                                    	00044	147			F		 
+25230 	25230 	MOLLERUSA                                                   	00025				F		 
+07007 	07007 	PALMA DE MALLORCA                                           	00070	040			F		 
+28523 	28523 	RIVAS-VACIAMADRID                                           	00028				F		 
+08791 	08791 	SANT LLORENS D?HORTONS                                      	00008				F		 
+38202 	38202 	LA LAGUNA                                                   	00038				F		 
+08110 	08110 	MONTCADA I REIXAC                                           	00008				F		 
+22254 	22254 	TORRALBA DE ARAGON                                          	00022				F		 
+20018 	20018 	SAN SEBASTIAN                                               	00020				F		 
+45001 	45001 	TOLEDO                                                      	00045				F		 
+28341 	28341 	VALDEMORO                                                   	00028				F		 
+28630 	28630 	EL PARDO                                                    	00028				F		 
+08849 	08849 	SANT CLIMENT DE LLOBREGAT                                   	00008				F		 
+43203 	43203 	REUS                                                        	00043	123			F		 
+28020 	28020 	MADRID                                                      	00028	 			X		 
+07003 	07003 	PALMA DE MALLORCA                                           	00070	040			X		 
+22720 	22720 	HECHO                                                       	00022	 			X		 
+22413 	22413 	POMAR DE CINCA                                              	00022	 			X		 
+28010 	28010 	MADRID                                                      	00028	 			X		 
+31587 	31587 	MENDAVIA                                                    	00031	165			X		 
+44500 	44500 	ANDORRA                                                     	00044	025			X		 
+41610 	41610 	PARADAS                                                     	00041	 			X		 
+28023 	28023 	MADRID                                                      	00028	 			X		 
+08027 	08027 	BARCELONA                                                   	00008	 			X		 
+33560 	33560 	RIBADESELLA                                                 	00033	 			X		 
+44760 	44760 	UTRILLAS                                                    	00044	238			X		 
+25337 	25337 	BELLCAIRE DE URGEL                                          	00025	047			X		 
+50162 	50162 	VILLAMAYOR DE GALLEGO                                       	00050	903	0297		F		01
+36001 	36001 	PONTEVEDRA                                                  	00036						 
+44556 	44556 	MOLINOS                                                     	00044						 
+19323 	19323 	TORDESILOS                                                  	00019						 
+27002 	27002 	LUGO                                                        	00027	 					 
+28906 	28906 	GETAFE                                                      	00028				F		 
+35004 	35004 	LAS PALMAS GRAN CANARIA                                     	00035						 
+36400 	36400 	PORRIÐO                                                     	00036				X		 
+24002 	24002 	LEON                                                        	00024				F		 
+01008 	01008 	VITORIA-GASTEIZ                                             	00001				F		 
+46230 	46230 	ALGINET                                                     	00046				F		 
+04620 	04620 	VERA                                                        	00004				F		 
+27600 	27600 	SARRIA                                                      	00027				F		 
+28048 	28048 	EL PARDO                                                    	00028				F		 
+47004 	47004 	VALLADOLID                                                  	00047	186			F		 
+20400 	20400 	TOLOSA                                                      	00020	071			F		 
+41012 	41012 	SEVILLA                                                     	00041				F		 
+28340 	28340 	VALDEMORO                                                   	00028				F		 
+33204 	33204 	GIJON                                                       	00033	024			X		 
+08402 	08402 	GRANOLLERS                                                  	00008	 			F		 
+08923 	08923 	SANTA COLOMA                                                	00008	 			F		 
+15702 	15702 	SANTIAGO DE COMPOSTELA                                      	00015	 			F		 
+08173 	08173 	SANT CUGAT DEL VALLES                                       	00008	 			F		 
+17141 	17141 	BELLCAIRE D`EMPORD?                                         	00017	 			F		 
+30840 	30840 	ALHAMA DE MURCIA                                            	00030	 			F		 
+25183 	25183 	SERÊS                                                       	00025	204			F		 
+28032 	28032 	MADRID                                                      	00028	 			F		 
+22713 	22713 	GUASILLO                                                    	00022	 			F		 
+31130 	31130 	ZIZUR MAYOR                                                 	00031	 			F		 
+08210 	08210 	BARBERA DEL VALLES                                          	00008	 			F		 
+10002 	10002 	CACERES                                                     	00010	 			F		 
+10600 	10600 	PLASENCIA                                                   	00010	 			F		 
+10680 	10680 	MALPARTIDA DE PLASENCIA                                     	00010	 			F		 
+41807 	41807 	ESPARTINAS                                                  	00041	 			F		 
+47260 	47260 	CABEZON DE PISUERGA                                         	00047	 			F		 
+08859 	08859 	BEGUES                                                      	00008	 			F		 
+35580 	35580 	PLAYA BLANCA (YAIZA)                                        	00035	 			F		 
+08915 	08915 	BADALONA                                                    	00008	 			F		 
+06400 	06400 	DON BENITO                                                  	00006	044			F		 
+39007 	39007 	SANTANDER                                                   	00039	 			F		 
+22423 	22423 	ESTADILLA                                                   	00022	103			F		 
+44315 	44315 	POZUELO DEL CAMPO                                           	00044	 			F		 
+22590 	22590 	TORRENTE DE CINCA                                           	00022	 			F		 
+39400 	39400 	LOS CORRALES DE BUELNA                                      	00039	 			F		 
+44653 	44653 	TORRE DE ARCAS                                              	00044	223			F		 
+44140 	44140 	CANTAVIEJA                                                  	00044	059			F		 
+46014 	46014 	VALENCIA                                                    	00046	 			F		 
+26143 	26143 	MURILLO DE RIO LEZA                                         	00026	 			F		 
+46004 	46004 	VALENCIA                                                    	00046	250			F		 
+08044 	08044 	BARCELONA                                                   	00008	 			F		 
+08293 	08293 	COLLBATO                                                    	00008	 			F		 
+41092 	41092 	SEVILLA                                                     	00041	 			F		 
+17131 	17131 	RUPIA                                                       	00017	 			F		 
+07620 	07620 	LLUCMAJOR                                                   	00070	031			F		 
+41950 	41950 	CASTILLEJA DE LA CUESTA                                     	00041	 			F		 
+41018 	41018 	SEVILLA                                                     	00041	 			F		 
+50830 	50830 	LOMAS DEL GALLEGO                                           	0022 	298			F		 
+08182 	08182 	SANT FELIU DE CODINES                                       	00008	 			F		 
+28231 	28231 	LAS ROZAS                                                   	00028	F					 
+50155 	50155 	AGUILON                                                     	00050	005	0005		F		01
+50230 	50230 	ALHAMA DE ARAGON                                            	00050	020	0020		F		01
+50335 	50335 	TORRES DE CALATAYUD                                         	00050	262	0262		F		01
+50510 	50510 	NOVALLAS                                                    	00050	190	0190		F		01
+50781 	50781 	ALBORGE                                                     	00050	012	0012		F		01
+50008 	50008 	ZARAGOZA                                                    	00050	297	0297		F		01
+50679A	50679A	ALERA                                                       	00050	095			F		01
+50348 	50348 	ATEA                                                        	00050	037			F		01
+50239D	50239D	CASA DE LA VEGA                                             	00050	000			F		01
+50269D	50269D	MINAS DE TIERGA, LAS                                        	00050	000			F		01
+50596A	50596A	NOVELLACO                                                   	00050	000			F		01
+50694C	50694C	PINSORO                                                     	00050	095			F		01
+50331C	50331C	RUESCA                                                      	00050	229			F		01
+50547A	50547A	TABUENCA                                                    	00050	249			F		01
+50371 	50371 	VALDEHORNA                                                  	00050	273			F		01
+50219A	50219A	VILUEÐA, LA                                                 	00050	282			F		01
+26140 	26140 	LARDERO                                                     	00026	 					 
+31110 	31110 	NOAIN                                                       	00031	 					 
+04700 	04700 	EL EJIDO                                                    	00004	 					 
+31523 	31523 	ABLITAS                                                     	00031	 					 
+33009 	33009 	OVIEDO                                                      	00033	044					 
+23710 	23710 	BAILEN                                                      	00023	 					 
+21001 	21001 	HUELVA                                                      	00021	 					 
+22120 	22120 	SIETAMO                                                     	00022	 					 
+03181 	03181 	TORREVIEJA                                                  	00003	133					 
+28911 	28911 	LEGANES                                                     	00028	 					 
+08228 	08228 	LES FONTS (TARRASA)                                         	00008	 					 
+17480 	17480 	ROSAS                                                       	00017	 					 
+31689 	31689 	IZALZU                                                      	00031	 					 
+31013 	31013 	NUEVO ARTICA                                                	00031	 					 
+31892 	31892 	ZUASTI (IZA)                                                	00031	 					 
+42110 	42110 	OLVEGA                                                      	00042	200					 
+28864 	28864 	ALJALVIR                                                    	00028	 					 
+31750 	31750 	DONAMARIA                                                   	00031	 					 
+03300 	03300 	ORIHUELA                                                    	00003	099					 
+17487 	17487 	EMPURIABRAVA                                                	00017	 					 
+43772 	43772 	BOTARELL                                                    	00043	 					 
+28703 	28703 	SAN SEBASTIAN DE LOS REYES                                  	00028	 					 
+08400 	08400 	GRANOLLERS                                                  	00008	 					 
+09130 	09130 	RABE DE LAS CALZADAS                                        	00009	 					 
+24010 	24010 	LEON                                                        	00024	 					 
+03160 	03160 	ALMORADI                                                    	00003	015					 
+45250 	45250 	AÐOVER DE TAJO                                              	00045	014					 
+08781 	08781 	ELS HOSTALETS DE PIEROLA                                    	00008	 					 
+45638 	45638 	PEPINO                                                      	00045	 					 
+12004 	12004 	CASTELLON                                                   	00012	 					 
+12579 	12579 	ALCOCEBER                                                   	00012	 				12579	 
+10120 	10120 	LOGROSAN                                                    	00010	 					 
+17534 	17534 	RIVES DE FRESER                                             	00017	F					 
+31200 	31200 	ESTELLA                                                     	00031	 					 
+20830 	20830 	MUTRIKU                                                     	00048	F					 
+03130 	03130 	SANTA POLA                                                  	00003	121					 
+07006 	07006 	PALMA DE MALLORCA                                           	00070	040					 
+46023 	46023 	VALENCIA                                                    	00046	F					 
+14006 	14006 	CORDOBA                                                     	00014	F					 
+28935 	28935 	MOSTOLES                                                    	00028	092					 
+44520 	44520 	SAMPER DE CALANDA                                           	00044	205					 
+11100 	11100 	SAN FERNANDO                                                	00011	F					 
+30121 	30121 	MURCIA                                                      	00030	F					 
+43897 	43897 	CAMPREDË (TORTOSA)                                          	00043	F					 
+30310 	30310 	LOS BARREROS- CARTAGENA                                     	00030	 					 
+48980 	48980 	SANTURTZI                                                   	00048	F					 
+20305 	20305 	IRUN                                                        	00020	F					 
+26227 	26227 	BERCEO                                                      	00026	F					 
+31540 	31540 	BUÐUEL                                                      	00031	F					 
+10800 	10800 	CORIA                                                       	00010	F					 
+26250 	26250 	SANTO DOMINGO DE LA CALZADA                                 	00026	138					 
+39660 	39660 	HELGUERA                                                    	00039	F					 
+25163 	25163 	LERIDA                                                      	00025	 					 
+43840 	43840 	SALOU                                                       	00043	F					 
+25191 	25191 	LLEIDA                                                      	00025	F					 
+44410 	44410 	MOSQUERUELA                                                 	00044	 					 
+14550 	14550 	MONTILLA                                                    	00014	F					 
+41400 	41400 	ECIJA                                                       	00041	F					 
+22100 	22100 	SANGARREN                                                   	00022	F					 
+08100 	08100 	MOLLET DEL VALLES                                           	00008	F					 
+28922 	28922 	ALCORCON                                                    	00028	F					 
+46812 	46812 	AIELO DE MALFERIT                                           	00046	F					 
+46870 	46870 	ONTINYENT                                                   	00046	F					 
+22712 	22712 	BAROS                                                       	00022	100					 
+44493 	44493 	LOSCOS                                                      	00044	 					 
+29635 	29635 	BENALMADENA                                                 	00029	 					 
+29601 	29601 	MARBELLA                                                    	00029	F					 
+13005 	13005 	CIUDAD REAL                                                 	00013	F					 
+28702 	28702 	SAN SEBASTIAN DE LOS REYES                                  	00028	F					 
+30720 	30720 	SANTIAGO DE LA RIBERA                                       	00030	F					 
+46838 	46838 	LLUTXENT                                                    	00046	F					 
+03700 	03700 	DENIA                                                       	00003	063					 
+22870 	22870 	VILLANUA                                                    	00022	250					 
+43820 	43820 	CALAFELL                                                    	00043	037					 
+46540 	46540 	EL PUIG                                                     	00046	F					 
+31230 	31230 	VIANA                                                       	00031	251					 
+44620 	44620 	ARENS DE LLEDO                                              	00044	027					 
+46134 	46134 	FOIOS                                                       	00046	126					 
+43779 	43779 	MORA LA NOVA                                                	00043	F					 
+14003 	14003 	CORDOBA                                                     	00014	021					 
+08040 	08040 	BARCELONA                                                   	00008	 					 
+04475 	04475 	MAIA                                                        	00134	 					 
+22216 	22216 	POLEÐINO                                                    	00022	184					 
+08172 	08172 	SANT CUGAT DEL VALLES                                       	00008	205					 
+46135 	46135 	ALBALAT DELS SORELLS                                        	00046	009					 
+43740 	43740 	MORA DE EBRO                                                	00043	F					 
+42107 	42107 	BERATON                                                     	00042	034					 
+04630 	04630 	GARRUCHA                                                    	00004	049					 
+44396 	44396 	CAUDE                                                       	00044	216					 
+45800 	45800 	QUINTANAR DE LA ORDEN                                       	00045	142					 
+44114 	44114 	GRIEGOS                                                     	00044	119					 
+48901 	48901 	BARACALDO                                                   	00048	013					 
+08758 	08758 	CERVELLË                                                    	00008	068					 
+06200 	06200 	ALMENDRALEJO                                                	00006	011					 
+22130 	22130 	PERALTA DE ALCOFEA                                          	00022	 					 
+44490 	44490 	FERRERUELA                                                  	00044	101					 
+47013 	47013 	VALLADOLID                                                  	00047	186					 
+08232 	08232 	VILADECAVALLS                                               	00008	300					 
+39003 	39003 	SANTANDER                                                   	00039	075					 
+08458 	08458 	SANT PERE DE VILAMAJOR                                      	00008	234					 
+17500 	17500 	RIPOLL                                                      	00017	147					 
+08302 	08302 	MATARO                                                      	00008	121					 
+44610 	44610 	CALACEITE                                                   	00044	049					 
+28791 	28791 	SOTO DEL REAL                                               	00028	144					 
+43540 	43540 	SANT CARLES DE LA RAPITA                                    	00043	136					 
+39100 	39100 	MOMPIA                                                      	00039	 					 
+34800 	34800 	AGUILAR DE CAMPOO                                           	00034	004					 
+03016 	03016 	ALICANTE                                                    	00003	014					 
+42225 	42225 	VELILLA DE LOS AJOS                                         	00042	202					 
+49013 	49013 	ZAMORA                                                      	00049	 					 
+07004 	07004 	PALMA DE MALLORCA                                           	00070	040					 
+23003 	23003 	JAEN                                                        	00023	 					 
+29604 	29604 	MARBELLA                                                    	00029	069					 
+43008 	43008 	TARRAGONA                                                   	00043	148					 
+44540 	44540 	ALBALATE DEL ARZOBISPO                                      	00044	008					 
+15001 	15001 	LA CORUÐA                                                   	00015	015					 
+46410 	46410 	SUECA                                                       	00046	235					 
+22110 	22110 	SESA                                                        	00022	220					 
+09588 	09588 	ARTIETA                                                     	00009	410					 
+48008 	48008 	BILBAO                                                      	00048	020					 
+46420 	46420 	EL PERELLË                                                  	00046	235					 
+22860 	22860 	BORAU                                                       	00022	068					 
+46940 	46940 	MANISES                                                     	00046	159					 
+44590 	44590 	AZAILA                                                      	00044	031					 
+56330 	56330 	PLUVIGNER                                                   	042  	 					 
+50021 	50021 	ZARAGOZA                                                    	00050	297					01
+26570 	26570 	QUEL                                                        	00026	120					 
+22336 	22336 	LA FUEVA                                                    	00022	113					 
+22452 	22452 	FORADADA DE TOSCAR                                          	00022	111					 
+22592 	22592 	PEÐALBA                                                     	00022	172					 
+31621 	31621 	SARRIGUREN                                                  	00031	086					 
+43880 	43880 	EL VENDRELL                                                 	00043	163					 
+22394 	22394 	LA PARDINA-AINSA                                            	00022	907					 
+44211 	44211 	OLALLA                                                      	00044	050					 
+48230 	48230 	ELORRIO                                                     	00048	032					 
+28330 	28330 	SAN MARTIN DE LA VEGA                                       	00028	132					 
+26257 	26257 	HERVIAS                                                     	00026	74					 
+29620 	29620 	TORREMOLINOS                                                	00029	901					 
+44421 	44421 	TORRIJAS                                                    	00044	231					 
+31590 	31590 	CASTEJON                                                    	00031	070					 
+22071 	22071 	HUESCA                                                      	00022	 					 
+22123 	22123 	ANG?ES                                                      	00022	027					 
+19325 	19325 	TORDELLEGO                                                  	00019	271					 
+22889 	22889 	CANDANCHU                                                   	00022	006					 
+44594 	44594 	VALDEALGORFA                                                	00044	241					 
+42193 	42193 	VALDEALVILLO                                                	00042	158					 
+22250 	22250 	LANAJA                                                      	00022	137					 
+09559 	09559 	QUECEDO DE VALDIVIELSO                                      	00009	217					 
+44623 	44623 	CRETAS                                                      	00044	086					 
+20110 	20110 	PASAIA                                                      	00020	064					 
+02007 	02007 	ALBACETE                                                    	00002	003					 
+39738 	39738 	HAZAS DE CESTO                                              	00039	031					 
+22363 	22363 	ESCALONA                                                    	00022	189					 
+15320 	15320 	AS PONTES DE GARCIA RODRIGUEZ                               	00015	 					 
+28300 	28300 	ARANJUEZ                                                    	00028	013					 
+22282 	22282 	ALCALA DE GURREA                                            	00022	014					 
+28069 	28069 	SEVILLA LA NUEVA                                            	00028	141					 
+22195 	22195 	APIES                                                       	00022	101					 
+28600 	28600 	NAVALCARNERO                                                	00028	096					 
+44652 	44652 	MONROYO                                                     	00044	154					 
+26200 	26200 	HARO                                                        	00026	071					 
+22375 	22375 	FANLO                                                       	00022	107					 
+34001 	34001 	PALENCIA                                                    	00034	120					 
+17004 	17004 	GERONA                                                      	00017	079					 
+22193 	22193 	NUENO                                                       	00022	163					 
+22191 	22191 	QUICENA                                                     	00022	195					 
+03503 	03503 	BENIDORM                                                    	00003	031					 
+44163 	44163 	VILLALBA BAJA                                               	00044	216					 
+25199A	25199A	PARTIDA FONTANET LO CURT                                    	00025	600					 
+15011 	15011 	A CORUÐA                                                    	00015	030					 
+28221 	28221 	MAJADAHONDA                                                 	00028	080					 
+22729 	22729 	FAGO                                                        	00022	106					 
+47153 	47153 	VALLADOLID                                                  	00047	186					 
+47011 	47011 	VALLADOLID                                                  	00047	186					 
+40200 	40200 	CUELLAR                                                     	00040	063					 
+44596 	44596 	LA FRESNEDA                                                 	00044	108					 
+42001 	42001 	SORIA                                                       	00042	173					 
+03802 	03802 	ALCOY                                                       	00003	009					 
+50198 	50198 	LA MUELA                                                    	0022 	182					 
+03801 	03801 	ALCOY                                                       	00003	009					 
+42220A	42220A	MONTEAGUDO DE LAS VICARIAS                                  	00042	119					 
+03540 	03540 	ALICANTE                                                    	00003	014					 
+22250A	22250A	LATRE                                                       	00022	072					 
+03720 	03720 	BENISSA                                                     	00003	041					 
+46018 	46018 	VALENCIA                                                    	00046	250					 
+20230 	20230 	LEGAZPI                                                     	00020	051					 
+22376 	22376 	TORLA                                                       	00022	230					 
+25182 	25182 	AITONA                                                      	00025	038					 
+15688 	15688 	OROSO                                                       	00015	060					 
+22193A	22193A	YEQUEDA                                                     	00022	127					 
+44792 	44792 	OBON                                                        	00044	167					 
+22004 	22004 	HUESCA                                                      	00022	125			X		 
+46529 	46529 	CANET D?EN BERENGUER                                        	00046	082					 
+36300 	36300 	BAIONA                                                      	00036	003					 
+00009 	00009 	GREDILLA DE SEDANO                                          	00009	400					 
+22661 	22661 	PANTICOSA                                                   	00022	170					 
+08221 	08221 	TARRASA                                                     	00008	279					 
+09193 	09193 	CARCEDO DE BURGOS                                           	00009	072					 
+36004 	36004 	PONTEVEDRA                                                  	00036	038					 
+19300 	19300 	MOLINA DE ARAGON                                            	00019	190					 
+44367 	44367 	BRONCHALES                                                  	00044	045					 
+03003 	03003 	ALICANTE                                                    	00003	014					 
+22663 	22663 	TRAMACASTILLA DE TENA                                       	00022	204					 
+44720 	44720 	PANCRUDO                                                    	00044	177					 
+43204 	43204 	REUS                                                        	00043	123			X		 
+31380 	31380 	CAPARROSO                                                   	00031	065					 
+43530 	43530 	ALCANAR                                                     	00043	004					 
+46100 	46100 	BURJASSOT                                                   	00046	078					 
+22753 	22753 	PUENTE LA REINA                                             	00022	902					 
+28609 	28609 	MADRID                                                      	00028	79					 
+45003 	45003 	TOLEDO                                                      	00045	45					 
+43400 	43400 	TARRAGONA                                                   	00043	086					 
+43481 	43481 	LA PINEDA                                                   	00043	100					 
+44145 	44145 	ALLEPUZ                                                     	00044	021					 
+40196 	40196 	LA LASTRILLA                                                	00040	112					 
+28707 	28707 	CIUDALCAMPO                                                 	00028	045					 
+06220 	06220 	VILLAFRANCA DE LOS BARROS                                   	00006	149					 
+35010 	35010 	LAS PALMAS DE GRAN CANARIA                                  	00035	026					 
+39200 	39200 	REINOSA                                                     	00039	 					 
+25003 	25003 	LLEIDA                                                      	00025	120					 
+44167 	44167 	CAMAÐAS                                                     	00044	053					 
+45183 	45183 	VENTAS DE RETAMOSA                                          	00045	183					 
+44233 	44233 	ODON                                                        	00044	168					 
+19261 	19261 	CORTES DE TAJUÐA                                            	00019	011					 
+28902 	28902 	GETAFE                                                      	00028	065					 
+08310 	08310 	ARGENTONA                                                   	00008	009					 
+08470 	08470 	SANT CELONI                                                 	00008	202					 
+27200 	27200 	PALAS DE REI                                                	00027	040					 
+23700 	23700 	LINARES                                                     	00023	55					 
+22240 	22240 	TARDIENTA                                                   	00022	226					 
+22533 	22533 	BELVER DE CINCA                                             	00022	052					 
+45500 	45500 	TORRIJOS                                                    	00045	173					 
+44496 	44496 	NAVARRETE DEL RIO                                           	00044	077					 
+44150 	44150 	ALIAGA                                                      	00044	017					 
+38203 	38203 	LA LAGUNA                                                   	00038	023					 
+44780 	44780 	MUNIESA                                                     	00044	161					 
+22467 	22467 	VILLANOVA                                                   	00022	249					 
+22196 	22196 	TABERNAS DE ISUELA                                          	00022	125					 
+22469 	22469 	ANCILES                                                     	00022	054					 
+22791 	22791 	SANTA CILIA                                                 	00022	208					 
+44391 	44391 	LUCO DE JILOCA                                              	00044	050					 
+30193 	30193 	YECHAR                                                      	00030	029					 
+45622 	45622 	MEJORADA                                                    	00045	084					 
+01013 	01013 	VITORIA                                                     	00001	059					 
+22222 	22222 	CASTEJON DE MONEGROS                                        	00022	083					 
+22624 	22624 	LATRE                                                       	00022	072					 
+44547 	44547 	ARIÐO                                                       	00044	029					 
+16400 	16400 	TARANCON                                                    	00016	203					 
+46760 	464760	TAVERNES DE LA VALLDIGNA                                    	00046	238					 
+41010 	41010 	SEVILLA                                                     	00041	091					 
+09009 	09009 	BURGOS                                                      	00009	059					 
+04001 	04001 	ALMERIA                                                     	00004	013					 
+30007 	30007 	MURCIA                                                      	00030	030					 
+52006 	52006 	MELILLA                                                     	00052	001					 
+22449 	22449 	CERLER                                                      	00022	054					 
+43882 	43882 	SEGUR DE CALAFELL                                           	00043	037					 
+31515 	31515 	CADREITA                                                    	00031	064					 
+08320 	08320 	EL MASNOU                                                   	00008	118					 
+20810 	20810 	ORIO                                                        	00020	061					 
+20160 	20160 	LASARTE-ORIA                                                	00020	902					 
+28946 	28946 	FUENLABRADA                                                 	00028	058					 
+31593 	31593 	FITERO                                                      	00031	105					 
+08198 	08198 	SANT CUGAT DEL VALLES                                       	00008	205					 
+22145 	22145 	ALQUEZAR                                                    	00022	024					 
+08560 	08560 	MANLLEU                                                     	00008	112					 
+22665 	22665 	PIEDRAFITA.BIESCAS                                          	00022	059					 
+50022 	50022 	ZARAGOZA                                                    	00050	297					01
+22771 	22771 	CANAL DE BERDUN                                             	00022	076					 
+09588A	09588A	VALLE DE MENA                                               	00009	410					 
+46210 	46210 	PICANYA                                                     	00046	193					 
+31291 	31291 	GUESALAZ-MUZQUI                                             	00031	120					 
+32514 	32514 	BOBORAS                                                     	00032	013					 
+08397 	08397 	PINEDA DE MAR                                               	00008	163					 
+28056 	28056 	MADRID                                                      	00028	079					 
+28978 	28978 	CUBAS DE LA SAGRA                                           	00028	050					 
+22623 	22623 	AINETO                                                      	00022	199					 
+08291 	08291 	RIPOLLET                                                    	00008	180					 
+48903 	48903 	BARAKALDO                                                   	00048	013					 
+13610 	13610 	CAMPO DE CRIPTANA                                           	00013	201					 
+19420 	19420 	CIFUENTES                                                   	00019	086					 
+25620 	25620 	TREMP                                                       	00025	234					 
+22808B	22808B	RIGLOS                                                      	00022	173					 
+33004 	33004 	OVIEDO                                                      	00033	044					 
+22150 	22150 	BELSUE                                                      	00022	163					 
+31174 	31174 	ETXAURI                                                     	00031	085					 
+36163 	36163 	POIO                                                        	00036	041					 
+31310 	31310 	CARCASTILLO                                                 	00031	067					 
+43760 	43760 	EL MORELL                                                   	00043	095					 
+42112 	42112 	POZALMURO                                                   	00042	142					 
+22422 	22422 	FONZ                                                        	00022	110					 
+44195 	44195 	POLIGONO INDUSTRIAL LA PAZ                                  	00044	216					 
+46600 	46600 	ALZIRA                                                      	00046	017					 
+46132 	46132 	ALMACERA                                                    	00046	032					 
+44131 	44131 	VILLEL                                                      	00044	264					 
+44313 	44313 	OJOS NEGROS                                                 	00044	169					 
+31260 	31260 	HUARTE                                                      	00031	122					 
+22197 	22197 	CUARTE                                                      	00022	125					 
+03009 	03009 	ALICANTE                                                    	00003	014					 
+29005 	29005 	MALAGA                                                      	00029	067					 
+43592 	43592 	TORTOSA                                                     	00043	155					 
+37188 	37188 	CARBAJOSA DE LA SAGRADA                                     	00037	085					 
+09600 	09600 	SALAS DE LOS INFANTES                                       	00009	330					 
+43860 	43860 	L?AMETLLA DE MAR                                            	00043	013					 
+22880 	22880 	CANFRANC-ESTACION                                           	00022	078					 
+28701 	28701 	SAN SEBASTIAN DE LOS REYES                                  	00028	134					 
+43890 	43890 	HOSPITALET DE I'INFANT                                      	00043	162			X		 
+22214 	22214 	LALUEZA                                                     	00022	136					 
+22161 	22161 	LIERTA                                                      	00022	904					 
+46190 	46190 	RIBA-ROJA DE TURIA                                          	00046	214					 
+42269C	42269C	ALCONCHEL DE ARIZA                                          	0022 	015					 
+46250 	46250 	L?ALCUDIA                                                   	00046	019					 
+28807 	28807 	ALCALA DE HENARES                                           	00028	005					 
+22192 	22192 	SANTA EULALIA LA MAYOR                                      	00022	150					 
+22212 	22212 	ALBERUELA DE TUBO                                           	00022	150					 
+471514	47151 	PARQUE TECNOLOGICO BOECILLO                                 	00047	 					 
+43739 	43739 	PORRERA                                                     	00043	114					 
+08150 	08150 	PARETS DEL VALLES                                           	00008	159					 
+22810 	22810 	ESQUEDAS                                                    	00022	301					 
+38400 	38400 	PUERTO DE LA CRUZ                                           	00038	028					 
+44770 	44770 	ESCUCHA                                                     	00044	099					 
+08170 	08170 	MONTORNES DEL VALLES                                        	00008	136					 
+22131 	22131 	BERBEGAL                                                    	00022	055					 
+44494 	44494 	VILLAHERMOSA DEL CAMPO                                      	00044	252					 
+22811 	22811 	LUPIÐEN-ORTILLA                                             	00022	905					 
+44155 	44155 	EL POBO                                                     	00044	185					 
+44146 	44146 	MONTEAGUDO DEL CASTILLO                                     	00044	156					 
+42200 	42200 	ALMAZAN                                                     	00042	020					 
+47314 	47314 	MANZANILLO                                                  	00047	080					 
+26300 	26300 	NAJERA                                                      	00026	102					 
+40410 	40410 	SAN RAFAEL                                                  	00040	076					 
+25123 	25123 	TORREFARRERA                                                	00025	228					 
+22809 	22809 	LOARRE                                                      	00022	149					 
+43300 	43300 	MONT-ROIG DEL CAMP                                          	00043	092					 
+47003 	47003 	VALLADOLID                                                  	00047	186					 
+22820 	22820 	TRISTE                                                      	00022	173					 
+47600 	47600 	VALLADOLID                                                  	00047	186					 
+22660 	22660 	SALLENT DE GALLEGO                                          	00022	204					 
+22637 	22637 	OROS ALTO                                                   	00022	059					 
+18004 	18004 	GRANADA                                                     	00018	087					 
+22710 	22710 	VILLANOVILLA                                                	00022	130					 
+22122 	22122 	VELILLAS                                                    	00022	027					 
+29003 	29003 	MALAGA                                                      	00029	067					 
+16004 	16004 	CUENCA                                                      	00016	078					 
+09200 	09200 	MIRANDA DE EBRO                                             	00009	219					 
+22143 	22143 	ADAHUESCA                                                   	00022	003					 
+31170 	31170 	ARAZURI                                                     	00031	193					 
+43881 	43881 	CUNIT                                                       	00043	051					 
+22281A	22281A	GURREA DE GALLEGO                                           	00022	119					 
+22281B	22281B	LA PAUL                                                     	00022	119					 
+6330  	6330  	CHAM                                                        	00184	 				 	 
+25245 	25245 	VILASANA                                                    	00025	 					 
+46160 	46160 	LLIRIA                                                      	00046	147					 
+22612 	22612 	ACUMUER                                                     	00022	200					 
+44592 	44592 	JATIEL                                                      	00044	129					 
+29631 	29631 	BENALMADENA                                                 	00029	025					 
+18013 	18013 	GRANADA                                                     	00018	087					 
+18071 	18071 	GRANADA                                                     	00018	087					 
+05430 	05430 	LA ADRADA                                                   	00005	201					 
+44420 	44420 	MANZANERA                                                   	00044	143					 
+44586 	44586 	PEÐARROYA DE TASTAVINS                                      	00044	179					 
+01439 	01439 	KUARTANGO                                                   	00001	020					 
+46143 	46143 	TORREBAJA                                                   	00046	242					 
+41038 	41038 	SAN FELICE SUL PANARO                                       	0041 	 					 
+06011 	06011 	BADAJOZ                                                     	00006	015					 
+22473 	22473 	LASPAULES                                                   	00022	143					 
+22451 	22451 	EGEA                                                        	00022	244					 
+28814 	28814 	DAGANZO DE ARRIBA                                           	00028	053					 
+41300 	41300 	SAN JOSE DE LA RINCONADA                                    	00041	081					 
+02630 	02630 	LA RODA                                                     	00002	069					 
+22070 	22070 	HUESCA                                                      	00022	125					 
+22482 	22482 	ISABENA                                                     	00022	129					 
+43895 	43895 	L?AMPOLLA                                                   	00043	906					 
+48006 	48006 	BILBAO                                                      	00048	020					 
+44460 	44460 	SARRION                                                     	00044	210					 
+29013 	29013 	MALAGA                                                      	00029	067					 
+29120 	29120 	ALHAURIN EL GRANDE                                          	00029	008					 
+24001 	24001 	LEON                                                        	00024	089					 
+02600 	02600 	VILLARROBLEDO                                               	00002	081					 
+22350 	22350 	BIELSA                                                      	00022	057					 
+22135 	22135 	ALCALA DEL OBISPO                                           	00022	015					 
+22111 	22111 	MONFLORITE                                                  	00022	156					 
+08340 	08340 	VILASSAR DE MAR                                             	00008	219					 
+22792 	22792 	SANTA CRUZ DE LA SEROS                                      	00022	209					 
+44413 	44413 	VALDELINARES                                                	00044	244					 
+31350 	31350 	PERALTA                                                     	00031	202					 
+46120 	46120 	ALBORAYA                                                    	00046	013					 
+08780 	08780 	PALLEJA                                                     	00008	 					 
+22830 	22830 	ANZANIGO                                                    	00022	072					 
+15900 	15900 	PADRON                                                      	00015	065					 
+44509 	44509 	ALLOZA                                                      	00044	022					 
+44393 	44393 	TORRIJO DEL CAMPO                                           	00044	022					 
+44624 	44624 	LLEDO                                                       	00044	141					 
+39813 	39813 	ARREDONDO                                                   	00039	007					 
+46530 	46530 	PUÃOL                                                       	00046	205					 
+22414 	22414 	CONCHEL                                                     	00022	158					 
+36202 	36202 	VIGO                                                        	00036	057					 
+43816 	43816 	QUEROL                                                      	00043	120					 
+28296 	28296 	SANTA MARIA DE LA ALAMEDA                                   	00028	135					 
+28350 	28350 	CIEMPOZUELOS                                                	00028	040					 
+28817 	28817 	SANTOS DE LA HUMOSA                                         	00028	137					 
+43422 	43422 	TARRAGONA                                                   	00043	 					 
+28460 	28460 	CADALSO DE LOS VIDRIOS                                      	00028	131					 
+28982 	28982 	PARLA                                                       	00028	106					 
+28460A	28460A	LOS MOLINOS                                                 	00028	087					 
+22230 	22230 	SENA                                                        	00022	217					 
+22231 	22231 	VILLANUEVA DE SIGENA                                        	00022	251					 
+22740 	22740 	EMBUN                                                       	00022	901					 
+28723 	28723 	PEDREZUELA                                                  	00028	108					 
+28694 	28694 	CHAPINERIA                                                  	00028	051					 
+28696 	28696 	PELAYOS DE LA PRESA                                         	00028	109					 
+28722 	28722 	VELLON, EL                                                  	00028	168					 
+44210 	44210 	CALAMOCHA                                                   	00044	050					 
+28743 	28743 	CANENCIA DE LA SIERRA                                       	00028	034					 
+30820 	30820 	ALCANTARILLA                                                	00030	005					 
+30205 	30205 	CARTAGENA                                                   	00030	016					 
+22610 	22610 	YEBRA DE BASA                                               	00022	252					 
+07010 	07010 	PALMA DE MALLORCA                                           	00070	040					 
+22468 	22468 	SAHUN                                                       	00022	300					 
+44390 	44390 	SAN MARTIN DEL RIO                                          	00044	207					 
+44193 	44193 	CORBALAN                                                    	00044	200					 
+46005 	46005 	VALENCIA                                                    	00046	250					 
+31262 	31262 	ALLO                                                        	00031	012					 
+29001 	29001 	MALAGA                                                      	00029	067					 
+44630 	44630 	CASTELSERAS                                                 	00044	068					 
+28411 	28411 	MORALZARZAL                                                 	00028	090					 
+22135A	22135A	FAÐANAS                                                     	00022	015					 
+08755 	08755 	CASTELLBISBAL                                               	00008	054					 
+48410 	48410 	OROZKO                                                      	00048	075					 
+19161 	19161 	POZO DE GUADALAJARA                                         	00019	225					 
+22150A	22150A	ARGUIS                                                      	00022	037					 
+26151 	26151 	ARRUBAL                                                     	00026	019					 
+17001 	17001 	GIRONA                                                      	00017	079					 
+47400 	47400 	MEDINA DEL CAMPO                                            	00047	085					 
+44740 	44740 	VIVEL DEL RIO MARTIN                                        	00044	267					 
+12594 	12594 	OROPESA DEL MAR                                             	00012	085					 
+22620 	22620 	ARA                                                         	00022	130					 
+18101 	18101 	VEGAS DEL GENIL                                             	00018	911					 
+04140 	04140 	CARBONERAS                                                  	00004	032					 
+22361 	22361 	LASPUÐA                                                     	00022	144					 
+17212 	17212 	PALAFRUGELL                                                 	00017	117					 
+28160 	28160 	TALAMANCA DE JARAMA                                         	00028	145					 

@@ -1,0 +1,9 @@
+01	Registrado (en análisis)                                    	S	S	N	S	S
+02	Retenido (con reparos)                                      	S	S	N	N	S
+00	Preasignado (no registrado)                                 	S	S	N	S	S
+03	VISADO Y ABONADO                                            	S	N	S	S	S
+04	REGISTRADO Y ABONADO                                        	S	N	N	S	S
+05	Abonado y retirado                                          	S	N	N	S	S
+06	Anulado                                                     	S	N	N	N	S
+07	PENDIENTE DE TRAMITACIÓN                                    	S	S	N	S	S
+08	ANEXO SIVA                                                  	S	S	N	S	S

@@ -1,0 +1,169 @@
+A01       	NOTA D'ENCÀRREC                                                                                                                                                                                                                                                	Falta nom propietat / representant
+Falta n.i.f propietat / representant
+Falta domicili propietat / representant
+Indicar participació % dels col.legiats
+Indicar N.I.F. col.legiat
+Emplaçament, no es corerspon amb doc. aportada
+Municipi
+La superfícies no es correspon amb documentació aportada
+El pressupost no corerspon amb documentació aportada
+El pressupost de seguretat no es correspon amb doc. aportada
+Falta de la signatura del propietari / contractant
+Falta la signatura del tècnic
+Falta l’estadistica
+Falta indicar el tipus de gestió
+		AD		
+A02       	CONTRACTE DE PRESTACIÓ DE SERVEIS                                                                                                                                                                                                                              	Falta de la signatura del propietari / contractant
+Falta la signatura del tècnic
+
+		AD		
+A03       	FULL D'ASSUMEIX                                                                                                                                                                                                                                                	Falta signar al Col·legiat
+Les dades de l'obra no corresponen a la nota d'encarrec
+		AD		
+A04       	ORDRE DE GESTIÓ DEL VISAT                                                                                                                                                                                                                                      	Cal indicar el número de visat
+El Pem no correspon a la documentació aportada
+Cal indicar si és amb getió de cobrament o no 
+Indicar si és parcial o final
+Falta la signatura del tècnic
+		AD		
+A05       	CERTIFICAT DE FINAL D'OBRA. CFO                                                                                                                                                                                                                                	Falta la data de finalització d'obra
+Falta la data d'emissió del certificat de l'aparellador
+Falta la data d'emissió del certificat de l'arquitecte
+La data de finalització d'obra no pot ser posterior a la de emissió del cert.
+Falta de la firma del aparellador / arquitecte
+Les dades del certificat no corresponen amb les del contracte.
+
+Falta l'annex de modificacions del projectes (CTE)
+Falta l'annex de control de qualitat (CTE)
+		AD		
+A06       	ACTA DE REPLANTEIG                                                                                                                                                                                                                                             	Falta signar al coordinador
+Falta signar al constructor
+Les dades de l'acta no es corresponen amb les del contracte		AD		
+A07       	HABILITACIÓ PROFESSIONAL                                                                                                                                                                                                                                       	La intervenció objecte del present projecte, modifica i amplia la volumetria de l'edifici. Aquest fet pot incidir en allò que estableix l'Apt. 2b de l'Art. 2 de la LOE, el que condicionaria que l'autor del projecte no s'adapti a allò que estableix l'Art. 10 de l'esmentada Llei. 
+
+Referencies
+LOE
+Art. 2.2.
+b. Obres d’ampliació, modificació, reforma o rehabilitació que alterin la configuració arquitectònica dels edificis;  s’entenen com a tals les que tinguin caràcter d’intervenció total o les parcials que produeixin una variació essencial de la composició general exterior, la volumetria, o el conjunt del sistema estructural, o tinguin per objecte canviar els usos característics de l’edifici.
+...
+Art 10.2
+Són obligacions del projectista:
+a) Estar en possessió de la titulació acadèmica i professional que habiliti com a arquitecte, arquitecte tècnic, enginyer o enginyer tècnic, segons correspongui, i complir les condicions exigibles per a l’exercici de la professió.
+En cas de persones jurídiques, designar el tècnic redactor del projecte que tingui la titulació professional habilitant.
+Quan el projecte tingui com a objecte la construcció d’edificis per als usos indicats en el grup a) de l’apartat 1 de l’article 2, la titulació acadèmica i professional habilitant és la d’arquitecte.
+...
+Se segueixen criteris idèntics pel que fa als projectes d’obres a què es refereixen els apartats 2.b) i 2.c) de l’article 2 d’aquesta Llei.
+		AD	---	
+A09       	CERTIFICATS, INFORMES                                                                                                                                                                                                                                          	Falta signar al tècnic
+Falta la data del certificat
+Les dades no es corresponen amb la nota d'encarrec
+		AD		
+A11       	PROJECTE                                                                                                                                                                                                                                                       	Falta la firma del aparellador
+Falta la firma de la propietat
+El plec de condicions ha estar redactat per l'arquitecte tècnic
+Falten els plànols de: 
+
+La propietat no es correspon amb la nota d'encàrrec
+El pressupost no es correspon amb documentació aportada
+La superfícies no es corresponen amb documentació aportada
+Al ser projecte de demolició/enderroc cal el volum.
+
+La documentació aportada, no disposa de marcadors-index (normativa visat digital)
+No s'ha previst la reserva d'espai per a l'aplicació del segell de visats (normativa visat digital)		AD		
+A12       	ESTUDI/ESTUDI BASIC DE SEGURETAT                                                                                                                                                                                                                               	Falta la firma del aparellador
+Falta la firma de la propietat
+Es recomana que el pressupost de seguretat ha de ser major o igual al 2% del PEM
+Falten els plànols de:
+
+La propietat no es correspon amb la nota d'encàrrec
+La propietat no es correspon amb contracte de direcció
+El pressupost no es correspon amb nota d'encàrrec
+El pressupost no es correspon amb contracte de direcció
+La superfícies no es correspon amb nota d'encàrrec
+La superfícies no es corresponen amb contracte de direcció
+		AD		
+A13       	PLA DE SEGURETAT                                                                                                                                                                                                                                               	El pressupost del pla és inferior al de l'estudi de seguretat
+La propietat no es correspon amb contracte de direcció
+La propietat no es correspon amb estudi de seguretat
+El pressupost no es correspon amb contracte de direcció
+El pressupost no es correspon amb el de l'estudi de seguretat
+Falten els plànols de:
+
+Ha d'estar signat per la constructora
+		AD		
+A14       	ACTA D'APROVACIÓ DEL PLA                                                                                                                                                                                                                                       	Les dades no es corresponen amb les de la coordinació
+El document esta sense signar
+		AD		
+M01       	LA NORMATIVA DEL TREBALL ESTA DESFASADA O DEROGADA                                                                                                                                                                                                             	- La normativa justificada, NBE-CA-88 esta derogada pel CTE-DB-HR (CTE)
+
+- El Document basic DB-SU ha estat substituït pel DB-SUA amb la incorporació de l'accessiblitat i modificacions generals del propi document (CTE)
+
+- Els Decrets 201-94 i 161-01 sobre residus han estat derogats per la nova normativa, El Real Decreto 108/2008 i el Decret 89/2010 sobre producció de residus a la construcció. (RD 108/2010 i D89/2010)
+
+- No s'aporta justificació dels diferents DB's del CTE (CTE)
+
+- Es justifica la EHE-08 i la EHE-98 de forma incongruent (EHE-08)
+		MT	---	
+M02       	PLEC DE CONDICIONS                                                                                                                                                                                                                                             	El plec de condicions aportat, no contempla les funcions de l'Arquitecte Tècnic-Enginyer d'Edificació		MT	---	
+M04       	MEMORIA                                                                                                                                                                                                                                                        	A la portada del treball hi han de constar com a mínm les dades seguents: 
+     Titol del treball, 
+     emplaçament
+     nom del promotor
+     nom i titulació de l'autor del treball
+A la memoria del present treball, no es defineixen els treballs a portar a terme.
+      Dades de la propietat, NIF, 
+      autor del treball i titulació
+      Index
+La normativa justificada a la memoria, NBE's,  i altres estan derogades. Cal justificar els DB's del CTE o altra normativa vigent.
+La normativa a justificar es contradictoria entre els diferents documents.
+La normativa de residus justificada, esta derogada.
+El present treball planteja una intervenció que pot incidir en la configuració arquitectònica de l'article 2 de la Llei d'Ordenació de l'Edificació. Caldra per tan justificar l'article esmentat de forma específica
+A l'hora de presentar documents telemàtics al visat, cal seguir les indicacions establertes en el manual i reglament del visat telemàtic.
+
+		MT	---	
+M05       	AMIDAMENTS I PRESSUPOST                                                                                                                                                                                                                                        	Cal aportar com a mínim:
+    Amidaments amb preus unitaris
+    Resum del pressupost per capítols
+		MT	---	
+M06       	CALCULS                                                                                                                                                                                                                                                        	Tot i tractar-se d'una intervenció estructural, no consta cap calcul ni justificació dels mateixos.
+		MT	---	
+M07       	DOCUMENTACIÓ GRÀFICA                                                                                                                                                                                                                                           	No consta cap planol amb l'estructura dissenyada.
+No consta cap planol de detall de l'estructura		MT	---	
+M08       	TREBALLS DE SEGURETAT I SALUT                                                                                                                                                                                                                                  	Cal aportar Estudi Bàsic o Estudi de Seguretat. RD 1627/1997		MT	---	
+M09       	JUSTIFICACIÓ DE CTE                                                                                                                                                                                                                                            			MT	---	
+M10       	JUSTIFICACIÓ RESIDUS                                                                                                                                                                                                                                           			MT	---	
+MO3       	ESTUDI GEOTÈCNIC                                                                                                                                                                                                                                               	El projecte objecte del visat no disposa o no justifica en cap moment l'estudi geotècnic tal com s'estableix en l'art 3 del DB-SE-F del CTE		MT	---	
+OT4       	PENDENT D'ACREDITACIO                                                                                                                                                                                                                                          			OT		
+OT5       	GESTION DE COBRAMENT                                                                                                                                                                                                                                           	Indicar si es vol la gestió de cobrament a través del Col·legi o no.
+		OT	---	
+OT7       	ES DENEGA EL VISAT                                                                                                                                                                                                                                             	Denegat el visat per acord e la Junta de Govern del dia 
+Es comunica al Col·legiat.		OT	---	
+V01       	MANQUEN DOCUMENTS DE DIRECCIÓ D'OBRA                                                                                                                                                                                                                           	Nota d'encarrec
+Fulls d'assumeix
+Resum del pressupost
+Plano de situació
+Quadre de superfícies
+		VI		
+V02       	MANQUEN DOCUMENTS DE L'EXPEDIENT DE LEGALITZACIÓ                                                                                                                                                                                                               	Nota d'encarrec
+Fulls d'assumeix
+Resum del pressupost
+Plano de situació
+Quadre de superfícies
+Certificat de final d'obra
+Copia del certificat de final d'obra comú.		VI		
+V03       	MANQUEN DOCUMENTS DEL CERTIFICAT, INFORMES, PERITACIONES                                                                                                                                                                                                       	Nota d'encarrec
+Còpies del certificat-informe		VI		
+V04       	MANCA DOCUMENTACIO EN EL PROJECTE REDACTAT                                                                                                                                                                                                                     	Nota d'encarrec
+Full d'assumeix
+Copies del projecte		VI		
+V05       	MANCA DOCUMENTACIO EN L'ESTUDI DE SEGURITAT                                                                                                                                                                                                                    	El PEM de seguretat hauria de ser superior al 2% del de l'obra.		VI		
+V06       	MANCA DOCUMENTACIÓ EN L'ESTUDI DE SEGURETAT I COORDINACIÓ                                                                                                                                                                                                      			VI		
+V07       	MANCA DOCUMENTACIO DE COORDINACIO                                                                                                                                                                                                                              			VI		
+V10       	MANQUEN DOCUMENTS DEL CFO                                                                                                                                                                                                                                      	Falta l'annex de modificacions del projectes (CTE)
+Falta l'annex de control de qualitat (CTE)
+		VI		
+V11       	MANCA DOCUMENTACIÓ DEL CONTROL DE QUALITAT                                                                                                                                                                                                                     	Pel Visat del certificat del control de qualitat, cal aportar el programa i registre de resultats de control de qualitat, tal i com s'indica en el propi certificat.
+		VI	---	
+VD01      	VISAT DIGITAL                                                                                                                                                                                                                                                  	D'acord amb la normativa de visat digital: 
+   La documentació aportada, no contempla marcadors ni index. 
+   La documentació gràfica/escrita  no contempla la reserva d'espai per a la colocació del segell de visat		VD	---	

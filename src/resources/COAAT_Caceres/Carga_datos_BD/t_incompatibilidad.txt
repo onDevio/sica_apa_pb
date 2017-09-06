@@ -1,0 +1,5 @@
+2 	LOCAL                                                       	S	S	S	N
+1 	NACIONAL                                                    	S	S	S	N
+5 	ESTATAL                                                     	S	S	S	N
+4 	PROVINCIA                                                   	S	S	S	N
+3 	REGIONAL                                                    	S	S	S	N

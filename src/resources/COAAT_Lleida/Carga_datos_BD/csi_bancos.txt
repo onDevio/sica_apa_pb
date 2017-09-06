@@ -1,0 +1,11 @@
+01        	BBVA	57200029  	0182	0378	71	0101510530	 	01		Pl.Sant Joan, 6-8	Lleida	25002									
+02        	BANC SANTANDER	57200018  	0049	2482	62	2315602822	 	01		Av.Francesc Macià, 31	Lleida										
+03        	BANC SABADELL ATLANTIC	57200010  	0081	0455	95	0001340541	 	01		Prat de la Riba, 21	Lleida	25006		A08000143							
+04        	TALO	57000003  					 	01													
+05        	BBVA, VISA	57200001  					 	01													
+06        	CAIXA	57000001  						01													
+02        	BANC SANTANDER	57200018  	0049	2482	62	2115608057	 	02		Av.Francesc Macià, 31	Lleida										
+04        	TALO	57000003  					 	02													
+05        	BBVA, VISA	57200001  					 	02													
+06        	CAIXA	57000001  						02													
+01        	BBVA	57200001  	0182	0378	79	0201527458		02													

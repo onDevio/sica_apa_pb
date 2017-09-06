@@ -1,0 +1,30 @@
+SI	Apertura
+88	Cierre
+RG	Asiento de Regularización Proceso Intern
+F6	FRA. PROVEEDOR (TOTAL)
+F1	FRA.PROVEEDOR (GASTOS)
+F2	FRA. PROVEEDOR (IVA)
+F7	FACTURA
+F4	FRA. PROVEEDOR (DTO.)
+F3	FRA. PROVEEDOR (IRPF)
+F5	FRA. PROVEEDOR (PAGO)
+F9	FRA. PROVEEDOR (IRPF AL PROVEEDOR)
+TL	Talón nº
+TR	Transferencia
+00	GENERAL
+RS	Facturas
+SS	Seguro
+16	Liquidaciones
+02	Traspasos
+HS	Honorarios
+FA	IVA/IGIC  NO DEDUCIBLE, NO SE INCLUIRAN
+FB	LEASING, A LA CUENTA DE LEASING AL HABER
+FC	LEASING, A LA CUENTA DEL PROVEEDOR AL DE
+ED	AL DEBE
+EH	AL HABER
+IN	Inmovilizado
+MI	Expedientes
+RI	Regularización IVA
+Dv	Devolucion giro
+Rp	Reposición de fondos
+SV	Subvención

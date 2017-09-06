@@ -1,0 +1,47 @@
+76 	CÉDULES D'HABITABILITAT                                     			
+01 	COORD. EN PROJ. I/O REDACCIÓ ESTUDI SEGURETAT I SALUT       		1	
+02 	COORD. EN PROJ. I/O REDACCIÓ ESTUDI BÀSIC SEGURETAT I SALUT 		1	
+03 	COORD. DURANT L'EXEC. DE L'OBRA (INCLOU L'APROV. DELS PLANS)		1	
+04 	COORD. PROJ. I/O RED.EST.SEG.SALUT I COORD.EXEC.(INC. APROV)		1	
+05 	COORD. PROJ. I/O RED. ESTUDI BÀSIC I COORD.EXEC.(INC. APROV)		1	
+11 	PROJECTE I DIRECCIÓ                                         		3	
+12 	PROJECTE                                                    		3	
+13 	DIRECCIÓ D'OBRA (ARQ. TÈCNIC EXCLUSIVAMENT)                 		3	
+14 	DIRECCIÓ DE L'EXECUCIÓ MATERIAL.(ARQ. TÈCNIC I ARQUITECTE)  		3	
+15 	PROJECTE DE LEGALITZACIÓ D'OBRA.                            		3	
+16 	LEGALITZACIÓ DE DIRECCIÓ D'OBRA.                            		3	
+17 	LEGALITZACIÓ DE L'EXECUCIÓ MATERIAL                         		3	
+31 	ESTUDI DE PROGRAMA I DIRECCIÓ DE CONTROL DE QUALITAT        		2	
+32 	ESTUDI DE PROGRAMA DE CONTROL DE QUALITAT.                  		2	
+33 	DIRECCIÓ DE CONTROL DE QUALITAT.                            		2	
+41 	PROJECTE D'ACTIVITATS                                       		4	
+42 	PLANS D'EMERGENCIA                                          		4	
+43 	PROGRAMA I SEGUIMENT                                        		4	
+44 	PROGRAMACIÓ                                                 		4	
+45 	SEGUIMENT DE LA PROGRAMACIÓ                                 		4	
+46 	RACIONALITZACIÓ,PLANIFICACIÓ I PROGRAMACIÓ D'OBRES          		4	
+51 	PROJECTE I DIRECCIÓ DE PARCEL·LACIÓ                         		4	
+52 	PROJECTE DE PARCEL·LACIÓ                                    		4	
+53 	DIRECCIÓ DE PARCEL·LACIÓ                                    		4	
+54 	REPARCEL·LACIÓ                                              		4	
+61 	ESTUDI I COMPROVACIÓ D'OFERTES                              		4	
+62 	RELACIONS VALORADES                                         		4	
+63 	MEMÒRIES VALORADES                                          		4	
+64 	REVISIÓ DE PREUS I AJUST PRESSUPOST                         		4	
+65 	VALORACIÓ D'INMOBLES (TAXACIÓ)                              		4	
+66 	VALORACIÓ DE TERRENYS I SOLARS (TAXACIÓ)                    		4	
+71 	INFORMES, DICTAMENTS I RECONNEIXEMENTS                      		4	
+72 	ACTUACIONS PERICIALS / ARBITRATGES                          		4	
+73 	CERTIFICATS                                                 		4	
+74 	CERTIFICATS PER A ESPECTACLES.                              		4	
+75 	CERTIFICATS PER A BASTIDES                                  		4	
+81 	COL·LABORACIONS TÈCNIQUES                                   		4	
+82 	CONSULTES TÈCNIQUES/DILIGÈNCIES                             		4	
+83 	ASSESSORAMENT I GESTIÓ ECONÓMICA                            		4	
+91 	AMIDAMENT EDIFICACIÓ                                        		4	
+92 	AMIDAMENT TERRENYS I SOLARS                                 		4	
+93 	DELIMITAR I/O REPLANTEIG D'EDIFICACIÓ                       		4	
+94 	DELIMITAR I/O REPLANTEIG TERRENYS/SOLARS                    		4	
+95 	AMIDAMENT UNITATS D'OBRA (PLÀNOL/OBRA)                      		4	
+00 	SENSE CLASSIFICAR                                           		4	
+77 	INSPECCIONES TÉCNICAS DE EDIFICIOS (ITE)                    		4	

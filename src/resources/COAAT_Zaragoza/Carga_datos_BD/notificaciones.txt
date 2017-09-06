@@ -1,0 +1,8 @@
+Notificaci¾n Primera a Cliente (gesti¾n de cobro)                                                   	d_carta_reclamacion_1_mi_za	P	1 	2	3	S	-1.0	C	S	Primer Comunicado		%
+Notificaci¾n Segunda a Cliente (gesti¾n de cobro)                                                   	d_carta_reclamacion_2_mi_za	P	2 	3	3	S	30.0	C	S	Segundo Comunicado		%
+Notificaci¾n Tercera a Cliente (gesti¾n de cobro)                                                   	d_carta_reclamacion_3_mi_za	P	3 	4	3	N	15.0	C	S	Tercer Comunicado		%
+Notificaci¾n Cuarta a Colegiado (gesti¾n de cobro)                                                  	d_carta_reclamacion_4_mi_za	C	4 	@@	3	N	-1.0	C	N	Cuarto Comunicado		%
+Notificaci¾n Primera a Cliente (sin gesti¾n de cobro)                                               	d_carta_reclamacion_1_co_za	P	5 	6	3	S	-1.0	S	S	Primer Comunicado		%
+Notificaci¾n Segunda a Cliente (sin gesti¾n de cobro)                                               	d_carta_reclamacion_2_co_za	P	6 	7	3	N	30.0	S	S	Segundo Comunicado		%
+Notificaci¾n Tercera a Cliente (sin gesti¾n de cobro)                                               	d_carta_reclamacion_3_co_za	P	7 	8	3	N	15.0	S	S	Tercer Comunicado		%
+Notificaci¾n Cuarta a Colegiado (sin gesti¾n de cobro)                                              	d_carta_reclamacion_4_co_za	C	8 	@@	3	N	-1.0	S	N	Cuarto Comunicado		%

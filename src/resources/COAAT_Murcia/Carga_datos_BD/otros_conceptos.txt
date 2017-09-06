@@ -1,0 +1,11 @@
+01	N	C	01	EDAD
+02	S	E	02	APODO
+03	D	C	01	FECHA NAC
+04	S	C	02	EDO. CIVIL
+05	S	C		Habilitacion
+OR	S	C		Reclamante
+EX	S	C		Expediente
+RE	S	C		Responsable
+CA	s	C		Cargo
+SC	S	C		SIN CUOTA COLEGIAL
+SA	S	C		SIN CUOTA ASALARIADO

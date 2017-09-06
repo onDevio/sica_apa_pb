@@ -1,0 +1,16 @@
+cj_deb                                            
+cj_hab                                            
+csi_pagos_importe                                 
+ct_deb                                            
+ct_hab                                            
+debe                                              
+dif_cj                                            
+dif_ct                                            
+dif_ctcj                                          
+haber                                             
+presupuesto                                       
+saldo                                             
+saldo_acreedor                                    
+saldo_deudor                                      
+suma_debe                                         
+suma_haber                                        

@@ -1,0 +1,190 @@
+<sello> 
+  <x>${x}</x>
+  <y>${y}</y>
+  <anchura>55</anchura>
+  <altura>700</altura>
+  <vertical>true</vertical>
+  <posicion>${margen}</posicion>
+  <textos>
+	<texto>
+      <x>13</x>
+      <y>40</y>    
+      <contenido>COLEGIO OFICIAL</contenido>
+      <fuente>${directorio_windows}\Fonts\Gothic.ttf</fuente>
+      <size>9</size> 
+      <color>0,0,0</color>
+    </texto>
+    <texto>
+      <x>23</x>
+      <y>40</y>    
+      <contenido>APAREJADORES Y</contenido>
+      <fuente>${directorio_windows}\Fonts\Gothic.ttf</fuente>
+      <size>9</size> 
+      <color>0,0,0</color>
+    </texto>
+    <texto>
+      <x>33</x>
+      <y>40</y>    
+      <contenido>ARQUITECTOS TECNICOS</contenido>
+      <fuente>${directorio_windows}\Fonts\Gothic.ttf</fuente>
+      <size>9</size> 
+      <color>0,0,0</color>
+    </texto>
+    <texto>
+      <x>43</x>
+      <y>40</y>    
+      <contenido>DE ALICANTE</contenido>
+      <fuente>${directorio_windows}\Fonts\Gothic.ttf</fuente>
+      <size>9</size> 
+      <color>0,0,0</color>
+    </texto>
+  <texto>
+      <x>21</x>
+      <y>170</y>    
+      <contenido>Nº Visado:</contenido>
+      <fuente>${directorio_windows}\Fonts\Gothic.ttf</fuente>
+      <size>6</size> 
+      <color>0,0,0</color>
+    </texto>
+
+
+	<texto>
+      <x>21</x>
+      <y>230</y>    
+      <contenido>${n_registro}</contenido>
+      <fuente>${directorio_windows}\Fonts\Gothic.ttf</fuente>
+      <size>6</size> 
+      <color>150,150,150</color>
+    </texto>
+
+    <texto>
+      <x>27</x>
+      <y>170</y>    
+      <contenido>Fecha de entrada:</contenido>
+      <vertical>true</vertical>
+      <fuente>${directorio_windows}\Fonts\Gothic.ttf</fuente>
+      <size>6</size> 
+      <color>0,0,0</color>
+    </texto>
+
+
+	<texto>
+      <x>27</x>
+      <y>230</y>    
+      <contenido>${f_entrada}</contenido>
+      <fuente>${directorio_windows}\Fonts\Gothic.ttf</fuente>
+      <size>6</size> 
+      <color>150,150,150</color>
+    </texto>
+  
+    <texto>
+      <x>33</x>
+      <y>170</y>    
+      <contenido>Fecha de visado: </contenido>
+      <fuente>${directorio_windows}\Fonts\Gothic.ttf</fuente>
+      <size>6</size> 
+      <color>0,0,0</color>
+    </texto>
+
+    <texto>
+      <x>33</x>
+      <y>230</y>    
+      <contenido>${f_visado} </contenido>
+      <fuente>${directorio_windows}\Fonts\Gothic.ttf</fuente>
+      <size>6</size> 
+      <color>150,150,150</color>
+    </texto>
+
+
+   <texto>
+      <x>21</x>
+      <y>300</y>    
+      <contenido>Arquitectos Técnicos:</contenido>
+      <fuente>${directorio_windows}\Fonts\Gothic.ttf</fuente>
+      <size>6</size> 
+      <color>0,0,0</color>
+    </texto>
+
+    <texto>
+      <x>27</x>
+      <y>300</y>    
+      <contenido>${colegiado_1}</contenido>
+      <fuente>${directorio_windows}\Fonts\Gothic.ttf</fuente>
+      <size>6</size> 
+      <color>150,150,150</color>
+    </texto>
+
+    <texto>
+      <x>33</x>
+      <y>300</y>    
+      <contenido>${colegiado_2}</contenido>
+      <fuente>${directorio_windows}\Fonts\Gothic.ttf</fuente>
+      <size>6</size> 
+      <color>150,150,150</color>
+    </texto>
+    <texto>
+      <x>39</x>
+      <y>300</y>    
+      <contenido>${colegiado_3}</contenido>
+      <fuente>${directorio_windows}\Fonts\Gothic.ttf</fuente>
+      <size>6</size> 
+      <color>150,150,150</color>
+    </texto>
+    <texto>
+      <x>45</x>
+      <y>300</y>    
+      <contenido>${colegiado_4}</contenido>
+      <fuente>${directorio_windows}\Fonts\Gothic.ttf</fuente>
+      <size>6</size> 
+      <color>150,150,150</color>
+    </texto>
+   <texto>
+      <x>21</x>
+      <y>470</y>    
+      <contenido>VISADO</contenido>
+      <fuente>${directorio_windows}\Fonts\Arial.ttf</fuente>
+      <size>18</size> 
+      <color>0,0,0</color>
+    </texto>
+   <texto>
+      <x>36</x>
+      <y>526</y>    
+      <contenido>El presente documento fue visado el ${f_visado}</contenido>
+      <fuente>${directorio_windows}\Fonts\Gothic.ttf</fuente>
+      <size>6</size> 
+      <color>0,0,0</color>
+    </texto>
+    <texto>
+      <x>42</x>
+      <y>526</y>    
+      <contenido>quedando copia electrónica del mismo en COAATA</contenido>
+      <fuente>${directorio_windows}\Fonts\Gothic.ttf</fuente>
+      <size>6</size> 
+      <color>0,0,0</color>
+    </texto>
+    <texto>
+      <x>48</x>
+      <y>526</y>    
+      <contenido>con el identificador de documento ${referencia}</contenido>
+      <fuente>${directorio_windows}\Fonts\Gothic.ttf</fuente>
+      <size>6</size> 
+      <color>0,0,0</color>
+    </texto>
+
+   </textos>
+
+  <imagenes>
+    <imagen>
+      <x>5</x>
+      <y>0</y>
+      <ruta>${directorio_imagenes}\alicante_rot.jpg</ruta>
+      <escala>43</escala>
+    </imagen>
+    <imagen>
+      <x>1</x>
+      <y>1</y>
+      <ruta>${directorio_imagenes}\sello_trans_coaata_nar.gif</ruta>
+      <escala>60</escala>
+    </imagen>
+  </imagenes>
+</sello>

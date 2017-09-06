@@ -1,0 +1,112 @@
+COLEGIADOS			01	0.0	Facturas de Honorarios de Colegiados	N	2008				N	N
+RECTIF    	neg		01	64.0	Serie para Facturas Rectificativas	N	2008				N	N
+R         			01	850.0	Recibos generales	S	2008	d_csi_factura_tg	S		N	N
+CENDOC    			01	173.0	Factures del Àrea de Centre de Documentació	N	2008				N	N
+CITAM     			01	20.0	Factures del Àrea de CITAM	N	2008				N	N
+DINAM     			01	389.0	Factures del Àrea de Dinamització	N	2008	 	 		N	N
+MANTEN    			01	44.0	Factures del Àrea de Manteniment	N	2008				N	N
+SECRE     			01	5.0	Factures del Àrea de Secretaria	N	2008				N	N
+AULA      			01	0.0	Factures del Àrea de Aula	N	2008				N	N
+CEET      			01	8.0	Factures del Àrea de CEET	N	2008				N	N
+ESPEC     			01	0.0	Factures del Àrea de Especial	N	2008				N	N
+PLOT      			01	0.0	Factures del Àrea de Plotter	N	2008				N	N
+TOPOG     			01	0.0	Factures del Àrea de Topografia	N	2008				N	N
+DTE       			01	0.0	Factures Drests Intervenció Professional	N	2008	d_csi_factura_tg3	S		N	N
+MUS       			01	0.0	Recibos MUSAAT	N	2008	d_csi_factura_tg3	S		N	N
+DTE       			01	0.0	Factures Drests Intervenció Professional	N	XX  	d_csi_factura_tg3	S		N	N
+MUS       			01	0.0	Recibos MUSAAT	N	XX  	d_csi_factura_tg3	S		N	N
+ARRES     			01	0.0	Facturas ARRES	N	XX  	d_csi_factura_tg_arres	S		N	N
+QUOTES    			01	16.0	Facturas de Cuotas de Colegiados	N	XX  	d_csi_factura_tg	S		N	N
+QUOTES    			01	0.0	Facturas de Cuotas de Colegiados	N	2008	d_csi_factura_tg3	S		N	N
+ARRES     			01	0.0	Facturas ARRES	N	2008	d_csi_factura_tg_arres	S		N	N
+COLEGIADOS			01	0.0	Facturas de Honorarios de Colegiados	N	2009				N	N
+RECTIF    			01	1176.0	Serie para Facturas Rectificativas	N	2009	d_csi_factura_tg	S		N	N
+R         			01	0.0	Recibos generales	S	2009	d_csi_factura_tg	S		N	N
+CENDOC    			01	121.0	Factures del Àrea de Centre de Documentació	N	2009	d_csi_factura_tg			N	N
+CITAM     			01	32.0	Factures del Àrea de CITAM	N	2009	d_csi_factura_tg			N	N
+DINAM     			01	347.0	Factures del Àrea de Dinamització	N	2009	d_csi_factura_tg	 		N	N
+MANTEN    			01	42.0	Factures del Àrea de Manteniment	N	2009	d_csi_factura_tg	S		N	N
+SEREX     			01	46.0	Factures del Àrea de Serveis Externs	N	2009	d_csi_factura_tg			N	N
+SISINF    			01	80.0	Factures del Àrea de Sistemes Informació	N	2009	d_csi_factura_tg			N	N
+AULA      			01	0.0	Factures del Àrea de Aula	N	2009	d_csi_factura_tg			N	N
+CEET      			01	0.0	Factures del Àrea de CEET	N	2009	d_csi_factura_tg			N	N
+TOPOG     			01	1.0	Factures del Àrea de Topografia	N	2009	d_csi_factura_tg			N	N
+DTE       			01	0.0	Factures Drests Intervenció Professional	N	2009	d_csi_factura_tg3	S		N	N
+MUS       			01	0.0	Recibos MUSAAT	N	2009	d_csi_factura_tg3	S		N	N
+QUOTES    			01	6134.0	Facturas de Cuotas de Colegiados	N	2009	d_csi_factura_tg	S		N	N
+ARRES     			01	275.0	Facturas ARRES	N	2009	d_csi_factura_tg_arres	S		N	N
+SECRE     			01	8.0	Factures del Àrea de Secretaria	N	2009	d_csi_factura_tg			N	N
+ESPEC     			01	0.0	Factures del Àrea de Especial	N	2009	d_csi_factura_tg			N	N
+RSEREX    			01	5.0	Abonaments Factures Serveis Externs	N	2009	d_csi_factura_tg			N	N
+RDINAM    			01	112.0	Abonaments Factures Dinamització	N	2009	d_csi_factura_tg			N	N
+SISINF    			01	0.0	Factures del Àrea de Sistemes Informació	N	XX  	d_csi_factura_tg	S		N	N
+MANTEN    			01	0.0	Factures del Àrea de Manteniment	N	XX  	d_csi_factura_tg			N	N
+SECRE     			01	0.0	Factures del Àrea de Secretaria	N	XX  	d_csi_factura_tg			N	N
+SEREX     			01	0.0	Factures del Àrea de Serveis Externs	N	XX  	d_csi_factura_tg			N	N
+AULA      			01	0.0	Factures del Àrea de Aula	N	XX  	d_csi_factura_tg			N	N
+CEET      			01	0.0	Factures del Àrea de CEET	N	XX  	d_csi_factura_tg			N	N
+RINF      			01	3.0	Abonament Factures del Àrea de Sistemes Informació	S	2009	d_csi_factura_tg			N	N
+RCOAT     			01	480.0	Abonaments Factures Diverses COAATT	N	2009	d_csi_factura_tg			N	N
+COLEGIADOS			01	0.0	Facturas de Honorarios de Colegiados	N	2010				N	N
+RECTIF    			01	1228.0	Serie para Facturas Rectificativas	N	2010	d_csi_factura_tg	S		N	N
+R         			01	0.0	Recibos generales	S	2010	d_csi_factura_tg	S		N	N
+CITAM     			01	32.0	Factures del Àrea de CITAM	N	2010	d_csi_factura_tg			N	N
+DINAM     			01	436.0	Factures del Àrea de Dinamització	N	2010	d_csi_factura_tg	 		N	N
+MANTEN    			01	59.0	Factures del Àrea de Manteniment	N	2010	d_csi_factura_tg	S		N	N
+SEREX     			01	370.0	Factures del Àrea de Serveis Externs	N	2010	d_csi_factura_tg			N	N
+SISINF    			01	85.0	Factures del Àrea de Sistemes Informació	N	2010	d_csi_factura_tg			N	N
+AULA      			01	52.0	Factures del Àrea de Aula	N	2010	d_csi_factura_tg			N	N
+CEET      			01	0.0	Factures del Àrea de CEET	N	2010	d_csi_factura_tg			N	N
+PLOT      			01	0.0	Factures del Àrea de Plotter	N	2010	d_csi_factura_tg			N	N
+TOPOG     			01	0.0	Factures del Àrea de Topografia	N	2010	d_csi_factura_tg			N	N
+DTE       			01	0.0	Factures Drests Intervenció Professional	N	2010	d_csi_factura_tg3	S		N	N
+MUS       			01	0.0	Recibos MUSAAT	N	2010	d_csi_factura_tg3	S		N	N
+QUOTES    			01	6183.0	Facturas de Cuotas de Colegiados	N	2010	d_csi_factura_tg	S		N	N
+ARRES     			01	493.0	Facturas ARRES	N	2010	d_csi_factura_tg_arres	S		N	N
+SECRE     			01	103.0	Factures del Àrea de Secretaria	N	2010	d_csi_factura_tg			N	N
+ESPEC     			01	0.0	Factures del Àrea de Especial	N	2010	d_csi_factura_tg			N	N
+RSEREX    			01	4.0	Abonaments Factures Serveis Externs	N	2010	d_csi_factura_tg			N	N
+RDINAM    			01	6.0	Abonaments Factures Dinamització	N	2010	d_csi_factura_tg			N	N
+RINF      			01	0.0	Abonament Factures del Àrea de Sistemes Informació	S	2010	d_csi_factura_tg			N	N
+RCOAT     			01	7.0	Abonaments Factures Diverses COAATT	N	2010	d_csi_factura_tg			N	N
+SISINF    			01	94.0	Factures del Àrea de Sistemes Informació	N	2008				N	N
+PLOT      			01	1.0	Factures del Àrea de Plotter	N	2009	d_csi_factura_tg			N	N
+CENDOC    			01	75.0	Factures del Àrea de Centre de Documentació	N	2010	d_csi_factura_tg			N	N
+PROFOR    			01	0.0	Facturas Proforma	N	2010			PROFOR	S	N
+COLEGIADOS			01	0.0	Facturas de Honorarios de Colegiados	N	2011				N	N
+RECTIF    			01	45.0	Serie para Facturas Rectificativas	N	2011	d_csi_factura_tg	S		N	N
+R         			01	0.0	Recibos generales	S	2011	d_csi_factura_tg	S		N	N
+CITAM     			01	24.0	Factures del Àrea de CITAM	N	2011	d_csi_factura_tg			N	N
+DINAM     			01	391.0	Factures del Àrea de Dinamització	N	2011	d_csi_factura_tg	 		N	N
+MANTEN    			01	64.0	Factures del Àrea de Manteniment	N	2011	d_csi_factura_tg	S		N	N
+SEREX     			01	291.0	Factures del Àrea de Serveis Externs	N	2011	d_csi_factura_tg			N	N
+SISINF    			01	65.0	Factures del Àrea de Sistemes Informació	N	2011	d_csi_factura_tg			N	N
+AULA      			01	27.0	Factures del Àrea de Aula	N	2011	d_csi_factura_tg			N	N
+CEET      			01	0.0	Factures del Àrea de CEET	N	2011	d_csi_factura_tg			N	N
+PLOT      			01	0.0	Factures del Àrea de Plotter	N	2011	d_csi_factura_tg			N	N
+TOPOG     			01	0.0	Factures del Àrea de Topografia	N	2011	d_csi_factura_tg			N	N
+DTE       			01	0.0	Factures Drests Intervenció Professional	N	2011	d_csi_factura_tg3	S		N	N
+MUS       			01	0.0	Recibos MUSAAT	N	2011	d_csi_factura_tg3	S		N	N
+QUOTES    			01	6336.0	Factures de Quotes Col·legiats - Societsts	N	2011	d_csi_factura_tg	S		N	N
+ARRES     			01	13.0	Facturas ARRES	N	2011	d_csi_factura_tg_arres	S		N	N
+SECRE     			01	126.0	Factures del Àrea de Secretaria	N	2011	d_csi_factura_tg			N	N
+ESPEC     			01	0.0	Factures del Àrea de Especial	N	2011	d_csi_factura_tg			N	N
+RSEREX    			01	1.0	Abonaments Factures Serveis Externs	N	2011	d_csi_factura_tg			N	N
+RDINAM    			01	5.0	Abonaments Factures Dinamització	N	2011	d_csi_factura_tg			N	N
+RINF      			01	0.0	Abonament Factures del Àrea de Sistemes Informació	S	2011	d_csi_factura_tg			N	N
+RCOAT     			01	987.0	Abonaments Factures Diverses COAATT	N	2011	d_csi_factura_tg			N	N
+CENDOC    			01	79.0	Factures del Àrea de Centre de Documentació	N	2011	d_csi_factura_tg			N	N
+PROFOR    			01	277.0	Facturas Proforma	N	2011			PROFOR	S	N
+SUPL      			01	2421.0	Factures de Suplerts de Col·legiats - Societats	N	2011	d_csi_factura_tg	S		N	N
+SEREX     			01	348.0	Factures del Àrea de Serveis Externs	N	2008				N	N
+DINAM     			01	0.0	Factures del Àrea de Dinamització	N	XX  	d_csi_factura_tg			N	N
+F         			01	691.0	Facturas Emitidas por el Colegio	N	2008				N	S
+F         	neg		01	8966.0	Facturas Emitidas por el Colegio	N	2009				N	S
+F         			01	9105.0	Facturas Emitidas por el Colegio	N	2010				N	S
+F         			01	7176.0	Facturas Emitidas por el Colegio	N	2011				N	S
+PC        			03	1602.0	Serie para la facturación de la prima variable	S	2011				N	S
+PF        			03	0.0	Serie para la facturación de la prima fija de MUSAAT	S	2011				N	N
+MT        			03	0.0	Serie para la facturación de seguros sociales PREMAAT	S	2011				N	N
+PROFOR    			03	168.0	Serie para proformas de la empresa aseguradora	N	2011				S	N
+SUPL      			03	1994.0	Serie para facturació de MUSAAT i PREMAAT	S	2011	d_csi_factura_tg	S		N	N
+RECTIF    			03	2.0	Serie para Facturas Rectificativas	N	2011	d_csi_factura_tg	S		N	N

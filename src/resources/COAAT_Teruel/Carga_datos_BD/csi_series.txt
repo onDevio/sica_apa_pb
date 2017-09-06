@@ -1,0 +1,76 @@
+COLEGIADOS			01	0.0	Facturas de Honorarios de Colegiados	N	2009			N		N
+COLEGIADOS			01	0.0	Facturas de Honorarios de Colegiados	N	2010			N		N
+MUSAAT    			01	147.0	Recibos MUSAAT	S	2009			N		N
+MUSAAT    			01	153.0	Recibos MUSAAT	S	2010			N		N
+PREMAA    			01	905.0	Recibos de PREMAAT	S	2009	d_premaat_factura_cuotas	S	N		N
+PREMAA    			01	768.0	Recibos de PREMAAT	S	2010	d_premaat_factura_cuotas	S	N		N
+RECTIF    			01	114.0	Serie para Facturas Rectificativas	N	2009			N		N
+RECTIF    			01	0.0	Serie para Facturas Rectificativas	N	2010			N		N
+PROFOR    			01	0.0	Facturas Proforma	N	2010			S	PROFOR	N
+COLEGIADOS			01	0.0	Facturas de Honorarios de Colegiados	N	2011			N		N
+MUSAAT    			01	156.0	Recibos MUSAAT	S	2011			N		N
+PREMAA    			01	388.0	Recibos de PREMAAT	S	2011	d_premaat_factura_cuotas	S	N		N
+RECTIF    			01	0.0	Serie para Facturas Rectificativas	N	2011			N		N
+PROFOR    			01	0.0	Facturas Proforma	N	2011			S	PROFOR	N
+F         			01	3842.0	Facturas Emitidas por el Colegio	N	2009			N		S
+F         			01	3721.0	Facturas Emitidas por el Colegio	N	2010			N		S
+F         			01	2702.0	Facturas Emitidas por el Colegio	N	2011			N		S
+PC        			02	689.0	Serie para la facturación de la prima variable	S	2011			N		S
+PF        			02	0.0	Serie para la facturación de la prima fija de MUSAAT	S	2011			N		N
+MT        			02	471.0	Serie para la facturación de seguros sociales PREMAAT	S	2011			N		N
+PROFOR    			02	0.0	Serie para proformas de la empresa aseguradora	N	2011			S		N
+COLEGIADOS			01	0.0	Facturas de Honorarios de Colegiados	N	2012			N		N
+MUSAAT    			01	0.0	Recibos MUSAAT	S	2012			N		N
+PREMAA    			01	0.0	Recibos de PREMAAT	S	2012	d_premaat_factura_cuotas	S	N		N
+RECTIF    			01	0.0	Serie para Facturas Rectificativas	N	2012			N		N
+PROFOR    			01	0.0	Facturas Proforma	N	2012			S	PROFOR	N
+F         			01	2426.0	Facturas Emitidas por el Colegio	N	2012			N		S
+PC        			02	822.0	Serie para la facturación de la prima variable	S	2012			N		S
+PF        			02	65.0	Serie para la facturación de la prima fija de MUSAAT	S	2012			N		N
+MT        			02	821.0	Serie para la facturación de seguros sociales PREMAAT	S	2012			N		N
+PROFOR    			02	0.0	Serie para proformas de la empresa aseguradora	N	2012			S		N
+ZURICH    			01	19.0	Recibos ZURICH	S	2012			N		N
+COLEGIADOS			01	0.0	Facturas de Honorarios de Colegiados	N	2013			N		N
+MUSAAT    			01	0.0	Recibos MUSAAT	S	2013			N		N
+PREMAA    			01	0.0	Recibos de PREMAAT	S	2013	d_premaat_factura_cuotas	S	N		N
+RECTIF    			01	0.0	Serie para Facturas Rectificativas	N	2013			N		N
+PROFOR    			01	0.0	Facturas Proforma	N	2013			S	PROFOR	N
+F         			01	2163.0	Facturas Emitidas por el Colegio	N	2013			N		S
+PC        			02	431.0	Serie para la facturación de la prima variable	S	2013			N		S
+PF        			02	108.0	Serie para la facturación de la prima fija de MUSAAT	S	2013			N		N
+MT        			02	731.0	Serie para la facturación de seguros sociales PREMAAT	S	2013			N		N
+PROFOR    			02	0.0	Serie para proformas de la empresa aseguradora	N	2013			S		N
+ZURICH    			01	80.0	Recibos ZURICH	S	2013			N		N
+COLEGIADOS			01	0.0	Facturas de Honorarios de Colegiados	N	2014			N		N
+MUSAAT    			01	0.0	Recibos MUSAAT	S	2014			N		N
+PREMAA    			01	0.0	Recibos de PREMAAT	S	2014	d_premaat_factura_cuotas	S	N		N
+RECTIF    			01	0.0	Serie para Facturas Rectificativas	N	2014			N		N
+PROFOR    			01	0.0	Facturas Proforma	N	2014			S	PROFOR	N
+F         			01	2130.0	Facturas Emitidas por el Colegio	N	2014			N		S
+PC        			02	247.0	Serie para la facturación de la prima variable	S	2014			N		S
+PF        			02	117.0	Serie para la facturación de la prima fija de MUSAAT	S	2014			N		N
+MT        			02	681.0	Serie para la facturación de seguros sociales PREMAAT	S	2014			N		N
+PROFOR    			02	0.0	Serie para proformas de la empresa aseguradora	N	2014			S		N
+ZURICH    			01	101.0	Recibos ZURICH	S	2014			N		N
+COLEGIADOS			01	0.0	Facturas de Honorarios de Colegiados	N	2015			N		N
+MUSAAT    			01	0.0	Recibos MUSAAT	S	2015			N		N
+PREMAA    			01	0.0	Recibos de PREMAAT	S	2015	d_premaat_factura_cuotas	S	N		N
+RECTIF    			01	0.0	Serie para Facturas Rectificativas	N	2015			N		N
+PROFOR    			01	0.0	Facturas Proforma	N	2015			S	PROFOR	N
+F         			01	2123.0	Facturas Emitidas por el Colegio	N	2015			N		S
+PC        			02	5.0	Serie para la facturación de la prima variable	S	2015			N		S
+PF        			02	79.0	Serie para la facturación de la prima fija de MUSAAT	S	2015			N		N
+MT        			02	613.0	Serie para la facturación de seguros sociales PREMAAT	S	2015			N		N
+PROFOR    			02	0.0	Serie para proformas de la empresa aseguradora	N	2015			S		N
+ZURICH    			01	106.0	Recibos ZURICH	S	2015			N		N
+COLEGIADOS			01	0.0	Facturas de Honorarios de Colegiados	N	2016			N		N
+MUSAAT    			01	0.0	Recibos MUSAAT	S	2016			N		N
+PREMAA    			01	0.0	Recibos de PREMAAT	S	2016	d_premaat_factura_cuotas	S	N		N
+RECTIF    			01	0.0	Serie para Facturas Rectificativas	N	2016			N		N
+PROFOR    			01	0.0	Facturas Proforma	N	2016			S	PROFOR	N
+F         			01	649.0	Facturas Emitidas por el Colegio	N	2016			N		S
+PC        			02	0.0	Serie para la facturación de la prima variable	S	2016			N		S
+PF        			02	79.0	Serie para la facturación de la prima fija de MUSAAT	S	2016			N		N
+MT        			02	0.0	Serie para la facturación de seguros sociales PREMAAT	S	2016			N		N
+PROFOR    			02	0.0	Serie para proformas de la empresa aseguradora	N	2016			S		N
+ZURICH    			01	95.0	Recibos ZURICH	S	2016			N		N

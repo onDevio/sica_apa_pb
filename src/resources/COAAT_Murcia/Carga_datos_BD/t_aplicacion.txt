@@ -1,0 +1,133 @@
+E         	ESPECIAL: PUEDE HACER TODO.                       
+ESIG      	ADMINISTRADOR SISTEMA (SIGESCON)                  
+E501      	CREAR EJERCICIO                                   
+E502      	REPETIR CIERRE                                    
+E503      	CREAR NUEVA EMPRESA                               
+E510      	FACTURAS RECIBIDAS                                
+E511      	PROVEEDORES                                       
+E512      	EMISIÓN DE PAGOS                                  
+E550      	LIBRO DEL IVA CONTABLE                            
+E552      	DIARIO OFICIAL                                    
+E551      	LIBRO DIARIO OFICIAL                              
+E530      	LIST. DE ASIENTOS / APUNTES                       
+E533      	LIST. DE CLIENTES/PROVEEDORES                     
+E540      	LIST. INTRACOMUNITARIOS                           
+E539      	LIST. 347/190                                     
+E537      	LIST. COMPARACION GASTOS                          
+E538      	LIST. DE COBROS                                   
+E531      	LIST. DE PRESUPUESTOS                             
+E532      	LIST. DE PRESUPUESTOS CTAS. PRESUP.               
+E535      	LIST. DE INMOVILIZADO ANUAL                       
+E522      	MTO. ARTICULOS                                    
+E521      	MTO. DE CLIENTES                                  
+E553      	NUMERACIÓN DOCUMENTOS CAJA                        
+E590      	COMPROBAR ASIENTOS DESCUADRADOS                   
+E591      	REGENERACIÓN DE SALDOS Y CUENTAS                  
+E592      	OBTENER SALDO CUENTA                              
+E593      	COMPROBAR CUENTAS SUBNIVELES                      
+E594      	COMPROBAR APTES. CUENTA NO DESARR.                
+E595      	COMPROBAR APTES. SIN CUENTA                       
+E596      	COMPROBAR APTES. CUENTA NO EXISTE                 
+E597      	BUSCAR APTES. PRESUP. INCORRECTOS                 
+E598      	BUSCAR APTES. SIN CTA. PRESUP.                    
+E599      	RENUMERAC. ASIENTOS POR DIARIO                    
+E554      	DIARIO RESUMEN POR MESES                          
+E570      	PLAN DE CUENTAS                                   
+E572      	INTRODUCCIÓN MANUAL DE ASIENTOS                   
+E573      	MODIFICACIÓN DE ASIENTOS                          
+E574      	INFORMES ANALÍTICOS Y BALANCES DE SUMAS           
+E575      	BALANCES OFICIALES                                
+E576      	EXTRACTOS DE CUENTAS                              
+E571      	PRESUPUESTOS                                      
+E577      	CONCILIACIÓN DE CUENTAS                           
+E578      	ELEMENTOS DE INMOVILIZADO ANUAL                   
+E580      	CÁLCULO DE AMORTIZACIONES ANUAL                   
+E621      	CONTABILIZAC. FR                                  
+E622      	CONTABILIZAC. PAGOS FR                            
+E623      	BORRAR FR                                         
+E624      	CONTABILIZAC. FE                                  
+E625      	CONTABILIZAC. COBROS FE                           
+E626      	IMPRIMIR FE                                       
+E627      	BORRAR ASIENTOS                                   
+E628      	GENERAR TALONES PAGOS                             
+E629      	GENERAR PAGARES PAGOS                             
+E630      	GENERAR TRANSFERENCIAS PAGOS                      
+E536      	LIST. DE INMOVILIZADO MENSUAL                     
+E541      	LIST. DE PAGOS                                    
+E542      	LIST. DE FACTURAS EMITIDAS                        
+E543      	LIST. DE FACTURAS RECIBIDAS                       
+E579      	ELEMENTOS DE INMOVILIZADO MENSUAL                 
+E581      	CÁLCULO DE AMORTIZACIONES MENSUAL                 
+E582      	PLAN DE CUENTAS PRESUPUESTARIAS                   
+E583      	ENLACE PRESUPUESTARIO                             
+E584      	PRESUPUESTOS DE CUENTAS PRESUPUESTARIAS           
+E600      	 COMPROBAR APUNTES CON IMPORTE NULO               
+E520      	MTOS. GENERALES SIGESCON                          
+E504      	CONSOLIDACION EMPRESAS BD                         
+E505      	CONSOLIDACION EMPRESAS FICHEROS EXTERNOS          
+E506      	CONTADORES                                        
+E507      	PARAMETRIZACIONES DEL SISTEMA                     
+E508      	CONSOLIDACION EMPRESA FICHEROS EXTERNOS           
+E509      	VARIABLES GLOBALES DEL SISTEMA                    
+E513      	MODIF.CONTADOR DIARIOS                            
+E631      	BORRAR FE                                         
+E01       	ACCESO EMPRESA 01                                 
+0000000001	COLEGIADOS                                        
+0000000002	ACTAS                                             
+0000000003	REGISTRO ENTRADA/SALIDA                           
+0000000004	CIRCULARES                                        
+0000000005	CERTIFICADOS                                      
+0000000006	TERCEROS                                          
+0000000007	CONTRATOS                                         
+0000000008	CONTABILIZACION                                   
+0000000009	ACREDITACIONES                                    
+0000000010	MUSAAT                                            
+0000000011	JUNTA GOBIERNO                                    
+0000000012	ESTADISTICAS                                      
+0000000013	BOLSA TRABAJO                                     
+0000000014	EXPEDIENTES                                       
+0000000015	MENSAJERIA                                        
+0000000016	LIBROS                                            
+0000000017	REPAROS                                           
+0000000018	PLANTILLAS                                        
+0000000019	FACTURAS EMITIDAS                                 
+0000000020	MOPU                                              
+0000000021	APLICACIONES                                      
+0000000022	USUARIOS                                          
+0000000023	LISTAS COLEGIADOS                                 
+0000000024	PREMAAT                                           
+0000000025	RESUMEN ECONOMICO                                 
+0000000026	RECLAMACIONES                                     
+0000000027	SELLADOR VISARED                                  
+0000000028	AVISOS                                            
+0000000029	COBROS                                            
+0000000030	FORMACION                                         
+0000000031	DOMICILIACIONES                                   
+0000000032	DOMICILIAR SALDO DEUDOR                           
+0000000033	LIQUIDACIONES                                     
+0000000034	ASESORIA JURIDICA                                 
+0000000035	ADMINISTRATIVA-JUDICIAL                           
+0000000037	ACTUALIZACION MASIVA CONCEPTOS                    
+0000000036	COBROS MÚLTIPLES                                  
+0000000039	CAJA                                              
+E523      	MANT. SERIES                                      
+E585      	IMPORTACION DATOS CSB43                           
+E602      	REGULARIZAR SALDOS CUENTAS                        
+E603      	MODIFICACIONES EN BLOQUE EN APUNTES               
+E586      	ACCESO LIMITADO A CENTRO EN F(DELEGACIÓN)         
+E587      	ACCESO LIMITADO A DIARIO EN F(DELEGACIÓN)         
+E588      	ACCESO LIMITADO A PROYECTO/EXPLOTACIÓN EN F(DELEGA
+E589      	CONSULTA LIMITADA DE PROYECTO/EXPLOTACIÓN EN F(DEL
+E632      	GESTION LIMITADA DE CUENTAS (SOLO 6 Y 7)          
+0000000043	IMPORTACIÓN FACTURAS                              
+ZGZ0000026	MODIF.. DE TIPO Y F. RECLAMACIÓN EN CONTRATOS     
+ANFAC00001	ANULACIÓN RANGO FACTURAS                          
+MANTSERIES	MANTENIMIENTO SERIES FACTURAS                     
+PCOLBAJA00	PERMISO VER COLEGIADOS BAJA                       
+0000000062	INFORME CAJA                                      
+FEW       	Frontend Web                                      
+REG_ES_MOD	REGISTRO ENTRADA SALIDA: Modificacion n_registro  
+FACT_E_MOD	FACTURACION EMITIDA: Modificacion Nº Factura      
+NAVISO_MOD	FASES: Modificacion Nº Aviso                      
+PERM_PASSW	Permiso para poder visualizar el Password         
+FEWADMIN  	Tablas de administración de Frontend Web          

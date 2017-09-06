@@ -1,0 +1,14 @@
+AYTO      	Carta del Ayuntamiento	% 	0.0	S	\\coaatterres\CSD\SICA-COMPARTIDO\documentos_fases\	S	N		0	%		01
+COLEGIA   	Certificados y Resumenes economicos	% 	0.0	S	\\coaatterres\CSD\SICA-COMPARTIDO\documentos_fases\	S	N		0	%		01
+LIQUID    	Hojas de Liquidaciones	% 	0.0	S	\\coaatterres\CSD\SICA-COMPARTIDO\liquidaciones\	S	N	 	0	%		01
+RE        	Registro de Entrada	% 	353.0	E			N		0	%		01
+RECLAM_EXP	Cartas de reclamaciones de Expedientes	% 	0.0	S	\\coaatterres\CSD\SICA-COMPARTIDO\reclamaciones\expedientes\	S	N		0	%		01
+RECLAM_FAS	Cartas de reclamaciones de Fases	% 	0.0	S	\\coaatterres\CSD\SICA-COMPARTIDO\reclamaciones\fases\	S	N		0	%		01
+ECON      	Resumenes Economicos	% 	0.0	S	\\coaatterres\CSD\SICA-COMPARTIDO\economicos\	S	N		0	%		01
+LISTADOS  	Listados	% 	0.0	S	\\coaatterres\CSD\SICA-COMPARTIDO\listados\	S	N		0	%		01
+RS        	Registro de Salida	% 	156.0	S			N		0	%		01
+INC       	Cartas de Reparos	% 	0.0	S			N		0	%		01
+SVIS      	Reg. Salida Visados	% 	161.0	S					0	%		01
+EVIS      	Reg. de Entrada Visados	% 	0.0	E					0	%		01
+RE        	Registro de Entrada Empresa Aseguradora	% 	14.0	E			N		0	%		02
+RS        	Registro de Salida Empresa Aseguradora	% 	6.0	S			N		0	%		02

@@ -1,0 +1,26 @@
+00 	VARIOS
+11 	USO RESIDENCIAL: Unifamiliares Adosadas
+12 	USO RESIDENCIAL: Unifamiliares Aisladas
+13 	USO RESIDENCIAL: En Bloque
+14 	USO RESIDENCIAL: Residencial Colectivo
+21 	USO INDUSTRIAL Y AGROPECUARIO: Agropecuario
+22 	USO INDUSTRIAL Y AGROPECUARIO: Industrial
+31 	SERVICIOS: Comerciales
+32 	SERVICIOS: Almacenes
+33 	SERVICIOS: Burocráticos / Oficinas
+34 	SERVICIOS: Hostelero
+35 	SERVICIOS: Recreo
+36 	SERVICIOS: Cultural
+37 	SERVICIOS: Sanitario
+38 	SERVICIOS: Docente
+39 	SERVICIOS: Religioso
+41 	OTROS SERVICIOS: Aparcamiiento
+42 	OTROS SERVICIOS: Estaciones de Servicio
+43 	OTROS SERVICIOS: Transporte Público
+51 	USO DEPORTIVO: Piscinas
+52 	USO DEPORTIVO: Campos de Deporte
+53 	USO DEPORTIVO: Vestuarios y Anexos
+54 	USO DEPORTIVO: Local o Edificio Deportivo
+55 	USO DEPORTIVO: Instalaciones Deportivas
+61 	USOS FUNERARIO Y MONUMENTAL: Funerario
+62 	USOS FUNERARIO Y MONUMENTAL: Monumental

@@ -1,0 +1,337 @@
+0000000007	0000000002	presentación	1	 	S	S	
+0000000008	0000000002	currículo	2	 	S	S	
+0000000009	0000000002	actividades	3	 	S	S	
+0000000010	0000000002	proyectos	4	 	S	S	
+0000000011	0000000002	imágenes	5	 	S	S	
+0000000012	0000000002	contacto	6	 	S	S	
+0000000013	0000000003	presentación	1	 	S	S	
+0000000014	0000000003	currículo	2	 	S	S	
+0000000015	0000000003	actividades	3	 	S	S	
+0000000016	0000000003	proyectos	4	 	S	S	
+0000000017	0000000003	imágenes	5	 	S	S	
+0000000018	0000000003	contacto	6	 	S	S	
+0000000026	0000000005	currículo	2	 	S	S	
+0000000027	0000000005	actividades	3	 	S	S	
+0000000028	0000000005	proyectos	4	 	S	S	
+0000000029	0000000005	imágenes	5	 	S	S	
+0000000030	0000000005	contacto	6	 	S	S	
+0000000037	0000000007	presentación	1	 	S	S	
+0000000038	0000000007	currículo	2	 	S	S	
+0000000039	0000000007	actividades	3	 	S	S	
+0000000040	0000000007	proyectos	4	 	S	S	
+0000000041	0000000007	imágenes	5	 	S	S	
+0000000042	0000000007	contacto	6	 	S	S	
+0000000049	0000000009	presentación	1	asieraranbarri@coaatg.org	N	S	 
+0000000050	0000000009	currículo	2	 	S	S	
+0000000051	0000000009	actividades	3	 	S	S	
+0000000052	0000000009	proyectos	4	 	S	S	
+0000000053	0000000009	imágenes	5	 	S	S	
+0000000054	0000000009	contacto	6	 	S	S	
+0000000055	0000000010	presentación	1	 	S	S	
+0000000056	0000000010	currículo	2	 	S	S	
+0000000057	0000000010	actividades	3	 	S	S	
+0000000058	0000000010	proyectos	4	 	S	S	
+0000000059	0000000010	imágenes	5	 	S	S	
+0000000060	0000000010	contacto	6	 	S	S	
+0000000061	0000000011	presentación	1	 	S	S	
+0000000062	0000000011	currículo	2	 	S	S	
+0000000063	0000000011	actividades	3	 	S	S	
+0000000064	0000000011	proyectos	4	 	S	S	
+0000000065	0000000011	imágenes	5	 	S	S	
+0000000066	0000000011	contacto	6	 	S	S	
+0000000067	0000000012	presentación	1	 	S	S	
+0000000068	0000000012	currículo	2	 	S	S	
+0000000069	0000000012	actividades	3	 	S	S	
+0000000070	0000000012	proyectos	4	 	S	S	
+0000000071	0000000012	imágenes	5	 	S	S	
+0000000072	0000000012	contacto	6	 	S	S	
+0000000073	0000000013	presentación	1	 	S	S	
+0000000074	0000000013	currículo	2	 	S	S	
+0000000075	0000000013	actividades	3	 	S	S	
+0000000076	0000000013	proyectos	4	 	S	S	
+0000000077	0000000013	imágenes	5	 	S	S	
+0000000078	0000000013	contacto	6	 	S	S	
+0000000079	0000000014	presentación	1	 	S	S	
+0000000080	0000000014	currículo	2	 	S	S	
+0000000081	0000000014	actividades	3	 	S	S	
+0000000082	0000000014	proyectos	4	 	S	S	
+0000000083	0000000014	imágenes	5	 	S	S	
+0000000084	0000000014	contacto	6	 	S	S	
+0000000085	0000000015	Home	1	<P>ajbfllkkadkksd ,mmacmnx</P>
+<P>.mmx .X,,amv</P>
+<P>kdsssdlgjqñkkjhdkhk</P>	N	S	Logo[1].gif
+0000000086	0000000015	Currículum	2	 	N	S	 
+0000000087	0000000015	Datos Técnicos	3	 	N	S	 
+0000000088	0000000015	Links	6	 	N	S	 
+0000000089	0000000015	Imágenes	4	 	N	S	 
+0000000090	0000000015	Contacto	5	 	N	S	 
+0000000091	0000000016	presentación	1	<P>Bienvenido a nuestra pagina web preparada para explicar cómo crear tu propia web fácil y sencilla. </P>
+<P>El Gabinete Técnico lo formamos:</P>
+<P>- Izaskun Ugarte (Arquitecto Técnico)</P>
+<P>- Leire Echamendi (Arquitecto Técnico)</P>
+<P>- Nerea Calleja (Administrativa)</P>
+<P>- Aitziber Alberdi (Administrativa)</P>	N	S	 
+0000000092	0000000016	currículo	2	<P><FONT size=2>Estudios cursados:</FONT></P>
+<P>- flsdfjsjsgjs</P>
+<P>Cursos realizados:</P>
+<P>En el COAATG:</P>
+<P>- gdfgdfg</P>
+<P>- dfgdfgdfg</P>
+<P>&nbsp;</P>	N	S	 
+0000000093	0000000016	actividades	3	<P>Las actividades que llevamos a cabo son las de asesoramiento técnico</P>
+<P>Asimismo, organizamos cursos, blabla bla....</P>	N	S	 
+0000000094	0000000016	proyectos	4	<P>Direcciones de obra:</P>
+<P>- dfsdf</P>
+<P>- dsfsdfs</P>
+<P>&nbsp;</P>
+<P>Proyectos:</P>
+<P>- Actividades</P>
+<P>- Obra</P>
+<P>&nbsp;</P>	N	S	 
+0000000095	0000000016	imágenes	5	<P>obras en sdaksd</P>
+<P>&nbsp;</P>
+<P>kjfdjf</P>	N	S	 
+0000000096	0000000016	contacto	6	<P>Para más información:</P>
+<P>&nbsp;</P>
+<P>Gabinete Técnico COAATG</P>
+<P>Pº Arbol de Gernika 23 bajo</P>
+<P>20006 Donostia</P>
+<P>Tfno:943 45 80 44</P>
+<P>Fax: 943 45 14 86</P>	N	S	 
+0000000103	0000000018	presentación	1	<P>nfldksgfsngdjgjñgfdg</P>
+<P>flfgdfughdlfogoñd</P>
+<P>ñkfgldifhg</P>	N	S	 
+0000000105	0000000018	actividades	3	jyutyuyuyiuyiytuytu	S	S	PICT0148.JPG
+0000000106	0000000018	proyectos	4	 	S	S	
+0000000107	0000000018	imágenes	5	 	S	S	
+0000000108	0000000018	contacto	6	 	S	S	
+0000000109	0000000019	presentación	1	 	S	S	
+0000000110	0000000019	currículo	2	 	S	S	
+0000000111	0000000019	actividades	3	 	S	S	
+0000000112	0000000019	proyectos	4	 	S	S	
+0000000113	0000000019	imágenes	5	 	S	S	
+0000000114	0000000019	contacto	6	 	S	S	
+0000000115	0000000020	presentación	1	<P><FONT face="times new roman, times, serif"></FONT>&nbsp;</P>
+<P align=left><FONT face="Times New Roman">Esteban IRIBAR GARMENDIA, Arquitecto Técnico, colegiado nº 721 (año 1.980), soy natural de Usúrbil y actualemente resido en Irún.</FONT></P>
+<P align=left><FONT face="Times New Roman">Mis primeros pasos fueron asesorando a dos empresas constructoras, para pasar en 1.982 al Estudio de Arquitectura y Urbanismo del arquitecto Bernabé APESTEGUI, ubicado en Zarautz. En 1.983 y 1.984, trabajé también de Aparejador Asesor Municipal en el Ayuntamiento de Usúrbil.</FONT></P>
+<P align=left><FONT face="Times New Roman">En la legislatura 1.987-91 fuí concejal en el Ayuntamiento de Usúrbil, desempeñando mi labor en las áreas de Urbanismo y Obras y en la comisión de Deportes, participando de manera destacada en la construcción del Polideportivo Municipal OIARDO de Usúrbil.</FONT></P>
+<P align=left><FONT face="Times New Roman">Actualmente continuo desempeñando mi trabajo en la confección de proyectos dentro del Estudio de Arquitectura y Urbanismo BERNABE APESTEGUI, S.L.P., complementando con la Dirección de&nbsp;Ejecución de Obras, principalmente desarrolladas en el Estudio mencionado.</FONT></P>	N	S	 
+0000000116	0000000020	currículo	2	 	S	S	
+0000000117	0000000020	actividades	3	 	S	S	
+0000000118	0000000020	proyectos	4	 	S	S	
+0000000119	0000000020	imágenes	5	 	S	S	
+0000000120	0000000020	contacto	6	 	S	S	
+0000000121	0000000021	presentación	1	 	S	S	
+0000000122	0000000021	currículo	2	 	S	S	
+0000000123	0000000021	actividades	3	 	S	S	
+0000000124	0000000021	proyectos	4	 	S	S	
+0000000125	0000000021	imágenes	5	 	S	S	
+0000000126	0000000021	contacto	6	 	S	S	
+0000000127	0000000020	 	1	 	N	S	 
+0000000128	0000000022	presentación	1	<P><FONT face="arial, helvetica, sans-serif">Estudio de arquitectura técnica con amplia experiencia en asesoramiento técnico a administradores de fincas y comunidades de propietarios en lo referente a mantenimiento de edificios, rehabilitaciones y configuraciones horizontales.</FONT></P>
+<P><FONT face=Arial>Nuestra actividad también se centra en actuaciones periciales para los diversos juzgados de Gipuzkoa, tanto de parte como por nombramiento del Juzgado correspondiente.</FONT></P>	N	S	 
+0000000130	0000000022	actividades	3	<P><FONT face="arial, helvetica, sans-serif">Nuestros campos de actuación son los siguientes:</FONT></P>
+<P><FONT face=Arial>* Peritaciones Judiciales.</FONT></P>
+<P><FONT face=Arial>* Dictámenes periciales de inmuebles con desperfectos de construcción de cara a posibles reclamaciones judiciales.</FONT></P>
+<P><FONT face=Arial>* Estudio&nbsp;de patologías de edificios.</FONT></P>
+<P><FONT face=Arial>* Elaboración de configuraciones horizontales y estatutos de comunidades.</FONT></P>
+<P><FONT face=Arial>* Proyectos y Direcciones de obra de restauración de cubiertas, fachadas, locales, etc.</FONT></P>
+<P><FONT face=Arial>* Estudios, análisis y comparación de ofertas de presupuestos de rehabilitación.</FONT></P>
+<P><FONT face=Arial>* Valoraciones, mediciones y tasaciones de cualquier tipo de bien inmueble.</FONT></P>
+<P><FONT face=Arial>* Levantamiento de planos de todo tipo.</FONT></P>
+<P><FONT face=Arial>Para cualquier trabajo no contemplado en el listado anterior no dude en consultarnos.</FONT></P>
+<P><FONT face=Arial></FONT>&nbsp;</P>	N	S	 
+0000000131	0000000022	proyectos	4	 	S	S	
+0000000132	0000000022	imágenes	5	 	S	S	
+0000000133	0000000022	contacto	6	<P>Teléfono y Fax 943320042</P>
+<P>jahernandez@coaatg.org</P>	N	S	 
+0000000134	0000000023	presentación	1	 	S	S	
+0000000135	0000000023	currículo	2	 	S	S	
+0000000136	0000000023	actividades	3	 	S	S	
+0000000137	0000000023	proyectos	4	 	S	S	
+0000000138	0000000023	imágenes	5	 	S	S	
+0000000139	0000000023	contacto	6	<P style="MARGIN-RIGHT: 0px"><FONT face="arial, helvetica, sans-serif">ALBERTO OLABARRIETA ETXEBERRIA</FONT></P>
+<P style="MARGIN-RIGHT: 0px"><FONT face=Arial>C/ELATZETA, 7 VILLA FELI</FONT></P>
+<P><FONT face=Arial>20.304 IRÚN (GIPUZKOA)</FONT></P>
+<P><FONT face=Arial>TLF.: 678 674 343</FONT></P>
+<P><FONT face=Arial>e-MAIL.: olaetxe@coaatg.org</FONT></P>	N	S	 
+0000000140	0000000024	presentación	1	 	S	S	
+0000000141	0000000024	currículo	2	 	S	S	
+0000000142	0000000024	actividades	3	 	S	S	
+0000000143	0000000024	proyectos	4	 	S	S	
+0000000144	0000000024	imágenes	5	 	S	S	
+0000000145	0000000024	contacto	6	 	S	S	
+0000000158	0000000027	presentación	1	 	S	S	
+0000000159	0000000027	currículo	2	 	S	S	
+0000000160	0000000027	actividades	3	 	S	S	
+0000000161	0000000027	proyectos	4	 	S	S	
+0000000162	0000000027	imágenes	5	 	S	S	
+0000000163	0000000027	contacto	6	 	S	S	
+0000000170	0000000029	presentación	1	 	S	S	
+0000000171	0000000029	currículo	2	 	S	S	
+0000000172	0000000029	actividades	3	 	S	S	
+0000000173	0000000029	proyectos	4	 	S	S	
+0000000174	0000000029	imágenes	5	 	S	S	
+0000000175	0000000029	contacto	6	 	S	S	
+0000000190	0000000032	presentación	1	 	S	S	
+0000000191	0000000032	currículo	2	 	S	S	
+0000000192	0000000032	actividades	3	 	S	S	
+0000000193	0000000032	proyectos	4	 	S	S	
+0000000194	0000000032	imágenes	5	 	S	S	
+0000000195	0000000032	contacto	6	 	S	S	
+0000000233	0000000039	presentación	1	<br><br><br><br>
+<b>BIENVENIDO</b> al lugar donde encontrarás información de los trabajos más característicos que he realizado desde que ejerzo como Arquitecto Técnico.
+<p>
+Elije la zona que quieres visitar en el menú de la izquierda.	N	S	 
+0000000234	0000000039	currículum	2	<br><br><br><br><span style="text-decoration: underline;">FORMACION
+ACADEMICA</span>
+<ul>
+  <li>1995 - 2000: Estudios de Arquitectura
+Técnica en la Universidad de Burgos</li>
+</ul>
+<span style="text-decoration: underline;">EXPERIENCIA
+LABORAL</span>
+<ul>
+  <li>2000 - 2001: "Ferrallería Lezo, S.L."
+Técnico de taller responsable del despiece de armaduras para
+estructuras de hormigón armado.</li>
+  <li>2001 - actualidad: Trabajo por cuenta propia realizando
+multiples trabajos (la mayor parte en colaboración con
+José Mª Alonso - Arquitecto):</li>
+  <ul>
+    <li>Colaboración en la redacción de
+Proyectos de Ejecución: Cálculo de Estructuras,
+Mediciones y Presupuestos.</li>
+    <li>Redacción de Estudios Básicos y
+Estudios de Seguridad y Salud.</li>
+    <li>Redacción de Planes y Programas de Control de
+Calidad.</li>
+    <li>Direcciones de Ejecución Material.</li>
+    <li>Redacción de Expedientes de Actividad.</li>
+    <li>Estudio de ofertas.</li>
+    <li>y otros relacionados con la actividad que desarrollo.</li>
+  </ul>
+</ul>
+<span style="text-decoration: underline;">IDIOMAS<br>
+</span>
+<ul>
+  <li>Castellano: Lengua materna</li>
+  <li>Euskera: Nivel alto hablado y escrito</li>
+  <li>Inglés: Nivel medio hablado y escrito</li>
+  <li>Francés: Nivel básico hablado y
+escrito</li>
+</ul>
+	N	S	 
+0000000235	0000000039	actividades	3	<br><br><br><br><br><br>en obras...
+	N	S	 
+0000000236	0000000039	proyectos	4	 <br><br><br><br><br><br>en obras...	N	S	 
+0000000237	0000000039	imágenes	5	 <br><br><br><br><br><br>en obras...	N	S	 
+0000000238	0000000039	contacto	6	<br><br><br><br><span style="text-decoration: underline;">CONTACTO</span><br>
+<ul>
+  <li>Correo electronico: kamarero@hotmail.com</li>
+  <li>Teléfono: 636 865 437</li>
+</ul>
+	N	S	 
+0000000239	0000000040	presentación	1	 	S	S	
+0000000240	0000000040	currículo	2	 	S	S	
+0000000241	0000000040	actividades	3	 	S	S	
+0000000242	0000000040	proyectos	4	 	S	S	
+0000000243	0000000040	imágenes	5	 	S	S	
+0000000244	0000000040	contacto	6	 	S	S	
+0000000245	0000000041	presentación	1	 	S	S	
+0000000246	0000000041	currículo	2	 	S	S	
+0000000247	0000000041	actividades	3	 	S	S	
+0000000248	0000000041	proyectos	4	 	S	S	
+0000000249	0000000041	imágenes	5	 	S	S	
+0000000250	0000000041	contacto	6	 	S	S	
+0000000252	0000000042	presentación	1	 	S	S	
+0000000253	0000000042	currículo	2	 	S	S	
+0000000254	0000000042	actividades	3	 	S	S	
+0000000255	0000000042	proyectos	4	 	S	S	
+0000000256	0000000042	imágenes	5	 	S	S	
+0000000257	0000000042	contacto	6	 	S	S	
+0000000264	0000000044	presentación	1	 	S	S	
+0000000265	0000000044	currículo	2	 	S	S	
+0000000266	0000000044	actividades	3	 	S	S	
+0000000267	0000000044	proyectos	4	 	S	S	
+0000000268	0000000044	imágenes	5	 	S	S	
+0000000269	0000000044	contacto	6	 	S	S	
+0000000276	0000000046	presentación	1	arquitecto tecnico	N	S	 
+0000000277	0000000046	currículo	2	 	S	S	
+0000000278	0000000046	actividades	3	 	S	S	
+0000000279	0000000046	proyectos	4	 	S	S	
+0000000280	0000000046	imágenes	5	 	S	S	
+0000000281	0000000046	contacto	6	 	S	S	
+0000000282	0000000047	presentación	1	 	S	S	
+0000000283	0000000047	currículo	2	 	S	S	
+0000000284	0000000047	actividades	3	 	S	S	
+0000000285	0000000047	proyectos	4	 	S	S	
+0000000286	0000000047	imágenes	5	 	S	S	
+0000000287	0000000047	contacto	6	 	S	S	
+0000000288	0000000048	presentación	1	 	S	S	
+0000000289	0000000048	currículo	2	 	S	S	
+0000000290	0000000048	actividades	3	 	S	S	
+0000000291	0000000048	proyectos	4	 	S	S	
+0000000292	0000000048	imágenes	5	 	S	S	
+0000000293	0000000048	contacto	6	 	S	S	
+0000000294	0000000049	presentación	1	<P>BITEK ESTUDIO TECNICO S.L.P</P>
+<P>Basada en&nbsp; experiencia adquirida en la ejecución material de obras de edificación, rehabilitación y urbanización, desarrolla su actividad en dichos ámbitos llevando a cabo, entre otros, los siguientes trabajos:</P>
+<P>&nbsp;</P>	N	S	 
+0000000295	0000000049	currículo	2	 	S	S	Blog_Bitek.doc
+0000000296	0000000049	actividades	3	<P>DIRECCION DE OBRA</P>
+<P>REDACCION PROYECTOS </P>
+<P>ITE</P>
+<P>INFORMES</P>
+<P>CONTROL ECONOMICO</P>
+<P>&nbsp;</P>	N	S	 
+0000000297	0000000049	proyectos	4	 	S	S	
+0000000298	0000000049	imágenes	5	 	S	S	DSCN8689.JPG
+0000000299	0000000049	contacto	6	 	S	S	
+0000000300	0000000050	presentación	1	 	S	S	
+0000000301	0000000050	currículo	2	 	S	S	
+0000000302	0000000050	actividades	3	 	S	S	
+0000000303	0000000050	proyectos	4	 	S	S	
+0000000304	0000000050	imágenes	5	 	S	S	
+0000000305	0000000050	contacto	6	 	S	S	
+0000000313	0000000052	presentación	1	 	N	S	Codificación visados.pdf
+0000000314	0000000052	currículo	2	 	S	S	
+0000000315	0000000052	actividades	3	 	S	S	
+0000000316	0000000052	proyectos	4	 	S	S	
+0000000317	0000000052	imágenes	5	 	S	S	
+0000000318	0000000052	contacto	6	 	S	S	
+0000000319	0000000053	presentación	1	 	S	S	
+0000000320	0000000053	currículo	2	 	S	S	
+0000000321	0000000053	actividades	3	 	S	S	
+0000000322	0000000053	proyectos	4	 	S	S	
+0000000323	0000000053	imágenes	5	 	S	S	
+0000000324	0000000053	contacto	6	 	S	S	
+0000000325	0000000054	presentación	1	 	S	S	
+0000000326	0000000054	currículo	2	 	S	S	
+0000000327	0000000054	actividades	3	 	S	S	
+0000000328	0000000054	proyectos	4	 	S	S	
+0000000329	0000000054	imágenes	5	 	S	S	
+0000000330	0000000054	contacto	6	 	S	S	
+0000000331	0000000055	presentación	1	 	S	S	
+0000000332	0000000055	currículo	2	 	S	S	
+0000000333	0000000055	actividades	3	 	S	S	
+0000000334	0000000055	proyectos	4	 	S	S	
+0000000335	0000000055	imágenes	5	 	S	S	
+0000000336	0000000055	contacto	6	 	S	S	
+0000000337	0000000056	presentación	1	 	S	S	
+0000000338	0000000056	currículo	2	 	S	S	
+0000000339	0000000056	actividades	3	 	S	S	
+0000000340	0000000056	proyectos	4	 	S	S	
+0000000341	0000000056	imágenes	5	 	S	S	
+0000000342	0000000056	contacto	6	 	S	S	
+0000000343	0000000057	PRESENTACIÓN	1	 	N	S	 
+0000000344	0000000057	currículo	2	 	S	S	
+0000000345	0000000057	actividades	3	 	S	S	
+0000000346	0000000057	proyectos	4	 	S	S	
+0000000347	0000000057	imágenes	5	 	S	S	
+0000000348	0000000057	contacto	6	 	S	S	
+0000000355	0000000059	presentación	1	 	S	S	
+0000000356	0000000059	currículo	2	 	S	S	
+0000000357	0000000059	actividades	3	 	S	S	
+0000000358	0000000059	proyectos	4	 	S	S	
+0000000359	0000000059	imágenes	5	 	S	S	
+0000000360	0000000059	contacto	6	 	S	S	

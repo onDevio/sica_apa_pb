@@ -1,0 +1,9 @@
+H    	ACREDITADO                                                  
+RE   	RESIDENTE EJERCIENTE                                        
+NRE  	NO RESIDENTE EJERCIENTE                                     
+RNE  	RESIDENTE NO EJERCIENTE                                     
+NRNE 	NO RESIDENTE NO EJERCIENTE                                  
+CH   	COLEGIADO DE HONOR                                          
+RPR  	RESIDENTE PRECOLEGIADO                                      
+AY   	AYUNTAMIENTO                                                
+OT   	OTROS                                                       

@@ -1,0 +1,58 @@
+MUSAAT    			01	315.0	Recibos MUSAAT	S	2008				N	N
+RECTIF    	neg		01	114.0	Serie para Facturas Rectificativas	N	2008				N	N
+COLEGIADOS			01	0.0	Facturas de Honorarios de Colegiados	N	2009				N	N
+PREMAA    			01	0.0	Recibos de PREMAAT	S	2009	d_premaat_factura_cuotas	S		N	N
+MU        			01	2547.0	INTERNA SICA : Recibos de primas complementarias de MUSAAT	N	2009				N	N
+RECTIF    	neg		01	138.0	Serie para Facturas Rectificativas	N	2009				N	N
+R         			01	1.0	Recibos generales	S	2009				N	N
+MUSAAT    			01	0.0	Recibos MUSAAT	S	2009				N	N
+DTE       			01	0.0	Facturas de gastos migradas	N	XX  	d_csi_factura_teb	S		N	N
+MUS       			01	0.0	Facturas de musaat migradas	N	XX  	d_csi_factura_teb	S		N	N
+C         			01	69.0	Rcibos Cursos	N	2009				N	N
+A         			01	8.0	Recibos Assegurance	N	2009				N	N
+QUOTES    			01	1259.0	Recibos QUOTES	N	2009	d_csi_factura_teb	S		N	N
+V         			01	381.0	Facturas de Ventas	N	2009	d_csi_factura_teb	S		N	N
+MUS       			01	0.0	Recibos MUSAAT	N	2009				N	N
+COLEGIADOS			01	0.0	Facturas de Honorarios de Colegiados	N	2010				N	N
+PREMAA    			01	0.0	Recibos de PREMAAT	S	2010	d_premaat_factura_cuotas	S		N	N
+MU        			01	2783.0	INTERNA SICA : Recibos de primas complementarias de MUSAAT	N	2010				N	N
+RECTIF    			01	223.0	Serie para Facturas Rectificativas	N	2010				N	N
+R         			01	0.0	Recibos generales	S	2010				N	N
+MUSAAT    			01	0.0	Recibos MUSAAT	S	2010				N	N
+C         			01	53.0	Rcibos Cursos	N	2010				N	N
+A         			01	12.0	Recibos Assegurance	N	2010				N	N
+QUOTES    			01	1230.0	Recibos QUOTES	N	2010	d_csi_factura_teb	S		N	N
+V         			01	340.0	Facturas de Ventas	N	2010	d_csi_factura_teb	S		N	N
+DTE       			01	0.0	FACTURAS DRETS	N	2010				N	N
+MUS       			01	0.0	Recibos MUSAAT	N	2010				N	N
+000       	 	 	02	0.0		N	2010	d_csi_factura_teb	S	 	N	N
+R         			01	294.0	Recibos generales	S	2008				N	N
+DTE       			01	0.0	FACTURAS DRETS	N	2009				N	N
+PROFOR    			01	0.0	Facturas Proforma	N	2010			PROFOR	S	N
+COLEGIADOS			01	0.0	Facturas de Honorarios de Colegiados	N	2011				N	N
+PREMAA    			01	0.0	Recibos de PREMAAT	S	2011	d_premaat_factura_cuotas	S		N	N
+MU        			01	28.0	INTERNA SICA : Recibos de primas complementarias de MUSAAT	N	2011				N	N
+RECTIF    			01	13.0	Serie para Facturas Rectificativas	N	2011				N	N
+R         			01	0.0	Recibos generales	S	2011				N	N
+MUSAAT    			01	0.0	Recibos MUSAAT	S	2011				N	N
+C         			01	86.0	Rcibos Cursos	N	2011				N	N
+A         			01	4.0	Recibos Assegurance	N	2011				N	N
+QUOTES    			01	1016.0	Recibos QUOTES	N	2011	d_csi_factura_teb	S		N	N
+V         			01	144.0	Facturas de Ventas	N	2011	d_csi_factura_teb	S		N	N
+DTE       			01	0.0	FACTURAS DRETS	N	2011				N	N
+MUS       			01	0.0	Recibos MUSAAT	N	2011				N	N
+PROFOR    			01	30.0	Facturas Proforma	N	2011			PROFOR	S	N
+IT        			02	21.0	INSTITUT TECNOLOGIC	N	2011	d_csi_factura_teb	S		N	N
+MU        			01	1049.0	INTERNA SICA : Recibos de primas complementarias de MUSAAT	N	2008				N	N
+F         			01	2426.0	Facturas Emitidas por el Colegio	N	2008				N	S
+F         			01	2840.0	Facturas Emitidas por el Colegio	N	2009				N	S
+F         			01	2928.0	Facturas Emitidas por el Colegio	N	2010				N	S
+F         			01	1877.0	Facturas Emitidas por el Colegio	N	2011				N	S
+PC        			02	724.0	Serie para la facturación de la prima variable	S	2011	 	 		N	S
+PF        			02	0.0	Serie para la facturación de otros conceptos de la empresa a	S	2011	d_csi_factura_teb	S		N	N
+MT        			02	0.0	Serie para la facturación de otros conceptos de la empresa a	S	2011	d_csi_factura_teb	S		N	N
+PROFOR    			02	1.0	Serie para proformas de la empresa aseguradora	N	2011	d_csi_factura_teb	S		S	N
+RECTIF    			02	10.0	Serie rectificativa de la empresa aseguradora	S	2011	d_csi_factura_teb	S		N	N
+A         			02	1.0	comissions assegurances	S	2011	d_csi_factura_teb	S		N	N
+PREMAAT   			02	101.0		N	2011				N	N
+MUSAAT    			02	0.0		N	2011				N	N

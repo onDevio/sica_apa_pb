@@ -1,0 +1,10 @@
+02	COLEGIADOS: 1a Reclamación	C	N	N	03	00	d_reclamaciones_facturas_1a_recla_lle	A	S	0
+03	COLEGIADOS: 2a Reclamación	C	N	N	04	01	d_reclamaciones_facturas_2a_recla_lle	A	N	30
+04	COLEGIADOS: 3a Reclamación	C	N	N	05	02	d_reclamaciones_facturas_3a_recla_lle	A	N	30
+05	COLEGIADOS: 4a Reclamación	C	N	N	NO	03	d_reclamaciones_facturas_4a_recla_lle	A	N	30
+10	CLIENTES: 1a Reclamación	P	N	N	11	aa	d_reclamaciones_facturas_1a_recla_lle	A	S	0
+11	CLIENTES: 2a Reclamación	P	N	N	12	01	d_reclamaciones_facturas_2a_recla_lle	A	N	30
+12	CLIENTES: 3a Reclamación	P	N	N	13	02	d_reclamaciones_facturas_3a_recla_lle	A	N	30
+13	CLIENTES: 4a Reclamación	P	N	N	NO	03	d_reclamaciones_facturas_4a_recla_lle	A	N	30
+50	COLEGIADOS: AGRUPADAS	C	N	S	NO	00	d_reclamaciones_facturas_agrup_lle	A	N	0
+51	CLIENTES: AGRUPADAS	P	N	S	NO	00	d_reclamaciones_facturas_agrup_lle	A	N	0

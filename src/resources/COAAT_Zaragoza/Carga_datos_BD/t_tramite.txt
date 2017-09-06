@@ -1,0 +1,12 @@
+0000000   	Visado Calidad                                                                                      	N
+0000000000	Apertura Expediente                                                                                 	S
+IICD      	IICD                                                                                                	S
+IP        	Visado Obligatorio                                                                                  	S
+IP + INT. 	Visado Oblig. + Int. Prof.                                                                          	N
+MUSAAT    	MUSAAT                                                                                              	N
+RE + INT. 	REDOC + Int. Prof.                                                                                  	N
+REDAP     	Int.Prof.                                                                                           	N
+REDOC     	REDOC                                                                                               	S
+VC + INT. 	Visado Cal. + Int. Prof.                                                                            	N
+VV        	Visado Voluntario                                                                                   	S
+VV + INT. 	Visado Vol. + Int. Prof.                                                                            	N

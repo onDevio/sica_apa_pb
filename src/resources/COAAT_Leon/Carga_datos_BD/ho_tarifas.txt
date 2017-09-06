@@ -1,0 +1,32 @@
+1.6.1     	Edificación - Nueva Planta	H = P x C / 100	superficie	presupuesto				C = P x C x Cc / 10000
+1.6.2     	Edificación - Ampliación y Reforma	H = P x C / 100 x 1,20	superficie	presupuesto				C = P x C x Cc / 10000 x 1,20
+1.6.3     	Edificación - Legalización Nueva Planta	H = P x C / 100	superficie	presupuesto				C = P x C x Cc / 10000
+1.6.4     	Edificación - Legalización Ampliación y Reforma	H = P x C / 100 x 1,20	superficie	presupuesto				C = P x C x Cc / 10000 x 1,20
+2.4.1     	Urbanización - Nueva Planta	H = P x C / 100	presupuesto					C = P x C x Cc / 10000
+2.4.2     	Urbanización - Ampliación y Reforma	H = P x Cm / 100 x 1,20	presupuesto					C = P x C x Cc / 10000 x 1,20
+2.4.3     	Urbanización - Legalización Nueva Planta	H = P x C / 100	presupuesto					C = P x C x Cc / 10000
+2.4.4     	Urbanización - Legalización Ampliación y Reforma	H = P x Cm / 100 x 1,20	presupuesto					C = P x C x Cc / 10000 x 1,20
+3.1.1     	Deslindes y Replanteos de terrenos, solares y edificiones		tipo_terreno	perimetro	perim_sup			
+3.1.2     	Mediciones de terrenos, solares y edificios		tipo_terreno	superficie	plantas_dif	plantas_ide	alz_sec_det	
+4.1       	Reconocimientos, consultas, examen de documentos y diligencias		horas	horas_extra				
+4.2       	Informes, dictámenes y certificaciones							
+4.3       	Actuaciones periciales		cantidad					
+5.1       	Arquitectura Monumental	H = P x Cm / 100	presupuesto					C = P x C / 1000 x Cc
+5.4       	Administración de los fondos invertidos en la obra		cantidad					
+5.5       	Derribo de edificaciones	H = 0,42 V x a x Fa / 100	volumen	altura				
+5.6       	Inspección y comprobación de instalaciones	H = (0,06 x P x C x 30) / 100	presupuesto					
+5.9       	Estudio y realización de mediciones y relaciones valoradas		presupuesto	superficie	desc_prec			
+5.10      	Estudio y comparación de ofertas	H = 0,6 x Of x U x Fa	num_ofertas	num_partidas				
+5.11      	Revisión de precios unitarios y reajuste de presupuestos	H = 0,03 x P	cantidad					
+5.12      	Trabajos de racionalizacion, de planificación y de programación	H = 1,10 x C / 100	cantidad					
+6         	Trabajos tarifados por tiempo	H = (Nn x 4,81 + Ne x 7,21) x Fa	horas	horas_extra				
+7         	Trabajos efectuados fuera de la residencia del aparejador	G = (0,06 x K + 13,82 (J + N)) x Fa	distancia	jornadas	noches			
+A.1.1     	Proyectos de Ejecución de Derribos de Edificaciones	H = V x a x t x Fa	volumen	altura	tipologia			C = V x a x t x Fa x Cc / 100
+A.1.2     	Proyectos de Ejecución de Obras de Urbanización	H = P x C / 100 x 1,20	nueva_planta	presupuesto				C = P x C x Cc / 10000 x 1,20
+A.1.3     	Proyectos de Ejecución de Naves	H = P x C / 100 x 1,20	nueva_planta	presupuesto				C = P x C x Cc / 10000
+A.1.4     	Proyectos de Construcción de Instalaciones Deportivas	H = P x C / 100 x 1,20	nueva_planta	presupuesto				C = P x C x Cc / 10000
+A.1.5     	Proyectos de Ejecución de Obras de Refuerzo y Consolidación de Edificaciones	H = P x C / 100	presupuesto					
+A.1.6     	Proyectos de Ejecución de Obras de Reforma, Habilitación, Adecuación o Rehabilitación	H = P x C / 100	superficie	presupuesto				C = P x C x Cc / 10000
+A.2.1     	Proyectos de Conservación y Mantenimiento de Edificios y Monumentos	H = (S x S' x t x a x Fa x e) x 12	superficie	tipo_edificio	edad			
+SSL1      	Seguridad y salud laboral - Obras de construcción	H = P x C / 100	presupuesto					
+SSL2      	Seguridad y salud laboral - Obras de derribo y demolición	H = 1,7V x a x t x Ca	volumen	altura	tipologia			

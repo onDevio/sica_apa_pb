@@ -1,0 +1,18 @@
+A 	Societats Anonimes	1
+B 	Societats de responsabilitat limitada	1
+C 	Societats Col·lectives	1
+D 	Societats Comanditàries	1
+E 	Comunitat de bens	2
+H 	Comunitat de propietaris	2
+X 	Persones físiques	2
+F 	Societats cooperatives	3
+S 	Organismes de l'Administració de l'Estat i Comunitats Autònomes	4
+P 	Corporacions locals	5
+G 	Associacions i altres tipus no definits	6
+Q 	Organismes autònoms estatals o no, i assimilats, congregacions i institucions religioses	6
+J 	Sociedades civiles, con o sin personalidad jurídica	1
+R 	Congregaciones e instituciones religiosas	6
+U 	Uniones Temporales de Empresas	6
+V 	Otros tipos no definidos en el resto de claves	6
+N 	Entidades extranjeras	6
+W 	Establecimientos permanentes de entidades no residentes en España	6

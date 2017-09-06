@@ -1,0 +1,14 @@
+02	Retenido (con reparos)                                      	S	S	N	N	S
+00	Registrado                                                  	S	S	N	S	S
+01	Mecanizado (en analisis)                                    	S	S	N	S	S
+03	Mecanizado y Verificado (VºBº)                              	S	N	S	S	S
+04	Abonado DIP Parcialmente                                    	S	N	N	S	S
+05	Abonado DIP Totalmente                                      	S	N	N	S	S
+06	Anulado                                                     	S	N	N	N	S
+VI	Retirado Visared                                            	S	S	N	S	S
+61	Baixa Administrativa                                        	N	N	N	S	S
+62	Baixa CFO                                                   	N	N	N	S	S
+63	Baixa Ofici                                                 	N	N	N	S	S
+64	Baixa Renúncia                                              	N	N	N	S	S
+65	Baixa Altres                                                	N	N	N	S	S
+66	Baixa Final Coordinació                                     	N	N	N	S	S

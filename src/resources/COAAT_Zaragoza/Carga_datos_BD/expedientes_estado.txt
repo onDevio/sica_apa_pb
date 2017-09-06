@@ -1,0 +1,8 @@
+02	REGISTRO TRAMITADO                                          	S	S	N	S	S
+00	PREASIGNADO (NO REGISTRADO)                                 	S	S	N	S	S
+01	REGISTRO EN TRAMITE                                         	S	S	N	S	S
+03	REGISTRO TRAMITADO                                          	S	N	S	S	S
+04	ABONADO PARCIALMENTE                                        	S	N	N	S	S
+05	ABONADO TOTALMENTE                                          	S	N	N	S	S
+06	TRAMITACION SUSPENDIDA                                      	S	N	N	N	S
+VI	RETIRADO FRONTEND                                           	S	S	N	S	S

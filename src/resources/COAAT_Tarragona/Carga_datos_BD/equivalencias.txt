@@ -1,0 +1,168 @@
+VU_COLEGIOS                                       	01                            	ALAVA	05
+VU_COLEGIOS                                       	02                            	ALBACETE	02
+VU_COLEGIOS                                       	03                            	ALICANTE	03
+VU_COLEGIOS                                       	04                            	ALMERIA	04
+VU_COLEGIOS                                       	05                            	ASTURIAS	06
+VU_COLEGIOS                                       	06                            	AVILA	07
+VU_COLEGIOS                                       	07                            	BADAJOZ	08
+VU_COLEGIOS                                       	08                            	BARCELONA	09
+VU_COLEGIOS                                       	09                            	BURGOS	11
+VU_COLEGIOS                                       	10                            	CACERES	12
+VU_COLEGIOS                                       	11                            	CADIZ	13
+VU_COLEGIOS                                       	12                            	CANTABRIA	14
+VU_COLEGIOS                                       	13                            	CASTELLON	15
+VU_COLEGIOS                                       	14                            	CIUDAD REAL	16
+VU_COLEGIOS                                       	15                            	CORDOBA	17
+VU_COLEGIOS                                       	16                            	CUENCA	18
+VU_COLEGIOS                                       	17                            	GIRONA	21
+VU_COLEGIOS                                       	18                            	GRANADA	22
+VU_COLEGIOS                                       	19                            	GUADALAJARA	24
+VU_COLEGIOS                                       	20                            	GUIPUZCOA	20
+VU_COLEGIOS                                       	21                            	HUELVA	25
+VU_COLEGIOS                                       	22                            	HUESCA	26
+VU_COLEGIOS                                       	23                            	IBIZA	27
+VU_COLEGIOS                                       	24                            	JAEN	28
+VU_COLEGIOS                                       	25                            	A CORUÑA	01
+VU_COLEGIOS                                       	26                            	LA RIOJA	29
+VU_COLEGIOS                                       	27                            	GRAN CANARIA	23
+VU_COLEGIOS                                       	28                            	LEON	31
+VU_COLEGIOS                                       	29                            	LLEIDA	33
+VU_COLEGIOS                                       	30                            	LUGO	32
+VU_COLEGIOS                                       	31                            	MADRID	34
+VU_COLEGIOS                                       	32                            	MALAGA	35
+VU_COLEGIOS                                       	33                            	MALLORCA	36
+VU_COLEGIOS                                       	34                            	MENORCA	37
+VU_COLEGIOS                                       	35                            	MURCIA	38
+VU_COLEGIOS                                       	36                            	NAVARRA	39
+VU_COLEGIOS                                       	37                            	OURENSE	40
+VU_COLEGIOS                                       	38                            	PALENCIA	41
+VU_COLEGIOS                                       	39                            	PONTEVEDRA	42
+VU_COLEGIOS                                       	40                            	SALAMANCA	43
+VU_COLEGIOS                                       	41                            	SEGOVIA	44
+VU_COLEGIOS                                       	42                            	SEVILLA	45
+VU_COLEGIOS                                       	43                            	SORIA	46
+VU_COLEGIOS                                       	44                            	TARRAGONA	47
+VU_COLEGIOS                                       	45                            	TENERIFE	48
+VU_COLEGIOS                                       	46                            	TERUEL	49
+VU_COLEGIOS                                       	47                            	TOLEDO	51
+VU_COLEGIOS                                       	48                            	VALENCIA	52
+VU_COLEGIOS                                       	49                            	VALLADOLID	53
+VU_COLEGIOS                                       	50                            	VIZCAYA	10
+VU_COLEGIOS                                       	51                            	ZAMORA	56
+VU_COLEGIOS                                       	52                            	ZARAGOZA	96
+VU_COLEGIOS                                       	53                            	TERRES	50
+VU_COLEGIOS                                       	56                            	LANZAROTE	30
+VU_COLEGIOS                                       	62                            	NOVA COL·LEGIACIÓ	00
+VU_COLEGIOS                                       	96                            	FUERTEVENTURA	19
+VU_COLEGIOS                                       	E                             	ESCOLA	47
+VU_PROVINCIAS                                     	00000                         	DESCONOCIDA	00
+VU_PROVINCIAS                                     	00001                         	ALAVA	01
+VU_PROVINCIAS                                     	00002                         	ALBACETE	02
+VU_PROVINCIAS                                     	00003                         	ALICANTE	03
+VU_PROVINCIAS                                     	00004                         	ALMERIA	04
+VU_PROVINCIAS                                     	00005                         	AVILA	05
+VU_PROVINCIAS                                     	00006                         	BADAJOZ	06
+VU_PROVINCIAS                                     	00007                         	MENORCA	07
+VU_PROVINCIAS                                     	00008                         	BARCELONA	08
+VU_PROVINCIAS                                     	00009                         	BURGOS	09
+VU_PROVINCIAS                                     	00010                         	CACERES	10
+VU_PROVINCIAS                                     	00011                         	CADIZ	11
+VU_PROVINCIAS                                     	00012                         	CASTELLON	12
+VU_PROVINCIAS                                     	00013                         	CIUDAD REAL	13
+VU_PROVINCIAS                                     	00014                         	CORDOBA	14
+VU_PROVINCIAS                                     	00015                         	A CORUÑA	15
+VU_PROVINCIAS                                     	00016                         	CUENCA	16
+VU_PROVINCIAS                                     	00017                         	GIRONA	17
+VU_PROVINCIAS                                     	00018                         	GRANADA	18
+VU_PROVINCIAS                                     	00019                         	GUADALAJARA	19
+VU_PROVINCIAS                                     	00020                         	GIPUZKOA	20
+VU_PROVINCIAS                                     	00021                         	HUELVA	21
+VU_PROVINCIAS                                     	00022                         	HUESCA	22
+VU_PROVINCIAS                                     	00023                         	JAEN	23
+VU_PROVINCIAS                                     	00024                         	LEON	24
+VU_PROVINCIAS                                     	00025                         	LLEIDA	25
+VU_PROVINCIAS                                     	00026                         	LA RIOJA	26
+VU_PROVINCIAS                                     	00027                         	LUGO	27
+VU_PROVINCIAS                                     	00028                         	MADRID	28
+VU_PROVINCIAS                                     	00029                         	MALAGA	29
+VU_PROVINCIAS                                     	00030                         	MURCIA	30
+VU_PROVINCIAS                                     	00031                         	NAVARRA	31
+VU_PROVINCIAS                                     	00032                         	OURENSE	32
+VU_PROVINCIAS                                     	00033                         	ASTURIAS	33
+VU_PROVINCIAS                                     	00034                         	PALENCIA	34
+VU_PROVINCIAS                                     	00035                         	LAS PALMAS GRAN CANARIA	35
+VU_PROVINCIAS                                     	00036                         	PONTEVEDRA	36
+VU_PROVINCIAS                                     	00037                         	SALAMANCA	37
+VU_PROVINCIAS                                     	00038                         	SANTA CRUZ DE TENERIFE	38
+VU_PROVINCIAS                                     	00039                         	CANTABRIA	39
+VU_PROVINCIAS                                     	00040                         	SEGOVIA	40
+VU_PROVINCIAS                                     	00041                         	SEVILLA	41
+VU_PROVINCIAS                                     	00042                         	SORIA	42
+VU_PROVINCIAS                                     	00043                         	TARRAGONA	43
+VU_PROVINCIAS                                     	00044                         	TERUEL	44
+VU_PROVINCIAS                                     	00045                         	TOLEDO	45
+VU_PROVINCIAS                                     	00046                         	VALENCIA	46
+VU_PROVINCIAS                                     	00047                         	VALLADOLID	47
+VU_PROVINCIAS                                     	00048                         	BIZKAIA	48
+VU_PROVINCIAS                                     	00049                         	ZAMORA	49
+VU_PROVINCIAS                                     	00050                         	ZARAGOZA	50
+VU_PROVINCIAS                                     	00051                         	CEUTA	51
+VU_PROVINCIAS                                     	00052                         	MELILLA	52
+VU_PROVINCIAS                                     	00070                         	MALLORCA	07
+VU_PROVINCIAS                                     	00099                         	HOLANDA	00
+VU_PROVINCIAS                                     	00100                         	TARRAGONA-TERRES DE L'EBRE	43
+VU_PROVINCIAS                                     	99999                         	DESCONOCIDA	00
+VU_SITUACIONES_PROFESIONALES                      	A                             	ASSALARIAT	AS
+VU_SITUACIONES_PROFESIONALES                      	AU                            	AUTÒNOM	LI
+VU_SITUACIONES_PROFESIONALES                      	B                             	BAIXA	OT
+VU_SITUACIONES_PROFESIONALES                      	F                             	FUNCIONARI	FU
+VU_SITUACIONES_PROFESIONALES                      	J                             	JUBILAT	JU
+VU_SITUACIONES_PROFESIONALES                      	L                             	LIBERAL	LI
+VU_SITUACIONES_PROFESIONALES                      	L1                            	LIBERAL PROMOTOR	LI
+VU_SITUACIONES_PROFESIONALES                      	L2                            	LIBERAL CONSTRUCTOR	LI
+VU_SITUACIONES_PROFESIONALES                      	O                             	ALTRE	OT
+VU_SITUACIONES_PROFESIONALES                      	S                             	SOCIETAT	SO
+VU_SITUACIONES_PROFESIONALES                      	T                             	COL·LEGIAT TERRES DE L'EBRE	LI
+VU_TIPO_REGIMEN                                   	A                             	BASICO	PREM
+VU_TIPO_REGIMEN                                   	C                             	2000	PREM
+VU_TIPO_VIA                                       	00                            	--	00
+VU_TIPO_VIA                                       	AD                            	ALDEA	AD
+VU_TIPO_VIA                                       	AL                            	ALAMEDA	AL
+VU_TIPO_VIA                                       	AP                            	APARTAMENT	AP
+VU_TIPO_VIA                                       	AV                            	AVINGUDA	AV
+VU_TIPO_VIA                                       	BL                            	BLOC	BL
+VU_TIPO_VIA                                       	BO                            	BARRI	BO
+VU_TIPO_VIA                                       	CH                            	XALET	CH
+VU_TIPO_VIA                                       	CL                            	CARRER	CL
+VU_TIPO_VIA                                       	CM                            	CAMÍ	CM
+VU_TIPO_VIA                                       	CO                            	COLÒNIA	CO
+VU_TIPO_VIA                                       	CR                            	CARRETERA	CR
+VU_TIPO_VIA                                       	CS                            	CASERIU	CS
+VU_TIPO_VIA                                       	CT                            	CUESTA	CT
+VU_TIPO_VIA                                       	ED                            	EDIFICI	ED
+VU_TIPO_VIA                                       	GL                            	GLORIETA	GL
+VU_TIPO_VIA                                       	GR                            	GRUP	GR
+VU_TIPO_VIA                                       	LG                            	LLOC	LG
+VU_TIPO_VIA                                       	MC                            	MERCAT	MC
+VU_TIPO_VIA                                       	MN                            	MUNICIPI	MN
+VU_TIPO_VIA                                       	MZ                            	MANZANA	MZ
+VU_TIPO_VIA                                       	PB                            	POBLAT	PB
+VU_TIPO_VIA                                       	PG                            	POLÍGON	PG
+VU_TIPO_VIA                                       	PJ                            	PASSATGE	PJ
+VU_TIPO_VIA                                       	PQ                            	PARC	PQ
+VU_TIPO_VIA                                       	PR                            	PROLONGACIÓ	PR
+VU_TIPO_VIA                                       	PS                            	PASSEIG	PS
+VU_TIPO_VIA                                       	PZ                            	PLAÇA	PZ
+VU_TIPO_VIA                                       	RB                            	RAMBLA	RB
+VU_TIPO_VIA                                       	RD                            	RONDA	RD
+VU_TIPO_VIA                                       	SC                            		00
+VU_TIPO_VIA                                       	TR                            	TRAVESSIA	TR
+VU_TIPO_VIA                                       	UR                            	URBANITZACIÓ	UR
+VU_SRC_CIA                                        	M                             		M
+VU_SRC_CIA                                        	N                             		N
+VU_SRC_CIA                                        	O                             		O
+VU_SRC_CIA                                        	S                             		M
+VU_TITULACION_HAB                                 	AP                            	APAREJADOR	AP
+VU_TITULACION_HAB                                 	AA                            	ARQUITECTO TÉCNICO	AA
+VU_TITULACION_HAB                                 	IE                            	INGENIERO DE LA EDIFICACION	IE
+VU_TITULACION_HAB                                 	EU                            	TÍTULO EUROPEO RECONOCIDO	EU

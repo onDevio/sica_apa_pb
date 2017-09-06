@@ -1,0 +1,15 @@
+01	Seguro de Responsabilidad civil			
+02	Mutualidad Previsión Social			
+00	,			
+D 	Descuentos de Expedientes			
+H 	Conceptos de Honorarios			
+LI	Libros			
+SE	Otros Seguros			
+C 	Cuotas diversas			
+O 	Otros conceptos (300)			
+OC	Otros conceptos (400)			
+GA	Gastos Devolución			
+CC	Laboratorio			
+GG	Gabinete Técnico			
+AS	Asisa			
+IV	IVE			

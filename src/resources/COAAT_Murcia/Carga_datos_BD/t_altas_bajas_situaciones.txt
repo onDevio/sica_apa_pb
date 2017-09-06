@@ -1,0 +1,19 @@
+A 	N	N	S	Asalariado                                                  	N
+0 	N	N	S	Valor 0 en antiguo                                          	N
+F 	N	N	S	Funcionario                                                 	N
+J 	N	S	S	Jubilado                                                    	N
+L 	N	N	S	Libre                                                       	N
+RE	N	N	N	Residente                                                   	S
+NR	N	N	N	No Residente                                                	S
+FA	N	S	S	Fallecido                                                   	N
+BV	N	S	S	Baja voluntaria                                             	N
+HB	N	N	N	Acreditados                                                 	S
+CL	N	N	N	Clientes                                                    	N
+M 	N	N	N	Moroso/a                                                    	N
+NI	S	N	N	Nuevo Ingreso                                               	N
+RI	S	N	N	Reingreso                                                   	N
+OC	S	N	N	Otro Colegio                                                	N
+AR	N	S	S	.                                                           	N
+A1	S	N	N	Alta                                                        	N
+B1	N	S	N	Baja                                                        	N
+BO	N	S	S	BAJA OBLIGADA                                               	

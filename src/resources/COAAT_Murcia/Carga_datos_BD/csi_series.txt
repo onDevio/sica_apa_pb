@@ -1,0 +1,77 @@
+A         			01	0.0	Facturas antes 2002	N	2007				N	N
+SEGURO    			01	2049.0	Facturas de MUSAAT Fija	S	2007				N	N
+GRAL      			01	760.0	Facturas Generales	N	2007				N	N
+MUTUA     			01	9530.0	Facturas de PREMAAT	S	2007				N	N
+TASADO    			01	55.0	Facturas de MUSAAT Tasadores	S	2007				N	N
+RECTIF    	neg		01	2230.0	Serie para Facturas negativas	N	2007				N	N
+CURSOS    			01	229.0	Facturas de cursos	N	2007				N	N
+CUOTA     			01	15709.0	Facturas de cuota colegial	N	2008				N	N
+A         			01	0.0	Facturas antes 2002	N	2008				N	N
+SEGURO    			01	2076.0	Facturas de MUSAAT Fija	S	2008				N	N
+GRAL      			01	617.0	Facturas Generales	N	2008				N	N
+TASADO    			01	55.0	Facturas de MUSAAT Tasadores	S	2008				N	N
+RECTIF    			01	2239.0	Serie para Facturas negativas	N	2008				N	N
+CURSOS    			01	701.0	Facturas de cursos	N	2008				N	N
+I. FINANC.			01	0.0	Facturas de Gastos Financieros Repercutidos	N	2008				N	N
+CUOTA     			01	16399.0	Facturas de cuota colegial	N	2009				N	N
+A         			01	0.0	Facturas antes 2002	N	2009				N	N
+SEGURO    			01	2067.0	Facturas de MUSAAT Fija	S	2009				N	N
+MUTUA     			01	9499.0	Facturas de PREMAAT	S	2009				N	N
+TASADO    			01	64.0	Facturas de MUSAAT Tasadores	S	2009				N	N
+CURSOS    			01	1476.0	Facturas de cursos	N	2009				N	N
+FINANC.   			01	5.0	Facturas de Gastos Financieros Repercutidos	N	2009				N	N
+CUOTA     			01	16357.0	Facturas de cuota colegial	N	2010				N	N
+A         			01	0.0	Facturas antes 2002	N	2010				N	N
+SEGURO    			01	1995.0	Facturas de MUSAAT Fija	S	2010				N	N
+GRAL      			01	291.0	Facturas Generales	N	2010				N	N
+MUTUA     			01	8871.0	Facturas de PREMAAT	S	2010				N	N
+TASADO    			01	58.0	Facturas de MUSAAT Tasadores	S	2010				N	N
+RECTIF    			01	1486.0	Serie para Facturas negativas	N	2010				N	N
+CURSOS    			01	1170.0	Facturas de cursos	N	2010				N	N
+FINANC.   			01	3.0	Facturas de Gastos Financieros Repercutidos	N	2010				N	N
+CUOTA     			01	16564.0	Facturas de cuota colegial	N	2011				N	N
+A         			01	0.0	Facturas antes 2002	N	2011				N	N
+SEGURO    			01	1810.0	Facturas de MUSAAT Fija	S	2011				N	N
+GRAL      			01	250.0	Facturas Generales	N	2011				N	N
+MUTUA     			01	8049.0	Facturas de PREMAAT	S	2011				N	N
+TASADO    			01	52.0	Facturas de MUSAAT Tasadores	S	2011				N	N
+RECTIF    			01	635.0	Serie para Facturas negativas	N	2011				N	N
+CURSOS    	 		01	1254.0	Facturas de cursos	N	2011				N	N
+FINANC    			01	11.0	Facturas de Gastos Financieros Repercutidos	N	2011				N	N
+CUOTA     		F517	01	14677.0	Facturas de cuota colegial	N	2007				N	N
+MUTUA     			01	10458.0	Facturas de PREMAAT	S	2008				N	N
+RECTIF    			01	1480.0	Serie para Facturas negativas	N	2009				N	N
+GRAL      			01	599.0	Facturas Generales	N	2009				N	N
+EXPEDI    		F508	01	17662.0	Facturas de gastos colegiales	N	2007				N	S
+EXPEDI    			01	11897.0	Facturas de gastos colegiales	N	2008				N	S
+EXPEDI    			01	8487.0	Facturas de gastos colegiales	N	2009				N	S
+EXPEDI    			01	7896.0	Facturas de gastos colegiales	N	2010				N	S
+EXPEDI    			01	9790.0	Facturas de gastos colegiales	N	2011				N	S
+PC        			02	2676.0	Serie para la facturacion de la prima variable	S	2011				N	S
+PF        			02	29.0	Serie para la facturacion de otros conceptos de la empresa a	S	2011				N	N
+MT        			02	0.0	Serie para la facturacion de otros conceptos de la empresa a	S	2011				N	N
+RECTIF    			02	21.0	Serie rectificativa de la empresa aseguradora	S	2011				N	N
+PROFOR    			02	16.0	FACTURAS PROFORMA Empresa 02	N	2011				S	N
+PROFOR    			01	10.0	PROFORMA	N	2011				S	N
+PROFOR    			01	0.0	PROFORMA	N	2010				S	N
+TASADO    			02	1.0	Serie para la facturación del seguro Tasadores	S	2011				N	N
+FI        			02	3.0	Serie para gastos financieros repercutidos	S	2011				N	N
+CUOTA     			01	7957.0	Facturas de cuota colegial	N	2012				N	N
+A         			01	0.0	Facturas antes 2002	N	2012				N	N
+SEGURO    			01	78.0	Facturas de MUSAAT Fija	S	2012				N	N
+GRAL      			01	169.0	Facturas Generales	N	2012				N	N
+MUTUA     			01	637.0	Facturas de PREMAAT	S	2012				N	N
+TASADO    			01	0.0	Facturas de MUSAAT Tasadores	S	2012				N	N
+RECTIF    			01	205.0	Serie para Facturas negativas	N	2012				N	N
+CURSOS    			01	470.0	Facturas de cursos	N	2012				N	N
+FINANC    			01	7.0	Facturas de Gastos Financieros Repercutidos	N	2012				N	N
+EXPEDI    			01	4608.0	Facturas de gastos colegiales	N	2012				N	S
+PC        			02	2707.0	Serie para la facturacion de la prima variable	S	2012				N	S
+PF        			02	1623.0	Serie para la facturacion de otros conceptos de la empresa a	S	2012				N	N
+MT        			02	0.0	Serie para la facturacion de otros conceptos de la empresa a	S	2012				N	N
+RECTIF    			02	87.0	Serie rectificativa de la empresa aseguradora	S	2012				N	N
+PROFOR    			02	5.0	FACTURAS PROFORMA Empresa 02	N	2012				S	N
+PROFOR    			01	6.0	PROFORMA	N	2012				S	N
+TASADO    			02	47.0	Serie para la facturación del seguro Tasadores	S	2012				N	N
+FI        			02	1.0	Serie para gastos financieros repercutidos	S	2012				N	N
+MUTUA     			02	3117.0	Serie para la facturación de Premaat	S	2012				N	N

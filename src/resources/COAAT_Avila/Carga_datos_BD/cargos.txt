@@ -1,0 +1,13 @@
+10	Jefe de Personal                                            	
+11	Asistente                                                   	
+12	Supervisor                                                  	
+13	Secretaria                                                  	
+14	Otro Cargo                                                  	
+02	Secretario                                                  	
+03	Tesorero                                                    	
+04	Liberal                                                     	
+01	Presidente                                                  	
+05	Asalariado                                                  	
+06	Mutua                                                       	
+07	Funcionario                                                 	
+08	Contador                                                    	

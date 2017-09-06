@@ -1,0 +1,26 @@
+<sello>
+  <x>${x}</x>
+  <y>${y}</y>
+  <anchura>115</anchura>
+  <altura>90</altura>
+  <vertical>false</vertical>
+  <posicion>${margen}</posicion>
+  <textos>
+    <texto>
+      <x>22</x>
+      <y>36</y>    
+      <contenido>${f_visado}</contenido>
+      <fuente>${directorio_windows}\Fonts\ariblk.ttf</fuente>
+      <size>14</size> 
+      <color>170,0,0</color>
+    </texto>
+   </textos>
+  <imagenes>
+    <imagen>
+      <x>1</x>
+      <y>1</y>
+      <ruta>${directorio_imagenes}\COAATGU_pagadogrande.gif</ruta>
+      <escala>20</escala>
+    </imagen>
+  </imagenes>
+</sello>

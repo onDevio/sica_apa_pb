@@ -1,0 +1,7 @@
+0000100003	0000100011	este visado de pedro esta ya visado	0000000001	C	Oct 20 2006 10:49:36:786AM	VISADO 06/2005	S	Oct 20 2006 10:51:21:520AM	N	N
+0000100004	0000000001	hola como estas?	0000100011	C	Oct 20 2006 10:53:20:236AM	PILAR TE ENVIA ESTE MENSAJE	S	Oct 20 2006 10:53:53:566AM	N	N
+0000100002	0000100019	Hola,
+
+ya tienes creado el usuario que me comentaste con el permiso sólo para el módulo de usuarios. El login es "admin" y el password "administra" ya que no permite más de 10 caracteres.
+
+Un saludo.	0000000001	C	Mar 12 2008  9:17:46:280AM	USUARIO	N		N	N

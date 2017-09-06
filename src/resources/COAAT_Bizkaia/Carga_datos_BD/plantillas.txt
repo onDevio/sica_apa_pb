@@ -1,0 +1,14 @@
+0000000001	Ejemplo Colegiación	ejemplocolegiacion.doc	COLEGIADOS	S
+0000000005	Acreditaciones	ACREDITACION  PLANTILLA.doc	COLEGIADOS	S
+C000000001	Certificado de ponentes	4. Certificado PONENTES.doc	CURSOS_PONENTES	
+C000000002	Certificado cursos realizados	2. Certificado CURSOS REALIZADOS.doc	CURSOS_ASISTENTES	
+C000000003	Certificado asistencia a curso colegiado	1. Certificado ASISTENCIA A CURSO.doc	CURSOS_ASISTENTES	
+C000000004	Certificado asistencia a curso no colegiado	3. Certificado no coleg. ASISTENCIA A CURSO.doc	CURSOS_ASISTENTES	
+C000000005	Diploma I	DIPLOMA 1.doc	CURSOS_ASISTENTES	
+C000000006	Diploma II	6. DIPLOMA varios ponentes.doc	CURSOS_ASISTENTES	
+C000000007	Encuesta	0. Encuesta.doc	CURSOS_ENCUESTAS	
+C000000008	Cofirmación de Inscripcion con plaza para colegiados	p_inscripcion_colegiados.txt	CURSOS_EMAILS	
+C000000009	Cofirmación de Inscripcion con plaza para no colegiados	p_inscripcion_no_colegiados.txt	CURSOS_EMAILS	
+C000000010	Cofirmación de Inscripcion en lista de espera	p_inscripcion_espera.txt	CURSOS_EMAILS	
+C000000011	Cofirmación de Inscripcion para curso sin fecha colegiados	p_inscripcion_reserva.txt	CURSOS_EMAILS	
+C000000012	Libre	p_inscripcion_libre.txt	CURSOS_EMAILS	

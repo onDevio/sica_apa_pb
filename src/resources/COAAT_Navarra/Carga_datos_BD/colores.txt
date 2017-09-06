@@ -1,0 +1,11 @@
+00000	NEGRO	0.0	#000000                                           
+00001	BLANCO	16777215.0	#FFFFFF                                           
+00002	ROJO	255.0	#FF0000                                           
+00003	VERDE	65280.0	#00FF00                                           
+00004	AZUL	16711680.0	#0000FF                                           
+00005	AMARILLO	65535.0	#FFFF00                                           
+00007	GRIS OSCURO	8421504.0	#848284                                           
+00006	GRIS CLARO	12632256.0	#C6C3C6                                           
+00009	MARRON	32896.0	#848200                                           
+00010	AZUL CLARO	16161689.0	#00FFFF                                           
+00011	MORADO	32131499.0	#AD49EF                                           

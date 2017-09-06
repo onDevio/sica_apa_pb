@@ -1,0 +1,10 @@
+AYTO      	Carta del Ayuntamiento	% 	0.0	S	\\ts-server\CSD_APLICACIONES\SICA-COMPARTIDO\documentos_fases\	S	N			%	01
+COLEGIA   	Certificados y Resumenes economicos	% 	0.0	S	\\ts-server\CSD_APLICACIONES\SICA-COMPARTIDO\colegia\	S	N			%	01
+RECLAM_EXP	Cartas de reclamaciones de Expedientes	% 	0.0	S	\\ts-server\CSD_APLICACIONES\SICA-COMPARTIDO\reclamaciones\expedientes\	S	N			%	01
+RECLAM_FAS	Cartas de reclamaciones de Fases	% 	0.0	S	\\ts-server\CSD_APLICACIONES\SICA-COMPARTIDO\reclamaciones\fases\	S	N			%	01
+ECON      	Resumenes Economicos	% 	0.0	S	\\ts-server\CSD_APLICACIONES\SICA-COMPARTIDO\economicos\	S	N			%	01
+LISTADOS  	Listados	% 	0.0	S	\\ts-server\CSD_APLICACIONES\SICA-COMPARTIDO\listados\	S	N			%	01
+RE        	Registro de Entrada	% 	0.0	E	\\ts-server\CSD_APLICACIONES\SICA-COMPARTIDO\e_s\	S	N			%	01
+RS        	Registro de Salida	% 	0.0	S	\\ts-server\CSD_APLICACIONES\SICA-COMPARTIDO\e_s\	S	N			%	01
+RENUNCIA  	Cartas de Renuncias	% 	0.0	S					0	%	01
+DSCQ      	Documentació de seguiment del control de qualiat	% 	76.0	S	\\ts-server\CSD_APLICACIONES\SICA-COMPARTIDO\DSCQ\	s					01

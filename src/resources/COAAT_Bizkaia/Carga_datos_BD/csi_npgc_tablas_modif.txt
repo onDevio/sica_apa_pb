@@ -1,0 +1,5 @@
+00	apuntes	cuenta	n_doc						id_apunte					S	ACT
+01	cuentas	cuenta							cuenta					S	ACT
+31	csi_elems_inmovilizado_mensual	cuenta_inmovilizado	cuenta_amortizacion	cuenta_dotacion					id_elem_inmovilizado					N	SQLCA
+32	csi_elems_inmovilizado	cuenta_inmovilizado	cuenta_amortizacion	cuenta_dotacion					id_elem_inmovilizado					N	SQLCA
+33	csi_t_iva	id_cuenta_repercutido	id_cuenta_soportado	cuenta_repercutido_no_deven	cuenta_soportado_no_deven				t_iva					N	SQLCA

@@ -1,0 +1,109 @@
+0000000001	COLEGIADOS                                        
+0000000002	ACTAS                                             
+0000000003	REGISTRO ENTRADA/SALIDA                           
+0000000004	CIRCULARES                                        
+0000000005	CERTIFICADOS                                      
+0000000006	TERCEROS                                          
+0000000007	CONTRATOS                                         
+0000000008	CONTABILIZACION                                   
+0000000009	ACREDITACIONES                                    
+0000000010	MUSAAT                                            
+0000000011	JUNTA GOBIERNO                                    
+0000000012	ESTADISTICAS                                      
+0000000013	BOLSA TRABAJO                                     
+0000000014	EXPEDIENTES                                       
+0000000015	MENSAJERIA                                        
+0000000016	LIBROS                                            
+0000000017	REPAROS                                           
+0000000018	PLANTILLAS                                        
+0000000019	FACTURAS EMITIDAS                                 
+0000000020	MOPU                                              
+0000000021	APLICACIONES                                      
+0000000022	USUARIOS                                          
+0000000023	LISTAS COLEGIADOS                                 
+0000000024	PREMAAT                                           
+0000000025	RESUMEN ECONOMICO                                 
+0000000026	RECLAMACIONES                                     
+0000000027	SELLADOR VISARED                                  
+0000000028	AVISOS                                            
+0000000029	COBROS                                            
+0000000030	FORMACION                                         
+0000000031	DOMICILIACIONES                                   
+0000000032	DOMICILIAR SALDO DEUDOR                           
+0000000033	LIQUIDACIONES                                     
+0000000034	ASESORIA JURIDICA                                 
+0000000035	ADMINISTRATIVA-JUDICIAL                           
+0000000039	CAJA                                              
+0000000040	RECEPTOR MENSAJE AL REGULARIZAR MUSAAT            
+0000000043	IMPORTACIÓN FACTURAS                              
+0000000052	WEB - OFERTAS INSCRIPCIONES                       
+0000000057	WEB - ACTIVIDADES/FORMACION                       
+0000000060	WEB - INSCRIPCIONES                               
+0000000062	INFORME CAJA                                      
+ANFAC00001	ANULACIÓN RANGO FACTURAS                          
+CUMPLE_COL	Permiso para indicar que recibe notificaciones de 
+E         	ESPECIAL: PUEDE HACER TODO.                       
+E504      	CONSOLIDACION EMPRESA BD                          
+E505      	EXPORTA FICHERO CONSOLIDACION EMPRESA             
+E506      	CONTADORES                                        
+E507      	PARAMETRIZACIONES DEL SISTEMA                     
+E508      	CONSOLIDACION EMPRESA FICHEROS EXTERNOS           
+E509      	VARIABLES GLOBALES DEL SISTEMA                    
+E513      	MODIF.CONTADOR DIARIOS                            
+E523      	MANT. SERIES                                      
+E528      	MTO. PROYECTOS/EXPLOTACIONES                      
+E537      	MTO. DE CLIENTES                                  
+E538      	MTO. DE TIPOS DE DOCUMENTOS                       
+E539      	LIST. 347/190                                     
+E540      	MTO. DATOS DE BALANCE OFICIAL                     
+E541      	MTO. CASOS ESPECIALES DE BALANCES OFICIALES       
+E542      	MTO. DE TIPOS DE IVA                              
+E543      	MTO. DE FORMAS DE PAGO                            
+E544      	MTO. DE BANCOS                                    
+E545      	MTO. DE INCIDENCIAS DE EXPEDIENTE                 
+E548      	LISTADO DE ASIENTOS / APUNTES                     
+E549      	LISTADO ASIENTOS DESCUADRADOS                     
+E550      	LISTADO DE PRESUPUESTOS                           
+E551      	LISTADO DE CLIENTES/PROVEEDORES                   
+E552      	LIBRO DEL IVA DE FACTURAS EMITIDAS/RECIBIDAS      
+E553      	LIBRE PARA "LIBRO DEL IVA DE FACTURAS RECIBIDAS"  
+E554      	LISTADO DEL INMOVILIZADO                          
+E555      	LISTADO DE FACTURAS RECIBIDAS                     
+E556      	REGENERACION DE  SALDOS Y CUENTAS                 
+E557      	OBTENER SALDO CUENTA                              
+E558      	COMPROBAR CUENTAS APUNTES                         
+E559      	DIARIO OFICIAL                                    
+E560      	DIARIO RESUMEN POR MESES                          
+E561      	PLAN DE CUENTAS                                   
+E562      	INTRODUCCION MANUAL DE ASIENTOS                   
+E563      	VISUALIZACION DE ASIENTOS                         
+E564      	MODIFICACION DE ASIENTOS                          
+E565      	INFORMES ANALITICOS Y BALANCES DE SUMAS           
+E566      	BALANCES OFICIALES                                
+E567      	EXTRACTOS DE CUENTAS                              
+E568      	PRESUPUESTOS                                      
+E569      	CONCILIACION DE CUENTAS                           
+E570      	CALCULO DE AMORTIZACIONES                         
+E571      	LISTADO DE PAGOS                                  
+E572      	MANTENIMIENTO DE CUENTAS PRESUPUESTARIOS          
+E585      	IMPORTACION DATOS CSB43                           
+E586      	ACCESO LIMITADO A CENTRO EN F(DELEGACIÓN)         
+E587      	ACCESO LIMITADO A DIARIO EN F(DELEGACIÓN)         
+E588      	ACCESO LIMITADO A PROYECTO/EXPLOTACIÓN EN F(DELEGA
+E589      	CONSULTA LIMITADA DE PROYECTO/EXPLOTACIÓN EN F(DEL
+E602      	REGULARIZAR SALDOS CUENTAS                        
+E603      	MODIFICACIONES EN BLOQUE EN APUNTES               
+E632      	GESTION LIMITADA DE CUENTAS (SOLO 6 Y 7)          
+ESIG      	Superusuario SIGESCON                             
+FACT_E_MOD	FACTURACION EMITIDA: Modificacion Nº Factura      
+FEW       	Frontend Web                                      
+FEWADMIN  	FrontEnd Web - Administración                     
+MANTSERIES	MANTENIMIENTO SERIES FACTURAS                     
+NAVISO_MOD	FASES: Modificacion Nº Aviso                      
+PCOLBAJA00	PERMISO VER COLEGIADOS BAJA                       
+PERM_PASSW	Permiso para poder visualizar el Password         
+REG_ES_MOD	REGISTRO ENTRADA SALIDA: Modificacion n_registro  
+TFE0000036	MODIFICACIÓN DEL Nº DE SALIDA EN CONTRATOS        
+TFE0000037	MODIFICACIÓN DE LA FECHA DE ABONO EN CONTRATOS    
+TFE0000038	MODIFICACIÓN DE LA MINUTA YA PAGADA               
+ZGZ0000026	MODIF.. DE TIPO Y F. RECLAMACIÓN EN CONTRATOS     

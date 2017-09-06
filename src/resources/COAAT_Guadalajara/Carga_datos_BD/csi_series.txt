@@ -1,0 +1,71 @@
+COLEGIADOS			01	0.0	Facturas de Honorarios de Colegiados	N	2006				N	N
+PREMAA    			01	60.0	Recibos de PREMAAT	S	2006				N	N
+MUSAAT    			01	84.0	Recibos MUSAAT	S	2006				N	N
+MU        			01	4264.0	INTERNA SICA : Recibos de primas complementarias de MUSAAT	N	2006				N	N
+RECTIF    	neg		01	428.0	Serie para Facturas Rectificativas	N	2006				N	N
+G         	I		01	3531.0	Facturas de Gabinete	N	2006				N	N
+L         			01	721.0	Facturas de Laboratorio	N	2006				N	N
+COLEGIADOS			01	0.0	Facturas de Honorarios de Colegiados	N	2007				N	N
+MUSAAT    			01	16.0	Recibos MUSAAT	S	2007				N	N
+MU        			01	3971.0	INTERNA SICA : Recibos de primas complementarias de MUSAAT	N	2007				N	N
+RECTIF    	neg		01	311.0	Serie para Facturas Rectificativas	N	2007				N	N
+G         	I		01	3531.0	Facturas de Gabinete	N	2007				N	N
+L         			01	698.0	Facturas de Laboratorio	N	2007				N	N
+R         			01	0.0	Recibos genéricos	S	2007				N	N
+COLEGIADOS			01	0.0	Facturas de Honorarios de Colegiados	N	2008				N	N
+MUSAAT    			01	505.0	Recibos MUSAAT	S	2008				N	N
+MU        			01	3266.0	INTERNA SICA : Recibos de primas complementarias de MUSAAT	N	2008				N	N
+G         			01	3531.0	Facturas de Gabinete	N	2008				N	N
+L         			01	502.0	Facturas de Laboratorio	N	2008				N	N
+R         			01	0.0	Recibos genéricos	S	2008				N	N
+IS        			01	12.0	Inversión de Sujeto	N	2008				N	N
+RECTIL    			01	17.0	RECTIL	N	2008				N	N
+COLEGIADOS			01	0.0	Facturas de Honorarios de Colegiados	N	2009				N	N
+PREMAA    			01	1167.0	Recibos de PREMAAT	S	2009				N	N
+MUSAAT    			01	432.0	Recibos MUSAAT	S	2009				N	N
+MU        			01	2528.0	INTERNA SICA : Recibos de primas complementarias de MUSAAT	N	2009				N	N
+RECTIF    			01	302.0	Serie para Facturas Rectificativas	N	2009				N	N
+G         			01	3531.0	Facturas de Gabinete	N	2009				N	N
+L         			01	289.0	Facturas de Laboratorio	N	2009				N	N
+R         			01	0.0	Recibos genéricos	S	2009				N	N
+IS        			01	12.0	Inversión de Sujeto	N	2009				N	N
+RECTIL    			01	0.0	RECTIL	N	2009				N	N
+PREMAA    			01	91.0	Recibos de PREMAAT	S	2008	d_premaat_factura_cuotas	S		N	N
+COLEGIADOS			01	0.0	Facturas de Honorarios de Colegiados	N	2010				N	N
+PREMAA    			01	2851.0	Recibos de PREMAAT	S	2010				N	N
+MUSAAT    			01	412.0	Recibos MUSAAT	S	2010				N	N
+MU        			01	2321.0	INTERNA SICA : Recibos de primas complementarias de MUSAAT	N	2010				N	N
+RECTIF    			01	290.0	Serie para Facturas Rectificativas	N	2010				N	N
+G         			01	0.0	Facturas de Gabinete	N	2010				N	N
+L         			01	0.0	Facturas de Laboratorio	N	2010				N	N
+R         			01	0.0	Recibos genéricos	S	2010				N	N
+IS        			01	2.0	Inversión de Sujeto	N	2010				N	N
+RECTIL    			01	0.0	RECTIL	N	2010				N	N
+PREMAA    			01	90.0	Recibos de PREMAAT	S	2007				N	N
+RECTIF    			01	313.0	Serie para Facturas Rectificativas	N	2008				N	N
+PROFOR    			01	0.0	Facturas Proforma	N	2010			PROFOR	S	N
+COLEGIADOS			01	0.0	Facturas de Honorarios de Colegiados	N	2011				N	N
+PREMAA    			01	1300.0	Recibos de PREMAAT	S	2011				N	N
+MUSAAT    			01	389.0	Recibos MUSAAT	S	2011				N	N
+MU        			01	161.0	INTERNA SICA : Recibos de primas complementarias de MUSAAT	N	2011				N	N
+RECTIF    			01	86.0	Serie para Facturas Rectificativas	N	2011				N	N
+G         			01	0.0	Facturas de Gabinete	N	2011				N	N
+L         			01	0.0	Facturas de Laboratorio	N	2011				N	N
+R         			01	0.0	Recibos genéricos	S	2011				N	N
+IS        			01	0.0	Inversión de Sujeto	N	2011				N	N
+RECTIL    			01	0.0	RECTIL	N	2011				N	N
+PROFOR    			01	1646.0	Facturas Proforma	N	2011			PROFOR	S	N
+IS        			01	10.0	Inversión de Sujeto	N	2007				N	N
+F         			01	9504.0	Facturas Emitidas por el Colegio	N	2006				N	S
+F         			01	9027.0	Facturas Emitidas por el Colegio	N	2007				N	S
+F         			01	7498.0	Facturas Emitidas por el Colegio	N	2008				N	S
+F         			01	5968.0	Facturas Emitidas por el Colegio	N	2009				N	S
+F         			01	5352.0	Facturas Emitidas por el Colegio	N	2010				N	S
+F         			01	3462.0	Facturas Emitidas por el Colegio	N	2011				N	S
+PC        			04	540.0	Serie para la facturación de la prima variable	S	2011	d_recibo_musaat_generico	 		N	S
+PF        			04	0.0	Serie para la facturación de otros conceptos de la empresa a	S	2011	d_recibo_musaat_generico			N	N
+MT        			04	825.0	Serie para la facturación de otros conceptos de la empresa a	S	2011	d_premaat_factura_cuotas_generico	S		N	N
+PROFOR    			04	594.0	Serie para proformas de la empresa aseguradora	N	2011				S	N
+RECTIF    			04	9.0	Serie rectificativa de la empresa aseguradora	S	2011				N	N
+PC        		%	04	0.0	Serie para la facturación de la prima variable	S	XX  	d_recibo_musaat_generico	E	N	S	N
+MT        			04	0.0		S	XX  	d_premaat_factura_cuotas_generico	S		N	N

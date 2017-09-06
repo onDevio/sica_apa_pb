@@ -1,0 +1,20 @@
+AC  	Ajustes Cambio Criterio Ejercicios Ant.
+AE  	Ajustes Errores Ejercicios Ant.
+AIMP	Obtiene el resultado del balance PYG antes de impuestos
+APD 	Apertura D-H: Saldo Debe - Haber de la apertura
+APH 	Apertura H-D: Saldo Haber - Debe de la apertura
+APNN	Resultado del Balance PNN
+APYG	Obtiene el resultado del balance PYG
+CON-	= a Consumo pero representarán Devoluciones y el saldo de dichas cuentas se tomará cambiándole el signo
+CONS	El saldo se obtendrá para el consumo realizado durante el ejercicio
+DEB 	Movimientos al Debe -sin apertura-
+DH  	Debe - Haber (enero a dic) sin apertura
+EIGR	EIGR H-D Sólo de Apuntes de Transf PyG
+HAB 	Movimientos al Haber -sin apertura-
+HD  	Haber - Debe (enero a dic) sin apertura
+NOAP	Obtendrá el saldo sin el Asiento de apertura para el ejercicio Actual si no está cerrado
+SDO2	Cálculo del saldo de cuentas que están en Bal. de Situación en Activo y en Pasivo=>saldo=0 si saldo<0 y Act / saldo=0 si saldo > 0 y Pasivo
+SIGN	Cambia el signo al saldo obtenido para la cuenta
+SREJ	Obtiene el resultado del ejercicio utilizando el saldo obtenido en el Balance PyG y el existente en cuenta 129
+VCCA	Obtiene la diferencia entre el Saldo de Apertura y el Saldo de una Cuenta
+VCCS	Obtiene la diferencia entre el Saldo de una Cuenta y el Saldo de Apertura

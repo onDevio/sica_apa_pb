@@ -1,0 +1,260 @@
+COLEGIADOS	01	2009	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+COLEGIADOS	01	2010	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+RECTIF    	01	2009	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+RECTIF    	01	2010	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+COLEGIADOS	01	2011	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+RECTIF    	01	2011	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+F         	01	2009	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+F         	01	2010	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+F         	01	2011	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+PROFOR    	01	2010	ES	Cabecera            	PROFORMA DE GASTOS COLEGIALES
+PROFOR    	01	2011	ES	Cabecera            	PROFORMA DE GASTOS COLEGIALES
+MUSAAT    	01	2009	% 	Cabecera            	RECIBO
+MUSAAT    	01	2010	% 	Cabecera            	RECIBO
+PREMAA    	01	2009	% 	Cabecera            	RECIBO
+PREMAA    	01	2010	% 	Cabecera            	RECIBO
+MUSAAT    	01	2011	% 	Cabecera            	RECIBO
+PREMAA    	01	2011	% 	Cabecera            	RECIBO
+%         	% 	%   	% 	Cabecera            	FACTURA
+COLEGIADOS	01	2009	% 	N_fact              	FACTURA Nº
+COLEGIADOS	01	2010	% 	N_fact              	FACTURA Nº
+RECTIF    	01	2009	% 	N_fact              	FACTURA Nº
+RECTIF    	01	2010	% 	N_fact              	FACTURA Nº
+COLEGIADOS	01	2011	% 	N_fact              	FACTURA Nº
+RECTIF    	01	2011	% 	N_fact              	FACTURA Nº
+F         	01	2009	% 	N_fact              	FACTURA Nº
+F         	01	2010	% 	N_fact              	FACTURA Nº
+F         	01	2011	% 	N_fact              	FACTURA Nº
+PROFOR    	01	2010	% 	N_fact              	PROFORMA Nº
+PROFOR    	01	2011	% 	N_fact              	PROFORMA Nº
+MUSAAT    	01	2009	% 	N_fact              	RECIBO Nº
+MUSAAT    	01	2010	% 	N_fact              	RECIBO Nº
+PREMAA    	01	2009	% 	N_fact              	RECIBO Nº
+PREMAA    	01	2010	% 	N_fact              	RECIBO Nº
+MUSAAT    	01	2011	% 	N_fact              	RECIBO Nº
+PREMAA    	01	2011	% 	N_fact              	RECIBO Nº
+%         	% 	%   	% 	N_fact              	FACTURA Nº
+COLEGIADOS	01	2009	% 	Total_fact          	TOTAL FACTURA
+COLEGIADOS	01	2010	% 	Total_fact          	TOTAL FACTURA
+RECTIF    	01	2009	% 	Total_fact          	TOTAL FACTURA
+RECTIF    	01	2010	% 	Total_fact          	TOTAL FACTURA
+COLEGIADOS	01	2011	% 	Total_fact          	TOTAL FACTURA
+RECTIF    	01	2011	% 	Total_fact          	TOTAL FACTURA
+F         	01	2009	% 	Total_fact          	TOTAL FACTURA
+F         	01	2010	% 	Total_fact          	TOTAL FACTURA
+F         	01	2011	% 	Total_fact          	TOTAL FACTURA
+PROFOR    	01	2010	% 	Total_fact          	TOTAL PROFORMA
+PROFOR    	01	2011	% 	Total_fact          	TOTAL PROFORMA
+MUSAAT    	01	2009	% 	Total_fact          	TOTAL RECIBO
+MUSAAT    	01	2010	% 	Total_fact          	TOTAL RECIBO
+PREMAA    	01	2009	% 	Total_fact          	TOTAL RECIBO
+PREMAA    	01	2010	% 	Total_fact          	TOTAL RECIBO
+MUSAAT    	01	2011	% 	Total_fact          	TOTAL RECIBO
+PREMAA    	01	2011	% 	Total_fact          	TOTAL RECIBO
+%         	% 	%   	% 	Total_fact          	TOTAL FACTURA
+MT        	02	2011	% 	N_emisor2           	Agencia de seguros exclusiva de MUSAAT, Mutua de seguros a prima fija, con número de registro: M0368B44238038
+PC        	02	2011	% 	N_emisor2           	Agencia de seguros exclusiva de MUSAAT, Mutua de seguros a prima fija, con número de registro: M0368B44238038
+PF        	02	2011	% 	N_emisor2           	Agencia de seguros exclusiva de MUSAAT, Mutua de seguros a prima fija, con número de registro: M0368B44238038
+PROFOR    	02	2011	% 	N_emisor2           	Agencia de seguros exclusiva de MUSAAT, Mutua de seguros a prima fija, con número de registro: M0368B44238038
+PROFOR    	02	2011	ES	Cabecera            	PROFORMA
+PC        	02	2011	% 	Cabecera            	RECIBO
+PF        	02	2011	% 	Cabecera            	RECIBO
+MT        	02	2011	% 	Cabecera            	RECIBO
+PROFOR    	02	2011	% 	N_fact              	PROFORMA Nº
+PC        	02	2011	% 	N_fact              	RECIBO Nº
+PF        	02	2011	% 	N_fact              	RECIBO Nº
+MT        	02	2011	% 	N_fact              	RECIBO Nº
+PROFOR    	02	2011	% 	Total_fact          	TOTAL PROFORMA
+PC        	02	2011	% 	Total_fact          	TOTAL RECIBO
+PF        	02	2011	% 	Total_fact          	TOTAL RECIBO
+MT        	02	2011	% 	Total_fact          	TOTAL RECIBO
+COLEGIADOS	01	2012	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+RECTIF    	01	2012	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+F         	01	2012	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+PROFOR    	01	2012	ES	Cabecera            	PROFORMA DE GASTOS COLEGIALES
+MUSAAT    	01	2012	% 	Cabecera            	RECIBO
+PREMAA    	01	2012	% 	Cabecera            	RECIBO
+COLEGIADOS	01	2012	% 	N_fact              	FACTURA Nº
+RECTIF    	01	2012	% 	N_fact              	FACTURA Nº
+F         	01	2012	% 	N_fact              	FACTURA Nº
+PROFOR    	01	2012	% 	N_fact              	PROFORMA Nº
+MUSAAT    	01	2012	% 	N_fact              	RECIBO Nº
+PREMAA    	01	2012	% 	N_fact              	RECIBO Nº
+COLEGIADOS	01	2012	% 	Total_fact          	TOTAL FACTURA
+RECTIF    	01	2012	% 	Total_fact          	TOTAL FACTURA
+F         	01	2012	% 	Total_fact          	TOTAL FACTURA
+PROFOR    	01	2012	% 	Total_fact          	TOTAL PROFORMA
+MUSAAT    	01	2012	% 	Total_fact          	TOTAL RECIBO
+PREMAA    	01	2012	% 	Total_fact          	TOTAL RECIBO
+MT        	02	2012	% 	N_emisor2           	Agencia de seguros exclusiva de MUSAAT, Mutua de seguros a prima fija, con número de registro: M0368B44238038
+PC        	02	2012	% 	N_emisor2           	Agencia de seguros exclusiva de MUSAAT, Mutua de seguros a prima fija, con número de registro: M0368B44238038
+PF        	02	2012	% 	N_emisor2           	Agencia de seguros exclusiva de MUSAAT, Mutua de seguros a prima fija, con número de registro: M0368B44238038
+PROFOR    	02	2012	% 	N_emisor2           	Agencia de seguros exclusiva de MUSAAT, Mutua de seguros a prima fija, con número de registro: M0368B44238038
+PROFOR    	02	2012	ES	Cabecera            	PROFORMA
+PC        	02	2012	% 	Cabecera            	RECIBO
+PF        	02	2012	% 	Cabecera            	RECIBO
+MT        	02	2012	% 	Cabecera            	RECIBO
+PROFOR    	02	2012	% 	N_fact              	PROFORMA Nº
+PC        	02	2012	% 	N_fact              	RECIBO Nº
+PF        	02	2012	% 	N_fact              	RECIBO Nº
+MT        	02	2012	% 	N_fact              	RECIBO Nº
+PROFOR    	02	2012	% 	Total_fact          	TOTAL PROFORMA
+PC        	02	2012	% 	Total_fact          	TOTAL RECIBO
+PF        	02	2012	% 	Total_fact          	TOTAL RECIBO
+MT        	02	2012	% 	Total_fact          	TOTAL RECIBO
+COLEGIADOS	01	2013	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+RECTIF    	01	2013	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+F         	01	2013	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+PROFOR    	01	2013	ES	Cabecera            	PROFORMA DE GASTOS COLEGIALES
+MUSAAT    	01	2013	% 	Cabecera            	RECIBO
+PREMAA    	01	2013	% 	Cabecera            	RECIBO
+COLEGIADOS	01	2013	% 	N_fact              	FACTURA Nº
+RECTIF    	01	2013	% 	N_fact              	FACTURA Nº
+F         	01	2013	% 	N_fact              	FACTURA Nº
+PROFOR    	01	2013	% 	N_fact              	PROFORMA Nº
+MUSAAT    	01	2013	% 	N_fact              	RECIBO Nº
+PREMAA    	01	2013	% 	N_fact              	RECIBO Nº
+COLEGIADOS	01	2013	% 	Total_fact          	TOTAL FACTURA
+RECTIF    	01	2013	% 	Total_fact          	TOTAL FACTURA
+F         	01	2013	% 	Total_fact          	TOTAL FACTURA
+PROFOR    	01	2013	% 	Total_fact          	TOTAL PROFORMA
+MUSAAT    	01	2013	% 	Total_fact          	TOTAL RECIBO
+PREMAA    	01	2013	% 	Total_fact          	TOTAL RECIBO
+MT        	02	2013	% 	N_emisor2           	Agencia de seguros exclusiva de MUSAAT, Mutua de seguros a prima fija, con número de registro: M0368B44238038
+PC        	02	2013	% 	N_emisor2           	Agencia de seguros exclusiva de MUSAAT, Mutua de seguros a prima fija, con número de registro: M0368B44238038
+PF        	02	2013	% 	N_emisor2           	Agencia de seguros exclusiva de MUSAAT, Mutua de seguros a prima fija, con número de registro: M0368B44238038
+PROFOR    	02	2013	% 	N_emisor2           	Agencia de seguros exclusiva de MUSAAT, Mutua de seguros a prima fija, con número de registro: M0368B44238038
+PROFOR    	02	2013	ES	Cabecera            	PROFORMA
+PC        	02	2013	% 	Cabecera            	RECIBO
+PF        	02	2013	% 	Cabecera            	RECIBO
+MT        	02	2013	% 	Cabecera            	RECIBO
+PROFOR    	02	2013	% 	N_fact              	PROFORMA Nº
+PC        	02	2013	% 	N_fact              	RECIBO Nº
+PF        	02	2013	% 	N_fact              	RECIBO Nº
+MT        	02	2013	% 	N_fact              	RECIBO Nº
+PROFOR    	02	2013	% 	Total_fact          	TOTAL PROFORMA
+PC        	02	2013	% 	Total_fact          	TOTAL RECIBO
+PF        	02	2013	% 	Total_fact          	TOTAL RECIBO
+MT        	02	2013	% 	Total_fact          	TOTAL RECIBO
+ZURICH    	01	2013	% 	Total_fact          	TOTAL RECIBO
+ZURICH    	01	2013	% 	N_fact              	RECIBO Nº
+ZURICH    	01	2013	% 	Cabecera            	RECIBO
+ZURICH    	01	2012	% 	Total_fact          	TOTAL RECIBO
+ZURICH    	01	2012	% 	N_fact              	RECIBO Nº
+ZURICH    	01	2012	% 	Cabecera            	RECIBO
+ZURICH    	01	2011	% 	Total_fact          	TOTAL RECIBO
+ZURICH    	01	2011	% 	N_fact              	RECIBO Nº
+ZURICH    	01	2011	% 	Cabecera            	RECIBO
+%         	% 	%   	% 	t_recc              	Régimen Especial del Criterio de Caja
+COLEGIADOS	01	2014	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+RECTIF    	01	2014	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+F         	01	2014	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+PROFOR    	01	2014	ES	Cabecera            	PROFORMA DE GASTOS COLEGIALES
+MUSAAT    	01	2014	% 	Cabecera            	RECIBO
+PREMAA    	01	2014	% 	Cabecera            	RECIBO
+COLEGIADOS	01	2014	% 	N_fact              	FACTURA Nº
+RECTIF    	01	2014	% 	N_fact              	FACTURA Nº
+F         	01	2014	% 	N_fact              	FACTURA Nº
+PROFOR    	01	2014	% 	N_fact              	PROFORMA Nº
+MUSAAT    	01	2014	% 	N_fact              	RECIBO Nº
+PREMAA    	01	2014	% 	N_fact              	RECIBO Nº
+COLEGIADOS	01	2014	% 	Total_fact          	TOTAL FACTURA
+RECTIF    	01	2014	% 	Total_fact          	TOTAL FACTURA
+F         	01	2014	% 	Total_fact          	TOTAL FACTURA
+PROFOR    	01	2014	% 	Total_fact          	TOTAL PROFORMA
+MUSAAT    	01	2014	% 	Total_fact          	TOTAL RECIBO
+PREMAA    	01	2014	% 	Total_fact          	TOTAL RECIBO
+MT        	02	2014	% 	N_emisor2           	Agencia de seguros exclusiva de MUSAAT, Mutua de seguros a prima fija, con número de registro: M0368B44238038
+PC        	02	2014	% 	N_emisor2           	Agencia de seguros exclusiva de MUSAAT, Mutua de seguros a prima fija, con número de registro: M0368B44238038
+PF        	02	2014	% 	N_emisor2           	Agencia de seguros exclusiva de MUSAAT, Mutua de seguros a prima fija, con número de registro: M0368B44238038
+PROFOR    	02	2014	% 	N_emisor2           	Agencia de seguros exclusiva de MUSAAT, Mutua de seguros a prima fija, con número de registro: M0368B44238038
+PROFOR    	02	2014	ES	Cabecera            	PROFORMA
+PC        	02	2014	% 	Cabecera            	RECIBO
+PF        	02	2014	% 	Cabecera            	RECIBO
+MT        	02	2014	% 	Cabecera            	RECIBO
+PROFOR    	02	2014	% 	N_fact              	PROFORMA Nº
+PC        	02	2014	% 	N_fact              	RECIBO Nº
+PF        	02	2014	% 	N_fact              	RECIBO Nº
+MT        	02	2014	% 	N_fact              	RECIBO Nº
+PROFOR    	02	2014	% 	Total_fact          	TOTAL PROFORMA
+PC        	02	2014	% 	Total_fact          	TOTAL RECIBO
+PF        	02	2014	% 	Total_fact          	TOTAL RECIBO
+MT        	02	2014	% 	Total_fact          	TOTAL RECIBO
+ZURICH    	01	2014	% 	Total_fact          	TOTAL RECIBO
+ZURICH    	01	2014	% 	N_fact              	RECIBO Nº
+ZURICH    	01	2014	% 	Cabecera            	RECIBO
+carta     	01	%   	% 	info_bancaria       	B).- Mediante ingreso en la c/c IBAN ES31 3080 0001 8220 5975 1822, haciendo constar la referencia
+COLEGIADOS	01	2015	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+RECTIF    	01	2015	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+F         	01	2015	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+PROFOR    	01	2015	ES	Cabecera            	PROFORMA DE GASTOS COLEGIALES
+MUSAAT    	01	2015	% 	Cabecera            	RECIBO
+PREMAA    	01	2015	% 	Cabecera            	RECIBO
+COLEGIADOS	01	2015	% 	N_fact              	FACTURA Nº
+RECTIF    	01	2015	% 	N_fact              	FACTURA Nº
+F         	01	2015	% 	N_fact              	FACTURA Nº
+PROFOR    	01	2015	% 	N_fact              	PROFORMA Nº
+MUSAAT    	01	2015	% 	N_fact              	RECIBO Nº
+PREMAA    	01	2015	% 	N_fact              	RECIBO Nº
+COLEGIADOS	01	2015	% 	Total_fact          	TOTAL FACTURA
+RECTIF    	01	2015	% 	Total_fact          	TOTAL FACTURA
+F         	01	2015	% 	Total_fact          	TOTAL FACTURA
+PROFOR    	01	2015	% 	Total_fact          	TOTAL PROFORMA
+MUSAAT    	01	2015	% 	Total_fact          	TOTAL RECIBO
+PREMAA    	01	2015	% 	Total_fact          	TOTAL RECIBO
+MT        	02	2015	% 	N_emisor2           	Agencia de seguros exclusiva de MUSAAT, Mutua de seguros a prima fija, con número de registro: M0368B44238038
+PC        	02	2015	% 	N_emisor2           	Agencia de seguros exclusiva de MUSAAT, Mutua de seguros a prima fija, con número de registro: M0368B44238038
+PF        	02	2015	% 	N_emisor2           	Agencia de seguros exclusiva de MUSAAT, Mutua de seguros a prima fija, con número de registro: M0368B44238038
+PROFOR    	02	2015	% 	N_emisor2           	Agencia de seguros exclusiva de MUSAAT, Mutua de seguros a prima fija, con número de registro: M0368B44238038
+PROFOR    	02	2015	ES	Cabecera            	PROFORMA
+PC        	02	2015	% 	Cabecera            	RECIBO
+PF        	02	2015	% 	Cabecera            	RECIBO
+MT        	02	2015	% 	Cabecera            	RECIBO
+PROFOR    	02	2015	% 	N_fact              	PROFORMA Nº
+PC        	02	2015	% 	N_fact              	RECIBO Nº
+PF        	02	2015	% 	N_fact              	RECIBO Nº
+MT        	02	2015	% 	N_fact              	RECIBO Nº
+PROFOR    	02	2015	% 	Total_fact          	TOTAL PROFORMA
+PC        	02	2015	% 	Total_fact          	TOTAL RECIBO
+PF        	02	2015	% 	Total_fact          	TOTAL RECIBO
+MT        	02	2015	% 	Total_fact          	TOTAL RECIBO
+ZURICH    	01	2015	% 	Total_fact          	TOTAL RECIBO
+ZURICH    	01	2015	% 	N_fact              	RECIBO Nº
+ZURICH    	01	2015	% 	Cabecera            	RECIBO
+COLEGIADOS	01	2016	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+RECTIF    	01	2016	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+F         	01	2016	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+PROFOR    	01	2016	ES	Cabecera            	PROFORMA DE GASTOS COLEGIALES
+MUSAAT    	01	2016	% 	Cabecera            	RECIBO
+PREMAA    	01	2016	% 	Cabecera            	RECIBO
+COLEGIADOS	01	2016	% 	N_fact              	FACTURA Nº
+RECTIF    	01	2016	% 	N_fact              	FACTURA Nº
+F         	01	2016	% 	N_fact              	FACTURA Nº
+PROFOR    	01	2016	% 	N_fact              	PROFORMA Nº
+MUSAAT    	01	2016	% 	N_fact              	RECIBO Nº
+PREMAA    	01	2016	% 	N_fact              	RECIBO Nº
+COLEGIADOS	01	2016	% 	Total_fact          	TOTAL FACTURA
+RECTIF    	01	2016	% 	Total_fact          	TOTAL FACTURA
+F         	01	2016	% 	Total_fact          	TOTAL FACTURA
+PROFOR    	01	2016	% 	Total_fact          	TOTAL PROFORMA
+MUSAAT    	01	2016	% 	Total_fact          	TOTAL RECIBO
+PREMAA    	01	2016	% 	Total_fact          	TOTAL RECIBO
+MT        	02	2016	% 	N_emisor2           	Agencia de seguros exclusiva de MUSAAT, Mutua de seguros a prima fija, con número de registro: M0368B44238038
+PC        	02	2016	% 	N_emisor2           	Agencia de seguros exclusiva de MUSAAT, Mutua de seguros a prima fija, con número de registro: M0368B44238038
+PF        	02	2016	% 	N_emisor2           	Agencia de seguros exclusiva de MUSAAT, Mutua de seguros a prima fija, con número de registro: M0368B44238038
+PROFOR    	02	2016	% 	N_emisor2           	Agencia de seguros exclusiva de MUSAAT, Mutua de seguros a prima fija, con número de registro: M0368B44238038
+PROFOR    	02	2016	ES	Cabecera            	PROFORMA
+PC        	02	2016	% 	Cabecera            	RECIBO
+PF        	02	2016	% 	Cabecera            	RECIBO
+MT        	02	2016	% 	Cabecera            	RECIBO
+PROFOR    	02	2016	% 	N_fact              	PROFORMA Nº
+PC        	02	2016	% 	N_fact              	RECIBO Nº
+PF        	02	2016	% 	N_fact              	RECIBO Nº
+MT        	02	2016	% 	N_fact              	RECIBO Nº
+PROFOR    	02	2016	% 	Total_fact          	TOTAL PROFORMA
+PC        	02	2016	% 	Total_fact          	TOTAL RECIBO
+PF        	02	2016	% 	Total_fact          	TOTAL RECIBO
+MT        	02	2016	% 	Total_fact          	TOTAL RECIBO
+ZURICH    	01	2016	% 	Total_fact          	TOTAL RECIBO
+ZURICH    	01	2016	% 	N_fact              	RECIBO Nº
+ZURICH    	01	2016	% 	Cabecera            	RECIBO

@@ -1,0 +1,26 @@
+11	Bares, clase económica	I. HOSTELERÍA	.90000000000000002
+12	Bares, clase mediana-alta	I. HOSTELERÍA	1.3
+13	Pub, Disco bar, Restaurantes y similares	I. HOSTELERÍA	1.7
+14	Discotecas	I. HOSTELERÍA	2.1000000000000001
+21	Almacenes, talleres y similares	II. ALMACENES Y TALLERES	.5
+31	Despachos profesionales o particulares	III. OFICINAS Y DESPACHOS	1.1000000000000001
+32	Oficinas empresariales o de sociedades	III. OFICINAS Y DESPACHOS	1.5
+41	Locales destinados a academias de enseñanza	IV. ENSEÑANZA Y CULTURA	.80000000000000004
+42	Guarderías y Jardines de Infancia	IV. ENSEÑANZA Y CULTURA	.80000000000000004
+43	Locales destinados a actos religiosos y confesionales	IV. ENSEÑANZA Y CULTURA	1.0
+44	Bibliotecas, Casas de Cultura y Salas de Exposiciones	IV. ENSEÑANZA Y CULTURA	1.1000000000000001
+51	Exposiciones de coches, motos y similares	V. TIENDAS VARIAS	.59999999999999998
+52	Ferreterías, Droguerías y similares	V. TIENDAS VARIAS	.59999999999999998
+53	Perfumerías, Peluquerías y similares	V. TIENDAS VARIAS	.69999999999999996
+54	Estancos y Administraciones de loterías	V. TIENDAS VARIAS	.69999999999999996
+55	Tiendas de ropa, muebles, material deportivo, electrodomésticos y similares	V. TIENDAS VARIAS	.80000000000000004
+56	Ópticas, Farmacias y Joyerías	V. TIENDAS VARIAS	1.2
+61	Bancos y Cajas de Ahorro	VI. ENTIDADES FINANCIERAS Y COMPAÑIAS DE SEGUROS	1.7
+71	Pescaderías. Carnicerías, Congelados y similares	VII. ALIMENTACIÓN	.90000000000000002
+72	Supermercados y Ultramarinos	VII. ALIMENTACIÓN	1.0
+73	Mercados	VII. ALIMENTACIÓN	1.1000000000000001
+81	Salones recreativos, Futbolines y Billares	VIII. DIVERSIÓN Y OCIO	.90000000000000002
+82	Círculos culturales y Clubs sociales	VIII. DIVERSIÓN Y OCIO	1.5
+83	Salas de Juego, Casinos, Bingos y similares	VIII. DIVERSIÓN Y OCIO	1.8999999999999999
+91	Mutuas, Ambulatorios, Equipos médicos completos y similares	IX. SANITARIOS	1.5
+99	Gimnasios, Polideportivos y similares	X. DEPORTIVOS	1.1000000000000001

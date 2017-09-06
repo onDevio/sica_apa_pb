@@ -1,0 +1,213 @@
+COLEGIADOS	01	2007	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+CLIEN     	01	2007	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+CUOTA     	01	2007	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+SEGURO    	01	2007	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+GABI      	01	2007	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+COLEG     	01	2007	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+RECTIF    	01	2007	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+COLEGIADOS	01	2008	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+CUOTA     	01	2008	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+SEGURO    	01	2008	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+GABI      	01	2008	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+COLEG     	01	2008	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+RECTIF    	01	2008	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+COLEGIADOS	01	2009	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+CLIEN     	01	2009	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+SEGURO    	01	2009	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+COLEG     	01	2009	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+RECTIF    	01	2009	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+COLEGIADOS	01	2010	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+CLIEN     	01	2010	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+CUOTA     	01	2010	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+SEGURO    	01	2010	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+GABI      	01	2010	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+COLEG     	01	2010	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+RECTIF    	01	2010	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+CLIEN     	01	2008	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+GABI      	01	2009	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+COLEGIADOS	01	2011	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+CLIEN     	01	2011	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+CUOTA     	01	2011	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+SEGURO    	01	2011	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+GABI      	01	2011	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+COLEG     	01	2011	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+RECTIF    	01	2011	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+CUOTA     	01	2009	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+EXPEDI    	01	2007	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+EXPEDI    	01	2008	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+EXPEDI    	01	2009	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+EXPEDI    	01	2010	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+EXPEDI    	01	2011	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+PROFOR    	01	2010	ES	Cabecera            	PROFORMA DE GASTOS COLEGIALES
+PROFOR    	01	2011	ES	Cabecera            	PROFORMA DE GASTOS COLEGIALES
+PREMAA    	01	2007	% 	Cabecera            	RECIBO
+MU        	01	2007	% 	Cabecera            	RECIBO
+PREMAA    	01	2008	% 	Cabecera            	RECIBO
+MU        	01	2008	% 	Cabecera            	RECIBO
+MU        	01	2009	% 	Cabecera            	RECIBO
+PREMAA    	01	2009	% 	Cabecera            	RECIBO
+MU        	01	2010	% 	Cabecera            	RECIBO
+PREMAA    	01	2010	% 	Cabecera            	RECIBO
+MU        	01	2011	% 	Cabecera            	RECIBO
+PREMAA    	01	2011	% 	Cabecera            	RECIBO
+%         	% 	%   	% 	Cabecera            	FACTURA
+COLEGIADOS	01	2007	% 	N_fact              	FACTURA Nº
+CLIEN     	01	2007	% 	N_fact              	FACTURA Nº
+CUOTA     	01	2007	% 	N_fact              	FACTURA Nº
+SEGURO    	01	2007	% 	N_fact              	FACTURA Nº
+GABI      	01	2007	% 	N_fact              	FACTURA Nº
+COLEG     	01	2007	% 	N_fact              	FACTURA Nº
+RECTIF    	01	2007	% 	N_fact              	FACTURA Nº
+COLEGIADOS	01	2008	% 	N_fact              	FACTURA Nº
+CUOTA     	01	2008	% 	N_fact              	FACTURA Nº
+SEGURO    	01	2008	% 	N_fact              	FACTURA Nº
+GABI      	01	2008	% 	N_fact              	FACTURA Nº
+COLEG     	01	2008	% 	N_fact              	FACTURA Nº
+RECTIF    	01	2008	% 	N_fact              	FACTURA Nº
+COLEGIADOS	01	2009	% 	N_fact              	FACTURA Nº
+CLIEN     	01	2009	% 	N_fact              	FACTURA Nº
+SEGURO    	01	2009	% 	N_fact              	FACTURA Nº
+COLEG     	01	2009	% 	N_fact              	FACTURA Nº
+RECTIF    	01	2009	% 	N_fact              	FACTURA Nº
+COLEGIADOS	01	2010	% 	N_fact              	FACTURA Nº
+CLIEN     	01	2010	% 	N_fact              	FACTURA Nº
+CUOTA     	01	2010	% 	N_fact              	FACTURA Nº
+SEGURO    	01	2010	% 	N_fact              	FACTURA Nº
+GABI      	01	2010	% 	N_fact              	FACTURA Nº
+COLEG     	01	2010	% 	N_fact              	FACTURA Nº
+RECTIF    	01	2010	% 	N_fact              	FACTURA Nº
+CLIEN     	01	2008	% 	N_fact              	FACTURA Nº
+GABI      	01	2009	% 	N_fact              	FACTURA Nº
+COLEGIADOS	01	2011	% 	N_fact              	FACTURA Nº
+CLIEN     	01	2011	% 	N_fact              	FACTURA Nº
+CUOTA     	01	2011	% 	N_fact              	FACTURA Nº
+SEGURO    	01	2011	% 	N_fact              	FACTURA Nº
+GABI      	01	2011	% 	N_fact              	FACTURA Nº
+COLEG     	01	2011	% 	N_fact              	FACTURA Nº
+RECTIF    	01	2011	% 	N_fact              	FACTURA Nº
+CUOTA     	01	2009	% 	N_fact              	FACTURA Nº
+EXPEDI    	01	2007	% 	N_fact              	FACTURA Nº
+EXPEDI    	01	2008	% 	N_fact              	FACTURA Nº
+EXPEDI    	01	2009	% 	N_fact              	FACTURA Nº
+EXPEDI    	01	2010	% 	N_fact              	FACTURA Nº
+EXPEDI    	01	2011	% 	N_fact              	FACTURA Nº
+PROFOR    	01	2010	% 	N_fact              	PROFORMA Nº
+PROFOR    	01	2011	% 	N_fact              	PROFORMA Nº
+PREMAA    	01	2007	% 	N_fact              	RECIBO Nº
+MU        	01	2007	% 	N_fact              	RECIBO Nº
+PREMAA    	01	2008	% 	N_fact              	RECIBO Nº
+MU        	01	2008	% 	N_fact              	RECIBO Nº
+MU        	01	2009	% 	N_fact              	RECIBO Nº
+PREMAA    	01	2009	% 	N_fact              	RECIBO Nº
+MU        	01	2010	% 	N_fact              	RECIBO Nº
+PREMAA    	01	2010	% 	N_fact              	RECIBO Nº
+MU        	01	2011	% 	N_fact              	RECIBO Nº
+PREMAA    	01	2011	% 	N_fact              	RECIBO Nº
+%         	% 	%   	% 	N_fact              	FACTURA Nº
+COLEGIADOS	01	2007	% 	Total_fact          	TOTAL FACTURA
+CLIEN     	01	2007	% 	Total_fact          	TOTAL FACTURA
+CUOTA     	01	2007	% 	Total_fact          	TOTAL FACTURA
+SEGURO    	01	2007	% 	Total_fact          	TOTAL FACTURA
+GABI      	01	2007	% 	Total_fact          	TOTAL FACTURA
+COLEG     	01	2007	% 	Total_fact          	TOTAL FACTURA
+RECTIF    	01	2007	% 	Total_fact          	TOTAL FACTURA
+COLEGIADOS	01	2008	% 	Total_fact          	TOTAL FACTURA
+CUOTA     	01	2008	% 	Total_fact          	TOTAL FACTURA
+SEGURO    	01	2008	% 	Total_fact          	TOTAL FACTURA
+GABI      	01	2008	% 	Total_fact          	TOTAL FACTURA
+COLEG     	01	2008	% 	Total_fact          	TOTAL FACTURA
+RECTIF    	01	2008	% 	Total_fact          	TOTAL FACTURA
+COLEGIADOS	01	2009	% 	Total_fact          	TOTAL FACTURA
+CLIEN     	01	2009	% 	Total_fact          	TOTAL FACTURA
+SEGURO    	01	2009	% 	Total_fact          	TOTAL FACTURA
+COLEG     	01	2009	% 	Total_fact          	TOTAL FACTURA
+RECTIF    	01	2009	% 	Total_fact          	TOTAL FACTURA
+COLEGIADOS	01	2010	% 	Total_fact          	TOTAL FACTURA
+CLIEN     	01	2010	% 	Total_fact          	TOTAL FACTURA
+CUOTA     	01	2010	% 	Total_fact          	TOTAL FACTURA
+SEGURO    	01	2010	% 	Total_fact          	TOTAL FACTURA
+GABI      	01	2010	% 	Total_fact          	TOTAL FACTURA
+COLEG     	01	2010	% 	Total_fact          	TOTAL FACTURA
+RECTIF    	01	2010	% 	Total_fact          	TOTAL FACTURA
+CLIEN     	01	2008	% 	Total_fact          	TOTAL FACTURA
+GABI      	01	2009	% 	Total_fact          	TOTAL FACTURA
+COLEGIADOS	01	2011	% 	Total_fact          	TOTAL FACTURA
+CLIEN     	01	2011	% 	Total_fact          	TOTAL FACTURA
+CUOTA     	01	2011	% 	Total_fact          	TOTAL FACTURA
+SEGURO    	01	2011	% 	Total_fact          	TOTAL FACTURA
+GABI      	01	2011	% 	Total_fact          	TOTAL FACTURA
+COLEG     	01	2011	% 	Total_fact          	TOTAL FACTURA
+RECTIF    	01	2011	% 	Total_fact          	TOTAL FACTURA
+CUOTA     	01	2009	% 	Total_fact          	TOTAL FACTURA
+EXPEDI    	01	2007	% 	Total_fact          	TOTAL FACTURA
+EXPEDI    	01	2008	% 	Total_fact          	TOTAL FACTURA
+EXPEDI    	01	2009	% 	Total_fact          	TOTAL FACTURA
+EXPEDI    	01	2010	% 	Total_fact          	TOTAL FACTURA
+EXPEDI    	01	2011	% 	Total_fact          	TOTAL FACTURA
+PROFOR    	01	2010	% 	Total_fact          	TOTAL PROFORMA
+PROFOR    	01	2011	% 	Total_fact          	TOTAL PROFORMA
+PREMAA    	01	2007	% 	Total_fact          	TOTAL RECIBO
+MU        	01	2007	% 	Total_fact          	TOTAL RECIBO
+PREMAA    	01	2008	% 	Total_fact          	TOTAL RECIBO
+MU        	01	2008	% 	Total_fact          	TOTAL RECIBO
+MU        	01	2009	% 	Total_fact          	TOTAL RECIBO
+PREMAA    	01	2009	% 	Total_fact          	TOTAL RECIBO
+MU        	01	2010	% 	Total_fact          	TOTAL RECIBO
+PREMAA    	01	2010	% 	Total_fact          	TOTAL RECIBO
+MU        	01	2011	% 	Total_fact          	TOTAL RECIBO
+PREMAA    	01	2011	% 	Total_fact          	TOTAL RECIBO
+%         	% 	%   	% 	Total_fact          	TOTAL FACTURA
+COLEGIADOS	01	2007	% 	Coletilla_fact      	 de la presente factura-, efectuará el abono de la misma
+CLIEN     	01	2007	% 	Coletilla_fact      	 de la presente factura-, efectuará el abono de la misma
+CUOTA     	01	2007	% 	Coletilla_fact      	 de la presente factura-, efectuará el abono de la misma
+SEGURO    	01	2007	% 	Coletilla_fact      	 de la presente factura-, efectuará el abono de la misma
+GABI      	01	2007	% 	Coletilla_fact      	 de la presente factura-, efectuará el abono de la misma
+COLEG     	01	2007	% 	Coletilla_fact      	 de la presente factura-, efectuará el abono de la misma
+RECTIF    	01	2007	% 	Coletilla_fact      	 de la presente factura-, efectuará el abono de la misma
+COLEGIADOS	01	2008	% 	Coletilla_fact      	 de la presente factura-, efectuará el abono de la misma
+CUOTA     	01	2008	% 	Coletilla_fact      	 de la presente factura-, efectuará el abono de la misma
+SEGURO    	01	2008	% 	Coletilla_fact      	 de la presente factura-, efectuará el abono de la misma
+GABI      	01	2008	% 	Coletilla_fact      	 de la presente factura-, efectuará el abono de la misma
+COLEG     	01	2008	% 	Coletilla_fact      	 de la presente factura-, efectuará el abono de la misma
+RECTIF    	01	2008	% 	Coletilla_fact      	 de la presente factura-, efectuará el abono de la misma
+COLEGIADOS	01	2009	% 	Coletilla_fact      	 de la presente factura-, efectuará el abono de la misma
+CLIEN     	01	2009	% 	Coletilla_fact      	 de la presente factura-, efectuará el abono de la misma
+SEGURO    	01	2009	% 	Coletilla_fact      	 de la presente factura-, efectuará el abono de la misma
+COLEG     	01	2009	% 	Coletilla_fact      	 de la presente factura-, efectuará el abono de la misma
+RECTIF    	01	2009	% 	Coletilla_fact      	 de la presente factura-, efectuará el abono de la misma
+COLEGIADOS	01	2010	% 	Coletilla_fact      	 de la presente factura-, efectuará el abono de la misma
+CLIEN     	01	2010	% 	Coletilla_fact      	 de la presente factura-, efectuará el abono de la misma
+CUOTA     	01	2010	% 	Coletilla_fact      	 de la presente factura-, efectuará el abono de la misma
+SEGURO    	01	2010	% 	Coletilla_fact      	 de la presente factura-, efectuará el abono de la misma
+GABI      	01	2010	% 	Coletilla_fact      	 de la presente factura-, efectuará el abono de la misma
+COLEG     	01	2010	% 	Coletilla_fact      	 de la presente factura-, efectuará el abono de la misma
+RECTIF    	01	2010	% 	Coletilla_fact      	 de la presente factura-, efectuará el abono de la misma
+CLIEN     	01	2008	% 	Coletilla_fact      	 de la presente factura-, efectuará el abono de la misma
+GABI      	01	2009	% 	Coletilla_fact      	 de la presente factura-, efectuará el abono de la misma
+COLEGIADOS	01	2011	% 	Coletilla_fact      	 de la presente factura-, efectuará el abono de la misma
+CLIEN     	01	2011	% 	Coletilla_fact      	 de la presente factura-, efectuará el abono de la misma
+CUOTA     	01	2011	% 	Coletilla_fact      	 de la presente factura-, efectuará el abono de la misma
+SEGURO    	01	2011	% 	Coletilla_fact      	 de la presente factura-, efectuará el abono de la misma
+GABI      	01	2011	% 	Coletilla_fact      	 de la presente factura-, efectuará el abono de la misma
+COLEG     	01	2011	% 	Coletilla_fact      	 de la presente factura-, efectuará el abono de la misma
+RECTIF    	01	2011	% 	Coletilla_fact      	 de la presente factura-, efectuará el abono de la misma
+CUOTA     	01	2009	% 	Coletilla_fact      	 de la presente factura-, efectuará el abono de la misma
+EXPEDI    	01	2007	% 	Coletilla_fact      	 de la presente factura-, efectuará el abono de la misma
+EXPEDI    	01	2008	% 	Coletilla_fact      	 de la presente factura-, efectuará el abono de la misma
+EXPEDI    	01	2009	% 	Coletilla_fact      	 de la presente factura-, efectuará el abono de la misma
+EXPEDI    	01	2010	% 	Coletilla_fact      	 de la presente factura-, efectuará el abono de la misma
+EXPEDI    	01	2011	% 	Coletilla_fact      	 de la presente factura-, efectuará el abono de la misma
+PROFOR    	01	2010	% 	Coletilla_fact      	 de la presente proforma-, efectuará el abono de la misma
+PROFOR    	01	2011	% 	Coletilla_fact      	 de la presente proforma-, efectuará el abono de la misma
+PREMAA    	01	2007	% 	Coletilla_fact      	 del presente recibo-, efectuará el abono del mismo
+MU        	01	2007	% 	Coletilla_fact      	 del presente recibo-, efectuará el abono del mismo
+PREMAA    	01	2008	% 	Coletilla_fact      	 del presente recibo-, efectuará el abono del mismo
+MU        	01	2008	% 	Coletilla_fact      	 del presente recibo-, efectuará el abono del mismo
+MU        	01	2009	% 	Coletilla_fact      	 del presente recibo-, efectuará el abono del mismo
+PREMAA    	01	2009	% 	Coletilla_fact      	 del presente recibo-, efectuará el abono del mismo
+MU        	01	2010	% 	Coletilla_fact      	 del presente recibo-, efectuará el abono del mismo
+PREMAA    	01	2010	% 	Coletilla_fact      	 del presente recibo-, efectuará el abono del mismo
+MU        	01	2011	% 	Coletilla_fact      	 del presente recibo-, efectuará el abono del mismo
+PREMAA    	01	2011	% 	Coletilla_fact      	 del presente recibo-, efectuará el abono del mismo
+%         	% 	%   	% 	Coletilla_fact      	 de la presente factura-, efectuará el abono de la misma
+PROFOR    	02	2011	% 	Cabecera            	PROFORMA

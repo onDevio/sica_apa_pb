@@ -1,0 +1,9 @@
+10	1	0	Alta - No es Obra Oficial
+11	1	1	Alta OO - Paga 10%
+12	1	2	Alta OO - Paga 100%
+14	1	4	Alta OO - Funcinarios con prima 0
+23	2	3	Modificación - Paga Certificación
+25	2	5	Modificación - Última Cerficación
+60	6	0	Renuncia / Anulación - No es Obra Oficial
+63	6	3	Renuncia / Anulación - Obra Oficial
+20	2	0	Modificación

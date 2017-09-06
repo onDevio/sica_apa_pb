@@ -1,0 +1,1378 @@
+0000000001	CSD	csd       	csd                 		00000007	N	Jan 22 2012 12:00:00:000AM	0		
+0000100011	PILAR	parra     	pilar               	00		N	Feb 18 2020 12:00:00:000AM	0		
+0000100012	GENI	nora.     	geni                			N	Mar  2 2012 12:00:00:000AM	0		
+0000100013	ANA	ana       	ana                 		 	N	Feb 10 2012 12:00:00:000AM	0		
+0000100015	MANGELES	mangeles  	mangeles            			N	Jan  7 2012 12:00:00:000AM	0		
+0000100016	MODESTO	modesto   	modesto             			N				
+0000100017	GUMER	gumer     	gumer               			N				
+0000100018	ANSELMO	anselmo   	anselmo             			N				
+0000100019	ANTONIO	antonio   	antonio             			N				
+0000100001	CARMEN	carmen    	carmen              	00		N	Jan  7 2011 12:00:00:000AM	0		
+0000100002	CIELO	zerua     	cielo               	00	 	S	Jan 27 2012 12:00:00:000AM	0		
+6         	 	          	6                   		 	N				
+12        	MARIANO GONZALEZ FLOREZ	          	12                  		12	N				
+34        	JOSE ANTONIO ZABALA LOPEZ	          	34                  		34	N				
+42        	RAFAEL SANTAMARIA GARCIA	          	42                  		42	N				
+47        	ANTONIO MIGUELEZ GARCIA	          	47                  		47	N				
+55        	 ALVAREZ GARCIA FRANCISCO	          	55                  		55	N				
+65        	ENRIQUE PRESA GARCIA	          	65                  		65	N				
+67        	MIGUEL ILDEFONSO BAYON ALVAREZ	leon      	67                  		67	N				
+69        	ENRIQUE JIMENEZ LOPEZ	          	69                  		69	N				
+70        	ANGEL PANERO FLOREZ	          	70                  		70	N				
+74        	GERARDO COSMEN DE LAMA	          	74                  		74	N				
+75        	JUAN ANTONIO CALERO BEATO	          	75                  		75	N				
+81        	JOSE ANTONIO MENENDEZ SUAREZ	81        	81                  		81	N				
+82        	MANUEL CASAS GONZALEZ	          	82                  		82	N				
+84        	ONESIMO POZO REY	leon      	84                  		84	N				
+86        	FRANCISCO PARDO PRADA	          	86                  		86	N				
+91        	JOSE MANUEL PEREZ GARCIA	          	91                  		91	N				
+97        	JUAN V. GUISASOLA MARTINEZ	leon      	97                  		97	N				
+100       	AMADEO VAZQUEZ PRIETO	          	100                 		100	N				
+101       	FAUSTINO MENDOZA PEREZ	          	101                 		101	N				
+103       	RAFAEL ANEL MATARREDONA	          	103                 		103	N				
+104       	JOSE PANERO FLOREZ	          	104                 		104	N				
+105       	JOSE LUIS TORBADO ROMON	          	105                 		105	N				
+112       	JOSE MANUEL LORENZANA RAMOS	9090      	112                 		112	N				
+118       	DAMASO REVELLES RODRIGUEZ	leon      	118                 		118	N				
+119       	CARLOS DOCE POCINO	          	119                 		119	N				
+120       	MATIAS CARCEDO ROBLES	          	120                 		120	N				
+123       	VICENTE JOSE GARCIA SANCHEZ	vigarsa123	123                 		123	N				
+124       	LUIS BRAÑAS MARTINEZ	lbm1946   	124                 		124	N				
+127       	MAXIMIANO RODRIGUEZ SANTOS	          	127                 		127	N				
+128       	OSCAR LUIS SUAREZ MILIAN	kandaule  	128                 		128	N				
+131       	ANTONIO ESCANCIANO FERNANDEZ	leon      	131                 		131	N				
+135       	MANUEL VILLA CARNERO	135       	135                 		135	N				
+136       	CANDIDO MARTIN MARTIN	1727      	136                 		136	N				
+141       	OLEGARIO HUERGA ALVAREZ	          	141                 		141	N				
+142       	JOSE LUIS FERNANDEZ VILLAR	cole142   	142                 		142	N				
+145       	VICTORINO GONZALEZ OCHOA	987602525 	145                 		145	N				
+146       	FAUSTINO GONZALEZ QUINTANILLA	gonfaus   	146                 		146	N				
+147       	CARLOS GUTIERREZ PALACIOS	          	147                 		147	N				
+149       	LUCIO MONJE AHIJADO	leon      	149                 		149	N				
+151       	CARLOS GUTIERREZ MARTIN	          	151                 		151	N				
+154       	MARIANO FERNANDEZ PEREZ	leon      	154                 		154	N				
+155       	EUSEBIO ALONSO HONRADO	          	155                 		155	N				
+156       	MIGUEL ANG GARCIA FERNANDEZ B.	          	156                 		156	N				
+157       	VICENTE RENUNCIO CORNEJO	00157     	00157               		157	N				
+158       	MELITON LUIS GALLEGO ALONSO	          	158                 		158	N				
+160       	ALBERTO LOPEZ MALLO	leon      	160                 		160	N				
+162       	FRANCISCO RODRIGUEZ SIMARRO	          	162                 		162	N				
+164       	DANIEL JUAN JUAN	          	164                 		164	N				
+165       	ANGEL GONZALEZ GUNDIN	leon      	165                 		165	N				
+167       	GERARDO GUTIERREZ ALVAREZ	          	167                 		167	N				
+168       	ANTONIO FERNANDEZ VILLANUEVA	1943      	168                 		168	N				
+169       	MIGUEL ANGEL GARRUDO FERNANDEZ	          	169                 		169	N				
+170       	MIGUEL ANGEL ALONSO ALVAREZ	          	170                 		170	N				
+171       	JUAN CARLOS SAIZ FERNANDEZ	          	171                 		171	N				
+172       	FERNANDO DEL RIO LOPEZ	leon      	172                 		172	N				
+173       	CARLOS ANGEL RODRIGUEZ PEÑA	2348      	173                 		173	N				
+178       	RAMON EGUIAGARAY GALLASTEGUI	          	178                 		178	N				
+179       	GUILLERMO GONZALEZ LANZA	7479      	179                 		179	N				
+184       	JOSE ANGEL GUTIERREZ CASTAÑON	leon      	184                 		184	N				
+185       	ENRIQUE FERNANDEZ FERNANDEZ	          	185                 		185	N				
+186       	JOAQUIN S. GARCIA ALONSO	          	186                 		186	N				
+187       	CARLOS F. BENITO OLALLA	2248cb    	187                 		187	N				
+192       	MERCEDES MORO MENENDEZ	cheche    	192                 		192	N				
+193       	ANGELES PASTOR BERMEJO	leon      	193                 		193	N				
+194       	MIGUEL ANGEL MORETON GETINO	3116      	194                 		194	N				
+195       	LUIS ROY RAMOS	leon      	195                 		195	N				
+200       	DIÑEIRO ALVAREZ, PEDRO	leon      	200                 		200	N				
+202       	MIGUEL A. GONZALEZ GUTIERREZ	chucho    	202                 		202	N				
+203       	SERAPIO GARCIA PUENTE	1808      	203                 		203	N				
+208       	RAMON SAIZ FERNANDEZ	          	208                 		208	N				
+209       	JOSE SANTIAGO VEGA GARRIDO	leon      	209                 		209	N				
+214       	JOSE R. FERNANDEZ GONZALEZ	          	214                 		214	N				
+216       	MARTIN GARCIA VIVAS	          	216                 		216	N				
+219       	MANUEL JOSE MURIAS PRADA	          	219                 		219	N				
+227       	SANTIAGO RODRIGUEZ CAÑON	630621681 	227                 		227	N				
+230       	EMILIO GOMEZ VELASCO	leon      	230                 		230	N				
+234       	ISIDRO GARCIA GARCIA	          	234                 		234	N				
+235       	JESUS ANTONIO REDONDO VILLA	leon      	235                 		235	N				
+236       	SERGIO OMIST VALVERDE	          	236                 		236	N				
+237       	MANUEL GONZALEZ SUAREZ	          	237                 		237	N				
+238       	SANTOS LLAMAS LLAMAS	          	238                 		238	N				
+239       	VICTORIANO MARTINEZ LLANES	239       	239                 		239	N				
+241       	SERGIO AMIGO ALVAREZ	          	241                 		241	N				
+246       	ISMAEL MIGUEL DIEZ	          	246                 		246	N				
+248       	JOSE LUIS CAMPOS ABIAN	EYREabral 	248                 		248	N				
+249       	GUSTAVO GOMEZ GONZALEZ	gustavo   	249                 		249	N				
+250       	EMILIO MANUEL SUAREZ GARCIA	1954      	250                 		250	N				
+251       	DIEGO Mª ACEBES FLORES	          	251                 		251	N				
+253       	Mª ENMA FUERTES FLOREZ	          	253                 		253	N				
+256       	PEDRO DIEZ MANOVEL	pdm       	256                 		256	N				
+258       	VICTOR JUAN GARCIA RODRIGUEZ	leon      	258                 		258	N				
+259       	MANUEL RODRIGUEZ SIMARRO	leon      	259                 		259	N				
+262       	ANTONIO GUTIERREZ DE LA FUENTE	poligono  	262                 		262	N				
+265       	LUIS GARCIA FERNANDEZ	          	265                 		265	N				
+266       	TOMAS FERNANDEZ GALLEGO	fertomas  	266                 		266	N				
+270       	JULIAN M. FERNANDEZ GONZALEZ	          	270                 		270	N				
+271       	ANGEL VALDUEZA VEGA	9682050   	271                 		271	N				
+275       	PILAR SANTAMARTA S.DE MIERA	leon      	275                 		275	N				
+276       	JOSE LUIS ULIBARRI CORMENZANA	          	276                 		276	N				
+279       	GUILLERMO GONZALEZ LOZANO	leon      	279                 		279	N				
+281       	ARMANDO G. LLANEZA GOMEZ	          	281                 		281	N				
+282       	JOSÉ MANUEL ARES CALLEJA	          	282                 		282	N				
+285       	FRANCISCO VAQUERO CABELLO	285       	285                 		285	N				
+286       	LEONCIO LOPEZ PARRA	286       	286                 		286	N				
+287       	LUIS J. GONZALEZ TORRES	          	287                 		287	N				
+290       	 ALVAREZ DIEZ JOSE MARIA	242451    	290                 		290	N				
+295       	ANTONIO B. SOLANO ALONSO	          	295                 		295	N				
+296       	CARLOS JAVIER SERRANO ARROYO	          	296                 		296	N				
+300       	ANGEL CERECEDO FERNANDEZ	          	300                 		300	N				
+301       	Mª DEL CARMEN GARCIA CALABOZO	cgc1931   	301                 		301	N				
+304       	JOSE M. MARTIN LEAL	          	304                 		304	N				
+309       	FRANCISCO JOSE PALMERO VEGA	fjpv1955  	309                 		309	N				
+312       	EMILIANO RAMOS SANTOS	          	312                 		312	N				
+313       	EMILIO RODRIGUEZ MANCEBO	emancebo  	313                 		313	N				
+314       	LUIS ADOLFO SUAREZ GARCIA	leon      	314                 		314	N				
+315       	JOSE A. FERNANDEZ FLOREZ	          	315                 		315	N				
+318       	 SANTIN CASTAÑEIRAS. ELOY	pakistan  	318                 		318	N				
+323       	JOSE MANUEL LAFUENTE OLALDE	2820      	323                 		323	N				
+324       	JOSE MIGUEL LUENGO CUADRADO	6490124   	324                 		324	N				
+326       	JOSE A. RODRIGUEZ ALONSO	          	326                 		326	N				
+327       	JOSE A. MAZOY RODRIGUEZ	          	327                 		327	N				
+328       	FERNANDO VAZQUEZ URIA	          	328                 		328	N				
+329       	RAFAEL GARCIA CORTIÑAS	          	329                 		329	N				
+331       	ALFREDO RODRIGUEZ PEREZ	          	331                 		331	N				
+332       	ALVARO M RODRIGUEZ ROBLES	          	332                 		332	N				
+333       	ANGEL LUIS VALDES ALVAREZ	20031950  	333                 		333	N				
+334       	JOSE ANGEL VIYEIRA FERNANDEZ	leon      	334                 		334	N				
+337       	ALFREDO ALIJA CARBAJO	0187      	337                 		337	N				
+338       	FERMIN GONZALEZ ABELLA	          	338                 		338	N				
+340       	JOSE LUIS SANCHEZ RODRIGUEZ	          	340                 		340	N				
+341       	GERMAN ANTONIO BARDON MELCON	4148czl   	341                 		341	N				
+342       	JOSE ANTONIO NIETO BELLO	leon      	342                 		342	N				
+343       	JULIO MINGORANCE TORRES	          	343                 		343	N				
+349       	FRANCISCO J. ARIAS VAQUERO	vaquero   	349                 		349	N				
+350       	MARTIN NEGRAL FEO	leon      	350                 		350	N				
+351       	JESUS MARTINEZ PEREZ	351       	351                 		351	N				
+357       	JOSE ANTONIO GARCIA GARCIA	131956    	357                 		357	N				
+358       	LUIS CARLOS GUADA VALLEPUGA	          	358                 		358	N				
+360       	ANSELMO A. MIGUELEZ RODRIGUEZ	159753    	360                 		360	N				
+361       	JUAN M. GONZALEZ FERNANDEZ	leon      	361                 		361	N				
+363       	ANDRES MARIA VALDES FIERRO	Vyasce1986	363                 		363	N				
+368       	SANTIAGO GRANDE GRANDE	8891      	368                 		368	N				
+369       	ENRIQUE EMPERADOR MARCOS	donenrico 	369                 		369	N				
+370       	LOPE MARTINEZ ALLER	          	370                 		370	N				
+372       	GONZALO GONZALEZ LOPEZ	          	372                 		372	N				
+374       	JOSE LUIS SANTOS RAMOS	          	374                 		374	N				
+375       	BERNARDO RODRIGUEZ CANOVAS	          	375                 		375	N				
+376       	JOAQUIN GARCIA BEIRAS	          	376                 		376	N				
+377       	ANTONIO FERNANDEZ SAN MARTIN	morgazo   	377                 		377	N				
+378       	MIGUEL A. PRIETO TERCERO	leon      	378                 		378	N				
+381       	JOSE MANUEL DIEZ MORAN	          	381                 		381	N				
+384       	RICARDO LOZANO ASENSIO	leon      	384                 		384	N				
+385       	PLACIDO I. GARCIA FERNANDEZ	100690    	385                 		385	N				
+389       	FERNANDO REBOLLO VALBUENA	navatejera	389                 		389	N				
+390       	ORENCIO PEÑA CARRETERO	          	390                 		390	N				
+391       	AGUSTIN OTERO BERMEJO	          	391                 		391	N				
+394       	JOSE LUIS CANCELO SUAREZ	190591    	394                 		394	N				
+395       	TOMAS FERNANDEZ MARTINEZ	tomas     	395                 		395	N				
+397       	ALEJANDRO J. GABALDON GARCIA	          	397                 		397	N				
+398       	JUAN JOSE PASTRANA LEDESMA	jjpl1957  	398                 		398	N				
+399       	ANIBAL DOMINGUEZ LOPEZ	          	399                 		399	N				
+401       	MIGUEL ANGEL CHAMORRO JIMENEZ	          	401                 		401	N				
+403       	OSCAR VALLE GARCIA	leon      	403                 		403	N				
+404       	GERARD QUEIPO DE LLANO GARRIDO	          	404                 		404	N				
+410       	VICENTE FERNANDEZ ENCABO	          	410                 		410	N				
+412       	 PEREZ CRESPO VICTORIO	          	412                 		412	N				
+415       	 ALVAREZ GONZALEZ GREGORIO	gagagaga  	415                 		415	N				
+416       	JULIO L. GARCIA GARCIA	          	416                 		416	N				
+418       	JOSE ANTONIO GONZALEZ LOZANO	418       	418                 		418	N				
+421       	ROBERTO FREIJO RODRIGUEZ	freijo4371	421                 		421	N				
+424       	JUAN MANUEL GARCIA FERNANDEZ	leon      	424                 		424	N				
+426       	LUIS LAGUNA FERNANDEZ	          	426                 		426	N				
+427       	JOSE JESUS HIGUERA QUINDOS	          	427                 		427	N				
+428       	JOSE RODRIGUEZ DE LA VEGA	joreja    	428                 		428	N				
+429       	JOSE GIL MERCADER	          	429                 		429	N				
+430       	ANTONIO MARTINEZ LLAMAZARES	amarlla   	430                 		430	N				
+431       	JOSE ANGEL LIEBANA FRESNO	431       	431                 		431	N				
+432       	ANDRES BUSTILLO BARBERO	          	432                 		432	N				
+433       	LUIS LETURIO GASTELURRUTIA	          	433                 		433	N				
+436       	TIMOTEO GONZALEZ FERNANDEZ	          	436                 		436	N				
+437       	RAFAEL V. FERNANDEZ ALVAREZ	          	437                 		437	N				
+439       	JORDI TANE CASADEVALL	          	439                 		439	N				
+441       	LUIS VICENTE GARCIA LOPEZ	          	441                 		441	N				
+442       	JOSE MANUEL PEREZ VECINO	          	442                 		442	N				
+443       	JULIO DAVID ARIAS LOPEZ	leon      	443                 		443	N				
+445       	JOSE MARIA FERNANDEZ ALVAREZ	chema     	445                 		445	N				
+448       	JOSE M. GARCIA JIMENEZ	          	448                 		448	N				
+449       	JOSE A. CORDERO FERNANDEZ	          	449                 		449	N				
+450       	FERNANDO E. GEIJO RAMOS	leon      	450                 		450	N				
+451       	FELIPA Mª PAULINA DIEZ MARTIN	          	451                 		451	N				
+453       	INMACULADA PANIAGUA TEJO	6615      	453                 		453	N				
+454       	MOISES A. GARCIA CRISTOBAL	          	454                 		454	N				
+455       	ABUNDIO M. GORGOJO VILLAFAÑE	01011957  	455                 		455	N				
+457       	VALENTIN DIEGUEZ CABERO	          	457                 		457	N				
+458       	ALFREDO MARTINEZ GIMENO	          	458                 		458	N				
+459       	ISIDRO ALVAREZ BANDERA	1794      	459                 		459	N				
+460       	LUIS JAVIER GARCIA LLAMAS	galla     	460                 		460	N				
+461       	RAMIRO MANZANO PEREZ	leon      	461                 		461	N				
+463       	ANASTASIO LEON DE AGUEDA	          	463                 		463	N				
+464       	RAFAEL RODRIGUEZ SANCHEZ	          	464                 		464	N				
+466       	PABLO PEREZ GARCIA	          	466                 		466	N				
+468       	JUAN JOSE CARBALLO QUIROGA	10040872S 	468                 		468	N				
+469       	JOSE J GONZALEZ-ZABALETA FDEZ	170409    	469                 		469	N				
+470       	FRANCISCO GARCIA ALONSO	pago      	470                 		470	N				
+471       	ANTONIO RODRIGUEZ FERNANDEZ	          	471                 		471	N				
+472       	DOMINGO RODRIGUEZ MARTINEZ	0472      	472                 		472	N				
+473       	FERNANDO YUNTA ESPADA	473       	473                 		473	N				
+479       	MANUEL RIBELLES PORTERO	          	479                 		479	N				
+481       	ANGEL SOLARES ADAN	          	481                 		481	N				
+482       	JESUS G. MARTINEZ MIGUELEZ	leon      	482                 		482	N				
+487       	LUIS VIZOSO GOMEZ	          	487                 		487	N				
+491       	JULIO MARTINEZ BENAVIDES	01020     	491                 		491	N				
+492       	Mª MERCEDES GONZALEZ LOZANO	leon      	492                 		492	N				
+495       	EMILIO CORTES VARELA	          	495                 		495	N				
+498       	Mª PILAR PUERTA SANCHEZ	1920      	498                 		498	N				
+499       	BIENVENIDO GARCIA ALVAREZ	leon      	499                 		499	N				
+501       	ALFREDO FERNANDEZ SANTIAGO	          	501                 		501	N				
+502       	MIGUEL ANG GARCIA FERNANDEZ F.	          	502                 		502	N				
+503       	CARLOS RODRIGUEZ FERNANDEZ	503       	503                 		503	N				
+504       	MODESTO VIEIRA DE LA IGLESIA	9900      	504                 		504	N				
+505       	JUAN CARLOS GARCIA COCA	leon      	505                 		505	N				
+507       	JOSE ANTº. FERNANDEZ ALVAREZ	leon      	507                 		507	N				
+508       	JOSE LUIS MUÑOZ LOPEZ	JLM5840   	508                 		508	N				
+509       	JOSE F PELAEZ PELAEZ	carlos    	509                 		509	N				
+511       	DOMINGO BARDAL RODRIGUEZ	          	511                 		511	N				
+513       	PEDRO GARCIA FIERRO	987206948 	513                 		513	N				
+514       	FELIX SANCHO DEL BARRIO	          	514                 		514	N				
+515       	ALFONSO M. DEL RIO MARTINEZ	          	515                 		515	N				
+516       	ANTONIO GAMALLO CABADA	          	516                 		516	N				
+517       	JUAN A. RODRIGUEZ FERNANDEZ	1985      	517                 		517	N				
+518       	JOSE S. MARTINEZ FERNANDEZ	JOSE47    	518                 		518	N				
+520       	LUIS MIGUEL BENEITEZ FERNANDEZ	          	520                 		520	N				
+521       	CARLOS POL LAGO	2s1a2r7a  	521                 		521	N				
+523       	FABIAN SANTISTEBAN JIMENEZ	          	523                 		523	N				
+525       	ALEJANDRO GOYENECHE SUAREZ	          	525                 		525	N				
+526       	JUAN CARLOS ALVAREZ BLANCO	          	526                 		526	N				
+527       	LUIS ANGEL GARMON GONZALEZ	          	527                 		527	N				
+528       	MANUEL GRANDE FERNANDEZ	          	528                 		528	N				
+529       	MARCIANO MARTIN PABLOS	          	529                 		529	N				
+530       	JOSE ANTONIO GOMEZ CARRO	          	530                 		530	N				
+531       	ANTONIO J. ACEBO SILVA	          	531                 		531	N				
+532       	MARIO BURGOS MOTILVA	          	532                 		532	N				
+533       	CARLOS MARTINEZ ENTRIALGO	          	533                 		533	N				
+536       	LUIS A. RUIZ JARAMILLO	          	536                 		536	N				
+537       	AGUSTIN M. GONZALEZ LIEBANA	1096      	537                 		537	N				
+538       	FERNANDO LLAMAZARES GONZALEZ	          	538                 		538	N				
+539       	JESUS SALVADOR PAZ GARCIA	          	539                 		539	N				
+540       	JESUS JAVI. RODRIGUEZ SANCHEZ	          	540                 		540	N				
+541       	MANUEL VALCARCE LOPEZ	7777MANOLO	541                 		541	N				
+542       	JOSE IGNACIO HOYOS LIZARRAGA	          	542                 		542	N				
+543       	ANGEL F VIEJO LOPEZ	          	543                 		543	N				
+545       	JOSE ANTº VILLAR FERNANDEZ	topys57   	545                 		545	N				
+546       	Mª ISABEL BURON GARMILLA	bugarmilla	546                 		546	N				
+547       	JOSE LUIS DIÑEIRO ALVAREZ	10046583E 	547                 		547	N				
+548       	MANUEL LEMA LEMA	leon      	548                 		548	N				
+549       	JESUS GALLEGO CASTAÑEDA	6541      	549                 		549	N				
+551       	MIGUEL HIDALGO GALLEGO	          	551                 		551	N				
+552       	PRIMITIVO MERINO PERAL	          	552                 		552	N				
+553       	ROBERTO SANCHEZ VALLEJO	          	553                 		553	N				
+554       	JOSE MARIA PEREZ MARTINEZ	manolo    	554                 		554	N				
+555       	ARTURO MONTIEL GARZON	          	555                 		555	N				
+556       	MIGUEL A. GONZALEZ UGARTE	          	556                 		556	N				
+557       	JESUS HERRERA OLMEDO	          	557                 		557	N				
+559       	JOSE LUIS PEREZ DE FRUTOS	          	559                 		559	N				
+560       	JESUS REMIS FERNANDEZ	          	560                 		560	N				
+562       	ANGEL ROBERTO CASTRO ALVAREZ	nitron    	562                 		562	N				
+563       	MIGUEL GUTIERREZ RETUERTO	8601      	563                 		563	N				
+564       	ANICETO CAMPA FERNANDEZ	          	564                 		564	N				
+565       	JOSE LUIS FIGUEIRAS MASSA	          	565                 		565	N				
+566       	JAVIER COUREL MARTINEZ	BARAUZO   	566                 		566	N				
+567       	JULIAN FRANCO VALLE	0907      	567                 		567	N				
+568       	GERMÁN ALF. HERRETES CASTRO	          	568                 		568	N				
+569       	EUGENIO SOLIS GUTIERREZ	          	569                 		569	N				
+570       	CARMELO ALONSO MARTINEZ	          	570                 		570	N				
+571       	RAUL GARCIA CARRASCO	          	571                 		571	N				
+572       	JOSE FELIX URUEÑA CUADRADO	          	572                 		572	N				
+573       	RAMON ANGUEZ GONZALEZ	lacianiego	573                 		573	N				
+574       	CARLOS CUERVO ABARQUERO	          	574                 		574	N				
+575       	JESUS HIGUERAS DIAZ	          	575                 		575	N				
+576       	NEMESIO MARTINEZ MARTINEZ	04021963  	576                 		576	N				
+579       	ESTEBAN YEBRA GONZALEZ	          	579                 		579	N				
+580       	ROBERTO ESPINA FIDALGO	          	580                 		580	N				
+581       	JOSE JAVIER ALZAGA CALDEVILLA	          	581                 		581	N				
+582       	ALBINO DIEZ FERRERA	          	582                 		582	N				
+583       	 MARTA BATLLE BALTRAN	          	583                 		583	N				
+584       	MIGUEL DEL CANTO MATA	leon      	584                 		584	N				
+585       	ROBERTO PARDO MARTINEZ	585       	585                 		585	N				
+587       	FERNANDO MANZANERA GIL	leon      	587                 		587	N				
+588       	JOSE M. CARRACEDO GARCIA	          	588                 		588	N				
+589       	MARINO MENENDEZ GARCIA	          	589                 		589	N				
+590       	CARLOS FRANGANILLO FUENTES	leon      	590                 		590	N				
+591       	ALBERTO CARNICERO DE LA FUENTE	591       	591                 		591	N				
+592       	MIGUEL A. RUIZ RODRIGUEZ	592       	592                 		592	N				
+593       	CARLOS HERRERO PEREZ	          	593                 		593	N				
+594       	RAFAEL A. MIRANTES FERNANDEZ	leon      	594                 		594	N				
+595       	ISIDRO VIÑAMBRES CASTRO	1D2A3M4I  	595                 		595	N				
+596       	JOSE MIGUEL MESA GONZALEZ	          	596                 		596	N				
+597       	CARLOS LOPEZ ALVAREZ	CLAVGA12  	597                 		597	N				
+598       	JULIO HERRERO SERRANO	          	598                 		598	N				
+599       	JULIO OTERO RODRIGUEZ	          	599                 		599	N				
+600       	MANUEL TUÑON AROLAS	          	600                 		600	N				
+601       	MARIO A. FRANCO CASTELLANOS	2468      	601                 		601	N				
+602       	Mª LORETO GARCIA LOPEZ	gp        	602                 		602	N				
+603       	Mª DEL CARMEN VEGA FERRERO	          	603                 		603	N				
+604       	JOSE IGNACIO SUAREZ VICENTIZ	          	604                 		604	N				
+605       	NICANOR GOMEZ COTADO	nica      	605                 		605	N				
+606       	SANTIAGO EGUIZABAL EGUIZABAL	          	606                 		606	N				
+607       	GUMERSINDO FUERTES SANTIAGO	10176948  	607                 		607	N				
+608       	ANTONIO VAZQUEZ MOLDES	          	608                 		608	N				
+609       	CARLOS ECHEVARRIETA ARNAIZ	          	609                 		609	N				
+610       	 DIAZ-FAES FERRERAS JOSE C.	          	610                 		610	N				
+611       	ALBINO ALVAREZ GARCIA	4600      	611                 		611	N				
+612       	FELIX GILMARTIN ESCRIBANO	leon      	612                 		612	N				
+614       	GERARDO LOZANO DIEZ	          	614                 		614	N				
+615       	HIPOLITO CABERO GUTIERREZ	          	615                 		615	N				
+616       	ROBERTO PALMERO HERNANDEZ	          	616                 		616	N				
+617       	EDUARDO MARTINEZ CORRAL	          	617                 		617	N				
+618       	FRANCISCO BALDOMIR GARCIA	          	618                 		618	N				
+619       	SANTOS ACERO HERRANZ	          	619                 		619	N				
+620       	GERARDO J. MARTIN ALVAREZ	          	620                 		620	N				
+621       	SERGIO ARMANDO VERDEJO PELAEZ	          	621                 		621	N				
+622       	PATRICIO SERRANO GARCIA	          	622                 		622	N				
+623       	JOSE GIL GONZALEZ	          	623                 		623	N				
+624       	CARMEN VICARIO NICOLAS	leon      	624                 		624	N				
+625       	Mª TERESA MORAN ARIAS	          	625                 		625	N				
+626       	EUGENIO SANCHEZ LAURIA	          	626                 		626	N				
+627       	LUIS AGUILA MARIN	          	627                 		627	N				
+628       	Mª JESUS CRISTOBAL CRISTOBAL	4600      	628                 		628	N				
+629       	JESUS ERNESTO GARCIA GONZALEZ	leon      	629                 		629	N				
+630       	JOSE Mª MIGUELEZ MARTINEZ	          	630                 		630	N				
+631       	VALENTIN COBO SOLANO	          	631                 		631	N				
+632       	ENRIQUE PEREZ LESTON	          	632                 		632	N				
+633       	CRISTINA RIVERA LOPEZ	africa    	633                 		633	N				
+634       	LUIS ALVAREZ RODRIGUEZ	GOBLSP13  	634                 		634	N				
+637       	FERNANDO LAGO LOPEZ	leon      	637                 		637	N				
+639       	ALFONSO ALVAREZ BENAVIDES	          	639                 		639	N				
+641       	JAVIER GARCIA BARRERO	          	641                 		641	N				
+642       	JOSE GARRIDO FERNANDEZ	          	642                 		642	N				
+643       	EMILIO CESAR SUAREZ FERNANDEZ	          	643                 		643	N				
+644       	ALBERTO-LUIS GARCIA CORTES	          	644                 		644	N				
+645       	ANGEL JOSE ANTA ALVAREZ	9000      	645                 		645	N				
+646       	JOSE M. FERNANDEZ GONZALEZ	646       	646                 		646	N				
+647       	FRANCISCO P. DIAZ BUCERO	          	647                 		647	N				
+648       	MANUEL ALIJA MARTINEZ	311268    	648                 		648	N				
+649       	FELICIANO ZUBILLAGA ESTANGA	          	649                 		649	N				
+650       	Mª ELISA HERNANDEZ GOMEZ	          	650                 		650	N				
+651       	ANTONIO VINJOY FERNANDEZ	          	651                 		651	N				
+652       	LISARDO SANTIAGO ABAD CAMPELO	652       	652                 		652	N				
+654       	FRANCISCO J. VEGA DE PAZ	          	654                 		654	N				
+656       	JAVIER ALLER MARTINEZ	aller     	656                 		656	N				
+657       	PEDRO MATOS VALERO	          	657                 		657	N				
+658       	ANA BELEN RODRIGUEZ REGUERAS	5208      	658                 		658	N				
+659       	ALFREDO GOMEZ DIEZ	          	659                 		659	N				
+660       	JOSE A. GUTIERREZ MARTINEZ	          	660                 		660	N				
+661       	JUAN C. VARGAS RODRIGUEZ	          	661                 		661	N				
+662       	FAUSTO I CUELLAS ALONSO	141296    	662                 		662	N				
+663       	JUAN MARCOS PAJARO POL	7979      	663                 		663	N				
+664       	ANTONIO RIOS PRIETO	          	664                 		664	N				
+665       	ALVARO A. LOUREIRO SANTAMARIA	          	665                 		665	N				
+666       	JOSE L. GARCIA SAMBADE	          	666                 		666	N				
+667       	LUIS F. FERNANDEZ BARRAGAN	10060964  	667                 		667	N				
+668       	ANGEL L. MERINO BALBIN	          	668                 		668	N				
+669       	JOSE L. DE CASTRO ACOSTA	          	669                 		669	N				
+670       	VALERIANO DE LA SIERRA VIDAL	          	670                 		670	N				
+671       	JESUS FERNANDEZ FERNANDEZ	          	671                 		671	N				
+672       	JOSE LUIS PINILLA AGUIRRE	          	672                 		672	N				
+673       	BENJAMIN J. LORENZO GUISADO	          	673                 		673	N				
+674       	ANA Mª GARCIA PICAZO	674       	674                 		674	N				
+675       	JOSE RAMON ALONSO DIAZ	          	675                 		675	N				
+677       	JOSE Mª CAEIRO RODRIGUEZ	          	677                 		677	N				
+678       	JESUS MAYORGA PEREZ	          	678                 		678	N				
+679       	ALFREDO MESA LAZARO	          	679                 		679	N				
+680       	GUILLERMO PUERTA GOMEZ	          	680                 		680	N				
+681       	RAFAEL GARCIA MINGO	          	681                 		681	N				
+682       	LUIS F. ANCIZU IRURE	          	682                 		682	N				
+683       	MANUEL A. BOBELA RODRIGUEZ	          	683                 		683	N				
+684       	GERONIMO LOZANO APOLO	leon      	684                 		684	N				
+685       	MIGUEL A. MACIAS OCHOA	          	685                 		685	N				
+686       	MARGARITA CASTRILLO VILLAMAÑAN	          	686                 		686	N				
+687       	MARIANO PEÑACOBA BARAHONA	          	687                 		687	N				
+688       	FERNANDO GARCIA GLEZ.DE LENA	          	688                 		688	N				
+689       	ANTONIO LUIS POYATOS GRECH	          	689                 		689	N				
+690       	LUIS NIETO CARBAJAL	          	690                 		690	N				
+691       	JAVIER LORENZO GONZALEZ	          	691                 		691	N				
+692       	LUIS NUÑEZ DELGADO	          	692                 		692	N				
+693       	ALBERTO GARCIA RUIPEREZ	anadelgado	693                 		693	N				
+694       	JOSE L. HERGUEDAS RAMOS	          	694                 		694	N				
+695       	ALFONSO J RODRIGUEZ FERNANDEZ	          	695                 		695	N				
+696       	BEATRIZ RODRIGUEZ HERNANDEZ	bea02901  	696                 		696	N				
+697       	MIGUEL MESAS IZQUIERDO	          	697                 		697	N				
+698       	RAUL TAPIA DIAZ	          	698                 		698	N				
+699       	FRANCISCO CORROCHANO CASARES	          	699                 		699	N				
+700       	MIKEL BALLARIN INCHAURREGUI	          	700                 		700	N				
+701       	LUIS A. GONZALEZ FONSECA	          	701                 		701	N				
+702       	JOSE M. ALVAREZ FERNANDEZ	          	702                 		702	N				
+703       	PABLO GARCIA VILLAR	          	703                 		703	N				
+704       	JOSE L. VALCARCEL GONZALEZ	          	704                 		704	N				
+705       	JOSE I. ALONSO CIFUENTES	leon      	705                 		705	N				
+706       	ALVARO ANDRES GONZALEZ	          	706                 		706	N				
+707       	Mª DOLORES VILLARINO URTIAGA	          	707                 		707	N				
+708       	CIPRIANO PAREDES GARCIA	          	708                 		708	N				
+709       	JUAN A. GUTIERREZ MORENO	          	709                 		709	N				
+710       	VERONICA MARTINEZ MUÑIZ	          	710                 		710	N				
+711       	AMALIA VALDES TOMAS	          	711                 		711	N				
+712       	ALBERTO GARCIA ARRIBAS	          	712                 		712	N				
+713       	FERNANDO MORENO ALCAZAR	          	713                 		713	N				
+714       	ANTONIO DE LA HOZ MARTIN	          	714                 		714	N				
+715       	ANA ISABEL ALVAREZ PARDO	715       	715                 		715	N				
+716       	ROSA ANA DE DIOS GARCIA	          	716                 		716	N				
+717       	FRANCISCO JAVIE ANGULO CASTRO	9624@alb  	717                 		717	N				
+718       	ROMULO MERAYO GONZALEZ	718       	718                 		718	N				
+719       	LORENZO GUTIERREZ GONZALEZ	          	719                 		719	N				
+720       	Mª CRISTINA CEMBRANOS GARRIDO	          	720                 		720	N				
+721       	VICENTE FERNANDEZ LAGO	3333      	721                 		721	N				
+722       	ANA BEATRIZ MACHADO GARCIA	macgaran  	722                 		722	N				
+723       	JOSE J. RODRIGO GARCIA	9989javier	723                 		723	N				
+724       	ADOLFO PALACIOS GONZALEZ	          	724                 		724	N				
+725       	ANTONIO BLANCO GARCIA	          	725                 		725	N				
+726       	ANTONIO GOMEZ SANTOS	          	726                 		726	N				
+727       	BEGOÑA NIETO DEL VALLE	          	727                 		727	N				
+728       	HECTOR FERNANDEZ GARCIA	proyest   	728                 		728	N				
+729       	TOMAS ARIAS ALONSO	taaat     	729                 		729	N				
+730       	JOSE E. VIGIL MARTINEZ	          	730                 		730	N				
+731       	LUIS LOBATON SANCHEZ DE MEDINA	          	731                 		731	N				
+732       	JOSE A. GOMEZ SANTAMARIA	          	732                 		732	N				
+733       	CARLOS ARROYO NOMBELA	          	733                 		733	N				
+734       	OSCAR L. GETINO BARAZON	8111      	734                 		734	N				
+735       	FRANCISCO ALVAREZ ALVAREZ	          	735                 		735	N				
+736       	JOSE A. POLANCO MELERO	          	736                 		736	N				
+737       	ENRIQUE DE LA ROSA LOPEZ	leon      	737                 		737	N				
+738       	BELEN SANTIAGO VAZQUEZ	laura     	738                 		738	N				
+739       	MERCEDES MIGUELEZ SANTAMARTA	sanbartolo	739                 		739	N				
+740       	ANA Mª GONZALEZ DEL RIO	leon      	740                 		740	N				
+741       	JUAN C. NOVILLO MARTINEZ	          	741                 		741	N				
+742       	JUAN J. MALANDA CALDERO	          	742                 		742	N				
+743       	FRANCISCO J. LARRAURI MIGUEL	9565      	743                 		743	N				
+744       	PAULINO J. GARCIA CASADO	          	744                 		744	N				
+745       	JUAN P. FRESCO RODRIGUEZ	          	745                 		745	N				
+746       	JOSE L. REY SANCHEZ	          	746                 		746	N				
+747       	SANTIAGO PUENTE GARCIA	          	747                 		747	N				
+748       	ABEL SAÑA REÑONES	leon      	748                 		748	N				
+749       	EMILIO CARREIRA PAN	          	749                 		749	N				
+750       	JULIO MACIAS RUBIO	MCS000    	750                 		750	N				
+751       	SALVADOR MENDEZ DE LA VIUDA	          	751                 		751	N				
+752       	ANGEL ARIAS GARCIA	6878      	752                 		752	N				
+753       	JORGE DE LA FUENTE GARCIA	jfuente   	753                 		753	N				
+754       	ANTONIO GARCIA RODRIGUEZ	10080796  	754                 		754	N				
+755       	ULISES RODRIGUEZ NIETO	10090462  	755                 		755	N				
+756       	MERCEDES CAYADO ROBLEDO	0137      	756                 		756	N				
+757       	Mª DEL MAR ALVAREZ RODRIGUEZ	leon      	757                 		757	N				
+758       	EDUARDO J. GONZALEZ ANTON	leon      	758                 		758	N				
+759       	Mª TERESA DEL OLMO PERANZONES	          	759                 		759	N				
+760       	JAVIER GONZALEZ OLALLA	1705      	760                 		760	N				
+761       	CELSO FLOREZ FERNANDEZ	761       	761                 		761	N				
+762       	OSCAR SUAREZ ALVAREZ	leon      	762                 		762	N				
+763       	VICTOR M. SARMIENTO JUAN	victor00  	763                 		763	N				
+764       	PABLO NICOLAS VELADO	          	764                 		764	N				
+765       	ARCADIO CONDE MACIAS	paxariños 	765                 		765	N				
+766       	GUMERSINDO QUIROGA LOPEZ	9124      	766                 		766	N				
+767       	JOSE GOMEZ CALVO	pepin     	767                 		767	N				
+768       	SEGUNDO VIVAS GONZALEZ	7694      	768                 		768	N				
+769       	DAVID DEL BLANCO UBIERGO	leon      	769                 		769	N				
+770       	 CARLOS VEGA PIÑEIRO	          	770                 		770	N				
+771       	ELENA TOBAR LOPEZ	771       	771                 		771	N				
+772       	GUADALUPE ANDRES DE CELIS	mirella   	772                 		772	N				
+773       	RAMON GOMEZ NUÑEZ	          	773                 		773	N				
+774       	Mª JOSE MATEOS RODRIGUEZ	245508    	774                 		774	N				
+775       	JAVIER SEGURA GARCIA	JSG       	775                 		775	N				
+776       	SOLEDAD MARCHANTE VALERO	leon      	776                 		776	N				
+777       	ALBERTO GOMEZ GARCIA	261230    	777                 		777	N				
+778       	NURIA B. GONZALEZ PEREZ	          	778                 		778	N				
+779       	ANTONIO ANTA ARIAS	arias369  	779                 		779	N				
+780       	FRANCISCO JOSE JUAREZ NIETO	          	780                 		780	N				
+781       	Mª JOSE GARCIA DIZ	          	781                 		781	N				
+782       	CRISTINA FERNANDEZ MERAYO	          	782                 		782	N				
+783       	MARIA DEL MAR ENRIQUEZ PRADA	leon      	783                 		783	N				
+784       	PATRICIA LOPEZ DONIS	          	784                 		784	N				
+785       	FRANCISCO J. CANTO ALVAREZ	          	785                 		785	N				
+786       	JOSE M. MENDEZ GARCIA	leon      	786                 		786	N				
+787       	FERNANDO FIDALGO VAZQUEZ	          	787                 		787	N				
+788       	DAVID RIVERA PEREZ	          	788                 		788	N				
+789       	OLAF F. BURON SUAREZ	          	789                 		789	N				
+790       	NURIA DIAZ VEGA	790       	790                 		790	N				
+791       	CESAR MENENDEZ MARQUES	          	791                 		791	N				
+792       	Mª LUISA ALVAREZ BARREIRO	mluisa    	792                 		792	N				
+793       	OSCAR MARTIN CORDOBA	          	793                 		793	N				
+794       	EVA Mª GARCIA DURAN	sindo     	794                 		794	N				
+795       	SUSANA FERNANDEZ GOMEZ	leon      	795                 		795	N				
+796       	PEDRO. J RODRIGUEZ BARRERO	          	796                 		796	N				
+797       	ANTONIO REBAQUE GOMEZ	leon      	797                 		797	N				
+798       	Mª LUISA HERNANDEZ SIMON	gratis    	798                 		798	N				
+799       	JUAN JOSE RIOS CEBRIAN	799       	799                 		799	N				
+800       	PABLO ALVAREZ LOPEZ	bierzo    	800                 		800	N				
+801       	ROCIO MOVILLA GANGOSO	          	801                 		801	N				
+802       	Mª CIELO GONZALEZ MORALA	zerua     	802                 		802	N				
+803       	Mª PILAR LOPEZ GONZALEZ	piluca    	803                 		803	N				
+804       	ALEJANDRO SALAS PASTRANA	nuclear   	804                 		804	N				
+805       	SANTIAGO G. DEL RIEGO LOPEZ	          	805                 		805	N				
+806       	DAVID CASTAÑEDA BARREALES	          	806                 		806	N				
+807       	PABLO DE LA TORRE HERRERA	          	807                 		807	N				
+808       	JOSE CARLOS PEÑUELAS BALBAS	          	808                 		808	N				
+809       	ROBERTO ZAPATERO CASCON	          	809                 		809	N				
+810       	VICTOR ALVAREZ GARCIA	          	810                 		810	N				
+811       	LORENA GARCIA VALLADARES	leon      	811                 		811	N				
+812       	LUIS A. PEREZ MARTINEZ	          	812                 		812	N				
+813       	MAURA VEGA DURAN	vegaduran 	813                 		813	N				
+814       	ANA BREA LECART	rogelio   	814                 		814	N				
+815       	JOSE A GARCIA GARCIA MARTINEZ	3003      	815                 		815	N				
+816       	JOSE A. LOPEZ ALVAREZ	3915AD    	816                 		816	N				
+817       	ALFREDO MIGUEL FERNANDEZ	tolis     	817                 		817	N				
+818       	SERGIO PALACIOS ARGÜESO	          	818                 		818	N				
+819       	MIGUEL A. OTERO DEL RIO	          	819                 		819	N				
+820       	IGNACIO NUÑEZ GUTIERREZ	          	820                 		820	N				
+821       	CARMEN REY POMBRIEGO	          	821                 		821	N				
+822       	RAUL BLANCO DIEZ	leon      	822                 		822	N				
+823       	EDUARDO ALLER LOPEZ	3667      	823                 		823	N				
+824       	DIEGO PEREZ FERNANDEZ	          	824                 		824	N				
+825       	AMPARO BONE MARTINEZ	leon      	825                 		825	N				
+826       	JORGE GONZALEZ DELGADO	          	826                 		826	N				
+827       	FERNANDO ALVAREZ GARCIA	          	827                 		827	N				
+828       	LAURA DELGADO CASADO	weImar75  	828                 		828	N				
+829       	SONIA FERNANDEZ BUELTA	987425494 	829                 		829	N				
+830       	ERNESTO IBAÑEZ OVIEDO	fabiola   	830                 		830	N				
+831       	PEDRO LUIS NUÑEZ GONZALEZ	170900    	831                 		831	N				
+832       	ENRIQUETA GONZALEZ DIEZ	kegd40    	832                 		832	N				
+833       	JOSE GARMON SIMON	71jgs62968	833                 		833	N				
+834       	ANABEL ALONSO DIEZ	          	834                 		834	N				
+835       	MARTINA GARCIA MORAN	          	835                 		835	N				
+836       	MARIA RODRIGUEZ MARTINEZ	3666      	836                 		836	N				
+837       	OSCAR CARRACEDO GONZALEZ	2222      	837                 		837	N				
+838       	JAVIER FRANCO MIELGO	javimielgo	838                 		838	N				
+839       	LUIS J. GARCIA GARCIA	leon      	839                 		839	N				
+840       	JUAN M. VECINO SANCHEZ	ejc118    	840                 		840	N				
+841       	IVAN DEL CUETO REYERO	indalo    	841                 		841	N				
+842       	MARGARITA MENDEZ DAMORIN	leon      	842                 		842	N				
+843       	ELOY DEL POZO BLANCO	tocinillo 	843                 		843	N				
+844       	ROBERTO VEGA DURAN	4400      	844                 		844	N				
+845       	ROBERTO MARTINEZ GARCIA	845       	845                 		845	N				
+846       	JOSE M. UGIDOS CARRERA	josema    	846                 		846	N				
+847       	ALEJANDRO LOPEZ CUEVAS	          	847                 		847	N				
+848       	ALBERTO RODRIGUEZ MARTINEZ	leon      	848                 		848	N				
+849       	ANGEL ESCANCIANO LLAMAZARES	leon      	849                 		849	N				
+850       	CARLOS A. CUADRA MENDEZ	2525      	850                 		850	N				
+851       	DANIEL ALVAREZ GARCIA	m2377of   	851                 		851	N				
+852       	EMERITA SANTOS GONZALEZ	san14k    	852                 		852	N				
+853       	FERNANDO SUAREZ VICENTE	leon      	853                 		853	N				
+854       	ISMAEL ROMAN GARZO	3717      	854                 		854	N				
+855       	FRANCISCO J. GARMON ALLER	855       	855                 		855	N				
+856       	JORGE DOMINGUEZ ESTEBAN	          	856                 		856	N				
+857       	VICTOR FERNANDEZ MARTINEZ	80510355  	857                 		857	N				
+858       	Mª SOLEDAD ALVAREZ GARCIA	msag74    	858                 		858	N				
+859       	DAVID GONZALEZ RODRIGUEZ	1116      	859                 		859	N				
+860       	OLVIDO SANTOS ALVAREZ	olvidosa  	860                 		860	N				
+861       	FATIMA GONZALEZ FERNANDEZ	rubenn    	861                 		861	N				
+862       	JESUS GARCIA ALONSO	molino    	862                 		862	N				
+863       	CARLOS MARTINEZ ORTIZ	2357      	863                 		863	N				
+864       	MARTA GARCIA ACEBRAS	leon      	864                 		864	N				
+865       	GUSTAVO ZAPATERO MIGUELEZ	2776      	865                 		865	N				
+866       	PABLO RODRIGUEZ CUADRADO	Ambrosía  	866                 		866	N				
+867       	JORGE CANELA ESCANDON	          	867                 		867	N				
+868       	JOSE D. TRAVIESO FERNANDEZ	4324      	868                 		868	N				
+869       	NURIA DE MATA MARTINEZ	leon      	869                 		869	N				
+870       	NELSON M. BARDON BLANCO	nelson_b_b	870                 		870	N				
+871       	MARTA Mª CASTRILLO BLANCO	          	871                 		871	N				
+872       	ROBERTO ASTORGANO FERNANDEZ	leon      	872                 		872	N				
+873       	JOSE L. GARCIA REGUERO	2557      	873                 		873	N				
+874       	Mª MA FERNANDEZ PEREZ DEL RIO	3222      	874                 		874	N				
+875       	ENRIQUE DE BLAS GONZALEZ	          	875                 		875	N				
+876       	ROBERTO DE CHANA ACEDO	876       	876                 		876	N				
+877       	DAVID MEGIDO GARCIA	          	877                 		877	N				
+878       	EUGENIO GONZALEZ VALDUEZA	10029610  	878                 		878	N				
+879       	JUAN I. BODELON GIL	bodelon   	879                 		879	N				
+880       	JULIO RIVERA MARTINEZ	880       	880                 		880	N				
+881       	CRISTINA CARBAJO MARTINEZ	00881     	00881               		881	N				
+882       	DA SANCHEZ-ESCALONILLA FLOREZ	skalektrik	882                 		882	N				
+883       	MARTA PALACIOS HONRADO	leon      	883                 		883	N				
+884       	IVAN FERNANDEZ GARCIA	          	884                 		884	N				
+885       	ANGEL VALDES AGUNDEZ	0852      	885                 		885	N				
+886       	CARLA PAZ SANS	karla     	886                 		886	N				
+887       	LORENA ALVAREZ PEREZ	leon      	887                 		887	N				
+888       	LUIS GARRIDO MUÑOZ	2002      	888                 		888	N				
+889       	HECTOR MENDEZ PRIETO	ehn7      	889                 		889	N				
+890       	Mª ANTONIA ORDAS TORAL	laluka    	890                 		890	N				
+891       	LUCIA RODRIGUEZ VAZQUEZ	34268642  	891                 		891	N				
+892       	GUILLERMO GAVELA SANCHEZ	          	892                 		892	N				
+893       	SILVIA MARTINEZ CABERO	893       	893                 		893	N				
+894       	FERNANDO PEREZ REDONDO	71502556  	894                 		894	N				
+895       	LUIS J. BRIMEZ SIMON	          	895                 		895	N				
+896       	SERGIO DE CELIS LLAMAS	71431881E 	896                 		896	N				
+897       	JOSE NAVA CABALLERO	caramelo  	897                 		897	N				
+898       	DAVID HERRERO CABALLERO	blackdhc  	898                 		898	N				
+899       	JULIO COSIO CASTILLO	leon      	899                 		899	N				
+900       	RUBEN PEREZ GARCIA	leon      	900                 		900	N				
+901       	SUSANA TEIXEIRA CARMONA	leon      	901                 		901	N				
+902       	BERNARDO RODRIGUEZ MARTINEZ	leon      	902                 		902	N				
+903       	FRANCISCO MARTINEZ CASCALLANA	fran      	903                 		903	N				
+904       	ENRIQUE SERRANO DAROCA	904       	904                 		904	N				
+905       	BEATRIZ VEGA DE PRADO	4985      	905                 		905	N				
+906       	DANIEL FERNANDEZ RICO	leon      	906                 		906	N				
+907       	SUSANA PEREZ PRIETO	          	907                 		907	N				
+908       	MIGUEL A. DEL RIO DEL RIO	039500    	908                 		908	N				
+909       	MARTA EUGENI RODRIGUEZ PINTOR	merodri   	909                 		909	N				
+910       	DAVID GARCIA RODRIGUEZ	leon      	910                 		910	N				
+1998      	 VISITANTE	          	1998                		1998	N				
+9990      	 COLEGIO O. APAREJADORES Y A.T	          	9990                		9990	N				
+50001     	MIKEL BALLARIN INTXAURREGI	          	50001               		50001	N				
+50002     	JOSE A. SUAREZ FERNANDEZ	          	50002               		50002	N				
+50003     	EDUARDO LOPEZ BLANCO	          	50003               		50003	N				
+50004     	RAFAEL LOPEZ RAMOS	          	50004               		50004	N				
+50005     	JOSE ANTONIO VALDES MORENO	          	50005               		50005	N				
+50006     	EVA Mª GALLELGO PUENTE	          	50006               		50006	N				
+50007     	FERNANDO ZARCO PAREDES	          	50007               		50007	N				
+50008     	MIGUEL MESAS IZQUIERDO	          	50008               		50008	N				
+50009     	RAUL TAPIA DIAZ	          	50009               		50009	N				
+50010     	MIGUEL GARCIA-INES ALONSO	          	50010               		50010	N				
+50011     	LUIS X MENDIBIL BILBAO	          	50011               		50011	N				
+50012     	LUIS RAMON NAVARES MATE	          	50012               		50012	N				
+50013     	AURENTINO ALONSO ARAUJO	          	50013               		50013	N				
+50014     	MANUEL SANCHEZ RODRIGUEZ	          	50014               		50014	N				
+50015     	LEOPOLDO GARCIA ECHEVESTE	          	50015               		50015	N				
+50016     	ANDRES T. COLLADOS EPALZA	          	50016               		50016	N				
+50017     	RAMON FERRER MUÑOZ	          	50017               		50017	N				
+50018     	MARCO ANTONIO GALINDO DIEGO	          	50018               		50018	N				
+50019     	MANUEL DE ANDRES HERRERO	          	50019               		50019	N				
+50020     	 GARCIA GLEZ. DE LENA FERNANDO	          	50020               		50020	N				
+50021     	YOLANDA MADRID SANZ	          	50021               		50021	N				
+50022     	FERNANDO FIDALGO VAZQUEZ	          	50022               		50022	N				
+50023     	JOSE E. VIGIL MARTINEZ	          	50023               		50023	N				
+50024     	JULIAN DEL POZO FERNANDEZ	          	50024               		50024	N				
+50025     	PAULA M. NANTES GONZALEZ	          	50025               		50025	N				
+50026     	ALVARO LOUREIRO SANTAMARIA	          	50026               		50026	N				
+50027     	MANUEL R. DAPENA GONZALEZ	          	50027               		50027	N				
+50028     	ROBERTO DE COS JORRIN	          	50028               		50028	N				
+50029     	Mª ANGELES RODRIGUEZ CABERO	          	50029               		50029	N				
+50030     	MIGUEL ANGEL GONZALEZ LUÑO	          	50030               		50030	N				
+50031     	RAMON NORIEGA ROMANO	          	50031               		50031	N				
+50033     	JORGE GOMEZ ALONSO	          	50033               		50033	N				
+50034     	ROCIO MOVILLA GANGOSO	          	50034               		50034	N				
+50035     	AGUSTIN OTERO BERMEJO	          	50035               		50035	N				
+50036     	JAVIER SANZ SANZ	          	50036               		50036	N				
+50037     	ANTONIO QUINTEIRO BLANCO	          	50037               		50037	N				
+50038     	JOAQUIN PEÑA CASTRODEZA	          	50038               		50038	N				
+50039     	FELIPE ASENJO ALVAREZ	          	50039               		50039	N				
+50040     	CESAR L. CHICHAS GARCIA	          	50040               		50040	N				
+50041     	JOSE A. URIARTE GARMENDIA	          	50041               		50041	N				
+50042     	JOSE J. ALZAGA CALDEVILLA	          	50042               		50042	N				
+50043     	PEDRO J. RODRIGUEZ BARRERO	          	50043               		50043	N				
+50044     	ANGEL RODRIGUEZ GONZALEZ-P	          	50044               		50044	N				
+50045     	JESUS N. FERNANDEZ FERNANDEZ	          	50045               		50045	N				
+50046     	ARCADIO CONDE MACIAS	          	50046               		50046	N				
+50047     	FRANCISCO M. CAMINO ALVAREZ	          	50047               		50047	N				
+50048     	CLODOALDO ORTEGA FRANCO	          	50048               		50048	N				
+50049     	JUAN C. VIZOSO GOMEZ	          	50049               		50049	N				
+50050     	ANTONIO FERNANDEZ RODRIGUEZ	          	50050               		50050	N				
+50051     	JOSE M. VIDAL SANJURJO	          	50051               		50051	N				
+50052     	JUAN C. FRANCOS SUAREZ	          	50052               		50052	N				
+50053     	JUAN J. GARCIA LUNA	          	50053               		50053	N				
+50054     	JOSE RAMON SANCHEZ FEIJOO	          	50054               		50054	N				
+50055     	JUAN C. VARGAS RODRIGUEZ	          	50055               		50055	N				
+50056     	JORGE CAMARERO LOPEZ	          	50056               		50056	N				
+50057     	MANUEL SANCHEZ TRAPOTE	          	50057               		50057	N				
+50058     	EUSEBIO CARNERO CALLEJAS	          	50058               		50058	N				
+50059     	ALEJANDRO GARCIA HEDO	          	50059               		50059	N				
+50060     	MIGUEL A. VECINO CALVO	          	50060               		50060	N				
+50061     	CARLOS ROCES ARBESU	          	50061               		50061	N				
+50062     	ALFONSO ALVAREZ BENAVIDES	          	50062               		50062	N				
+50063     	ANTONIO GOMEZ SANTAMARIA	          	50063               		50063	N				
+50064     	ENRIQUE MENDIVIL BARCALA	          	50064               		50064	N				
+50065     	JUAN J. PAÑEDA CUBELOS	          	50065               		50065	N				
+50066     	LUISF LOBATON SANCHEZ D MEDINA	          	50066               		50066	N				
+50068     	ALICIA ANTON COLLADO	          	50068               		50068	N				
+50069     	ERNESTO IGLESIAS TOVAR	          	50069               		50069	N				
+50070     	LUIS VAZQUEZ AGRASO	          	50070               		50070	N				
+50071     	ALFREDO GOMEZ DIEZ	          	50071               		50071	N				
+50072     	CRISTINA NOGUEROL DEL RIO	          	50072               		50072	N				
+50073     	LUIS NUÑEZ DELGADO	          	50073               		50073	N				
+50074     	MANUEL MIGUEL GARCIA	          	50074               		50074	N				
+50075     	ANTONIO ALVAREZ CAMPOS	          	50075               		50075	N				
+50076     	JOSE M. IGLESIAS MARTINEZ	          	50076               		50076	N				
+50077     	LUIS GUIBELALDE RIVERA	          	50077               		50077	N				
+50078     	MIGUEL GARCIA COTRINA	          	50078               		50078	N				
+50079     	AGUSTIN BODEGA MOLINA	          	50079               		50079	N				
+50080     	MAXIMO COTELO JAUREGUIZAR	          	50080               		50080	N				
+50081     	PILAR GUISASOLA ZULUETA	          	50081               		50081	N				
+50082     	MARIANO F. DIAZ PANERO	          	50082               		50082	N				
+50083     	ERNESTO ESTEBAN PEREZ	          	50083               		50083	N				
+50084     	MANUEL A. BOBELA RODRIGUEZ	          	50084               		50084	N				
+50085     	VALENTIN COBO SOLANO	          	50085               		50085	N				
+50086     	JOSE L. LEGIDO ARCE	          	50086               		50086	N				
+50087     	JESUS E. ALONSO VILLALAIN	          	50087               		50087	N				
+50088     	LUIS ROMERO ALCOLADO	          	50088               		50088	N				
+50089     	AQUILINO R. LUCAS MATEO	          	50089               		50089	N				
+50090     	JUAN J. MARTIN PUYO	          	50090               		50090	N				
+50091     	FRANCISCO J. VEGA DE PAZ	          	50091               		50091	N				
+50092     	PEDRO ZAPICO GARCIA	          	50092               		50092	N				
+50093     	MIQUEL LLAURADO SANAHUJA	          	50093               		50093	N				
+50094     	CAMILO GARRIDO ALVAREZ	          	50094               		50094	N				
+50095     	ERNESTO IGLESIAS TOBAR	          	50095               		50095	N				
+50096     	ALBERTO GRIJALBA GRIJALBA	          	50096               		50096	N				
+50097     	ADOLFO PALACIOS GONZALEZ	          	50097               		50097	N				
+50098     	JULIO OTERO RODRIGUEZ	          	50098               		50098	N				
+50099     	MIGUEL ANGEL FERNANDEZ PEREZ	          	50099               		50099	N				
+50100     	RODRIGO PASCUAL GONZALEZ	          	50100               		50100	N				
+50101     	SALVADOR MENDEZ DE LA VIUDA	          	50101               		50101	N				
+50102     	JOSE LUIS GAMARRA MONDELO	          	50102               		50102	N				
+50103     	RICARDO ANTUÑA GARCIA	          	50103               		50103	N				
+50104     	ADOLFO PRENDES MENENDEZ	          	50104               		50104	N				
+50105     	RICARDO LUQUE GARCIA	          	50105               		50105	N				
+50106     	FRANCISCO J. GALLEGO GARCIA	          	50106               		50106	N				
+50107     	VICENTE NORIEGA MAESTRO	          	50107               		50107	N				
+50108     	CALOS ANDRES-MONTALVO NAVARRO	          	50108               		50108	N				
+50109     	FRANCISCO VARELA DIEZ	          	50109               		50109	N				
+50110     	MIGUEL ANGEL FERNANDEZ PEREZ	          	50110               		50110	N				
+50111     	MANUEL CUESTA GARCIA	          	50111               		50111	N				
+50112     	PILAR VALBUENA GONZALEZ	          	50112               		50112	N				
+50113     	JOSE M. GARCIA RUIPEREZ	          	50113               		50113	N				
+50114     	JORGE L. MEDINA RODRIGUEZ	          	50114               		50114	N				
+50115     	DAVID RIVERA PEREZ	          	50115               		50115	N				
+50116     	OSCAR CAMPO RIZO	          	50116               		50116	N				
+50117     	PEDRO J. GOMEZ-CORONADO LEON	          	50117               		50117	N				
+50118     	JULIO MOZO DE LA FUENTE	          	50118               		50118	N				
+50119     	ANA ELVIRA SUAREZ CUETO	          	50119               		50119	N				
+50120     	LUIS SOLER CASANOVA	          	50120               		50120	N				
+50121     	TOMAS AVILA LUCAS	          	50121               		50121	N				
+50122     	ALFREDO VILLULLAS ANDRES	          	50122               		50122	N				
+50123     	JOSE ANTONIO POLANCO MELERO	          	50123               		50123	N				
+50124     	VICENTE POZO FERNANDEZ	          	50124               		50124	N				
+50125     	MARIANO DEL RIO DE LA HOZ	          	50125               		50125	N				
+50126     	ESTEBAN B. DEL ESTAL MARTINEZ	          	50126               		50126	N				
+50127     	JOSE ANTONIO REYERO PELAEZ	          	50127               		50127	N				
+50128     	LORENZO CALZADA HERNANDEZ	          	50128               		50128	N				
+50129     	FERNANDO VASCO HIDALGO	          	50129               		50129	N				
+50130     	JOSE L. IBAÑEZ GONZALEZ	          	50130               		50130	N				
+50131     	ANTONIO IRACULIS MIGUEL	          	50131               		50131	N				
+50132     	MANUEL FERREIRO FRANCO	          	50132               		50132	N				
+50133     	JOSE R. FERNANDEZ GONZALEZ	          	50133               		50133	N				
+50134     	JOSE Mª GARRIDO ANGLES	          	50134               		50134	N				
+50135     	JUAN C. PRIETO QUINTANILLA	          	50135               		50135	N				
+50136     	LUIS M. GONZALEZ MURIAS	          	50136               		50136	N				
+50137     	PEDRO SANTAMARIA GONZALO	          	50137               		50137	N				
+50138     	RAFAEL ALBELDA GIMENEZ	          	50138               		50138	N				
+50139     	VALENTIN COBO SOLANO	          	50139               		50139	N				
+50140     	FLORENTINO SION FERNANDEZ	          	50140               		50140	N				
+50141     	Mª DEL MAR GUTIERREZ PRIETO	          	50141               		50141	N				
+50142     	ANGEL HERRANZ MORANTE	          	50142               		50142	N				
+50143     	ALFONSO LAYA PAZOS	          	50143               		50143	N				
+50144     	JOSE LUIS SUAREZ GONZALEZ	          	50144               		50144	N				
+50145     	JOSE I. SOLIS DE LA VEGA	          	50145               		50145	N				
+50146     	ANTONIO DEL FRAILE MARTINEZ	          	50146               		50146	N				
+50147     	TOMAS NUÑEZ ALONSO	          	50147               		50147	N				
+50148     	ANA I. BOHOYO DIAZ	          	50148               		50148	N				
+50149     	FLORENTINO SION FERNANDEZ	          	50149               		50149	N				
+50150     	ALBERTO ODRIOZOLA SAIZAR	          	50150               		50150	N				
+50151     	AURORA GOMEZ GARCIA	          	50151               		50151	N				
+50152     	ROBERTO L. CASADO PACIOS	          	50152               		50152	N				
+50153     	EDUARDO MAGDALENA BUITRON	          	50153               		50153	N				
+50154     	MANUEL J. CIUDAD BAUTISTA	          	50154               		50154	N				
+50155     	MARCO A. SILVA MONTOYA	          	50155               		50155	N				
+50156     	JOSE M. MULERO GARCIA	          	50156               		50156	N				
+50157     	IGNACIO MARTINEZ COLOMA	          	50157               		50157	N				
+50158     	IGNACIO MARCOS ORTEGA	          	50158               		50158	N				
+50159     	ROSA Mª FRAGA CARBALLA	          	50159               		50159	N				
+50160     	MARTA CORTINA HEVIA	          	50160               		50160	N				
+50161     	JOSE L. RIO LOPEZ	          	50161               		50161	N				
+50162     	INMACULADA PEREZ FOJO	          	50162               		50162	N				
+50163     	FRANCISCO J. HOYOS LIZARRAGA	          	50163               		50163	N				
+50164     	FRANCISCO M. POSE RONDAN	          	50164               		50164	N				
+50165     	JUAN C. NAVARRO NAVARRO	          	50165               		50165	N				
+50166     	PABLO FERNANDEZ ANS	          	50166               		50166	N				
+50167     	JULIA ORFILA CARRERAS	          	50167               		50167	N				
+50168     	FRANCISCO J. EGUIARA URANGA	          	50168               		50168	N				
+50169     	Mª DEL MAR HERNANDEZ MARTINEZ	          	50169               		50169	N				
+50170     	ANGEL BUERES SANTA-EULALIA	          	50170               		50170	N				
+50171     	JESUS Mª MARIN ALCAZAR	          	50171               		50171	N				
+50172     	RUBEN DIAZ MONTOYA	          	50172               		50172	N				
+50173     	ANTONIO LIMONES MANSO	          	50173               		50173	N				
+50174     	DAVID HERNANDO MARTIN	          	50174               		50174	N				
+50175     	EMILIANO CALVO MUÑOZ	          	50175               		50175	N				
+50176     	BLANCA ROSA BARCINA LOPEZ	          	50176               		50176	N				
+50177     	JOSE C. GUTIERREZ RODRIGUEZ	          	50177               		50177	N				
+50178     	MANUEL BLANCO SUAREZ	          	50178               		50178	N				
+50179     	MAXIMINO LOSADA DOVAL	          	50179               		50179	N				
+50180     	CONCEPCION LLANEZA SARACHAGA	          	50180               		50180	N				
+50181     	CANDIDO LLANEZA SARACHAGA	          	50181               		50181	N				
+50182     	ALBERTO RODRIGUEZ MARTIN	          	50182               		50182	N				
+50183     	OSCAR HORTIGON LEAL	          	50183               		50183	N				
+50184     	JOSE Mª PALACIOS JORGE	          	50184               		50184	N				
+50185     	JACINTO GOMEZ PEDRAZ	          	50185               		50185	N				
+50186     	ERNESTO ALVAREZ LOPEZ	          	50186               		50186	N				
+50187     	TOMAS NUÑEZ ALONSO	          	50187               		50187	N				
+50188     	JOSE I. SOLIS DE LA VEGA	          	50188               		50188	N				
+50189     	MIGUEL A. FERNANDEZ PEREZ	          	50189               		50189	N				
+50190     	JUAN ALVAREZ RODRIGUEZ	          	50190               		50190	N				
+50191     	LUIS A. FLOREZ ORDOÑEZ	          	50191               		50191	N				
+50192     	JUAN F. VELASCO CACERES	          	50192               		50192	N				
+50193     	GASTON CHETRIT BUSIGNANO	          	50193               		50193	N				
+50194     	FERNANDO RODRIGUEZ YEBRA	          	50194               		50194	N				
+50195     	TOMAS NUÑEZ ALONSO	          	50195               		50195	N				
+50196     	OSCAR GARCIA FRANCO	          	50196               		50196	N				
+50197     	MARIO HOLANDA OBREGON	          	50197               		50197	N				
+50198     	RAUL MARTINEZ VALDES	          	50198               		50198	N				
+50199     	OSCAR MORENO ORTEGA	          	50199               		50199	N				
+50200     	CARLOS ADALID ARGUDO	          	50200               		50200	N				
+50201     	FELIX PARIENTE ARIAS	          	50201               		50201	N				
+50202     	INMACULADA FERNANDEZ MUÑOZ	          	50202               		50202	N				
+50203     	DANIEL CARBALLO SOUTO	          	50203               		50203	N				
+50204     	ANDRES ALVAREZ VIÑUELA	          	50204               		50204	N				
+50205     	GERMAN GALAN SERRANO	          	50205               		50205	N				
+50206     	MAXIMINO BLANCO DEL DAGO	          	50206               		50206	N				
+50207     	JOSE L. VALBUENA HERNANDEZ	          	50207               		50207	N				
+50208     	FLORENTINO RODRIGUEZ PAREDES	          	50208               		50208	N				
+50209     	JULIAN DEL REY GONZALEZ	          	50209               		50209	N				
+50210     	JOSE L. VALBUENA HERNANDEZ	          	50210               		50210	N				
+50211     	EVA M GALLEGO PUENTE	          	50211               		50211	N				
+50212     	Mª JOSE PLAZA MARTIN	          	50212               		50212	N				
+50213     	RICARDO A. CARUS GONZALEZ	          	50213               		50213	N				
+50214     	ADOLFO BESADA GARCIA	          	50214               		50214	N				
+50215     	JUAN A. CORONADO CARMONA	          	50215               		50215	N				
+50216     	EDUARDO FERNANDEZ LOPEZ	          	50216               		50216	N				
+50217     	JUAN C. ORTEGA FRANCISCO	          	50217               		50217	N				
+50218     	BEGOÑA NIETO DEL VALLE	          	50218               		50218	N				
+50219     	MIGUEL A. MEJIDO CRESPO	          	50219               		50219	N				
+50220     	JOSE L. GOMEZ SAN FRUTOS	          	50220               		50220	N				
+50221     	JOAQUIN SAENZ SIMON	          	50221               		50221	N				
+50222     	MODESTO SAIZ GABALDON	          	50222               		50222	N				
+50223     	TOMAS CASILLAS JIMENEZ	          	50223               		50223	N				
+50224     	JUAN J. MALANDA CALDERON	          	50224               		50224	N				
+50225     	RAQUEL LOPEZ-TOLA SEGUIN	          	50225               		50225	N				
+50226     	JOSE A. SUAREZ CALVIÑO	          	50226               		50226	N				
+50227     	ANGEL RODRIGUEZ IGLESIAS	          	50227               		50227	N				
+50228     	JOSE M. ALVAREZ FERNANDEZ	          	50228               		50228	N				
+50229     	ANGEL NAVARRO GUTIERREZ	          	50229               		50229	N				
+50230     	JAVIER RODRIGUEZ DE LAS HERAS	          	50230               		50230	N				
+50231     	ISMAEL PADILLA GARCIA	          	50231               		50231	N				
+50232     	CONCEPCION ALVAREZ FERNANDEZ	          	50232               		50232	N				
+50233     	AMANDO GARCIA GARCIA	          	50233               		50233	N				
+50234     	RICARDO R. VARELA NEGREIRA	          	50234               		50234	N				
+50235     	JESUS HERRERA OLMEDO	          	50235               		50235	N				
+50236     	JOSE M. MACIAS LOPEZ-PANTOJA	          	50236               		50236	N				
+50237     	ANTONIO RODRIGUEZ NADAL	          	50237               		50237	N				
+50238     	JOSE A. MAZOY RODRIGUEZ	          	50238               		50238	N				
+50239     	EDUARD VEGA ORTIZ DE LA TORRE	          	50239               		50239	N				
+50240     	JOSE ANTONIO PEREIRA CAMPO	          	50240               		50240	N				
+50241     	JUAN J. ARGÜELLES GARCIA	          	50241               		50241	N				
+50242     	RENE ROZA CANEDA	          	50242               		50242	N				
+50243     	JOSE ALVAREZ GARCIA	          	50243               		50243	N				
+50244     	JUAN M. GARCIA MENENDEZ	          	50244               		50244	N				
+50245     	Mª JOSE ARIAS FERNANDEZ	          	50245               		50245	N				
+50246     	DANIEL GOMEZ VALCARCE	          	50246               		50246	N				
+50247     	LAURA SANZ SANZ	          	50247               		50247	N				
+50248     	PILAR FREIRE BELMONTE	          	50248               		50248	N				
+50249     	RUBEN PRADA FERNANDEZ	          	50249               		50249	N				
+50250     	JAVIER BARRIO CASTILLO	          	50250               		50250	N				
+50251     	MARCELINO MENENDEZ GARCIA	          	50251               		50251	N				
+50252     	JUAN J. ARIAS GARCIA	          	50252               		50252	N				
+50253     	OCTAVIO ABAD GARCIA	          	50253               		50253	N				
+50254     	JOSE L. BENAVIDES RUIZ	          	50254               		50254	N				
+50255     	JORDI CARNER TORNERO	          	50255               		50255	N				
+50256     	JUAN A. ARROYO BARBOLLA	          	50256               		50256	N				
+50257     	OSCAR MONTORO HERNANDEZ	          	50257               		50257	N				
+50258     	BLANCA R. BARCINA LOPEZ	          	50258               		50258	N				
+50259     	JOSE I. IGLESIAS FRANCO	          	50259               		50259	N				
+50260     	PEDRO P. SAMPEDRO VIGNAL	          	50260               		50260	N				
+50261     	RAFAEL J. BLANCO OLIVA	          	50261               		50261	N				
+50262     	MANUEL SANZ MORIÑIGO	          	50262               		50262	N				
+50263     	RAUL MARTINEZ VALDES	          	50263               		50263	N				
+50264     	MANUEL M. MARCO RODRIGUEZ	          	50264               		50264	N				
+50265     	Mª TERESA HORCAJO CASADO	          	50265               		50265	N				
+50266     	JOAQUIN NOVAL FERNANDEZ	          	50266               		50266	N				
+50267     	SONIA CARRAVILLA CENERA	          	50267               		50267	N				
+50268     	ERNESTO GARCIA DOMINGO	          	50268               		50268	N				
+50269     	JAVIER ARGÜELLES CAMPORRO	          	50269               		50269	N				
+50270     	RAUL VILLORIA ALVAREZ	          	50270               		50270	N				
+50271     	ROBERTO ESPINA FIDALGO	          	50271               		50271	N				
+50272     	CARLOS VAZQUEZ CARRERA	          	50272               		50272	N				
+50273     	JOSE M. PEREZ VECINO	          	50273               		50273	N				
+50274     	MANUEL A. MENENDEZ FERNANDEZ	          	50274               		50274	N				
+50275     	ELENA ZUMEL VARA	          	50275               		50275	N				
+50276     	CARLOS URDAMPILLETA BARREIRO	          	50276               		50276	N				
+50277     	ANGEL L. CAÑAS VICENTE	          	50277               		50277	N				
+50278     	ANDRES BUSTILLO BARBERO	          	50278               		50278	N				
+50279     	ANGEL S. JUSTEL PERANDONES	          	50279               		50279	N				
+50280     	JOSE L. PARAMO SANCHEZ	          	50280               		50280	N				
+50281     	JUAN SALVADOR SAZ	          	50281               		50281	N				
+50282     	PATRICIA TOYOS GONZALEZ	          	50282               		50282	N				
+50283     	TERESA HORCAJO CASADO	          	50283               		50283	N				
+50284     	JERONIMO APARICIO APARICIO	          	50284               		50284	N				
+50285     	DAVID SAN VICENTE MONTERO	          	50285               		50285	N				
+50286     	IÑAKI MUÑOZ SALCEDO	          	50286               		50286	N				
+50287     	ANDRES LOSA PARRONDO	          	50287               		50287	N				
+50288     	LUIS MUÑOZ VENCES	          	50288               		50288	N				
+50289     	Mª FRANCISCA GONZALEZ ALVAREZ	          	50289               		50289	N				
+50290     	ANTONIO ALVAREZ CAMPOS	          	50290               		50290	N				
+50291     	FRANCISCO J. MARTIN GONZALEZ	          	50291               		50291	N				
+50292     	JUAN CARLOS CORONA RUIZ	          	50292               		50292	N				
+50293     	SANTIAGO HERNAN MARTIN	          	50293               		50293	N				
+50294     	SUSANA RIOJA VILLAESCUSA	          	50294               		50294	N				
+50295     	VICENTE J. GIMENEZ GONZALEZ	          	50295               		50295	N				
+50296     	ALVARO FERNANDEZ GARCIA	          	50296               		50296	N				
+50297     	ISIDRO AGUIRRE MORALES	          	50297               		50297	N				
+50298     	JUAN C. VALLE GONZALEZ	          	50298               		50298	N				
+50299     	EDUARDO FERNANDEZ LOPEZ	          	50299               		50299	N				
+50300     	CAROLINA PEREZ-AMOR MARTINEZ	          	50300               		50300	N				
+50301     	YUSEF R. SOUDAH PRIETO	          	50301               		50301	N				
+50302     	LUIS VIZOSO GOMEZ	          	50302               		50302	N				
+50303     	IGNACIO DELGADO CONDE	          	50303               		50303	N				
+50304     	ENRIQUE MAYO LOPEZ	          	50304               		50304	N				
+50305     	OLGA PATIÑO DOVAL	          	50305               		50305	N				
+50306     	ELISEO SOTO FERNANDEZ	          	50306               		50306	N				
+50307     	FERNANDO VAZQUEZ URIA	          	50307               		50307	N				
+50308     	LUIS LORA ANTONIO	          	50308               		50308	N				
+50309     	VICTOR R. SANZ BAYON	          	50309               		50309	N				
+50310     	SERGIO ALVAREZ GARCIA	          	50310               		50310	N				
+50311     	ALBERTO J. PEÑAMARIA RAMON	          	50311               		50311	N				
+50312     	JOSE M. MULERO GARCIA	          	50312               		50312	N				
+50313     	EMILIO MORENO BEATO	          	50313               		50313	N				
+50314     	FRANCISCO J. TOUS SANCHEZ	          	50314               		50314	N				
+50315     	MANUEL GIMENO VIGUERA	          	50315               		50315	N				
+50316     	LINO GARCIA BEIRO	          	50316               		50316	N				
+50317     	JOSE A. SANTOS GARCIA	          	50317               		50317	N				
+50318     	BEATRIZ CRISTOBAL RODRIGUEZ	          	50318               		50318	N				
+50319     	TOMAS PALOMO GOMEZ	          	50319               		50319	N				
+50320     	RAFAEL IZQUIERDO DOLZ	          	50320               		50320	N				
+50321     	EVA Mª GONZALEZ LOPEZ	          	50321               		50321	N				
+50322     	JUAN L. GONZALEZ GARCIA	          	50322               		50322	N				
+50323     	MARTA Mª CORTIZAS SANCHEZ	          	50323               		50323	N				
+50324     	JOSE L. FERNANDEZ FERNANDEZ	          	50324               		50324	N				
+50325     	RAMON GARCIA MARTINEZ	          	50325               		50325	N				
+50326     	JOSE A. ESCOLAR LEZA	          	50326               		50326	N				
+50327     	JUANA GONZALEZ LEAL	          	50327               		50327	N				
+50328     	MILAGROS CARBAJO ACERO	          	50328               		50328	N				
+50329     	PABL PEREZ DEL BUSTO DE OTERO	          	50329               		50329	N				
+50330     	IVAN FERNANDEZ MENDEZ	          	50330               		50330	N				
+50331     	JOSE L. GARCIA CABALLERO	          	50331               		50331	N				
+50332     	CARLOS ALVAREZ PELAEZ	          	50332               		50332	N				
+50333     	MANUEL A. MENENDEZ IGLESIAS	          	50333               		50333	N				
+50334     	FRANCISCO A. FRAGOSO PENA	          	50334               		50334	N				
+50335     	LUIS SOMOANO PRIETO	          	50335               		50335	N				
+50336     	JAVIER PADIN MARTINEZ	          	50336               		50336	N				
+50337     	EDUARD LOPEZ-DORIGA DOMINGUEZ	          	50337               		50337	N				
+50338     	ROBERTO GONZALEZ RODRIGUEZ	          	50338               		50338	N				
+50339     	MIGUEL A. MONROY ACEDOS	          	50339               		50339	N				
+50340     	JUAN A. REGALADO ROMERO	          	50340               		50340	N				
+50341     	JERONIMO ALONSO MARTIN	          	50341               		50341	N				
+50342     	JAVIER DIAZ CASTIÑEIRA	          	50342               		50342	N				
+50343     	ALEJANDRA MARTINEZ RODRIGUEZ	          	50343               		50343	N				
+50344     	EMILIO C SUAREZ FERNANDEZ	          	50344               		50344	N				
+50345     	INMACULADA PANIAGUA RAMOS	          	50345               		50345	N				
+50346     	ANTONIO RAMOS REBOREDO	          	50346               		50346	N				
+50347     	MARIA RODRIGUEZ MARTINEZ	          	50347               		50347	N				
+50348     	CARLOS I. ALVAREZ MENENDEZ	          	50348               		50348	N				
+50349     	FRANCISCO ALVAREZ ALONSO	          	50349               		50349	N				
+50350     	PIEDAD GOMEZ FERNANDEZ	          	50350               		50350	N				
+50351     	ANTONIO FRAMIÑAN FRAGA	          	50351               		50351	N				
+50352     	LUIS BLANCO RODRIGUEZ	          	50352               		50352	N				
+50353     	Mª FRANCISCA GONZALEZ ALVAREZ	          	50353               		50353	N				
+50354     	RAMON MANUEL ARIAS JIMENEZ	          	50354               		50354	N				
+50355     	JOSE ANTONIO ESCOLAR LEZA	          	50355               		50355	N				
+50356     	ROBERTO VEIGA RIVEIROS	          	50356               		50356	N				
+50357     	ALBERTO PEÑAMARIN RAMON	          	50357               		50357	N				
+50358     	JESUS E. ARMARIO TORRES	          	50358               		50358	N				
+50359     	ALFREDO RODRIGUEZ PEREZ	          	50359               		50359	N				
+50360     	MONICA LOPEZ PEREZ	          	50360               		50360	N				
+50361     	JOSE A. COSIO MENENDEZ	          	50361               		50361	N				
+50362     	MARTA CORTINA HEVIA	          	50362               		50362	N				
+50363     	CARLOS YAÑEZ MUÑOZ	          	50363               		50363	N				
+50364     	EMILIO CASAL VILLARES	          	50364               		50364	N				
+50365     	JOSE EUGENIO VILLAMIL MIÑON	          	50365               		50365	N				
+50366     	RAMON RODILLA MARCOS	          	50366               		50366	N				
+50367     	JOSE Mª ANTON FERNANDEZ	          	50367               		50367	N				
+50368     	JOSE M. ALVAREZ RUEDA	          	50368               		50368	N				
+50369     	JAUME BERTRAN VILARO	          	50369               		50369	N				
+50370     	Mª CONCEPCION IBAÑEZ ROLDAN	          	50370               		50370	N				
+50371     	ALBERTO MARTINEZ ARCAS	          	50371               		50371	N				
+50372     	SANTIAGO TORMO ESTEVE	          	50372               		50372	N				
+50373     	VICTORIANO PUENTE RIO	          	50373               		50373	N				
+50374     	ROCIO GARCIA MARTINEZ	          	50374               		50374	N				
+50375     	FERNANDO PASCUAL DEL OLMO	          	50375               		50375	N				
+50376     	TEODORO ORTEGA ORTEGA	          	50376               		50376	N				
+50377     	MIGUEL A. GUIJOSA BARRIO	          	50377               		50377	N				
+50378     	JAVIER DE MIGUEL REVILLA	          	50378               		50378	N				
+50379     	JOSE A. MONTEAGUDO EIRAS	          	50379               		50379	N				
+50380     	JAVIER BRAÑA SEIJAS	          	50380               		50380	N				
+50381     	GREGORIO PEINADO FUERTES	          	50381               		50381	N				
+50382     	DANIEL MAIGLER OJEA	          	50382               		50382	N				
+50383     	Mª SONIA ARRIMADA GARCIA	          	50383               		50383	N				
+50384     	SAMIR TORDJMAN BARAJAS	          	50384               		50384	N				
+50385     	MANUELA SALAZAR BORDEL	          	50385               		50385	N				
+50386     	MIGUEL A. PARBOLE JABARDO	          	50386               		50386	N				
+50387     	MANUEL MARTINEZ MANSO	          	50387               		50387	N				
+50388     	EMILIO MORENO BEATO	          	50388               		50388	N				
+50389     	MANUEL FERNANDEZ PALACIO	          	50389               		50389	N				
+50390     	JUAN DE PEDRO NOEDA	          	50390               		50390	N				
+50391     	ENRIQUE RODRIGUEZ BEJARANO	          	50391               		50391	N				
+50392     	DIEGO RUIZ GOMEZ	          	50392               		50392	N				
+50393     	FRANCISCO J. ARRIBAS ANDRES	          	50393               		50393	N				
+50394     	JOSE M. FERNANDEZ FANJUL	          	50394               		50394	N				
+50395     	VALENTIN AYALA ALARCON	          	50395               		50395	N				
+50396     	JOSE ANTONIO FERNANDEZ FLOREZ	          	50396               		50396	N				
+50397     	JOSE LUIS MUÑOZ VICENTE	          	50397               		50397	N				
+50398     	IGNACIO TUBIO PICHEL	          	50398               		50398	N				
+50399     	JOSE A. BLANCO INSUA	          	50399               		50399	N				
+50400     	ALEJANDRO GARCIA HEDO	          	50400               		50400	N				
+50401     	MANUEL M. ALVAREZ LOSADA	          	50401               		50401	N				
+50402     	HECTOR MENDEZ PRIETO	          	50402               		50402	N				
+50403     	JOSE CAMPA VILLEGAS	          	50403               		50403	N				
+50404     	MARIA MONTES BOUTUREIRA	          	50404               		50404	N				
+50405     	JOSE Mª RICO LAREDO	          	50405               		50405	N				
+50406     	ANTONI VILAMAJO VIVES	          	50406               		50406	N				
+50407     	ALBERTO J. MENENDEZ VILLAR	          	50407               		50407	N				
+50408     	AMAYA DE DIEGO MARTINEZ	          	50408               		50408	N				
+50409     	FELIX O. OLARTE HERNAEZ	          	50409               		50409	N				
+50410     	JOSE L. JIMENO MORATINOS	          	50410               		50410	N				
+50411     	GULLERMO YNZENGA ROMOJARO	          	50411               		50411	N				
+50412     	IGNACIO ORTEGA HORTIGUELA	          	50412               		50412	N				
+50413     	ANGEL VILLAR PEREZ	          	50413               		50413	N				
+50414     	ANGEL FERNANDEZ GARCIA	          	50414               		50414	N				
+50415     	ANGEL M. RUIZ SUAREZ	          	50415               		50415	N				
+50416     	JESUS J. RODRIGUEZ SANCHEZ	          	50416               		50416	N				
+50417     	ALBERTO MOLINA DIAZ	          	50417               		50417	N				
+50418     	PABLO GONZALEZ NEGRETE	          	50418               		50418	N				
+50419     	VICENTE OLMEDILLA RAMOS	          	50419               		50419	N				
+50420     	RODOLFO SANCHEZ GARCIA	          	50420               		50420	N				
+50421     	MANUEL GONZALEZ SUAREZ	          	50421               		50421	N				
+50422     	SUSANA RIOJA VILLAESCUSA	          	50422               		50422	N				
+50423     	FERNANDO TAMARIZ SAENZ	          	50423               		50423	N				
+50424     	EDUARDO ALBO VILLARREAL	          	50424               		50424	N				
+50425     	ANGEL LOPEZ GARCIA	          	50425               		50425	N				
+50426     	PABLO A. ARCOS SANCHEZ	          	50426               		50426	N				
+50427     	RAFAEL ARMAS MOURIÑO	          	50427               		50427	N				
+50428     	CARLOS DIAZ PIELAGO	          	50428               		50428	N				
+50429     	MELCHOR IZQUIERDO MATILLA	          	50429               		50429	N				
+50430     	ASER J. GOYANES TORREIRO	          	50430               		50430	N				
+50431     	JOSE J. GARCIA DIEZ	          	50431               		50431	N				
+50432     	SERGI VERGARA REVUELTA	          	50432               		50432	N				
+50433     	MARIA VECI GUTIERREZ	          	50433               		50433	N				
+50434     	BERNARDO RODRIGUEZ CANOVAS	          	50434               		50434	N				
+50435     	ANTONIO BRAÑA PELAEZ	          	50435               		50435	N				
+50436     	ROBERTO GONZALEZ RODRIGUEZ	          	50436               		50436	N				
+50437     	RAFAEL LOPEZ MOLINOS	          	50437               		50437	N				
+50438     	SANTIAGO ALCALA TOCA	          	50438               		50438	N				
+50439     	SARA GARCIA ALVAREZ	          	50439               		50439	N				
+50440     	PATRICIA PRENDES FERNANDEZ	          	50440               		50440	N				
+50441     	CARLOS J. MOLINERO SAN JUAN	          	50441               		50441	N				
+50442     	EMILIA HERNANDEZ GARZO	          	50442               		50442	N				
+50443     	CESAR A. RUIZ PIÑUELAS	          	50443               		50443	N				
+50444     	JUAN J. BRAÑA DIAZ	          	50444               		50444	N				
+50445     	MARCOS CHAO AMARO	          	50445               		50445	N				
+50446     	MIRIAM MENENDEZ CABEZA	          	50446               		50446	N				
+50447     	JAVIER PARRAS SIMON	          	50447               		50447	N				
+50448     	RITA HERRERO LUIS	          	50448               		50448	N				
+50449     	JAVIER CALERO GUISADO	          	50449               		50449	N				
+50450     	FURCTUOSO GIL BUENO	          	50450               		50450	N				
+50451     	ELVIRA SALAZAR JUAREZ	          	50451               		50451	N				
+50452     	AITZIBER GOIKOETXEA IBARRONDO	          	50452               		50452	N				
+50453     	PEDRO BERROYA ORTIZ DE URBINA	          	50453               		50453	N				
+50454     	BALDOMERO MALLADA DIAZ	          	50454               		50454	N				
+50455     	ARMANDO BUZNEGO ALVAREZ	          	50455               		50455	N				
+50456     	JAVIER SERRA PRADO	          	50456               		50456	N				
+50457     	IGNACIO CASTELLANO RODRIGUEZ	          	50457               		50457	N				
+50458     	MANUEL A. VOCES SANCHEZ	          	50458               		50458	N				
+50459     	EMILIO PEREZ GARCIA	          	50459               		50459	N				
+50460     	DAVID SAN VICENTE MONTERO	          	50460               		50460	N				
+50461     	Mª ELISA MORQUILLAS ABALO	          	50461               		50461	N				
+50462     	FERNANDO AGUILERA HORTA	          	50462               		50462	N				
+50463     	JOSE R. AGÜERO GOMEZ	          	50463               		50463	N				
+50464     	LUIS I. DIEZ SANZ	          	50464               		50464	N				
+50465     	JUAN ARROYO BUIZA	          	50465               		50465	N				
+50466     	HELIODORO ARNAIZ SANCHO	          	50466               		50466	N				
+50467     	JACOBO SANDE CATOIRA	          	50467               		50467	N				
+50468     	ENRIQUE MORON ETXENIKE	          	50468               		50468	N				
+50469     	PABLO VILLAGROY TAHOCES	          	50469               		50469	N				
+50470     	IGNACIO TUBIO PICHEL	          	50470               		50470	N				
+50471     	ENRIQUE S. BELENDEZ CASTRO	          	50471               		50471	N				
+50472     	MAXIMINO ZAPICO VALLES	          	50472               		50472	N				
+50473     	ANGEL PLAZA DIAZ	          	50473               		50473	N				
+50474     	JOSE M. VICENTE GARCIA	          	50474               		50474	N				
+50475     	ROBERTO LANA LANA	          	50475               		50475	N				
+50476     	JUAN APARICIO ALONSO	          	50476               		50476	N				
+50477     	VICTOR M. ALVAREZ ANTUÑA	          	50477               		50477	N				
+50478     	SALVADOR PEÑA BARBERO	          	50478               		50478	N				
+50479     	JUAN P. FUENTES HIDALGO	          	50479               		50479	N				
+50480     	ESTER HERNANDEZ HERNANDEZ	          	50480               		50480	N				
+50481     	JUAN C. VIÑAYO GARCIA	          	50481               		50481	N				
+50482     	LORETO LOPEZ GONZALEZ-COBOS	          	50482               		50482	N				
+50483     	FERNANDO A. PARADA GEMAR	          	50483               		50483	N				
+50484     	CARLOS MARTIN RODRIGUEZ	          	50484               		50484	N				
+50485     	JOSE M. LAVIN AMPUDIA	          	50485               		50485	N				
+50486     	PEDRO LUIS MAQUEDA BRAVO	          	50486               		50486	N				
+50487     	DAVID VALENCIA MATOS	          	50487               		50487	N				
+50488     	MIGUEL A. GOMEZ SANCHEZ	          	50488               		50488	N				
+50489     	ALBERTO PEREZ SANTOS	          	50489               		50489	N				
+50490     	JOSE J. MALPARTIDA MARTIN	          	50490               		50490	N				
+50491     	JOSE AMO GARCIA	          	50491               		50491	N				
+50492     	ALEJANDRO VALERO SANCHEZ	          	50492               		50492	N				
+50493     	CARLOS BLANCO VEGA	          	50493               		50493	N				
+50494     	ANTONIO MOLINA RAMIRO	          	50494               		50494	N				
+50495     	MIGUEL LEAL ALBALADEJO	          	50495               		50495	N				
+50496     	AUGUSTO FERNANDEZ GONZALEZ	          	50496               		50496	N				
+50497     	GUILLERMO PASCUAL GUTIERREZ	          	50497               		50497	N				
+50498     	JAVIER MARTINEZ PEREZ	          	50498               		50498	N				
+50499     	Mª ELENA FERNANDEZ MARTINEZ	          	50499               		50499	N				
+50500     	Mª PILAR HIDALGO CALLEJA	          	50500               		50500	N				
+50501     	JOSE R. PIEDRA FONSECA	          	50501               		50501	N				
+50502     	JUAN C. IZQUIERDO NIETO	          	50502               		50502	N				
+50503     	TEODORO RAMOS CALVO	          	50503               		50503	N				
+50504     	PA GARCIA-JOVE VAZQUEZ-CASTRO	          	50504               		50504	N				
+50505     	RAFAEL DIAZ ALCAIDE	          	50505               		50505	N				
+50506     	MIGUEL A. SANCHO CARLOS	          	50506               		50506	N				
+50507     	DAVID SANZ DIEZ	          	50507               		50507	N				
+50508     	JOSE L. DE CASTRO ACOSTA	          	50508               		50508	N				
+50509     	JOSE A. FERNANDEZ MARTIN	          	50509               		50509	N				
+50510     	Mª CARMEN PIÑEIRO LEMOS	          	50510               		50510	N				
+50511     	SEBASTIAN PEREZ GALDON	          	50511               		50511	N				
+50512     	FRANCISCO J. DE VARGAS GOMEZ	          	50512               		50512	N				
+50513     	SERGIO GOMEZ ARROYO	          	50513               		50513	N				
+50514     	JOSE T. COLLANTES SOBREMAZAS	          	50514               		50514	N				
+50515     	JUAN C. GONZALEZ PENALVA	          	50515               		50515	N				
+50516     	JAVIER GARCIA BARRERO	          	50516               		50516	N				
+50517     	ANTONIO PEREZ DORADO	          	50517               		50517	N				
+50518     	RAFAEL SANTIAGO GARCIA	          	50518               		50518	N				
+50519     	FELIX BARANDA HERNANSANZ	          	50519               		50519	N				
+50520     	JOSE AURELIO HUERGO GARCIA	          	50520               		50520	N				
+50521     	Mª EMMA CALVO HERNAN	          	50521               		50521	N				
+50522     	RAUL MARTIN MEDIATO	          	50522               		50522	N				
+50523     	RAUL FERNANDEZ GRANADOS	          	50523               		50523	N				
+50524     	ROBERTO PEREZ MANUEL	          	50524               		50524	N				
+50525     	JUAN CATALA PEREZ	          	50525               		50525	N				
+50526     	JOSE LUIS GONZALEZ GARRIDO	          	50526               		50526	N				
+50527     	FERNANDO ALCALDE GARCIA	          	50527               		50527	N				
+99987     	 ICCE	          	99987               		99987	N				
+99989     	 Mª DEL CAMINO VALDES FERNANDE	          	99989               		99989	N				
+4         	ROTILIO FERNANDEZ LLAMAZARES	          	4                   		4	N				
+10        	AVELINO GARCIA LAIZ	          	10                  		10	N				
+59        	AVELINO ALONSO SUAREZ	          	59                  		59	N				
+68        	JUAN A. CORONADO CARDONA	          	68                  		68	N				
+92        	JOSE AMNUEL ALGUERO CAAMAÑO	          	92                  		92	N				
+113       	EFREN RODRIGUEZ JUAREZ	          	113                 		113	N				
+130       	IGNACIO FERNANDEZ ALVAREZ	          	130                 		130	N				
+152       	RAFAEL RODRIGUEZ GALINDO	          	152                 		152	N				
+177       	JOSE A. MARTIN SANTOS	          	177                 		177	N				
+183       	MARIANO TORIO DIEZ	          	183                 		183	N				
+188       	LUIS BEJERANO FERNANDEZ	          	188                 		188	N				
+189       	JESUS PEREZ CASTELLANOS	          	189                 		189	N				
+191       	ESTRATONICO ALVAREZ TRABANCO	          	191                 		191	N				
+196       	JOSE VALDES SUAREZ	          	196                 		196	N				
+197       	ANTONIO DE LA TORRE LOBO	          	197                 		197	N				
+201       	ANGEL ALVAREZ VIDAL	          	201                 		201	N				
+206       	JOSE ALVAREZ FERNANDEZ	          	206                 		206	N				
+207       	ANTONIO DONCEL PAJARES	          	207                 		207	N				
+210       	CLAUDIO MORCILLO VELASCO	          	210                 		210	N				
+211       	AGUSTIN VAZQUEZ SIMO	          	211                 		211	N				
+212       	SILVINO ARIAS GARCIA	          	212                 		212	N				
+217       	SANTIAGO DIEZ-CANEDO DEL PRADO	          	217                 		217	N				
+221       	JOSE LUIS CAMPANO CALVO	          	221                 		221	N				
+222       	CARLOS VILLAGORDO BLANCO	          	222                 		222	N				
+224       	PEDRO D.  UTIERREZ AVELLANOSA	          	224                 		224	N				
+225       	EDUARDO GARRE MURUA	          	225                 		225	N				
+226       	ENRIQUE VAZQUEZ FREIRE	          	226                 		226	N				
+233       	DOMINGO RAPOSO MARTINEZ	          	233                 		233	N				
+240       	PAULA BORGE CALVO	          	240                 		240	N				
+242       	JOSE A. FANO GONZALEZ	          	242                 		242	N				
+243       	PALOMA MARIAS CID	          	243                 		243	N				
+247       	ANDRES ALVAREZ VIÑUELA	          	247                 		247	N				
+254       	JAIME FUENTE GONZALEZ	          	254                 		254	N				
+255       	MANUEL M. ALVAREZ LOSADA	          	255                 		255	N				
+257       	CARLOS BAHILLO GUERRA	          	257                 		257	N				
+264       	LUIS CAMADO GALERA	          	264                 		264	N				
+273       	MIGUEL A. BOTAS MARTINEZ	          	273                 		273	N				
+274       	MARIANO CASAS LOPEZ	          	274                 		274	N				
+277       	SALVADOR LOPEZ SARRIA	          	277                 		277	N				
+283       	ENRIQUE RODRIGUEZ BAGANZO	          	283                 		283	N				
+288       	ALFONSO GARCIA GALAN	          	288                 		288	N				
+289       	 JOSE L. IBALEZ GONZALEZ	          	289                 		289	N				
+292       	JESUS CARAZO VILLALAIN	          	292                 		292	N				
+297       	VICENTE F. CALZADA AMIGO	          	297                 		297	N				
+298       	JUAN J. UNGO TRUJILLO	          	298                 		298	N				
+307       	JUAN CARLOS VIZOSO GOMEZ	          	307                 		307	N				
+310       	CLAUDIO MESTRE CARRETERO	          	310                 		310	N				
+316       	JOSE LUIS MARTINEZ SAEZ	          	316                 		316	N				
+320       	TRIFINO HIDALGO BOYA	          	320                 		320	N				
+330       	JOSE M. RUIZ DEL ARBOL F.	          	330                 		330	N				
+336       	ANTONIO LOPEZ MONZON	          	336                 		336	N				
+352       	ANTONIO MEJON BILBAO	          	352                 		352	N				
+353       	JOSE A. ALVAREZ GARCIA	          	353                 		353	N				
+354       	ANTONIO TAGARRO GONZALEZ	          	354                 		354	N				
+355       	GERMAN HERNANDEZ VICENTE	          	355                 		355	N				
+367       	LUIS PRADA MARIÑA	          	367                 		367	N				
+382       	NICOLAS LIMON GOMEZ	          	382                 		382	N				
+387       	FELIX DIEZ APARICIO	          	387                 		387	N				
+393       	 JOSE A. COBO GUEPAN	          	393                 		393	N				
+406       	JOSE C. VICENTE RODRIGO	          	406                 		406	N				
+411       	TEODORO RAMOS CALVO	          	411                 		411	N				
+420       	INES PEREZ GARCIA	          	420                 		420	N				
+422       	CARMEN TRECEÑO ALONSO	          	422                 		422	N				
+425       	ALFONSO FERNANDEZ DELGADO	          	425                 		425	N				
+434       	ALEJANDRO URQUIJO GARCIA	          	434                 		434	N				
+438       	MIGUEL F CARBAJO DE LA FUENTE	          	438                 		438	N				
+447       	JOSE MIGUEL GALINDO DIEGO	          	447                 		447	N				
+467       	JAVIER ZUAZUA VERDE	          	467                 		467	N				
+477       	MIGUEL ANGEL JIMENEZ JIMENEZ	          	477                 		477	N				
+483       	ALICIA ANTON COLADO	          	483                 		483	N				
+484       	ENRIQUE MARCHAMALO ESPEJO	          	484                 		484	N				
+485       	JAIME MUÑOZ GARRIDO	          	485                 		485	N				
+488       	FELIX LUIS REDONDO RODRIGUEZ	          	488                 		488	N				
+490       	JERONIMO VEGA GARCIA	          	490                 		490	N				
+493       	VALENTIN FERNANDEZ RODRIGUEZ	          	493                 		493	N				
+494       	CARLOS FERANDO CRESPI PEREZ	          	494                 		494	N				
+496       	ASUNCION G. GARCIA ALONSO	          	496                 		496	N				
+510       	JOSE FERNANDO SUAREZ OTERO	          	510                 		510	N				
+512       	JULIO ANTº CARBAJO MONTOYA	          	512                 		512	N				
+522       	JESUS GARCIA TRUJILLO	          	522                 		522	N				
+524       	ALFREDO GOMEZ DIEZ	          	524                 		524	N				
+534       	JOSE A. FERNANDEZ QUIROGA	          	534                 		534	N				
+535       	MªAUXILIADORA HIERRO GONZALEZ	          	535                 		535	N				
+550       	JOSE FERNANDEZ FERNANDEZ	          	550                 		550	N				
+558       	 MARTIN FERNANDEZ JOSE ANTONIO	          	558                 		558	N				
+561       	MIGUEL ANGEL FERRO PAYERO	          	561                 		561	N				
+577       	FERNANDO AGUADO CARMONA	          	577                 		577	N				
+578       	MANUEL FERNANDEZ FERNANDEZ	          	578                 		578	N				
+586       	JULIO CAPELLAN MUÑOZ	          	586                 		586	N				
+613       	CESAR MARTINEZ MIRANDA	          	613                 		613	N				
+635       	ANTONIO F. LOMAS GONZALEZ	          	635                 		635	N				
+636       	ANTONIO J. BALMORI INGUANZO	          	636                 		636	N				
+638       	RAFAEL OREJAS MENDEZ	          	638                 		638	N				
+640       	ALBERTO PEREZ MEDINA	          	640                 		640	N				
+653       	JUAN A. BLANCO CASTAÑO	          	653                 		653	N				
+655       	Mª CARMEN FAJARDO DOMINGUEZ	          	655                 		655	N				
+676       	AMANDO GARCIA GARCIA	          	676                 		676	N				
+9999      	FERNANDO DE LOS MOZOS MARQUES	9999      	9999                		9999	N				
+50032     	VICENTE FERNANDEZ GARCIA	          	50032               		50032	N				
+50067     	MARCIAL TEJERO ALONSO	          	50067               		50067	N				
+88888     	 JULIO MELCON CRESPO	          	88888               		88888	N				
+99910     	 COOPERATIVA VINICOLA BIERZO	          	99910               		99910	N				
+99911     	 INFEMUR S.L.	          	99911               		99911	N				
+99912     	 JESUS GARCIA ALVAREZ	          	99912               		99912	N				
+99977     	 EVA RAMOS VALIOS	          	99977               		99977	N				
+99978     	 PAULA RAMOS VALIOS	          	99978               		99978	N				
+99979     	 MARINA RAMOS VALIOS	          	99979               		99979	N				
+99980     	 RAQUEL GARCIA PELAEZ	          	99980               		99980	N				
+99981     	 GONZALO GARCIA PELAEZ	          	99981               		99981	N				
+99982     	 ALVARO DE LA SIERRA ORALLO	          	99982               		99982	N				
+99983     	 FRANCISCO DE LA SIERRA ORALLO	          	99983               		99983	N				
+99984     	 BEATRIZ HIGUERA SOTO	          	99984               		99984	N				
+99985     	 GREGORIA SUAREZ URDIALES	          	99985               		99985	N				
+99986     	 AENOR	          	99986               		99986	N				
+99988     	 MELIA CASTILLA	          	99988               		99988	N				
+99992     	 PREMAAT	          	99992               		99992	N				
+99993     	ROBERTO RODRIGUEZ LLAMAZARES	          	99993               		99993	N				
+99994     	ROSA TURIENZO MARI	          	99994               		99994	N				
+99995     	AGUSTINA CARRERA CALZADO	          	99995               		99995	N				
+99996     	IGNACIO PANERO IGLESIAS	          	99996               		99996	N				
+99997     	 BEGOÑA AGUILAR LORENZO	          	99997               		99997	N				
+99998     	 BOLETIN OFICIAL DE CAS.Y LEON	          	99998               		99998	N				
+99999     	FERNANDO DE LOS MOZOS MARQUES	          	99999               		99999	N				
+0000100005	PEREZ BLANCO, JAIME	leon      	916                 		0000100069					
+0000100006	ROZAS ALVAREZ, JOSE LUIS	7260      	911                 		0000100004					
+0000100008	 	945       	916                 		 					
+0000100009	RODRIGUEZ COSTILLA, AURORA	helena    	919                 		0000100083					
+0000100010	MORA MIELGO, OLGA	olga      	920                 		0000100094					
+0000100021	GARCIA GUTIERREZ, PEDRO	kaiser    	917                 		0000100073					
+0000100022	GARCIA RODRIGUEZ, RUBEN	chamade   	915                 		0000100037					
+0000100025	LOPEZ RODRIGUEZ, ALBERTO	6665BNH   	923                 		0000100140					
+0000100027	FERNANDEZ REGAL, CONCEPCION	coruña    	925                 		0000100153					
+0000100030	CASASNOVAS SEMITIEL, MARINA	menorca   	926                 		0000100154					
+0000100032	UGIDOS CARRERA, JUAN AMADO	UGIDOS    	922                 		0000100139					
+0000100036	PRIETO LAGUNA, NILO DANIEL	leon      	918                 		0000100082					
+0000100038	CAMPOAMOR GONZALEZ, GONZALO	2132      	927                 		0000100155					
+0000100040	DIAZ FLECHA, ALBERTO	alberto   	924                 		0000100141					
+0000100042	CARRERA ALVAREZ, CARLOS	leon      	912                 		0000100022					
+0000100044	MON RODRIGUEZ, JAVIER	leon      	932                 		0000100186					
+0000100045	BLANCO FERNANDEZ, RUBEN	931       	931                 		0000100185					
+0000100046	MELENA FERNANDEZ, SILVIA	sm929     	sm929               		0000100183					
+0000100047	GONZALEZ SUAREZ, ANGEL	987222784 	933                 		0000100189					
+0000100049	GARCIA VIDAL, VICTOR	vigavi    	914                 		0000100030					
+0000100050	VILLACORTA LOZANO, JORGE	clws66vi  	934                 		0000100193					
+0000100051	CRIS	cris2011  	cris                				Nov 28 2011 12:00:00:000AM	1		
+0000100053	Administrador	administra	admin               				Oct  9 2009 12:00:00:000AM	0		
+0000100054	CANEDO ALVAREZ, JORGE ANTONIO	leon      	928                 		0000100179					
+0000100058	LAVIN AMPUDIA, JOSE MANUEL	leon      	921                 		0000100117					
+0000100060	RODRIGUEZ MARTINEZ, ISMAEL	leon      	936                 		0000100218					
+0000100061	GONZALEZ MENDEZ, ANA BELEN	leon      	935                 		0000100216					
+0000100062	CORDERO GUERRERO, MARIA DEL CARMEN	leon      	937                 		0000100226					
+0000100064	GARCIA GONZALEZ, IGNACIO JOSE	wpolo22127	939                 		0000100228					
+0000100068	SALAN GOMEZ, ESTHER	gelo      	938                 		0000100227					
+0000100069	GARCIA FERNANDEZ, MARIA	1987      	940                 		0000100230					
+0000100071	LLAMAS ALVAREZ, BARBARA	leon      	941                 		0000100263					
+0000100072	GARCIA ALVAREZ, EDURNE	calileon  	942                 		0000100269					
+0000100074	DOMINGUEZ LOPEZ, ANA	0232      	943                 		0000100275					
+0000100075	PEREZ DE LA IGLESIA, VICTOR	leon      	30001               		0000100281					
+0000100076	GOMEZ MARCOS, LUCIA	944       	944                 		0000100279					
+0000100077	SANCHEZ PEREZ, JOSE MARIA	leon      	30002               		0000100282					
+0000100078	GUTIERREZ SANCHO, JUDITH	leon      	913                 		0000100027					
+0000100079	 	945       	945                 		 					
+0000100080	ALONSO MALDONADO, JOSE LUIS	leon      	945                 		0000100299					
+0000100081	DIAZ SANCHEZ-PACHECO, LAURA	leon      	946                 		0000100300					
+0000100082	GARCIA DIEZ, CECILIA	leon      	951                 		0000100311					
+0000100084	GONZALEZ ARANDA, EDUARDO	leon      	930                 		0000100184					
+0000100085	APARICIO FERNANDEZ, LAURA	950laura  	950                 		0000100310					
+0000100086	BUITRON ARCE, IGNACIO	leon      	949                 		0000100309					
+0000100087	ADIEGO MARQUES, VICTORIA	TAPIOLA   	952                 		0000100328					
+0000100088	RIBEIRO AROLD, JESUS	leon      	30004               		0000100329					
+0000100089	csd	csd22     	csd2                		6		Aug 14 2010 12:00:00:000AM	0		
+0000100090	GARCIA GARCIA, ALVARO	leon      	953                 		0000100336					
+0000100091	ESTEVEZ YEBRA, ADRIANA	leon      	954                 		0000100348					
+0000100092	FERRERO RAMOS, RAFAEL	956       	956                 		0000100350				rafaferrero_2@hotmail.com	
+0000100093	RIBEIRO AROLD, JESUS	jr7693    	955                 		0000100349					
+0000100095	VELASCO EMPERADOR, MIGUEL ANGEL	957       	957                 		0000100353					
+0000100098	IEPAL LEON, S.L.P.	iepal2008 	60001               	00	0000100286					
+0000100100	VOCES SANCHEZ, MANUEL ANDRES	947       	947                 		0000100303					
+0000100101	DEL RIO CRESPO, ALBERTO	cxeq87uju 	962                 		0000100408					
+0000100102	MARCOS ESPAÑA, PEDRO	961       	961                 		0000100407					
+0000100104	 	945       	964                 		 					
+0000100105	MATILLA GUTIERREZ, EDUARDO	3630      	964                 		0000100424					
+0000100106	PACHECO MORALES, ELENA	leon      	960                 		0000100406					
+0000100107	MARTINEZ ALIJA, Mª JESÚS	965       	965                 		0000100425					
+0000100108	PINTADO LOPEZ, SARA	lazarza   	966                 		0000100426					
+0000100109	GUERRA CUELLAS, CARLOS	bierzo    	967                 		0000100437					
+0000100111	CRISTINA GARCIA	cristina  	cristina            	 			Feb 10 2012 12:00:00:000AM	0		
+0000100112	REIMONDEZ PRIETO, DIEGO	leon      	968                 		0000100458					es
+0000100113	MERCHANTE GONZALEZ, MARIA	leon      	969                 		0000100480					es
+0000100114	ALVAREZ VIVAS, MIRIAM	leon      	971                 		0000100492					es
+0000100115	GONZALEZ SACRISTAN, LAURA	leon      	30006               		0000100494					es
+0000100117	GONZALEZ FUERTES, PEDRO	opn71     	972                 		0000100504					es
+0000100118	GONZALEZ FERNANDEZ, LAURA	leon      	974                 		0000100512					es
+0000100119	LOBATO PEREZ, SUSANA	susalp    	973                 		0000100511					es
+0000100120	LOPEZ VOCES, JULIO	villalibre	975                 		0000100518					es
+0000100121	GETINO&SANTOS TECNICOS ASOCIADOS, S.L.P.	aleeti    	60003               		0000100367					es
+0000100122	LOBATO SUAREZ, VICTOR	1234victor	976                 		0000100524					es
+0000100123	BLANCO VEGA, CARLOS	8179      	970                 		0000100482					es
+0000100124	PEREZ SUAREZ, MARCOS	leon      	977                 		0000100534					es
+0000100125	GONZALEZ PEREZ, JESUS	629292121 	979                 		0000100541					es
+0000100126	Ruben	berkot    	ruben               	00						es
+0000100127	GONZALEZ DIEZ, OMAR	lugo      	982                 		0000100559					es
+0000100128	LINARES GARCIA, ALEJANDRO	978       	978                 		0000100535					es
+0000100129	PALMERO BARRIOS, ANDRES	apb1979   	981                 		0000100558					es
+0000100130	GARCIA GARCIA, PATRICIA	leon      	985                 		0000100580					es
+0000100131	MARTINEZ GUERRA, HUGO	leon      	986                 		0000100581					es
+0000100132	GONZALEZ GONZALEZ, RUBEN	leon      	948                 		0000100308					es
+0000100134	CASANOVA ALONSO, RUBEN	987       	987                 		0000100582					es
+0000100135	PEREZ MAROTE, ANDRES	leon      	989                 		0000100592					es
+0000100136	BARRIO GARCIA, ARTURO	leon      	30005               		0000100410					es
+0000100137	RODRIGUEZ RODRIGUEZ, DAVID	990       	990                 		0000100593				drr0006@hotmail.com	es
+0000100138	SARMIENTO ZAPATERO, ANA	71453195S 	30007               		0000100613					es
+0000100139	BARRIO GARCIA, ARTURO	71441192H 	988                 		0000100614					es
+0000100141	VARELA FERNANDEZ, ANA BELEN	pintina   	991                 		0000100615					es
+0000100142	CALVO ELICES, ANA MARIA	983       	983                 		0000100578					es
+0000100143	SOLER MARTIN, VANESA	993       	993                 		0000100621					es
+0000100144	GONZALEZ FERNANDEZ, ASTERIO	30008     	30008               		0000100629					es
+0000100146	RODRIGUEZ MARTINEZ, JOSE ANTONIO	995       	995                 		0000100645					es
+0000100147	PEREZ DE LA IGLESIA, VICTOR	958       	958                 		0000100364					es
+0000100148	GONZALEZ NAVA, AMILCAR	sapayo    	30009               		0000100666					es
+0000100150	FERNANDEZ LLAMAS, JAVIER	996       	996                 		0000100671					es
+0000100151	ALONSO DOS SANTOS, JUAN BAUTISTA	J10e5a1n14	997                 		0000100673					es
+0000100152	FERNANDEZ BUENO, ENRIQUE	salentinos	1004                		0000100689					
+0000100153	ALVAREZ PEREZ, VICTOR	POPEITOR  	1005                		0000100690					es
+0000100155	FERNANDEZ MURCIEGO, SEILA	00999     	00999               		0000100675					es
+0000100156	HERRERO RODRIGUEZ, MARIA	01002     	01002               		0000100685					es
+0000100160	DIEZ PASCUAL, SERGIO	leon      	01007               		0000100710					es
+0000100161	DEL CANTO Y MIGUÉLEZ S.L.	60000     	60000               		0000100285					es
+0000100162	MIKROS HERCE, ALEJANDRO OLIMPO	pedestal  	01006               		0000100691					es
+0000100163	SIERRA AMIGO, LUIS	71508070  	1008                		0000100722					es
+0000100168	LOZANO GALLARDO, LAURA VIRGINIA	998       	998                 		0000100674					es
+0000100170	NICOLAS, DE CASO Y ASOCIADOS S.A.P.	60004     	60004               		0000100654					es
+0000100171	MARTINEZ GONZALEZ, DAVID	1009      	1009                		0000100732					es
+0000100173	PEREZ FERNANDEZ, ALEJANDRO	980       	980                 		0000100557					es

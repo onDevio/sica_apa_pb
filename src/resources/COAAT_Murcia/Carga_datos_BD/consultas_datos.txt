@@ -1,0 +1,2303 @@
+0000000001	dw_1	2		N		1	0000000002
+0000000002	dw_1	3		%		1	0000000002
+0000000003	dw_1	14		S		1	0000000002
+0000000004	dw_1	15		N		1	0000000002
+0000000005	dw_1	1		DB		1	0000000003
+0000000006	dw_1	2		N		1	0000000003
+0000000007	dw_1	3		%		1	0000000003
+0000000008	dw_1	8		GASCOL		1	0000000003
+0000000009	dw_1	14		%		1	0000000003
+0000000010	dw_1	15		%		1	0000000003
+0000000243	dw_1	1		arquitectos.pfx		1	0000000015
+0000000244	dw_1	2		Colegio de Aparejadores de Murcia		1	0000000015
+0000000245	dw_1	3		Documentación Colegial		1	0000000015
+0000000246	dw_1	4		Murcia, España		1	0000000015
+0000000247	dw_1	5		1234		1	0000000015
+0000000248	dw_1	6		N		1	0000000015
+0000000249	dw_1	7		_signed		1	0000000015
+0000000250	dw_1	8		C:\sica_version2\imagenes\logo.jpg		1	0000000015
+0000003998	dw_1	1		%		1	0000000120
+0000003999	dw_1	6		%		1	0000000120
+0000004000	dw_1	25		%		1	0000000120
+0000004001	dw_1	26		%		1	0000000120
+0000004002	dw_1	27		%		1	0000000120
+0000004003	dw_1	28		%		1	0000000120
+0000004004	dw_1	30		%		1	0000000120
+0000004005	dw_1	31		%		1	0000000120
+0000004006	dw_1	37		I		1	0000000120
+0000004007	dw_1	38		%		1	0000000120
+0000004008	dw_1	39		%		1	0000000120
+0000004009	dw_1	40		%		1	0000000120
+0000004010	dw_datos_personales	5		%		1	0000000120
+0000004011	dw_datos_personales	15		0001		1	0000000120
+0000004012	dw_datos_personales	16		4999		1	0000000120
+0000004013	dw_datos_personales	17		%		1	0000000120
+0000004014	dw_datos_personales	18		I		1	0000000120
+0000004015	dw_servicios	1		%		1	0000000120
+0000004016	dw_servicios	2		%		1	0000000120
+0000004017	dw_servicios	3		%		1	0000000120
+0000004018	dw_servicios	4		%		1	0000000120
+0000004019	dw_servicios	5		%		1	0000000120
+0000004020	dw_servicios	6		%		1	0000000120
+0000004021	dw_servicios	7		%		1	0000000120
+0000004022	dw_servicios	8		%		1	0000000120
+0000004023	dw_alta_si_no	1		S		1	0000000120
+0000004024	dw_opcion_bajas	1		%		1	0000000120
+0000004025	dw_opcion_altas	1		%		1	0000000120
+0000004026	dw_opcion_situaciones	1		S		1	0000000120
+0000004027	dw_t_baja	1		J		1	0000000120
+0000004028	dw_t_baja	2		Jubilado		1	0000000120
+0000004029	dw_t_baja	4		N		1	0000000120
+0000004030	dw_t_baja	5		S		1	0000000120
+0000004031	dw_t_baja	1		FA		2	0000000120
+0000004032	dw_t_baja	2		Fallecido		2	0000000120
+0000004033	dw_t_baja	4		N		2	0000000120
+0000004034	dw_t_baja	5		S		2	0000000120
+0000004035	dw_t_baja	1		BV		3	0000000120
+0000004036	dw_t_baja	2		Baja voluntaria		3	0000000120
+0000004037	dw_t_baja	4		N		3	0000000120
+0000004038	dw_t_baja	5		S		3	0000000120
+0000004039	dw_t_baja	1		AR		4	0000000120
+0000004040	dw_t_baja	2		.		4	0000000120
+0000004041	dw_t_baja	4		N		4	0000000120
+0000004042	dw_t_baja	5		S		4	0000000120
+0000004043	dw_situaciones	1		A		1	0000000120
+0000004044	dw_situaciones	2		Asalariado		1	0000000120
+0000004045	dw_situaciones	3		S		1	0000000120
+0000004046	dw_situaciones	4		S		1	0000000120
+0000004047	dw_situaciones	1		0		2	0000000120
+0000004048	dw_situaciones	2		Valor 0 en antiguo		2	0000000120
+0000004049	dw_situaciones	4		S		2	0000000120
+0000004050	dw_situaciones	1		F		3	0000000120
+0000004051	dw_situaciones	2		Funcionario		3	0000000120
+0000004052	dw_situaciones	3		S		3	0000000120
+0000004053	dw_situaciones	4		S		3	0000000120
+0000004054	dw_situaciones	1		J		4	0000000120
+0000004055	dw_situaciones	2		Jubilado		4	0000000120
+0000004056	dw_situaciones	4		S		4	0000000120
+0000004057	dw_situaciones	1		L		5	0000000120
+0000004058	dw_situaciones	2		Libre		5	0000000120
+0000004059	dw_situaciones	3		S		5	0000000120
+0000004060	dw_situaciones	4		S		5	0000000120
+0000004061	dw_situaciones	1		FA		6	0000000120
+0000004062	dw_situaciones	2		Fallecido		6	0000000120
+0000004063	dw_situaciones	4		S		6	0000000120
+0000004064	dw_situaciones	1		BV		7	0000000120
+0000004065	dw_situaciones	2		Baja voluntaria		7	0000000120
+0000004066	dw_situaciones	4		S		7	0000000120
+0000004067	dw_situaciones	1		AR		8	0000000120
+0000004068	dw_situaciones	2		.		8	0000000120
+0000004069	dw_situaciones	4		S		8	0000000120
+0000004070	dw_t_alta	1		NI		1	0000000120
+0000004071	dw_t_alta	2		Nuevo Ingreso		1	0000000120
+0000004072	dw_t_alta	3		S		1	0000000120
+0000004073	dw_t_alta	4		S		1	0000000120
+0000004074	dw_t_alta	5		N		1	0000000120
+0000004075	dw_t_alta	1		RI		2	0000000120
+0000004076	dw_t_alta	2		Reingreso		2	0000000120
+0000004077	dw_t_alta	3		S		2	0000000120
+0000004078	dw_t_alta	4		S		2	0000000120
+0000004079	dw_t_alta	5		N		2	0000000120
+0000004080	dw_t_alta	1		OC		3	0000000120
+0000004081	dw_t_alta	2		Otro Colegio		3	0000000120
+0000004082	dw_t_alta	3		S		3	0000000120
+0000004083	dw_t_alta	4		S		3	0000000120
+0000004084	dw_t_alta	5		N		3	0000000120
+0000004085	dw_datos_agrupacion	3		%		1	0000000120
+0000004086	dw_opcion_incomp	1		%		1	0000000120
+0000004087	dw_opcion_sit	1		%		1	0000000120
+0000004088	dw_opcion_agr	1		%		1	0000000120
+0000004089	dw_incompatibilidades	1		1		1	0000000120
+0000004090	dw_incompatibilidades	2		NACIONAL		1	0000000120
+0000004091	dw_incompatibilidades	1		2		2	0000000120
+0000004092	dw_incompatibilidades	2		LOCAL		2	0000000120
+0000004093	dw_incompatibilidades	1		3		3	0000000120
+0000004094	dw_incompatibilidades	2		¡ ¡ PUEDE VISAR ¡ ¡		3	0000000120
+0000004095	dw_sit_profesionales	1		01		1	0000000120
+0000004096	dw_sit_profesionales	2		LIBRE		1	0000000120
+0000004097	dw_sit_profesionales	1		02		2	0000000120
+0000004098	dw_sit_profesionales	2		ASALARIADO		2	0000000120
+0000004099	dw_sit_profesionales	1		03		3	0000000120
+0000004100	dw_sit_profesionales	2		FUNCIONARIO		3	0000000120
+0000004101	dw_sit_profesionales	1		04		4	0000000120
+0000004102	dw_sit_profesionales	2		ACREDITADO		4	0000000120
+0000004103	dw_agrupaciones	1		01		1	0000000120
+0000004104	dw_agrupaciones	2		PERITOS		1	0000000120
+0000004105	dw_agrupaciones	1		02		2	0000000120
+0000004106	dw_agrupaciones	2		TASADORES		2	0000000120
+0000004107	dw_agrupaciones	1		03		3	0000000120
+0000004108	dw_agrupaciones	2		PAISAJISTAS		3	0000000120
+0000004109	dw_agrupaciones	1		04		4	0000000120
+0000004110	dw_agrupaciones	2		APAREJADORES		4	0000000120
+0000004111	dw_opcion_residente	1		S		1	0000000120
+0000004112	dw_residente	1		RE		1	0000000120
+0000004113	dw_residente	2		Residente		1	0000000120
+0000004114	dw_residente	3		S		1	0000000120
+0000004115	dw_residente	1		NR		2	0000000120
+0000004116	dw_residente	2		No Residente		2	0000000120
+0000004117	dw_residente	1		H		3	0000000120
+0000004118	dw_residente	2		Acreditados		3	0000000120
+0000004119	dw_residente	1		CL		4	0000000120
+0000004120	dw_residente	2		Clientes		4	0000000120
+0000004121	dw_opciones_orientaciones	1		%		1	0000000120
+0000004122	dw_consulta_orientaciones	1		01		1	0000000120
+0000004123	dw_consulta_orientaciones	2		Rehabilitaciones		1	0000000120
+0000004124	dw_consulta_orientaciones	1		02		2	0000000120
+0000004125	dw_consulta_orientaciones	2		Obra Nueva		2	0000000120
+0000004126	dw_consulta_orientaciones	1		03		3	0000000120
+0000004127	dw_consulta_orientaciones	2		Diseños Modernistas		3	0000000120
+0000004128	dw_otros_datos	1		03		1	0000000120
+0000004129	dw_otros_datos	2		D		1	0000000120
+0000004130	dw_otros_datos	3		C		1	0000000120
+0000004131	dw_otros_datos	4		01		1	0000000120
+0000004132	dw_otros_datos	5		FECHA NAC		1	0000000120
+0000004133	dw_otros_datos	9		%		1	0000000120
+0000004134	dw_otros_datos	1		01		2	0000000120
+0000004135	dw_otros_datos	2		N		2	0000000120
+0000004136	dw_otros_datos	3		C		2	0000000120
+0000004137	dw_otros_datos	4		01		2	0000000120
+0000004138	dw_otros_datos	5		EDAD		2	0000000120
+0000004139	dw_otros_datos	9		%		2	0000000120
+0000004140	dw_otros_datos	1		04		3	0000000120
+0000004141	dw_otros_datos	2		S		3	0000000120
+0000004142	dw_otros_datos	3		C		3	0000000120
+0000004143	dw_otros_datos	4		02		3	0000000120
+0000004144	dw_otros_datos	5		EDO. CIVIL		3	0000000120
+0000004145	dw_otros_datos	9		%		3	0000000120
+0000004146	dw_otros_datos	1		05		4	0000000120
+0000004147	dw_otros_datos	2		S		4	0000000120
+0000004148	dw_otros_datos	3		C		4	0000000120
+0000004149	dw_otros_datos	5		Habilitacion		4	0000000120
+0000004150	dw_otros_datos	9		%		4	0000000120
+0000004151	dw_datos_musaat	11		%		1	0000000120
+0000004152	dw_datos_musaat	12		%		1	0000000120
+0000004153	dw_datos_musaat	13		%		1	0000000120
+0000004154	dw_datos_premaat	6		%		1	0000000120
+0000004155	dw_datos_premaat	7		%		1	0000000120
+0000004156	dw_datos_premaat	8		%		1	0000000120
+0000004340	dw_1	1		%		1	0000000122
+0000004341	dw_1	6		%		1	0000000122
+0000004342	dw_1	25		%		1	0000000122
+0000004343	dw_1	26		%		1	0000000122
+0000004344	dw_1	27		%		1	0000000122
+0000004345	dw_1	28		%		1	0000000122
+0000004346	dw_1	30		%		1	0000000122
+0000004347	dw_1	31		%		1	0000000122
+0000004348	dw_1	37		I		1	0000000122
+0000004349	dw_1	38		%		1	0000000122
+0000004350	dw_1	39		%		1	0000000122
+0000004351	dw_1	40		%		1	0000000122
+0000004352	dw_datos_personales	5		P		1	0000000122
+0000004353	dw_datos_personales	15		0		1	0000000122
+0000004354	dw_datos_personales	16		4		1	0000000122
+0000004355	dw_datos_personales	17		%		1	0000000122
+0000004356	dw_datos_personales	18		I		1	0000000122
+0000004357	dw_servicios	1		%		1	0000000122
+0000004358	dw_servicios	2		%		1	0000000122
+0000004359	dw_servicios	3		%		1	0000000122
+0000004360	dw_servicios	4		%		1	0000000122
+0000004361	dw_servicios	5		%		1	0000000122
+0000004362	dw_servicios	6		%		1	0000000122
+0000004363	dw_servicios	7		%		1	0000000122
+0000004364	dw_servicios	8		%		1	0000000122
+0000004365	dw_alta_si_no	1		S		1	0000000122
+0000004366	dw_opcion_bajas	1		%		1	0000000122
+0000004367	dw_opcion_altas	1		%		1	0000000122
+0000004368	dw_opcion_situaciones	1		S		1	0000000122
+0000004369	dw_t_baja	1		J		1	0000000122
+0000004370	dw_t_baja	2		Jubilado		1	0000000122
+0000004371	dw_t_baja	4		N		1	0000000122
+0000004372	dw_t_baja	5		S		1	0000000122
+0000004373	dw_t_baja	1		FA		2	0000000122
+0000004374	dw_t_baja	2		Fallecido		2	0000000122
+0000004375	dw_t_baja	4		N		2	0000000122
+0000004376	dw_t_baja	5		S		2	0000000122
+0000004377	dw_t_baja	1		BV		3	0000000122
+0000004378	dw_t_baja	2		Baja voluntaria		3	0000000122
+0000004379	dw_t_baja	4		N		3	0000000122
+0000004380	dw_t_baja	5		S		3	0000000122
+0000004381	dw_t_baja	1		AR		4	0000000122
+0000004382	dw_t_baja	2		.		4	0000000122
+0000004383	dw_t_baja	4		N		4	0000000122
+0000004384	dw_t_baja	5		S		4	0000000122
+0000004385	dw_situaciones	1		A		1	0000000122
+0000004386	dw_situaciones	2		Asalariado		1	0000000122
+0000004387	dw_situaciones	3		S		1	0000000122
+0000004388	dw_situaciones	4		S		1	0000000122
+0000004389	dw_situaciones	1		0		2	0000000122
+0000004390	dw_situaciones	2		Valor 0 en antiguo		2	0000000122
+0000004391	dw_situaciones	4		S		2	0000000122
+0000004392	dw_situaciones	1		F		3	0000000122
+0000004393	dw_situaciones	2		Funcionario		3	0000000122
+0000004394	dw_situaciones	3		S		3	0000000122
+0000004395	dw_situaciones	4		S		3	0000000122
+0000004396	dw_situaciones	1		J		4	0000000122
+0000004397	dw_situaciones	2		Jubilado		4	0000000122
+0000004398	dw_situaciones	4		S		4	0000000122
+0000004399	dw_situaciones	1		L		5	0000000122
+0000004400	dw_situaciones	2		Libre		5	0000000122
+0000004401	dw_situaciones	3		S		5	0000000122
+0000004402	dw_situaciones	4		S		5	0000000122
+0000004403	dw_situaciones	1		FA		6	0000000122
+0000004404	dw_situaciones	2		Fallecido		6	0000000122
+0000004405	dw_situaciones	4		S		6	0000000122
+0000004406	dw_situaciones	1		BV		7	0000000122
+0000004407	dw_situaciones	2		Baja voluntaria		7	0000000122
+0000004408	dw_situaciones	4		S		7	0000000122
+0000004409	dw_situaciones	1		AR		8	0000000122
+0000004410	dw_situaciones	2		.		8	0000000122
+0000004411	dw_situaciones	4		S		8	0000000122
+0000004412	dw_t_alta	1		NI		1	0000000122
+0000004413	dw_t_alta	2		Nuevo Ingreso		1	0000000122
+0000004414	dw_t_alta	3		S		1	0000000122
+0000004415	dw_t_alta	4		S		1	0000000122
+0000004416	dw_t_alta	5		N		1	0000000122
+0000004417	dw_t_alta	1		RI		2	0000000122
+0000004418	dw_t_alta	2		Reingreso		2	0000000122
+0000004419	dw_t_alta	3		S		2	0000000122
+0000004420	dw_t_alta	4		S		2	0000000122
+0000004421	dw_t_alta	5		N		2	0000000122
+0000004422	dw_t_alta	1		OC		3	0000000122
+0000004423	dw_t_alta	2		Otro Colegio		3	0000000122
+0000004424	dw_t_alta	3		S		3	0000000122
+0000004425	dw_t_alta	4		S		3	0000000122
+0000004426	dw_t_alta	5		N		3	0000000122
+0000004427	dw_datos_agrupacion	3		%		1	0000000122
+0000004428	dw_opcion_incomp	1		%		1	0000000122
+0000004429	dw_opcion_sit	1		%		1	0000000122
+0000004430	dw_opcion_agr	1		%		1	0000000122
+0000004431	dw_incompatibilidades	1		1		1	0000000122
+0000004432	dw_incompatibilidades	2		NACIONAL		1	0000000122
+0000004433	dw_incompatibilidades	1		2		2	0000000122
+0000004434	dw_incompatibilidades	2		LOCAL		2	0000000122
+0000004435	dw_incompatibilidades	1		3		3	0000000122
+0000004436	dw_incompatibilidades	2		¡ ¡ PUEDE VISAR ¡ ¡		3	0000000122
+0000004437	dw_sit_profesionales	1		01		1	0000000122
+0000004438	dw_sit_profesionales	2		LIBRE		1	0000000122
+0000004439	dw_sit_profesionales	1		02		2	0000000122
+0000004440	dw_sit_profesionales	2		ASALARIADO		2	0000000122
+0000004441	dw_sit_profesionales	1		03		3	0000000122
+0000004442	dw_sit_profesionales	2		FUNCIONARIO		3	0000000122
+0000004443	dw_sit_profesionales	1		04		4	0000000122
+0000004444	dw_sit_profesionales	2		ACREDITADO		4	0000000122
+0000004445	dw_agrupaciones	1		01		1	0000000122
+0000004446	dw_agrupaciones	2		PERITOS		1	0000000122
+0000004447	dw_agrupaciones	1		02		2	0000000122
+0000004448	dw_agrupaciones	2		TASADORES		2	0000000122
+0000004449	dw_agrupaciones	1		03		3	0000000122
+0000004450	dw_agrupaciones	2		PAISAJISTAS		3	0000000122
+0000004451	dw_agrupaciones	1		04		4	0000000122
+0000004452	dw_agrupaciones	2		APAREJADORES		4	0000000122
+0000004453	dw_opcion_residente	1		S		1	0000000122
+0000004454	dw_residente	1		RE		1	0000000122
+0000004455	dw_residente	2		Residente		1	0000000122
+0000004456	dw_residente	3		S		1	0000000122
+0000004457	dw_residente	1		NR		2	0000000122
+0000004458	dw_residente	2		No Residente		2	0000000122
+0000004459	dw_residente	1		H		3	0000000122
+0000004460	dw_residente	2		Acreditados		3	0000000122
+0000004461	dw_residente	1		CL		4	0000000122
+0000004462	dw_residente	2		Clientes		4	0000000122
+0000004463	dw_opciones_orientaciones	1		%		1	0000000122
+0000004464	dw_consulta_orientaciones	1		01		1	0000000122
+0000004465	dw_consulta_orientaciones	2		Rehabilitaciones		1	0000000122
+0000004466	dw_consulta_orientaciones	1		02		2	0000000122
+0000004467	dw_consulta_orientaciones	2		Obra Nueva		2	0000000122
+0000004468	dw_consulta_orientaciones	1		03		3	0000000122
+0000004469	dw_consulta_orientaciones	2		Diseños Modernistas		3	0000000122
+0000004470	dw_otros_datos	1		03		1	0000000122
+0000004471	dw_otros_datos	2		D		1	0000000122
+0000004472	dw_otros_datos	3		C		1	0000000122
+0000004473	dw_otros_datos	4		01		1	0000000122
+0000004474	dw_otros_datos	5		FECHA NAC		1	0000000122
+0000004475	dw_otros_datos	9		%		1	0000000122
+0000004476	dw_otros_datos	1		01		2	0000000122
+0000004477	dw_otros_datos	2		N		2	0000000122
+0000004478	dw_otros_datos	3		C		2	0000000122
+0000004479	dw_otros_datos	4		01		2	0000000122
+0000004480	dw_otros_datos	5		EDAD		2	0000000122
+0000004481	dw_otros_datos	9		%		2	0000000122
+0000004482	dw_otros_datos	1		04		3	0000000122
+0000004483	dw_otros_datos	2		S		3	0000000122
+0000004484	dw_otros_datos	3		C		3	0000000122
+0000004485	dw_otros_datos	4		02		3	0000000122
+0000004486	dw_otros_datos	5		EDO. CIVIL		3	0000000122
+0000004487	dw_otros_datos	9		%		3	0000000122
+0000004488	dw_otros_datos	1		05		4	0000000122
+0000004489	dw_otros_datos	2		S		4	0000000122
+0000004490	dw_otros_datos	3		C		4	0000000122
+0000004491	dw_otros_datos	5		Habilitacion		4	0000000122
+0000004492	dw_otros_datos	9		%		4	0000000122
+0000004493	dw_datos_musaat	11		%		1	0000000122
+0000004494	dw_datos_musaat	12		%		1	0000000122
+0000004495	dw_datos_musaat	13		%		1	0000000122
+0000004496	dw_datos_premaat	6		%		1	0000000122
+0000004497	dw_datos_premaat	7		%		1	0000000122
+0000004498	dw_datos_premaat	8		%		1	0000000122
+0000004658	dw_1	1		%		1	0000000124
+0000004659	dw_1	6		%		1	0000000124
+0000004660	dw_1	25		%		1	0000000124
+0000004661	dw_1	26		%		1	0000000124
+0000004662	dw_1	27		%		1	0000000124
+0000004663	dw_1	28		%		1	0000000124
+0000004664	dw_1	30		%		1	0000000124
+0000004665	dw_1	31		%		1	0000000124
+0000004666	dw_1	37		I		1	0000000124
+0000004667	dw_1	38		%		1	0000000124
+0000004668	dw_1	39		%		1	0000000124
+0000004669	dw_1	40		%		1	0000000124
+0000004670	dw_datos_personales	5		P		1	0000000124
+0000004671	dw_datos_personales	17		%		1	0000000124
+0000004672	dw_datos_personales	18		I		1	0000000124
+0000004673	dw_fechas	3			Jan  1 1978 12:00:00:000AM	1	0000000124
+0000004674	dw_fechas	4			Dec 31 1978 12:00:00:000AM	1	0000000124
+0000004675	dw_servicios	1		%		1	0000000124
+0000004676	dw_servicios	2		%		1	0000000124
+0000004677	dw_servicios	3		%		1	0000000124
+0000004678	dw_servicios	4		%		1	0000000124
+0000004679	dw_servicios	5		%		1	0000000124
+0000004680	dw_servicios	6		%		1	0000000124
+0000004681	dw_servicios	7		%		1	0000000124
+0000004682	dw_servicios	8		%		1	0000000124
+0000004683	dw_alta_si_no	1		S		1	0000000124
+0000004684	dw_opcion_bajas	1		%		1	0000000124
+0000004685	dw_opcion_altas	1		%		1	0000000124
+0000004686	dw_opcion_situaciones	1		S		1	0000000124
+0000004687	dw_t_baja	1		J		1	0000000124
+0000004688	dw_t_baja	2		Jubilado		1	0000000124
+0000004689	dw_t_baja	4		N		1	0000000124
+0000004690	dw_t_baja	5		S		1	0000000124
+0000004691	dw_t_baja	1		FA		2	0000000124
+0000004692	dw_t_baja	2		Fallecido		2	0000000124
+0000004693	dw_t_baja	4		N		2	0000000124
+0000004694	dw_t_baja	5		S		2	0000000124
+0000004695	dw_t_baja	1		BV		3	0000000124
+0000004696	dw_t_baja	2		Baja voluntaria		3	0000000124
+0000004697	dw_t_baja	4		N		3	0000000124
+0000004698	dw_t_baja	5		S		3	0000000124
+0000004699	dw_t_baja	1		AR		4	0000000124
+0000004700	dw_t_baja	2		.		4	0000000124
+0000004701	dw_t_baja	4		N		4	0000000124
+0000004702	dw_t_baja	5		S		4	0000000124
+0000004703	dw_situaciones	1		A		1	0000000124
+0000004704	dw_situaciones	2		Asalariado		1	0000000124
+0000004705	dw_situaciones	3		S		1	0000000124
+0000004706	dw_situaciones	4		S		1	0000000124
+0000004707	dw_situaciones	1		0		2	0000000124
+0000004708	dw_situaciones	2		Valor 0 en antiguo		2	0000000124
+0000004709	dw_situaciones	4		S		2	0000000124
+0000004710	dw_situaciones	1		F		3	0000000124
+0000004711	dw_situaciones	2		Funcionario		3	0000000124
+0000004712	dw_situaciones	3		S		3	0000000124
+0000004713	dw_situaciones	4		S		3	0000000124
+0000004714	dw_situaciones	1		J		4	0000000124
+0000004715	dw_situaciones	2		Jubilado		4	0000000124
+0000004716	dw_situaciones	3		S		4	0000000124
+0000004717	dw_situaciones	4		S		4	0000000124
+0000004718	dw_situaciones	1		L		5	0000000124
+0000004719	dw_situaciones	2		Libre		5	0000000124
+0000004720	dw_situaciones	3		S		5	0000000124
+0000004721	dw_situaciones	4		S		5	0000000124
+0000004722	dw_situaciones	1		FA		6	0000000124
+0000004723	dw_situaciones	2		Fallecido		6	0000000124
+0000004724	dw_situaciones	4		S		6	0000000124
+0000004725	dw_situaciones	1		BV		7	0000000124
+0000004726	dw_situaciones	2		Baja voluntaria		7	0000000124
+0000004727	dw_situaciones	4		S		7	0000000124
+0000004728	dw_situaciones	1		AR		8	0000000124
+0000004729	dw_situaciones	2		.		8	0000000124
+0000004730	dw_situaciones	4		S		8	0000000124
+0000004731	dw_t_alta	1		NI		1	0000000124
+0000004732	dw_t_alta	2		Nuevo Ingreso		1	0000000124
+0000004733	dw_t_alta	3		S		1	0000000124
+0000004734	dw_t_alta	4		S		1	0000000124
+0000004735	dw_t_alta	5		N		1	0000000124
+0000004736	dw_t_alta	1		RI		2	0000000124
+0000004737	dw_t_alta	2		Reingreso		2	0000000124
+0000004738	dw_t_alta	3		S		2	0000000124
+0000004739	dw_t_alta	4		S		2	0000000124
+0000004740	dw_t_alta	5		N		2	0000000124
+0000004741	dw_t_alta	1		OC		3	0000000124
+0000004742	dw_t_alta	2		Otro Colegio		3	0000000124
+0000004743	dw_t_alta	3		S		3	0000000124
+0000004744	dw_t_alta	4		S		3	0000000124
+0000004745	dw_t_alta	5		N		3	0000000124
+0000004746	dw_datos_agrupacion	3		%		1	0000000124
+0000004747	dw_opcion_incomp	1		%		1	0000000124
+0000004748	dw_opcion_sit	1		%		1	0000000124
+0000004749	dw_opcion_agr	1		%		1	0000000124
+0000004750	dw_incompatibilidades	1		1		1	0000000124
+0000004751	dw_incompatibilidades	2		NACIONAL		1	0000000124
+0000004752	dw_incompatibilidades	1		2		2	0000000124
+0000004753	dw_incompatibilidades	2		LOCAL		2	0000000124
+0000004754	dw_incompatibilidades	1		3		3	0000000124
+0000004755	dw_incompatibilidades	2		¡ ¡ PUEDE VISAR ¡ ¡		3	0000000124
+0000004756	dw_sit_profesionales	1		01		1	0000000124
+0000004757	dw_sit_profesionales	2		LIBRE		1	0000000124
+0000004758	dw_sit_profesionales	1		02		2	0000000124
+0000004759	dw_sit_profesionales	2		ASALARIADO		2	0000000124
+0000004760	dw_sit_profesionales	1		03		3	0000000124
+0000004761	dw_sit_profesionales	2		FUNCIONARIO		3	0000000124
+0000004762	dw_sit_profesionales	1		04		4	0000000124
+0000004763	dw_sit_profesionales	2		ACREDITADO		4	0000000124
+0000004764	dw_agrupaciones	1		01		1	0000000124
+0000004765	dw_agrupaciones	2		PERITOS		1	0000000124
+0000004766	dw_agrupaciones	1		02		2	0000000124
+0000004767	dw_agrupaciones	2		TASADORES		2	0000000124
+0000004768	dw_agrupaciones	1		03		3	0000000124
+0000004769	dw_agrupaciones	2		PAISAJISTAS		3	0000000124
+0000004770	dw_agrupaciones	1		04		4	0000000124
+0000004771	dw_agrupaciones	2		APAREJADORES		4	0000000124
+0000004772	dw_opcion_residente	1		S		1	0000000124
+0000004773	dw_residente	1		RE		1	0000000124
+0000004774	dw_residente	2		Residente		1	0000000124
+0000004775	dw_residente	3		S		1	0000000124
+0000004776	dw_residente	1		NR		2	0000000124
+0000004777	dw_residente	2		No Residente		2	0000000124
+0000004778	dw_residente	1		H		3	0000000124
+0000004779	dw_residente	2		Acreditados		3	0000000124
+0000004780	dw_residente	1		CL		4	0000000124
+0000004781	dw_residente	2		Clientes		4	0000000124
+0000004782	dw_opciones_orientaciones	1		%		1	0000000124
+0000004783	dw_consulta_orientaciones	1		01		1	0000000124
+0000004784	dw_consulta_orientaciones	2		Rehabilitaciones		1	0000000124
+0000004785	dw_consulta_orientaciones	1		02		2	0000000124
+0000004786	dw_consulta_orientaciones	2		Obra Nueva		2	0000000124
+0000004787	dw_consulta_orientaciones	1		03		3	0000000124
+0000004788	dw_consulta_orientaciones	2		Diseños Modernistas		3	0000000124
+0000004789	dw_otros_datos	1		03		1	0000000124
+0000004790	dw_otros_datos	2		D		1	0000000124
+0000004791	dw_otros_datos	3		C		1	0000000124
+0000004792	dw_otros_datos	4		01		1	0000000124
+0000004793	dw_otros_datos	5		FECHA NAC		1	0000000124
+0000004794	dw_otros_datos	9		%		1	0000000124
+0000004795	dw_otros_datos	1		01		2	0000000124
+0000004796	dw_otros_datos	2		N		2	0000000124
+0000004797	dw_otros_datos	3		C		2	0000000124
+0000004798	dw_otros_datos	4		01		2	0000000124
+0000004799	dw_otros_datos	5		EDAD		2	0000000124
+0000004800	dw_otros_datos	9		%		2	0000000124
+0000004801	dw_otros_datos	1		04		3	0000000124
+0000004802	dw_otros_datos	2		S		3	0000000124
+0000004803	dw_otros_datos	3		C		3	0000000124
+0000004804	dw_otros_datos	4		02		3	0000000124
+0000004805	dw_otros_datos	5		EDO. CIVIL		3	0000000124
+0000004806	dw_otros_datos	9		%		3	0000000124
+0000004807	dw_otros_datos	1		05		4	0000000124
+0000004808	dw_otros_datos	2		S		4	0000000124
+0000004809	dw_otros_datos	3		C		4	0000000124
+0000004810	dw_otros_datos	5		Habilitacion		4	0000000124
+0000004811	dw_otros_datos	9		%		4	0000000124
+0000004812	dw_datos_musaat	11		%		1	0000000124
+0000004813	dw_datos_musaat	12		%		1	0000000124
+0000004814	dw_datos_musaat	13		%		1	0000000124
+0000004815	dw_datos_premaat	6		%		1	0000000124
+0000004816	dw_datos_premaat	7		%		1	0000000124
+0000004817	dw_datos_premaat	8		%		1	0000000124
+0000004842	d_colegiados_consulta	1		%		1	0000000125
+0000004843	d_colegiados_consulta	6		%		1	0000000125
+0000004844	d_colegiados_consulta	25		%		1	0000000125
+0000004845	d_colegiados_consulta	26		%		1	0000000125
+0000004846	d_colegiados_consulta	27		%		1	0000000125
+0000004847	d_colegiados_consulta	28		%		1	0000000125
+0000004848	d_colegiados_consulta	30		%		1	0000000125
+0000004849	d_colegiados_consulta	31		%		1	0000000125
+0000004850	d_colegiados_consulta	37		I		1	0000000125
+0000004851	d_colegiados_consulta	38		%		1	0000000125
+0000004852	d_colegiados_consulta	39		%		1	0000000125
+0000004853	d_colegiados_consulta	40		%		1	0000000125
+0000004854	d_colegiados_consulta_datos_personales	5		P		1	0000000125
+0000004855	d_colegiados_consulta_datos_personales	15		0		1	0000000125
+0000004856	d_colegiados_consulta_datos_personales	16		4000		1	0000000125
+0000004857	d_colegiados_consulta_datos_personales	17		%		1	0000000125
+0000004858	d_colegiados_consulta_datos_personales	18		I		1	0000000125
+0000004859	d_colegiados_consulta_otros_servicios	1		%		1	0000000125
+0000004860	d_colegiados_consulta_otros_servicios	2		%		1	0000000125
+0000004861	d_colegiados_consulta_otros_servicios	3		%		1	0000000125
+0000004862	d_colegiados_consulta_otros_servicios	4		%		1	0000000125
+0000004863	d_colegiados_consulta_otros_servicios	5		%		1	0000000125
+0000004864	d_colegiados_consulta_otros_servicios	6		%		1	0000000125
+0000004865	d_colegiados_consulta_otros_servicios	7		%		1	0000000125
+0000004866	d_colegiados_consulta_otros_servicios	8		%		1	0000000125
+0000004867	d_colegiados_consulta_alta	1		S		1	0000000125
+0000004868	d_colegiados_situaciones_consulta	1		A		1	0000000125
+0000004869	d_colegiados_situaciones_consulta	2		Asalariado		1	0000000125
+0000004870	d_colegiados_situaciones_consulta	3		S		1	0000000125
+0000004871	d_colegiados_situaciones_consulta	4		S		1	0000000125
+0000004872	d_colegiados_situaciones_consulta	1		0		2	0000000125
+0000004873	d_colegiados_situaciones_consulta	2		Valor 0 en antiguo		2	0000000125
+0000004874	d_colegiados_situaciones_consulta	4		S		2	0000000125
+0000004875	d_colegiados_situaciones_consulta	1		F		3	0000000125
+0000004876	d_colegiados_situaciones_consulta	2		Funcionario		3	0000000125
+0000004877	d_colegiados_situaciones_consulta	3		S		3	0000000125
+0000004878	d_colegiados_situaciones_consulta	4		S		3	0000000125
+0000004879	d_colegiados_situaciones_consulta	1		J		4	0000000125
+0000004880	d_colegiados_situaciones_consulta	2		Jubilado		4	0000000125
+0000004881	d_colegiados_situaciones_consulta	4		S		4	0000000125
+0000004882	d_colegiados_situaciones_consulta	1		L		5	0000000125
+0000004883	d_colegiados_situaciones_consulta	2		Libre		5	0000000125
+0000004884	d_colegiados_situaciones_consulta	3		S		5	0000000125
+0000004885	d_colegiados_situaciones_consulta	4		S		5	0000000125
+0000004886	d_colegiados_situaciones_consulta	1		FA		6	0000000125
+0000004887	d_colegiados_situaciones_consulta	2		Fallecido		6	0000000125
+0000004888	d_colegiados_situaciones_consulta	4		S		6	0000000125
+0000004889	d_colegiados_situaciones_consulta	1		BV		7	0000000125
+0000004890	d_colegiados_situaciones_consulta	2		Baja voluntaria		7	0000000125
+0000004891	d_colegiados_situaciones_consulta	4		S		7	0000000125
+0000004892	d_colegiados_situaciones_consulta	1		AR		8	0000000125
+0000004893	d_colegiados_situaciones_consulta	2		.		8	0000000125
+0000004894	d_colegiados_situaciones_consulta	4		S		8	0000000125
+0000004895	d_colegiados_t_alta_consulta	1		NI		1	0000000125
+0000004896	d_colegiados_t_alta_consulta	2		Nuevo Ingreso		1	0000000125
+0000004897	d_colegiados_t_alta_consulta	3		S		1	0000000125
+0000004898	d_colegiados_t_alta_consulta	4		S		1	0000000125
+0000004899	d_colegiados_t_alta_consulta	5		N		1	0000000125
+0000004900	d_colegiados_t_alta_consulta	1		RI		2	0000000125
+0000004901	d_colegiados_t_alta_consulta	2		Reingreso		2	0000000125
+0000004902	d_colegiados_t_alta_consulta	3		S		2	0000000125
+0000004903	d_colegiados_t_alta_consulta	4		S		2	0000000125
+0000004904	d_colegiados_t_alta_consulta	5		N		2	0000000125
+0000004905	d_colegiados_t_alta_consulta	1		OC		3	0000000125
+0000004906	d_colegiados_t_alta_consulta	2		Otro Colegio		3	0000000125
+0000004907	d_colegiados_t_alta_consulta	3		S		3	0000000125
+0000004908	d_colegiados_t_alta_consulta	4		S		3	0000000125
+0000004909	d_colegiados_t_alta_consulta	5		N		3	0000000125
+0000004910	d_colegiados_t_baja_consulta	1		J		1	0000000125
+0000004911	d_colegiados_t_baja_consulta	2		Jubilado		1	0000000125
+0000004912	d_colegiados_t_baja_consulta	4		N		1	0000000125
+0000004913	d_colegiados_t_baja_consulta	5		S		1	0000000125
+0000004914	d_colegiados_t_baja_consulta	1		FA		2	0000000125
+0000004915	d_colegiados_t_baja_consulta	2		Fallecido		2	0000000125
+0000004916	d_colegiados_t_baja_consulta	4		N		2	0000000125
+0000004917	d_colegiados_t_baja_consulta	5		S		2	0000000125
+0000004918	d_colegiados_t_baja_consulta	1		BV		3	0000000125
+0000004919	d_colegiados_t_baja_consulta	2		Baja voluntaria		3	0000000125
+0000004920	d_colegiados_t_baja_consulta	4		N		3	0000000125
+0000004921	d_colegiados_t_baja_consulta	5		S		3	0000000125
+0000004922	d_colegiados_t_baja_consulta	1		AR		4	0000000125
+0000004923	d_colegiados_t_baja_consulta	2		.		4	0000000125
+0000004924	d_colegiados_t_baja_consulta	4		N		4	0000000125
+0000004925	d_colegiados_t_baja_consulta	5		S		4	0000000125
+0000004926	d_colegiados_consulta_opciones	1		S		1	0000000125
+0000004927	d_colegiados_consulta_opciones	1		%		1	0000000125
+0000004928	d_colegiados_consulta_opciones	1		%		1	0000000125
+0000004929	d_colegiados_consulta_agrupaciones	1		01		1	0000000125
+0000004930	d_colegiados_consulta_agrupaciones	2		PERITOS		1	0000000125
+0000004931	d_colegiados_consulta_agrupaciones	1		02		2	0000000125
+0000004932	d_colegiados_consulta_agrupaciones	2		TASADORES		2	0000000125
+0000004933	d_colegiados_consulta_agrupaciones	1		03		3	0000000125
+0000004934	d_colegiados_consulta_agrupaciones	2		PAISAJISTAS		3	0000000125
+0000004935	d_colegiados_consulta_agrupaciones	1		04		4	0000000125
+0000004936	d_colegiados_consulta_agrupaciones	2		APAREJADORES		4	0000000125
+0000004937	d_colegiados_consulta_sit_profesional	1		01		1	0000000125
+0000004938	d_colegiados_consulta_sit_profesional	2		LIBRE		1	0000000125
+0000004939	d_colegiados_consulta_sit_profesional	1		02		2	0000000125
+0000004940	d_colegiados_consulta_sit_profesional	2		ASALARIADO		2	0000000125
+0000004941	d_colegiados_consulta_sit_profesional	1		03		3	0000000125
+0000004942	d_colegiados_consulta_sit_profesional	2		FUNCIONARIO		3	0000000125
+0000004943	d_colegiados_consulta_sit_profesional	1		04		4	0000000125
+0000004944	d_colegiados_consulta_sit_profesional	2		ACREDITADO		4	0000000125
+0000004945	d_colegiados_consulta_incompatibilidades	1		1		1	0000000125
+0000004946	d_colegiados_consulta_incompatibilidades	2		NACIONAL		1	0000000125
+0000004947	d_colegiados_consulta_incompatibilidades	1		2		2	0000000125
+0000004948	d_colegiados_consulta_incompatibilidades	2		LOCAL		2	0000000125
+0000004949	d_colegiados_consulta_incompatibilidades	1		3		3	0000000125
+0000004950	d_colegiados_consulta_incompatibilidades	2		¡ ¡ PUEDE VISAR ¡ ¡		3	0000000125
+0000004951	d_colegiados_consulta_opciones	1		%		1	0000000125
+0000004952	d_colegiados_consulta_opciones	1		%		1	0000000125
+0000004953	d_colegiados_consulta_opciones	1		%		1	0000000125
+0000004954	d_colegiados_consulta_datos_agrupacion	3		%		1	0000000125
+0000004955	d_colegiados_consulta_residente	1		RE		1	0000000125
+0000004956	d_colegiados_consulta_residente	2		Residente		1	0000000125
+0000004957	d_colegiados_consulta_residente	3		S		1	0000000125
+0000004958	d_colegiados_consulta_residente	1		NR		2	0000000125
+0000004959	d_colegiados_consulta_residente	2		No Residente		2	0000000125
+0000004960	d_colegiados_consulta_residente	1		H		3	0000000125
+0000004961	d_colegiados_consulta_residente	2		Acreditados		3	0000000125
+0000004962	d_colegiados_consulta_residente	1		CL		4	0000000125
+0000004963	d_colegiados_consulta_residente	2		Clientes		4	0000000125
+0000004964	d_colegiados_consulta_opciones	1		S		1	0000000125
+0000004965	d_colegiados_consulta_orientaciones	1		01		1	0000000125
+0000004966	d_colegiados_consulta_orientaciones	2		Rehabilitaciones		1	0000000125
+0000004967	d_colegiados_consulta_orientaciones	1		02		2	0000000125
+0000004968	d_colegiados_consulta_orientaciones	2		Obra Nueva		2	0000000125
+0000004969	d_colegiados_consulta_orientaciones	1		03		3	0000000125
+0000004970	d_colegiados_consulta_orientaciones	2		Diseños Modernistas		3	0000000125
+0000004971	d_colegiados_consulta_opciones	1		%		1	0000000125
+0000004972	d_colegiados_consulta_otros_datos	1		03		1	0000000125
+0000004973	d_colegiados_consulta_otros_datos	2		D		1	0000000125
+0000004974	d_colegiados_consulta_otros_datos	3		C		1	0000000125
+0000004975	d_colegiados_consulta_otros_datos	4		01		1	0000000125
+0000004976	d_colegiados_consulta_otros_datos	5		FECHA NAC		1	0000000125
+0000004977	d_colegiados_consulta_otros_datos	9		%		1	0000000125
+0000004978	d_colegiados_consulta_otros_datos	1		01		2	0000000125
+0000004979	d_colegiados_consulta_otros_datos	2		N		2	0000000125
+0000004980	d_colegiados_consulta_otros_datos	3		C		2	0000000125
+0000004981	d_colegiados_consulta_otros_datos	4		01		2	0000000125
+0000004982	d_colegiados_consulta_otros_datos	5		EDAD		2	0000000125
+0000004983	d_colegiados_consulta_otros_datos	9		%		2	0000000125
+0000004984	d_colegiados_consulta_otros_datos	1		04		3	0000000125
+0000004985	d_colegiados_consulta_otros_datos	2		S		3	0000000125
+0000004986	d_colegiados_consulta_otros_datos	3		C		3	0000000125
+0000004987	d_colegiados_consulta_otros_datos	4		02		3	0000000125
+0000004988	d_colegiados_consulta_otros_datos	5		EDO. CIVIL		3	0000000125
+0000004989	d_colegiados_consulta_otros_datos	9		%		3	0000000125
+0000004990	d_colegiados_consulta_otros_datos	1		05		4	0000000125
+0000004991	d_colegiados_consulta_otros_datos	2		S		4	0000000125
+0000004992	d_colegiados_consulta_otros_datos	3		C		4	0000000125
+0000004993	d_colegiados_consulta_otros_datos	5		Habilitacion		4	0000000125
+0000004994	d_colegiados_consulta_otros_datos	9		%		4	0000000125
+0000004995	d_colegiados_consulta_musaat	11		%		1	0000000125
+0000004996	d_colegiados_consulta_musaat	12		%		1	0000000125
+0000004997	d_colegiados_consulta_musaat	13		%		1	0000000125
+0000004998	d_colegiados_consulta_premaat	6		%		1	0000000125
+0000004999	d_colegiados_consulta_premaat	7		%		1	0000000125
+0000005000	d_colegiados_consulta_premaat	8		%		1	0000000125
+0000005025	d_colegiados_consulta	1		%		1	0000000126
+0000005026	d_colegiados_consulta	6		%		1	0000000126
+0000005027	d_colegiados_consulta	25		%		1	0000000126
+0000005028	d_colegiados_consulta	26		%		1	0000000126
+0000005029	d_colegiados_consulta	27		%		1	0000000126
+0000005030	d_colegiados_consulta	28		%		1	0000000126
+0000005031	d_colegiados_consulta	30		%		1	0000000126
+0000005032	d_colegiados_consulta	31		%		1	0000000126
+0000005033	d_colegiados_consulta	37		I		1	0000000126
+0000005034	d_colegiados_consulta	38		%		1	0000000126
+0000005035	d_colegiados_consulta	39		%		1	0000000126
+0000005036	d_colegiados_consulta	40		%		1	0000000126
+0000005037	d_colegiados_consulta_datos_personales	5		P		1	0000000126
+0000005038	d_colegiados_consulta_datos_personales	9		M		1	0000000126
+0000005039	d_colegiados_consulta_datos_personales	15		0		1	0000000126
+0000005040	d_colegiados_consulta_datos_personales	16		4000		1	0000000126
+0000005041	d_colegiados_consulta_datos_personales	17		%		1	0000000126
+0000005042	d_colegiados_consulta_datos_personales	18		I		1	0000000126
+0000005043	d_colegiados_consulta_otros_servicios	1		%		1	0000000126
+0000005044	d_colegiados_consulta_otros_servicios	2		%		1	0000000126
+0000005045	d_colegiados_consulta_otros_servicios	3		%		1	0000000126
+0000005046	d_colegiados_consulta_otros_servicios	4		%		1	0000000126
+0000005047	d_colegiados_consulta_otros_servicios	5		%		1	0000000126
+0000005048	d_colegiados_consulta_otros_servicios	6		%		1	0000000126
+0000005049	d_colegiados_consulta_otros_servicios	7		%		1	0000000126
+0000005050	d_colegiados_consulta_otros_servicios	8		%		1	0000000126
+0000005051	d_colegiados_consulta_alta	1		S		1	0000000126
+0000005052	d_colegiados_situaciones_consulta	1		A		1	0000000126
+0000005053	d_colegiados_situaciones_consulta	2		Asalariado		1	0000000126
+0000005054	d_colegiados_situaciones_consulta	3		S		1	0000000126
+0000005055	d_colegiados_situaciones_consulta	4		S		1	0000000126
+0000005056	d_colegiados_situaciones_consulta	1		0		2	0000000126
+0000005057	d_colegiados_situaciones_consulta	2		Valor 0 en antiguo		2	0000000126
+0000005058	d_colegiados_situaciones_consulta	4		S		2	0000000126
+0000005059	d_colegiados_situaciones_consulta	1		F		3	0000000126
+0000005060	d_colegiados_situaciones_consulta	2		Funcionario		3	0000000126
+0000005061	d_colegiados_situaciones_consulta	3		S		3	0000000126
+0000005062	d_colegiados_situaciones_consulta	4		S		3	0000000126
+0000005063	d_colegiados_situaciones_consulta	1		J		4	0000000126
+0000005064	d_colegiados_situaciones_consulta	2		Jubilado		4	0000000126
+0000005065	d_colegiados_situaciones_consulta	4		S		4	0000000126
+0000005066	d_colegiados_situaciones_consulta	1		L		5	0000000126
+0000005067	d_colegiados_situaciones_consulta	2		Libre		5	0000000126
+0000005068	d_colegiados_situaciones_consulta	3		S		5	0000000126
+0000005069	d_colegiados_situaciones_consulta	4		S		5	0000000126
+0000005070	d_colegiados_situaciones_consulta	1		FA		6	0000000126
+0000005071	d_colegiados_situaciones_consulta	2		Fallecido		6	0000000126
+0000005072	d_colegiados_situaciones_consulta	4		S		6	0000000126
+0000005073	d_colegiados_situaciones_consulta	1		BV		7	0000000126
+0000005074	d_colegiados_situaciones_consulta	2		Baja voluntaria		7	0000000126
+0000005075	d_colegiados_situaciones_consulta	4		S		7	0000000126
+0000005076	d_colegiados_situaciones_consulta	1		AR		8	0000000126
+0000005077	d_colegiados_situaciones_consulta	2		.		8	0000000126
+0000005078	d_colegiados_situaciones_consulta	4		S		8	0000000126
+0000005079	d_colegiados_t_alta_consulta	1		NI		1	0000000126
+0000005080	d_colegiados_t_alta_consulta	2		Nuevo Ingreso		1	0000000126
+0000005081	d_colegiados_t_alta_consulta	3		S		1	0000000126
+0000005082	d_colegiados_t_alta_consulta	4		S		1	0000000126
+0000005083	d_colegiados_t_alta_consulta	5		N		1	0000000126
+0000005084	d_colegiados_t_alta_consulta	1		RI		2	0000000126
+0000005085	d_colegiados_t_alta_consulta	2		Reingreso		2	0000000126
+0000005086	d_colegiados_t_alta_consulta	3		S		2	0000000126
+0000005087	d_colegiados_t_alta_consulta	4		S		2	0000000126
+0000005088	d_colegiados_t_alta_consulta	5		N		2	0000000126
+0000005089	d_colegiados_t_alta_consulta	1		OC		3	0000000126
+0000005090	d_colegiados_t_alta_consulta	2		Otro Colegio		3	0000000126
+0000005091	d_colegiados_t_alta_consulta	3		S		3	0000000126
+0000005092	d_colegiados_t_alta_consulta	4		S		3	0000000126
+0000005093	d_colegiados_t_alta_consulta	5		N		3	0000000126
+0000005094	d_colegiados_t_baja_consulta	1		J		1	0000000126
+0000005095	d_colegiados_t_baja_consulta	2		Jubilado		1	0000000126
+0000005096	d_colegiados_t_baja_consulta	4		N		1	0000000126
+0000005097	d_colegiados_t_baja_consulta	5		S		1	0000000126
+0000005098	d_colegiados_t_baja_consulta	1		FA		2	0000000126
+0000005099	d_colegiados_t_baja_consulta	2		Fallecido		2	0000000126
+0000005100	d_colegiados_t_baja_consulta	4		N		2	0000000126
+0000005101	d_colegiados_t_baja_consulta	5		S		2	0000000126
+0000005102	d_colegiados_t_baja_consulta	1		BV		3	0000000126
+0000005103	d_colegiados_t_baja_consulta	2		Baja voluntaria		3	0000000126
+0000005104	d_colegiados_t_baja_consulta	4		N		3	0000000126
+0000005105	d_colegiados_t_baja_consulta	5		S		3	0000000126
+0000005106	d_colegiados_t_baja_consulta	1		AR		4	0000000126
+0000005107	d_colegiados_t_baja_consulta	2		.		4	0000000126
+0000005108	d_colegiados_t_baja_consulta	4		N		4	0000000126
+0000005109	d_colegiados_t_baja_consulta	5		S		4	0000000126
+0000005110	d_colegiados_consulta_opciones	1		S		1	0000000126
+0000005111	d_colegiados_consulta_opciones	1		%		1	0000000126
+0000005112	d_colegiados_consulta_opciones	1		%		1	0000000126
+0000005113	d_colegiados_consulta_agrupaciones	1		01		1	0000000126
+0000005114	d_colegiados_consulta_agrupaciones	2		PERITOS		1	0000000126
+0000005115	d_colegiados_consulta_agrupaciones	1		02		2	0000000126
+0000005116	d_colegiados_consulta_agrupaciones	2		TASADORES		2	0000000126
+0000005117	d_colegiados_consulta_agrupaciones	1		03		3	0000000126
+0000005118	d_colegiados_consulta_agrupaciones	2		PAISAJISTAS		3	0000000126
+0000005119	d_colegiados_consulta_agrupaciones	1		04		4	0000000126
+0000005120	d_colegiados_consulta_agrupaciones	2		APAREJADORES		4	0000000126
+0000005121	d_colegiados_consulta_sit_profesional	1		01		1	0000000126
+0000005122	d_colegiados_consulta_sit_profesional	2		LIBRE		1	0000000126
+0000005123	d_colegiados_consulta_sit_profesional	1		02		2	0000000126
+0000005124	d_colegiados_consulta_sit_profesional	2		ASALARIADO		2	0000000126
+0000005125	d_colegiados_consulta_sit_profesional	1		03		3	0000000126
+0000005126	d_colegiados_consulta_sit_profesional	2		FUNCIONARIO		3	0000000126
+0000005127	d_colegiados_consulta_sit_profesional	1		04		4	0000000126
+0000005128	d_colegiados_consulta_sit_profesional	2		ACREDITADO		4	0000000126
+0000005129	d_colegiados_consulta_incompatibilidades	1		1		1	0000000126
+0000005130	d_colegiados_consulta_incompatibilidades	2		NACIONAL		1	0000000126
+0000005131	d_colegiados_consulta_incompatibilidades	1		2		2	0000000126
+0000005132	d_colegiados_consulta_incompatibilidades	2		LOCAL		2	0000000126
+0000005133	d_colegiados_consulta_incompatibilidades	1		3		3	0000000126
+0000005134	d_colegiados_consulta_incompatibilidades	2		¡ ¡ PUEDE VISAR ¡ ¡		3	0000000126
+0000005135	d_colegiados_consulta_opciones	1		%		1	0000000126
+0000005136	d_colegiados_consulta_opciones	1		%		1	0000000126
+0000005137	d_colegiados_consulta_opciones	1		%		1	0000000126
+0000005138	d_colegiados_consulta_datos_agrupacion	3		%		1	0000000126
+0000005139	d_colegiados_consulta_residente	1		RE		1	0000000126
+0000005140	d_colegiados_consulta_residente	2		Residente		1	0000000126
+0000005141	d_colegiados_consulta_residente	3		S		1	0000000126
+0000005142	d_colegiados_consulta_residente	1		NR		2	0000000126
+0000005143	d_colegiados_consulta_residente	2		No Residente		2	0000000126
+0000005144	d_colegiados_consulta_residente	1		H		3	0000000126
+0000005145	d_colegiados_consulta_residente	2		Acreditados		3	0000000126
+0000005146	d_colegiados_consulta_residente	1		CL		4	0000000126
+0000005147	d_colegiados_consulta_residente	2		Clientes		4	0000000126
+0000005148	d_colegiados_consulta_opciones	1		S		1	0000000126
+0000005149	d_colegiados_consulta_orientaciones	1		01		1	0000000126
+0000005150	d_colegiados_consulta_orientaciones	2		Rehabilitaciones		1	0000000126
+0000005151	d_colegiados_consulta_orientaciones	1		02		2	0000000126
+0000005152	d_colegiados_consulta_orientaciones	2		Obra Nueva		2	0000000126
+0000005153	d_colegiados_consulta_orientaciones	1		03		3	0000000126
+0000005154	d_colegiados_consulta_orientaciones	2		Diseños Modernistas		3	0000000126
+0000005155	d_colegiados_consulta_opciones	1		%		1	0000000126
+0000005156	d_colegiados_consulta_otros_datos	1		03		1	0000000126
+0000005157	d_colegiados_consulta_otros_datos	2		D		1	0000000126
+0000005158	d_colegiados_consulta_otros_datos	3		C		1	0000000126
+0000005159	d_colegiados_consulta_otros_datos	4		01		1	0000000126
+0000005160	d_colegiados_consulta_otros_datos	5		FECHA NAC		1	0000000126
+0000005161	d_colegiados_consulta_otros_datos	9		%		1	0000000126
+0000005162	d_colegiados_consulta_otros_datos	1		01		2	0000000126
+0000005163	d_colegiados_consulta_otros_datos	2		N		2	0000000126
+0000005164	d_colegiados_consulta_otros_datos	3		C		2	0000000126
+0000005165	d_colegiados_consulta_otros_datos	4		01		2	0000000126
+0000005166	d_colegiados_consulta_otros_datos	5		EDAD		2	0000000126
+0000005167	d_colegiados_consulta_otros_datos	9		%		2	0000000126
+0000005168	d_colegiados_consulta_otros_datos	1		04		3	0000000126
+0000005169	d_colegiados_consulta_otros_datos	2		S		3	0000000126
+0000005170	d_colegiados_consulta_otros_datos	3		C		3	0000000126
+0000005171	d_colegiados_consulta_otros_datos	4		02		3	0000000126
+0000005172	d_colegiados_consulta_otros_datos	5		EDO. CIVIL		3	0000000126
+0000005173	d_colegiados_consulta_otros_datos	9		%		3	0000000126
+0000005174	d_colegiados_consulta_otros_datos	1		05		4	0000000126
+0000005175	d_colegiados_consulta_otros_datos	2		S		4	0000000126
+0000005176	d_colegiados_consulta_otros_datos	3		C		4	0000000126
+0000005177	d_colegiados_consulta_otros_datos	5		Habilitacion		4	0000000126
+0000005178	d_colegiados_consulta_otros_datos	9		%		4	0000000126
+0000005179	d_colegiados_consulta_musaat	11		%		1	0000000126
+0000005180	d_colegiados_consulta_musaat	12		%		1	0000000126
+0000005181	d_colegiados_consulta_musaat	13		%		1	0000000126
+0000005182	d_colegiados_consulta_premaat	6		%		1	0000000126
+0000005183	d_colegiados_consulta_premaat	7		%		1	0000000126
+0000005184	d_colegiados_consulta_premaat	8		%		1	0000000126
+0000005209	d_colegiados_consulta	1		%		1	0000000127
+0000005210	d_colegiados_consulta	6		%		1	0000000127
+0000005211	d_colegiados_consulta	25		%		1	0000000127
+0000005212	d_colegiados_consulta	26		%		1	0000000127
+0000005213	d_colegiados_consulta	27		%		1	0000000127
+0000005214	d_colegiados_consulta	28		%		1	0000000127
+0000005215	d_colegiados_consulta	30		%		1	0000000127
+0000005216	d_colegiados_consulta	31		%		1	0000000127
+0000005217	d_colegiados_consulta	37		I		1	0000000127
+0000005218	d_colegiados_consulta	38		%		1	0000000127
+0000005219	d_colegiados_consulta	39		%		1	0000000127
+0000005220	d_colegiados_consulta	40		%		1	0000000127
+0000005221	d_colegiados_consulta_datos_personales	5		P		1	0000000127
+0000005222	d_colegiados_consulta_datos_personales	9		C		1	0000000127
+0000005223	d_colegiados_consulta_datos_personales	15		0		1	0000000127
+0000005224	d_colegiados_consulta_datos_personales	16		4000		1	0000000127
+0000005225	d_colegiados_consulta_datos_personales	17		%		1	0000000127
+0000005226	d_colegiados_consulta_datos_personales	18		I		1	0000000127
+0000005227	d_colegiados_consulta_otros_servicios	1		%		1	0000000127
+0000005228	d_colegiados_consulta_otros_servicios	2		%		1	0000000127
+0000005229	d_colegiados_consulta_otros_servicios	3		%		1	0000000127
+0000005230	d_colegiados_consulta_otros_servicios	4		%		1	0000000127
+0000005231	d_colegiados_consulta_otros_servicios	5		%		1	0000000127
+0000005232	d_colegiados_consulta_otros_servicios	6		%		1	0000000127
+0000005233	d_colegiados_consulta_otros_servicios	7		%		1	0000000127
+0000005234	d_colegiados_consulta_otros_servicios	8		%		1	0000000127
+0000005235	d_colegiados_consulta_alta	1		S		1	0000000127
+0000005236	d_colegiados_situaciones_consulta	1		A		1	0000000127
+0000005237	d_colegiados_situaciones_consulta	2		Asalariado		1	0000000127
+0000005238	d_colegiados_situaciones_consulta	3		S		1	0000000127
+0000005239	d_colegiados_situaciones_consulta	4		S		1	0000000127
+0000005240	d_colegiados_situaciones_consulta	1		0		2	0000000127
+0000005241	d_colegiados_situaciones_consulta	2		Valor 0 en antiguo		2	0000000127
+0000005242	d_colegiados_situaciones_consulta	4		S		2	0000000127
+0000005243	d_colegiados_situaciones_consulta	1		F		3	0000000127
+0000005244	d_colegiados_situaciones_consulta	2		Funcionario		3	0000000127
+0000005245	d_colegiados_situaciones_consulta	3		S		3	0000000127
+0000005246	d_colegiados_situaciones_consulta	4		S		3	0000000127
+0000005247	d_colegiados_situaciones_consulta	1		J		4	0000000127
+0000005248	d_colegiados_situaciones_consulta	2		Jubilado		4	0000000127
+0000005249	d_colegiados_situaciones_consulta	4		S		4	0000000127
+0000005250	d_colegiados_situaciones_consulta	1		L		5	0000000127
+0000005251	d_colegiados_situaciones_consulta	2		Libre		5	0000000127
+0000005252	d_colegiados_situaciones_consulta	3		S		5	0000000127
+0000005253	d_colegiados_situaciones_consulta	4		S		5	0000000127
+0000005254	d_colegiados_situaciones_consulta	1		FA		6	0000000127
+0000005255	d_colegiados_situaciones_consulta	2		Fallecido		6	0000000127
+0000005256	d_colegiados_situaciones_consulta	4		S		6	0000000127
+0000005257	d_colegiados_situaciones_consulta	1		BV		7	0000000127
+0000005258	d_colegiados_situaciones_consulta	2		Baja voluntaria		7	0000000127
+0000005259	d_colegiados_situaciones_consulta	4		S		7	0000000127
+0000005260	d_colegiados_situaciones_consulta	1		AR		8	0000000127
+0000005261	d_colegiados_situaciones_consulta	2		.		8	0000000127
+0000005262	d_colegiados_situaciones_consulta	4		S		8	0000000127
+0000005263	d_colegiados_t_alta_consulta	1		NI		1	0000000127
+0000005264	d_colegiados_t_alta_consulta	2		Nuevo Ingreso		1	0000000127
+0000005265	d_colegiados_t_alta_consulta	3		S		1	0000000127
+0000005266	d_colegiados_t_alta_consulta	4		S		1	0000000127
+0000005267	d_colegiados_t_alta_consulta	5		N		1	0000000127
+0000005268	d_colegiados_t_alta_consulta	1		RI		2	0000000127
+0000005269	d_colegiados_t_alta_consulta	2		Reingreso		2	0000000127
+0000005270	d_colegiados_t_alta_consulta	3		S		2	0000000127
+0000005271	d_colegiados_t_alta_consulta	4		S		2	0000000127
+0000005272	d_colegiados_t_alta_consulta	5		N		2	0000000127
+0000005273	d_colegiados_t_alta_consulta	1		OC		3	0000000127
+0000005274	d_colegiados_t_alta_consulta	2		Otro Colegio		3	0000000127
+0000005275	d_colegiados_t_alta_consulta	3		S		3	0000000127
+0000005276	d_colegiados_t_alta_consulta	4		S		3	0000000127
+0000005277	d_colegiados_t_alta_consulta	5		N		3	0000000127
+0000005278	d_colegiados_t_baja_consulta	1		J		1	0000000127
+0000005279	d_colegiados_t_baja_consulta	2		Jubilado		1	0000000127
+0000005280	d_colegiados_t_baja_consulta	4		N		1	0000000127
+0000005281	d_colegiados_t_baja_consulta	5		S		1	0000000127
+0000005282	d_colegiados_t_baja_consulta	1		FA		2	0000000127
+0000005283	d_colegiados_t_baja_consulta	2		Fallecido		2	0000000127
+0000005284	d_colegiados_t_baja_consulta	4		N		2	0000000127
+0000005285	d_colegiados_t_baja_consulta	5		S		2	0000000127
+0000005286	d_colegiados_t_baja_consulta	1		BV		3	0000000127
+0000005287	d_colegiados_t_baja_consulta	2		Baja voluntaria		3	0000000127
+0000005288	d_colegiados_t_baja_consulta	4		N		3	0000000127
+0000005289	d_colegiados_t_baja_consulta	5		S		3	0000000127
+0000005290	d_colegiados_t_baja_consulta	1		AR		4	0000000127
+0000005291	d_colegiados_t_baja_consulta	2		.		4	0000000127
+0000005292	d_colegiados_t_baja_consulta	4		N		4	0000000127
+0000005293	d_colegiados_t_baja_consulta	5		S		4	0000000127
+0000005294	d_colegiados_consulta_opciones	1		S		1	0000000127
+0000005295	d_colegiados_consulta_opciones	1		%		1	0000000127
+0000005296	d_colegiados_consulta_opciones	1		%		1	0000000127
+0000005297	d_colegiados_consulta_agrupaciones	1		01		1	0000000127
+0000005298	d_colegiados_consulta_agrupaciones	2		PERITOS		1	0000000127
+0000005299	d_colegiados_consulta_agrupaciones	1		02		2	0000000127
+0000005300	d_colegiados_consulta_agrupaciones	2		TASADORES		2	0000000127
+0000005301	d_colegiados_consulta_agrupaciones	1		03		3	0000000127
+0000005302	d_colegiados_consulta_agrupaciones	2		PAISAJISTAS		3	0000000127
+0000005303	d_colegiados_consulta_agrupaciones	1		04		4	0000000127
+0000005304	d_colegiados_consulta_agrupaciones	2		APAREJADORES		4	0000000127
+0000005305	d_colegiados_consulta_sit_profesional	1		01		1	0000000127
+0000005306	d_colegiados_consulta_sit_profesional	2		LIBRE		1	0000000127
+0000005307	d_colegiados_consulta_sit_profesional	1		02		2	0000000127
+0000005308	d_colegiados_consulta_sit_profesional	2		ASALARIADO		2	0000000127
+0000005309	d_colegiados_consulta_sit_profesional	1		03		3	0000000127
+0000005310	d_colegiados_consulta_sit_profesional	2		FUNCIONARIO		3	0000000127
+0000005311	d_colegiados_consulta_sit_profesional	1		04		4	0000000127
+0000005312	d_colegiados_consulta_sit_profesional	2		ACREDITADO		4	0000000127
+0000005313	d_colegiados_consulta_incompatibilidades	1		1		1	0000000127
+0000005314	d_colegiados_consulta_incompatibilidades	2		NACIONAL		1	0000000127
+0000005315	d_colegiados_consulta_incompatibilidades	1		2		2	0000000127
+0000005316	d_colegiados_consulta_incompatibilidades	2		LOCAL		2	0000000127
+0000005317	d_colegiados_consulta_incompatibilidades	1		3		3	0000000127
+0000005318	d_colegiados_consulta_incompatibilidades	2		¡ ¡ PUEDE VISAR ¡ ¡		3	0000000127
+0000005319	d_colegiados_consulta_opciones	1		%		1	0000000127
+0000005320	d_colegiados_consulta_opciones	1		%		1	0000000127
+0000005321	d_colegiados_consulta_opciones	1		%		1	0000000127
+0000005322	d_colegiados_consulta_datos_agrupacion	3		%		1	0000000127
+0000005323	d_colegiados_consulta_residente	1		RE		1	0000000127
+0000005324	d_colegiados_consulta_residente	2		Residente		1	0000000127
+0000005325	d_colegiados_consulta_residente	3		S		1	0000000127
+0000005326	d_colegiados_consulta_residente	1		NR		2	0000000127
+0000005327	d_colegiados_consulta_residente	2		No Residente		2	0000000127
+0000005328	d_colegiados_consulta_residente	1		H		3	0000000127
+0000005329	d_colegiados_consulta_residente	2		Acreditados		3	0000000127
+0000005330	d_colegiados_consulta_residente	1		CL		4	0000000127
+0000005331	d_colegiados_consulta_residente	2		Clientes		4	0000000127
+0000005332	d_colegiados_consulta_opciones	1		S		1	0000000127
+0000005333	d_colegiados_consulta_orientaciones	1		01		1	0000000127
+0000005334	d_colegiados_consulta_orientaciones	2		Rehabilitaciones		1	0000000127
+0000005335	d_colegiados_consulta_orientaciones	1		02		2	0000000127
+0000005336	d_colegiados_consulta_orientaciones	2		Obra Nueva		2	0000000127
+0000005337	d_colegiados_consulta_orientaciones	1		03		3	0000000127
+0000005338	d_colegiados_consulta_orientaciones	2		Diseños Modernistas		3	0000000127
+0000005339	d_colegiados_consulta_opciones	1		%		1	0000000127
+0000005340	d_colegiados_consulta_otros_datos	1		03		1	0000000127
+0000005341	d_colegiados_consulta_otros_datos	2		D		1	0000000127
+0000005342	d_colegiados_consulta_otros_datos	3		C		1	0000000127
+0000005343	d_colegiados_consulta_otros_datos	4		01		1	0000000127
+0000005344	d_colegiados_consulta_otros_datos	5		FECHA NAC		1	0000000127
+0000005345	d_colegiados_consulta_otros_datos	9		%		1	0000000127
+0000005346	d_colegiados_consulta_otros_datos	1		01		2	0000000127
+0000005347	d_colegiados_consulta_otros_datos	2		N		2	0000000127
+0000005348	d_colegiados_consulta_otros_datos	3		C		2	0000000127
+0000005349	d_colegiados_consulta_otros_datos	4		01		2	0000000127
+0000005350	d_colegiados_consulta_otros_datos	5		EDAD		2	0000000127
+0000005351	d_colegiados_consulta_otros_datos	9		%		2	0000000127
+0000005352	d_colegiados_consulta_otros_datos	1		04		3	0000000127
+0000005353	d_colegiados_consulta_otros_datos	2		S		3	0000000127
+0000005354	d_colegiados_consulta_otros_datos	3		C		3	0000000127
+0000005355	d_colegiados_consulta_otros_datos	4		02		3	0000000127
+0000005356	d_colegiados_consulta_otros_datos	5		EDO. CIVIL		3	0000000127
+0000005357	d_colegiados_consulta_otros_datos	9		%		3	0000000127
+0000005358	d_colegiados_consulta_otros_datos	1		05		4	0000000127
+0000005359	d_colegiados_consulta_otros_datos	2		S		4	0000000127
+0000005360	d_colegiados_consulta_otros_datos	3		C		4	0000000127
+0000005361	d_colegiados_consulta_otros_datos	5		Habilitacion		4	0000000127
+0000005362	d_colegiados_consulta_otros_datos	9		%		4	0000000127
+0000005363	d_colegiados_consulta_musaat	11		%		1	0000000127
+0000005364	d_colegiados_consulta_musaat	12		%		1	0000000127
+0000005365	d_colegiados_consulta_musaat	13		%		1	0000000127
+0000005366	d_colegiados_consulta_premaat	6		%		1	0000000127
+0000005367	d_colegiados_consulta_premaat	7		%		1	0000000127
+0000005368	d_colegiados_consulta_premaat	8		%		1	0000000127
+D000000001	dw_fact	1		S		1	0000000007
+0000006110	dw_1	1		%		1	0000000130
+0000006111	dw_1	6		%		1	0000000130
+0000006112	dw_1	25		%		1	0000000130
+0000006113	dw_1	26		%		1	0000000130
+0000006114	dw_1	27		%		1	0000000130
+0000006115	dw_1	28		%		1	0000000130
+0000006116	dw_1	30		%		1	0000000130
+0000006117	dw_1	31		%		1	0000000130
+0000006118	dw_1	37		I		1	0000000130
+0000006119	dw_1	38		%		1	0000000130
+0000006120	dw_1	39		%		1	0000000130
+0000006121	dw_1	40		%		1	0000000130
+0000006122	dw_datos_personales	5		%		1	0000000130
+0000006123	dw_datos_personales	15		0001		1	0000000130
+0000006124	dw_datos_personales	16		4999		1	0000000130
+0000006125	dw_datos_personales	17		%		1	0000000130
+0000006126	dw_datos_personales	18		I		1	0000000130
+0000006127	dw_servicios	1		%		1	0000000130
+0000006128	dw_servicios	2		%		1	0000000130
+0000006129	dw_servicios	3		%		1	0000000130
+0000006130	dw_servicios	4		%		1	0000000130
+0000006131	dw_servicios	5		%		1	0000000130
+0000006132	dw_servicios	6		%		1	0000000130
+0000006133	dw_servicios	7		%		1	0000000130
+0000006134	dw_servicios	8		%		1	0000000130
+0000006135	dw_alta_si_no	1		S		1	0000000130
+0000006136	dw_opcion_bajas	1		%		1	0000000130
+0000006137	dw_opcion_altas	1		%		1	0000000130
+0000006138	dw_opcion_situaciones	1		S		1	0000000130
+0000006139	dw_t_baja	1		J		1	0000000130
+0000006140	dw_t_baja	2		Jubilado		1	0000000130
+0000006141	dw_t_baja	4		N		1	0000000130
+0000006142	dw_t_baja	5		S		1	0000000130
+0000006143	dw_t_baja	1		FA		2	0000000130
+0000006144	dw_t_baja	2		Fallecido		2	0000000130
+0000006145	dw_t_baja	4		N		2	0000000130
+0000006146	dw_t_baja	5		S		2	0000000130
+0000006147	dw_t_baja	1		BV		3	0000000130
+0000006148	dw_t_baja	2		Baja voluntaria		3	0000000130
+0000006149	dw_t_baja	4		N		3	0000000130
+0000006150	dw_t_baja	5		S		3	0000000130
+0000006151	dw_t_baja	1		AR		4	0000000130
+0000006152	dw_t_baja	2		.		4	0000000130
+0000006153	dw_t_baja	4		N		4	0000000130
+0000006154	dw_t_baja	5		S		4	0000000130
+0000006155	dw_situaciones	1		A		1	0000000130
+0000006156	dw_situaciones	2		Asalariado		1	0000000130
+0000006157	dw_situaciones	3		S		1	0000000130
+0000006158	dw_situaciones	4		S		1	0000000130
+0000006159	dw_situaciones	1		0		2	0000000130
+0000006160	dw_situaciones	2		Valor 0 en antiguo		2	0000000130
+0000006161	dw_situaciones	4		S		2	0000000130
+0000006162	dw_situaciones	1		F		3	0000000130
+0000006163	dw_situaciones	2		Funcionario		3	0000000130
+0000006164	dw_situaciones	3		S		3	0000000130
+0000006165	dw_situaciones	4		S		3	0000000130
+0000006166	dw_situaciones	1		J		4	0000000130
+0000006167	dw_situaciones	2		Jubilado		4	0000000130
+0000006168	dw_situaciones	3		S		4	0000000130
+0000006169	dw_situaciones	4		S		4	0000000130
+0000006170	dw_situaciones	1		L		5	0000000130
+0000006171	dw_situaciones	2		Libre		5	0000000130
+0000006172	dw_situaciones	3		S		5	0000000130
+0000006173	dw_situaciones	4		S		5	0000000130
+0000006174	dw_situaciones	1		FA		6	0000000130
+0000006175	dw_situaciones	2		Fallecido		6	0000000130
+0000006176	dw_situaciones	4		S		6	0000000130
+0000006177	dw_situaciones	1		BV		7	0000000130
+0000006178	dw_situaciones	2		Baja voluntaria		7	0000000130
+0000006179	dw_situaciones	4		S		7	0000000130
+0000006180	dw_situaciones	1		AR		8	0000000130
+0000006181	dw_situaciones	2		.		8	0000000130
+0000006182	dw_situaciones	4		S		8	0000000130
+0000006183	dw_t_alta	1		NI		1	0000000130
+0000006184	dw_t_alta	2		Nuevo Ingreso		1	0000000130
+0000006185	dw_t_alta	3		S		1	0000000130
+0000006186	dw_t_alta	4		S		1	0000000130
+0000006187	dw_t_alta	5		N		1	0000000130
+0000006188	dw_t_alta	1		RI		2	0000000130
+0000006189	dw_t_alta	2		Reingreso		2	0000000130
+0000006190	dw_t_alta	3		S		2	0000000130
+0000006191	dw_t_alta	4		S		2	0000000130
+0000006192	dw_t_alta	5		N		2	0000000130
+0000006193	dw_t_alta	1		OC		3	0000000130
+0000006194	dw_t_alta	2		Otro Colegio		3	0000000130
+0000006195	dw_t_alta	3		S		3	0000000130
+0000006196	dw_t_alta	4		S		3	0000000130
+0000006197	dw_t_alta	5		N		3	0000000130
+0000006198	dw_datos_agrupacion	3		%		1	0000000130
+0000006199	dw_opcion_incomp	1		%		1	0000000130
+0000006200	dw_opcion_sit	1		%		1	0000000130
+0000006201	dw_opcion_agr	1		%		1	0000000130
+0000006202	dw_incompatibilidades	1		1		1	0000000130
+0000006203	dw_incompatibilidades	2		NACIONAL		1	0000000130
+0000006204	dw_incompatibilidades	1		2		2	0000000130
+0000006205	dw_incompatibilidades	2		LOCAL		2	0000000130
+0000006206	dw_incompatibilidades	1		3		3	0000000130
+0000006207	dw_incompatibilidades	2		¡ ¡ PUEDE VISAR ¡ ¡		3	0000000130
+0000006208	dw_sit_profesionales	1		01		1	0000000130
+0000006209	dw_sit_profesionales	2		LIBRE		1	0000000130
+0000006210	dw_sit_profesionales	1		02		2	0000000130
+0000006211	dw_sit_profesionales	2		ASALARIADO		2	0000000130
+0000006212	dw_sit_profesionales	1		03		3	0000000130
+0000006213	dw_sit_profesionales	2		FUNCIONARIO		3	0000000130
+0000006214	dw_sit_profesionales	1		04		4	0000000130
+0000006215	dw_sit_profesionales	2		ACREDITADO		4	0000000130
+0000006216	dw_agrupaciones	1		01		1	0000000130
+0000006217	dw_agrupaciones	2		PERITOS		1	0000000130
+0000006218	dw_agrupaciones	1		02		2	0000000130
+0000006219	dw_agrupaciones	2		TASADORES		2	0000000130
+0000006220	dw_agrupaciones	1		03		3	0000000130
+0000006221	dw_agrupaciones	2		PAISAJISTAS		3	0000000130
+0000006222	dw_agrupaciones	1		04		4	0000000130
+0000006223	dw_agrupaciones	2		APAREJADORES		4	0000000130
+0000006224	dw_opcion_residente	1		S		1	0000000130
+0000006225	dw_residente	1		RE		1	0000000130
+0000006226	dw_residente	2		Residente		1	0000000130
+0000006227	dw_residente	3		S		1	0000000130
+0000006228	dw_residente	1		NR		2	0000000130
+0000006229	dw_residente	2		No Residente		2	0000000130
+0000006230	dw_residente	1		H		3	0000000130
+0000006231	dw_residente	2		Acreditados		3	0000000130
+0000006232	dw_residente	1		CL		4	0000000130
+0000006233	dw_residente	2		Clientes		4	0000000130
+0000006234	dw_opciones_orientaciones	1		%		1	0000000130
+0000006235	dw_consulta_orientaciones	1		01		1	0000000130
+0000006236	dw_consulta_orientaciones	2		Rehabilitaciones		1	0000000130
+0000006237	dw_consulta_orientaciones	1		02		2	0000000130
+0000006238	dw_consulta_orientaciones	2		Obra Nueva		2	0000000130
+0000006239	dw_consulta_orientaciones	1		03		3	0000000130
+0000006240	dw_consulta_orientaciones	2		Diseños Modernistas		3	0000000130
+0000006241	dw_otros_datos	1		03		1	0000000130
+0000006242	dw_otros_datos	2		D		1	0000000130
+0000006243	dw_otros_datos	3		C		1	0000000130
+0000006244	dw_otros_datos	4		01		1	0000000130
+0000006245	dw_otros_datos	5		FECHA NAC		1	0000000130
+0000006246	dw_otros_datos	9		%		1	0000000130
+0000006247	dw_otros_datos	1		01		2	0000000130
+0000006248	dw_otros_datos	2		N		2	0000000130
+0000006249	dw_otros_datos	3		C		2	0000000130
+0000006250	dw_otros_datos	4		01		2	0000000130
+0000006251	dw_otros_datos	5		EDAD		2	0000000130
+0000006252	dw_otros_datos	9		%		2	0000000130
+0000006253	dw_otros_datos	1		04		3	0000000130
+0000006254	dw_otros_datos	2		S		3	0000000130
+0000006255	dw_otros_datos	3		C		3	0000000130
+0000006256	dw_otros_datos	4		02		3	0000000130
+0000006257	dw_otros_datos	5		EDO. CIVIL		3	0000000130
+0000006258	dw_otros_datos	9		%		3	0000000130
+0000006259	dw_otros_datos	1		05		4	0000000130
+0000006260	dw_otros_datos	2		S		4	0000000130
+0000006261	dw_otros_datos	3		C		4	0000000130
+0000006262	dw_otros_datos	5		Habilitacion		4	0000000130
+0000006263	dw_otros_datos	9		%		4	0000000130
+0000006264	dw_datos_musaat	11		%		1	0000000130
+0000006265	dw_datos_musaat	12		%		1	0000000130
+0000006266	dw_datos_musaat	13		%		1	0000000130
+0000006267	dw_datos_premaat	6		%		1	0000000130
+0000006268	dw_datos_premaat	7		%		1	0000000130
+0000006269	dw_datos_premaat	8		%		1	0000000130
+MA00000001	dw_minutas_anula_parametrizacion	1		%		1	MA00000008
+MA00000002	dw_minutas_anula_parametrizacion	2		N		1	MA00000008
+MA00000003	dw_minutas_anula_parametrizacion	3		S		1	MA00000008
+AV00000001	dw_1	1		02		1	AV00000001
+RE00000001	dw_1	1		01		1	RE00000001
+0000006270	dw_1	1		%		1	0000000131
+0000006271	dw_1	6		%		1	0000000131
+0000006272	dw_1	25		%		1	0000000131
+0000006273	dw_1	26		%		1	0000000131
+0000006274	dw_1	27		%		1	0000000131
+0000006275	dw_1	28		%		1	0000000131
+0000006276	dw_1	30		%		1	0000000131
+0000006277	dw_1	31		%		1	0000000131
+0000006278	dw_1	37		I		1	0000000131
+0000006279	dw_1	38		%		1	0000000131
+0000006280	dw_1	39		%		1	0000000131
+0000006281	dw_1	40		%		1	0000000131
+0000006282	dw_datos_personales	5		%		1	0000000131
+0000006283	dw_datos_personales	17		%		1	0000000131
+0000006284	dw_datos_personales	18		I		1	0000000131
+0000006285	dw_servicios	1		%		1	0000000131
+0000006286	dw_servicios	2		%		1	0000000131
+0000006287	dw_servicios	3		%		1	0000000131
+0000006288	dw_servicios	4		%		1	0000000131
+0000006289	dw_servicios	5		%		1	0000000131
+0000006290	dw_servicios	6		%		1	0000000131
+0000006291	dw_servicios	7		%		1	0000000131
+0000006292	dw_servicios	8		%		1	0000000131
+0000006293	dw_alta_si_no	1		S		1	0000000131
+0000006294	dw_opcion_bajas	1		%		1	0000000131
+0000006295	dw_opcion_altas	1		%		1	0000000131
+0000006296	dw_opcion_situaciones	1		%		1	0000000131
+0000006297	dw_t_baja	1		J		1	0000000131
+0000006298	dw_t_baja	2		Jubilado		1	0000000131
+0000006299	dw_t_baja	4		N		1	0000000131
+0000006300	dw_t_baja	5		S		1	0000000131
+0000006301	dw_t_baja	1		FA		2	0000000131
+0000006302	dw_t_baja	2		Fallecido		2	0000000131
+0000006303	dw_t_baja	4		N		2	0000000131
+0000006304	dw_t_baja	5		S		2	0000000131
+0000006305	dw_t_baja	1		BV		3	0000000131
+0000006306	dw_t_baja	2		Baja voluntaria		3	0000000131
+0000006307	dw_t_baja	4		N		3	0000000131
+0000006308	dw_t_baja	5		S		3	0000000131
+0000006309	dw_t_baja	1		AR		4	0000000131
+0000006310	dw_t_baja	2		.		4	0000000131
+0000006311	dw_t_baja	4		N		4	0000000131
+0000006312	dw_t_baja	5		S		4	0000000131
+0000006313	dw_t_baja	1		B1		5	0000000131
+0000006314	dw_t_baja	2		Baja		5	0000000131
+0000006315	dw_t_baja	4		N		5	0000000131
+0000006316	dw_t_baja	5		S		5	0000000131
+0000006317	dw_situaciones	1		A		1	0000000131
+0000006318	dw_situaciones	2		Asalariado		1	0000000131
+0000006319	dw_situaciones	4		S		1	0000000131
+0000006320	dw_situaciones	1		0		2	0000000131
+0000006321	dw_situaciones	2		Valor 0 en antiguo		2	0000000131
+0000006322	dw_situaciones	4		S		2	0000000131
+0000006323	dw_situaciones	1		F		3	0000000131
+0000006324	dw_situaciones	2		Funcionario		3	0000000131
+0000006325	dw_situaciones	4		S		3	0000000131
+0000006326	dw_situaciones	1		J		4	0000000131
+0000006327	dw_situaciones	2		Jubilado		4	0000000131
+0000006328	dw_situaciones	4		S		4	0000000131
+0000006329	dw_situaciones	1		L		5	0000000131
+0000006330	dw_situaciones	2		Libre		5	0000000131
+0000006331	dw_situaciones	4		S		5	0000000131
+0000006332	dw_situaciones	1		FA		6	0000000131
+0000006333	dw_situaciones	2		Fallecido		6	0000000131
+0000006334	dw_situaciones	4		S		6	0000000131
+0000006335	dw_situaciones	1		BV		7	0000000131
+0000006336	dw_situaciones	2		Baja voluntaria		7	0000000131
+0000006337	dw_situaciones	4		S		7	0000000131
+0000006338	dw_situaciones	1		AR		8	0000000131
+0000006339	dw_situaciones	2		.		8	0000000131
+0000006340	dw_situaciones	4		S		8	0000000131
+0000006341	dw_t_alta	1		NI		1	0000000131
+0000006342	dw_t_alta	2		Nuevo Ingreso		1	0000000131
+0000006343	dw_t_alta	3		S		1	0000000131
+0000006344	dw_t_alta	4		S		1	0000000131
+0000006345	dw_t_alta	5		N		1	0000000131
+0000006346	dw_t_alta	1		RI		2	0000000131
+0000006347	dw_t_alta	2		Reingreso		2	0000000131
+0000006348	dw_t_alta	3		S		2	0000000131
+0000006349	dw_t_alta	4		S		2	0000000131
+0000006350	dw_t_alta	5		N		2	0000000131
+0000006351	dw_t_alta	1		OC		3	0000000131
+0000006352	dw_t_alta	2		Otro Colegio		3	0000000131
+0000006353	dw_t_alta	3		S		3	0000000131
+0000006354	dw_t_alta	4		S		3	0000000131
+0000006355	dw_t_alta	5		N		3	0000000131
+0000006356	dw_t_alta	1		A1		4	0000000131
+0000006357	dw_t_alta	2		Alta		4	0000000131
+0000006358	dw_t_alta	3		S		4	0000000131
+0000006359	dw_t_alta	4		S		4	0000000131
+0000006360	dw_t_alta	5		N		4	0000000131
+0000006361	dw_datos_agrupacion	3		%		1	0000000131
+0000006362	dw_opcion_incomp	1		%		1	0000000131
+0000006363	dw_opcion_sit	1		%		1	0000000131
+0000006364	dw_opcion_agr	1		%		1	0000000131
+0000006365	dw_incompatibilidades	1		1		1	0000000131
+0000006366	dw_incompatibilidades	2		NACIONAL		1	0000000131
+0000006367	dw_incompatibilidades	1		2		2	0000000131
+0000006368	dw_incompatibilidades	2		LOCAL		2	0000000131
+0000006369	dw_incompatibilidades	1		3		3	0000000131
+0000006370	dw_incompatibilidades	2		¡ ¡ PUEDE VISAR ¡ ¡		3	0000000131
+0000006371	dw_sit_profesionales	1		01		1	0000000131
+0000006372	dw_sit_profesionales	2		LIBRE		1	0000000131
+0000006373	dw_sit_profesionales	1		02		2	0000000131
+0000006374	dw_sit_profesionales	2		ASALARIADO		2	0000000131
+0000006375	dw_sit_profesionales	1		03		3	0000000131
+0000006376	dw_sit_profesionales	2		FUNCIONARIO		3	0000000131
+0000006377	dw_sit_profesionales	1		04		4	0000000131
+0000006378	dw_sit_profesionales	2		ACREDITADO		4	0000000131
+0000006379	dw_agrupaciones	1		01		1	0000000131
+0000006380	dw_agrupaciones	2		PERITOS		1	0000000131
+0000006381	dw_agrupaciones	1		02		2	0000000131
+0000006382	dw_agrupaciones	2		TASADORES		2	0000000131
+0000006383	dw_agrupaciones	1		03		3	0000000131
+0000006384	dw_agrupaciones	2		PAISAJISTAS		3	0000000131
+0000006385	dw_agrupaciones	1		04		4	0000000131
+0000006386	dw_agrupaciones	2		APAREJADORES		4	0000000131
+0000006387	dw_opcion_residente	1		%		1	0000000131
+0000006388	dw_residente	1		H		1	0000000131
+0000006389	dw_residente	2		Acreditados		1	0000000131
+0000006390	dw_residente	1		R		2	0000000131
+0000006391	dw_residente	2		Residente		2	0000000131
+0000006392	dw_residente	1		N		3	0000000131
+0000006393	dw_residente	2		No Residente		3	0000000131
+0000006394	dw_opciones_orientaciones	1		%		1	0000000131
+0000006395	dw_consulta_orientaciones	1		01		1	0000000131
+0000006396	dw_consulta_orientaciones	2		Rehabilitaciones		1	0000000131
+0000006397	dw_consulta_orientaciones	1		02		2	0000000131
+0000006398	dw_consulta_orientaciones	2		Obra Nueva		2	0000000131
+0000006399	dw_consulta_orientaciones	1		03		3	0000000131
+0000006400	dw_consulta_orientaciones	2		Diseños Modernistas		3	0000000131
+0000006401	dw_otros_datos	1		03		1	0000000131
+0000006402	dw_otros_datos	2		D		1	0000000131
+0000006403	dw_otros_datos	3		C		1	0000000131
+0000006404	dw_otros_datos	4		01		1	0000000131
+0000006405	dw_otros_datos	5		FECHA NAC		1	0000000131
+0000006406	dw_otros_datos	9		%		1	0000000131
+0000006407	dw_otros_datos	1		01		2	0000000131
+0000006408	dw_otros_datos	2		N		2	0000000131
+0000006409	dw_otros_datos	3		C		2	0000000131
+0000006410	dw_otros_datos	4		01		2	0000000131
+0000006411	dw_otros_datos	5		EDAD		2	0000000131
+0000006412	dw_otros_datos	9		%		2	0000000131
+0000006413	dw_otros_datos	1		04		3	0000000131
+0000006414	dw_otros_datos	2		S		3	0000000131
+0000006415	dw_otros_datos	3		C		3	0000000131
+0000006416	dw_otros_datos	4		02		3	0000000131
+0000006417	dw_otros_datos	5		EDO. CIVIL		3	0000000131
+0000006418	dw_otros_datos	9		%		3	0000000131
+0000006419	dw_otros_datos	1		05		4	0000000131
+0000006420	dw_otros_datos	2		S		4	0000000131
+0000006421	dw_otros_datos	3		C		4	0000000131
+0000006422	dw_otros_datos	5		Habilitacion		4	0000000131
+0000006423	dw_otros_datos	9		%		4	0000000131
+0000006424	dw_datos_musaat	11		%		1	0000000131
+0000006425	dw_datos_musaat	12		%		1	0000000131
+0000006426	dw_datos_musaat	13		%		1	0000000131
+0000006427	dw_datos_musaat	14		%		1	0000000131
+0000006428	dw_datos_premaat	6		S		1	0000000131
+0000006429	dw_datos_premaat	7		%		1	0000000131
+0000006430	dw_datos_premaat	8		%		1	0000000131
+0000006431	 	1		COLEGIO OFICIAL DE APAREJADORES Y ARQ.TECNICOS DE MURCIA		1	0000000132
+0000006432	 	2		VISADO TELEMATICO		1	0000000132
+0000006433	 	3		MURCIA		1	0000000132
+0000006434	 	4		N		1	0000000132
+0000006435	 	5		_signed		1	0000000132
+0000006436	 	7		A		1	0000000132
+0000007391	dw_datos_firma	1		COLEGIO OFICIAL DE APAREJADORES Y ARQ.TECNICOS DE MURCIA		1	0000000132
+0000007392	dw_datos_firma	2		VISADO TELEMATICO		1	0000000132
+0000007393	dw_datos_firma	3		MURCIA		1	0000000132
+0000007394	dw_datos_firma	4		N		1	0000000132
+0000007395	dw_datos_firma	5		_signed		1	0000000132
+0000007396	dw_datos_firma	6		02		1	0000000132
+0000007507	dw_lista	1		0000240891		1	0000000133
+0000007508	dw_lista	2		0000325537		1	0000000133
+0000007509	dw_lista	3		ME		1	0000000133
+0000007510	dw_lista	4	35.0			1	0000000133
+0000007511	dw_lista	5			Mar  9 2007 12:00:00:000AM	1	0000000133
+0000007512	dw_lista	6		S		1	0000000133
+0000007513	dw_lista	7			Mar  9 2007 12:00:00:000AM	1	0000000133
+0000007514	dw_lista	9		01		1	0000000133
+0000007515	dw_lista	10		57000000		1	0000000133
+0000007516	dw_lista	11		M		1	0000000133
+0000007517	dw_lista	12		00000		1	0000000133
+0000007518	dw_lista	15	35.0			1	0000000133
+0000007519	dw_lista	17		0000035577		1	0000000133
+0000007520	dw_lista	18		GRAL-07000082		1	0000000133
+0000007521	dw_lista	19		43782130C		1	0000000133
+0000007522	dw_lista	20		N		1	0000000133
+0000007523	dw_1	1		102		1	0000000133
+0000007524	dw_1	2	35.0			1	0000000133
+0000007525	dw_1	3		EX		1	0000000133
+0000007526	dw_1	4	0.0			1	0000000133
+0000007527	dw_1	6		PROCEDIMIENTO COORDINADOR DE SEGURIDAD		1	0000000133
+0000007528	dw_1	7	1.0			1	0000000133
+0000007529	dw_1	8	0.0			1	0000000133
+0000007530	dw_1	9		N		1	0000000133
+0000007531	dw_1	12		S		1	0000000133
+0000007532	dw_1	14	35.0			1	0000000133
+0000007533	dw_1	15	35.0			1	0000000133
+0000007534	dw_1	17	1.0			1	0000000133
+0000007535	dw_1	18	0.0			1	0000000133
+0000007536	dw_1	19	0.0			1	0000000133
+0000007537	dw_2	1		S		1	0000000133
+0000007538	dw_2	2		ME		1	0000000133
+0000007539	dw_2	3		S		1	0000000133
+0000007540	dw_2	4	1.0			1	0000000133
+0000007541	dw_2	5	1.0			1	0000000133
+0000007542	dw_2	6			Mar  9 2007 12:00:00:000AM	1	0000000133
+0000007543	dw_2	7		VENTA LIBROS		1	0000000133
+0000007544	dw_2	8		01		1	0000000133
+0000007545	dw_2	9		M		1	0000000133
+0000007546	dw_2	10		00000		1	0000000133
+0000007547	dw_2	12		N		1	0000000133
+0000007548	dw_2	13		N		1	0000000133
+0000007549	dw_2	14		Q3075002J001		1	0000000133
+0000007550	dw_2	15		0000001322		1	0000000133
+0000007551	dw_2	16		GRAL		1	0000000133
+0000007552	dw_2	18		EXENTO DE IVA POR ESTAR FUERA DEL TERRITORIO ESPAÑOL "CANARIAS"		1	0000000133
+0000007553	dw_2	19		S		1	0000000133
+0000007554	dw_2	20		N		1	0000000133
+0000009234	dw_1	2		57201000		1	0000000415
+0000009235	dw_1	3		57201000		1	0000000415
+0000009236	dw_1	5			May 23 2007 12:00:00:000AM	1	0000000415
+0000009237	dw_1	6			Dec 31 2007 12:00:00:000AM	1	0000000415
+0000009238	dw_1	7		4		1	0000000415
+0000009239	dw_1	8		E		1	0000000415
+0000009240	dw_1	11		0		1	0000000415
+0000009241	dw_1	12		CA		1	0000000415
+0000009242	dw_1	2		57201007		1	0000000416
+0000009243	dw_1	3		57201007		1	0000000416
+0000009244	dw_1	5			May 23 2007 12:00:00:000AM	1	0000000416
+0000009245	dw_1	6			Dec 31 2007 12:00:00:000AM	1	0000000416
+0000009246	dw_1	7		4		1	0000000416
+0000009247	dw_1	8		E		1	0000000416
+0000009248	dw_1	11		0		1	0000000416
+0000009249	dw_1	12		CA		1	0000000416
+0000009261	dw_1	2		43000000		1	0000000418
+0000009262	dw_1	3		43000000		1	0000000418
+0000009263	dw_1	5			Jan  1 2007 12:00:00:000AM	1	0000000418
+0000009264	dw_1	6			Dec 31 2007 12:00:00:000AM	1	0000000418
+0000009265	dw_1	7		4		1	0000000418
+0000009266	dw_1	8		E		1	0000000418
+0000009267	dw_1	11		0		1	0000000418
+0000009268	dw_1	12		CA		1	0000000418
+0000013649	dw_datos_personales	3		SERRANO		1	0000001040
+0000013650	dw_datos_personales	4		JOSE RAMON		1	0000001040
+0000013651	dw_datos_personales	5		%		1	0000001040
+0000013652	dw_datos_personales	17		%		1	0000001040
+0000013653	dw_datos_personales	18		I		1	0000001040
+0000013654	dw_servicios	1		%		1	0000001040
+0000013655	dw_servicios	2		%		1	0000001040
+0000013656	dw_servicios	3		%		1	0000001040
+0000013657	dw_servicios	4		%		1	0000001040
+0000013658	dw_servicios	5		%		1	0000001040
+0000013659	dw_servicios	6		%		1	0000001040
+0000013660	dw_servicios	7		%		1	0000001040
+0000013661	dw_servicios	8		%		1	0000001040
+0000013662	dw_servicios	9		%		1	0000001040
+0000013663	dw_servicios	10		%		1	0000001040
+0000013664	dw_servicios	11		%		1	0000001040
+0000013665	dw_alta_si_no	1		%		1	0000001040
+0000013666	dw_opcion_bajas	1		%		1	0000001040
+0000013667	dw_opcion_altas	1		%		1	0000001040
+0000013668	dw_opcion_situaciones	1		%		1	0000001040
+0000013669	dw_t_baja	1		J		1	0000001040
+0000013670	dw_t_baja	2		Jubilado		1	0000001040
+0000013671	dw_t_baja	4		N		1	0000001040
+0000013672	dw_t_baja	5		S		1	0000001040
+0000013673	dw_t_baja	1		FA		2	0000001040
+0000013674	dw_t_baja	2		Fallecido		2	0000001040
+0000013675	dw_t_baja	4		N		2	0000001040
+0000013676	dw_t_baja	5		S		2	0000001040
+0000013677	dw_t_baja	1		BV		3	0000001040
+0000013678	dw_t_baja	2		Baja voluntaria		3	0000001040
+0000013679	dw_t_baja	4		N		3	0000001040
+0000013680	dw_t_baja	5		S		3	0000001040
+0000013681	dw_t_baja	1		AR		4	0000001040
+0000013682	dw_t_baja	2		.		4	0000001040
+0000013683	dw_t_baja	4		N		4	0000001040
+0000013684	dw_t_baja	5		S		4	0000001040
+0000013685	dw_t_baja	1		B1		5	0000001040
+0000013686	dw_t_baja	2		Baja		5	0000001040
+0000013687	dw_t_baja	4		N		5	0000001040
+0000013688	dw_t_baja	5		S		5	0000001040
+0000013689	dw_situaciones	1		A		1	0000001040
+0000013690	dw_situaciones	2		Asalariado		1	0000001040
+0000013691	dw_situaciones	4		S		1	0000001040
+0000013692	dw_situaciones	1		0		2	0000001040
+0000013693	dw_situaciones	2		Valor 0 en antiguo		2	0000001040
+0000013694	dw_situaciones	4		S		2	0000001040
+0000013695	dw_situaciones	1		F		3	0000001040
+0000013696	dw_situaciones	2		Funcionario		3	0000001040
+0000013697	dw_situaciones	4		S		3	0000001040
+0000013698	dw_situaciones	1		J		4	0000001040
+0000013699	dw_situaciones	2		Jubilado		4	0000001040
+0000013700	dw_situaciones	4		S		4	0000001040
+0000013701	dw_situaciones	1		L		5	0000001040
+0000013702	dw_situaciones	2		Libre		5	0000001040
+0000013703	dw_situaciones	4		S		5	0000001040
+0000013704	dw_situaciones	1		FA		6	0000001040
+0000013705	dw_situaciones	2		Fallecido		6	0000001040
+0000013706	dw_situaciones	4		S		6	0000001040
+0000013707	dw_situaciones	1		BV		7	0000001040
+0000013708	dw_situaciones	2		Baja voluntaria		7	0000001040
+0000013709	dw_situaciones	4		S		7	0000001040
+0000013710	dw_situaciones	1		AR		8	0000001040
+0000013711	dw_situaciones	2		.		8	0000001040
+0000013712	dw_situaciones	4		S		8	0000001040
+0000013713	dw_t_alta	1		NI		1	0000001040
+0000013714	dw_t_alta	2		Nuevo Ingreso		1	0000001040
+0000013715	dw_t_alta	4		S		1	0000001040
+0000013716	dw_t_alta	5		N		1	0000001040
+0000013717	dw_t_alta	1		RI		2	0000001040
+0000013718	dw_t_alta	2		Reingreso		2	0000001040
+0000013719	dw_t_alta	4		S		2	0000001040
+0000013720	dw_t_alta	5		N		2	0000001040
+0000013721	dw_t_alta	1		OC		3	0000001040
+0000013722	dw_t_alta	2		Otro Colegio		3	0000001040
+0000013723	dw_t_alta	4		S		3	0000001040
+0000013724	dw_t_alta	5		N		3	0000001040
+0000013725	dw_t_alta	1		A1		4	0000001040
+0000013726	dw_t_alta	2		Alta		4	0000001040
+0000013727	dw_t_alta	4		S		4	0000001040
+0000013728	dw_t_alta	5		N		4	0000001040
+0000013729	dw_datos_agrupacion	3		%		1	0000001040
+0000013730	dw_opcion_incomp	1		%		1	0000001040
+0000013731	dw_opcion_sit	1		%		1	0000001040
+0000013732	dw_opcion_agr	1		%		1	0000001040
+0000013733	dw_incompatibilidades	1		1		1	0000001040
+0000013734	dw_incompatibilidades	2		NACIONAL		1	0000001040
+0000013735	dw_incompatibilidades	1		2		2	0000001040
+0000013736	dw_incompatibilidades	2		LOCAL		2	0000001040
+0000013737	dw_incompatibilidades	1		3		3	0000001040
+0000013738	dw_incompatibilidades	2		¡ ¡ PUEDE VISAR ¡ ¡		3	0000001040
+0000013739	dw_incompatibilidades	1		4		4	0000001040
+0000013740	dw_incompatibilidades	2		AUTONOMICA		4	0000001040
+0000013741	dw_sit_profesionales	1		01		1	0000001040
+0000013742	dw_sit_profesionales	2		LIBRE		1	0000001040
+0000013743	dw_sit_profesionales	1		02		2	0000001040
+0000013744	dw_sit_profesionales	2		ASALARIADO		2	0000001040
+0000013745	dw_sit_profesionales	1		03		3	0000001040
+0000013746	dw_sit_profesionales	2		FUNCIONARIO		3	0000001040
+0000013747	dw_sit_profesionales	1		04		4	0000001040
+0000013748	dw_sit_profesionales	2		ACREDITADO		4	0000001040
+0000013749	dw_agrupaciones	1		01		1	0000001040
+0000013750	dw_agrupaciones	2		PERITOS		1	0000001040
+0000013751	dw_agrupaciones	1		02		2	0000001040
+0000013752	dw_agrupaciones	2		TASADORES		2	0000001040
+0000013753	dw_agrupaciones	1		03		3	0000001040
+0000013754	dw_agrupaciones	2		PAISAJISTAS		3	0000001040
+0000013755	dw_agrupaciones	1		04		4	0000001040
+0000013756	dw_agrupaciones	2		APAREJADORES		4	0000001040
+0000013757	dw_ejerciente_si_no	1		%		1	0000001040
+0000013758	dw_opcion_residente	1		%		1	0000001040
+0000013759	dw_residente	1		H		1	0000001040
+0000013760	dw_residente	2		Acreditados		1	0000001040
+0000013761	dw_residente	1		R		2	0000001040
+0000013762	dw_residente	2		Residente		2	0000001040
+0000013763	dw_residente	1		N		3	0000001040
+0000013764	dw_residente	2		No Residente		3	0000001040
+0000013765	dw_permiso_cesion_datos	1		%		1	0000001040
+0000013766	dw_permiso_cesion_datos	2		%		1	0000001040
+0000013767	dw_opciones_orientaciones	1		%		1	0000001040
+0000013768	dw_consulta_orientaciones	1		01		1	0000001040
+0000013769	dw_consulta_orientaciones	2		Rehabilitaciones		1	0000001040
+0000013770	dw_consulta_orientaciones	1		02		2	0000001040
+0000013771	dw_consulta_orientaciones	2		Obra Nueva		2	0000001040
+0000013772	dw_consulta_orientaciones	1		03		3	0000001040
+0000013773	dw_consulta_orientaciones	2		Diseños Modernistas		3	0000001040
+0000013774	dw_otros_datos	1		03		1	0000001040
+0000013775	dw_otros_datos	2		D		1	0000001040
+0000013776	dw_otros_datos	3		C		1	0000001040
+0000013777	dw_otros_datos	4		01		1	0000001040
+0000013778	dw_otros_datos	5		FECHA NAC		1	0000001040
+0000013779	dw_otros_datos	9		%		1	0000001040
+0000013780	dw_otros_datos	1		01		2	0000001040
+0000013781	dw_otros_datos	2		N		2	0000001040
+0000013782	dw_otros_datos	3		C		2	0000001040
+0000013783	dw_otros_datos	4		01		2	0000001040
+0000013784	dw_otros_datos	5		EDAD		2	0000001040
+0000013785	dw_otros_datos	9		%		2	0000001040
+0000013786	dw_otros_datos	1		04		3	0000001040
+0000013787	dw_otros_datos	2		S		3	0000001040
+0000013788	dw_otros_datos	3		C		3	0000001040
+0000013789	dw_otros_datos	4		02		3	0000001040
+0000013790	dw_otros_datos	5		EDO. CIVIL		3	0000001040
+0000013791	dw_otros_datos	9		%		3	0000001040
+0000013792	dw_otros_datos	1		05		4	0000001040
+0000013793	dw_otros_datos	2		S		4	0000001040
+0000013794	dw_otros_datos	3		C		4	0000001040
+0000013795	dw_otros_datos	5		Habilitacion		4	0000001040
+0000013796	dw_otros_datos	9		%		4	0000001040
+0000013797	dw_datos_musaat	11		%		1	0000001040
+0000013798	dw_datos_musaat	12		%		1	0000001040
+0000013799	dw_datos_musaat	13		%		1	0000001040
+0000013800	dw_datos_musaat	14		%		1	0000001040
+0000013801	dw_datos_premaat	6		%		1	0000001040
+0000013802	dw_datos_premaat	7		%		1	0000001040
+0000013803	dw_datos_premaat	8		%		1	0000001040
+0000013804	dw_contratos	3		%		1	0000001040
+0000021440	dw_certificado	2		certificado coaatmu.pfx		1	0000001589
+0000021441	dw_certificado	3		COAAT Murcia		1	0000001589
+0000021442	dw_certificado	4		Murcia		1	0000001589
+0000021443	dw_certificado	5		VISADO TELEMATICO		1	0000001589
+0000043614	dw_lista	1		0000319457		1	0000001678
+0000043615	dw_lista	2		0000472827		1	0000001678
+0000043616	dw_lista	3		TR		1	0000001678
+0000043617	dw_lista	4	8300.0			1	0000001678
+0000043618	dw_lista	5			Nov 28 2008 12:00:00:000AM	1	0000001678
+0000043619	dw_lista	6		S		1	0000001678
+0000043620	dw_lista	7			Nov 28 2008 12:00:00:000AM	1	0000001678
+0000043621	dw_lista	9		03		1	0000001678
+0000043622	dw_lista	10		57201000		1	0000001678
+0000043623	dw_lista	11		M		1	0000001678
+0000043624	dw_lista	12		00000		1	0000001678
+0000043625	dw_lista	15	8300.0			1	0000001678
+0000043626	dw_lista	17		0000033103		1	0000001678
+0000043627	dw_lista	18		GRAL-08000450		1	0000001678
+0000043628	dw_lista	19		S-3011001I		1	0000001678
+0000043629	dw_lista	20		N		1	0000001678
+0000043630	dw_1	1		108		1	0000001678
+0000043631	dw_1	2	7155.1700000000001			1	0000001678
+0000043632	dw_1	3		16		1	0000001678
+0000043633	dw_1	4	1144.8299999999999			1	0000001678
+0000043634	dw_1	6		Elaboración de documentos con soluciones técnicas		1	0000001678
+0000043635	dw_1	7	1.0			1	0000001678
+0000043636	dw_1	8	0.0			1	0000001678
+0000043637	dw_1	9		N		1	0000001678
+0000043638	dw_1	12		S		1	0000001678
+0000043639	dw_1	14	7155.1700000000001			1	0000001678
+0000043640	dw_1	15	8300.0			1	0000001678
+0000043641	dw_1	17	1.0			1	0000001678
+0000043642	dw_1	18	0.0			1	0000001678
+0000043643	dw_1	19	0.0			1	0000001678
+0000043644	dw_1	1		108		2	0000001678
+0000043645	dw_1	2	0.0			2	0000001678
+0000043646	dw_1	3		16		2	0000001678
+0000043647	dw_1	4	0.0			2	0000001678
+0000043648	dw_1	6		tendentes a minimizar los fallos constructivos detectados		2	0000001678
+0000043649	dw_1	7	1.0			2	0000001678
+0000043650	dw_1	8	0.0			2	0000001678
+0000043651	dw_1	9		N		2	0000001678
+0000043652	dw_1	12		S		2	0000001678
+0000043653	dw_1	14	0.0			2	0000001678
+0000043654	dw_1	15	0.0			2	0000001678
+0000043655	dw_1	17	1.0			2	0000001678
+0000043656	dw_1	18	0.0			2	0000001678
+0000043657	dw_1	19	0.0			2	0000001678
+0000043658	dw_1	1		108		3	0000001678
+0000043659	dw_1	2	0.0			3	0000001678
+0000043660	dw_1	3		16		3	0000001678
+0000043661	dw_1	4	0.0			3	0000001678
+0000043662	dw_1	6		en la Región de Murcia, en defectos en instalaciones		3	0000001678
+0000043663	dw_1	7	1.0			3	0000001678
+0000043664	dw_1	8	0.0			3	0000001678
+0000043665	dw_1	9		N		3	0000001678
+0000043666	dw_1	12		S		3	0000001678
+0000043667	dw_1	14	0.0			3	0000001678
+0000043668	dw_1	15	0.0			3	0000001678
+0000043669	dw_1	17	1.0			3	0000001678
+0000043670	dw_1	18	0.0			3	0000001678
+0000043671	dw_1	19	0.0			3	0000001678
+0000043672	dw_1	1		108		4	0000001678
+0000043673	dw_1	2	0.0			4	0000001678
+0000043674	dw_1	3		16		4	0000001678
+0000043675	dw_1	4	0.0			4	0000001678
+0000043676	dw_1	6		de fontanería y saneamiento		4	0000001678
+0000043677	dw_1	7	1.0			4	0000001678
+0000043678	dw_1	8	0.0			4	0000001678
+0000043679	dw_1	9		N		4	0000001678
+0000043680	dw_1	12		S		4	0000001678
+0000043681	dw_1	14	0.0			4	0000001678
+0000043682	dw_1	15	0.0			4	0000001678
+0000043683	dw_1	17	1.0			4	0000001678
+0000043684	dw_1	18	0.0			4	0000001678
+0000043685	dw_1	19	0.0			4	0000001678
+0000043686	dw_2	1		S		1	0000001678
+0000043687	dw_2	2		TR		1	0000001678
+0000043688	dw_2	3		S		1	0000001678
+0000043689	dw_2	4	1.0			1	0000001678
+0000043690	dw_2	5	1.0			1	0000001678
+0000043691	dw_2	6			Nov 28 2008 12:00:00:000AM	1	0000001678
+0000043692	dw_2	7		DIRECCION GRAL DE LA VIVIENDA		1	0000001678
+0000043693	dw_2	8		03		1	0000001678
+0000043694	dw_2	9		M		1	0000001678
+0000043695	dw_2	10		00000		1	0000001678
+0000043696	dw_2	12		N		1	0000001678
+0000043697	dw_2	13		N		1	0000001678
+0000043698	dw_2	14		Q3075002J000		1	0000001678
+0000043699	dw_2	15		0200018769		1	0000001678
+0000043700	dw_2	16		GRAL		1	0000001678
+0000043701	dw_2	18		C.C.C. 2043 0090 34 2000018769		1	0000001678
+0000043702	dw_2	19		S		1	0000001678
+0000043703	dw_2	20		N		1	0000001678
+0000043704	dw_1	1		108		1	0000001679
+0000043705	dw_1	2	7155.1700000000001			1	0000001679
+0000043706	dw_1	3		16		1	0000001679
+0000043707	dw_1	4	1144.8299999999999			1	0000001679
+0000043708	dw_1	6		Elaboración de documentos con soluciones técnicas		1	0000001679
+0000043709	dw_1	7	1.0			1	0000001679
+0000043710	dw_1	8	0.0			1	0000001679
+0000043711	dw_1	9		N		1	0000001679
+0000043712	dw_1	12		S		1	0000001679
+0000043713	dw_1	14	7155.1700000000001			1	0000001679
+0000043714	dw_1	15	8300.0			1	0000001679
+0000043715	dw_1	17	1.0			1	0000001679
+0000043716	dw_1	18	0.0			1	0000001679
+0000043717	dw_1	19	0.0			1	0000001679
+0000043718	dw_1	1		108		2	0000001679
+0000043719	dw_1	2	0.0			2	0000001679
+0000043720	dw_1	3		16		2	0000001679
+0000043721	dw_1	4	0.0			2	0000001679
+0000043722	dw_1	6		tendentes a minimizar los fallos constructivos detectados		2	0000001679
+0000043723	dw_1	7	1.0			2	0000001679
+0000043724	dw_1	8	0.0			2	0000001679
+0000043725	dw_1	9		N		2	0000001679
+0000043726	dw_1	12		S		2	0000001679
+0000043727	dw_1	14	0.0			2	0000001679
+0000043728	dw_1	15	0.0			2	0000001679
+0000043729	dw_1	17	1.0			2	0000001679
+0000043730	dw_1	18	0.0			2	0000001679
+0000043731	dw_1	19	0.0			2	0000001679
+0000043732	dw_1	1		108		3	0000001679
+0000043733	dw_1	2	0.0			3	0000001679
+0000043734	dw_1	3		16		3	0000001679
+0000043735	dw_1	4	0.0			3	0000001679
+0000043736	dw_1	6		en la Región de Murcia, en estanqueidad de sótanos		3	0000001679
+0000043737	dw_1	7	1.0			3	0000001679
+0000043738	dw_1	8	0.0			3	0000001679
+0000043739	dw_1	9		N		3	0000001679
+0000043740	dw_1	12		S		3	0000001679
+0000043741	dw_1	14	0.0			3	0000001679
+0000043742	dw_1	15	0.0			3	0000001679
+0000043743	dw_1	17	1.0			3	0000001679
+0000043744	dw_1	18	0.0			3	0000001679
+0000043745	dw_1	19	0.0			3	0000001679
+0000043746	dw_2	1		S		1	0000001679
+0000043747	dw_2	2		TR		1	0000001679
+0000043748	dw_2	3		S		1	0000001679
+0000043749	dw_2	4	0.0			1	0000001679
+0000043750	dw_2	5	0.0			1	0000001679
+0000043751	dw_2	6			Nov 28 2008 12:00:00:000AM	1	0000001679
+0000043752	dw_2	7		DIRECCION GRAL DE LA VIVIENDA		1	0000001679
+0000043753	dw_2	8		03		1	0000001679
+0000043754	dw_2	9		M		1	0000001679
+0000043755	dw_2	10		00000		1	0000001679
+0000043756	dw_2	12		N		1	0000001679
+0000043757	dw_2	13		N		1	0000001679
+0000043758	dw_2	14		Q3075002J000		1	0000001679
+0000043759	dw_2	15		0200018769		1	0000001679
+0000043760	dw_2	16		GRAL		1	0000001679
+0000043761	dw_2	18		TRANSFERENCIA BANCARIA A CAJA MURCIA, CUENTA Nº 2043 0090 34 2000018769		1	0000001679
+0000043762	dw_2	19		S		1	0000001679
+0000043763	dw_2	20		N		1	0000001679
+0000043764	dw_lista	1		0000319463		1	0000001680
+0000043765	dw_lista	2		0000472834		1	0000001680
+0000043766	dw_lista	3		TR		1	0000001680
+0000043767	dw_lista	4	20000.0			1	0000001680
+0000043768	dw_lista	5			Nov 28 2008 12:00:00:000AM	1	0000001680
+0000043769	dw_lista	6		S		1	0000001680
+0000043770	dw_lista	7			Nov 28 2008 12:00:00:000AM	1	0000001680
+0000043771	dw_lista	9		03		1	0000001680
+0000043772	dw_lista	10		57201000		1	0000001680
+0000043773	dw_lista	11		M		1	0000001680
+0000043774	dw_lista	12		00000		1	0000001680
+0000043775	dw_lista	15	20000.0			1	0000001680
+0000043776	dw_lista	17		0000033103		1	0000001680
+0000043777	dw_lista	18		GRAL-08000452		1	0000001680
+0000043778	dw_lista	19		S-3011001I		1	0000001680
+0000043779	dw_lista	20		N		1	0000001680
+0000043780	dw_1	1		108		1	0000001680
+0000043781	dw_1	2	17241.380000000001			1	0000001680
+0000043782	dw_1	3		16		1	0000001680
+0000043783	dw_1	4	2758.6199999999999			1	0000001680
+0000043784	dw_1	6		Trabajos durante 2008 de desarrollo y mejora de Normativa		1	0000001680
+0000043785	dw_1	7	1.0			1	0000001680
+0000043786	dw_1	8	0.0			1	0000001680
+0000043787	dw_1	9		N		1	0000001680
+0000043788	dw_1	12		S		1	0000001680
+0000043789	dw_1	14	17241.380000000001			1	0000001680
+0000043790	dw_1	15	20000.0			1	0000001680
+0000043791	dw_1	17	1.0			1	0000001680
+0000043792	dw_1	18	0.0			1	0000001680
+0000043793	dw_1	19	0.0			1	0000001680
+0000043794	dw_1	1		108		2	0000001680
+0000043795	dw_1	2	0.0			2	0000001680
+0000043796	dw_1	3		16		2	0000001680
+0000043797	dw_1	4	0.0			2	0000001680
+0000043798	dw_1	6		de calidad en edificación		2	0000001680
+0000043799	dw_1	7	1.0			2	0000001680
+0000043800	dw_1	8	0.0			2	0000001680
+0000043801	dw_1	9		N		2	0000001680
+0000043802	dw_1	12		S		2	0000001680
+0000043803	dw_1	14	0.0			2	0000001680
+0000043804	dw_1	15	0.0			2	0000001680
+0000043805	dw_1	17	1.0			2	0000001680
+0000043806	dw_1	18	0.0			2	0000001680
+0000043807	dw_1	19	0.0			2	0000001680
+0000043808	dw_2	1		S		1	0000001680
+0000043809	dw_2	2		TR		1	0000001680
+0000043810	dw_2	3		S		1	0000001680
+0000043811	dw_2	4	0.0			1	0000001680
+0000043812	dw_2	5	0.0			1	0000001680
+0000043813	dw_2	6			Nov 28 2008 12:00:00:000AM	1	0000001680
+0000043814	dw_2	7		DIRECCION GRAL DE LA VIVIENDA		1	0000001680
+0000043815	dw_2	8		03		1	0000001680
+0000043816	dw_2	9		M		1	0000001680
+0000043817	dw_2	10		00000		1	0000001680
+0000043818	dw_2	12		N		1	0000001680
+0000043819	dw_2	13		N		1	0000001680
+0000043820	dw_2	14		Q3075002J000		1	0000001680
+0000043821	dw_2	15		0200018769		1	0000001680
+0000043822	dw_2	16		GRAL		1	0000001680
+0000043823	dw_2	18		TRANSFERENCIA BANCARIA A CAJA MURCIA, CUENTA Nº 2043 0090 34 2000018769		1	0000001680
+0000043824	dw_2	19		S		1	0000001680
+0000043825	dw_2	20		N		1	0000001680
+0000043826	dw_1	1		107		1	0000001681
+0000043827	dw_1	2	0.0			1	0000001681
+0000043828	dw_1	3		00		1	0000001681
+0000043829	dw_1	4	0.0			1	0000001681
+0000043830	dw_1	6		G-28865855 ALTA SRC MUSAAT		1	0000001681
+0000043831	dw_1	7	1.0			1	0000001681
+0000043832	dw_1	8	0.0			1	0000001681
+0000043833	dw_1	9		N		1	0000001681
+0000043834	dw_1	12		S		1	0000001681
+0000043835	dw_1	14	0.0			1	0000001681
+0000043836	dw_1	15	0.0			1	0000001681
+0000043837	dw_1	17	1.0			1	0000001681
+0000043838	dw_1	18	0.0			1	0000001681
+0000043839	dw_1	19	0.0			1	0000001681
+0000043840	dw_2	1		N		1	0000001681
+0000043841	dw_2	3		S		1	0000001681
+0000043842	dw_2	4	0.0			1	0000001681
+0000043843	dw_2	5	0.0			1	0000001681
+0000043844	dw_2	6			Nov 28 2008 12:00:00:000AM	1	0000001681
+0000043845	dw_2	7		ALTA SRC		1	0000001681
+0000043846	dw_2	8		03		1	0000001681
+0000043847	dw_2	9		M		1	0000001681
+0000043848	dw_2	10		00000		1	0000001681
+0000043849	dw_2	12		N		1	0000001681
+0000043850	dw_2	13		N		1	0000001681
+0000043851	dw_2	14		Q3075002J000		1	0000001681
+0000043852	dw_2	15		0200018769		1	0000001681
+0000043853	dw_2	16		SEGURO		1	0000001681
+0000043854	dw_2	17		DB		1	0000001681
+0000043855	dw_2	19		N		1	0000001681
+0000043856	dw_2	20		N		1	0000001681
+0000047948	dw_1	32		%		1	0000001796
+0000047949	dw_1	33		%		1	0000001796
+0000047950	dw_1	34		%		1	0000001796
+0000047951	dw_principal	7			Nov  1 2008 12:00:00:000AM	1	0000001796
+0000047952	dw_principal	8			Nov 30 2008 12:00:00:000AM	1	0000001796
+0000047953	dw_principal	9		%		1	0000001796
+0000047954	dw_principal	28		%		1	0000001796
+0000047955	dw_principal	41		%		1	0000001796
+0000047956	dw_minutas	7		%		1	0000001796
+0000047957	dw_destino_seleccion	1		%		1	0000001796
+0000047958	dw_tipo_obra_seleccion	1		%		1	0000001796
+0000047959	dw_tipo_actuacion_seleccion	1		%		1	0000001796
+0000047960	dw_destino	1		00		1	0000001796
+0000047961	dw_destino	2		SIN CLASIFICAR		1	0000001796
+0000047962	dw_destino	1		11		2	0000001796
+0000047963	dw_destino	2		VIV.UNIFAMILIARES ADOSADAS		2	0000001796
+0000047964	dw_destino	1		12		3	0000001796
+0000047965	dw_destino	2		VIV.UNIFAMILIARES AISLADAS		3	0000001796
+0000047966	dw_destino	1		13		4	0000001796
+0000047967	dw_destino	2		VIVIENDAS EN BLOQUE		4	0000001796
+0000047968	dw_destino	1		14		5	0000001796
+0000047969	dw_destino	2		RESIDENCIAL COLECTIVO		5	0000001796
+0000047970	dw_destino	1		21		6	0000001796
+0000047971	dw_destino	2		AGROPECUARIO		6	0000001796
+0000047972	dw_destino	1		22		7	0000001796
+0000047973	dw_destino	2		INDUSTRIAL		7	0000001796
+0000047974	dw_destino	1		31		8	0000001796
+0000047975	dw_destino	2		COMERCIALES		8	0000001796
+0000047976	dw_destino	1		32		9	0000001796
+0000047977	dw_destino	2		ALMACENES		9	0000001796
+0000047978	dw_destino	1		33		10	0000001796
+0000047979	dw_destino	2		BUROCRATICOS/OFICINAS		10	0000001796
+0000047980	dw_destino	1		34		11	0000001796
+0000047981	dw_destino	2		HOTELERO		11	0000001796
+0000047982	dw_destino	1		35		12	0000001796
+0000047983	dw_destino	2		RECREO		12	0000001796
+0000047984	dw_destino	1		36		13	0000001796
+0000047985	dw_destino	2		CULTURAL		13	0000001796
+0000047986	dw_destino	1		37		14	0000001796
+0000047987	dw_destino	2		SANITARIO		14	0000001796
+0000047988	dw_destino	1		38		15	0000001796
+0000047989	dw_destino	2		DOCENTE		15	0000001796
+0000047990	dw_destino	1		39		16	0000001796
+0000047991	dw_destino	2		RELIGIOSO		16	0000001796
+0000047992	dw_destino	1		41		17	0000001796
+0000047993	dw_destino	2		APARCAMIENTO		17	0000001796
+0000047994	dw_destino	1		42		18	0000001796
+0000047995	dw_destino	2		ESTACIONES DE SERVICIO		18	0000001796
+0000047996	dw_destino	1		43		19	0000001796
+0000047997	dw_destino	2		TRANSPORTE PUBLICO		19	0000001796
+0000047998	dw_destino	1		51		20	0000001796
+0000047999	dw_destino	2		PISCINAS		20	0000001796
+0000048000	dw_destino	1		52		21	0000001796
+0000048001	dw_destino	2		CAMPOS DE DEPORTE		21	0000001796
+0000048002	dw_destino	1		53		22	0000001796
+0000048003	dw_destino	2		VESTUARIOS Y ANEXOS		22	0000001796
+0000048004	dw_destino	1		54		23	0000001796
+0000048005	dw_destino	2		LOCAL O EDIFICIO DEPORTIVO		23	0000001796
+0000048006	dw_destino	1		55		24	0000001796
+0000048007	dw_destino	2		INSTALACIONES DEPORTIVAS		24	0000001796
+0000048008	dw_destino	1		61		25	0000001796
+0000048009	dw_destino	2		FUNERARIO		25	0000001796
+0000048010	dw_destino	1		62		26	0000001796
+0000048011	dw_destino	2		MONUMENTAL		26	0000001796
+0000048012	dw_tipoobra	1		00		1	0000001796
+0000048013	dw_tipoobra	2		SIN CLASIFICAR		1	0000001796
+0000048014	dw_tipoobra	1		11		2	0000001796
+0000048015	dw_tipoobra	2		OBRA NUEVA EDIFICACION		2	0000001796
+0000048016	dw_tipoobra	1		12		3	0000001796
+0000048017	dw_tipoobra	2		OBRA NUEVA NAVES Y SIMILARES		3	0000001796
+0000048018	dw_tipoobra	1		13		4	0000001796
+0000048019	dw_tipoobra	2		OBRA NUEVAS OTRAS CONST.		4	0000001796
+0000048020	dw_tipoobra	1		21		5	0000001796
+0000048021	dw_tipoobra	2		AMPLIACION EDIFICACION		5	0000001796
+0000048022	dw_tipoobra	1		22		6	0000001796
+0000048023	dw_tipoobra	2		AMPLIACION NAVES Y SIMILARES		6	0000001796
+0000048024	dw_tipoobra	1		23		7	0000001796
+0000048025	dw_tipoobra	2		AMPLIACION OTRAS CONT.		7	0000001796
+0000048026	dw_tipoobra	1		31		8	0000001796
+0000048027	dw_tipoobra	2		REFORMA Y/O REST. DE EDIFICIOS		8	0000001796
+0000048028	dw_tipoobra	1		32		9	0000001796
+0000048029	dw_tipoobra	2		REFORMA Y/O REST. NAVES Y SIM.		9	0000001796
+0000048030	dw_tipoobra	1		33		10	0000001796
+0000048031	dw_tipoobra	2		REFORMA Y/O REST. OTRAS CONST.		10	0000001796
+0000048032	dw_tipoobra	1		41		11	0000001796
+0000048033	dw_tipoobra	2		REFORMA Y/O ACOND. DE LOCAL		11	0000001796
+0000048034	dw_tipoobra	1		42		12	0000001796
+0000048035	dw_tipoobra	2		DECORACION DE LOCAL		12	0000001796
+0000048036	dw_tipoobra	1		51		13	0000001796
+0000048037	dw_tipoobra	2		REFUERZO Y/O CONSOL. EDIFICIO		13	0000001796
+0000048038	dw_tipoobra	1		52		14	0000001796
+0000048039	dw_tipoobra	2		REF. Y/O CONSOL. OTRAS CONST.		14	0000001796
+0000048040	dw_tipoobra	1		61		15	0000001796
+0000048041	dw_tipoobra	2		CONS. Y MANT. EDIFICACION		15	0000001796
+0000048042	dw_tipoobra	1		62		16	0000001796
+0000048043	dw_tipoobra	2		CONS. Y MANT. NAVES Y SIMILAR		16	0000001796
+0000048044	dw_tipoobra	1		63		17	0000001796
+0000048045	dw_tipoobra	2		CONS. Y MANT. OTRAS CONST.		17	0000001796
+0000048046	dw_tipoobra	1		71		18	0000001796
+0000048047	dw_tipoobra	2		OBRA NUEVA URBANIZACION		18	0000001796
+0000048048	dw_tipoobra	1		72		19	0000001796
+0000048049	dw_tipoobra	2		AMPLIACION URBANIZACION		19	0000001796
+0000048050	dw_tipoobra	1		73		20	0000001796
+0000048051	dw_tipoobra	2		REFORMA URBANIZACION		20	0000001796
+0000048052	dw_tipoobra	1		74		21	0000001796
+0000048053	dw_tipoobra	2		CONS. Y MANT. URBANIZACION		21	0000001796
+0000048054	dw_tipoobra	1		75		22	0000001796
+0000048055	dw_tipoobra	2		DEMOLICION URBANIZACION		22	0000001796
+0000048056	dw_tipoobra	1		76		23	0000001796
+0000048057	dw_tipoobra	2		JARDINERIA Y CONSERV. PAISAJE		23	0000001796
+0000048058	dw_tipoobra	1		81		24	0000001796
+0000048059	dw_tipoobra	2		INSTALAC. RECEPTORAS DE AGUA		24	0000001796
+0000048060	dw_tipoobra	1		82		25	0000001796
+0000048061	dw_tipoobra	2		INSTALACION DE GRUA		25	0000001796
+0000048062	dw_tipoobra	1		83		26	0000001796
+0000048063	dw_tipoobra	2		INSTALACION DE ANDAMIOS		26	0000001796
+0000048064	dw_tipoobra	1		84		27	0000001796
+0000048065	dw_tipoobra	2		OTRAS INSTALACIONES		27	0000001796
+0000048066	dw_tipoobra	1		91		28	0000001796
+0000048067	dw_tipoobra	2		DEMOLICION DE OBRAS EDIF.		28	0000001796
+0000048068	dw_tipoobra	1		92		29	0000001796
+0000048069	dw_tipoobra	2		DEMOLICION NAVES Y SIMILARES		29	0000001796
+0000048070	dw_tipoobra	1		93		30	0000001796
+0000048071	dw_tipoobra	2		DEMOLICION OTRAS CONSTR.		30	0000001796
+0000048072	dw_tipoobra	1		99		31	0000001796
+0000048073	dw_tipoobra	2		VARIOS		31	0000001796
+0000048074	dw_tipoact	1		00		1	0000001796
+0000048075	dw_tipoact	2		VARIOS		1	0000001796
+0000048076	dw_tipoact	1		01		2	0000001796
+0000048077	dw_tipoact	2		COORD.PROY  Y/O REDACCION ESS Y/O RED.PLAN S.Y S. ESS.		2	0000001796
+0000048078	dw_tipoact	1		02		3	0000001796
+0000048079	dw_tipoact	2		COORD.PROY  Y/O REDACCION EBSS Y/O RED.PLAN SYS.EBSS		3	0000001796
+0000048080	dw_tipoact	1		03		4	0000001796
+0000048081	dw_tipoact	2		COORD.SEGUR.DURANTE EJECUCION OBRA		4	0000001796
+0000048082	dw_tipoact	1		04		5	0000001796
+0000048083	dw_tipoact	2		COORD.PROYECTO,REDACCION Y EJECUCION ESS		5	0000001796
+0000048084	dw_tipoact	1		05		6	0000001796
+0000048085	dw_tipoact	2		COORD.PROYECTO,REDACCION Y EJECUCION EBSS		6	0000001796
+0000048086	dw_tipoact	1		11		7	0000001796
+0000048087	dw_tipoact	2		PROYECTO Y DIRECCION		7	0000001796
+0000048088	dw_tipoact	1		12		8	0000001796
+0000048089	dw_tipoact	2		PROYECTO		8	0000001796
+0000048090	dw_tipoact	1		13		9	0000001796
+0000048091	dw_tipoact	2		DIRECCION DE OBRA		9	0000001796
+0000048092	dw_tipoact	1		14		10	0000001796
+0000048093	dw_tipoact	2		DIRECCION DE LA EJEC. MAT.		10	0000001796
+0000048094	dw_tipoact	1		15		11	0000001796
+0000048095	dw_tipoact	2		PROY. LEGALIZ. OBRAS		11	0000001796
+0000048096	dw_tipoact	1		16		12	0000001796
+0000048097	dw_tipoact	2		LEGAL. DIR. OBRA		12	0000001796
+0000048098	dw_tipoact	1		17		13	0000001796
+0000048099	dw_tipoact	2		LEGAL. DIR. EJEC. MAT.		13	0000001796
+0000048100	dw_tipoact	1		21		14	0000001796
+0000048101	dw_tipoact	2		ESTUDIO APROB.SEGUIMIENTO (ANT		14	0000001796
+0000048102	dw_tipoact	1		22		15	0000001796
+0000048103	dw_tipoact	2		ESTUDIO Y SEGUIMIENTO (ANT)		15	0000001796
+0000048104	dw_tipoact	1		23		16	0000001796
+0000048105	dw_tipoact	2		PLAN SEGURIDAD (ANT)		16	0000001796
+0000048106	dw_tipoact	1		24		17	0000001796
+0000048107	dw_tipoact	2		SEGUIMIENTO PLAN (ANT)		17	0000001796
+0000048108	dw_tipoact	1		25		18	0000001796
+0000048109	dw_tipoact	2		ESTUDIO SEGURIDAD (ANT)		18	0000001796
+0000048110	dw_tipoact	1		26		19	0000001796
+0000048111	dw_tipoact	2		PLAN Y SEGUIMIENTO (ANT)		19	0000001796
+0000048112	dw_tipoact	1		27		20	0000001796
+0000048113	dw_tipoact	2		APROBA.SEGUIMIENTO (ANT)		20	0000001796
+0000048114	dw_tipoact	1		28		21	0000001796
+0000048115	dw_tipoact	2		E.S., PLAN Y SEGUIM. (ANT)		21	0000001796
+0000048116	dw_tipoact	1		31		22	0000001796
+0000048117	dw_tipoact	2		ESTUDIO DE PROG. C.C. Y SEG.		22	0000001796
+0000048118	dw_tipoact	1		32		23	0000001796
+0000048119	dw_tipoact	2		ESTUDIO DE PROG. DEL C.C.		23	0000001796
+0000048120	dw_tipoact	1		33		24	0000001796
+0000048121	dw_tipoact	2		SEGUIMIENTO DE PROG. DE CALID.		24	0000001796
+0000048122	dw_tipoact	1		41		25	0000001796
+0000048123	dw_tipoact	2		PROYECTOS DE ACTIVIDAD		25	0000001796
+0000048124	dw_tipoact	1		42		26	0000001796
+0000048125	dw_tipoact	2		PLANES DE EMERGENCIA		26	0000001796
+0000048126	dw_tipoact	1		43		27	0000001796
+0000048127	dw_tipoact	2		PROGRAMA Y SEGUIMIENTO		27	0000001796
+0000048128	dw_tipoact	1		44		28	0000001796
+0000048129	dw_tipoact	2		PROGRAMACIÓN		28	0000001796
+0000048130	dw_tipoact	1		45		29	0000001796
+0000048131	dw_tipoact	2		SEGUIM. DE LA PROGRAMACIÓN		29	0000001796
+0000048132	dw_tipoact	1		51		30	0000001796
+0000048133	dw_tipoact	2		PROY. Y DIRECC. PARCELACION		30	0000001796
+0000048134	dw_tipoact	1		52		31	0000001796
+0000048135	dw_tipoact	2		PROYECTO PARCELACION		31	0000001796
+0000048136	dw_tipoact	1		53		32	0000001796
+0000048137	dw_tipoact	2		DIRECCION PARCELACION		32	0000001796
+0000048138	dw_tipoact	1		54		33	0000001796
+0000048139	dw_tipoact	2		REPARCELACION		33	0000001796
+0000048140	dw_tipoact	1		61		34	0000001796
+0000048141	dw_tipoact	2		ESTUDIO Y COMPARACION DE OFERT		34	0000001796
+0000048142	dw_tipoact	1		62		35	0000001796
+0000048143	dw_tipoact	2		RELACIONES VALORADAS		35	0000001796
+0000048144	dw_tipoact	1		63		36	0000001796
+0000048145	dw_tipoact	2		MEMORIAS VALORADAS		36	0000001796
+0000048146	dw_tipoact	1		64		37	0000001796
+0000048147	dw_tipoact	2		REV. PRECIOS Y AJUSTE DE PRES.		37	0000001796
+0000048148	dw_tipoact	1		65		38	0000001796
+0000048149	dw_tipoact	2		VALORACION DE INMUEBLES		38	0000001796
+0000048150	dw_tipoact	1		66		39	0000001796
+0000048151	dw_tipoact	2		VALOR. TERRENOS Y SOLARES		39	0000001796
+0000048152	dw_tipoact	1		71		40	0000001796
+0000048153	dw_tipoact	2		INFORMES, RECONOC., DICTAM.		40	0000001796
+0000048154	dw_tipoact	1		72		41	0000001796
+0000048155	dw_tipoact	2		ACTUACIONES PERICIALES		41	0000001796
+0000048156	dw_tipoact	1		73		42	0000001796
+0000048157	dw_tipoact	2		CERTIFICADOS		42	0000001796
+0000048158	dw_tipoact	1		74		43	0000001796
+0000048159	dw_tipoact	2		CERTIF. PARA ESPECTACULOS		43	0000001796
+0000048160	dw_tipoact	1		75		44	0000001796
+0000048161	dw_tipoact	2		CERTIF. PARA ANDAMIOS		44	0000001796
+0000048162	dw_tipoact	1		81		45	0000001796
+0000048163	dw_tipoact	2		COLABORACIONES TECNICAS		45	0000001796
+0000048164	dw_tipoact	1		82		46	0000001796
+0000048165	dw_tipoact	2		CONSULTAS TECNICAS		46	0000001796
+0000048166	dw_tipoact	1		83		47	0000001796
+0000048167	dw_tipoact	2		ASESORAMIENTO Y GESTIÓN ECONOM		47	0000001796
+0000048168	dw_tipoact	1		91		48	0000001796
+0000048169	dw_tipoact	2		MEDICION EDIFICACION		48	0000001796
+0000048170	dw_tipoact	1		92		49	0000001796
+0000048171	dw_tipoact	2		MEDICION TERRENOS Y SOLARES		49	0000001796
+0000048172	dw_tipoact	1		93		50	0000001796
+0000048173	dw_tipoact	2		DESLINDE Y/O REPLANTEO EDIF.		50	0000001796
+0000048174	dw_tipoact	1		94		51	0000001796
+0000048175	dw_tipoact	2		DESL.Y/O REPL. TERRENO O SOLAR		51	0000001796
+0000048176	dw_tipoact	1		95		52	0000001796
+0000048177	dw_tipoact	2		MEDCION UDES. OBRA		52	0000001796
+0000048178	dw_seleccion_modalidad	1		%		1	0000001796
+0000048179	dw_seleccion_gestion	1		%		1	0000001796
+0000048180	dw_seleccion_estados	1		%		1	0000001796
+0000048181	dw_estados_contrato	1		00		1	0000001796
+0000048182	dw_estados_contrato	2		Preasignado (no registrado)		1	0000001796
+0000048183	dw_estados_contrato	1		01		2	0000001796
+0000048184	dw_estados_contrato	2		Registrado (en análisis)		2	0000001796
+0000048185	dw_estados_contrato	1		02		3	0000001796
+0000048186	dw_estados_contrato	2		Retenido (con reparos)		3	0000001796
+0000048187	dw_estados_contrato	1		03		4	0000001796
+0000048188	dw_estados_contrato	2		Visado y Verificado (visado)		4	0000001796
+0000048189	dw_estados_contrato	1		04		5	0000001796
+0000048190	dw_estados_contrato	2		Abonado Parcialmente		5	0000001796
+0000048191	dw_estados_contrato	1		05		6	0000001796
+0000048192	dw_estados_contrato	2		Abonado y retirado		6	0000001796
+0000048193	dw_estados_contrato	1		06		7	0000001796
+0000048194	dw_estados_contrato	2		Anulado		7	0000001796
+0000048195	dw_estados_contrato	1		VI		8	0000001796
+0000048196	dw_estados_contrato	2		Retirado Visared		8	0000001796
+0000048197	dw_gestion_contrato	1		C		1	0000001796
+0000048198	dw_gestion_contrato	2		CON GESTIÓN DE COBRO		1	0000001796
+0000048199	dw_gestion_contrato	1		P		2	0000001796
+0000048200	dw_gestion_contrato	2		SIN GESTIÓN DE COBRO		2	0000001796
+0000048201	dw_modalidad_contrato	1		C		1	0000001796
+0000048202	dw_modalidad_contrato	2		Cartagena		1	0000001796
+0000048203	dw_modalidad_contrato	1		M		2	0000001796
+0000048204	dw_modalidad_contrato	2		Murcia		2	0000001796
+0000048205	dw_otros_docs	6		%		1	0000001796
+0000048206	dw_final_obra	5		%		1	0000001796
+0000048207	dw_opcion_incomp	1		%		1	0000001796
+0000048208	dw_opcion_sit	1		%		1	0000001796
+0000048209	dw_opcion_agr	1		%		1	0000001796
+0000048210	dw_datos_agrupacion	3		%		1	0000001796
+0000048211	dw_datos_agrupacion	3		%		2	0000001796
+0000048212	dw_opcion_altas	1		%		1	0000001796
+0000048213	dw_opcion_bajas	1		%		1	0000001796
+0000048214	dw_alta_si_no	1		%		1	0000001796
+0000048215	dw_opcion_situaciones	1		%		1	0000001796
+0000048216	dw_opcion_residente	1		%		1	0000001796
+0000048217	dw_opcion_tarifa	1		%		1	0000001796
+0000048218	dw_1	32		%		1	0000001797
+0000048219	dw_1	33		%		1	0000001797
+0000048220	dw_1	34		%		1	0000001797
+0000048221	dw_principal	7			Nov  1 2008 12:00:00:000AM	1	0000001797
+0000048222	dw_principal	8			Nov 30 2008 12:00:00:000AM	1	0000001797
+0000048223	dw_principal	9		%		1	0000001797
+0000048224	dw_principal	28		%		1	0000001797
+0000048225	dw_principal	41		%		1	0000001797
+0000048226	dw_minutas	7		%		1	0000001797
+0000048227	dw_destino_seleccion	1		%		1	0000001797
+0000048228	dw_tipo_obra_seleccion	1		%		1	0000001797
+0000048229	dw_tipo_actuacion_seleccion	1		%		1	0000001797
+0000048230	dw_seleccion_modalidad	1		%		1	0000001797
+0000048231	dw_seleccion_gestion	1		%		1	0000001797
+0000048232	dw_seleccion_estados	1		%		1	0000001797
+0000048233	dw_otros_docs	6		%		1	0000001797
+0000048234	dw_final_obra	5		%		1	0000001797
+0000048235	dw_opcion_incomp	1		%		1	0000001797
+0000048236	dw_opcion_sit	1		%		1	0000001797
+0000048237	dw_opcion_agr	1		%		1	0000001797
+0000048238	dw_datos_agrupacion	3		%		1	0000001797
+0000048239	dw_datos_agrupacion	3		%		2	0000001797
+0000048240	dw_opcion_altas	1		%		1	0000001797
+0000048241	dw_opcion_bajas	1		%		1	0000001797
+0000048242	dw_alta_si_no	1		%		1	0000001797
+0000048243	dw_opcion_situaciones	1		%		1	0000001797
+0000048244	dw_opcion_residente	1		%		1	0000001797
+0000048245	dw_opcion_tarifa	1		%		1	0000001797
+0000049068	dw_certificados	1		coaatmu		1	0000000132
+0000049069	dw_certificados	2		COAATMU.pfx		1	0000000132
+0000049070	dw_certificados	3		S		1	0000000132
+0000067724	dw_1	5			Jan  1 2009 12:00:00:000AM	1	0000002288
+0000067725	dw_1	6			Dec 31 2009 12:00:00:000AM	1	0000002288
+0000067726	dw_1	7		N		1	0000002288
+0000067727	dw_1	8		%		1	0000002288
+0000067728	dw_1	11		%		1	0000002288
+0000067729	dw_1	16		%		1	0000002288
+0000067730	dw_1	17		01		1	0000002288
+0000067731	dw_1	18		%		1	0000002288
+0000067732	dw_1	25		M		1	0000002288
+0000067739	dw_1	1			Sep 24 2009 12:00:00:000AM	1	0000002291
+0000067740	dw_1	2		000001		1	0000002291
+0000067741	dw_1	3		01		1	0000002291
+0000077450	dw_1	1		%		1	0000002622
+0000077451	dw_1	4		40000750		1	0000002622
+0000077452	dw_1	5		%		1	0000002622
+0000077453	dw_1	6		%		1	0000002622
+0000077454	dw_1	7		%		1	0000002622
+0000077455	dw_1	9		%		1	0000002622
+0000077456	dw_1	11			Jan  1 2009 12:00:00:000AM	1	0000002622
+0000077457	dw_1	12			Dec 31 2009 12:00:00:000AM	1	0000002622
+0000077458	dw_1	16		N		1	0000002622
+0000077459	dw_1	19		01		1	0000002622
+0000077460	dw_1	20		INSTITUTO CONTROL E INVEST.EDIFICACION		1	0000002622
+0000077461	dw_1	35		%		1	0000002622
+0000096214	dw_opciones	1		S		1	0000000856
+0000096215	dw_opciones	2		N		1	0000000856
+0000096216	dw_opciones	3		N		1	0000000856
+0000096217	dw_opciones	4		N		1	0000000856
+0000096218	dw_opciones	6		fichero_comprimido		1	0000000856
+0000105328	dw_configuracion_sello	1		ID		1	0000000132
+0000105329	dw_configuracion_sello	3	0.0			1	0000000132
+0000105330	dw_configuracion_sello	4	0.0			1	0000000132
+0000105331	dw_configuracion_sello	5	.5			1	0000000132
+0000105332	dw_configuracion_sello	6	.5			1	0000000132
+0000105333	dw_configuracion_sello	7		S		1	0000000132
+0000105334	dw_configuracion_sello	8		N		1	0000000132
+0000105335	dw_configuracion_sello	10		N		1	0000000132
+0000105336	dw_configuracion_sello	11		CV6432RH		1	0000000132
+0000105337	dw_configuracion_sello	12		CV6432RH		1	0000000132
+0000105338	dw_configuracion_sello	15		N		1	0000000132
+0000105339	dw_configuracion_sello	16		N		1	0000000132
+0000105340	dw_configuracion_sello	17		N		1	0000000132
+0000105341	dw_configuracion_sello	18		N		1	0000000132
+0000105342	dw_configuracion_sello	19		S		1	0000000132
+0000105343	dw_configuracion_sello	20		S		1	0000000132
+0000105344	dw_configuracion_sello	21		N		1	0000000132
+0000105345	dw_configuracion_sello	22		N		1	0000000132
+0000105346	dw_configuracion_sello	23		N		1	0000000132
+0000105347	dw_configuracion_sello	24		S		1	0000000132
+0000105348	dw_configuracion_sello	25		N		1	0000000132
+0000105349	dw_configuracion_sello	27		S		1	0000000132
+0000117223	dw_1	1		1183		1	0000003341
+0000117224	dw_1	3		01		1	0000003341
+0000117225	dw_1	6		%		1	0000003341
+0000152022	dw_1	1		%		1	0000003554
+0000152023	dw_1	5		%		1	0000003554
+0000152024	dw_1	6		%		1	0000003554
+0000152025	dw_1	7		%		1	0000003554
+0000152026	dw_1	9		%		1	0000003554
+0000152027	dw_1	11			Jan  1 2012 12:00:00:000AM	1	0000003554
+0000152028	dw_1	12			Dec 31 2012 12:00:00:000AM	1	0000003554
+0000152029	dw_1	15		40000822		1	0000003554
+0000152030	dw_1	16		N		1	0000003554
+0000152031	dw_1	19		01		1	0000003554
+0000152032	dw_1	37		%		1	0000003554
+0000153941	dw_1	2			Jan  1 2012 12:00:00:000AM	1	0000003560
+0000153942	dw_1	3			Dec 31 2012 12:00:00:000AM	1	0000003560
+0000155402	dw_opciones	1		S		1	0000000132
+0000155403	dw_opciones	2		S		1	0000000132
+0000155404	dw_opciones	3		T		1	0000000132
+0000159651	dw_consulta	2			May  1 2012 12:00:00:000AM	1	0000001492
+0000159652	dw_consulta	3			May 31 2012 12:00:00:000AM	1	0000001492
+0000159653	dw_consulta	5		%		1	0000001492
+0000159654	dw_consulta	8		%		1	0000001492
+0000159655	dw_consulta	13		02		1	0000001492
+0000159656	dw_lista_series	1		FI		1	0000001492
+0000159657	dw_lista_series	2		Serie para gastos financieros repercutidos		1	0000001492
+0000159658	dw_lista_series	3		S		1	0000001492
+0000159659	dw_lista_series	4		2012		1	0000001492
+0000159660	dw_lista_series	5		02		1	0000001492
+0000159661	dw_lista_series	1		MT		2	0000001492
+0000159662	dw_lista_series	2		Serie para la facturacion de otros conceptos de la empresa a		2	0000001492
+0000159663	dw_lista_series	3		S		2	0000001492
+0000159664	dw_lista_series	4		2012		2	0000001492
+0000159665	dw_lista_series	5		02		2	0000001492
+0000159666	dw_lista_series	1		MUTUA		3	0000001492
+0000159667	dw_lista_series	2		Serie para la facturación de Premaat		3	0000001492
+0000159668	dw_lista_series	3		S		3	0000001492
+0000159669	dw_lista_series	4		2012		3	0000001492
+0000159670	dw_lista_series	5		02		3	0000001492
+0000159671	dw_lista_series	1		PC		4	0000001492
+0000159672	dw_lista_series	2		Serie para la facturacion de la prima variable		4	0000001492
+0000159673	dw_lista_series	3		S		4	0000001492
+0000159674	dw_lista_series	4		2012		4	0000001492
+0000159675	dw_lista_series	5		02		4	0000001492
+0000159676	dw_lista_series	1		PF		5	0000001492
+0000159677	dw_lista_series	2		Serie para la facturacion de otros conceptos de la empresa a		5	0000001492
+0000159678	dw_lista_series	3		S		5	0000001492
+0000159679	dw_lista_series	4		2012		5	0000001492
+0000159680	dw_lista_series	5		02		5	0000001492
+0000159681	dw_lista_series	1		PROFOR		6	0000001492
+0000159682	dw_lista_series	2		FACTURAS PROFORMA Empresa 02		6	0000001492
+0000159683	dw_lista_series	3		S		6	0000001492
+0000159684	dw_lista_series	4		2012		6	0000001492
+0000159685	dw_lista_series	5		02		6	0000001492
+0000159686	dw_lista_series	1		RECTIF		7	0000001492
+0000159687	dw_lista_series	2		Serie rectificativa de la empresa aseguradora		7	0000001492
+0000159688	dw_lista_series	3		S		7	0000001492
+0000159689	dw_lista_series	4		2012		7	0000001492
+0000159690	dw_lista_series	5		02		7	0000001492
+0000159691	dw_lista_series	1		TASADO		8	0000001492
+0000159692	dw_lista_series	2		Serie para la facturación del seguro Tasadores		8	0000001492
+0000159693	dw_lista_series	3		S		8	0000001492
+0000159694	dw_lista_series	4		2012		8	0000001492
+0000159695	dw_lista_series	5		02		8	0000001492
+0000159696	dw_lista_tipos_facturas	1		02		1	0000001492
+0000159697	dw_lista_tipos_facturas	2		Colegio - Cliente (Promotor)		1	0000001492
+0000159698	dw_lista_tipos_facturas	3		d_csi_factura_murcia		1	0000001492
+0000159699	dw_lista_tipos_facturas	5		S		1	0000001492
+0000159700	dw_lista_tipos_facturas	1		03		2	0000001492
+0000159701	dw_lista_tipos_facturas	2		Colegio - Colegiado		2	0000001492
+0000159702	dw_lista_tipos_facturas	3		d_factu_gastos_murcia_nueva		2	0000001492
+0000159703	dw_lista_tipos_facturas	5		S		2	0000001492
+0000159704	dw_lista_tipos_facturas	1		04		3	0000001492
+0000159705	dw_lista_tipos_facturas	2		Honorarios de Colegiado		3	0000001492
+0000159706	dw_lista_tipos_facturas	3		d_factu_honos_murcia_nueva		3	0000001492
+0000159707	dw_lista_tipos_facturas	5		S		3	0000001492
+0000159708	dw_articulos	1		N		1	0000001492
+0000159709	dw_articulos	2		10		1	0000001492
+0000159710	dw_articulos	3		MUSAAT REGU.PRIMA FIJA		1	0000001492
+0000159711	dw_articulos	4		02		1	0000001492
+0000159712	dw_articulos	1		N		2	0000001492
+0000159713	dw_articulos	2		105		2	0000001492
+0000159714	dw_articulos	3		MUSAAT CIF-V28865855 PRIMA F. SRC		2	0000001492
+0000159715	dw_articulos	4		02		2	0000001492
+0000159716	dw_articulos	1		N		3	0000001492
+0000159717	dw_articulos	2		106		3	0000001492
+0000159718	dw_articulos	3		PREMAAT CIF-G28618536		3	0000001492
+0000159719	dw_articulos	4		02		3	0000001492
+0000159720	dw_articulos	1		N		4	0000001492
+0000159721	dw_articulos	2		17		4	0000001492
+0000159722	dw_articulos	3		PREMAAT REGU.PREMAAT		4	0000001492
+0000159723	dw_articulos	4		02		4	0000001492
+0000159724	dw_articulos	1		N		5	0000001492
+0000159725	dw_articulos	2		ATRPR		5	0000001492
+0000159726	dw_articulos	3		CUOTA ATRASADA PREMAAT		5	0000001492
+0000159727	dw_articulos	4		02		5	0000001492
+0000159728	dw_articulos	1		N		6	0000001492
+0000159729	dw_articulos	2		PRESV		6	0000001492
+0000159730	dw_articulos	3		PREMAAT.-SEGURO VIDA		6	0000001492
+0000159731	dw_articulos	4		02		6	0000001492
+0000159732	dw_articulos	1		N		7	0000001492
+0000159733	dw_articulos	2		PREVIU		7	0000001492
+0000159734	dw_articulos	3		PREMAAT.-CARENCIA VIUDEDAD		7	0000001492
+0000159735	dw_articulos	4		02		7	0000001492
+0000159736	dw_articulos	1		N		8	0000001492
+0000159737	dw_articulos	2		PREJU		8	0000001492
+0000159738	dw_articulos	3		PREMAAT.-CARENCIA JUBILACION		8	0000001492
+0000159739	dw_articulos	4		02		8	0000001492
+0000159740	dw_articulos	1		N		9	0000001492
+0000159741	dw_articulos	2		TASAD		9	0000001492
+0000159742	dw_articulos	3		MUSAAT CIF-V28865855 SRC TASADORES		9	0000001492
+0000159743	dw_articulos	4		02		9	0000001492
+0000159744	dw_articulos	1		N		10	0000001492
+0000159745	dw_articulos	2		ACCID		10	0000001492
+0000159746	dw_articulos	3		EN COLEGIO - SEGURO ACCIDENTES		10	0000001492
+0000159747	dw_articulos	4		02		10	0000001492
+0000159748	dw_articulos	1		N		11	0000001492
+0000159749	dw_articulos	2		ACC.		11	0000001492
+0000159750	dw_articulos	3		EN COLEGIO - MUSAAT SEGURO DE ACCIDENTES		11	0000001492
+0000159751	dw_articulos	4		02		11	0000001492
+0000159752	dw_articulos	1		N		12	0000001492
+0000159753	dw_articulos	2		104		12	0000001492
+0000159754	dw_articulos	3		MUSAAT CIF-V28865855 AMPLIACION SRC		12	0000001492
+0000159755	dw_articulos	4		02		12	0000001492
+0000159756	dw_articulos	1		N		13	0000001492
+0000159757	dw_articulos	2		107		13	0000001492
+0000159758	dw_articulos	3		MUSAAT CIF-V28865855 ALTA SRC		13	0000001492
+0000159759	dw_articulos	4		02		13	0000001492
+0000159760	dw_articulos	1		N		14	0000001492
+0000159761	dw_articulos	2		109		14	0000001492
+0000159762	dw_articulos	3		MUSAAT CIF-V28865855 DISMINUCIONES SRC		14	0000001492
+0000159763	dw_articulos	4		02		14	0000001492
+0000159764	dw_articulos	1		N		15	0000001492
+0000159765	dw_articulos	2		TASADO		15	0000001492
+0000159766	dw_articulos	3		MUSAAT CIF-V28865855 ALTA TASAD.		15	0000001492
+0000159767	dw_articulos	4		02		15	0000001492
+0000159768	dw_articulos	1		N		16	0000001492
+0000159769	dw_articulos	2		159		16	0000001492
+0000159770	dw_articulos	3		MUSAAT CIF-V28865855 SRC SOCIEDAD PROFESIONAL		16	0000001492
+0000159771	dw_articulos	4		02		16	0000001492
+0000159772	dw_articulos	1		N		17	0000001492
+0000159773	dw_articulos	2		12		17	0000001492
+0000159774	dw_articulos	3		MUSAAT CIF-V28865855 PRIMA C. SRC		17	0000001492
+0000159775	dw_articulos	4		02		17	0000001492
+0000159776	dw_articulos	1		N		18	0000001492
+0000159777	dw_articulos	2		I.FINANC.		18	0000001492
+0000159778	dw_articulos	3		INGRESOS FINANCIEROS		18	0000001492
+0000159779	dw_articulos	4		02		18	0000001492
+0000159903	dw_1	3		02		1	0000003635
+0000159904	dw_1	4		BANCO M		1	0000003635
+0000159905	dw_1	6		%		1	0000003635
+0000159917	dw_1	1		%		1	0000003637
+0000159918	dw_1	5		%		1	0000003637
+0000159919	dw_1	6		%		1	0000003637
+0000159920	dw_1	7		%		1	0000003637
+0000159921	dw_1	9		%		1	0000003637
+0000159922	dw_1	11			Apr  1 2012 12:00:00:000AM	1	0000003637
+0000159923	dw_1	12			Apr  1 2012 12:00:00:000AM	1	0000003637
+0000159924	dw_1	16		N		1	0000003637
+0000159925	dw_1	19		01		1	0000003637
+0000159926	dw_1	22		M		1	0000003637
+0000159927	dw_1	37		%		1	0000003637

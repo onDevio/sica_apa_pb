@@ -1,0 +1,12 @@
+02	RETENIDO(CON REPAROS)                                       	S	S	N	N	S
+00	PREASIGNADO(NO REGISTRADO)                                  	S	S	N	S	S
+01	REGISTRADO(EN ANALISIS)                                     	S	S	N	S	S
+03	VISADO Y VERIFICADO (VISADO)                                	S	N	S	S	S
+04	ABONADO PARCIALMENTE                                        	S	N	N	S	S
+05	ABONADO Y RETIRADO                                          	S	N	N	S	S
+06	ANULADO                                                     	S	N	N	N	S
+VI	RETIRADO VISARED                                            	S	S	N	S	S
+07	ANULADO PARCIALMENTE                                        	S	N	N	S	S
+FN	CONTRATO FINALIZADO                                         	N	N	N	S	S
+FP	FINALIZADO POR RENUNCIA PARCIAL                             	N	N	N	S	S
+FR	FINALIZADO POR RENUNCIA TOTAL                               	N	N	N	S	S

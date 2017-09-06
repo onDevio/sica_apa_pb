@@ -1,0 +1,138 @@
+RECTIF    	01	2008	% 	Cabecera            	   Rebut / Factura 
+COLEGIADOS	01	2009	% 	Cabecera            	   Rebut / Factura 
+MU        	01	2009	% 	Cabecera            	   Rebut / Factura 
+RECTIF    	01	2009	% 	Cabecera            	   Rebut / Factura 
+DTE       	01	XX  	% 	Cabecera            	   Rebut / Factura 
+MUS       	01	XX  	% 	Cabecera            	   Rebut / Factura 
+C         	01	2009	% 	Cabecera            	   Rebut / Factura 
+A         	01	2009	% 	Cabecera            	   Rebut / Factura 
+QUOTES    	01	2009	% 	Cabecera            	   Rebut / Factura 
+V         	01	2009	% 	Cabecera            	   Rebut / Factura 
+MUS       	01	2009	% 	Cabecera            	   Rebut / Factura 
+COLEGIADOS	01	2010	% 	Cabecera            	   Rebut / Factura 
+MU        	01	2010	% 	Cabecera            	   Rebut / Factura 
+RECTIF    	01	2010	% 	Cabecera            	   Rebut / Factura 
+C         	01	2010	% 	Cabecera            	   Rebut / Factura 
+A         	01	2010	% 	Cabecera            	   Rebut / Factura 
+QUOTES    	01	2010	% 	Cabecera            	   Rebut / Factura 
+V         	01	2010	% 	Cabecera            	   Rebut / Factura 
+DTE       	01	2010	% 	Cabecera            	   Rebut / Factura 
+MUS       	01	2010	% 	Cabecera            	   Rebut / Factura 
+000       	02	2010	% 	Cabecera            	   Rebut / Factura 
+DTE       	01	2009	% 	Cabecera            	   Rebut / Factura 
+COLEGIADOS	01	2011	% 	Cabecera            	   Rebut / Factura 
+MU        	01	2011	% 	Cabecera            	   Rebut / Factura 
+RECTIF    	01	2011	% 	Cabecera            	   Rebut / Factura 
+C         	01	2011	% 	Cabecera            	   Rebut / Factura 
+A         	01	2011	% 	Cabecera            	   Rebut / Factura 
+QUOTES    	01	2011	% 	Cabecera            	   Rebut / Factura 
+V         	01	2011	% 	Cabecera            	   Rebut / Factura 
+DTE       	01	2011	% 	Cabecera            	   Rebut / Factura 
+MUS       	01	2011	% 	Cabecera            	   Rebut / Factura 
+IT        	02	2011	% 	Cabecera            	   Rebut / Factura 
+MU        	01	2008	% 	Cabecera            	   Rebut / Factura 
+F         	01	2008	% 	Cabecera            	   Rebut / Factura 
+F         	01	2009	% 	Cabecera            	   Rebut / Factura 
+F         	01	2010	% 	Cabecera            	   Rebut / Factura 
+F         	01	2011	% 	Cabecera            	   Rebut / Factura 
+PROFOR    	01	2010	% 	Cabecera            	Proforma
+PROFOR    	01	2011	% 	Cabecera            	Proforma
+PROFOR    	02	2011	% 	Cabecera            	Proforma
+MUSAAT    	01	2008	% 	Cabecera            	Rebut
+PREMAA    	01	2009	% 	Cabecera            	Rebut
+R         	01	2009	% 	Cabecera            	Rebut
+MUSAAT    	01	2009	% 	Cabecera            	Rebut
+PREMAA    	01	2010	% 	Cabecera            	Rebut
+R         	01	2010	% 	Cabecera            	Rebut
+MUSAAT    	01	2010	% 	Cabecera            	Rebut
+R         	01	2008	% 	Cabecera            	Rebut
+PREMAA    	01	2011	% 	Cabecera            	Rebut
+R         	01	2011	% 	Cabecera            	Rebut
+MUSAAT    	01	2011	% 	Cabecera            	Rebut
+PC        	02	2011	% 	Cabecera            	Rebut
+PF        	02	2011	% 	Cabecera            	Rebut
+MT        	02	2011	% 	Cabecera            	Rebut
+RECTIF    	02	2011	% 	Cabecera            	Rebut
+%         	% 	%   	% 	Cabecera            	   Rebut / Factura 
+RECTIF    	01	2008	% 	N_fact              	Nº REBUT / FACTURA
+COLEGIADOS	01	2009	% 	N_fact              	Nº REBUT / FACTURA
+MU        	01	2009	% 	N_fact              	Nº REBUT / FACTURA
+RECTIF    	01	2009	% 	N_fact              	Nº REBUT / FACTURA
+DTE       	01	XX  	% 	N_fact              	Nº REBUT / FACTURA
+MUS       	01	XX  	% 	N_fact              	Nº REBUT / FACTURA
+C         	01	2009	% 	N_fact              	Nº REBUT / FACTURA
+A         	01	2009	% 	N_fact              	Nº REBUT / FACTURA
+QUOTES    	01	2009	% 	N_fact              	Nº REBUT / FACTURA
+V         	01	2009	% 	N_fact              	Nº REBUT / FACTURA
+MUS       	01	2009	% 	N_fact              	Nº REBUT / FACTURA
+COLEGIADOS	01	2010	% 	N_fact              	Nº REBUT / FACTURA
+MU        	01	2010	% 	N_fact              	Nº REBUT / FACTURA
+RECTIF    	01	2010	% 	N_fact              	Nº REBUT / FACTURA
+C         	01	2010	% 	N_fact              	Nº REBUT / FACTURA
+A         	01	2010	% 	N_fact              	Nº REBUT / FACTURA
+QUOTES    	01	2010	% 	N_fact              	Nº REBUT / FACTURA
+V         	01	2010	% 	N_fact              	Nº REBUT / FACTURA
+DTE       	01	2010	% 	N_fact              	Nº REBUT / FACTURA
+MUS       	01	2010	% 	N_fact              	Nº REBUT / FACTURA
+000       	02	2010	% 	N_fact              	Nº REBUT / FACTURA
+DTE       	01	2009	% 	N_fact              	Nº REBUT / FACTURA
+COLEGIADOS	01	2011	% 	N_fact              	Nº REBUT / FACTURA
+MU        	01	2011	% 	N_fact              	Nº REBUT / FACTURA
+RECTIF    	01	2011	% 	N_fact              	Nº REBUT / FACTURA
+C         	01	2011	% 	N_fact              	Nº REBUT / FACTURA
+A         	01	2011	% 	N_fact              	Nº REBUT / FACTURA
+QUOTES    	01	2011	% 	N_fact              	Nº REBUT / FACTURA
+V         	01	2011	% 	N_fact              	Nº REBUT / FACTURA
+DTE       	01	2011	% 	N_fact              	Nº REBUT / FACTURA
+MUS       	01	2011	% 	N_fact              	Nº REBUT / FACTURA
+IT        	02	2011	% 	N_fact              	Nº REBUT / FACTURA
+MU        	01	2008	% 	N_fact              	Nº REBUT / FACTURA
+F         	01	2008	% 	N_fact              	Nº REBUT / FACTURA
+F         	01	2009	% 	N_fact              	Nº REBUT / FACTURA
+F         	01	2010	% 	N_fact              	Nº REBUT / FACTURA
+F         	01	2011	% 	N_fact              	Nº REBUT / FACTURA
+PROFOR    	01	2010	% 	N_fact              	Nº PROFORMA
+PROFOR    	01	2011	% 	N_fact              	Nº PROFORMA
+PROFOR    	02	2011	% 	N_fact              	Nº PROFORMA
+MUSAAT    	01	2008	% 	N_fact              	Nº REBUT
+PREMAA    	01	2009	% 	N_fact              	Nº REBUT
+R         	01	2009	% 	N_fact              	Nº REBUT
+MUSAAT    	01	2009	% 	N_fact              	Nº REBUT
+PREMAA    	01	2010	% 	N_fact              	Nº REBUT
+R         	01	2010	% 	N_fact              	Nº REBUT
+MUSAAT    	01	2010	% 	N_fact              	Nº REBUT
+R         	01	2008	% 	N_fact              	Nº REBUT
+PREMAA    	01	2011	% 	N_fact              	Nº REBUT
+R         	01	2011	% 	N_fact              	Nº REBUT
+MUSAAT    	01	2011	% 	N_fact              	Nº REBUT
+PC        	02	2011	% 	N_fact              	Nº REBUT
+PF        	02	2011	% 	N_fact              	Nº REBUT
+MT        	02	2011	% 	N_fact              	Nº REBUT
+RECTIF    	02	2011	% 	N_fact              	Nº REBUT
+%         	% 	%   	% 	N_fact              	Nº REBUT / FACTURA
+PROFOR    	01	2010	% 	Total_fact          	TOTAL PROFORMA
+PROFOR    	01	2011	% 	Total_fact          	TOTAL PROFORMA
+PROFOR    	02	2011	% 	Total_fact          	TOTAL PROFORMA
+MUSAAT    	01	2008	% 	Total_fact          	TOTAL REBUT
+PREMAA    	01	2009	% 	Total_fact          	TOTAL REBUT
+R         	01	2009	% 	Total_fact          	TOTAL REBUT
+MUSAAT    	01	2009	% 	Total_fact          	TOTAL REBUT
+PREMAA    	01	2010	% 	Total_fact          	TOTAL REBUT
+R         	01	2010	% 	Total_fact          	TOTAL REBUT
+MUSAAT    	01	2010	% 	Total_fact          	TOTAL REBUT
+R         	01	2008	% 	Total_fact          	TOTAL REBUT
+PREMAA    	01	2011	% 	Total_fact          	TOTAL REBUT
+R         	01	2011	% 	Total_fact          	TOTAL REBUT
+MUSAAT    	01	2011	% 	Total_fact          	TOTAL REBUT
+PC        	02	2011	% 	Total_fact          	TOTAL REBUT
+PF        	02	2011	% 	Total_fact          	TOTAL REBUT
+MT        	02	2011	% 	Total_fact          	TOTAL REBUT
+RECTIF    	02	2011	% 	Total_fact          	TOTAL REBUT
+%         	% 	%   	% 	Total_fact          	TOTAL REBUT
+000       	02	2010	% 	N_emisor2           	Agència d'assegurances exclusiva de MUSAAT, Mutua de Seguros a Prima Fija, número d'inscripció M0368B43675784, al Registre de la DGS, així com el NIF de la societat: B43675784
+IT        	02	2011	% 	N_emisor2           	Agència d'assegurances exclusiva de MUSAAT, Mutua de Seguros a Prima Fija, número d'inscripció M0368B43675784, al Registre de la DGS, així com el NIF de la societat: B43675784
+MT        	02	2011	% 	N_emisor2           	Agència d'assegurances exclusiva de MUSAAT, Mutua de Seguros a Prima Fija, número d'inscripció M0368B43675784, al Registre de la DGS, així com el NIF de la societat: B43675784
+PC        	02	2011	% 	N_emisor2           	Agència d'assegurances exclusiva de MUSAAT, Mutua de Seguros a Prima Fija, número d'inscripció M0368B43675784, al Registre de la DGS, així com el NIF de la societat: B43675784
+PF        	02	2011	% 	N_emisor2           	Agència d'assegurances exclusiva de MUSAAT, Mutua de Seguros a Prima Fija, número d'inscripció M0368B43675784, al Registre de la DGS, així com el NIF de la societat: B43675784
+PROFOR    	02	2011	% 	N_emisor2           	Agència d'assegurances exclusiva de MUSAAT, Mutua de Seguros a Prima Fija, número d'inscripció M0368B43675784, al Registre de la DGS, així com el NIF de la societat: B43675784
+RECTIF    	02	2011	% 	N_emisor2           	Agència d'assegurances exclusiva de MUSAAT, Mutua de Seguros a Prima Fija, número d'inscripció M0368B43675784, al Registre de la DGS, així com el NIF de la societat: B43675784

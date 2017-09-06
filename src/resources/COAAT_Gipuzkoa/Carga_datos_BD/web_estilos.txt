@@ -1,0 +1,39 @@
+0000000002	0000000005	0000000002	#FFFFFF	#FFFFFF	#777777	#969696	Verdana, Arial, Helvetica, sans-serif	10	#111111	Verdana, Arial, Helvetica, sans-serif	10	#111111	Verdana, Arial, Helvetica, sans-serif	16
+0000000003	0000000005	0000000003	#FFFFFF	#FFFFFF	#777777	#969696	Verdana, Arial, Helvetica, sans-serif	10	#111111	Verdana, Arial, Helvetica, sans-serif	10	#111111	Verdana, Arial, Helvetica, sans-serif	16
+0000000005	0000000006	0000000005	#FF9933	#333333	#808080	#969696	Verdana, Arial, Helvetica, sans-serif	10	#000000	Verdana, Arial, Helvetica, sans-serif	10	#F8F8F8	Verdana, Arial, Helvetica, sans-serif	16
+0000000007	0000000001	0000000007	#E7E7D6	#CE6363	#CE6363	#000000	Arial, Helvetica, sans-serif	12	#FFFFFF	Arial, Helvetica, sans-serif	12	#FFFFFF	Arial, Helvetica, sans-serif	12
+0000000009	0000000005	0000000009	#FFCC66	#FFCC99	#808080	#969696	Georgia, Times New Roman, Times, serif	10	#111111	Georgia, Times New Roman, Times, serif	10	#111111	Georgia, Times New Roman, Times, serif	16
+0000000010	0000000006	0000000010	#FFCC99	#CCECFF	#808080	#969696	Verdana, Arial, Helvetica, sans-serif	10	#000000	Verdana, Arial, Helvetica, sans-serif	10	#F8F8F8	Verdana, Arial, Helvetica, sans-serif	16
+0000000011	0000000006	0000000011	#000000	#000000	#00FF00	#FFFFFF	Arial, Helvetica, sans-serif	14	#FFFFFF	Arial, Helvetica, sans-serif	12	#FFFFFF	Arial, Helvetica, sans-serif	16
+0000000012	0000000006	0000000012	#B2B2B2	#080808	#FF6600	#080808	Verdana, Arial, Helvetica, sans-serif	11	#FFFFCC	Verdana, Arial, Helvetica, sans-serif	10	 	Verdana, Arial, Helvetica, sans-serif	16
+0000000013	0000000006	0000000013	#B2B2B2	#080808	#FF6600	#080808	Verdana, Arial, Helvetica, sans-serif	11	#FFFFCC	Verdana, Arial, Helvetica, sans-serif	10	 	Verdana, Arial, Helvetica, sans-serif	16
+0000000014	0000000006	0000000014	#B2B2B2	#080808	#FF6600	#080808	Verdana, Arial, Helvetica, sans-serif	11	#FFFFCC	Verdana, Arial, Helvetica, sans-serif	10	 	Verdana, Arial, Helvetica, sans-serif	16
+0000000015	0000000006	0000000015	#B2B2B2	#080808	#FF6600	#FFCCFF	Verdana, Arial, Helvetica, sans-serif	11	#FFFFCC	Verdana, Arial, Helvetica, sans-serif	10	#F8F8F8	Verdana, Arial, Helvetica, sans-serif	16
+0000000016	0000000005	0000000016	#FFFFFF	#FFFFFF	#777777	#969696	Verdana, Arial, Helvetica, sans-serif	10	#111111	Verdana, Arial, Helvetica, sans-serif	10	#111111	Verdana, Arial, Helvetica, sans-serif	16
+0000000018	0000000005	0000000018	#FFFFFF	#FFFFFF	#777777	#969696	Verdana, Arial, Helvetica, sans-serif	10	#111111	Verdana, Arial, Helvetica, sans-serif	10	#111111	Verdana, Arial, Helvetica, sans-serif	16
+0000000019	0000000006	0000000019	#DDDDDD	#CC99FF	#000000	#969696	Courier New, Courier, mono	10	#000000	Geneva, Arial, Helvetica, sans-serif	10	#000000	Courier New, Courier, mono	16
+0000000020	0000000001	0000000020	#EAEAEA	#FFFF00	#003399	#000000	Times New Roman, Times, serif	10	#000000	Times New Roman, Times, serif	11	#000000	Times New Roman, Times, serif	16
+0000000021	0000000005	0000000021	#FFFFFF	#FFFFFF	#777777	#969696	Verdana, Arial, Helvetica, sans-serif	10	#111111	Verdana, Arial, Helvetica, sans-serif	10	#111111	Verdana, Arial, Helvetica, sans-serif	16
+0000000022	0000000002	0000000022	#00CC00	#FF9900	#993300	#000000	Arial, Helvetica, sans-serif	14	#4D4D4D	Arial, Helvetica, sans-serif	16	#292929	Verdana, Arial, Helvetica, sans-serif	16
+0000000023	0000000006	0000000023	#5F5F5F	#5F5F5F	#00FF00	#FFFFFF	Arial, Helvetica, sans-serif	14	#FFFFFF	Arial, Helvetica, sans-serif	12	#FFFFFF	Arial, Helvetica, sans-serif	16
+0000000024	0000000006	0000000024	#FFFFFF	#C0C0C0	#808080	#969696	Verdana, Arial, Helvetica, sans-serif	10	#000000	Verdana, Arial, Helvetica, sans-serif	10	#F8F8F8	Verdana, Arial, Helvetica, sans-serif	16
+0000000027	0000000001	0000000027	#E7E7D6	#CE6363	#CE6363	#000000	Verdana, Arial, Helvetica, sans-serif	10	#FFFFFF	Verdana, Arial, Helvetica, sans-serif	11	#FFFFFF	Verdana, Arial, Helvetica, sans-serif	16
+0000000029	0000000002	0000000029	#F7FFFF	#D6DEDE	#D6DEDE	#000000	Times New Roman, Times, serif	12	#4D4D4D	Times New Roman, Times, serif	12	#292929	Times New Roman, Times, serif	16
+0000000032	0000000006	0000000032	#FFFFFF	#C0C0C0	#808080	#969696	Arial, Helvetica, sans-serif	10	#000000	Verdana, Arial, Helvetica, sans-serif	10	#F8F8F8	Verdana, Arial, Helvetica, sans-serif	16
+0000000039	0000000004	0000000039	#FFFFFF	#00736B	#0F3A4A	#000000	Verdana, Arial, Helvetica, sans-serif	12	#000000	Verdana, Arial, Helvetica, sans-serif	12	#000000	Verdana, Arial, Helvetica, sans-serif	16
+0000000040	0000000006	0000000040	#FF3300	#C0C0C0	#808080	#969696	Verdana, Arial, Helvetica, sans-serif	10	#000000	Verdana, Arial, Helvetica, sans-serif	10	#F8F8F8	Verdana, Arial, Helvetica, sans-serif	16
+0000000041	0000000005	0000000041	#C0C0C0	#DDDDDD	#FF3300	#000000	Arial, Helvetica, sans-serif	10	#111111	Arial, Helvetica, sans-serif	10	#111111	Arial, Helvetica, sans-serif	16
+0000000042	0000000004	0000000042	#FFFFFF	#33CC33	#CC0000	#000000	Verdana, Arial, Helvetica, sans-serif	10	#000000	Verdana, Arial, Helvetica, sans-serif	10	#FFC67B	Verdana, Arial, Helvetica, sans-serif	16
+0000000044	0000000005	0000000044	#0033CC	#CCFFFF	#00CC00	#FF3300	Arial, Helvetica, sans-serif	12	#111111	Verdana, Arial, Helvetica, sans-serif	10	#111111	Verdana, Arial, Helvetica, sans-serif	16
+0000000046	0000000001	0000000046	#66FF33	#00FFFF	#FF3300	#000000	Arial, Helvetica, sans-serif	10	#FFFFFF	Verdana, Arial, Helvetica, sans-serif	11	#FFFFFF	Verdana, Arial, Helvetica, sans-serif	16
+0000000047	0000000002	0000000047	#F7FFFF	#D6DEDE	#D6DEDE	#000000	Verdana, Arial, Helvetica, sans-serif	10	#4D4D4D	Verdana, Arial, Helvetica, sans-serif	10	#292929	Verdana, Arial, Helvetica, sans-serif	16
+0000000048	0000000006	0000000048	#FFFFFF	#C0C0C0	#808080	#969696	Verdana, Arial, Helvetica, sans-serif	10	#000000	Verdana, Arial, Helvetica, sans-serif	10	#F8F8F8	Verdana, Arial, Helvetica, sans-serif	16
+0000000049	0000000003	0000000049	#FFFFFF	#DDDDDD	#808080	#4D4D4D	Verdana, Arial, Helvetica, sans-serif	10	#5F5F5F	Verdana, Arial, Helvetica, sans-serif	10	#000000	Verdana, Arial, Helvetica, sans-serif	16
+0000000050	0000000004	0000000050	#FFFFFF	#FFC67B	#FFC67B	#000000	Verdana, Arial, Helvetica, sans-serif	10	#000000	Verdana, Arial, Helvetica, sans-serif	10	#FFC67B	Verdana, Arial, Helvetica, sans-serif	16
+0000000052	0000000006	0000000052	#FFFFFF	#C0C0C0	#808080	#969696	Verdana, Arial, Helvetica, sans-serif	10	#000000	Verdana, Arial, Helvetica, sans-serif	10	#F8F8F8	Verdana, Arial, Helvetica, sans-serif	16
+0000000053	0000000006	0000000053	#DDDDDD	#FF3300	#292929	#969696	Verdana, Arial, Helvetica, sans-serif	10	#000000	Verdana, Arial, Helvetica, sans-serif	10	#F8F8F8	Verdana, Arial, Helvetica, sans-serif	16
+0000000054	0000000001	0000000054	#00FFFF	#0000FF	#660033	#000000	Courier New, Courier, mono	16	#4D4D4D	Verdana, Arial, Helvetica, sans-serif	16	#0066FF	Verdana, Arial, Helvetica, sans-serif	16
+0000000055	0000000002	0000000055	#F7FFFF	#D6DEDE	#D6DEDE	#3399FF	Verdana, Arial, Helvetica, sans-serif	10	#4D4D4D	Verdana, Arial, Helvetica, sans-serif	10	#292929	Verdana, Arial, Helvetica, sans-serif	16
+0000000056	0000000001	0000000056	#E7E7D6	#CE6363	#CE6363	#000000	Verdana, Arial, Helvetica, sans-serif	10	#FFFFFF	Verdana, Arial, Helvetica, sans-serif	11	#FFFFFF	Verdana, Arial, Helvetica, sans-serif	16
+0000000057	0000000006	0000000057	#FFFFFF	#C0C0C0	#808080	#969696	Verdana, Arial, Helvetica, sans-serif	12	#000000	Verdana, Arial, Helvetica, sans-serif	12	#F8F8F8	Verdana, Arial, Helvetica, sans-serif	16
+0000000059	0000000001	0000000059	#E7E7D6	#CE6363	#CE6363	#000000	Verdana, Arial, Helvetica, sans-serif	10	#FFFFFF	Verdana, Arial, Helvetica, sans-serif	11	#FFFFFF	Verdana, Arial, Helvetica, sans-serif	16

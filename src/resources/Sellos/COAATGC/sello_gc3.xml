@@ -1,0 +1,35 @@
+<sello>
+  <x>${x}</x>
+  <y>${y}</y>
+  <anchura>90</anchura>
+  <altura>90</altura>
+  <vertical>false</vertical>
+  <posicion>${margen}</posicion>
+  <textos>
+    <texto>
+      <x>35</x>
+      <y>27</y>    
+      <contenido>${f_visado}</contenido>
+      <fuente>${directorio_windows}\Fonts\ariblk.ttf</fuente>
+      <size>5</size> 
+      <color>255,0,0</color>
+    </texto>
+	<texto>
+      <x>32</x>
+      <y>20</y>    
+      <contenido>${n_expediente}</contenido>
+      <fuente>${directorio_windows}\Fonts\ariblk.ttf</fuente>
+      <size>5</size> 
+      <color>255,0,0</color>
+    </texto>
+
+  </textos>
+  <imagenes>
+    <imagen>
+      <x>1</x>
+      <y>1</y>
+      <ruta>${directorio_imagenes}\sello_redondo_GC_nuevo.gif</ruta>
+      <escala>16</escala>
+    </imagen>
+  </imagenes>
+</sello>

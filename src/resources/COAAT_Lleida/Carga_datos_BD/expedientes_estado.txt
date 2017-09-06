@@ -1,0 +1,15 @@
+02	MANCANCES TÈCNIQUES                                         	S	S	N	N	S
+00	REGISTRAT                                                   	S	S	N	S	S
+01	REGISTRAT                                                   	S	S	N	S	S
+03	VISAT/TRAMITAT                                              	S	N	S	S	S
+04	EN CURS                                                     	S	N	N	S	S
+05	VISAT/TRAMITAT                                              	S	N	N	S	S
+06	ANNULAT                                                     	S	N	N	N	S
+VI	VISAT DIGITAL                                               	S	S	N	S	S
+07	FINALITZAT                                                  	S	N	N	S	S
+65	TANCAT PER ALTRES                                           	N	N	N	S	S
+64	TANCAT PER RENÚNCIA                                         	N	N	N	S	S
+63	TANCAT OFICI                                                	N	N	N	S	S
+62	TANCAT PER CFO                                              	N	N	N	S	S
+61	TANCAT ADMINISTRATIVAMENT                                   	N	N	N	S	S
+66	TANCAT PER FINAL COORDINACIÓ                                	N	N	N	S	S

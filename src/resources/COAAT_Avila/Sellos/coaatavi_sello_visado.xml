@@ -1,0 +1,42 @@
+<sello>
+  <x>${x}</x>
+  <y>${y}</y>
+  <anchura>121</anchura>
+  <altura>130</altura>
+  <vertical>false</vertical>
+  <posicion>${margen}</posicion>
+  <textos>
+    <texto>
+      <x>38</x>
+      <y>29</y>    
+      <contenido>${archivo}</contenido>
+      <fuente>${directorio_windows}\Fonts\arial.ttf</fuente>
+      <size>10</size> 
+     <color>0,0,0</color>
+    </texto>
+    <texto>
+      <x>40</x>
+      <y>45</y>    
+      <contenido>${f_visado}</contenido>
+      <fuente>${directorio_windows}\Fonts\arial.ttf</fuente>
+      <size>10</size> 
+     <color>0,0,0</color>
+    </texto>
+    <texto>
+      <x>28</x>
+      <y>10</y>    
+      <contenido>V I S A D O</contenido>
+      <fuente>${directorio_windows}\Fonts\arial.ttf</fuente>
+      <size>12</size> 
+     <color>0,0,0</color>
+    </texto>
+   </textos>
+  <imagenes>
+    <imagen>
+      <x>1</x>
+      <y>1</y>
+      <ruta>${directorio_imagenes}\coaatavi_sello.gif</ruta>
+      <escala>40</escala>
+    </imagen>
+  </imagenes>
+</sello>

@@ -1,0 +1,57 @@
+20	GUIPUZCOA                                                   	SS	COAATGUI	.91000000000000003
+23	IBIZA                                                       	IF	23	1.03
+37	OURENSE                                                     	OU	37	1.0600000000000001
+62	NUEVA COLEGIACION                                           		62	
+02	ALBACETE                                                    	AB	02	.94999999999999996
+03	ALICANTE                                                    	0A	COAATA	1.1000000000000001
+04	ALMERIA                                                     	AL	04	1.03
+05	ASTURIAS                                                    	0O	05	1.0800000000000001
+07	BADAJOZ                                                     	BA	07	1.02
+08	BARCELONA                                                   	0B	08	1.0600000000000001
+09	BURGOS                                                      	BU	COAATBU	1.0
+10	CACERES                                                     	CC	COAATCC	1.02
+11	CADIZ                                                       	CA	11	1.0
+12	CANTABRIA                                                   	0S	12	1.1000000000000001
+13	CASTELLON                                                   	CS	13	1.02
+14	CIUDAD REAL                                                 	CR	14	1.03
+15	CORDOBA                                                     	CO	15	1.02
+16	CUENCA                                                      	CU	COAATCU	.88
+17	GIRONA                                                      	GI	17	1.04
+18	GRANADA                                                     	GR	18	1.1000000000000001
+19	GUADALAJARA                                                 	GU	COAATGU	.90000000000000002
+21	HUELVA                                                      	0H	21	.93000000000000005
+22	HUESCA                                                      	HU	22	.93000000000000005
+24	JAEN                                                        	0J	24	1.0
+25	A CORUÑA                                                    	0C	25	1.02
+26	LA RIOJA                                                    	LO	COAATLR	1.03
+27	GRAN CANARIA                                                	GC	COAATGC	1.0
+28	LEON                                                        	LE	COAATLE	1.0
+29	LLEIDA                                                      	LL	COAATLL	1.0
+30	LUGO                                                        	LU	30	1.02
+31	MADRID                                                      	0M	31	1.0600000000000001
+32	MALAGA                                                      	MA	32	1.03
+33	MALLORCA                                                    	PM	COAATMCA	1.1000000000000001
+34	MENORCA                                                     	ME	34	1.02
+36	NAVARRA                                                     	NA	COAATN	.92000000000000004
+38	PALENCIA                                                    	0P	38	1.0600000000000001
+40	SALAMANCA                                                   	SA	40	.93000000000000005
+42	SEVILLA                                                     	SE	42	1.02
+43	SORIA                                                       	SO	43	.84999999999999998
+44	TARRAGONA                                                   	0T	COAATTGN	1.02
+46	TERUEL                                                      	TE	COAATTER	.97999999999999998
+47	TOLEDO                                                      	TO	47	.93000000000000005
+48	VALENCIA                                                    	0V	48	1.0800000000000001
+49	VALLADOLID                                                  	VA	49	1.02
+51	ZAMORA                                                      	ZA	51	1.0
+52	ZARAGOZA                                                    	0Z	COAATZ	1.03
+56	LANZAROTE                                                   	LA	56	.96999999999999997
+96	FUERTEVENTURA                                               	FU	96	.96999999999999997
+55	TERRES                                                      	TB	COAATTEB	.93000000000000005
+35	MURCIA                                                      	MU	COAATMU	1.03
+01	ALAVA                                                       	VI	01	.84999999999999998
+41	SEGOVIA                                                     	SG	41	.92000000000000004
+50	VIZCAYA                                                     	BI	COAATB	1.0700000000000001
+39	PONTEVEDRA                                                  	PO	39	1.1000000000000001
+06	AVILA                                                       	AV	COAATAVI	1.03
+45	TENERIFE                                                    	TF	COAATTFE	1.02
+E 	ESCUELA                                                     		E	

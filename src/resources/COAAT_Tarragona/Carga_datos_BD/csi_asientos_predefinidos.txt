@@ -1,0 +1,91 @@
+0000000001	1	0	MOVIMENTS DIARIS-COL.LEGI	01
+0000000010	10	0	PAGAMENT PREST.PREMAAT	01
+0000000012	12	0	PAG.LIQUID.DIARIES INTERNET	01
+0000000013	13	0	PAGAMENTS XECS	01
+0000000014	14	0	FACTURES EMESES AL 4%	01
+0000000015	15	0	FACTURES EMESES AL 16%	01
+0000000016	16	0	DIETES JUNTA	01
+0000000017	17	0	FACTURES EMESES 4À16%	01
+0000000018	18	0	DOTACIO FONS OBRA SOCIAL	01
+0000000019	19	0	INTERES.IPF-CAIXA TARRAGONA I.50 MILIONS	01
+0000000020	20	0	CARREC LIQ.572.15 MENSUAL	01
+0000000021	21	0	FRES.EMESES 16%-CTR  I TEDIS	01
+0000000023	23	0	COB.CAIXETA EFECTIU	01
+0000000027	27	0	APORTACION CONSEJO	01
+0000000028	28	0	DEVOLUCIO QUOTES	01
+0000000029	29	0	DEV.MUSAAT	01
+0000000030	30	0	DIFERENCIA MUSAAT	01
+0000000031	31	0	FACTURES EMESES A CITAM	01
+0000000032	32	0	MATRICULA URBANA	01
+0000000033	33	0	DESPESES COMUNITAT	01
+0000000034	34	0	AMORT.PREST.CITAM -1-	01
+0000000002	2	0	MOVIMENTS DELEGACIONS	01
+0000000003	3	0	INGRES MOVIM.DIA DELEGACIONS	01
+0000000004	4	0	QUOTES MENSUALS	01
+0000000009	9	0	FACTURES REBUDES  7%	01
+0000000008	8	0	FACTURES REBUDES  4%	01
+0000000007	7	0	FACTURES REBUDES 16%	01
+0000000036	36	0	FRES.EMESES TEDI 16%	01
+0000000037	37	0	COMIS.-Rº Bº VISATS	01
+0000000038	38	0	DEV. -Rº Bº VISATS	01
+0000000039	39	0	COMIS.-REMESA FACTURACIO	01
+0000000040	40	0	FACTURES EMESES AL 0%	01
+0000000041	41	0	COMIS.-Rº Bº VISATS-LA CAIXA	01
+0000000042	42	0	FACTURES EXENTES IVA	01
+0000000043	43	0	FACTURES REBUDES TEDI	01
+0000000005	5	0	Leasing. Formalización Contrato. IVA 16 % SEGUN PGC	01
+0000000006	6	0	Leasing. Pago de Cuotas. Encadenado	01
+0000000011	11	0	Leasing. Intereses Diferidos Periodo SE ACTIVA DESDE ENCADENADO	01
+0000000022	22	0	Leasing. Amortización Periodo  SE ACTIVA DESDE ENCADENADO	01
+0000000024	24	0	Leasing. Traspaso Cuota LP a CP SE ACTIVA DESDE ENCADENADO	01
+0000000025	25	0	Proveedores. Facturas Mercaderías. IVA 16 %. Crédito	01
+0000000026	26	0	Proveedores. Factura Mercaderías. IVA 16 %. Contado	01
+0000000035	35	0	Acreedores Gastos y Servicios. Factura IVA 16 %. Contado	01
+0000000044	44	0	Clientes. Mercaderías. Factura IVA 16 %. Crédito	01
+0000000045	45	0	Clientes. Mercaderías. Factura IVA 16 %. Contado	01
+0000000046	46	0	Clientes. Mercaderías. Factura IVA 16 % Recepción Efectos Comerciales	01
+0000000047	47	0	Clientes. Recepción Efectos Comerciales Aceptados en pago Deuda	01
+0000000048	48	0	Remesas de Efectos Descontadas	01
+0000000049	49	0	Remesas Descuento. Bajas Riesgo Curso	01
+0000000050	50	0	 Impagados de Clientes de Remesas Descontadas	01
+0000000051	51	0	Remesa Gestión Cobro. Cobros de Efectos	01
+0000000052	52	0	Ingreso en Caja de Bancos	01
+0000000053	53	0	Nómina Personal. Devengo y Pago	01
+0000000054	54	0	Seguridad Social a cargo de la Empresa	01
+0000000055	55	0	Traspaso Créditos por compra Inmovilizado de LP a CP	01
+0000000056	56	0	Acreedores Gastos y Servicios.Factura  IVA 16 %. Entrega Efectos Aceptados	01
+0000000057	57	0	Acreedores Gastos y Servicios.Factura IVA 16 % IRPF 18 %. Crédito	01
+0000000058	58	0	Acreedores Gastos y Servicios.Factura IVA 16 % IRPF 18 %. Contado	01
+0000000059	59	0	Clientes. Servicios Profes. Factura  IVA 16 % IRPF 18 %. Efect. comer. aceptado	01
+0000000060	60	0	Clientes. Servicios Profesionales. Factura  IVA 16 % IRPF 18 %. Crédito	01
+0000000061	61	0	Clientes. Mercaderías. Factura IVA 16 %  RE 4 %. Crédito	01
+0000000062	62	0	Remesas. Gestión de Cobro	01
+0000000063	63	0	Pago IVA, IRPF, SS.SS.	01
+0000000064	64	0	Gastos no sujetos al IVA y si al Modelo 347. Factura Crédito	01
+0000000065	65	0	Ingresos no sujetos al IVA y si al Modelo 347. Factura Crédito	01
+0000000066	66	0	Gastos Factura IVA Incluido al  IVA 16 %. Contado	01
+0000000067	67	0	Transferencia contra c/c Bancaria. Pago a Terceros	01
+0000000068	68	0	Alquileres. Factura IVA 16%  IRPF 18%	01
+0000000069	69	0	Crédito Proveedores. Entrega de Efectos Comerciales Aceptados	01
+0000000070	70	0	Divisa. Facturas Mercaderías. Compras	01
+0000000071	71	0	Divisa. Pago a Provedores. Una Partida	01
+0000000072	72	0	Inmovilizado Intangible. Facturas IVA 16 %. Crédito LP	01
+0000000073	73	0	Efectos Aceptados a CP y LP en pago de deuda a LP	01
+0000000074	74	0	Efectos Aceptados CP en pago deuda LP	01
+0000000075	75	0	Inmovilizado Material. Facturas IVA 16 %. Crédito  LP	01
+0000000076	76	0	Inmovilizado Material. Facturas IVA 16 %. Entrega Efectos Comerci. CP y LP	01
+0000000077	77	0	Acreedores Gastos y Servicios.Factura IVA 16 % IRPF 18 %. Efectos Aceptados	01
+0000000078	78	0	Proveedores Factura Mercaderías IVA 16 % Entrega Efectos Aceptados	01
+0000000079	79	0	Acreedores Gastos y Servicios  Factura IVA 16 % Crédito	01
+0000000080	80	0	Divisa. Pago a Provedores.  Varias Partidas	01
+0000000081	81	0	Divisa. Facturas Mercaderías. Ventas	01
+0000000082	82	0	Divisa. Cobro a Clientes. Una Partida	01
+0000000083	83	0	Divisa. Cobro a Clientes.  Varias Partidas	01
+0000000084	84	0	Divisas. Compra Divisas	01
+0000000085	85	0	Divisas. Pago Factura Divisa mediante Tesorería Divisa	01
+0000000086	86	0	DOTACION AL FONDO DE REVERSIËN	01
+0000000087	87	0	Contabilización leasing (Microempresas)	01
+0000000088	88	0	Opción de compra leasing (Microempresas)	01
+0000000089	89	0	Impuesto sociedades deuda a pagar (Microempresas)	01
+0000000090	90	0	Impuesto sociedades crédito a recuperar (Microempresas)	01
+0000000091	91	0	AMORT.PREST.CITAM -2-	01

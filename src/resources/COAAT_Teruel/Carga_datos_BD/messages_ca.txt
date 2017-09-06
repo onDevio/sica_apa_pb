@@ -1,0 +1,5 @@
+general.aviso_llegada	Mostrar sempre l'Avís d'arribada	general	aviso_llegada
+general.n_doc	Nº document	general	n_doc
+liquidaciones.f_liquidacion	Data liquidació	liquidaciones	f_liquidacion
+liquidaciones.n_liquidacion	Nº liquidació	liquidaciones	n_liquidacion
+msg_general.aviso_paquetes_texto	 arxius a la safata d'entrada	msg_general	aviso_paquetes_texto

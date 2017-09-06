@@ -1,0 +1,26 @@
+<sello>
+  <x>${x}</x>
+  <y>${y}</y>
+  <anchura>95</anchura>
+  <altura>142</altura>
+  <vertical>false</vertical>
+  <posicion>${margen}</posicion>
+  <textos>
+    <texto>
+      <x>20</x>
+      <y>36</y>    
+      <contenido>${f_visado}</contenido>
+      <fuente>${directorio_windows}\Fonts\ariblk.ttf</fuente>
+      <size>11</size> 
+      <color>170,0,0</color>
+    </texto>
+   </textos>
+  <imagenes>
+    <imagen>
+      <x>1</x>
+      <y>1</y>
+      <ruta>${directorio_imagenes}\COAATGU_visadogrande.gif</ruta>
+      <escala>20</escala>
+    </imagen>
+  </imagenes>
+</sello>

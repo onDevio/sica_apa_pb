@@ -1,0 +1,14 @@
+00	Registrado                                                  	S	S	N	S	S
+01	Mecanizado                                                  	S	S	N	S	S
+02	Retenido                                                    	S	S	N	N	S
+03	Visado Técnico                                              	S	N	S	S	S
+04	Visado Administrativo                                       	S	N	N	S	S
+05	Visado Administrativo                                       	S	N	N	S	S
+06	Anulado                                                     	S	N	N	N	S
+E1	Contrato                                                    	N	N	N	S	S
+E2	Visado                                                      	N	N	N	S	S
+E3	Finalizado                                                  	N	N	N	S	S
+E4	Renunciado                                                  	N	N	N	S	S
+E5	Anulado                                                     	N	N	N	S	S
+E6	Liquidado                                                   	N	N	N	S	S
+VI	Retirado Visared                                            	S	S	N	S	S

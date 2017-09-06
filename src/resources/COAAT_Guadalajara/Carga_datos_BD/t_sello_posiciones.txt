@@ -1,0 +1,7 @@
+1         	A	sello standar	ID	0.0	0.0	.5	.5	S
+2         	C	sello de visado	ID	0.0	0.0	1.2	5.7999999999999998	S
+3         	E	sello de pagado	ID	0.0	0.0	3.5	4.6500000000000004	S
+4         	D	sello de fin de obra	ID	0.0	0.0	14.699999999999999	12.699999999999999	S
+5         	R	sello de registro	SI	0.0	0.0	2.1000000000000001	7.0	S
+6         	S	sello de registro nota encargo	ID	0.0	0.0	.90000000000000002	10.5	S
+7         	T	sello CTP	ID	0.0	0.0	.90000000000000002	10.5	S

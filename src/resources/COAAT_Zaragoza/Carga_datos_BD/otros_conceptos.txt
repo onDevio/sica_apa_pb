@@ -1,0 +1,12 @@
+06	S	C		LUGAR NACIMIENTO
+ES	S	C		NOMBRE ESPOSA/O
+H1	S	C		HIJA/O 1
+H2	S	C		HIJA/O 2
+H3	S	C		HIJA/O 3
+H4	S	C		HIJA/O 4
+H5	S	C		HIJA/O 5
+H6	S	C		HIJA/O 6
+OR	S	C		Reclamante
+EX	S	C		Expediente
+RE	S	C		Responsable
+CA	s	C		Cargo

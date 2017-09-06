@@ -1,0 +1,14 @@
+A         	SEGELL REDAP                                                	coaattgn_segell_redap.xml
+B         	SEGELL ALTRES DOCUMENTS REDAP                               	coaattgn_segell_redap_inf.xml
+C         	SEGELL LLIBRES REDAP                                        	coaattgn_segell_llibres_redap.xml
+D         	SEGELL CED. HAB. REDAP                                      	coaattgn_segell_redap.xml
+E         	SEGELL VISATS                                               	coaattgn_segell_visat.xml
+F         	SEGELL ALTRES DOCUMENTS VISATS                              	coaattgn_segell_visat_inf.xml
+G         	SEGELL LLIBRES VISATS                                       	coaattgn_segell_llibres_visat.xml
+H         	SEGELL CED. HAB. VISATS                                     	coaattgn_segell_visat.xml
+I         	SEGELL REDOC                                                	coaattgn_segell_redoc.xml
+J         	SEGELL ALTRES DOCUMENTS REDOC                               	coaattgn_segell_redoc_inf.xml
+K         	SEGELL LLIBRES REDOC                                        	coaattgn_segell_llibres_redoc.xml
+L         	SEGELL CED. HAB. REDOC                                      	coaattgn_segell_redoc.xml
+M         	SEGELL CED. HAB. USAT NEP                                   	coaattgn_segell_chu_nep.xml
+N         	SEGELL CED. HAB. USAT CERTIFICAT                            	coaattgn_segell_chu_cert.xml

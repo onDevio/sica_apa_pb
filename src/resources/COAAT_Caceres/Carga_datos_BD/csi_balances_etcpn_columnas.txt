@@ -1,0 +1,12 @@
+1	1	Escriturado	100,101,102,550	0.0	0.0		EBII1	EBII2	EDII1	EDII2						
+10	10	Otros instrumentos a patrimonio neto	111,119,480,485,557,567,568	0.0	0.0		EBII1	EBII2	EDII1	EDII2						
+11	11	Ajustes por cambio de valor	133,134,135,136,137	0.0	0.0		EBII1	EDII1								
+12	12	Subvenciones, donaciones y legados recibidos	130,131,132	0.0	0.0		EBII1	EBII2	EDII1	EDII2						
+2	2	No Exigido	103,104,105	0.0	0.0		EBII5	EDII5								
+3	3	Prima de Emision	110,570	0.0	0.0											
+4	4	Reservas	112,113,114,115	0.0	0.0		EBII	EBII7	EDII	EDII7						
+5	5	(Acciones y participaciones en patrimonio propias)	108,109	0.0	0.0		EBI	EBII4	EDI	EDII4						
+6	6	Resultados de ejercicios anteriores	120,121	0.0	0.0		EBII4	EDII4								
+7	7	Otras aportaciones de socios	118	0.0	0.0		EBI	EBII6	EBIII	EDI	EDII6	EDIII				
+8	8	Resultado del ejercicio	129	0.0	0.0		EAI	EAII	ECI	ECII						
+9	9	(Dividendos a cta)	557	0.0	0.0		EBI	EDI								

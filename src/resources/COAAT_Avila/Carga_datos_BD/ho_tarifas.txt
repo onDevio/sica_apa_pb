@@ -1,0 +1,40 @@
+1.1       	Obras de Edificación Contempladas por la L.O.E. - Edificación	H = P x C / 100 x 1,20	nueva_planta	presupuesto	superficie		ayuntamiento	
+1.2       	Obras de Edificación Contempladas por la L.O.E. - Arquitectura Monumental	H = P x Cm / 100 x 1,20	nueva_planta	presupuesto			ayuntamiento	
+2.1       	Obras de Edificación No Contempladas por la L.O.E. - Instalaciones Deportivas	H = P x C / 100 X 1,20	nueva_planta	presupuesto			ayuntamiento	
+2.2       	Obras de Edificación No Contempladas por la L.O.E. - Obras de Refuerzo y Consolidación de Edificaciones	H = P x C / 100 x 1,20	nueva_planta	presupuesto			ayuntamiento	
+2.3       	Obras de Edificación No Contempladas por la L.O.E. - Otras Construcciones	H = P x Cm / 100 x 1,20	nueva_planta	presupuesto			ayuntamiento	
+3         	Reformas y Acondicionamientos	H = P x C / 100 X 1,20	nueva_planta	presupuesto	superficie		ayuntamiento	
+4         	Derribos	H = V x a x t x CA	volumen	altura	tipologia		ayuntamiento	
+5         	Urbanización	H = P x C / 100 x 1,20	nueva_planta	presupuesto			ayuntamiento	
+6a        	Seguridad y Salud Laboral - Obras de Construcción	H = P x C / 100	presupuesto				ayuntamiento	
+6b        	Seguridad y Salud Laboral - Obras de Derribo y Demolición	H = 1,9 x V x a x t x CA	volumen	altura	tipologia		ayuntamiento	
+7         	Control de calidad	H = P x C / 100	presupuesto	superficie			ayuntamiento	
+8a        	Mantenimiento y conservación - Edificios de nueva construcción	H = S x P x T x 2,44 x CA	superficie	tipo_edificio			ayuntamiento	
+8b        	Mantenimiento y conservación - Edificios en uso	H = S x P x T x 4,88 x E x CA	superficie	tipo_edificio	edad		ayuntamiento	
+9         	Deslindes y Replanteos de Terrenos, Solares y Edificiones		tipo_terreno	perimetro	perim_sup		ayuntamiento	
+10        	Mediciones de Terrenos, Solares y Edificios		tipo_terreno	superficie	plantas_dif	plantas_ide	alz_sec_det	
+11        	Parcelaciones	H = 285 x Cs x Cp x CA	superficie	parcelas			ayuntamiento	
+12        	Reconocimientos, Consultas, Examen de Documentos, Diligencias						ayuntamiento	
+13        	Informes, Dictámenes, Certificaciones						ayuntamiento	
+14        	Peritaciones y Arbitrajes		cantidad				ayuntamiento	
+15        	Contratación y Administración		cantidad				ayuntamiento	
+16        	Instalaciones	H = P x C / 100	presupuesto				ayuntamiento	
+17        	Valoraciones	H = V x C / 100	valor_tasacion				ayuntamiento	
+18        	Estructuras	H = P x C / 100	presupuesto	superficie			ayuntamiento	
+19        	Mediciones de Unidades de Obra Realizadas Sobre el Propio Edificio	H = f(S)	superficie				ayuntamiento	
+20        	Mediciones y Relaciones Valoradas		presupuesto	superficie	desc_prec		ayuntamiento	
+21        	Estudio y Comparación de Ofertas	H = 4 x Of x U x CA	num_ofertas	num_partidas			ayuntamiento	
+22        	Revisión de Precios Unitarios y Reajuste de Presupuestos	H = 5 x N x CA	num_partidas	desc_prec			ayuntamiento	
+23        	Racionalizacion, Planificación y Programación	H = P x C / 100	presupuesto	superficie			ayuntamiento	
+24        	Trabajos Técnicos en la Fabricación de Materiales para la Construcción	Se determinarán de acuerdo con el baremo corresp. al tipo de interv.					ayuntamiento	
+25        	Trabajos Tarifados por Tiempo	H = (Nn x 33 + Ne x 49) x CA	horas	horas_extra			ayuntamiento	
+26        	Desplazamientos	G = (0,41 x K + 94 (J + N)) x CA	distancia	jornadas	noches		ayuntamiento	
+27        	Instalación de Grúa	H = 800 x R x H x CA	radio	altura			ayuntamiento	
+28        	Instalación de Andamio	H = T x CA	superficie				ayuntamiento	
+29        	Expediente de Actividad	H = S x T x CA	superficie				ayuntamiento	
+30        	Planes de Emergencia	H = S x C x CA	superficie				ayuntamiento	
+31        	Gestión de Proyecto	H = C x P / 100	presupuesto				ayuntamiento	
+32        	Asesoría a Ayuntamientos o Empresas	H = N x P x CA	horas				ayuntamiento	
+33        	Inspección Técnica de Edificios	H = 240 x A x H x V x E x CA	edad	altura	volumen	estructura	ayuntamiento	
+34        	Instalaciones Públicas	H = 245 x C x CA	tipo_inst				ayuntamiento	
+35        	Apeo de Fachadas	H = A x CA	superficie				ayuntamiento	

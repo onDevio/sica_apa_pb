@@ -1,0 +1,17 @@
+00	N	N	S	INEXISTENTE                                                 	N
+03	N	N	S	BAJA VOLUNTARIA                                             	N
+04	N	N	S	BAJA POR MOROSIDAD                                          	N
+05	N	N	S	BAJA POR EXPEDIENTE DISCIPLINARIO                           	N
+01	N	N	S	ACTIVO                                                      	N
+06	N	N	S	FALLECIDO                                                   	N
+07	N	N	S	ACREDITADO                                                  	
+09	N	N	S	ASOCIACION PROFESIONAL                                      	N
+13	N	N	S	ACTIVO SIN CUOTAS                                           	N
+A1	N	S	N	BAJA VOLUNTARIA                                             	N
+A2	N	S	N	BAJA POR MOROSIDAD                                          	N
+A3	N	S	N	BAJA POR EXP.DISCIPLI.                                      	N
+A4	S	N	N	NUEVO INGRESO                                               	N
+A5	S	N	N	REINGRESO                                                   	N
+A6	N	S	N	FALLECIMIENTO                                               	N
+A7	S	N	N	CAMBIO A NO RESIDENTE                                       	S
+A8	S	N	N	CAMBIO A RESIDENTE                                          	S

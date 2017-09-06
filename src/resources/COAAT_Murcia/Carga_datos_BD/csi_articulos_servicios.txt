@@ -1,0 +1,158 @@
+09        	RETENCION I.V.A. COLEGIO (suplido)		41011001	x	N	N	0.0	S	N	0.0	92	COAATMU   	00	N		N	RIVA	S			N	N	01		N
+10        	MUSAAT REGU.PRIMA FIJA	01	41061004	x	N	N	0.0	N	N	0.0		COAATMU   	00	N		N	MUS	N			N	N	01		N
+102       	LIBROS		70702000	x	N	N	0.0	S	S	0.0		COAATMU   	04	N		N	LIB	N			S	N	01		N
+105       	MUSAAT CIF-V28865855 PRIMA F. SRC	01	41061004	x	N	N	0.0	S	N	0.0		COAATMU   	00	N		S	MUS	N		N	N	N	01		N
+106       	PREMAAT CIF-G28618536	02	70700004	x	N	S	0.0	N	S	0.0		COAATMU   	00	N		S	PRE	N		N	N	N	01		N
+17        	PREMAAT REGU.PREMAAT	02	41021000	x	N	N	0.0	S	N	0.0		COAATMU   	00	N		N	PRE	N			N	N	01		N
+EXP       	CONCEPTOS DE EXPEDIENTES		XXXXXXXX	X	S	N	0.0	S	S	0.0	1	COAATMU   	00	N		S	EXP	N			N	N	01		N
+ATRPR     	CUOTA ATRASADA PREMAAT	02	41021000	x	N	S	0.0	S	N	0.0		COAATMU   	00	N		S	CPRE	N			N	N	01		N
+PRESV     	PREMAAT.-SEGURO VIDA	02	41021000	X	N	S	0.0	N	N	0.0		COAATMU   	00	N		S	PSV	N		N	N	N	01		N
+PREVIU    	PREMAAT.-CARENCIA VIUDEDAD	02	41021000	X	N	S	0.0	S	N	0.0		COAATMU   	00	N		S	PCV	N			N	N	01		N
+PREJU     	PREMAAT.-CARENCIA JUBILACION	02	41021000	X	N	S	0.0	S	N	0.0		COAATMU   	00	N		S	PCJ	N			N	N	01		N
+TASAD     	MUSAAT CIF-V28865855 SRC TASADORES 	01	41061004	X	N	S	0.0	N	N	0.0		COAATMU   	00	N		S	TAS	N		N	N	N	01		N
+ACCID     	SEGURO ACCIDENTES	01	41061004	X	N	S	0.0	N	N	0.0		COAATMU   	00	N		S	ACC	N			S	N	01		N
+ACC.      	MUSAAT SEGURO DE ACCIDENTES	01	41061004		N	N	0.0	S	N	0.0		COAATMU   	00	N		S	ACC.	N		N	S	N	01		N
+ALLIAN    	ALLIANZ SEGURO COLECTIVO		41041001		N	N	0.0	S	N	0.0		COAATMU   	00	N		S	ALLI	N		N	S	N	01		N
+104       	MUSAAT CIF-V28865855 AMPLIACION SRC 	01	41061004		N	S	0.0	N	N	0.0		COAATMU   	00	N		S	MUS	N		N	N	N	01		N
+107       	MUSAAT CIF-V28865855 ALTA SRC 	01	41061004		N	N	0.0	N	N	0.0		COAATMU   	00	N		S	MUS	N		N	N	N	01		N
+109       	MUSAAT CIF-V28865855 DISMINUCIONES SRC	01	41061004		N	N	0.0	N	N	0.0		COAATMU   	00	N		S	MUS	N		N	N	N	01		N
+I. FINANC.	INGRESOS FINANCIEROS		76900002		N	S	0.0	S	N	0.0		COAATMU   	00	N		N	I.FIN	N		N	N	N	01		N
+TASADO    	MUSAAT CIF-V28865855 ALTA TASAD. 	01	41061004	 	N	S	0.0	N	N	0.0		COAATMU   	00	N	 	S	TAS	N	 	N	N	N	01		N
+159       	MUSAAT CIF-V28865855 SRC SOCIEDAD PROFESIONAL	01	41061004	 	N	N	0.0	N	N	0.0		COAATMU   	00	N	 	S	MUS	N	 	N	N	N	01		N
+100       	CURSOS		70701000	x	N	N	0.0	S	S	0.0		COAATMU   	Z8	N		N	CUR	N			S	N	01		N
+108       	GENERAL		70700000	x	N	N	0.0	S	S	0.0		COAATMU   	Z8	N		N	GEN	N			S	N	01		N
+13        	HONORARIOS A CUENTA		XXXXXXXX	x	N	N	0.0	S	N	0.0	1	COAATMU   	Z8	S		N	HON	N			S	N	01		N
+15        	HONORARIOS		XXXXXXXX	x	N	N	0.0	S	N	0.0	1	COAATMU   	Z8	S		N	HON	N			S	S	01		N
+16        	CUOTA INCORPORACION		70560000	x	N	S	0.0	S	S	0.0		COAATMU   	Z8	N		S	CIN	N			S	N	01		N
+26        	HONORARIOS REALIZACION PROYEC.		XXXXXXXX	x	N	N	0.0	S	N	0.0	1	COAATMU   	Z8	S		N	HON	N			S	N	01		N
+39        	PAGO FINAL DE OBRA		XXXXXXXX	x	N	N	0.0	S	N	0.0	1	COAATMU   	Z8	S		N	HON	N			S	N	01		N
+40        	PAGO TOTAL		XXXXXXXX	x	N	N	0.0	S	N	0.0	1	COAATMU   	Z8	S		N	HON	N			S	N	01		N
+41        	ESTUDIO DE SEGURIDAD		XXXXXXXX	x	N	N	0.0	S	N	0.0	1	COAATMU   	Z8	S		N	HON	N			S	N	01		N
+48        	HONORARIOS ESTUDIO Y ANALISIS		XXXXXXXX	x	N	N	0.0	S	N	0.0	1	COAATMU   	Z8	N		N	HON	N			S	N	01		N
+62        	GASTOS POR DESPLAZAMIENTO		XXXXXXXX	x	N	N	0.0	S	N	0.0	2	COAATMU   	Z8	S		N	DES	N			N	S	01		N
+99        	PROVISION DE FONDOS		XXXXXXXX	x	N	N	0.0	S	N	0.0	1	COAATMU   	Z8	S		N	HON	N			S	N	01		N
+42        	APROBACION DEL PLAN		XXXXXXXX	x	N	N	0.0	S	N	0.0	1	COAATMU   	Z8	S		N	HON	N			S	N	01		N
+CUOTA     	CUOTA COLEGIAL		70550000	X	N	S	23.5	S	S	4.2300000000000004	1	COAATMU   	Z8	N		S	CC	N		N	S	N	01		N
+ASALA     	CUOTA ASALARIADO		70500000	X	N	S	4.5	S	S	.81000000000000005		COAATMU   	Z8	N		S	CAS	N		N	S	N	01		N
+111       	Cypecad básico	03	70701000		N	N	0.0	S	S	0.0		COAATMU   	Z8	N		N	CUR	N		N	S	N	01		N
+112       	Revisión de la Instrucción de Hormigón Estructural (EHE)	03	70701000		N	N	0.0	S	S	0.0		COAATMU   	Z8	N		N	CUR	N		N	S	N	01		N
+113       	Cypecad Intermedio	03	70701000		N	N	0.0	S	S	0.0		COAATMU   	Z8	N		N	CUR	N		N	S	N	01		N
+114       	Reuniones eficaces para Arquitectos Técnicos	03	70701000		N	N	0.0	S	S	0.0		COAATMU   	Z8	N		N	CUR	N		N	S	N	01		N
+115       	Bioconstrucción-Construcción sostenible	03	70701000		N	N	0.0	S	S	0.0		COAATMU   	Z8	N		N	CUR	N		N	S	N	01		N
+116       	Elaboración de proyectos técnicos de acondicionamiento y reforma s/ el CTE	03	70701000		N	N	0.0	S	S	0.0		COAATMU   	Z8	N		N	CUR	N		N	S	N	01		N
+117       	Presto. Programa de mediciones, presupuestos y certificaciones	03	70701000		N	N	0.0	S	S	0.0		COAATMU   	Z8	N		N	CUR	N		N	S	N	01		N
+118       	Autocad	03	70701000		N	N	0.0	S	S	0.0		COAATMU   	Z8	N		N	CUR	N		N	S	N	01		N
+119       	Negociación y Gestión de Conflictos	03	70701000		N	N	0.0	S	S	0.0		COAATMU   	Z8	N		N	CUR	N		N	S	N	01		N
+INSC. SP  	DERECHOS DE INSCRIPCION DE SOCIEDAD PROFESIONAL		70560000		N	S	120.0	S	S	21.600000000000001		COAATMU   	Z8	N		S	ISP	N		N	S	N	01		N
+MANT. SP  	DERECHOS DE MANTENIMIENTO DE SOCIEDAD PROFESIONAL		70550000		N	S	120.0	S	S	21.600000000000001		COAATMU   	Z8	N		S	MSP	N		N	S	N	01		N
+120       	Elaboración de proyectos técnicos de apertura de locales	03	70701000		N	N	0.0	S	S	0.0		COAATMU   	Z8	N		N	CUR	N		N	S	N	01		N
+121       	Iniciación al Golf	03	70701000		N	N	0.0	S	S	0.0		COAATMU   	Z8	N		N	CUR	N		N	S	N	01		N
+122       	Elaboración de informes, dictámenes, certificaciones y peritaciones	03	70701000		N	N	0.0	S	S	0.0		COAATMU   	Z8	N		N	CUR	N		N	S	N	01		N
+CERTIF    	CERTIFICADOS		70700000		N	N	60.0	S	S	10.800000000000001		COAATMU   	Z8	N		N	CERT	N		N	S	N	01		N
+123       	Introducción al ejercicio de la profesión liberal	03	70701000		N	N	0.0	S	S	0.0		COAATMU   	Z8	N		N	CUR	N		N	S	N	01		N
+124       	Teatro Romano Cartagena	03	70701000		N	N	0.0	S	S	0.0		COAATMU   	Z8	N		N	CUR	N		N	S	N	01		N
+125       	Protección frente al ruido	03	70701000		N	N	0.0	S	S	0.0		COAATMU   	Z8	N		N	CUR	N		N	S	N	01		N
+126       	Coordinador Seguridad	03	70701000		N	N	0.0	S	S	0.0		COAATMU   	Z8	N		N	CUR	N		N	S	N	01		N
+127       	Topografía	03	70701000		N	N	0.0	S	S	0.0		COAATMU   	Z8	N		N	CUR	N		N	S	N	01		N
+128       	Elaboración de proyectos técnicos de piscinas	03	70701000		N	N	0.0	S	S	0.0		COAATMU   	Z8	N		N	CUR	N		N	S	N	01		N
+129       	Documentación del Control	03	70701000		N	N	0.0	S	S	0.0		COAATMU   	Z8	N		N	CUR	N		N	S	N	01		N
+130       	¿Cómo documentar la Coordinación de Seguridad y Salud en fase de ejecución?	03	70701000		N	N	0.0	S	S	0.0		COAATMU   	Z8	N		N	CUR	N		N	S	N	01		N
+132       	Visared	03	70701000		N	N	0.0	S	S	0.0		COAATMU   	Z8	N		N	CUR	N		N	S	N	01		N
+133       	Arquímedes. Programa de mediciones, presupuestos y certificaciones	03	70701000		N	N	0.0	S	S	0.0		COAATMU   	Z8	N		N	CUR	N		N	S	N	01		N
+134       	Seminario EHE	03	70701700	70701700	F	N	33.0	S	S	5.9400000000000004		COAATMU   	Z8	N	 	N	CUR	N	 	N	S	N	01		N
+135       	Elaboración de proyectos de reformas de viviendas y locales	03	70701000	 	F	N	0.0	S	S	0.0		COAATMU   	Z8	N	 	N	CUR	N	 	N	S	N	01		N
+136       	Project	03	70701000	 	F	N	0.0	S	S	0.0		COAATMU   	Z8	N	 	N	CUR	N	 	N	S	N	01		N
+137       	Curso universitario Restauración	03	70701000	 	F	N	0.0	S	S	0.0		COAATMU   	Z8	N	 	N	CUR	N	 	N	S	N	01		N
+138       	Curso práctico EHE-08. Materiales, ejecución y control	03	70701000	 	F	N	0.0	S	S	0.0		COAATMU   	Z8	N	 	N	CUR	N	 	N	S	N	01		N
+139       	Aplicación de instalaciones de energía solar térmica y fotovoltaica	03	70701000	 	F	N	0.0	S	S	0.0		COAATMU   	Z8	N	 	N	CUR	N	 	N	S	N	01		N
+140       	Infoarquitectura. SKETCHUP	03	70701000	 	F	N	0.0	S	S	0.0		COAATMU   	Z8	N	 	N	CUR	N	 	N	S	N	01		N
+141       	AGUA. Optimización de consumos y reutilización de aguas grises en edificación	03	70701000	 	F	N	0.0	S	S	0.0		COAATMU   	Z8	N	 	N	CUR	N	 	N	S	N	01		N
+142       	Curso universitario Peritaciones, Tasaciones y Valoraciones Inmobiliarias	03	70701000	 	N	N	0.0	S	S	0.0		COAATMU   	Z8	N	 	N	CUR	N	 	N	S	N	01		N
+143       	Curso Instalaciones de ventilación, fontanería y saneamiento según DB-HS	03	70701000	 	N	N	0.0	S	S	0.0		COAATMU   	Z8	N	 	N	CUR	N	 	N	S	N	01		N
+145       	Andamios mecánicos (colgantes y cremallera)	03	70701000	 	N	N	0.0	S	S	0.0		COAATMU   	Z8	N	 	N	CUR	N	 	N	S	N	01		N
+146       	Control en la EHE - 08	03	70701700	 	F	F	0.0	S	S	0.0		COAATMU   	Z8	F	 	F	CUR	F	 	F	S	F	01		N
+147       	Andamios tubulares y torres de trabajo	03	70701700	 	N	N	0.0	S	S	0.0		COAATMU   	Z8	N	 	N	CUR	N	 	N	S	N	01		N
+148       	Curso universitario de verano: II Taller de Restauración Monumental, Patologías y Técnicas de Intervención en Fachadas	03	70701000	 	N	N	0.0	S	S	0.0		COAATMU   	Z8	N	 	N	CUR	N	 	N	S	N	01		N
+149       	Seminario Aspectos jurídicos de la actuación de los técnicos en la pericial judicial	03	70701700	 	N	N	0.0	S	S	0.0		COAATMU   	Z8	N	 	N	CUR	N	 	N	S	N	01		N
+150       	Relación entre el plan de seguridad y el plan de Prevención de Riesgos Laborales	03	70701700	 	N	N	0.0	S	S	0.0		COAATMU   	Z8	N	 	N	CUR	N	 	N	S	N	01		N
+151       	Instalaciones del Edificio con Cype Ingenieros	03	70701000	 	N	N	0.0	S	S	0.0		COAATMU   	Z8	N	 	N	CUR	N	 	N	S	N	01		N
+152       	Curso Universitario de Especialización en Interiorismo. Diseño y construcción de espacios interiores	03	70701000	 	N	N	0.0	S	S	0.0		COAATMU   	Z8	N	 	N	CUR	N	 	N	S	N	01		N
+153       	Seminario Aplicación práctica del DB-HR a los proyectos de los Arquitectos Técnicos	03	70701700	 	N	N	0.0	S	S	0.0		COAATMU   	Z8	N	 	N	CUR	N	 	N	S	N	01		N
+154       	Curso Cálculo de estructuras metálicas con Cype metal 3D	03	70701000	 	N	N	0.0	S	S	0.0		COAATMU   	Z8	N	 	N	CUR	N	 	N	S	N	01		N
+155       	Uso del Libro de Incidencias por el Coordinador de Seguridad y Salud	03	70701700	 	N	N	0.0	S	S	0.0		COAATMU   	Z8	N	 	N	CUR	N	 	N	S	N	01		N
+156       	SEMINARIO	03	70701700	70701700	N	N	0.0	S	S	0.0		COAATMU   	Z8	N	 	N	SEMINARIO	N	 	N	S	N	01	 	N
+157       	Curso Instalaciones de electricidad en edificación según REBT	03	70701000	 	N	N	0.0	S	S	0.0		COAATMU   	Z8	N	 	N	CUR	N	 	N	S	N	01		N
+158       	Contratar con la Administración Pública	03	70701700	 	N	N	0.0	S	S	0.0		COAATMU   	Z8	N	 	N	CUR	N	 	N	S	N	01		N
+160       	Patología de la Edificación	03	70701700	 	N	N	0.0	S	S	0.0		COAATMU   	Z8	N	 	N	CUR	N	 	N	S	N	01		N
+161       	La Ventilación en los Edificios de Viviendas según el DB-HS 3 calidad del aire interior. C.T.E.	03	70701700	 	N	N	0.0	S	S	0.0		COAATMU   	Z8	N	 	N	CUR	N	 	N	S	N	01		N
+162       	Cálculo y justificación de la limitación de la demanda energética (DB-HE1)	03	70701700	 	N	N	0.0	S	S	0.0		COAATMU   	Z8	N	 	N	CUR	N	 	N	S	N	01		N
+163       	Aspectos de Ejecución y Control del DB-HR	03	70701700	 	N	N	0.0	S	S	0.0		COAATMU   	Z8	N	 	N	CUR	N	 	N	S	N	01		N
+164       	Oposiciones de secundaria en Tecnología: Preparación de programación docente	03	70701000	 	N	N	0.0	S	S	0.0		COAATMU   	Z8	N	 	N	CUR	N	 	N	S	N	01		N
+165       	Oposiciones de formación profesional: Preparación docente	03	70701000	 	N	N	0.0	S	S	0.0		COAATMU   	Z8	N	 	N	CUR	N	 	N	S	N	01		N
+166       	Novedades legislativas en materia de Seguridad y Salud Laboral en obras de construcción	03	70701700	 	N	N	0.0	S	S	0.0		COAATMU   	Z8	N	 	N	CUR	N	 	N	S	N	01		N
+167       	Seguridad de utilización y Accesibilidad CTE DB-SUA	03	70701700	 	N	N	0.0	S	S	0.0		COAATMU   	Z8	N	 	N	CUR	N	 	N	S	N	01		N
+168       	Curso Universitario en Gestión de Construcción de Obras de Edificación y Rehabilitación	03	70701000	 	N	N	0.0	S	S	0.0		COAATMU   	Z8	N	 	N	CUR	N	 	N	S	N	01		N
+169       	Reparación y Protección del Hormigón Armado UNE-EN 1504	03	70701000	 	N	N	0.0	S	S	0.0		COAATMU   	Z8	N	 	N	CUR	N	 	N	S	N	01		N
+170       	Curso universitario de verano: Gestión económica de obras de construcción y rehabilitación.	03	70701000	 	N	N	0.0	S	S	0.0		COAATMU   	Z8	N	 	N	CUR	N	 	N	S	N	01		N
+171       	Curso universitario de verano: Inspección Técnica de Edificios. Taller de Restauración Monumental.Cartagena 2010	03	70701000	 	N	N	0.0	S	S	0.0		COAATMU   	Z8	N	 	N	CUR	N	 	N	S	N	01		N
+144       	Elaboración de informes y dictámenes periciales	03	70701000	 	N	N	0.0	S	S	0.0		COAATMU   	Z8	N	 	N	CUR	N	 	N	S	N	01		N
+172       	Curso Inglés profesional para Arquitectos Técnicos	03	70701000	 	N	N	0.0	S	S	0.0		COAATMU   	Z8	N	 	N	CUR	N	 	N	S	N	01		N
+173       	Curso Introducción al Project Management (DIP Dirección Integrada de Proyectos)	03	70701000	 	N	N	0.0	S	S	0.0		COAATMU   	Z8	N	 	N	CUR	N	 	N	S	N	01		N
+174       	Jornada Aspectos prácticos control de calidad en la EHE-08 y su repercusión en los Registros de Calidad del Libro del Edificio	03	70701700	 	N	N	0.0	S	S	0.0		COAATMU   	Z8	N	 	N	CUR	N	 	N	S	N	01		N
+175       	Curso Taller de redacción de Estudios de Seguridad y Salud	03	70701000	 	N	N	0.0	S	S	0.0		COAATMU   	Z8	N	 	N	CUR	N	 	N	S	N	01		N
+03        	DEMOLICION	04	70540000	 	S	S	110.0	S	S	19.800000000000001		COAATMU   	Z8	N	 	S	DEMOLICION	N	 	N	S	N	01		N
+176       	FORUM DE LA SEGURIDAD Y SALUD EN LA CONSTRUCCION	 	70701300	 	N	S	50.0	S	S	9.0		COAATMU   	Z8	N	 	N	CUR	N	 	S	S	N	01		N
+177       	Curso Acceso, integración y uso de la información oficial geográfica (cartográfica y temática) disponible en Internet, para su explotación en la elaboración de estudios, informes y proyectos	03	70701000	 	N	N	0.0	S	S	0.0		COAATMU   	Z8	N	 	N	CUR	N	 	N	S	N	01		N
+27        	HONORARIOS DIRECCION PROYECTO		XXXXXXXX	x	N	N	0.0	S	N	0.0	1	COAATMU   	Z8	S		N	HON	N			S	N	01		N
+131       	Gestión de Residuos	03	70701000		N	N	0.0	S	S	0.0		COAATMU   	Z8	N		N	CUR	N		N	S	N	01		N
+12        	MUSAAT CIF-V28865855 PRIMA C. SRC	01	41061002	x	S	N	0.0	S	S	0.0	12	COAATMU   	00	N		N	MUS	N		N	N	N	01		S
+05        	DERECHOS INTERVENCION PROF.		70510000	x	S	N	0.0	S	S	0.0	11	COAATMU   	Z8	N		N	CIP	N			S	N	01		S
+02        	DERECHOS DE VISADO		70540000	x	S	S	0.0	S	S	0.0	90	COAATMU   	Z8	N		S	TVI	N			S	N	01		S
+06        	DERECHOS VISADO PROTOCOLO INTERCOLEGIAL	04	70540000	 	S	S	0.0	S	S	0.0		COAATMU   	Z8	N	 	S	TVI	N	 	S	S	N	01		
+07        	DERECHOS REGISTRO PROTOCOLO INTERCOLEGIAL	05	70510000	 	S	S	0.0	S	S	0.0		COAATMU   	Z8	N	 	S	CIP	N	 	S	S	N	01		
+178       	Seminario La evolución del urbanismo en la ciudad de Murcia	03	70701700	 	N	N	0.0	S	S	0.0		COAATMU   	Z8	N	 	N	CUR	N	 	N	S	N	01		
+179       	Curso Creación de blogs y redes sociales, como herramientas de difusión de servicios profesionales	03	70701000	 	N	N	0.0	S	N	0.0		COAATMU   	Z8	N	 	N	CUR	N	 	N	S	N	01		
+180       	Curso taller sobre Rehabilitación energética en edificios de viviendas	03	70701000	 	N	N	0.0	S	S	0.0		COAATMU   	Z8	N	 	N	CUR	N	 	N	S	N	01		
+181       	Curso taller en Dirección de la Ejecución de Obra	03	70701000	 	N	N	0.0	S	S	0.0		COAATMU   	Z8	N	 	N	CUR	N	 	N	S	N	01		
+182       	Curso Documentación del control de Calidad en la Obra en cumplimiento de la EHE-08. Materiales, ejecución y obra terminada.	03	70701000	 	N	N	0.0	S	S	0.0		COAATMU   	Z8	N	 	N	CUR	N	 	N	S	N	01		
+183       	Curso Los 7 Hábitos del Arquitecto Técnico altamente efectivo	03	70701000	 	N	N	0.0	S	S	0.0		COAATMU   	Z8	N	 	N	CUR	N	 	N	S	N	01		
+184       	Curso Taller práctico de coordinación de Seguridad y salud en fase de ejecución	03	70701000	 	N	N	0.0	S	S	0.0		COAATMU   	Z8	N	 	N	CUR	N	 	N	S	N	01		
+185       	Curso Redacción de Estudios de Seguridad y Salud	03	70701000	 	N	N	0.0	S	S	0.0		COAATMU   	Z8	N	 	N	CUR	N	 	N	S	N	01		
+186       	Curso universitario de Inspección Técnica de Edificios. Taller de Restauración Monumental. Murcia 2011	03	70701000	 	N	N	0.0	S	S	0.0		COAATMU   	Z8	N	 	N	CUR	N	 	N	S	N	01		
+10        	MUSAAT REGU.PRIMA FIJA	01	41061004	x	N	N	0.0	S	N	0.0		COAATMU   	00	N		N	MUS	N			N	N	02		N
+105       	MUSAAT CIF-V28865855 PRIMA F. SRC	01	41061004	x	N	N	0.0	S	N	0.0		COAATMU   	00	N		S	MUS	N		N	N	N	02		N
+106       	PREMAAT CIF-G28618536	02	70700004	x	N	S	0.0	S	N	0.0		COAATMU   	00	N		S	PRE	N		N	N	N	02		N
+17        	PREMAAT REGU.PREMAAT	02	41021000	x	N	N	0.0	N	N	0.0		COAATMU   	00	N		N	PRE	N			N	N	02		N
+ATRPR     	CUOTA ATRASADA PREMAAT	02	41021000	x	N	S	0.0	N	N	0.0		COAATMU   	00	N		S	CPRE	N			N	N	02		N
+PRESV     	PREMAAT.-SEGURO VIDA	02	41021000	X	N	S	0.0	N	N	0.0		COAATMU   	00	N		S	PSV	N			N	N	02		N
+PREVIU    	PREMAAT.-CARENCIA VIUDEDAD	02	41021000	X	N	S	0.0	N	N	0.0		COAATMU   	00	N		S	PCV	N			N	N	02		N
+PREJU     	PREMAAT.-CARENCIA JUBILACION	02	41021000	X	N	S	0.0	N	N	0.0		COAATMU   	00	N		S	PCJ	N			N	N	02		N
+TASAD     	MUSAAT CIF-V28865855 SRC TASADORES 	01	41061004	X	N	S	0.0	S	N	0.0		COAATMU   	00	N		S	TAS	N		N	N	N	02		N
+ACCID     	EN COLEGIO - SEGURO ACCIDENTES	01	41061004	X	N	S	0.0	N	N	0.0		COAATMU   	00	N		S	ACC	N		N	S	N	02		N
+ACC.      	EN COLEGIO - MUSAAT SEGURO DE ACCIDENTES	01	41061004		N	N	0.0	N	N	0.0		COAATMU   	00	N		S	ACC.	N		N	S	N	02		N
+104       	MUSAAT CIF-V28865855 AMPLIACION SRC 	01	41061004		N	S	0.0	S	N	0.0		COAATMU   	00	N		S	MUS	N		N	N	N	02		N
+107       	MUSAAT CIF-V28865855 ALTA SRC 	01	41061004		N	N	0.0	S	N	0.0		COAATMU   	00	N		S	MUS	N		N	N	N	02		N
+109       	MUSAAT CIF-V28865855 DISMINUCIONES SRC	01	41061004		N	N	0.0	S	N	0.0		COAATMU   	00	N		S	MUS	N		N	N	N	02		N
+TASADO    	MUSAAT CIF-V28865855 ALTA TASAD. 	01	41061004	 	N	S	0.0	S	N	0.0		COAATMU   	00	N	 	S	TAS	N	 	N	N	N	02		N
+159       	MUSAAT CIF-V28865855 SRC SOCIEDAD PROFESIONAL	01	41061004	 	N	N	0.0	S	N	0.0		COAATMU   	00	N	 	S	MUS	N	 	N	N	N	02		N
+12        	MUSAAT CIF-V28865855 PRIMA C. SRC	01	41061002	x	S	N	0.0	S	S	0.0	12	COAATMU   	00	N		N	MUS	N		N	N	N	02		S
+187       	Curso Apeos en rehabilitación y en actuaciones de emergencia	03	70701000	 	N	N	0.0	S	S	0.0		COAATMU   	Z8	N	 	N	CUR	N	 	N	S	N	01		
+188       	Jornada Redacción de un informe de Ruina	03	70701000	 	N	N	0.0	S	S	0.0		COAATMU   	Z8	N	 	N	CUR	N	 	N	S	N	01		
+189       	Curso Reconocimiento posterremoto de edificios dañados.Redacción del informe sísmico NCSE-02	03	70701000	 	N	N	0.0	S	S	0.0		COAATMU   	Z8	N	 	N	CUR	N	 	N	S	N	01		
+190       	Curso Documentación del control de calidad en la obra en cumplimiento de la EHE-08. Materiales, ejecución y obra terminada.	03	70701000	 	N	N	0.0	S	S	0.0		COAATMU   	Z8	N	 	N	CUR	N	 	N	S	N	01		
+191       	Seminario El libro de incidencias: ¿Cómo y cuándo debe utilizarlo el Coordinador de Seguridad?	03	70701700	 	N	N	0.0	S	S	0.0		COAATMU   	Z8	N	 	N	CUR	N	 	N	S	N	01		
+192       	Curso Intervención en estructuras dañadas de hormigón armado y de fábrica	03	70701000	 	N	N	0.0	S	S	0.0		COAATMU   	Z8	N	 	N	CUR	N	 	N	S	N	01		
+193       	Seminario Reparación y refuerzo de estructuras de hormigón armado	03	70701700	 	N	N	0.0	S	S	0.0		COAATMU   	Z8	N	 	N	CUR	N	 	N	S	N	01		
+194       	Curso Elaboración de informes periciales	03	70701000	 	N	N	0.0	S	S	0.0		COAATMU   	Z8	N	 	N	CUR	N	 	N	S	N	01		
+195       	Seminario Reuniones de seguridad y salud: Elaboración y desarrollo por el coordinador en fase de ejecución	03	70701700	 	N	N	0.0	S	S	0.0		COAATMU   	Z8	N	 	N	CUR	N	 	N	S	N	01		
+196       	Seminario Reparación de elementos no estructurales dañados por el sismo	03	70701700	 	N	N	0.0	S	S	0.0		COAATMU   	Z8	N	 	N	CUR	N	 	N	S	N	01		
+197       	Seminario HORMICEST. Aplicación informática para el control estadístico del hormigón	03	70701700	 	N	N	0.0	S	S	0.0		COAATMU   	Z8	N	 	N	CUR	N	 	N	S	N	01		
+198       	Curso Taller para Redactar un proyecto de demolición	03	70701000	 	N	N	0.0	S	S	0.0		COAATMU   	Z8	N	 	N	CUR	N	 	N	S	N	01		
+199       	Curso Taller práctico Coordinación de seguridad y salud en obras pequeñas	03	70701000	 	N	N	0.0	S	S	0.0		COAATMU   	Z8	N	 	N	CUR	N	 	N	S	N	01		
+200       	Curso Presto avanzado. Comparativos, Seguimiento de obra y Control de costes	03	70701000	 	N	N	0.0	S	S	0.0		COAATMU   	Z8	N	 	N	CUR	N	 	N	S	N	01		
+I.FINANC. 	INGRESOS FINANCIEROS	 	76900002	 	N	S	0.0	S	N	0.0		COAATMU   	 	N	 	N	 	N	 	N	N	N	02		
+201       	Curso Nuevo Reglamento de Valoraciones de la Ley del Suelo	03	70701000	 	N	N	0.0	S	S	0.0		COAATMU   	Z8	N	 	N	CUR	N	 	N	S	N	01		
+202       	Seminario El Coordinador de Seguridad y Salud. Funciones y responsabilidades	03	70701700	 	N	N	0.0	S	S	0.0		COAATMU   	Z8	N	 	N	CUR	N	 	N	S	N	01		
+203       	Curso superior universitario en Inspección Técnica de Edificios	03	70701000	 	N	N	0.0	S	S	0.0		COAATMU   	Z8	N	 	N	CUR	N	 	N	S	N	01		
+204       	Seminario Arquimedes y generador de precios CYPE	03	70701700	 	N	N	0.0	S	S	0.0		COAATMU   	Z8	N	 	N	CUR	N	 	N	S	N	01		
+205       	Taller práctico: Creación de Entidades de Control de Calidad en la Edificación en Eficiencia Energética. Una oportunidad para el empleo	03	70701000	 	N	N	0.0	S	S	0.0		COAATMU   	Z8	N	 	N	CUR	N	 	N	S	N	01		

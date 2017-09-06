@@ -1,0 +1,173 @@
+g_num_digitos                           	9.0			Num. digs. de las cuentas de desarrollo
+g_prefijo_clientes                      		430		Se utilizará desde el mantenimiento de clientes para crear la cuenta contable y desde el MAntenimiento del Plan de cuentas
+g_prefijo_arqui                         		4101		Para el Manteni de Plan de Cuentas y listados de Analíticos
+g_centro_por_defecto                    		00		Útil en la generación de asientos
+g_explotacion_por_defecto               		00000		Útil en la generación de asientos
+g_otras_ctas_gastos_desde               				Cuando en presups se incluían ctas del grupo 0, cuenta desde
+g_diario_apuntes_manuales               		001		Cod. defecto Introd. Manual de Aptes.
+g_t_asiento_cierre                      		C5		Cod. defecto Cierre
+g_diario_cierre                         		Z99		Cod. defecto Cierre
+g_t_doc_cierre                          		88		Cod. defecto Cierre
+g_t_asiento_apertura                    		00		Cod. defecto Apertura
+g_diario_apertura                       		000		Cod. defecto Apertura
+g_t_asiento_regularizacion              		C0		Cod. defecto Regularizac.
+g_t_doc_regularizacion                  		87		Cod. defecto Regularizac.
+g_diario_f_emitidas                     		910		Cod. defecto F Emitidas
+g_t_doc_transferencia                   		TR		Cod. defecto F Emitidas
+g_t_doc_prov_gastos                     		F1		Cod. defecto F Recibidas
+g_t_doc_prov_iva                        		F2		Cod. defecto F Recibidas
+g_diario_f_recibidas                    		911		Cod. defecto F Recibidas
+g_colegio_seleccionado                  		La Rioja		
+g_cuenta_perdidas_y_ganancias           		129000000		Cuenta defecto para cierre/apertura
+g_titulo_listados_inferior              		CONTABILIDAD		Logo Inferior de los Listados
+g_prefijo_pendientes                    		440		
+g_t_doc_inmovilizado                    		IN		Cod. defecto inmovilizado
+g_t_iva_por_defecto                     		Z8		No usado Cod. defecto
+g_t_doc_prov_irpf                       		F3		Cod. defecto F Recibidas
+g_t_doc_prov_dto                        		F4		Cod. defecto F Recibidas
+g_t_doc_prov_pago                       		F5		Cod. defecto F Recibidas / Pagos
+g_prefijo_proveedores                   		4009		Se utilizará desde el mantenimiento de proveedores para crear la cuenta contable y desde el MAntenimiento del Plan de cuentas
+g_prefijo_arqui_rf                      				Para el Manteni de Plan de Cuentas y listados de Analíticos
+g_prefijo_arqui_iva                     				Para el Manteni de Plan de Cuentas y listados de Analíticos
+g_ctas_grupo_0_gastos                   		N		Cuando en presups se incluían ctas del grupo 0 = > toma valor S
+g_otras_ctas_gastos_hasta               				Cuando en presups se incluían ctas del grupo 0, cuenta hasta
+g_t_asiento_apuntes_manuales            		10		Cod. defecto Introd. Manual de Aptes.
+g_prefijo_arqui_ret_ctav                				Para el Manteni de Plan de Cuentas y listados de Analíticos
+g_t_doc_apertura                        		SI		Cod. defecto Apertura
+g_etiqueta_empresa                      		C.O.A.A.T.R.		Sigescon ya no la usa.
+g_t_doc_prov_total                      		F6		Cod. defecto F Recibidas
+g_t_asiento_apuntes_automaticos         		20		Cod. defecto Aptes. Autom.
+g_t_doc_regularizacion_iva              		RI		Cod. defecto para lso asientos que no deban aparecer en el Libro de IVA
+g_grupos_listados_presupuestos          		3		A que nivel se agrupan las cuentas en los listados de presupuestos
+g_codigo_cliente_varios                 		0999		Cod. defecto para no cargar los datos de nombre, domicilio,.. para tener un cliente a quien contabilizar los importes pequeños para los que no es obligatorio registrarlo contablemente
+g_codigo_prov_varios                    		0999		Cod. defecto para no cargar los datos de nombre, domicilio,.. para tener un prov. a quien contabilizar los importes pequeños para los que no es obligatorio registrarlo contablemente
+g_diario_inmovilizado                   		914		Cod. defecto contabilización inmovilizado
+g_asigna_presupuestos                   		P		Como se distribuye el presupuesto para la cuenta entre sus centros : 'P' al  primer centro, 'Else' entre todos por igual, 'D', todavía no implementado, al centro por defecto, 'N', no se distribuye entre sus Centros
+g_nombre_empresa                        		Colegio Oficial de Aparejadores y Arquitectos Técnicos de La Rioja		Sigescon ya no la usa.
+g_directorio_domiciliaciones            		\\coaatg-srv\SICA-compartido\domiciliaciones\		 
+g_nombre_empresa_csb                    		COAAT La Rioja		Sigescon ya no la usa.
+g_localidad_empresa                     		Logroño - LA RIOJA		Sigescon ya no la usa.
+g_concepto_apunte_exp                   		EXP		
+g_cuenta_clientes_general               		430000000		
+g_modo_ret_vol                          		L		La utiliza SICA en el proceso de contab de facturas
+g_cuenta_garantia                       		560000000		
+g_fecha_contabilizacion                 		F_INTROD		Parametrización de la fecha a sugerir al contabilizar Fact. Recibidas: F_INTROD, FECHA, SISTEMA,ULTIMO_ASIENTO
+g_dia_vencimientos                      	15.0			Indica el dia del mes en que vence un pago.
+g_extracto_impresion_cuentas_pptarias   		d_extractos_resum_presup_anali		Especifica el nombre del datawindow object que se usara como impresión de extracto de cuentas presupuestarias.
+g_extracto_impresion_cuentas            		d_extractos_resum_anali		Especifica el nombre del datawindow object que se usara como impresión de extracto de cuentas.
+g_distinta_fecha_apuntes_asiento        		S		Indicará si se permiten apuntes de distinta fecha dentro de un mismo asiento, necesario para Aptes. de Migrac.
+g_t_doc_prov_irpf_proveedor             		F9		Tipo de Documento que tendrá el importe de retención y que en el apte de Fact. Rec irá al Debe
+g_prorrata                              		N		Sólo para Canarias irá a 'S', otros casos = 'N'. Indica si se aplica el tratamiento de la prorrata a las Facturas Recibidas
+g_informe_talon_pagos                   		d_hoja_pagare_rioja		Nombre dw que tendrá el formato del talón (para pagos) a imprimir para cada empresa/colegio
+g_cuenta_pago_prestaciones              		410500000		
+g_t_doc_talon                           		TL		
+g_t_doc_prov_iva_intracomunitario       		F8		
+g_t_doc_recibos_sica                    		MI		
+g_cif_empresa                           		Q2675002F		
+g_num_digitos_presup                    	9.0			
+g_remesar_pagos_colegiados_desde_sica   		N		
+g_crear_cuentas_clientes_terceros       		N		
+g_t_iva_00                              		00		
+g_t_iva_04                              		04		
+g_t_iva_07                              		07		
+g_t_iva_16                              		16		
+g_utilizar_presupuestaria               		S		
+g_utilizar_centro_y_proyecto            		N		
+g_utilizar_btn_ver_apuntes_fr           		S		Utilizar botón cb_ver_apuntes de FR
+g_cuadrar_asientos_manuales             		S		Opción Por defecto de cuadrar  Introducción/Modificación Asientos
+g_fr_contabilizada_generar_transferencia		S		Obligación FR estén contabilizadas para generar Transferencias de los pagos de dichas FR
+g_fr_numeracion_general                 		S		Método a seguir en la numeración de las FR (N sólo se aplicará en numeracs. en f(prov))
+g_t_doc_prov_iva_no_deducible           		FA		Los apuntes a este tipo de documento no se deben incluir en el listado de IVA/IGIC
+g_t_doc_prov_leasing                    		FB		Tipo de Documento para Clasificación Contable de Fact. Rec, Cta. Leasing al Haber
+g_t_doc_prov_leasing_proveedor          		FC		Tipo de Documento para Clasificación Contable de Fact. Rec, Cta. Leasing del Prov. al Debe
+g_t_doc_generico_debe                   		ED		Tipo de Documento para Clasificación Contable Mov. Genérico al Debe
+g_t_doc_generico_haber                  		EH		Tipo de Documento para Clasificación Contable Mov. Genérico al Haber
+g_st_prefijos_amortizaciones.cuenta1    		 		Prefijos de Cuentas de Amortizaciones que se pueden filtrar para no incluir en los listados de presupuestos
+g_st_prefijos_amortizaciones.cuenta2    		 		Prefijos de Cuentas de Amortizaciones que se pueden filtrar para no incluir en los listados de presupuestos
+g_impreso_pagare                        		d_hoja_pagare_rioja		Formatos disponibles para emitir pagares: d_impreso_pagare y d_impreso_pagare_caja_arquitectos
+g_tipo_amortizacion                     		A		Valores: A, C, L: A, Anual Lineal, C Mensual Digs. Creciente, L Mensual Lineal (el + habitual)
+g_amortiza_mes_baja                     		P		Valor de amortizac. del mes en que se produce la BAJA: P, S, N: P, prorrateo, S, Sí se amortiza, N, No se amortiza
+g_amortiza_mes_compra                   		P		Valor de amortizac. del mes en que se produce la COMPRA: P, S, N: P, prorrateo, S, Sí se amortiza, N, No se amortiza
+g_direccion_empresa_csb                 		Herrerías, 39		Sigescon ya no la usa.
+g_utilizar_enlace_proyecto              		N		Si se Obtendrá o no el proyecto a partir de Enlace Presupuestario
+g_extracto_consulta_cuenta_hasta        		S		Si por Defecto en W_extractos se utilizará la Consulta por Cuenta Hasta
+g_forma_pago_confirming                 		CO		Cod. Forma de Pago Confirming
+g_desactivar_extracto_auto              		N		Desactivará la Opc. Extracto asociada al Doble Click sobre la cuenta
+g_fr_introduccion_rapida                		N		Lanza 1 ventana para Introd. rápida de FR sencillas
+g_desactivar_desglose_apuntes           		N		Desactiva el Desglose de Importes de Apuntes
+g_busqueda_cuentas_ver_saldos           		N		Opción por defecto para mostrar o no los saldos en la búsqueda de cuentas
+g_t_doc_remesas                         		RE		Tipo de informe para las remesas
+g_t_doc_cobros_multiples                		CM		Tipo de informe para los cobros multiples
+g_sica_t_doc_facts_emitidas_exp         		MI		Tipo de documento para facturas de expedientes
+g_sica_t_doc_facts_emitidas_ot          		OT		Tipo de documento para facturas de no expedientes
+g_sica_t_doc_cobros_multiples           		CM		Tipo de documento para los cobros multiples
+g_sica_t_doc_remesas                    		RE		Tipo de documento para las remesas
+g_sica_t_doc_domic_saldo                		DS		Tipo de documento para la domiciliacion del saldo deudor
+g_sica_t_doc_talon                      		TL		Tipo de documento para los pagos por talon
+g_sica_t_doc_transferencia              		TR		Tipo de documento para las pagos por transferencia
+g_sica_t_doc_generico                   		PA		Tipo de documento para las pagos generico
+g_sica_diario_facts_emitidas_exp        		905		Diario para las facturas de expedientes
+g_sica_diario_facts_emitidas_ot         		905		Diario para las facturas de no expedientes
+g_sica_diario_cobros_multiples          		905		Diario para los cobros multiples
+g_sica_diario_remesas                   		905		Diario para las remesas
+g_sica_diario_ing_retira                		905		Diario para el modulo de ingresa Retira
+g_sica_diario_domic_saldo               		905		Diario para la domiciliacion del saldo deudor
+g_sica_diario_liq_honos                 		905		Diario para las liquidaciones de honorarios
+g_sica_diario_liq_premaat               		905		Diario para las liquidaciones de PREMAAT
+g_sica_diario_liq_otros_pagos           		905		Diario para liquidaciones genericas
+g_sica_diario_devoluciones              		905		Diario para devoluciones de facturas
+g_bloquear_conciliacion_ej_cerrado      		N		Bloquear conciliación en ejercicios cerrados provisionalmente
+g_ocultar_importe_cero                  		S		Opción por defecto para ocultar o no los importes a "0" en los listados de extractos de cuentas
+g_fecha_contabilizacion_pagos           		F_PAGO		Indica el tipo de fecha a mostrar por defecto al contabilizar un pago. Valores posibles: F_PAGO, F_CONTAB_FACT, G_FECHA_CONTABILIZACION
+g_contabilizar_pago_con_factura         		N		Contabilizará automáticamente el pago asociado al contabilizar una factura si se cumplen las condiciones necesarias
+g_contabilizar_pagos_agrupados_a_factura		N		Se agruparán los apuntes del pago a los de la factura siempre que no haya algún pago contabilizado anteriormente
+g_contabilizar_proveedor_simplificado   		N		Se quitarán los apuntes del proveedor cuando se contabilicen los pagos agrupados con las facturas
+g_datos_iva_opcionales                  		N		No se obligará a introducir los datos de IVA (base imponible, NIF y nombre) si el valor está a "S"
+g_agrupar_conceptos_clas_cont           		N		Se agruparán en la clasificación contable las líneas de factura que vayan a la misma cuenta
+g_cambiar_signo_apuntes_importe_negativo		N		Se cambiará el signo de los apuntes con importe negativo y se intercambiará el debe por el haber
+g_contabilizar_pagos_al_emitir_transf   		S		Se contabilizará automáticamente los pagos al emitir las transferencias
+g_prefijo_arqui_pendientes              		413		Prefijo cuenta puente para fact. honorarios pendientes
+g_agrupar_apuntes_reten_prov            		N		Agrupará los apuntes de retención a la cuenta del proveedor en facturas recibidas
+g_informe_factura_recibida              		d_imprimir_fr		Modelo de Impresión de Fact.Recibida
+g_agrupar_apuntes_banco_transf          		N		Agrupamos en un apunte el total al Banco de una emisión de transferencias
+version_sigescon                        		20110218		valor de la versión de SIGESCON anotado en la BD
+g_calcular_saldo_cta_asientos_manuales  		S		Opción por defecto de calcular saldos de Cuentas/Cuentas Presupuestarias en Introducción/Modificación Asientos
+g_confirmar_consulta_cuenta             		S		Pedir Confirmación si se han dejado vacías las cuentas en los parámetros de consulta
+g_mostrar_num_n_doc_distintos           		N		Mostramos y Calculamos en diversos informes el num. de valores distintos de nº doc que aparece en un grupo
+g_ric_visible                           		S		Hacer visibles(S/N) los Campos de RIC, en la ficha de elems. de inmovilizado
+g_visible_icono_conci_banco             		S		Control de qué icono dejamos visible para la opción de Conciliación: S, Concil.grabando datos del banco - N, Concil.sólo apuntes
+g_busqueda_automatica_al_abrir_manteni  		N		Permite Desactivar la obligatoriedad de lanzar la Búsqueda para recuperar los datos al entrar Mantenis de Búsqueda
+g_pagos_obt_cta_contable_con_fp_y_banco 		N		Nueva Automatización para obt.cuenta contable de pagos a partir de prefijo por forma de pago, y parte final de la cuenta a partir de la parte final de la cuenta contable del banco
+g_desactivar_asiento_modificacion       		N		Si se permite ó no el acceso a la ventana de Modificación del asiento haciendo doble click sobre Diario/NºAsi./NºDoc.
+g_tipo_export_listados                  	17.0			Tipo por defecto en la exportación de Listados
+g_t_iva_agencias_viajes                 		 		Permitirá activar un tipo de IVA diferenciado para Agencias de Viajes. Por defecto se dejará vacío, sin activar.
+g_amortiza_calcular_f_fin_est           		N		Para reducir el tiempo de apertura de la lista de Elems.Inmov, permite desactivar que se rellene la columna Fecha fin estimada.
+g_informe_ficha_proveedor               		d_proveedores_ficha		Nombre del Modelo de Ficha de proveedor
+g_mascara_fecha_autoseleccionable       		S		Permite que al situarse sobre una Fecha quede seleccionada para facilitar la edición.
+g_mascara_numero_autoseleccionable      		S		Permite que al situarse sobre un Número quede seleccionada para facilitar la edición.
+g_mascara_introduccion_fechas           		dd/mm/yy		Permite elegir entre el calendario habitual (-1) ó el calendario modificado indicando en dicho caso la máscara aplicable en la introducc. de fechas(dd/mm/yyyy, dd/mm/yy).
+g_proyectos_ordenacion                  		D		Se permite elegir el criterio de Ordenación de los Proyectos en la lista, Valores C ó D: C:Código; D:Descripción ó Título
+g_desactivar_fr_num_general             		S		Se permite desactivar la utilización de una nueva numeración en una nueva serie IG diferenciada de la numeración general. Formato: IG-AACONTADOR
+g_desactivar_conversion_moneda          		N		Se permite desactivar la conversión automática de moneda para los importes haciendo doble click sobre un importe
+g_transf_logo_anchura_hoja              		N		Valores S|N: Indica Si se ajusta el Logo de la Carta de Transferencias al ancho de la Hoja, ó por el contrario ocupa la mitad(aprox.) del ancho.
+g_proveedor_asignar_cuentas_retencion   		N		Asignar S/N a nuevos proveedores Cuenta Contable Retención.
+g_fr_ignorar_rest_solo_pago             		N		Valores S|N: Indica, para Fact.Recibidas, si permite modificar el valor de Sólo Pagos una vez numerada la factura.
+g_cambiar_desp_proyectos                		N		Valores S|N: Si está activo desactiva la recuperación de los proyectos mediante dddw, recuperándose a través de Ventana de Búsqueda ó introduciendo directamente el código.
+g_cuenta_patrimonio_neto_reg            		1330000000		Cuenta defecto para cancelar el saldo de cuentas 8 y 9 para cierre/apertura.
+g_iniciar_amortizacion_dia_despues      		S		S: empieza a contar un dia despues de la fecha de inicio de amortizacion, N: empieza el mismo deia de la fecha
+g_amortiza_mes_importe_fijo             		N		S: Importe fijo para todos los meses del año, N:importe variable para cada mes del año
+g_copias_resumen_transferencia          	2.0			Fija el numero de copias que se imprimiran del informe resumen de transferencias
+g_sica_diario_facts_emitidas_general    		905		Diario de facturas emitidas general
+g_concepto_apunte_general               		Fact		 
+g_concepto_apunte_irpf                  		IRPF		Prefijo de apunte utilizado para el IRPF
+g_concepto_descuadre_caja               		DESCUADRE COBRO BANCARIO		Concepto contable de descuadre de cobro en caja
+g_cuenta_puente_descuadre               		 		Cuenta puente contable de descuadre de cobro en caja
+g_t_doc_descuadre                       		DE		Tipo de documento para descuadre de cobro en caja
+g_contabilidad_conjunta                 		S		Indica que los apuntes de cobros salen junto a los apuntes de facturas si es igual a S
+g_prefijo_arqui_gasto                   		4101		Cuenta contable de gastos para colegiados
+g_aplica_tipo_inter_concepto            		N		Indica si se incluye en el concepto de expediente el tipo de intervención
+g_t_iva_exento                          		EX		
+g_procesar_bases_iva_0                  		EX		
+g_t_iva_08                              		Z7		Cód. en la tabla t_iva para el cálculo automático del tipo de IVA
+g_t_iva_18                              		Z8		Cód. en la tabla t_iva para el cálculo automático del tipo de IVA
+g_iva_inversiones_con_datos_de_inmov    		S		Valores: S - Diferenciamos los importes de inmovilizado, N - No diferenciamos

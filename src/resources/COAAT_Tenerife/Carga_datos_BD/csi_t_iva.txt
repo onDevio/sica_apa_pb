@@ -1,0 +1,6 @@
+00	IGIC EXENTO	0.0	4770000340	-1000.0		4720000340	4720000340	S	S						S		
+05	IGIC 5%	5.0	4770070002	1.0	definir	4727000005	4727000005	S	S						N		
+04	IGIC 4,5%	4.5	csi_t_iva			4727000045	4727000045	S	S						N		
+02	IGIC 2%	2.0	csi_t_iva			4727000002	4727000002	S	S						N		
+12	IGIC 12%	12.0	csi_t_iva			csi_t_iva	csi_t_iva	S	S						N		
+24	IGIC 24%	24.0	csi_t_iva			csi_t_iva	csi_t_iva	S	S						N		

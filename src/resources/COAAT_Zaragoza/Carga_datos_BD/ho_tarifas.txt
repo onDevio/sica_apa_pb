@@ -1,0 +1,37 @@
+1.1       	Edificaciæn - Obras de Edificaciæn en General (LOE)	H = P x C / 100	presupuesto	superficie			
+1.2       	Edificaciæn - Obras de Arquitectura Monumental (LOE)	H = P x Cm / 100 x 1,20	nueva_planta	presupuesto			
+1.3       	Edificaciæn - Obras de Instalaciones Deportivas (No LOE)	H = P x C / 100	presupuesto				
+1.4       	Edificaciæn - Otras Construcciones (De Ingenier›a No LOE)	H = P x Cm / 100 x 1,20	nueva_planta	presupuesto			
+2.1       	Reformas - Acondicionamiento de Locales y Decoraciæn	H = P x C / 100	presupuesto	superficie			
+2.2       	Reformas - Obras de Refuerzo y Consolidaciæn de Edificaciones	H = P x C / 100	presupuesto				
+3         	Derribos y Demoliciones	H = V x a x t x CA	volumen	altura	tipologia		
+4         	Urbanizaciæn	H = P x C / 100	presupuesto				
+5a        	Seguridad y Salud Laboral - Obras de Construcciæn	H = P x C / 100	presupuesto				
+5b        	Seguridad y Salud Laboral - Obras de Derribo y Demoliciæn	H = 1,7 x V x a x t x CA	volumen	altura	tipologia		
+6         	Control de calidad	H = P x C / 100	presupuesto	superficie			
+7         	Mantenimiento y Conservaciæn	H = S x P x T x 1,8 x CA	superficie	tipo_edificio			
+8         	Deslindes y Replanteos de Terrenos, Solares y Edificiones		tipo_terreno	perimetro	perim_sup		
+9         	Mediciones de Terrenos, Solares y Edificios		tipo_terreno	superficie	plantas_dif	plantas_ide	alz_sec_det
+10        	Parcelaciones	H = 280 x Cs x Cp x CA	superficie	parcelas			
+11        	Reconocimientos, Consultas, Examen de Documentos, Diligencias						
+12        	Informes, Dictﬂmenes, Certificaciones						
+13        	Peritaciones y Arbitrajes		cantidad				
+14        	Instalaciones	H = P x C / 100	presupuesto				
+15        	Valoraciones	H = V x C / 100	valor_tasacion				
+16        	Cﬂlculo de Estructuras	H = P x C / 100	presupuesto	superficie			
+17        	Mediciones y Relaciones Valoradas		presupuesto	superficie	desc_prec		
+18        	Estudio y Comparaciæn de Ofertas	H = 4 x Of x U x CA	num_ofertas	num_partidas			
+19        	Racionalizacion, Planificaciæn y Programaciæn	H = P x C / 100	presupuesto	superficie			
+20        	Trabajos Tarifados por Tiempo	H = (Nn x 31 + Ne x 46) x CA	horas	horas_extra			
+21        	Desplazamientos	G = (0,3 x K + 90 (J + N)) x CA	distancia	jornadas	noches		
+22        	Inspecciæn T⁄cnica de Edificios	H = 320 x V x L x H x A x E x CA	num_viviendas	num_plantas	edad	superficie	estructura
+23        	Contrataciæn y Administraciæn de Fondos		cantidad				
+24        	Revisiæn de Precios Unitarios y Reajuste de Presupuesto	H = 5 x N x CA	num_partidas	desc_prec			
+25        	Instalaciæn de Gr∑a	H = 800 x R x H x CA	radio	altura			
+26        	Instalaciæn de Andamio	H = (380 + (S x C)) x CA	superficie				
+27        	Expediente de Actividad	H = S x T x CA	superficie				
+28        	Planes de Emergencia	H = S x C x CA	superficie				
+29        	Gestiæn de Proyecto	H = C x P / 100	presupuesto				
+30        	Asesor›a a Ayuntamientos o Empresas	H = N x P x CA	horas				
+31        	Instalaciones P∑blicas	H = 245 x C x CA	tipo_inst				
+32        	Apeo de Fachadas	H = (775 + (S x A)) x CA	superficie				

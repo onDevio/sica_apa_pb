@@ -1,0 +1,61 @@
+<sello>
+  <x>${x}</x>
+  <y>${y}</y>
+  <anchura>50</anchura>
+  <altura>280</altura>
+  <vertical>true</vertical>
+  <posicion>${margen}</posicion>
+  <textos>
+   
+	<texto>
+      <x>11</x>
+      <y>200</y>    
+	  <contenido>págs. %pag - %pags orriald.</contenido>
+      <fuente>${directorio_windows}\Fonts\arial.ttf</fuente>
+      <size>7</size> 
+      <color>0,0,0</color>
+    </texto>
+
+	<texto>
+      <x>10</x>
+      <y>25</y>    
+      <contenido>visado - bisutua</contenido>
+      <fuente>${directorio_windows}\Fonts\ariblk.ttf</fuente>
+      <size>12</size> 
+      <color>150,150,150</color>
+    </texto>
+    <texto>
+      <x>11</x>
+      <y>132</y>    
+      <contenido>${n_expediente}</contenido>
+      <fuente>${directorio_windows}\Fonts\arial.ttf</fuente>
+      <size>7</size> 
+      <color>0,0,0</color>
+    </texto>
+    <texto>
+      <x>11</x>
+      <y>170</y>    
+      <contenido>${f_visado} </contenido>
+      <fuente>${directorio_windows}\Fonts\arial.ttf</fuente>
+      <size>7</size> 
+      <color>0,0,0</color>
+    </texto>
+    
+	<texto>
+      <x>15</x>
+      <y>25</y>    
+      <contenido>________________________________________________________________________</contenido>
+      <fuente>${directorio_windows}\Fonts\arial.ttf</fuente>
+      <size>6</size> 
+      <color>0,0,0</color>
+    </texto>
+   </textos>
+  <imagenes>
+   <imagen>
+      <x>0</x>
+      <y>0</y>
+	  <ruta>${directorio_imagenes}\composicion_logo_coapagui.gif</ruta>
+      <escala>27</escala>
+    </imagen>
+  </imagenes>
+</sello>

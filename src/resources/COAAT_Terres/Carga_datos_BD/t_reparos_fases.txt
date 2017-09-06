@@ -1,0 +1,126 @@
+A01       	NOTA DE ENCARGO                                                                                                                                                                                                                                                	"FALTA  NOMBRE PROPIEDAD/REPRESENTANTE
+FALTA  N.I.F PROPIEDAD / REPRESENTANTE
+FALTA DOMICILIO PROPIEDAD / REPRESENTANTE
+INDICAR PARTICIPACION  % DE LOS COLEGIADOS
+INDICAR N.I.F. COLEGIADO
+EMPLAZAMIENTO, NO SE CORERSPONDE CON DOC. APORTADA
+MUNICIPIO
+LA SUPERFICIES NO SE CORRESPONDEN CON DOCUMENTACION APORTADA
+EL PRESUPUESTO NO SE CORERSPONDE CON DOCUMENTACION APORTADA
+EL PRESUPUESTO  DE SEGURIDAD NO SE CORRESPONDE CON DOC. APORTADA
+FALTA LA FIRMA DEL PROPIETARIO / CONTRATANTE
+FALTA LA FIRMA DEL TÉCNICO
+FALTA RELLANAR ESTADISTICA
+FALTA INDICAR EL TIPO DE GESTION"		AD		
+A02       	CONTRATO DE PRESTACION DE SERVICIOS                                                                                                                                                                                                                            	"FALTA LA FIRMA DEL PROPIETARIO / CONTRATANTE
+FALTA LA FIRMA DEL TÉCNICO
+"		AD		
+A03       	HOJA DE DIRECCION                                                                                                                                                                                                                                              	"FALTA FIRMAR POR EL COLEGIADO
+LOS DATOS DE LA OBRA NO SE COORESPONDEN CON NOTA DE ENCARGO
+"		AD		
+A04       	ORDEN DE GESTION DE VISADO                                                                                                                                                                                                                                     	"INDICAR Nº DE VISADO
+EL PRESUPUESTO NO SE CORRESPONDE CON DOCUMENTACION APORTADA
+INDICAR SI ES CON GESTION DE COBRO O NO
+INDICAR SI ES PARCIAL O FINAL
+FALTA LA FIRMA DEL TÉCNICO
+"		AD		
+A05       	CERTIFICADO FINAL DE OBRA                                                                                                                                                                                                                                      	"FALTA LA FECHA DE FINALIZACION DE OBRA
+FALTA LA FECHA DE EMISION DEL CERTIFICADO DEL APAREJADOR
+FALTA LA FECHA DE EMISION DEL CERTIFICADO DEL ARQUITECTO
+LA FECHA DE FINALIZACION DE OBRA NO PUEDE SER POSTERIOR A LA DE EMISION DEL CERT.
+FALTA LA FIRMA DEL APAREJADOR / ARQUITECTO
+LOS DATOS DEL CERTIFICADO NO SE CORESPONDEN CON LOS DEL CONTRATO."		AD		
+A06       	ACTA DE REPLANTEO                                                                                                                                                                                                                                              	"FALTA FIRMAR POR EL COORDINADOR
+FALTA FIRMAR POR EL CONSTRUCTOR
+LOS DATOS DEL ACTA NO SE CORRESPONDEN CON LOS DEL CONTRATO
+"		AD		
+A07       	FICHA ESTADISTICA DE FOMENTO                                                                                                                                                                                                                                   	"INDICAR Nº DE PARCIAL
+FALTAN DATOS POR RELLENAR
+"		AD		
+A08       	HOJA DE VISITA                                                                                                                                                                                                                                                 	"FALTA FECHA DE VISITA
+FALTA FIRMAR POR EL APAREJADOR
+"		AD		
+A09       	CERFIFICADOS, INFORMES                                                                                                                                                                                                                                         	"FALTA FIRMAR POR EL APAREJADOR
+FALTA DLA FECHA DEL CERTIFICADO
+LOS DATOS NO SE CORRESPONDEN CON LA NOTA DE ENCARGO
+"		AD		
+A10       	HOJA  DETERMINACION PRESTO. MINIMO                                                                                                                                                                                                                             	"FALTA FIRMAR POR EL APAREJADOR
+EL COEFICIENTE CM ES ERRONEO
+"		AD		
+A11       	PROYECTO                                                                                                                                                                                                                                                       	"FALTA LA FIRMA DEL APAREJADOR 
+FALTA LA FIRMA DE LA PROPIEDAD
+EL PLIEGO DE CONDICIONES DEBE ESTAR REDACTADO POR EL ARQUITECTO TECNICO
+FALTAN LOS PLANOS DE
+LA PROPIEDAD NO SE CORRESPONDE CON LA NOTA DE ENCARGO
+EL PRESUPUESTO NO SE CORRESPONDE CON DOCUMENTACION APORTADA
+LA SUPERFICIES NO SE CORRESPONDEN CON DOCUMENTACION APORTADA
+AL SER PROYECTO DE DEMOLICION HACE FALTA EL VOLUMEN
+"		AD		
+A12       	ESTUDIO DE SEGURIDAD                                                                                                                                                                                                                                           	"FALTA LA FIRMA DEL APAREJADOR 
+FALTA LA FIRMA DE LA PROPIEDAD
+EL PRESUPUESTO DE SEGURIDAD DEBE SER MAYOR O IGUAL AL 2,50 % DEL P.E.M.
+FALTAN LOS PLANOS DE
+LA PROPIEDAD NO SE CORRESPONDE CON LA NOTA DE ENCARGO
+LA PROPIEDAD NO SE CORRESPONDE CON CONTRATO DE DIRECCION
+EL PRESUPUESTO NO SE CORRESPONDE CON NOTA DE ENCARGO
+EL PRESUPUESTO NO SE CORRESPONDE CON CONTRATO DE DIRECCION
+LA SUPERFICIES NO SE CORRESPONDEN CON NOTA DE ENCARGO
+LA SUPERFICIES NO SE CORRESPONDEN CON CONTRATO DE DIRECCION
+"		AD		
+A13       	PLAN DE SEGURIDAD                                                                                                                                                                                                                                              	"EL PRESUPUESTO DEL PLAN ES INFERIOR AL DEL ESTUDIO DE SEGURIDAD
+LA PROPIEDAD NO SE CORRESPONDE CON CONTRATO DE DIRECCION
+LA PROPIEDAD NO SE CORRESPONDE CON ESTUDIO DE SEGURIDAD
+EL PRESUPUESTO NO SE CORRESPONDE CON CONTRATO DE DIRECCION
+EL PRESUPUESTO NO SE CORRESPONDE CON EL DEL ESTUDIO DE SEGURIDAD
+FALTAN LOS PLANOS DE
+EL DEBE ESTAR FIRMADO POR LA CONSTRUCTORA
+"		AD		
+A14       	ACTA DE APROBACION DEL PLAN                                                                                                                                                                                                                                    	"LOS DATOS NO SE CORRESPONDEN CON LA COORDINACION
+ESTA SIN FIRMAR
+"		AD		
+A15       	FALTA MINUTA                                                                                                                                                                                                                                                   	No se visa el CFO porque falta la minuta.		AD	---	
+OT1       	LA DIRECCION DE ESTA OBRA YA ESTA VISADA                                                                                                                                                                                                                       			OT		
+OT2       	PENDIENTE RENUNCIA DE COLEGIADO ANTERIOR                                                                                                                                                                                                                       			OT		
+OT3       	COLEGIADO DADO DE BAJA                                                                                                                                                                                                                                         			OT		
+OT4       	PENDIENTE ACREDITACION                                                                                                                                                                                                                                         			OT		
+OT5       	GESTION DE COBRO                                                                                                                                                                                                                                               	INDICAR SI QUIERE LA GESTION DE COBRO A TRAVES DEL COLEGIO O NO		OT	---	
+OT6       	PASA A SER ESTUDIADO POR JUNTA DE GOBIERNO                                                                                                                                                                                                                     			OT	---	
+OT7       	SE DENIEGA EL VISADO                                                                                                                                                                                                                                           	"DENEGADO VISADO POR ACUERDO DE JUNTA DE GOBIERNO DEL DIA 25/10/2005.
+SE COMUNICA A PROPIEDAD Y COLEGIADO."		OT	---	
+OT8       	LA COORDINACION DE ESTA OBRA YA ESTA VISADA                                                                                                                                                                                                                    			OT	---	
+V01       	FALTAN DOCUMENTOS DE DIRECCION DE OBRA                                                                                                                                                                                                                         	"NOTA DE ENCARGO
+HOJAS DE DIRECCION
+RESUMEN DE PRESUPUESTO
+PLANO DE SITUACION
+CUADRO DE SUPERFICIES
+FALTA ACREDITACION
+"		VI		
+V02       	FALTAN DOCUMENTOS DEL EXPEDIENTE DE LEGALIZACION                                                                                                                                                                                                               	"NOTA DE ENCARGO
+HOJAS DE DIRECCION
+RESUMEN DE PRESUPUESTO
+PLANO DE SITUACION
+CUADRO DE SUPERFICIES
+CERTIFICADO FINAL DE OBRA DEL APAREJADOR
+COPIA DEL CERTIFICADO FINAL DE OBRA DEL ARQUITECTO
+HOJA DE VISITA
+"		VI		
+V03       	FALTA DOCUMENTOS DE CERTIFICADO, INFORMES, PERITACIONES                                                                                                                                                                                                        	"NOTA DE ENCARGO
+COPIAS DEL CERTIFICADO/INFORME
+"		VI		
+V04       	FALTA DOCUMENTACION EN PROYECTO REDACTADO POR COLEGIADO                                                                                                                                                                                                        	"HOJA DE DETERMINACION DE PRESUPUESTO MINIMO
+NOTA DE ENCARGO
+HOJAS DE DIRECCION
+EJEMPLARES DEL PROYECTO
+"		VI		
+V05       	FALTA DOCUMENTACION EN ESTUDIO DE SEGURIDAD                                                                                                                                                                                                                    	"EL PRESUPUESTO DEBE SER EL 2,5% DEL P.E.M.
+"		VI		
+V06       	FALTA DOCUMENTACION EN ESTUDIO DE SEGURIDAD Y COORDINACION                                                                                                                                                                                                     			VI		
+V07       	FALTA DOCUMENTACION EN COORDINACION                                                                                                                                                                                                                            			VI		
+V08       	FALTA DOCUMENTACION EN APROBACION DEL PLAN                                                                                                                                                                                                                     			VI		
+V09       	FALTA DOCUMENTACION EN COLABORACION EN LA ELABORACION DEL PLAN                                                                                                                                                                                                 			VI		
+V10       	FALTAN DOCUMENTOS DEL FINAL DE OBRA                                                                                                                                                                                                                            	"SI ES PARCIAL HAY QUE PRESENTAR LA FICHA DE ESTADISTICA DE FOMENTO
+FALTA EL RESUMEN DE PRESUPUESTO
+FALTA LA ORDEN DE GESTION DE VISADO
+"		VI		
+V11       	FINAL DE OBRA PROY.-DIREC. COLEGIADO                                                                                                                                                                                                                           			VI		
+V12       	FINAL DE COORDINACION                                                                                                                                                                                                                                          			VI		

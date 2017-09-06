@@ -1,0 +1,57 @@
+01	ALAVA                                                       		01	.80000000000000004
+03	ALICANTE                                                    		COAATA	1.0900000000000001
+05	ASTURIAS                                                    		05	1.0700000000000001
+06	AVILA                                                       		COAATAVI	1.0
+07	BADAJOZ                                                     		07	1.0
+08	BARCELONA                                                   		08	1.0700000000000001
+11	CADIZ                                                       		11	1.0
+12	CANTABRIA                                                   		12	1.1100000000000001
+13	CASTELLON                                                   		13	1.0
+14	CIUDAD REAL                                                 		14	1.03
+15	CORDOBA                                                     		15	1.0
+16	CUENCA                                                      		COAATCU	.84999999999999998
+17	GIRONA                                                      		17	1.03
+18	GRANADA                                                     		18	1.0700000000000001
+19	GUADALAJARA                                                 		COAATGU	.84999999999999998
+20	GUIPUZCOA                                                   		COAATGUI	.93000000000000005
+22	HUESCA                                                      		22	.90000000000000002
+24	JAEN                                                        		24	1.0
+25	A CORUÑA                                                    		25	1.0
+27	GRAN CANARIA                                                		COAATGC	1.05
+28	LEON                                                        		COAATLE	1.0
+29	LLEIDA                                                      		COAATLL	1.0
+30	LUGO                                                        		30	1.0
+31	MADRID                                                      		31	1.05
+32	MALAGA                                                      		32	1.0
+33	MALLORCA                                                    		COAATMCA	1.0800000000000001
+35	MURCIA                                                      		COAATMU	1.0
+36	NAVARRA                                                     		COAATN	.90000000000000002
+37	OURENSE                                                     		37	1.0700000000000001
+39	PONTEVEDRA                                                  		39	1.1299999999999999
+41	SEGOVIA                                                     		41	.90000000000000002
+42	SEVILLA                                                     		42	1.0
+43	SORIA                                                       		43	.80000000000000004
+44	TARRAGONA                                                   		COAATTGN	1.0
+45	TENERIFE                                                    		COAATTFE	1.0
+46	TERUEL                                                      		COAATTER	1.0
+47	TOLEDO                                                      		47	.90000000000000002
+48	VALENCIA                                                    		48	1.0600000000000001
+50	VIZCAYA                                                     		COAATB	1.05
+51	ZAMORA                                                      		51	.97999999999999998
+52	ZARAGOZA                                                    		COAATZ	1.03
+62	NOVA COL·LEGIACIÓ                                           		62	
+96	FUERTEVENTURA                                               		96	1.0
+E 	ESCOLA                                                      		E	
+09	BURGOS                                                      		COAATBU	1.0
+26	LA RIOJA                                                    		COAATLR	1.0
+55	TERRES                                                      		COAATTEB	.90000000000000002
+21	HUELVA                                                      		21	.90000000000000002
+40	SALAMANCA                                                   		40	.90000000000000002
+10	CACERES                                                     		COAATCC	1.05
+38	PALENCIA                                                    		38	1.05
+04	ALMERIA                                                     		04	1.0
+23	IBIZA                                                       		23	1.0
+34	MENORCA                                                     		34	1.0
+49	VALLADOLID                                                  		49	1.0
+02	ALBACETE                                                    		02	.93000000000000005
+56	LANZAROTE                                                   		56	1.0

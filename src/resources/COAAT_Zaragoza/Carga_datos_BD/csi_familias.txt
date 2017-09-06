@@ -1,0 +1,12 @@
+01	Seguro de Responsabilidad civil			
+02	Mutualidad Previsi¾n Social			
+00	-			
+D 	Descuentos de Expedientes			
+H 	Conceptos de Honorarios			
+LI	Libros			
+SE	Otros Seguros			
+C 	Cuotas diversas			
+O 	Otros conceptos (300)			
+OC	Otros conceptos (400)			
+GA	Gastos de devoluci¾n			
+EX	Expo			

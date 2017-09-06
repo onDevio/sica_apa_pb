@@ -1,0 +1,15 @@
+0000000001	Certificado de obras visadas	Certificado de obras visadas.doc	COLEGIADOS	S
+0000000003	Certificado de acreditación [gerencia]	Certificado_acreditacion_gerente.doc	COLEGIADOS	S
+0000000005	Certificado de acreditación [secretario]	Certificado_acreditacion_secretario.doc	COLEGIADOS	S
+0000000009	Certificado de colegiación [gerencia]	Certificado_colegiacion_gerente.doc	COLEGIADOS	S
+0000000011	Certificado de colegiación [secretario]	Certificado_colegiacion_secretario.doc	COLEGIADOS	S
+0000000013	Certificado alta en PREMAAT [gerencia]	Certificado_premaat_gerente.doc	COLEGIADOS	S
+0000000015	Certificado alta en PREMAAT [secretario]	Certificado_premaat_secretario.doc	COLEGIADOS	S
+0000000017	Certificado alta en MUSAAT [gerencia]	Certificado_musaat_gerente.doc	COLEGIADOS	S
+0000000018	Certificado alta en MUSAAT [secretario]	Certificado_musaat_secretario.doc	COLEGIADOS	S
+0000100001	Certificado de baja colegiación residente [gerencia]	Certificado_baja_colegiacion_residente_gerente.doc	COLEGIADOS	S
+0000100002	Certificado de baja colegiación residente [secretario]	Certificado_baja_colegiacion_residente_secretario.doc	COLEGIADOS	S
+0000100003	Certificado de colegiación no residente [gerencia]	Certificado_colegiacion_no_residente_gerente.doc	COLEGIADOS	S
+0000100007	Certificado de colegiación no residente [secretario]	Certificado_colegiacion_no_residente_secretario.doc	COLEGIADOS	S
+01        	ACREDITACION COLEGIAL (CERTIFICADO)		COLEGIADOS	S
+0000100011	ACREDITACION SOCIEDADES	CERTIFICADO_ACREDITACION_SOCIEDADES.doc	COLEGIADOS	S

@@ -1,0 +1,9 @@
+01        	CAJA	5700000   					001	01													
+02        	B.B.K. (2454)	5723000   	2095	0561	37	2000024547	Q4875003H001	01													
+03        	BBV (35566)	5722000   	0182	1290	39	0000355665	Q4875003H002	01													
+04        	B.B.V.C. (CONSIGNACIONES)	5721000   	0182	1290	35	0000884240	Q4875003H003	01													
+09        	CUENTA PERSONAL COLEGIO	430       						01													
+99        	CAJA ERANDIO	5701000   						01													
+00        	ASEBITEN, S.L. (BBVA)	5720000   	0182	1290	34	0201506293	B95615241006	03	 	 	 	 	 								
+01        	TRASPASO COAATBI	4146000   						03													
+09        	CUENTA PERSONAL ASEBITEN	430       						03													

@@ -1,0 +1,9 @@
+ECON      	Resumenes Economicos	% 	0.0	S	\\Srvnas\SICA-compartido\economicos\	S	N		0	%		01
+RE        	RE C.O.A.A.T.B.	% 	0.0	E	 	S	N	 	 	 		01
+RS        	RS C.O.A.A.T.B.	% 	0.0	S	 	S	N	 	 	 		01
+RE        	RE CONTABILIDAD	% 	0.0	E	 	S	N	 	 	 		02
+RE        	RE ASEBITEN	% 	0.0	E	 	S	N	 	 	 		03
+RE        	RE ASEBITEN	% 	0.0	E	 	S	N	 	 	 		04
+RS        	RS CONTABILIDAD	% 	0.0	S	 	S	N	 	 	 		02
+RS        	RS ASEBITEN	% 	0.0	S	 	S	N	 	 	 		03
+RS        	RS ASEBITEN	% 	0.0	S	 	S	N	 	 	 		04

@@ -1,0 +1,8 @@
+0000000001	Voluntari                                         	Voluntari		N	1		A
+0000000002	Obligatori                                        	Obligatori		N	2		A
+0000000003	REDAP                                             	REDAP		S	3		A
+0000000004	REDOC                                             	REDOC		N	4		A
+0000000005	Voluntari                                         	Voluntari		N	1		B
+0000000006	Obligatori                                        	Obligatori		N	2		B
+0000000007	REDAP                                             	REDAP		S	3		B
+0000000008	REDOC                                             	REDOC		N	4	 	B

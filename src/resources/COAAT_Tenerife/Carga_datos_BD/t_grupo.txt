@@ -1,0 +1,23 @@
+ADM       	Administradores
+MOS       	Atención al Público
+CAJ       	Caja
+CONT      	Contabilidad
+VIS       	Administración Visados
+MUS       	MUSAAT
+REN       	Renuncias
+PRE       	PREMAAT
+COL       	Colegiados
+SEC       	Secretaria
+CONL      	Contabilidad (Sólo Lectura)
+SL        	Sólo Lectura
+LIB       	Biblioteca
+CYT       	Cultura y Tecnología
+VIST      	Visado Técnico
+RES       	Registro Entrada y Salida
+COLSL     	Colegiados (Sólo lectura)
+CSIC      	Contabilidad (SICA)
+VSL       	Visados (Sólo Lectura)
+CURSOS    	Cursos
+FRAS      	Facturas
+COB       	Cobros y Remesas
+SPR       	SOLO PREMAAT

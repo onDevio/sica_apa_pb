@@ -1,0 +1,236 @@
+MT        	03	2011	% 	N_emisor2           	CORREDURíA DE SEGUROS CON NÚMERO DE REGISTRO: 80362
+PC        	03	2011	% 	N_emisor2           	CORREDURíA DE SEGUROS CON NÚMERO DE REGISTRO: 80362
+PF        	03	2011	% 	N_emisor2           	CORREDURíA DE SEGUROS CON NÚMERO DE REGISTRO: 80362
+PROFOR    	03	2011	% 	N_emisor2           	CORREDURíA DE SEGUROS CON NÚMERO DE REGISTRO: 80362
+RECTIF    	03	2011	% 	N_emisor2           	CORREDURíA DE SEGUROS CON NÚMERO DE REGISTRO: 80362
+COLEGIADOS	01	2007	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+MU        	01	2007	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+D         	01	2007	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+C         	01	2007	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+COLEGIADOS	01	2008	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+MU        	01	2008	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+RECTIF    	01	2008	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+D         	01	2008	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+C         	01	2008	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+MP        	01	2008	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+CURSOS    	01	2008	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+COLEGIADOS	01	2009	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+MU        	01	2009	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+RECTIF    	01	2009	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+C         	01	2009	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+MP        	01	2009	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+CURSOS    	01	2009	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+COLEGIADOS	01	2010	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+MU        	01	2010	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+RECTIF    	01	2010	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+D         	01	2010	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+C         	01	2010	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+MP        	01	2010	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+CURSOS    	01	2010	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+RECTIF    	01	2007	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+D         	01	2009	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+COLEGIADOS	01	2011	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+MU        	01	2011	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+RECTIF    	01	2011	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+D         	01	2011	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+C         	01	2011	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+MP        	01	2011	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+CURSOS    	01	2011	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+V1        	01	2011	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+AL        	01	2011	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+V         	01	2007	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+V         	01	2008	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+V         	01	2009	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+V         	01	2010	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+V         	01	2011	% 	Cabecera            	FACTURA DE GASTOS COLEGIALES
+GI        	02	XX  	% 	Cabecera            	FACTURA 
+GI        	02	2009	% 	Cabecera            	FACTURA 
+GI        	02	2010	% 	Cabecera            	FACTURA 
+GI        	02	2011	% 	Cabecera            	FACTURA 
+P         	01	2007	% 	Cabecera            	RECIBO 
+M         	01	2007	% 	Cabecera            	RECIBO 
+A         	01	2007	% 	Cabecera            	RECIBO 
+FIS       	01	2007	% 	Cabecera            	RECIBO 
+DE        	01	2007	% 	Cabecera            	RECIBO 
+P         	01	2008	% 	Cabecera            	RECIBO 
+A         	01	2008	% 	Cabecera            	RECIBO 
+FIS       	01	2008	% 	Cabecera            	RECIBO 
+DE        	01	2008	% 	Cabecera            	RECIBO 
+M         	01	2009	% 	Cabecera            	RECIBO 
+A         	01	2009	% 	Cabecera            	RECIBO 
+FIS       	01	2009	% 	Cabecera            	RECIBO 
+DE        	01	2009	% 	Cabecera            	RECIBO 
+P         	01	2010	% 	Cabecera            	RECIBO 
+M         	01	2010	% 	Cabecera            	RECIBO 
+A         	01	2010	% 	Cabecera            	RECIBO 
+FIS       	01	2010	% 	Cabecera            	RECIBO 
+DE        	01	2010	% 	Cabecera            	RECIBO 
+M         	01	2008	% 	Cabecera            	RECIBO 
+P         	01	2011	% 	Cabecera            	RECIBO 
+M         	01	2011	% 	Cabecera            	RECIBO 
+A         	01	2011	% 	Cabecera            	RECIBO 
+FIS       	01	2011	% 	Cabecera            	RECIBO 
+DE        	01	2011	% 	Cabecera            	RECIBO 
+P         	01	2009	% 	Cabecera            	RECIBO 
+PC        	03	2011	% 	Cabecera            	RECIBO 
+PF        	03	2011	% 	Cabecera            	RECIBO 
+MT        	03	2011	% 	Cabecera            	RECIBO 
+RECTIF    	03	2011	% 	Cabecera            	RECIBO 
+PROFOR    	01	2010	% 	Cabecera            	PROFORMA
+PROFOR    	01	2011	% 	Cabecera            	PROFORMA
+PROFOR    	03	2011	% 	Cabecera            	PROFORMA
+%         	% 	%   	% 	Cabecera            	FACTURA
+COLEGIADOS	01	2007	% 	N_fact              	FACTURA Nº
+MU        	01	2007	% 	N_fact              	FACTURA Nº
+D         	01	2007	% 	N_fact              	FACTURA Nº
+C         	01	2007	% 	N_fact              	FACTURA Nº
+COLEGIADOS	01	2008	% 	N_fact              	FACTURA Nº
+MU        	01	2008	% 	N_fact              	FACTURA Nº
+RECTIF    	01	2008	% 	N_fact              	FACTURA Nº
+D         	01	2008	% 	N_fact              	FACTURA Nº
+C         	01	2008	% 	N_fact              	FACTURA Nº
+MP        	01	2008	% 	N_fact              	FACTURA Nº
+CURSOS    	01	2008	% 	N_fact              	FACTURA Nº
+COLEGIADOS	01	2009	% 	N_fact              	FACTURA Nº
+MU        	01	2009	% 	N_fact              	FACTURA Nº
+RECTIF    	01	2009	% 	N_fact              	FACTURA Nº
+C         	01	2009	% 	N_fact              	FACTURA Nº
+MP        	01	2009	% 	N_fact              	FACTURA Nº
+CURSOS    	01	2009	% 	N_fact              	FACTURA Nº
+GI        	02	XX  	% 	N_fact              	FACTURA Nº
+GI        	02	2009	% 	N_fact              	FACTURA Nº
+COLEGIADOS	01	2010	% 	N_fact              	FACTURA Nº
+MU        	01	2010	% 	N_fact              	FACTURA Nº
+RECTIF    	01	2010	% 	N_fact              	FACTURA Nº
+D         	01	2010	% 	N_fact              	FACTURA Nº
+C         	01	2010	% 	N_fact              	FACTURA Nº
+MP        	01	2010	% 	N_fact              	FACTURA Nº
+CURSOS    	01	2010	% 	N_fact              	FACTURA Nº
+GI        	02	2010	% 	N_fact              	FACTURA Nº
+RECTIF    	01	2007	% 	N_fact              	FACTURA Nº
+D         	01	2009	% 	N_fact              	FACTURA Nº
+COLEGIADOS	01	2011	% 	N_fact              	FACTURA Nº
+MU        	01	2011	% 	N_fact              	FACTURA Nº
+RECTIF    	01	2011	% 	N_fact              	FACTURA Nº
+D         	01	2011	% 	N_fact              	FACTURA Nº
+C         	01	2011	% 	N_fact              	FACTURA Nº
+MP        	01	2011	% 	N_fact              	FACTURA Nº
+CURSOS    	01	2011	% 	N_fact              	FACTURA Nº
+GI        	02	2011	% 	N_fact              	FACTURA Nº
+V1        	01	2011	% 	N_fact              	FACTURA Nº
+AL        	01	2011	% 	N_fact              	FACTURA Nº
+V         	01	2007	% 	N_fact              	FACTURA Nº
+V         	01	2008	% 	N_fact              	FACTURA Nº
+V         	01	2009	% 	N_fact              	FACTURA Nº
+V         	01	2010	% 	N_fact              	FACTURA Nº
+V         	01	2011	% 	N_fact              	FACTURA Nº
+PROFOR    	01	2010	% 	N_fact              	PROFORMA Nº
+PROFOR    	01	2011	% 	N_fact              	PROFORMA Nº
+PROFOR    	03	2011	% 	N_fact              	PROFORMA Nº
+P         	01	2007	% 	N_fact              	RECIBO Nº
+M         	01	2007	% 	N_fact              	RECIBO Nº
+A         	01	2007	% 	N_fact              	RECIBO Nº
+FIS       	01	2007	% 	N_fact              	RECIBO Nº
+DE        	01	2007	% 	N_fact              	RECIBO Nº
+P         	01	2008	% 	N_fact              	RECIBO Nº
+A         	01	2008	% 	N_fact              	RECIBO Nº
+FIS       	01	2008	% 	N_fact              	RECIBO Nº
+DE        	01	2008	% 	N_fact              	RECIBO Nº
+M         	01	2009	% 	N_fact              	RECIBO Nº
+A         	01	2009	% 	N_fact              	RECIBO Nº
+FIS       	01	2009	% 	N_fact              	RECIBO Nº
+DE        	01	2009	% 	N_fact              	RECIBO Nº
+P         	01	2010	% 	N_fact              	RECIBO Nº
+M         	01	2010	% 	N_fact              	RECIBO Nº
+A         	01	2010	% 	N_fact              	RECIBO Nº
+FIS       	01	2010	% 	N_fact              	RECIBO Nº
+DE        	01	2010	% 	N_fact              	RECIBO Nº
+M         	01	2008	% 	N_fact              	RECIBO Nº
+P         	01	2011	% 	N_fact              	RECIBO Nº
+M         	01	2011	% 	N_fact              	RECIBO Nº
+A         	01	2011	% 	N_fact              	RECIBO Nº
+FIS       	01	2011	% 	N_fact              	RECIBO Nº
+DE        	01	2011	% 	N_fact              	RECIBO Nº
+P         	01	2009	% 	N_fact              	RECIBO Nº
+PC        	03	2011	% 	N_fact              	RECIBO Nº
+PF        	03	2011	% 	N_fact              	RECIBO Nº
+MT        	03	2011	% 	N_fact              	RECIBO Nº
+RECTIF    	03	2011	% 	N_fact              	RECIBO Nº
+%         	% 	%   	% 	N_fact              	FACTURA Nº
+PROFOR    	01	2010	% 	Total_fact          	TOTAL PROFORMA
+PROFOR    	01	2011	% 	Total_fact          	TOTAL PROFORMA
+PROFOR    	03	2011	% 	Total_fact          	TOTAL PROFORMA
+COLEGIADOS	01	2007	% 	Total_fact          	TOTAL FACTURA
+MU        	01	2007	% 	Total_fact          	TOTAL FACTURA
+D         	01	2007	% 	Total_fact          	TOTAL FACTURA
+C         	01	2007	% 	Total_fact          	TOTAL FACTURA
+COLEGIADOS	01	2008	% 	Total_fact          	TOTAL FACTURA
+MU        	01	2008	% 	Total_fact          	TOTAL FACTURA
+RECTIF    	01	2008	% 	Total_fact          	TOTAL FACTURA
+D         	01	2008	% 	Total_fact          	TOTAL FACTURA
+C         	01	2008	% 	Total_fact          	TOTAL FACTURA
+MP        	01	2008	% 	Total_fact          	TOTAL FACTURA
+CURSOS    	01	2008	% 	Total_fact          	TOTAL FACTURA
+COLEGIADOS	01	2009	% 	Total_fact          	TOTAL FACTURA
+MU        	01	2009	% 	Total_fact          	TOTAL FACTURA
+RECTIF    	01	2009	% 	Total_fact          	TOTAL FACTURA
+C         	01	2009	% 	Total_fact          	TOTAL FACTURA
+MP        	01	2009	% 	Total_fact          	TOTAL FACTURA
+CURSOS    	01	2009	% 	Total_fact          	TOTAL FACTURA
+GI        	02	XX  	% 	Total_fact          	TOTAL FACTURA
+GI        	02	2009	% 	Total_fact          	TOTAL FACTURA
+COLEGIADOS	01	2010	% 	Total_fact          	TOTAL FACTURA
+MU        	01	2010	% 	Total_fact          	TOTAL FACTURA
+RECTIF    	01	2010	% 	Total_fact          	TOTAL FACTURA
+D         	01	2010	% 	Total_fact          	TOTAL FACTURA
+C         	01	2010	% 	Total_fact          	TOTAL FACTURA
+MP        	01	2010	% 	Total_fact          	TOTAL FACTURA
+CURSOS    	01	2010	% 	Total_fact          	TOTAL FACTURA
+GI        	02	2010	% 	Total_fact          	TOTAL FACTURA
+RECTIF    	01	2007	% 	Total_fact          	TOTAL FACTURA
+D         	01	2009	% 	Total_fact          	TOTAL FACTURA
+COLEGIADOS	01	2011	% 	Total_fact          	TOTAL FACTURA
+MU        	01	2011	% 	Total_fact          	TOTAL FACTURA
+RECTIF    	01	2011	% 	Total_fact          	TOTAL FACTURA
+D         	01	2011	% 	Total_fact          	TOTAL FACTURA
+C         	01	2011	% 	Total_fact          	TOTAL FACTURA
+MP        	01	2011	% 	Total_fact          	TOTAL FACTURA
+CURSOS    	01	2011	% 	Total_fact          	TOTAL FACTURA
+GI        	02	2011	% 	Total_fact          	TOTAL FACTURA
+V1        	01	2011	% 	Total_fact          	TOTAL FACTURA
+AL        	01	2011	% 	Total_fact          	TOTAL FACTURA
+V         	01	2007	% 	Total_fact          	TOTAL FACTURA
+V         	01	2008	% 	Total_fact          	TOTAL FACTURA
+V         	01	2009	% 	Total_fact          	TOTAL FACTURA
+V         	01	2010	% 	Total_fact          	TOTAL FACTURA
+V         	01	2011	% 	Total_fact          	TOTAL FACTURA
+P         	01	2007	% 	Total_fact          	TOTAL RECIBO
+M         	01	2007	% 	Total_fact          	TOTAL RECIBO
+A         	01	2007	% 	Total_fact          	TOTAL RECIBO
+FIS       	01	2007	% 	Total_fact          	TOTAL RECIBO
+DE        	01	2007	% 	Total_fact          	TOTAL RECIBO
+P         	01	2008	% 	Total_fact          	TOTAL RECIBO
+A         	01	2008	% 	Total_fact          	TOTAL RECIBO
+FIS       	01	2008	% 	Total_fact          	TOTAL RECIBO
+DE        	01	2008	% 	Total_fact          	TOTAL RECIBO
+M         	01	2009	% 	Total_fact          	TOTAL RECIBO
+A         	01	2009	% 	Total_fact          	TOTAL RECIBO
+FIS       	01	2009	% 	Total_fact          	TOTAL RECIBO
+DE        	01	2009	% 	Total_fact          	TOTAL RECIBO
+P         	01	2010	% 	Total_fact          	TOTAL RECIBO
+M         	01	2010	% 	Total_fact          	TOTAL RECIBO
+A         	01	2010	% 	Total_fact          	TOTAL RECIBO
+FIS       	01	2010	% 	Total_fact          	TOTAL RECIBO
+DE        	01	2010	% 	Total_fact          	TOTAL RECIBO
+M         	01	2008	% 	Total_fact          	TOTAL RECIBO
+P         	01	2011	% 	Total_fact          	TOTAL RECIBO
+M         	01	2011	% 	Total_fact          	TOTAL RECIBO
+A         	01	2011	% 	Total_fact          	TOTAL RECIBO
+FIS       	01	2011	% 	Total_fact          	TOTAL RECIBO
+DE        	01	2011	% 	Total_fact          	TOTAL RECIBO
+P         	01	2009	% 	Total_fact          	TOTAL RECIBO
+PC        	03	2011	% 	Total_fact          	TOTAL RECIBO
+PF        	03	2011	% 	Total_fact          	TOTAL RECIBO
+MT        	03	2011	% 	Total_fact          	TOTAL RECIBO
+RECTIF    	03	2011	% 	Total_fact          	TOTAL RECIBO
+%         	% 	%   	% 	Total_fact          	TOTAL FACTURA

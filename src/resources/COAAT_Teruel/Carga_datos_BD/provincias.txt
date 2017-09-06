@@ -1,0 +1,57 @@
+00000	00055	ANDORRA                                           	
+00001	00055	ARABA                                             	
+00002	00055	ALBACETE                                          	
+00003	00055	ALICANTE                                          	
+00004	00055	ALMERIA                                           	
+00005	00055	AVILA                                             	
+00006	00055	BADAJOZ                                           	
+00007	00055	MENORCA                                           	
+00008	00055	BARCELONA                                         	
+00009	00055	BURGOS                                            	
+00010	00055	CACERES                                           	
+00011	00055	CADIZ                                             	
+00012	00055	CASTELLON                                         	
+00013	00055	CIUDAD REAL                                       	
+00014	00055	CORDOBA                                           	
+00015	00055	A CORUÑA                                          	
+00016	00055	CUENCA                                            	
+00017	00055	GIRONA                                            	
+00018	00055	GRANADA                                           	
+00019	00055	GUADALAJARA                                       	
+00020	00055	GIPUZKOA                                          	
+00021	00055	HUELVA                                            	
+00022	00055	HUESCA                                            	
+00023	00055	JAEN                                              	
+00024	00055	LEON                                              	
+00025	00055	LLEIDA                                            	
+00026	00055	LA RIOJA                                          	
+00027	00055	LUGO                                              	
+00028	00055	MADRID                                            	
+00029	00055	MALAGA                                            	
+00030	00055	MURCIA                                            	
+00031	00055	NAVARRA                                           	
+00032	00055	OURENSE                                           	
+00033	00055	ASTURIAS                                          	
+00034	00055	PALENCIA                                          	
+00035	00055	LAS PALMAS GRAN CANARIA                           	
+00036	00055	PONTEVEDRA                                        	
+00037	00055	SALAMANCA                                         	
+00038	00055	SANTA CRUZ DE TENERIFE                            	
+00039	00055	CANTABRIA                                         	
+00040	00055	SEGOVIA                                           	
+00041	00055	SEVILLA                                           	
+00042	00055	SORIA                                             	
+00043	00055	TARRAGONA                                         	
+00044	00055	TERUEL                                            	
+00045	00055	TOLEDO                                            	
+00046	00055	VALENCIA                                          	
+00047	00055	VALLADOLID                                        	
+00048	00055	BIZKAIA                                           	
+00049	00055	ZAMORA                                            	
+00050	00055	ZARAGOZA                                          	
+00051	00055	CEUTA                                             	
+00052	00055	BURGDORF                                          	
+00070	00055	MALLORCA                                          	
+00099	00055	HOLANDA                                           	
+95000	00062	FRANCIA                                           	
+99999	00000	DESCONOCIDA                                       	

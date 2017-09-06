@@ -1,0 +1,47 @@
+26	COAAT.LA RIOJA                                              		COAATLR	1.0
+31	COAAT.MADRID                                                			1.05
+08	COAAT.BARCELONA                                             			1.0700000000000001
+42	COAAT.SEVILLA                                               			1.0
+13	COAAT.CASTELLON                                             			1.0
+48	COAAT.VALENCIA                                              			1.0600000000000001
+03	COAAT.ALICANTE                                              		COAATA	1.0900000000000001
+41	COAAT.SEGOVIA                                               			.90000000000000002
+52	COAAT.ZARAGOZA                                              		COAATZ	1.03
+29	COAAT.LLEIDA                                                		COAATLL	1.0
+22	COAAT.HUESCA                                                			.90000000000000002
+11	COAAT.CADIZ                                                 			1.0
+02	COAAT.ALBACETE                                              			.93000000000000005
+04	COAAT.ALMERIA                                               			1.0
+46	COAAT.TERUEL                                                		COAATTER	1.0
+49	COAAT.VALLADOLID                                            			1.0
+19	COAAT.GUADALAJARA                                           		COAATGU	.84999999999999998
+34	COAAT.MENORCA                                               			1.0
+32	COAAT.MALAGA                                                			1.0
+56	COAAT.LANZAROTE                                             			1.0
+35	COAAT.MURCIA                                                		COAATMU	1.0
+47	COAAT.TOLEDO                                                			.90000000000000002
+15	COAAT.CORDOBA                                               			1.0
+36	COAAT.NAVARRA                                               		COAATN	.90000000000000002
+21	COAAT.HUELVA                                                			.90000000000000002
+12	COAAT.CANTABRIA                                             			1.1100000000000001
+09	COAAT.BURGOS                                                		COAATBU	1.0
+10	COAAT.CACERES                                               		COAATCC	1.05
+50	COAAT.BIZKAIA                                               		COAATB	1.05
+05	COAAT.ASTURIAS                                              			1.0700000000000001
+01	COAAT.ALABA                                                 			.80000000000000004
+86	COAAT.                                                      			
+07	COAAT.BADAJOZ                                               			1.0
+37	COAAT.OURENSE                                               			1.0700000000000001
+25	COAAT.A CORUÑA                                              			1.0
+17	COAAT.GIRONA                                                			1.03
+28	COAAT.LEON                                                  		COAATLE	1.0
+39	COAAT.PONTEVEDRA                                            			1.1299999999999999
+06	COAAT.AVILA                                                 		COAATAVI	1.0
+30	COAAT.LUGO                                                  			1.0
+33	COAAT.MALLORCA                                              		COAATMCA	1.0800000000000001
+16	COAAT.CUENCA                                                		COAATCU	.84999999999999998
+20	COAAT.GIPUZKOA                                              		COAATGUI	.93000000000000005
+18	COAAT.GRANADA                                               			1.0700000000000001
+24	COAAT.JAEN                                                  			1.0
+44	COAAT.TARRAGONA                                             		COAATTGN	1.0
+45	COAAT.SANTA CRUZ DE TENERIFE                                		COAATTFE	1.0

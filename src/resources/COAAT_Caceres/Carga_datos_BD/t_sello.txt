@@ -1,0 +1,3 @@
+A         	Sello standar                                               	coaatcc_sello.xml
+B         	Sello registro                                              	coaatcc_sello_registro.xml
+C         	Sello denegado                                              	coaatcc_sello_denegado.xml

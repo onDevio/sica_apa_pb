@@ -1,0 +1,9 @@
+01	S	C		IDIOMA
+02	B	C		SE DAN DATOS
+03	B	C		FALLECIMIENTO
+04	B	C		JUBILACION
+05	S	C		CODIGO ACCESO
+OR	S	C		Reclamante
+EX	S	C		Expediente
+RE	S	C		Responsable
+CA	s	C		Cargo

@@ -1,0 +1,30 @@
+1 	INCORRIENTE	
+2 	NO DOMICILIADO	
+3 	OFICINA INEXISTENTE	
+4 	NIF DEL DEUDOR DESCONOCIDO	
+5 	POR ORDEN DEL CLIENTE: ERROR EN LA DOMICILIACION	
+6 	POR ORDEN DEL CLIENTE: DISCONFORMIDAD CON EL IMPORTE	
+7 	ADEUDO DUPLICADO, INDEBIDO, ERRÀNEO O FALTAN DATOS	
+A1	N∑mero de cuenta incorrecto (IBAN no vﬂlido)	AC01
+A4	Cuenta cancelada	AC04
+A6	Cuenta bloqueada y/o cuenta bloqueada por el deudor para Adeudos Directos	AC06
+A3	Cuenta no admite Adeudos Directos	AG01
+A2	Cædigo de operaciæn incorrecto	AG02
+A7	Saldo insuficiente	AM04
+A5	Operaciæn duplicada	AM05
+B1	Titular de la cuenta de cargo no coincide con el deudor	BE01
+B5	Identificador del acreedor incorrecto	BE05
+F1	Formato no vﬂlido	FF01
+F5	Tipo de adeudo incorrecto	FF05
+M1	Mandato no vﬂlido o inexistente	MD01
+M2	Faltan datos del mandato o son incorrectos	MD02
+M6	Operaciæn autorizada no conforme	MD06
+M7	Deudor fallecido	MD07
+M4	Razæn no especificada por el cliente (orden del deudor)	MS02
+M3	Razæn no especificada por la entidad del deudor	MS03
+RC	Mandato no vﬂlido o inexistente	RC01
+R1	Faltan datos del mandato o son incorrectos	RR01
+R2	Operaciæn autorizada no conforme	RR02
+R3	Deudor fallecido	RR03
+R4	Razæn no especificada por el cliente (orden del deudor)	RR04
+S1	Razæn no especificada por la entidad del deudor	SL01

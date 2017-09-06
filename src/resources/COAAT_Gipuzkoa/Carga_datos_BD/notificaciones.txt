@@ -1,0 +1,7 @@
+Notificación Primera a Cliente (gestión de cobro) Castellano                                        	d_carta_reclamacion_1_gui	P	1 	5	3	S	30.0	C	N	Primer Comunicado		%
+Notificación Segunda a Cliente (gestión de cobro) Castellano                                        	d_carta_reclamacion_2_gui	P	2 	6	3	N	30.0	C	N	Segundo Comunicado		%
+Notificación Tercera a Cliente (gestión de cobro) Castellano                                        	d_carta_reclamacion_3_gui	P	3 	7	3	N	30.0	C	N	Tercer Comunicado		%
+Notificación Cuarta a Abogado (gestión de cobro)                                                    	d_carta_reclamacion_4_gui	A	4 	@@	3	N	30.0	C	N	Cuarto Comunicado		%
+Notificación Primera a Cliente (gestión de cobro) Euskera                                           	d_carta_reclamacion_1_gui_euskera	P	5 	2	3	N	-1.0	C	N	Primer Comunicado		%
+Notificación Segunda a Cliente (gestión de cobro) Euskera                                           	d_carta_reclamacion_2_gui_euskera	P	6 	3	3	N	-1.0	C	N	Segundo Comunicado		%
+Notificación Tercera a Cliente (gestión de cobro) Euskera                                           	d_carta_reclamacion_3_gui_euskera	P	7 	4	3	N	-1.0	C	N	Tercer Comunicado		%

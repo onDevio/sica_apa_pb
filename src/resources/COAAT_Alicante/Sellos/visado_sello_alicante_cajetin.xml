@@ -1,0 +1,68 @@
+<sello> 
+  <x>${x}</x>
+  <y>${y}</y>
+  <anchura>225</anchura>
+  <altura>155</altura>
+  <vertical>false</vertical>
+  <posicion>${margen}</posicion>
+  <textos>
+	<texto>
+      <x>74</x>
+      <y>89</y>    
+      <contenido>${archivo}</contenido>
+      <fuente>${directorio_windows}\Fonts\Arial.ttf</fuente>
+      <size>16</size> 
+      <color>0,0,255</color>
+    </texto>
+   <texto>
+      <x>40</x>
+      <y>61</y>    
+      <contenido>${colegiado_1}</contenido>
+      <fuente>${directorio_windows}\Fonts\Gothic.ttf</fuente>
+      <size>5</size> 
+      <color>0,0,255</color>
+    </texto>
+
+    <texto>
+      <x>40</x>
+      <y>55</y>    
+      <contenido>${colegiado_2}</contenido>
+      <fuente>${directorio_windows}\Fonts\Gothic.ttf</fuente>
+      <size>5</size> 
+      <color>0,0,255</color>
+    </texto>
+    <texto>
+      <x>40</x>
+      <y>49</y>    
+      <contenido>${colegiado_3}</contenido>
+      <fuente>${directorio_windows}\Fonts\Gothic.ttf</fuente>
+      <size>5</size> 
+      <color>0,0,255</color>
+    </texto>
+    <texto>
+      <x>40</x>
+      <y>33</y>    
+      <contenido>El colegio garantiza la firma digital de este documento</contenido>
+      <fuente>${directorio_windows}\Fonts\Gothic.ttf</fuente>
+      <size>5</size> 
+      <color>0,0,255</color>
+    </texto>
+ 	<texto>
+      <x>76</x>
+      <y>14</y>    
+      <contenido>Página %pag de %pags</contenido>
+      <fuente>${directorio_windows}\Fonts\Arial.ttf</fuente>
+      <size>10</size> 
+      <color>0,0,255</color>
+    </texto> 
+   </textos>
+
+  <imagenes>
+    <imagen>
+      <x>5</x>
+      <y>5</y>
+      <ruta>${directorio_imagenes}\visado_coaata_cajetin.gif</ruta>
+      <escala>19</escala>
+    </imagen>
+  </imagenes>
+</sello>

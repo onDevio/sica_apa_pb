@@ -1,0 +1,13 @@
+0001      	AVISOS		S
+0002      	HISTORICO		N
+M         	MIGRACION		N
+LIB       	LIBROS		N
+FAC       	FACTURACION		N
+PRE       	PRENDA		N
+AES       	TIT. AUTOR DEL E.S.S.		N
+RD1       	VISADO OBLIGATORIO		N
+RD2       	VISADO VOLUNTARIO		N
+RD3       	REDOC		N
+RD4       	REDAP		N
+RD5       	DAP		N
+CV        	COMISION DE VISADOS		N

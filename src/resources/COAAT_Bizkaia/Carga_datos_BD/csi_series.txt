@@ -1,0 +1,53 @@
+EXPEDI    		F508	01	7413.0	Serie de Facturas de gastos colegiales y seguro	N	2008				N	S
+COLEGIADOS		F519	01	0.0	Serie de Facturas de honorarios de colegiados	N	2008				N	N
+GASCOL    			01	6320.0	Serie de Facturas de colegiados NO de expedientes	N	2008				N	N
+CLIEN     			01	94.0	Serie de Facturas a clientes	N	2008				N	N
+000       			02	0.0		N	2008				N	N
+RECTIF    	neg		01	294.0	Serie para Facturas rectificativas	N	2008				N	N
+PREMAA    			01	5595.0	Serie para recibos de PREMAAT	S	2008	d_premaat_factura_cuotas	S		N	N
+EXPEDI    			01	7057.0	Serie de Facturas de gastos colegiales y seguro	N	2009				N	S
+COLEGIADOS			01	0.0	Serie de Facturas de honorarios de colegiados	N	2009				N	N
+GASCOL    			01	5954.0	Serie de Facturas de colegiados NO de expedientes	N	2009				N	N
+CLIEN     			01	89.0	Serie de Facturas a clientes	N	2009				N	N
+000       			02	0.0		N	2009				N	N
+RECTIF    			01	360.0	Serie para Facturas rectificativas	N	2009				N	N
+MUSAAT    			01	1647.0	Serie para recibos de MUSAAT	S	2009				N	N
+PREMAA    			01	5436.0	Serie para recibos de PREMAAT	S	2009				N	N
+EXPEDI    			01	6111.0	Serie de Facturas de gastos colegiales y seguro	N	2010				N	S
+COLEGIADOS			01	1.0	Serie de Facturas de honorarios de colegiados	N	2010				N	N
+GASCOL    			01	5716.0	Serie de Facturas de colegiados NO de expedientes	N	2010				N	N
+CLIEN     			01	100.0	Serie de Facturas a clientes	N	2010				N	N
+000       			02	0.0		N	2010				N	N
+RECTIF    			01	1348.0	Serie para Facturas rectificativas	N	2010				N	N
+MUSAAT    			01	1602.0	Serie para recibos de MUSAAT	S	2010				N	N
+PREMAA    			01	5123.0	Serie para recibos de PREMAAT	S	2010				N	N
+PROFOR    			01	0.0	Facturas Proforma	N	2010			PROFOR	S	N
+EXPEDI    			01	4600.0	Serie de Facturas de gastos colegiales y seguro	N	2011				N	S
+COLEGIADOS			01	0.0	Serie de Facturas de honorarios de colegiados	N	2011				N	N
+GASCOL    			01	4385.0	Serie de Facturas de colegiados NO de expedientes	N	2011				N	N
+CLIEN     			01	94.0	Serie de Facturas a clientes	N	2011				N	N
+000       			02	0.0		N	2011				N	N
+RECTIF    			01	112.0	Serie para Facturas rectificativas	N	2011				N	N
+MUSAAT    			01	1559.0	Serie para recibos de MUSAAT	S	2011				N	N
+PREMAA    			01	4986.0	Serie para recibos de PREMAAT	S	2011				N	N
+PROFOR    			01	372.0	Facturas Proforma	N	2011			PROFOR	S	N
+MUSAAT    			01	1689.0	Serie para recibos de MUSAAT	S	2008				N	N
+PC        			03	1305.0	Serie para la facturación de la prima variable	S	2011				N	S
+PF        			03	6.0	Serie para la facturación de la prima fija de MUSAAT	S	2011				N	S
+MT        			03	0.0	Serie para la facturación de seguros sociales PREMAAT	S	2011				N	S
+PROFOR    			03	168.0	Serie para proformas de la empresa aseguradora	N	2011				S	S
+RECTIF    			03	26.0	Serie rectificativa de la empresa aseguradora	S	2011				N	N
+EXPEDI    			01	212.0	Serie de Facturas de gastos colegiales y seguro	N	2012				N	S
+COLEGIADOS			01	0.0	Serie de Facturas de honorarios de colegiados	N	2012				N	N
+GASCOL    			01	45.0	Serie de Facturas de colegiados NO de expedientes	N	2012				N	N
+CLIEN     			01	5.0	Serie de Facturas a clientes	N	2012				N	N
+000       			02	0.0		N	2012				N	N
+RECTIF    			01	5.0	Serie para Facturas rectificativas	N	2012				N	N
+MUSAAT    			01	0.0	Serie para recibos de MUSAAT	S	2012				N	N
+PREMAA    			01	0.0	Serie para recibos de PREMAAT	S	2012				N	N
+PROFOR    			01	32.0	Facturas Proforma	N	2012			PROFOR	S	N
+PC        			03	183.0	Serie para la facturación de la prima variable	S	2012				N	S
+PF        			03	637.0	Serie para la facturación de la prima fija de MUSAAT	S	2012				N	S
+MT        			03	404.0	Serie para la facturación de seguros sociales PREMAAT	S	2012				N	S
+PROFOR    			03	26.0	Serie para proformas de la empresa aseguradora	N	2012				S	S
+RECTIF    			03	2.0	Serie rectificativa de la empresa aseguradora	S	2012				N	N

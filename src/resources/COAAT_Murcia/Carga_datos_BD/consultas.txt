@@ -1,0 +1,36 @@
+0000000002	w_cobros_domicilia_consulta	Cobros pendientes de pago y contabilizar.	Jan 17 2003 12:00:00:000AM	0000000001
+0000000003	w_cobros_domicilia_consulta	Domiciliar todos los cobros pendientes de gastos de colegiados.	Jan 17 2003 12:00:00:000AM	0000000001
+0000000015	w_datos_firma	INICIO	Feb 21 2003 12:00:00:000AM	0000000001
+0000000120	w_colegiados_consulta	Etiquetas de cursos	Apr 22 2003 12:00:00:000AM	1000000023
+0000000122	w_colegiados_consulta	Colegiados en alta residentes del 0 al 4	Apr 22 2003 12:00:00:000AM	1000000040
+0000000124	w_colegiados_consulta	Homenaje 25 años 2003	Apr 22 2003 12:00:00:000AM	1000000040
+0000000125	w_colegiados_listados	Etiquetas insignias	May  7 2003 12:00:00:000AM	1000000040
+0000000126	w_colegiados_listados	Insignias Murcia	May  8 2003 12:00:00:000AM	1000000040
+0000000127	w_colegiados_listados	Insignias Cartagena	May  8 2003 12:00:00:000AM	1000000040
+0000000130	w_colegiados_consulta	Etiquetas Boletín	Jul 14 2004 12:00:00:000AM	0000000029
+MA00000008	w_minutas_anula	INICIO	Jun 17 2004 12:00:00:000AM	0000000001
+AV00000001	w_n_copias	AVISO	Jun 24 2004 12:00:00:000AM	0000000001
+RE00000001	w_n_copias	RECLAMACION	Jun 24 2004 12:00:00:000AM	0000000001
+0000000131	w_colegiados_consulta	GIMENEZ MEDINA	Dec 28 2004 12:00:00:000AM	0000000020
+0000000132	w_sellador	INICIO	Apr  1 2005 12:00:00:000AM	0000000018
+0000000133	w_colegiados_factura_n	FACTURA CANARIAS	Mar  9 2007 12:00:00:000AM	1000000024
+0000000415	w_extractos_cuentas	C.M. 18769	May 24 2007 12:00:00:000AM	0000000022
+0000000416	w_extractos_cuentas	C.M. 45556	May 24 2007 12:00:00:000AM	0000000022
+0000000418	w_extractos_cuentas	43000000	May 25 2007 12:00:00:000AM	0000000022
+0000000856	w_csd_mail_send_sock	INICIO	Nov 28 2007 12:00:00:000AM	0000000018
+0000001040	w_colegiados_consulta	JOSE RAMON SERRANO	Feb  6 2008 12:00:00:000AM	0000000024
+0000001492	w_fact_elect_detalle	INICIO	Jul 14 2008 12:00:00:000AM	0000000001
+0000001589	w_sellador_iniciar_sesion	INICIO	Sep  9 2008 12:00:00:000AM	0000000001
+0000001678	w_colegiados_factura_n	Dirección Gral. de la Vivienda, soluciones técnicas	Nov 28 2008 12:00:00:000AM	0000000022
+0000001679	w_colegiados_factura_n	Dirección Gral. de la Vivienda, estanq. de sótanos	Nov 28 2008 12:00:00:000AM	0000000022
+0000001680	w_colegiados_factura_n	Dirección Gral de la Vivienda, trabajos	Nov 28 2008 12:00:00:000AM	0000000022
+0000001681	w_colegiados_factura_n	ALTA SRC	Nov 28 2008 12:00:00:000AM	0000000022
+0000001797	w_fases_consulta	VISADOS NOV07	Jan 19 2009 12:00:00:000AM	0000000018
+0000002288	w_pagos_consulta	ULTIMA	Sep 24 2009 12:00:00:000AM	0000000022
+0000002291	w_generacion_remesas	ULTIMA	Sep 24 2009 12:00:00:000AM	0000000022
+0000002622	w_facturacion_recibida_consulta	ULTIMA	Mar 11 2010 12:00:00:000AM	0000000001
+0000003341	w_proveedores_consulta	ULTIMA	Nov 21 2011 12:00:00:000AM	0000000025
+0000003554	w_facturacion_recibida_consulta	ULTIMA	Apr 13 2012 12:00:00:000AM	0000000025
+0000003560	w_actualiza_apuntes_centro_intragrupo	ULTIMA	Apr 24 2012 12:00:00:000AM	0000000022
+0000003635	w_proveedores_consulta	ULTIMA	Jun 25 2012 12:00:00:000AM	0000000022
+0000003637	w_facturacion_recibida_consulta	ULTIMA	Jun 28 2012 12:00:00:000AM	0000000022

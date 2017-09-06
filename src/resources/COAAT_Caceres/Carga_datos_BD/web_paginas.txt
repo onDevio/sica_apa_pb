@@ -1,0 +1,149 @@
+0000000007	0000000002	presentación	1	 	S	S	
+0000000008	0000000002	currículo	2	 	S	S	
+0000000009	0000000002	actividades	3	 	S	S	
+0000000010	0000000002	proyectos	4	 	S	S	
+0000000011	0000000002	imágenes	5	 	S	S	
+0000000012	0000000002	contacto	6	 	S	S	
+0000000020	0000000004	presentación	1	 	S	S	
+0000000021	0000000004	currículo	2	 	S	S	
+0000000022	0000000004	actividades	3	 	S	S	
+0000000023	0000000004	proyectos	4	 	S	S	
+0000000024	0000000004	imágenes	5	 	S	S	
+0000000025	0000000004	contacto	6	 	S	S	
+0000000026	0000000005	presentación	1	<P><FONT face="courier new, courier, mono">Estudio de Arquitectura y&nbsp;Urbanismo.</FONT></P>	N	S	 
+0000000027	0000000005	currículo	2	 	S	S	
+0000000028	0000000005	actividades	3	 	S	S	
+0000000029	0000000005	proyectos	4	 	S	S	
+0000000030	0000000005	imágenes	5	 	S	S	
+0000000031	0000000005	contacto	6	 	S	S	
+0000000032	0000000006	presentación	1	 	S	S	
+0000000033	0000000006	currículo	2	 	S	S	
+0000000034	0000000006	actividades	3	 	S	S	
+0000000035	0000000006	proyectos	4	 	S	S	
+0000000036	0000000006	imágenes	5	 	S	S	
+0000000037	0000000006	contacto	6	 	S	S	
+0000000038	0000000007	presentación	1	<P align=center><STRONG><FONT style="BACKGROUND-COLOR: #00ffff" size=5 face="Tahoma, Arial, Helvetica, sans-serif"><EM>ESTUDIO</EM></FONT></STRONG></P>
+<P align=center><STRONG><FONT style="BACKGROUND-COLOR: #00ffff" size=5 face="Tahoma, Arial, Helvetica, sans-serif"><EM>&nbsp;DE </EM></FONT></STRONG></P>
+<P align=center><FONT style="BACKGROUND-COLOR: #00ffff"><EM><STRONG><FONT size=5 face="Tahoma, Arial, Helvetica, sans-serif">ARQUITECTURA </FONT></STRONG><STRONG><FONT size=5 face="Tahoma, Arial, Helvetica, sans-serif">TÉCNICA</FONT></STRONG></EM></FONT></P>
+<P align=center><STRONG><FONT size=5 face=Tahoma></FONT></STRONG>&nbsp;</P>
+<P align=center><STRONG><FONT color=#cc0000 size=5 face=Tahoma><EM><U>J.PULIDO</U></EM></FONT></STRONG></P>
+<P align=center><FONT color=#cc0000 size=3 face=Tahoma><STRONG>Colegiado Nº 1.152&nbsp; COAATIE - CACERES</STRONG></FONT></P>
+<P align=center><STRONG><FONT size=5 face=Tahoma></FONT></STRONG>&nbsp;</P>	N	S	 
+0000000039	0000000007	currículo	2	 	S	S	CV Julio ...pdf
+0000000040	0000000007	actividades	3	 	S	S	
+0000000041	0000000007	proyectos	4	 	S	S	
+0000000042	0000000007	imágenes	5	 	S	S	
+0000000043	0000000007	contacto	6	 	S	S	
+0000000044	0000000008	ARQUITECTO TECNICO	1	 	N	S	 
+0000000045	0000000008	currículo	2	 	S	S	
+0000000046	0000000008	actividades	3	 	S	S	
+0000000047	0000000008	proyectos	4	 	S	S	
+0000000048	0000000008	imágenes	5	 	S	S	
+0000000049	0000000008	contacto	6	 	S	S	
+0000000050	0000000009	presentación	1	 	S	S	
+0000000051	0000000009	currículo	2	 	S	S	
+0000000052	0000000009	actividades	3	 	S	S	
+0000000053	0000000009	proyectos	4	 	S	S	
+0000000054	0000000009	imágenes	5	 	S	S	
+0000000055	0000000009	contacto	6	 	S	S	
+0000000056	0000000010	presentación	1	 	S	S	
+0000000057	0000000010	currículo	2	 	S	S	
+0000000058	0000000010	actividades	3	 	S	S	
+0000000059	0000000010	proyectos	4	 	S	S	
+0000000060	0000000010	imágenes	5	 	S	S	
+0000000061	0000000010	contacto	6	 	S	S	
+0000000062	0000000011	presentación	1	Alberto Valiente, Colegiado en el COAAT de Cáceres desde 1997 ha venido desarrollando una amplia gama de actividades dentro del ámbito de su profesión para poder ofrecerle servicios técnicos variados y con garantía en el proceso.	N	S	 
+0000000063	0000000011	currículo	2	<UL>
+<LI>Direcciones de obra</LI>
+<LI>Informes Periciales</LI>
+<LI>Proyectos de Actividad</LI>
+<LI>Proyectos de reforma, adecuacion de locales, viviendas etc...</LI>
+<LI>Deslindes, levantamiento de planos</LI>
+<LI>Colaboraciones técnicas</LI>
+<LI>Desarrollo completo de obras desde proyecto a ejecución</LI>
+<LI>Asesoramiento Técnico.</LI>
+<LI>...</LI></UL>	N	S	 
+0000000064	0000000011	actividades	3	 	S	S	
+0000000065	0000000011	proyectos	4	<P>Se plantean algunos ejemplos dada la variedad de trabajos existentes a modo de ejemplo.</P>
+<UL>
+<LI>Proyectos de apertura de peluquerías (Calle Maluquer)</LI>
+<LI>Clínicas Veterinarias (Calle Santa Luisa de Marillac 7)</LI>
+<LI>Centros de Formación (Iberconsulting)</LI>
+<LI>Clínica Dental&nbsp; (Sierra de Fuentes)</LI>
+<LI>Restaurantes Cafeterías (Sierra de Fuentes)</LI>
+<LI>Naves de Almacén sin uso definido</LI>
+<LI>Peritaciones Judiciales (Varias)</LI>
+<LI>Deslindes de parcela (Catastro, litigios, etc...)</LI>
+<LI>Proyectos de segregación de parcelas y agregación.</LI>
+<LI>etc...</LI></UL>	N	S	 
+0000000066	0000000011	imágenes	5	<P>&nbsp;</P>	N	S	 
+0000000067	0000000011	contacto	6	<P><FONT color=#0000ff size=5><STRONG>Alberto Valiente Martinez</STRONG></FONT></P>
+<P><STRONG><FONT color=#0000ff size=3>tlfno. 927 214 987</FONT></STRONG></P>
+<P><STRONG><FONT color=#0000ff size=3>movil 678 975 328</FONT></STRONG></P>
+<P><A href="mailto:albertovaliente@live.com"><STRONG><FONT color=#0000ff size=3>albertovaliente@live.com</FONT></STRONG></A></P>
+<P><STRONG><FONT color=#0000ff size=3>apartado de Correos 429</FONT></STRONG></P>
+<P><STRONG><FONT color=#0000ff size=3>CACERES - 10080</FONT></STRONG></P>	N	S	 
+0000000074	0000000013	presentación	1	 	S	S	
+0000000075	0000000013	currículo	2	 	S	S	
+0000000076	0000000013	actividades	3	 	S	S	
+0000000077	0000000013	proyectos	4	 	S	S	
+0000000078	0000000013	imágenes	5	 	S	S	
+0000000079	0000000013	contacto	6	 	S	S	
+0000000086	0000000015	presentaciï¿½n	1	 	S	S	
+0000000087	0000000015	currï¿½culo	2	 	S	S	
+0000000088	0000000015	actividades	3	 	S	S	
+0000000089	0000000015	proyectos	4	 	S	S	
+0000000090	0000000015	imï¿½genes	5	 	S	S	
+0000000091	0000000015	contacto	6	 	S	S	
+0000000104	0000000018	presentación	1	 	S	S	
+0000000105	0000000018	currículo	2	 	S	S	
+0000000106	0000000018	actividades	3	 	S	S	
+0000000107	0000000018	proyectos	4	 	S	S	
+0000000108	0000000018	imágenes	5	 	S	S	
+0000000109	0000000018	contacto	6	 	S	S	
+0000000110	0000000019	presentación	1	 	S	S	
+0000000111	0000000019	currículo	2	 	S	S	
+0000000112	0000000019	actividades	3	 	S	S	
+0000000113	0000000019	proyectos	4	 	S	S	
+0000000114	0000000019	imágenes	5	 	S	S	
+0000000115	0000000019	contacto	6	 	S	S	
+0000000122	0000000021	presentación	1	 	S	S	
+0000000123	0000000021	currículo	2	 	S	S	
+0000000124	0000000021	actividades	3	 	S	S	
+0000000125	0000000021	proyectos	4	 	S	S	
+0000000126	0000000021	imágenes	5	 	S	S	
+0000000127	0000000021	contacto	6	 	S	S	
+0000000128	0000000022	presentación	1	 	S	S	
+0000000129	0000000022	currículo	2	 	S	S	
+0000000130	0000000022	actividades	3	 	S	S	
+0000000131	0000000022	proyectos	4	 	S	S	
+0000000132	0000000022	imágenes	5	 	S	S	
+0000000133	0000000022	contacto	6	 	S	S	
+0000000140	0000000024	presentación	1	 	S	S	
+0000000141	0000000024	currículo	2	 	S	S	
+0000000142	0000000024	actividades	3	 	S	S	
+0000000143	0000000024	proyectos	4	 	S	S	
+0000000144	0000000024	imágenes	5	 	S	S	
+0000000145	0000000024	contacto	6	 	S	S	
+0000000152	0000000026	presentación	1	 	S	S	
+0000000153	0000000026	currículo	2	 	S	S	
+0000000154	0000000026	actividades	3	 	S	S	
+0000000155	0000000026	proyectos	4	 	S	S	
+0000000156	0000000026	imágenes	5	 	S	S	
+0000000157	0000000026	contacto	6	 	S	S	
+0000000170	0000000029	presentación	1	<P>"A grandes problemas, grandes remedios", así se debe afrontar la situación actual en el sector de la construcción. Este estudio pretende asesorar en todo el proceso constructivo al cliente, con el fin de simplificar y ofrecer <EM><STRONG>SOLUCIONES Y COMPROMISO.</STRONG></EM></P>	N	S	 
+0000000171	0000000029	currículo	2	<P>Diplomado en Arquitectura Técnica por la Universidad de Extremadura. (2003).</P>
+<P>Graduado en Ingeniería de Edificación por la Universidad de Extremadura. (2011).</P>
+<P>Tasador colaborador con SOCIEDAD DE TASACIÓN, S.A. (2008).</P>
+<P>Perito de SANTA LUCÍA, S.A. (5 años).</P>	N	S	 
+0000000172	0000000029	actividades	3	<P>Redacción de proyectos de reforma de vivienda y/o cubierta.</P>
+<P>Redacción de proyectos de naves.</P>
+<P>Tasaciones inmobiliarias.</P>
+<P>Redacción de informes periciales y descriptivos.</P>
+<P>Mediciones y presupuestos.</P>
+<P>Trabajos en Topografía.</P>
+<P>Delineación de Planos.</P>
+<P>Seguridad y Salud.</P>	N	S	 
+0000000173	0000000029	proyectos	4	 	S	S	
+0000000174	0000000029	imágenes	5	<P><A href="http://atalejandrofernandez.blogspot.com/">http://atalejandrofernandez.blogspot.com/</A></P>	N	S	 
+0000000175	0000000029	contacto	6	 	S	S	

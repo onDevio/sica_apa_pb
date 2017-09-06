@@ -1,0 +1,34 @@
+B2	N	S	N	BAJA VOLUNTARIA                                             	N
+B4	N	S	N	FALLECIMIENTO                                               	N
+H 	S	N	N	ALTA EVENTUAL                                               	N
+B 	N	S	N	BAJA POR EXPTE. DISCIPLINARIO                               	
+BA	N	S	N	BAJA POR CADUCIDAD DE ACREDITACION                          	
+A 	S	N	S	ALTA                                                        	
+J 	S	S	S	JUBILADO                                                    	
+NI	S	N	N	NUEVO INGRESO                                               	
+RI	S	N	N	REINGRESO                                                   	
+AC	S	N	N	ACREDITADO                                                  	
+E 	N	S	N	ELIMINAR                                                    	
+BJ	N	S	S	BAJA                                                        	
+BI	N	S	N	BAJA POR IMPAGO                                             	
+SC	S	N	S	SOCIEDAD                                                    	
+TR	N	S	N	BAJA POR TRASLADO A OTRO COLEGIO                            	
+AS	N	N	S	ASALARIADO                                                  	
+FE	N	N	S	FUNCIONARIO DE ESTADO                                       	
+FC	N	N	S	FUNCIONARIO DE COMUNIDAD AUTONOMA                           	
+FD	N	N	S	FUNCIONARIO DE DIPUTACION                                   	
+FA	N	N	S	FUNCIONARIO DE AYUNTAMIENTO                                 	
+FP	N	N	S	FUNCIONARIO DE EMPRESA PUBLICA                              	
+EV	N	N	S	EVENTUAL                                                    	
+LI	N	N	S	LIBERAL                                                     	
+AL	N	N	S	ASALARIADO LIBERAL                                          	
+AF	N	N	S	ASALARIADO FUNCIONARIO                                      	
+LF	N	N	S	LIBERAL FUNCIONARIO                                         	
+D 	N	N	S	DESEMPLEADO                                                 	
+FV	N	N	S	FUNCIONARIO EVENTUAL                                        	
+FI	N	N	S	FUNCIONARIO INTERINO                                        	
+LP	N	N	S	LIBERAL PROMOTOR                                            	
+LC	N	N	S	LIBERAL CONSTRUCTOR                                         	
+CL	N	N	S	LIBERAL COLABORADOR                                         	
+LD	N	N	S	LIBERAL DESEMPLEADO CON PRESTACION                          	
+LL	N	N	S	LIBERAL DESEMPLEADO                                         	

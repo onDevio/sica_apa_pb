@@ -1,0 +1,319 @@
+COLEGIADOS	01	2007	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+MU        	01	2007	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+RECTIF    	01	2007	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+ABPREM    	01	2007	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+COLEGIADOS	01	2008	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+MU        	01	2008	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+RECTIF    	01	2008	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+ABPREM    	01	2008	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+00006     	01	2008	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+COLEGIADOS	01	2009	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+MU        	01	2009	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+ABPREM    	01	2009	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+00006     	01	2009	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+COLEGIADOS	01	2010	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+MU        	01	2010	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+RECTIF    	01	2010	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+ABPREM    	01	2010	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+00006     	01	2010	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+00006     	01	2007	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+RECTIF    	01	2009	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+COLEGIADOS	01	2011	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+MU        	01	2011	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+RECTIF    	01	2011	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+ABPREM    	01	2011	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+00006     	01	2011	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+F         	01	2007	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+F         	01	2008	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+F         	01	2009	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+F         	01	2010	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+F         	01	2011	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+PROFOR    	01	2010	ES	Cabecera            	PROFORMA
+PROFOR    	01	2011	ES	Cabecera            	PROFORMA
+PREMAA    	01	2007	% 	Cabecera            	RECIBO
+MUSAAT    	01	2007	% 	Cabecera            	RECIBO
+PREMAA    	01	2008	% 	Cabecera            	RECIBO
+MUSAAT    	01	2008	% 	Cabecera            	RECIBO
+MUSAAT    	01	2009	% 	Cabecera            	RECIBO
+PREMAA    	01	2010	% 	Cabecera            	RECIBO
+MUSAAT    	01	2010	% 	Cabecera            	RECIBO
+PREMAA    	01	2011	% 	Cabecera            	RECIBO
+MUSAAT    	01	2011	% 	Cabecera            	RECIBO
+PREMAA    	01	2009	% 	Cabecera            	RECIBO
+PC        	02	2011	% 	Cabecera            	RECIBO
+PF        	02	2011	% 	Cabecera            	RECIBO
+MT        	02	2011	% 	Cabecera            	RECIBO
+RECTIF    	02	2011	% 	Cabecera            	RECIBO
+%         	% 	%   	% 	Cabecera            	FACTURA
+COLEGIADOS	01	2007	% 	N_fact              	FACTURA Nº
+MU        	01	2007	% 	N_fact              	FACTURA Nº
+RECTIF    	01	2007	% 	N_fact              	FACTURA Nº
+ABPREM    	01	2007	% 	N_fact              	FACTURA Nº
+COLEGIADOS	01	2008	% 	N_fact              	FACTURA Nº
+MU        	01	2008	% 	N_fact              	FACTURA Nº
+RECTIF    	01	2008	% 	N_fact              	FACTURA Nº
+ABPREM    	01	2008	% 	N_fact              	FACTURA Nº
+00006     	01	2008	% 	N_fact              	FACTURA Nº
+COLEGIADOS	01	2009	% 	N_fact              	FACTURA Nº
+MU        	01	2009	% 	N_fact              	FACTURA Nº
+ABPREM    	01	2009	% 	N_fact              	FACTURA Nº
+00006     	01	2009	% 	N_fact              	FACTURA Nº
+COLEGIADOS	01	2010	% 	N_fact              	FACTURA Nº
+MU        	01	2010	% 	N_fact              	FACTURA Nº
+RECTIF    	01	2010	% 	N_fact              	FACTURA Nº
+ABPREM    	01	2010	% 	N_fact              	FACTURA Nº
+00006     	01	2010	% 	N_fact              	FACTURA Nº
+00006     	01	2007	% 	N_fact              	FACTURA Nº
+RECTIF    	01	2009	% 	N_fact              	FACTURA Nº
+COLEGIADOS	01	2011	% 	N_fact              	FACTURA Nº
+MU        	01	2011	% 	N_fact              	FACTURA Nº
+RECTIF    	01	2011	% 	N_fact              	FACTURA Nº
+ABPREM    	01	2011	% 	N_fact              	FACTURA Nº
+00006     	01	2011	% 	N_fact              	FACTURA Nº
+F         	01	2007	% 	N_fact              	FACTURA Nº
+F         	01	2008	% 	N_fact              	FACTURA Nº
+F         	01	2009	% 	N_fact              	FACTURA Nº
+F         	01	2010	% 	N_fact              	FACTURA Nº
+F         	01	2011	% 	N_fact              	FACTURA Nº
+PROFOR    	01	2010	% 	N_fact              	PROFORMA Nº
+PROFOR    	01	2011	% 	N_fact              	PROFORMA Nº
+PREMAA    	01	2007	% 	N_fact              	RECIBO Nº
+MUSAAT    	01	2007	% 	N_fact              	RECIBO Nº
+PREMAA    	01	2008	% 	N_fact              	RECIBO Nº
+MUSAAT    	01	2008	% 	N_fact              	RECIBO Nº
+MUSAAT    	01	2009	% 	N_fact              	RECIBO Nº
+PREMAA    	01	2010	% 	N_fact              	RECIBO Nº
+MUSAAT    	01	2010	% 	N_fact              	RECIBO Nº
+PREMAA    	01	2011	% 	N_fact              	RECIBO Nº
+MUSAAT    	01	2011	% 	N_fact              	RECIBO Nº
+PREMAA    	01	2009	% 	N_fact              	RECIBO Nº
+PC        	02	2011	% 	N_fact              	RECIBO Nº
+PF        	02	2011	% 	N_fact              	RECIBO Nº
+MT        	02	2011	% 	N_fact              	RECIBO Nº
+RECTIF    	02	2011	% 	N_fact              	RECIBO Nº
+%         	% 	%   	% 	N_fact              	FACTURA Nº
+COLEGIADOS	01	2007	% 	Total_fact          	TOTAL FACTURA
+MU        	01	2007	% 	Total_fact          	TOTAL FACTURA
+RECTIF    	01	2007	% 	Total_fact          	TOTAL FACTURA
+ABPREM    	01	2007	% 	Total_fact          	TOTAL FACTURA
+COLEGIADOS	01	2008	% 	Total_fact          	TOTAL FACTURA
+MU        	01	2008	% 	Total_fact          	TOTAL FACTURA
+RECTIF    	01	2008	% 	Total_fact          	TOTAL FACTURA
+ABPREM    	01	2008	% 	Total_fact          	TOTAL FACTURA
+00006     	01	2008	% 	Total_fact          	TOTAL FACTURA
+COLEGIADOS	01	2009	% 	Total_fact          	TOTAL FACTURA
+MU        	01	2009	% 	Total_fact          	TOTAL FACTURA
+ABPREM    	01	2009	% 	Total_fact          	TOTAL FACTURA
+00006     	01	2009	% 	Total_fact          	TOTAL FACTURA
+COLEGIADOS	01	2010	% 	Total_fact          	TOTAL FACTURA
+MU        	01	2010	% 	Total_fact          	TOTAL FACTURA
+RECTIF    	01	2010	% 	Total_fact          	TOTAL FACTURA
+ABPREM    	01	2010	% 	Total_fact          	TOTAL FACTURA
+00006     	01	2010	% 	Total_fact          	TOTAL FACTURA
+00006     	01	2007	% 	Total_fact          	TOTAL FACTURA
+RECTIF    	01	2009	% 	Total_fact          	TOTAL FACTURA
+COLEGIADOS	01	2011	% 	Total_fact          	TOTAL FACTURA
+MU        	01	2011	% 	Total_fact          	TOTAL FACTURA
+RECTIF    	01	2011	% 	Total_fact          	TOTAL FACTURA
+ABPREM    	01	2011	% 	Total_fact          	TOTAL FACTURA
+00006     	01	2011	% 	Total_fact          	TOTAL FACTURA
+F         	01	2007	% 	Total_fact          	TOTAL FACTURA
+F         	01	2008	% 	Total_fact          	TOTAL FACTURA
+F         	01	2009	% 	Total_fact          	TOTAL FACTURA
+F         	01	2010	% 	Total_fact          	TOTAL FACTURA
+F         	01	2011	% 	Total_fact          	TOTAL FACTURA
+PROFOR    	01	2010	% 	Total_fact          	TOTAL PROFORMA
+PROFOR    	01	2011	% 	Total_fact          	TOTAL PROFORMA
+PREMAA    	01	2007	% 	Total_fact          	TOTAL RECIBO
+MUSAAT    	01	2007	% 	Total_fact          	TOTAL RECIBO
+PREMAA    	01	2008	% 	Total_fact          	TOTAL RECIBO
+MUSAAT    	01	2008	% 	Total_fact          	TOTAL RECIBO
+MUSAAT    	01	2009	% 	Total_fact          	TOTAL RECIBO
+PREMAA    	01	2010	% 	Total_fact          	TOTAL RECIBO
+MUSAAT    	01	2010	% 	Total_fact          	TOTAL RECIBO
+PREMAA    	01	2011	% 	Total_fact          	TOTAL RECIBO
+MUSAAT    	01	2011	% 	Total_fact          	TOTAL RECIBO
+PREMAA    	01	2009	% 	Total_fact          	TOTAL RECIBO
+PC        	02	2011	% 	Total_fact          	TOTAL RECIBO
+PF        	02	2011	% 	Total_fact          	TOTAL RECIBO
+MT        	02	2011	% 	Total_fact          	TOTAL RECIBO
+RECTIF    	02	2011	% 	Total_fact          	TOTAL RECIBO
+%         	% 	%   	% 	Total_fact          	TOTAL FACTURA
+COLEGIADOS	01	2007	% 	Coletilla_fact      	 de la presente factura-, efectuará el abono de la misma
+MU        	01	2007	% 	Coletilla_fact      	 de la presente factura-, efectuará el abono de la misma
+RECTIF    	01	2007	% 	Coletilla_fact      	 de la presente factura-, efectuará el abono de la misma
+ABPREM    	01	2007	% 	Coletilla_fact      	 de la presente factura-, efectuará el abono de la misma
+COLEGIADOS	01	2008	% 	Coletilla_fact      	 de la presente factura-, efectuará el abono de la misma
+MU        	01	2008	% 	Coletilla_fact      	 de la presente factura-, efectuará el abono de la misma
+RECTIF    	01	2008	% 	Coletilla_fact      	 de la presente factura-, efectuará el abono de la misma
+ABPREM    	01	2008	% 	Coletilla_fact      	 de la presente factura-, efectuará el abono de la misma
+00006     	01	2008	% 	Coletilla_fact      	 de la presente factura-, efectuará el abono de la misma
+COLEGIADOS	01	2009	% 	Coletilla_fact      	 de la presente factura-, efectuará el abono de la misma
+MU        	01	2009	% 	Coletilla_fact      	 de la presente factura-, efectuará el abono de la misma
+ABPREM    	01	2009	% 	Coletilla_fact      	 de la presente factura-, efectuará el abono de la misma
+00006     	01	2009	% 	Coletilla_fact      	 de la presente factura-, efectuará el abono de la misma
+COLEGIADOS	01	2010	% 	Coletilla_fact      	 de la presente factura-, efectuará el abono de la misma
+MU        	01	2010	% 	Coletilla_fact      	 de la presente factura-, efectuará el abono de la misma
+RECTIF    	01	2010	% 	Coletilla_fact      	 de la presente factura-, efectuará el abono de la misma
+ABPREM    	01	2010	% 	Coletilla_fact      	 de la presente factura-, efectuará el abono de la misma
+00006     	01	2010	% 	Coletilla_fact      	 de la presente factura-, efectuará el abono de la misma
+00006     	01	2007	% 	Coletilla_fact      	 de la presente factura-, efectuará el abono de la misma
+RECTIF    	01	2009	% 	Coletilla_fact      	 de la presente factura-, efectuará el abono de la misma
+COLEGIADOS	01	2011	% 	Coletilla_fact      	 de la presente factura-, efectuará el abono de la misma
+MU        	01	2011	% 	Coletilla_fact      	 de la presente factura-, efectuará el abono de la misma
+RECTIF    	01	2011	% 	Coletilla_fact      	 de la presente factura-, efectuará el abono de la misma
+ABPREM    	01	2011	% 	Coletilla_fact      	 de la presente factura-, efectuará el abono de la misma
+00006     	01	2011	% 	Coletilla_fact      	 de la presente factura-, efectuará el abono de la misma
+F         	01	2007	% 	Coletilla_fact      	 de la presente factura-, efectuará el abono de la misma
+F         	01	2008	% 	Coletilla_fact      	 de la presente factura-, efectuará el abono de la misma
+F         	01	2009	% 	Coletilla_fact      	 de la presente factura-, efectuará el abono de la misma
+F         	01	2010	% 	Coletilla_fact      	 de la presente factura-, efectuará el abono de la misma
+F         	01	2011	% 	Coletilla_fact      	 de la presente factura-, efectuará el abono de la misma
+PROFOR    	01	2010	% 	Coletilla_fact      	 de la presente proforma-, efectuará el abono de la misma
+PROFOR    	01	2011	% 	Coletilla_fact      	 de la presente proforma-, efectuará el abono de la misma
+PREMAA    	01	2007	% 	Coletilla_fact      	 del presente recibo-, efectuará el abono del mismo
+MUSAAT    	01	2007	% 	Coletilla_fact      	 del presente recibo-, efectuará el abono del mismo
+PREMAA    	01	2008	% 	Coletilla_fact      	 del presente recibo-, efectuará el abono del mismo
+MUSAAT    	01	2008	% 	Coletilla_fact      	 del presente recibo-, efectuará el abono del mismo
+MUSAAT    	01	2009	% 	Coletilla_fact      	 del presente recibo-, efectuará el abono del mismo
+PREMAA    	01	2010	% 	Coletilla_fact      	 del presente recibo-, efectuará el abono del mismo
+MUSAAT    	01	2010	% 	Coletilla_fact      	 del presente recibo-, efectuará el abono del mismo
+PREMAA    	01	2011	% 	Coletilla_fact      	 del presente recibo-, efectuará el abono del mismo
+MUSAAT    	01	2011	% 	Coletilla_fact      	 del presente recibo-, efectuará el abono del mismo
+PREMAA    	01	2009	% 	Coletilla_fact      	 del presente recibo-, efectuará el abono del mismo
+PC        	02	2011	% 	Coletilla_fact      	 del presente recibo-, efectuará el abono del mismo
+PF        	02	2011	% 	Coletilla_fact      	 del presente recibo-, efectuará el abono del mismo
+MT        	02	2011	% 	Coletilla_fact      	 del presente recibo-, efectuará el abono del mismo
+RECTIF    	02	2011	% 	Coletilla_fact      	 del presente recibo-, efectuará el abono del mismo
+%         	% 	%   	% 	Coletilla_fact      	 de la presente factura-, efectuará el abono de la misma
+MT        	02	2011	% 	N_emisor2           	 
+PC        	02	2011	% 	N_emisor2           	 
+PF        	02	2011	% 	N_emisor2           	 
+RECTIF    	02	2011	% 	N_emisor2           	 
+MT        	02	2011	% 	SUPLIDOS            	OTROS C.
+PC        	02	2011	% 	SUPLIDOS            	OTROS C.
+PF        	02	2011	% 	SUPLIDOS            	OTROS C.
+PROFOR    	02	2011	% 	SUPLIDOS            	OTROS C.
+RECTIF    	02	2011	% 	SUPLIDOS            	OTROS C.
+F         	02	2011	ES	SUPLIDOS            	OTROS C.
+00006     	01	2007	% 	SUPLIDOS            	SUPLIDOS
+00006     	01	2008	% 	SUPLIDOS            	SUPLIDOS
+00006     	01	2009	% 	SUPLIDOS            	SUPLIDOS
+00006     	01	2010	% 	SUPLIDOS            	SUPLIDOS
+00006     	01	2011	% 	SUPLIDOS            	SUPLIDOS
+ABPREM    	01	2007	% 	SUPLIDOS            	SUPLIDOS
+ABPREM    	01	2008	% 	SUPLIDOS            	SUPLIDOS
+ABPREM    	01	2009	% 	SUPLIDOS            	SUPLIDOS
+ABPREM    	01	2010	% 	SUPLIDOS            	SUPLIDOS
+ABPREM    	01	2011	% 	SUPLIDOS            	SUPLIDOS
+COLEGIADOS	01	2007	% 	SUPLIDOS            	SUPLIDOS
+COLEGIADOS	01	2008	% 	SUPLIDOS            	SUPLIDOS
+COLEGIADOS	01	2009	% 	SUPLIDOS            	SUPLIDOS
+COLEGIADOS	01	2010	% 	SUPLIDOS            	SUPLIDOS
+COLEGIADOS	01	2011	% 	SUPLIDOS            	SUPLIDOS
+F         	01	2007	% 	SUPLIDOS            	SUPLIDOS
+F         	01	2008	% 	SUPLIDOS            	SUPLIDOS
+F         	01	2009	% 	SUPLIDOS            	SUPLIDOS
+F         	01	2010	% 	SUPLIDOS            	SUPLIDOS
+F         	01	2011	% 	SUPLIDOS            	SUPLIDOS
+MU        	01	2007	% 	SUPLIDOS            	SUPLIDOS
+MU        	01	2008	% 	SUPLIDOS            	SUPLIDOS
+MU        	01	2009	% 	SUPLIDOS            	SUPLIDOS
+MU        	01	2010	% 	SUPLIDOS            	SUPLIDOS
+MU        	01	2011	% 	SUPLIDOS            	SUPLIDOS
+MUSAAT    	01	2007	% 	SUPLIDOS            	SUPLIDOS
+MUSAAT    	01	2008	% 	SUPLIDOS            	SUPLIDOS
+MUSAAT    	01	2009	% 	SUPLIDOS            	SUPLIDOS
+MUSAAT    	01	2010	% 	SUPLIDOS            	SUPLIDOS
+MUSAAT    	01	2011	% 	SUPLIDOS            	SUPLIDOS
+PREMAA    	01	2007	% 	SUPLIDOS            	SUPLIDOS
+PREMAA    	01	2008	% 	SUPLIDOS            	SUPLIDOS
+PREMAA    	01	2009	% 	SUPLIDOS            	SUPLIDOS
+PREMAA    	01	2010	% 	SUPLIDOS            	SUPLIDOS
+PREMAA    	01	2011	% 	SUPLIDOS            	SUPLIDOS
+PROFOR    	01	2010	% 	SUPLIDOS            	SUPLIDOS
+PROFOR    	01	2011	% 	SUPLIDOS            	SUPLIDOS
+RECTIF    	01	2007	% 	SUPLIDOS            	SUPLIDOS
+RECTIF    	01	2008	% 	SUPLIDOS            	SUPLIDOS
+RECTIF    	01	2009	% 	SUPLIDOS            	SUPLIDOS
+RECTIF    	01	2010	% 	SUPLIDOS            	SUPLIDOS
+RECTIF    	01	2011	% 	SUPLIDOS            	SUPLIDOS
+CARTA     	01	%   	% 	P_bancos            	El pago indicado deberá efectuarlo por cualquiera de los procedimientos siguientes :
+CARTA     	01	%   	% 	banco1              	A).- En nuestras oficinas, de Lunes a Viernes, de 09:00 a 13:00 horas, mediante la entrega de un cheque debidamente conformado.
+CARTA     	01	%   	% 	banco2              	B).- Mediante ingreso en la c/c 2038-7725-24-6800034436 de Caja de Ahorros de Ávila, haciendo constar la referencia del Nº de registro
+CARTA     	01	%   	% 	horario_banco       	Lo que comunicamos a Ud. para su conocimiento y efectos.
+CARTA     	02	%   	% 	P_bancos            	El pago indicado deberá efectuarlo por cualquiera de los procedimientos siguientes :
+CARTA     	02	%   	% 	banco1              	A).- En nuestras oficinas, de Lunes a Viernes, de 09:00 a 13:00 horas, mediante la entrega de un cheque debidamente conformado.
+CARTA     	02	%   	% 	banco2              	B).- Mediante ingreso en la c/c 2038-7725-20-6000094642 de Caja de Ahorros de Ávila, haciendo constar la referencia del Nº de registro
+CARTA     	02	%   	% 	horario_banco       	Lo que comunicamos a Ud. para su conocimiento y efectos.
+COLEGIADOS	01	2012	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+MU        	01	2012	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+RECTIF    	01	2012	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+ABPREM    	01	2012	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+00006     	01	2012	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+F         	01	2012	ES	Cabecera            	FACTURA DE GASTOS COLEGIALES
+PROFOR    	01	2012	ES	Cabecera            	PROFORMA
+PREMAA    	01	2012	% 	Cabecera            	RECIBO
+MUSAAT    	01	2012	% 	Cabecera            	RECIBO
+PC        	02	2012	% 	Cabecera            	RECIBO
+PF        	02	2012	% 	Cabecera            	RECIBO
+MT        	02	2012	% 	Cabecera            	RECIBO
+RECTIF    	02	2012	% 	Cabecera            	RECIBO
+COLEGIADOS	01	2012	% 	N_fact              	FACTURA Nº
+MU        	01	2012	% 	N_fact              	FACTURA Nº
+RECTIF    	01	2012	% 	N_fact              	FACTURA Nº
+ABPREM    	01	2012	% 	N_fact              	FACTURA Nº
+00006     	01	2012	% 	N_fact              	FACTURA Nº
+F         	01	2012	% 	N_fact              	FACTURA Nº
+PROFOR    	01	2012	% 	N_fact              	PROFORMA Nº
+PREMAA    	01	2012	% 	N_fact              	RECIBO Nº
+MUSAAT    	01	2012	% 	N_fact              	RECIBO Nº
+PC        	02	2012	% 	N_fact              	RECIBO Nº
+PF        	02	2012	% 	N_fact              	RECIBO Nº
+MT        	02	2012	% 	N_fact              	RECIBO Nº
+RECTIF    	02	2012	% 	N_fact              	RECIBO Nº
+COLEGIADOS	01	2012	% 	Total_fact          	TOTAL FACTURA
+MU        	01	2012	% 	Total_fact          	TOTAL FACTURA
+RECTIF    	01	2012	% 	Total_fact          	TOTAL FACTURA
+ABPREM    	01	2012	% 	Total_fact          	TOTAL FACTURA
+00006     	01	2012	% 	Total_fact          	TOTAL FACTURA
+F         	01	2012	% 	Total_fact          	TOTAL FACTURA
+PROFOR    	01	2012	% 	Total_fact          	TOTAL PROFORMA
+PREMAA    	01	2012	% 	Total_fact          	TOTAL RECIBO
+MUSAAT    	01	2012	% 	Total_fact          	TOTAL RECIBO
+PC        	02	2012	% 	Total_fact          	TOTAL RECIBO
+PF        	02	2012	% 	Total_fact          	TOTAL RECIBO
+MT        	02	2012	% 	Total_fact          	TOTAL RECIBO
+RECTIF    	02	2012	% 	Total_fact          	TOTAL RECIBO
+COLEGIADOS	01	2012	% 	Coletilla_fact      	 de la presente factura-, efectuará el abono de la misma
+MU        	01	2012	% 	Coletilla_fact      	 de la presente factura-, efectuará el abono de la misma
+RECTIF    	01	2012	% 	Coletilla_fact      	 de la presente factura-, efectuará el abono de la misma
+ABPREM    	01	2012	% 	Coletilla_fact      	 de la presente factura-, efectuará el abono de la misma
+00006     	01	2012	% 	Coletilla_fact      	 de la presente factura-, efectuará el abono de la misma
+F         	01	2012	% 	Coletilla_fact      	 de la presente factura-, efectuará el abono de la misma
+PROFOR    	01	2012	% 	Coletilla_fact      	 de la presente proforma-, efectuará el abono de la misma
+PREMAA    	01	2012	% 	Coletilla_fact      	 del presente recibo-, efectuará el abono del mismo
+MUSAAT    	01	2012	% 	Coletilla_fact      	 del presente recibo-, efectuará el abono del mismo
+PC        	02	2012	% 	Coletilla_fact      	 del presente recibo-, efectuará el abono del mismo
+PF        	02	2012	% 	Coletilla_fact      	 del presente recibo-, efectuará el abono del mismo
+MT        	02	2012	% 	Coletilla_fact      	 del presente recibo-, efectuará el abono del mismo
+RECTIF    	02	2012	% 	Coletilla_fact      	 del presente recibo-, efectuará el abono del mismo
+MT        	02	2012	% 	N_emisor2           	 
+PC        	02	2012	% 	N_emisor2           	 
+PF        	02	2012	% 	N_emisor2           	 
+RECTIF    	02	2012	% 	N_emisor2           	 
+MT        	02	2012	% 	SUPLIDOS            	OTROS C.
+PC        	02	2012	% 	SUPLIDOS            	OTROS C.
+PF        	02	2012	% 	SUPLIDOS            	OTROS C.
+PROFOR    	02	2012	% 	SUPLIDOS            	OTROS C.
+RECTIF    	02	2012	% 	SUPLIDOS            	OTROS C.
+F         	02	2012	ES	SUPLIDOS            	OTROS C.
+00006     	01	2012	% 	SUPLIDOS            	SUPLIDOS
+ABPREM    	01	2012	% 	SUPLIDOS            	SUPLIDOS
+COLEGIADOS	01	2012	% 	SUPLIDOS            	SUPLIDOS
+F         	01	2012	% 	SUPLIDOS            	SUPLIDOS
+MU        	01	2012	% 	SUPLIDOS            	SUPLIDOS
+MUSAAT    	01	2012	% 	SUPLIDOS            	SUPLIDOS
+PREMAA    	01	2012	% 	SUPLIDOS            	SUPLIDOS
+PROFOR    	01	2012	% 	SUPLIDOS            	SUPLIDOS
+RECTIF    	01	2012	% 	SUPLIDOS            	SUPLIDOS

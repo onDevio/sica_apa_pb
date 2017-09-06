@@ -1,0 +1,31 @@
+11 	Obra nova edificació
+12 	Obra nova naus i similars
+13 	Obra nova altres construccions
+14 	Obra nova sense distribuïr
+15 	Obra nova distribució
+21 	Ampliació edificació
+22 	Ampliació naus i similars
+23 	Ampliació d'altres construccions
+31 	Reforma i/o restauració d'edificació
+32 	Reforma i/o restauració de naus i similars
+33 	Reforma d'altres construccions
+41 	Reforma i/o condicionament de local
+42 	Decoració local
+51 	Reforç i/o consolidació edifici
+52 	Reforç i/o consolidació altres construccions
+61 	Conservació i manteniment d'edifici
+62 	Conservació i manteniment de naus i similars
+63 	Conservació i manteniment d'altres construccions
+71 	Obra nova d'urbanització
+72 	Ampliació d'urbanització
+73 	Reforma d'urbanització
+74 	Conservació i manteniment d'urbanització
+75 	Demolició d'urbanització
+76 	Jardineria i conservació del paisatge
+81 	Instal·lacions receptores d'aigua
+82 	Instal·lacions grua
+83 	Instal·lacions bastides
+91 	Enderroc d'obres d'edificació
+92 	Enderroc de naus i similars
+93 	Enderroc d'altres construccions
+00 	SENSE CLASSIFICAR
