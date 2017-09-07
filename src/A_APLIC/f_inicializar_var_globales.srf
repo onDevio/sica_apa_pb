@@ -1,0 +1,661 @@
+HA$PBExportHeader$f_inicializar_var_globales.srf
+$PBExportComments$Inicializar vbles. globales propias de SICA
+global type f_inicializar_var_globales from function_object
+end type
+
+forward prototypes
+global subroutine f_inicializar_var_globales ()
+end prototypes
+
+global subroutine f_inicializar_var_globales ();string ls_inifile,textos
+
+// Inicializaci$$HEX1$$f300$$ENDHEX$$n de la tabla var_globales
+//OJO, COLEGIO <> COLEGIO_SELECCIONADO en csi_param_sigescon
+select texto into :g_colegio from var_globales where nombre='COLEGIO';
+select texto into :g_presidente from var_globales where nombre='Presidente';
+select texto into :g_tesorero from var_globales where nombre='Tesorero';
+select texto into :g_secretario from var_globales where nombre='Secretario';
+select texto into :g_abogado_colegio from var_globales where nombre='g_abogado_colegio';
+select texto into :g_cod_circulares from var_globales where nombre='g_cod_circulares';
+select texto into :g_titulo_aplicacion from var_globales where nombre='g_titulo_aplicacion';
+select numero into :g_fa from var_globales where var_globales.nombre = 'Fa';
+SELECT texto INTO :g_banco_por_defecto FROM var_globales WHERE var_globales.nombre = 'g_banco_por_defecto';
+SELECT numero INTO :g_irpf_por_defecto FROM var_globales WHERE var_globales.nombre = 'g_irpf_por_defecto';
+SELECT texto INTO :g_colegio_colegiado FROM var_globales WHERE nombre = 'g_colegio_colegiado';
+SELECT texto INTO :g_colegio_cliente FROM var_globales WHERE nombre = 'g_colegio_cliente';
+SELECT texto INTO :g_colegio_general FROM var_globales WHERE nombre = 'g_colegio_general';
+SELECT texto INTO :g_colegiado_cliente FROM var_globales WHERE nombre = 'g_colegiado_cliente';
+SELECT texto INTO :g_serie_fases FROM var_globales WHERE nombre = 'g_serie_fases';
+SELECT texto INTO :g_permitir_expedi_sin_numero FROM var_globales WHERE nombre = 'g_permitir_expedi_sin_numero';
+SELECT texto INTO :g_colegio_n_subprovincias FROM var_globales WHERE nombre = 'g_colegio_n_subprovincias';
+SELECT texto INTO :g_f_registro_es FROM var_globales WHERE nombre = 'g_f_registro_es';
+SELECT texto INTO :g_visar_con_reparos FROM var_globales WHERE nombre = 'g_visar_con_reparos';
+SELECT texto INTO :g_t_iva_defecto FROM var_globales WHERE nombre = 'g_t_iva_defecto';
+SELECT texto INTO :g_titulo_listados_inferior FROM var_globales WHERE nombre = 'g_titulo_listados_inferior';
+SELECT texto INTO :g_titulo_listados_superior FROM var_globales WHERE nombre = 'g_titulo_listados_superior';
+SELECT texto INTO :g_notif_texto1 FROM var_globales WHERE nombre = 'g_notif_texto1';
+SELECT texto INTO :g_notif_texto2 FROM var_globales WHERE nombre = 'g_notif_texto2';
+SELECT texto INTO :g_notif_texto3 FROM var_globales WHERE nombre = 'g_notif_texto3';
+SELECT texto INTO :g_modo_liquidaciones FROM var_globales WHERE nombre = 'g_modo_liquidaciones';
+SELECT texto INTO :g_preasignar_principio FROM var_globales WHERE nombre = 'g_preasignar_principio';
+SELECT texto INTO :g_existe_contabilidad FROM var_globales WHERE nombre = 'g_existe_contabilidad';
+SELECT texto INTO :g_t_doc_src_sica FROM var_globales WHERE nombre = 'g_t_doc_src_sica';
+SELECT texto INTO :g_t_doc_recibos_sica FROM var_globales WHERE nombre = 'g_t_doc_recibos_sica';
+SELECT texto INTO :g_informe_talon FROM var_globales WHERE nombre = 'g_informe_talon';
+SELECT texto INTO :g_gerente FROM var_globales WHERE nombre = 'g_gerente';
+SELECT texto INTO :g_col_ciudad FROM var_globales WHERE nombre = 'g_col_ciudad';
+SELECT texto INTO :g_col_provincia FROM var_globales WHERE nombre = 'g_col_provincia';
+SELECT texto INTO :g_col_telefono FROM var_globales WHERE nombre = 'g_col_telefono';
+SELECT texto INTO :g_col_fax FROM var_globales WHERE nombre = 'g_col_fax';
+SELECT texto INTO :g_col_nif FROM var_globales WHERE nombre = 'g_col_nif';
+SELECT texto INTO :g_forma_pago_por_defecto FROM var_globales WHERE var_globales.nombre = 'g_forma_pago_por_defecto';
+SELECT texto INTO :g_col_codigo_musaat FROM var_globales WHERE nombre = 'g_col_codigo_musaat';
+SELECT numero INTO :g_col_coef_musaat FROM var_globales WHERE nombre = 'g_col_coef_musaat';
+SELECT numero INTO :g_musaat_coef_poliza_plus FROM var_globales WHERE nombre = 'g_musaat_coef_poliza_plus';
+SELECT numero INTO :g_musaat_recargo_prima FROM var_globales WHERE nombre ='g_musaat_recargo_prima';
+SELECT sn INTO :g_musaat_aplica_calculo_pc_2015 FROM var_globales WHERE nombre ='g_musaat_aplica_calculo_pc_2015';
+SELECT numero INTO :g_porc_cip_defecto FROM var_globales WHERE nombre = 'g_porc_cip_defecto';
+SELECT numero INTO :g_porc_cip_sgc FROM var_globales WHERE nombre = 'g_porc_cip_sgc';
+SELECT numero INTO :g_porc_cip_admon FROM var_globales WHERE nombre = 'g_porc_cip_admon';
+SELECT numero INTO :g_ca FROM var_globales WHERE nombre = 'CA';
+SELECT numero INTO :g_cp FROM var_globales WHERE nombre = 'CP';
+SELECT numero INTO :g_desvio_moneda FROM var_globales WHERE nombre = 'g_desvio_moneda';
+SELECT numero INTO :g_cifras_n_colegiado FROM var_globales WHERE nombre = 'g_cifras_n_colegiado';
+SELECT texto INTO :g_prefijo_sociedades FROM var_globales WHERE nombre = 'g_prefijo_sociedades';
+SELECT texto INTO :g_liquidacion_incluir_saldo_deudor FROM var_globales WHERE nombre = 'g_liquidacion_incluir_saldo_deudor';
+SELECT texto INTO :g_reg_es_series FROM var_globales WHERE nombre = 'g_reg_es_series';
+SELECT texto INTO :g_comprobar_vencimiento_avisos FROM var_globales WHERE nombre = 'g_comprobar_vencimiento_avisos';
+SELECT texto INTO :g_cerrar_exp_minuta_final FROM var_globales WHERE nombre = 'g_cerrar_exp_minuta_final';
+
+// Conceptos de descuentos
+SELECT texto INTO :g_codigos_conceptos.honorarios FROM var_globales WHERE nombre = 'g_codigo_honorarios';
+SELECT texto INTO :g_codigos_conceptos.desplazamientos FROM var_globales WHERE nombre = 'g_codigo_desplazamientos';
+SELECT texto INTO :g_codigos_conceptos.musaat_variable FROM var_globales WHERE nombre = 'g_codigo_musaat';
+SELECT texto INTO :g_codigos_conceptos.cip FROM var_globales WHERE nombre = 'g_codigo_cip';
+SELECT texto INTO :g_codigos_conceptos.dv FROM var_globales WHERE nombre = 'g_codigo_dv';
+SELECT texto INTO :g_codigos_conceptos.retvol FROM var_globales WHERE nombre = 'g_codigo_retvol';
+g_conta.concepto_rv = g_codigos_conceptos.retvol
+SELECT texto INTO :g_codigos_conceptos.irpf FROM var_globales WHERE nombre = 'g_codigo_irpf';
+SELECT texto INTO :g_codigos_conceptos.ret_iva FROM var_globales WHERE nombre = 'g_codigo_retiva';
+SELECT texto INTO :g_codigos_conceptos.reg_mus FROM var_globales WHERE nombre = 'g_codigo_reg_musaat';
+SELECT texto INTO :g_codigos_conceptos.dev_garantia FROM var_globales WHERE nombre = 'g_codigo_dev_garantia';
+SELECT texto INTO :g_codigos_conceptos.premaat FROM var_globales WHERE nombre = 'g_codigo_premaat';
+SELECT texto INTO :g_codigos_conceptos.musaat_fija FROM var_globales WHERE nombre = 'g_codigo_musaat_fija';
+SELECT texto INTO :g_codigos_conceptos.musaat_fija_plazo1 FROM var_globales WHERE nombre = 'g_codigo_musaat_fija_plazo_1';
+SELECT texto INTO :g_codigos_conceptos.musaat_fija_plazo2 FROM var_globales WHERE nombre = 'g_codigo_musaat_fija_plazo_2';
+SELECT texto INTO :g_codigos_conceptos.musaat_accidentes FROM var_globales WHERE nombre = 'g_codigo_musaat_accidentes';
+SELECT texto INTO :g_codigos_conceptos.musaat_tasadores FROM var_globales WHERE nombre = 'g_codigo_musaat_tasadores';
+g_conta.garantia_codigo_articulo = g_codigos_conceptos.dev_garantia
+SELECT texto INTO :g_codigos_conceptos.impresos FROM var_globales WHERE nombre = 'g_codigo_impresos';
+SELECT texto INTO :g_codigos_conceptos.cobro_a_cuenta FROM var_globales WHERE nombre = 'g_codigo_cobro_a_cuenta';
+SELECT texto INTO :g_codigos_conceptos.libro_ordenes FROM var_globales WHERE nombre = 'g_codigo_libro_ordenes';
+SELECT texto INTO :g_codigos_conceptos.libro_incidencias FROM var_globales WHERE nombre = 'g_codigo_libro_incidencias';
+SELECT texto INTO :g_codigos_conceptos.otros_gastos FROM var_globales WHERE nombre = 'g_codigo_otros_gastos';
+SELECT texto INTO :g_codigos_conceptos.comision_tarjeta FROM var_globales WHERE nombre = 'g_codigo_comision_tarjeta';
+SELECT texto INTO :g_codigos_conceptos.cuota_colegial FROM var_globales WHERE nombre = 'g_codigo_cuota_colegial';
+SELECT texto INTO :g_codigos_conceptos.otros_conceptos FROM var_globales WHERE nombre = 'g_codigo_otros_conceptos';
+//CAL-341. Alexis. Se a$$HEX1$$f100$$ENDHEX$$ade concepto para tramites de tipo redap.	
+SELECT texto INTO :g_codigos_conceptos.REDAP FROM var_globales WHERE nombre = 'g_codigo_concepto_redap';
+if f_es_vacio(g_codigos_conceptos.REDAP) then g_codigos_conceptos.REDAP = g_codigos_conceptos.cip
+
+
+// C$$HEX1$$f300$$ENDHEX$$digo premaat
+SELECT texto INTO :g_informe_talon_premaat FROM var_globales WHERE nombre = 'g_informe_talon_premaat';
+SELECT texto INTO :g_forma_pago_premaat FROM var_globales WHERE nombre = 'g_forma_pago_premaat';
+SELECT texto INTO :g_codigos_conceptos.premaat_cod_basico FROM var_globales WHERE nombre = 'g_premaat_cod_basico';
+SELECT texto INTO :g_codigos_conceptos.premaat_cod_2000 FROM var_globales WHERE nombre = 'g_premaat_cod_2000';
+SELECT texto INTO :g_codigos_conceptos.premaat_cod_comple1 FROM var_globales WHERE nombre = 'g_premaat_cod_comple1';
+SELECT texto INTO :g_calcular_cuota_alta_premaat FROM var_globales WHERE nombre = 'g_calcular_cuota_alta_premaat';
+
+
+// C$$HEX1$$f300$$ENDHEX$$digos terceros
+SELECT texto INTO :g_terceros_codigos.codigo_cliente 	FROM var_globales WHERE nombre = 'g_codigo_cliente';
+SELECT texto INTO :g_terceros_codigos.ben_premaat   	FROM var_globales WHERE nombre = 'g_codigo_ben_premaat';
+SELECT texto INTO :g_terceros_codigos.empresas   		FROM var_globales WHERE nombre = 'g_codigo_empresas';
+SELECT texto INTO :g_terceros_codigos.representantes  FROM var_globales WHERE nombre = 'g_codigo_representantes';
+SELECT texto INTO :g_terceros_codigos.ofertante   		FROM var_globales WHERE nombre = 'g_codigo_ofertante'; 
+SELECT texto INTO :g_terceros_codigos.ponente   		FROM var_globales WHERE nombre = 'g_codigo_ponente'; 
+SELECT texto INTO :g_terceros_codigos.cliente_gabinete FROM var_globales WHERE nombre = 'g_codigo_cliente_gabinete'; 
+
+// Inicializaci$$HEX1$$f300$$ENDHEX$$n de la Estructura de ESTADOS PARA LAS FASES (tabla expedientes_fases)
+g_fases_estados.preasignado = '00'
+g_fases_estados.registrado = '01'
+g_fases_estados.retenido = '02'
+//g_fases_estados.src_visado = '03'
+//g_fases_estados.visado = '04'
+g_fases_estados.verificado = '03' //'05'
+g_fases_estados.parcial = '04' //'06'
+//g_fases_estados.moroso = '07'
+g_fases_estados.retirado = '05' //'08'
+g_fases_estados.anulado = '06' //'09'
+
+//Inicializaci$$HEX1$$f300$$ENDHEX$$n de la Estructura de FORMAS DE PAGO PARA FACTURACION (tabla csi_formas_de_pago)
+g_formas_pago.transferencia 		= 'TR'
+g_formas_pago.talon 				= 'TA'
+g_formas_pago.pago_cuenta 		= 'PC'
+g_formas_pago.metalico				= 'ME'
+g_formas_pago.domiciliacion		= 'DB'
+g_formas_pago.cargo				= 'CA'
+g_formas_pago.liquidacion			= 'LI'
+g_formas_pago.autoliquidacion	= 'AL'
+g_formas_pago.otras_entidades 	= 'OE'
+g_formas_pago.pendientes_abono= 'PA'
+g_formas_pago.cuenta_personal	= 'CP'
+g_formas_pago.pendiente			= 'PE'
+
+//  Datos colegio para cartas
+SELECT texto INTO :g_direc_colegio_carta FROM var_globales WHERE nombre = 'g_direc_colegio_carta';
+SELECT texto INTO :g_pobla_colegio_carta FROM var_globales WHERE nombre = 'g_pobla_colegio_carta';
+SELECT texto INTO :g_email_colegio_carta FROM var_globales WHERE nombre = 'g_email_colegio_carta';
+
+// Aplicar IRPF en desplazamientos
+SELECT texto INTO :g_aplica_irpf_en_desplaza FROM var_globales WHERE nombre = 'g_aplica_irpf_en_desplaza';
+// Aplicar IRPF en garantia
+SELECT texto INTO :g_aplica_irpf_en_garantia FROM var_globales WHERE nombre = 'g_aplica_irpf_en_garantia';
+
+SELECT texto INTO :g_hoja_liquidacion FROM var_globales WHERE nombre = 'g_hoja_liquidacion';
+
+// Series
+SELECT texto INTO :g_serie_premaat FROM var_globales WHERE nombre = 'g_serie_premaat';
+SELECT texto INTO :g_serie_musaat FROM var_globales WHERE nombre = 'g_serie_musaat';
+// Factura a parte musaat?
+SELECT sn INTO :g_facturar_musaat_pc_serie_aparte FROM var_globales WHERE nombre = 'g_facturar_musaat_pc_serie_aparte';
+
+// Libros
+SELECT texto INTO :g_codigo_libro_incidencias FROM var_globales WHERE nombre = 'g_codigo_libro_incidencias';
+SELECT texto INTO :g_codigo_libro_ordenes FROM var_globales WHERE nombre = 'g_codigo_libro_ordenes';
+
+// C$$HEX1$$f300$$ENDHEX$$mo se devuelve la garantia
+SELECT texto INTO :g_forma_devolucion_garantia FROM var_globales WHERE nombre = 'g_forma_devolucion_garantia';
+
+// MUSAAT Prima variable
+SELECT texto INTO :g_obra_admin_sgc  FROM var_globales WHERE nombre = 'g_obra_admin_sgc';
+SELECT texto INTO :g_obra_admin_cgc FROM var_globales WHERE nombre = 'g_obra_admin_cgc';
+SELECT texto INTO :g_obra_admin_cgc_aplica_10 FROM var_globales WHERE nombre = 'g_obra_admin_cgc_aplica_10';
+
+gds_musaat_movimientos_a_facturar = CREATE datastore
+gds_musaat_movimientos_a_facturar.dataobject = 'd_musaat_movimientos_a_facturar'
+
+//MUSAAT coeficiente de recargo de colindantes < 2m
+SELECT numero INTO :g_musaat_coef_colindantes2m FROM var_globales WHERE nombre = 'g_musaat_coef_colindantes2m';
+
+//MUSAAT factor de cobertura de doble condicion
+SELECT numero INTO :g_musaat_factor_doble_condicion FROM var_globales WHERE nombre = 'g_musaat_factor_doble_condicion';
+//Musaat activa comprobaci$$HEX1$$f300$$ENDHEX$$n de prima variable a los avisos pendientes
+SELECT sn INTO :g_musaat_verifica_prima_aviso FROM var_globales WHERE nombre = 'g_musaat_verifica_prima_aviso';
+
+
+//MUSAAT activa la tabla descuentos de participacion
+SELECT sn INTO :g_musaat_tabla_desc_activa FROM var_globales WHERE nombre = 'g_musaat_tabla_desc_activa';
+
+//MUSAAT descuento por impuestos
+SELECT numero INTO :g_aplica_musaat_dcto FROM var_globales WHERE nombre = 'g_aplica_musaat_dcto';
+if g_aplica_musaat_dcto = 0 or isnull(g_aplica_musaat_dcto) then g_aplica_musaat_dcto = 1
+
+// Comprobar saldo deudor 
+SELECT texto INTO :g_comprobar_saldo_deudor_col  FROM var_globales WHERE nombre = 'g_comprobar_saldo_deudor_col';
+
+ls_inifile = gnv_app.of_getappinifile()
+
+// GENERALES
+g_dir_aplicacion = Profilestring(ls_inifile,"Aplicacion","path","c:\visared")
+if RightA(g_dir_aplicacion,1)<>'\' then g_dir_aplicacion += '\'
+g_debug = Profilestring(ls_inifile,"Aplicacion","Debug","0")
+g_cod_delegacion = Profilestring(ls_inifile,"Delegacion","delegacion","")
+
+if Profilestring(ls_inifile,"Aplicacion","entorno_pruebas","0") = '1' then 
+	g_pruebas = true
+else
+	g_pruebas = false
+end if 	
+
+//No comentar, las facturas dependen del centro 
+g_centro_por_defecto = f_devuelve_centro(g_cod_delegacion)
+
+// GUARDAR FICHEROS EN...
+g_directorio_fotos = Profilestring(ls_inifile,"fotos","path_fotos","")
+if RightA(g_directorio_fotos,1)<>'\' then g_directorio_fotos += '\'
+
+g_directorio_rtf = Profilestring(ls_inifile,"rtf","path_rtf","")
+if RightA(g_directorio_rtf,1)<>'\' then g_directorio_rtf += '\'
+
+g_directorio_e_s = Profilestring(ls_inifile,"e_s","path_e_s","")
+if RightA(g_directorio_e_s,1)<>'\' then g_directorio_e_s += '\'
+
+g_directorio_generados = Profilestring(ls_inifile,"generados","path_generados","")
+if RightA(g_directorio_generados,1)<>'\' then g_directorio_generados += '\'
+
+g_directorio_colegiados_anexos = Profilestring(ls_inifile,"directorios","ruta_anexos_colegiados","")
+if RightA( g_directorio_colegiados_anexos,1)<>'\' then  g_directorio_colegiados_anexos += '\'
+
+// PROGRAMAS 
+g_ruta_word= Profilestring(ls_inifile,"ruta_word","ruta_word","")
+g_ruta_acrobat_reader = Profilestring(ls_inifile,"ruta_acrobat_reader","ruta_acrobat_reader","")
+g_ruta_imagenes = Profilestring(ls_inifile,"ruta_imagenes","ruta_imagenes","")
+
+textos = Profilestring(ls_inifile,"Parametros","textos","")
+if textos = 'S' then
+	g_textos_en_botones = true
+else
+	g_textos_en_botones = false
+end if
+
+textos = Profilestring(ls_inifile,"Parametros","piedepagina","")
+if textos = 'S' then
+	g_piedepagina = true
+else
+	g_piedepagina = false
+end if
+
+textos = Profilestring(ls_inifile,"Parametros","combino_vble_rtf","")
+if textos = 'S' then
+	g_combino_vble_rtf = true
+else
+	g_combino_vble_rtf = false
+end if
+
+aplic.toolbartext = g_textos_en_botones
+g_sistema_mailing= Profilestring(ls_inifile,"CORREO","tipo_envio","O")
+g_formato_impresion.pdf = Profilestring(ls_inifile,"Parametros","pdf","N")
+g_formato_impresion.papel = Profilestring(ls_inifile,"Parametros","papel","S")
+g_formato_impresion.email = Profilestring(ls_inifile,"Parametros","email","N")
+
+g_formato_impresion_visared.pdf = Profilestring(ls_inifile,"Parametros","pdf_visared","S")
+g_formato_impresion_visared.papel = Profilestring(ls_inifile,"Parametros","papel_visared","N")
+g_formato_impresion_visared.email = Profilestring(ls_inifile,"Parametros","email_visared","N")
+g_impresion_docuprinter = Profilestring(ls_inifile,"Parametros","docuprinter","S")
+g_formato_impresion.generar_registro = Profilestring(ls_inifile,"Parametros","registro_salida","N")
+
+g_ejercicio = Profilestring(ls_inifile,"Empresa_Activa","ejercicio","")
+g_empresa = Profilestring(ls_inifile,"Empresa_Activa","empresa","")
+
+// Modulo VISARED
+//g_directorio_temporal =  Profilestring(ls_inifile,"Visared","g_directorio_temporal","")
+// LUIS 20/9/2005: En vez de usar el directorio indicado en el ini se usa un directorio local, evitando as$$HEX2$$ed002000$$ENDHEX$$conflictos de ejecuci$$HEX1$$f300$$ENDHEX$$n de m$$HEX1$$fa00$$ENDHEX$$ltiples instancias
+if f_es_vacio(g_directorio_temporal) then g_directorio_temporal = f_crear_directorio_temporal()
+if RightA(g_directorio_temporal,1)<>'\' then g_directorio_temporal += '\'
+
+g_directorio_importacion = Profilestring(ls_inifile,"Visared","g_directorio_importacion","")
+if RightA(g_directorio_importacion,1)<>'\' then g_directorio_importacion += '\'
+
+g_directorio_documentos_visared = Profilestring(ls_inifile,"Visared","g_directorio_documentos_visared","")
+if RightA(g_directorio_documentos_visared,1)<>'\' then g_directorio_documentos_visared += '\'
+
+g_directorio_importados = Profilestring(ls_inifile,"Visared","g_directorio_importados","")
+if RightA(g_directorio_importados,1)<>'\' then g_directorio_importados += '\'
+
+g_directorio_defecto_otras_carpetas = Profilestring(ls_inifile,"Visared","g_directorio_defecto_otras_carpetas","")
+if RightA(g_directorio_defecto_otras_carpetas,1)<>'\' then g_directorio_defecto_otras_carpetas += '\'
+
+g_directorio_fuentes = Profilestring(ls_inifile,"visared","g_directorio_fuentes","")
+if RightA(g_directorio_fuentes,1)<>'\' then g_directorio_fuentes += '\'
+
+g_directorio_sellos = Profilestring(ls_inifile,"visared","g_directorio_sellos","")
+if RightA(g_directorio_sellos,1)<>'\' then g_directorio_sellos += '\'
+
+g_directorio_firmas = Profilestring(ls_inifile,"visared","g_directorio_firmas","")
+if RightA(g_directorio_firmas,1)<>'\' then g_directorio_firmas += '\'
+
+g_revisar_firmas = Profilestring(ls_inifile,"visared","g_revisar_firmas","")
+if f_es_vacio(g_revisar_firmas) then g_revisar_firmas='N'
+
+g_revisar_certificados = Profilestring(ls_inifile,"visared","g_revisar_certificados","")
+if f_es_vacio(g_revisar_certificados) then g_revisar_certificados='N'
+
+ 
+// M$$HEX1$$f300$$ENDHEX$$dulo SELLADO
+g_directorio_certificados = Profilestring(ls_inifile,"Visared","g_directorio_certificados","")
+if RightA(g_directorio_certificados,1)<>'\' then g_directorio_certificados += '\'
+
+g_directorio_imagenes = Profilestring(ls_inifile,"Visared","g_directorio_imagenes","")
+if RightA(g_directorio_imagenes,1)<>'\' then g_directorio_imagenes += '\'
+
+g_directorio_acrobat = Profilestring(ls_inifile,"Ruta_acrobat_reader","Ruta_acrobat_reader","")
+
+select texto into :g_activar_revision_firmas from var_globales where nombre='ACTIVAR_FIRMAS';
+if f_es_vacio(g_activar_revision_firmas) then g_activar_revision_firmas = 'N'
+
+
+// Contabilizaci$$HEX1$$f300$$ENDHEX$$n autom$$HEX1$$e100$$ENDHEX$$tica de liquidaciones
+SELECT texto INTO :g_contabiliza_liquidacion_auto FROM var_globales WHERE nombre = 'g_contabiliza_liquidacion_auto';
+// Nuevos Conceptos
+SELECT texto INTO :g_codigos_conceptos.pronto_pago FROM var_globales WHERE nombre = 'g_codigo_pronto_pago';
+SELECT texto INTO :g_codigos_conceptos.cip_sgc FROM var_globales WHERE nombre = 'g_codigo_cip_sgc';
+
+SELECT texto INTO :g_conta.enlace_facturas FROM var_globales WHERE nombre = 'g_conta.enlace_facturas';
+
+///*Se carga para Zaragoza unicamente la variable g_conta.aglutina_importe_cobro_cuenta para que sume al subtotal el proceso de contabilizaci$$HEX1$$f300$$ENDHEX$$n
+// el importe del pago a cuenta, tal y como hac$$HEX1$$ed00$$ENDHEX$$a en la versi$$HEX1$$f300$$ENDHEX$$n 3.4.6b. CZA-121. Alexis. 17-02-2010***///
+If g_colegio = 'COAATZ' then
+	SELECT sn INTO :g_conta.aglutina_importe_cobro_cuenta FROM var_globales WHERE nombre = 'g_conta.aglutina_importe_cobro_cuenta';
+end if	
+
+SELECT texto INTO :g_prefijo_registro FROM var_globales WHERE nombre = 'g_prefijo_registro';
+SELECT texto INTO :g_prefijo_expediente FROM var_globales WHERE nombre = 'g_prefijo_expediente';
+
+SELECT texto INTO :g_digito_cta_colegiado FROM var_globales WHERE nombre = 'g_digito_cta_colegiado';
+SELECT texto INTO :g_digito_cta_sociedades_col FROM var_globales WHERE nombre = 'g_digito_cta_sociedades_col';
+
+// Reparos
+SELECT texto INTO :g_codigo_reparos_otros_doc FROM var_globales WHERE nombre = 'g_codigo_reparos_otros_doc';
+SELECT texto INTO :g_carta_reparos FROM var_globales WHERE nombre = 'g_carta_reparos';
+
+// Extensiones Ficheros
+SELECT texto INTO :g_ext_f19 FROM var_globales WHERE nombre = 'g_extension_fichero19';
+SELECT texto INTO :g_ext_csb34 FROM var_globales WHERE nombre = 'g_extension_fichero_csb34';
+
+// Junta de Gobierno
+SELECT numero INTO :g_jg_horas_ordinarias FROM var_globales WHERE var_globales.nombre = 'g_jg_horas_ordinarias';
+SELECT numero INTO :g_jg_horas_extraordinarias FROM var_globales WHERE var_globales.nombre = 'g_jg_horas_extraordinarias';
+SELECT numero INTO :g_jg_precio_hora FROM var_globales WHERE var_globales.nombre = 'g_jg_precio_hora';
+SELECT numero INTO :g_jg_precio_dieta FROM var_globales WHERE var_globales.nombre = 'g_jg_precio_dieta';
+
+// Formaci$$HEX1$$f300$$ENDHEX$$n
+SELECT texto INTO :g_cursos_control_asistentes FROM var_globales WHERE var_globales.nombre = 'g_cursos_control_asistentes';
+
+// Contratos
+SELECT texto INTO :g_contratos_preasignados FROM var_globales WHERE var_globales.nombre = 'g_contratos_preasignados';
+
+// Fases Inicio
+SELECT texto INTO :g_fases_inicio.tipo_act FROM var_globales WHERE nombre = 'g_fases_inicio_tipo_act';
+SELECT texto INTO :g_fases_inicio.tipo_obra FROM var_globales WHERE nombre = 'g_fases_inicio_tipo_obra';
+SELECT texto INTO :g_fases_inicio.destino FROM var_globales WHERE nombre = 'g_fases_inicio_destino';
+SELECT texto INTO :g_fases_inicio.emplaz FROM var_globales WHERE nombre = 'g_fases_inicio_emplaz';
+SELECT texto INTO :g_fases_inicio.tipo_via FROM var_globales WHERE nombre = 'g_fases_inicio_tipo_via';
+SELECT texto INTO :g_fases_inicio.poblacion FROM var_globales WHERE nombre = 'g_fases_inicio_poblacion';
+SELECT texto INTO :g_fases_inicio.tipo_registro FROM var_globales WHERE nombre = 'g_fases_inicio_tipo_registro';
+SELECT texto INTO :g_fases_inicio.estado FROM var_globales WHERE nombre = 'g_fases_inicio_estado';
+SELECT texto INTO :g_fases_inicio.colegiado FROM var_globales WHERE nombre = 'g_fases_inicio_colegiado';
+SELECT texto INTO :g_fases_inicio.id_cliente FROM var_globales WHERE nombre = 'g_fases_inicio_id_cliente';
+SELECT texto INTO :g_fases_inicio.tipo_promotor FROM var_globales WHERE nombre = 'g_fases_inicio_tipo_promotor';
+
+
+// Garant$$HEX1$$ed00$$ENDHEX$$as
+SELECT texto INTO :g_informe_talon_garantias FROM var_globales WHERE nombre = 'g_informe_talon_garantias';
+
+// CIP en GC
+SELECT texto INTO :g_cip_cgc_toda FROM var_globales WHERE nombre = 'g_cip_cgc_toda';
+SELECT numero INTO :g_cc FROM var_globales WHERE nombre = 'g_cc';
+SELECT numero INTO :g_cc_rs FROM var_globales WHERE nombre = 'g_cc_rs';
+
+// Modulo ingresa-Retira
+SELECT texto INTO :g_ing_ret_ingresa FROM var_globales WHERE nombre = 'g_ing_ret_ingresa';
+SELECT texto INTO :g_ing_ret_retira FROM var_globales WHERE nombre = 'g_ing_ret_retira';
+SELECT texto INTO : g_ing_ret_talon FROM var_globales WHERE nombre = 'g_ing_ret_talon';
+
+// Modulo facturaci$$HEX1$$f300$$ENDHEX$$n emitida
+SELECT texto INTO :g_factu_e_reclamacion FROM var_globales WHERE nombre = 'g_factu_e_reclamacion';
+
+// Modulo caja -> para habilitar los cobros multiples
+g_usa_cobros_multiples = 'N'
+SELECT sn INTO :g_usa_cobros_multiples FROM var_globales WHERE nombre = 'g_usa_cobros_multiples';
+SELECT texto INTO :g_cobros_multiples_cuenta_puente FROM var_globales WHERE nombre = 'g_cobros_multiples_cuenta_puente';
+
+// Colegiado Comodin
+SELECT texto INTO :g_colegiado_comodin FROM var_globales WHERE nombre = 'g_colegiado_comodin';
+// Para la carta de autoliquidacion
+SELECT texto INTO :g_informe_autoliquidacion FROM var_globales WHERE nombre = 'g_informe_autoliquidacion';
+
+// Serie Informe liquidaci$$HEX1$$f300$$ENDHEX$$n para obtener la impresora
+SELECT texto INTO :g_serie_liquidaciones FROM var_globales WHERE nombre = 'g_serie_liquidaciones';
+
+// Regularizaci$$HEX1$$f300$$ENDHEX$$n de Musaat
+SELECT texto INTO :g_no_regulariza_tres_meses FROM var_globales WHERE nombre = 'g_no_regulariza_tres_meses';
+// Cogemos el a$$HEX1$$f100$$ENDHEX$$o para VISARED
+SELECT texto INTO :g_anyo_numeracion FROM var_globales WHERE nombre = 'g_anyo_numeracion';
+
+SELECT texto INTO :g_musaat_colegiado FROM var_globales WHERE nombre = 'g_musaat_colegiado';
+SELECT texto INTO :g_fases_serie_musaat FROM var_globales WHERE nombre = 'g_fases_serie_musaat';
+
+// Para la rioja, para el modulo de fases
+SELECT texto INTO :g_codigo_tipo_actuacion_control_calidad FROM var_globales WHERE nombre = 'g_codigo_tipo_actuacion_control_calidad';
+
+// N$$HEX1$$fa00$$ENDHEX$$mero del expediente nulo (COAATTFE)
+SELECT texto INTO :g_num_expedi_nulo FROM var_globales WHERE nombre = 'g_num_expedi_nulo';
+
+// Para la contabilidad automatica
+string conta_automatica
+SELECT sn INTO :conta_automatica FROM var_globales WHERE nombre = 'g_contabilidad_automatica';
+g_contabilidad_automatica = (conta_automatica = 'S')
+
+//Para saber si el asiento por cobro compuesto es unico
+SELECT texto INTO :g_asiento_unico_cc FROM var_globales WHERE nombre = 'g_asiento_cobro_multiple';
+
+//Indica si tiene activo la modalidad de colegio de procedencia en la cuenta contable del colegiado
+SELECT sn INTO :g_digito_colegio_pro FROM var_globales WHERE nombre = 'g_digito_colegio_pro';
+
+// Cogemos la variable que almacena la cuenta de IRPF para los apuntes
+SELECT texto INTO :g_cuenta_irpf_cliente_generica FROM var_globales WHERE nombre = 'g_cuenta_irpf_cliente_generica';
+
+// IRPF e IVA por colegio
+SELECT texto INTO :g_colegio_retiene_irpf FROM var_globales WHERE nombre = 'g_colegio_retiene_irpf';
+SELECT texto INTO :g_colegio_retiene_iva FROM var_globales WHERE nombre = 'g_colegio_retiene_iva';
+
+// C$$HEX1$$e100$$ENDHEX$$lculo del iva en los articulos de facturasproc
+SELECT texto INTO :g_calculo_iva_fact FROM var_globales WHERE nombre = 'g_calculo_iva_fact';
+
+// Musaat
+SELECT texto INTO :g_no_regulariza_nunca FROM var_globales WHERE nombre = 'g_no_regulariza_nunca';
+
+// Version
+SELECT texto INTO :g_version_minima FROM var_globales WHERE nombre = 'g_version_minima';
+
+// Concepto Descuento Visared
+SELECT texto INTO :g_codigos_conceptos.dto_visared FROM var_globales WHERE nombre = 'g_codigo_dto_visared';
+
+// DV
+SELECT numero INTO :g_porc_dv_defecto FROM var_globales WHERE nombre = 'g_porc_dv_defecto';
+
+// C$$HEX1$$f300$$ENDHEX$$digo Colegio
+SELECT texto INTO :g_cod_colegio FROM var_globales WHERE nombre = 'g_cod_colegio';
+
+// Cuenta puente pendientes abono
+SELECT texto INTO :g_cuenta_puente_pendiente_abono_hon FROM var_globales WHERE nombre = 'g_cuenta_puente_pendiente_abono_hon';
+SELECT texto INTO :g_cuenta_puente_pendiente_abono_dv FROM var_globales WHERE nombre = 'g_cuenta_puente_pendiente_abono_dv';
+
+// Variable para el formato del texto de las cartas cuando se devuleve una
+SELECT texto INTO :g_devoluciones_carta_reclamacion FROM var_globales WHERE nombre = 'g_devoluciones_carta_reclamacion';
+
+// Variable para saber como se reclaman las minutas
+SELECT texto INTO :g_estilo_carta FROM var_globales WHERE nombre = 'g_estilo_carta';
+if f_es_vacio(g_estilo_carta) then g_estilo_carta = 'EXPEDIENTES'
+
+// Para encontrar la serie de la factura negativa
+SELECT serie INTO :g_facturas_negativas_serie FROM csi_series WHERE usuarios = 'neg';
+
+//Para cargar la serie de las facturas proforma.
+SELECT texto INTO :g_serie_proforma FROM var_globales WHERE nombre = 'g_serie_proforma';
+
+// Ruta documentos asociados a fases
+g_directorio_documentos_fases=Profilestring(ls_inifile,"Ruta_documentos_fases","g_directorio_documentos_fases","")
+if RightA(g_directorio_documentos_fases,1)<>'\' then g_directorio_documentos_fases += '\'
+
+// Ruta plantillas
+g_directorio_documentos_plantillas=Profilestring(ls_inifile,"Ruta_documentos_plantillas","g_directorio_documentos_plantillas","")
+if RightA(g_directorio_documentos_plantillas,1)<>'\' then g_directorio_documentos_plantillas += '\'
+
+// Dw de informe para liquidaciones manuales
+SELECT texto INTO :g_hoja_liquidacion_manual FROM var_globales WHERE nombre = 'g_hoja_liquidacion_manual';
+
+// Actualizaciones
+g_directorio_temporales = ProfileString("fichero.ini","temporales","path_temporales","c:\calc_hon\temporales\")
+if RightA(g_directorio_temporales,1)<>'\' then g_directorio_temporales += '\'
+
+g_directorio_actualizaciones = ProfileString("fichero.ini","actualizaciones","path_actualizaciones","c:\calc_hon\actualizaciones\")
+if RightA(g_directorio_actualizaciones,1)<>'\' then g_directorio_actualizaciones += '\'
+
+select texto into :g_firma_obligatoria
+from var_globales 
+where nombre='firma_obligatoria';
+
+// Concepto Bonificaci$$HEX1$$f300$$ENDHEX$$n Musaat
+SELECT texto INTO :g_codigos_conceptos.bonif_musaat FROM var_globales WHERE nombre = 'g_codigo_bonif_musaat';
+
+// Porcentaje Bonificaci$$HEX1$$f300$$ENDHEX$$n Musaat
+SELECT numero INTO :g_porc_bonif_musaat FROM var_globales WHERE nombre = 'g_porc_bonif_musaat';
+
+// Coeficiente G para DIP
+SELECT numero INTO :g_dip_coef_g FROM var_globales WHERE nombre = 'g_dip_coef_g';
+
+// Si es S, utilizar$$HEX2$$e1002000$$ENDHEX$$la fecha de abono en lugar de la de visado para sellar
+SELECT texto INTO :g_f_abono_es_visado FROM var_globales WHERE nombre = 'g_f_abono_es_visado';
+
+// Agrupar Actuaciones en Regularizaci$$HEX1$$f300$$ENDHEX$$n
+SELECT texto INTO :g_regularizacion_agrupar_act FROM var_globales WHERE nombre = 'g_regularizacion_agrupar_act';
+
+// Porcentaje aplicar en regularizacion
+SELECT sn INTO :g_regulariza_cip_porc_nuevo FROM var_globales WHERE nombre = 'g_regulariza_cip_porc_nuevo';
+
+
+// Variable para la generacion del XML del programa COMFIA
+SELECT texto INTO :g_comfia FROM var_globales WHERE nombre = 'g_comfia';
+
+// Variable que indica cada cuantos segundos se activa el evento timer
+SELECT numero INTO :g_temporizador FROM var_globales WHERE nombre = 'g_temporizador';
+
+// C$$HEX1$$f300$$ENDHEX$$digo Provincia Colegio
+SELECT texto INTO :g_cod_prov_colegio FROM var_globales WHERE nombre = 'g_cod_prov_colegio';
+
+// Bonificaci$$HEX1$$f300$$ENDHEX$$n PREMAAT
+SELECT texto INTO :g_codigos_conceptos.bonif_premaat FROM var_globales WHERE nombre = 'g_codigo_bonif_premaat' ;
+SELECT numero INTO :g_porc_bonif_premaat FROM var_globales WHERE nombre = 'g_porc_bonif_premaat' ;
+
+// Documentos Calidad
+g_directorio_calidad = Profilestring(ls_inifile,"calidad","g_directorio_calidad","")
+if RightA(g_directorio_calidad,1)<>'\' then g_directorio_calidad += '\'
+
+// Listados liquidaciones (honorarios y otros pagos)
+SELECT texto INTO :g_listado_liquid_honos FROM var_globales WHERE nombre = 'g_listado_liquid_honos';
+SELECT texto INTO :g_listado_liquid_otros_pagos FROM var_globales WHERE nombre = 'g_listado_liquid_otros_pagos';
+SELECT texto INTO :g_listado_talones_otros_pagos FROM var_globales WHERE nombre = 'g_listado_talones_otros_pagos';
+
+// Variable para cobrar la cip en proporci$$HEX1$$f300$$ENDHEX$$n a la musaat en las obras oficiales
+SELECT texto INTO :g_obra_admin_cip_sobre_src FROM var_globales WHERE nombre = 'g_obra_admin_cip_sobre_src'; 
+
+
+SELECT texto INTO :g_directorio_verificacion FROM var_globales WHERE nombre = 'g_directorio_verificacion'; 
+
+// Rutas informes econ$$HEX1$$f300$$ENDHEX$$micos y facturas no de expedientes
+g_directorio_informes_economicos = Profilestring(ls_inifile,"Informes Economicos","g_directorio_informes_economicos","")
+if RightA(g_directorio_informes_economicos,1)<>'\' then g_directorio_informes_economicos += '\'
+
+g_directorio_otras_facturas = Profilestring(ls_inifile,"Informes Economicos","g_directorio_otras_facturas","")
+
+// N$$HEX1$$fa00$$ENDHEX$$mero m$$HEX1$$e100$$ENDHEX$$ximo de a$$HEX1$$f100$$ENDHEX$$os para la consulta de reclamaciones de avisos de factura
+SELECT numero INTO :g_anyos_reclam_avisos FROM var_globales WHERE nombre = 'g_anyos_reclam_avisos';
+
+// Directorio bolsa de trabajo
+g_directorio_bt = Profilestring(ls_inifile,"Bolsa Trabajo","g_directorio_bt","")
+if RightA(g_directorio_bt,1)<>'\' then g_directorio_bt += '\'
+
+// Aviso Paquetes Nuevos
+g_aviso_paquetes_nuevos = Profilestring(ls_inifile,"visared","g_aviso_nuevos","")
+if f_es_vacio(g_aviso_paquetes_nuevos) then g_aviso_paquetes_nuevos='S'
+
+// Porcentaje descuento para DV en contratos visared
+SELECT numero INTO :g_porc_dv_descuento_visared FROM var_globales WHERE nombre = 'g_porc_dv_descuento_visared' ;
+
+// Registro Sociedades
+//Modificado por Alexis para poder utilizar la funcion f_obtener_ruta_ficheros. 3-9-2009
+if f_es_vacio(Profilestring(ls_inifile,"directorios","regsoc","")) then
+	SetProfileString ( ls_inifile,'directorios','regsoc',Profilestring(ls_inifile,"Regsoc","path_ficheros",""))
+end if
+//g_directorio_ficheros = Profilestring(ls_inifile,"Regsoc","path_ficheros","")
+g_directorio_ficheros = Profilestring(ls_inifile,"directorios","regsoc","")
+select texto into :g_modo_funcionamiento from var_globales where nombre='g_modo_funcionamiento';
+if f_es_vacio(g_modo_funcionamiento) then g_modo_funcionamiento="1";
+
+//  Comprobar al abrir la aplicacion si existen cuotas colegiales para colegiados mayores de 65 a$$HEX1$$f100$$ENDHEX$$os
+SELECT texto INTO :g_comprobar_mas_65 FROM var_globales WHERE nombre = 'g_comprobar_mas_65' ;
+
+// Porcentaje gastos por gesti$$HEX1$$f300$$ENDHEX$$n de cobro de minutas
+SELECT numero INTO :g_porc_gastos_minutas FROM var_globales WHERE nombre = 'g_porc_gastos_minutas' ;
+
+// Ventana traducci$$HEX1$$f300$$ENDHEX$$n
+g_ventana_traduccion = ProfileString(ls_inifile, "Idiomas", "mostrar_ventana", "N")
+
+// Variable para indicar si tenemos activa la aplicacion de envio de sms
+SELECT texto INTO :g_envio_sms FROM var_globales WHERE nombre = 'g_envio_sms' ;
+
+// Coeficiente Ca a nivel informativo para el c$$HEX1$$e100$$ENDHEX$$lculo de honorarios orientativos
+SELECT numero INTO :g_ca_info FROM var_globales WHERE nombre = 'g_ca_info';
+
+// Variable bloqueo de poblaciones
+SELECT texto INTO :g_bloqueo_fases FROM var_globales WHERE nombre = 'g_bloqueo_fases';
+SELECT texto INTO :g_bloqueo_poblacion FROM var_globales WHERE nombre = 'g_bloqueo_poblacion';
+
+
+// Borrar los conceptos al dar de baja un colegiado
+select texto into :g_borrar_conceptos_facturables from var_globales where nombre = 'g_borrar_conceptos_facturables';
+
+// Preferencia de idioma por defecto
+select texto into :g_idioma_defecto from var_globales where nombre='g_idioma_defecto';
+
+// Variable que indica si el colegio utiliza Presupuesto de seguridad
+select sn into :g_aplica_pem_seg from var_globales where nombre='g_aplica_pem_seguridad';
+
+//Multiempresa
+select sn into :g_activa_multiempresa from var_globales where nombre='g_activa_multiempresa';
+select sn into :g_clientes_utiliza_multiempresa from var_globales where nombre='g_clientes_utiliza_multiempresa';
+
+//Resumen
+select sn into :g_imprime_resumen_sin_email from var_globales where nombre='g_imprime_resumen_sin_email';
+
+//Inicializaci$$HEX1$$f300$$ENDHEX$$n del tipo de identificaci$$HEX1$$f300$$ENDHEX$$n para musaat/fomento
+select texto into :g_tipo_ident_fichero from var_globales where nombre='g_tipo_ident_fichero';
+if f_es_vacio(g_tipo_ident_fichero) then g_tipo_ident_fichero ="1"
+
+//configura visto bueno simplificado para que solo cambie de estado
+select texto into:g_vb_simple from var_globales where nombre="g_vb_simple";
+if f_es_vacio(g_vb_simple) then g_vb_simple="N"
+
+//Variables control reclamaciones facturas/proformas
+select texto into :g_tipo_notificacion from var_globales where nombre='g_tipo_notificacion';
+//select texto into :g_periodo_notificacion from var_globales where nombre='g_periodo_notificacion';
+
+//SCP-901. Alexis. 25/01/2011. Variable para parametrizar el concepto de facturas en contabilizacion
+select texto into :g_conta_concepto_solo_n_registros from var_globales where nombre='g_conta_concepto_solo_n_registros';
+
+//Inicializaci$$HEX1$$f300$$ENDHEX$$n de si se visa o no al facturar
+select texto into :g_visar_al_facturar from var_globales where nombre='g_visar_al_facturar';
+if f_es_vacio(g_visar_al_facturar) then g_visar_al_facturar ="0"
+
+///*** SCP-1018. Se iniciliza la var_global g_titulo_anyo_ejer. Alexis. 11/02/2011 ***///
+select sn into :g_titulo_anyo_ejer from var_globales where nombre='g_titulo_anyo_ejer';
+
+///*** SCP-1126. Se iniciliza la var_global g_cod_empresa_aseguradora. Alexis. 08/03/2011 ***///
+select texto into :g_cod_empresa_aseguradora from var_globales where nombre='g_cod_empresa_aseguradora';
+// inicializar variable global g_borrar empresa
+select sn into :g_borrar_empresa from var_globales where nombre='g_borrar_empresa';
+
+///***SCP-1092. Alexis. 24/03/2011. Se carga var g_hoja_liq_referencia ***///
+select sn into :g_hoja_liq_referencia from var_globales where nombre = 'g_hoja_liq_referencia';
+
+//SCP-1091  INICIALIZAR VARIABLE GLOBAL G_IMPRIMIR_TALON_MULTIPLES 30/03/2011
+SELECT texto into :g_imprimir_talon_multiples from var_globales where nombre = 'g_imprimir_talon_multiples';
+
+
+//SCP-1691 INICIALIZAR VARIABLE GLOBAL G_ASIGNAR_N_VISADO 27/09/2011 g_asignar_n_visado
+SELECT sn into :g_asignar_n_visado from var_globales where nombre  = 'g_asignar_n_visado';
+
+//SCP-2058
+select texto into :g_hoja_reclamo_recibos_impagados from var_globales where nombre='g_hoja_reclamo_recibos_impagados';
+
+SELECT sn into :g_fact_ocultar_original_copia from var_globales where nombre  = 'g_fact_ocultar_original_copia'; // SCP-2253
+
+select texto into :g_companyia_src_zurich from var_globales where nombre='g_companyia_src.zurich'; // SCP-2277
+
+//variable que contiene las extensiones de los documentos sellados
+select texto into :g_valor_extension_docs_sellados from var_globales where nombre='g_valor_extension_docs_sellados';
+
+// ruta donde se guarda la facturaci$$HEX1$$f300$$ENDHEX$$n emitida a clientes no asociada a un contrato
+g_directorio_facturas_a_cliente = Profilestring(ls_inifile,"Informes Economicos","g_directorio_facturas_a_cliente","")
+IF f_es_vacio (g_directorio_facturas_a_cliente) then 
+	g_directorio_facturas_a_cliente = g_dir_aplicacion + 'facturacion_a_clientes\'
+	SetProfileString ( ls_inifile,"Informes Economicos","g_directorio_facturas_a_cliente", g_directorio_facturas_a_cliente )
+end if
+
+Select numero into :g_numero_impresos_listados_domiciliaciones from var_globales where nombre='numero_impresos_listados_domiciliaciones';
+
+end subroutine
+
